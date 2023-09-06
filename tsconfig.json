@@ -1,0 +1,15 @@
+{
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules/*", "test/*", "cmd/*"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "rootDir": "./src",
+    "outDir": "./dist/",
+    "baseUrl": "./",
+    "paths": {
+      "@ffi": ["src/ffi/js/bindings/@ffi.ts"]
+    },
+    "lib": ["es2020", "dom"]
+  }
+}

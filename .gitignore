@@ -1,0 +1,12 @@
+.pcz
+.vscode
+/bin
+
+_obj
+
+go.work.sum
+
+# javascript
+
+node_modules
+*.js.map

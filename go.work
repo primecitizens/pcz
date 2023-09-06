@@ -1,0 +1,9 @@
+go 1.21
+
+use (
+	./
+	./examples/00-hello
+	./src
+)
+
+replace github.com/primecitizens/std v0.0.0 => ./src
