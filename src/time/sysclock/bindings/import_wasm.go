@@ -5,15 +5,11 @@
 
 package bindings
 
-import (
-	"unsafe"
-)
-
 //go:wasmimport time/sysclock timeOriginMS
-func TimeOriginMS(pI64 unsafe.Pointer)
+func TimeOriginMS() float64
 
 //go:wasmimport time/sysclock walltime
-func Walltime(pI64 unsafe.Pointer)
+func Walltime() float64
 
 //go:wasmimport time/sysclock millitime
-func Millitime(pI64 unsafe.Pointer)
+func Millitime() float64
