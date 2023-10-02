@@ -37,9 +37,6 @@ const (
 	// ArchFamily is the architecture family (AMD64, ARM, ...)
 	ArchFamily ArchFamilyType = _ArchFamily
 
-	// BigEndian reports whether the architecture is big-endian.
-	BigEndian = IsArmbe|IsArm64be|IsMips|IsMips64|IsPpc|IsPpc64|IsS390|IsS390x|IsSparc|IsSparc64 != 0
-
 	// DefaultPhysPageSize is the default physical page size.
 	DefaultPhysPageSize = _DefaultPhysPageSize
 
@@ -64,13 +61,13 @@ const (
 
 const (
 	PageShift = 13
-
-	PageSize = 1 << PageShift
+	PageSize  = 1 << PageShift
 )
 
 const (
-	IsBigEndian    = IsArmbe|IsArm64be|IsMips|IsMips64|IsMips64p32|IsPpc|IsPpc64|IsS390|IsS390x|IsSparc|IsSparc64 != 0
-	IsLittleEndian = !IsBigEndian
+	// BigEndian reports whether the architecture is big-endian.
+	BigEndian    = IsArmbe|IsArm64be|IsMips|IsMips64|IsMips64p32|IsPpc|IsPpc64|IsS390|IsS390x|IsSparc|IsSparc64 != 0
+	LittleEndian = !BigEndian
 )
 
 const (

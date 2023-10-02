@@ -1,0 +1,1187 @@
+- File: streams.idl
+  Typedef:
+    Name: ReadableStreamController
+    Type:
+      Union:
+        - Name: ReadableStreamDefaultController
+        - Name: ReadableByteStreamController
+- File: streams.idl
+  Interface:
+    Name: ReadableStreamDefaultController
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: desiredSize
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+    Operations:
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: enqueue
+        Args:
+          - Name: chunk
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: error
+        Args:
+          - Name: e
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+- File: streams.idl
+  Interface:
+    Name: ReadableStreamDefaultReader
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: closed
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: undefined
+    Operations:
+      - Name: read
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ReadableStreamReadResult
+        ExtAttrs:
+          - Name: Exposed
+      - Name: releaseLock
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: cancel
+        Args:
+          - Name: reason
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+    Constructors:
+      - Args:
+          - Name: stream
+            Type:
+              Name: ReadableStream
+        ExtAttrs:
+          - Name: Exposed
+- File: streams.idl
+  Dict:
+    Name: ReadableStreamGetReaderOptions
+    Fields:
+      - Name: mode
+        Type:
+          Name: ReadableStreamReaderMode
+- File: streams.idl
+  Dict:
+    Name: ReadableStreamIteratorOptions
+    Fields:
+      - Name: preventCancel
+        Default: "false"
+        Type:
+          Name: boolean
+- File: streams.idl
+  Dict:
+    Name: ReadableStreamReadResult
+    Fields:
+      - Name: value
+        Type:
+          Name: any
+      - Name: done
+        Type:
+          Name: boolean
+- File: streams.idl
+  Typedef:
+    Name: ReadableStreamReader
+    Type:
+      Union:
+        - Name: ReadableStreamDefaultReader
+        - Name: ReadableStreamBYOBReader
+- File: streams.idl
+  Enum:
+    Name: ReadableStreamReaderMode
+    Values:
+      - byob
+- File: streams.idl
+  Enum:
+    Name: ReadableStreamType
+    Values:
+      - bytes
+- File: streams.idl
+  Dict:
+    Name: ReadableWritablePair
+    Fields:
+      - Name: readable
+        Required: true
+        Type:
+          Name: ReadableStream
+      - Name: writable
+        Required: true
+        Type:
+          Name: WritableStream
+- File: media-source.idl
+  Enum:
+    Name: ReadyState
+    Values:
+      - closed
+      - open
+      - ended
+- File: mediastream-recording.idl
+  Enum:
+    Name: RecordingState
+    Values:
+      - inactive
+      - recording
+      - paused
+- File: image-capture.idl
+  Enum:
+    Name: RedEyeReduction
+    Values:
+      - never
+      - always
+      - controllable
+- File: referrer-policy.idl
+  Enum:
+    Name: ReferrerPolicy
+    Values:
+      - ""
+      - no-referrer
+      - no-referrer-when-downgrade
+      - same-origin
+      - origin
+      - strict-origin
+      - origin-when-cross-origin
+      - strict-origin-when-cross-origin
+      - unsafe-url
+- File: trust-token-api.idl
+  Enum:
+    Name: RefreshPolicy
+    Values:
+      - none
+      - refresh
+- File: service-workers.idl
+  Dict:
+    Name: RegistrationOptions
+    Fields:
+      - Name: scope
+        Type:
+          Name: USVString
+      - Name: type
+        Default: '"classic"'
+        Type:
+          Name: WorkerType
+      - Name: updateViaCache
+        Default: '"imports"'
+        Type:
+          Name: ServiceWorkerUpdateViaCache
+- File: webauthn.idl
+  Dict:
+    Name: RegistrationResponseJSON
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: rawId
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: response
+        Required: true
+        Type:
+          Name: AuthenticatorAttestationResponseJSON
+      - Name: authenticatorAttachment
+        Type:
+          Name: DOMString
+      - Name: clientExtensionResults
+        Required: true
+        Type:
+          Name: AuthenticationExtensionsClientOutputsJSON
+      - Name: type
+        Required: true
+        Type:
+          Name: DOMString
+- File: get-installed-related-apps.idl
+  Dict:
+    Name: RelatedApplication
+    Fields:
+      - Name: platform
+        Required: true
+        Type:
+          Name: USVString
+      - Name: url
+        Type:
+          Name: USVString
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: version
+        Type:
+          Name: USVString
+- File: orientation-sensor.idl
+  Dict:
+    Name: RelativeOrientationReadingValues
+    Inherits: AbsoluteOrientationReadingValues
+    Fields:
+      - Name: quaternion
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: double
+          Nullable: true
+- File: orientation-sensor.idl
+  Interface:
+    Name: RelativeOrientationSensor
+    Inherits: OrientationSensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - Args:
+          - Name: sensorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: OrientationSensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: json-ld-api.idl
+  Interface:
+    Name: RemoteDocument
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - JsonLd
+    Attrs:
+      - Name: contentType
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: contextUrl
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: document
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: documentUrl
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: profile
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+- File: remote-playback.idl
+  Interface:
+    Name: RemotePlayback
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: state
+        Readonly: true
+        Type:
+          Name: RemotePlaybackState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onconnecting
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onconnect
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ondisconnect
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: watchAvailability
+        Args:
+          - Name: callback
+            Type:
+              Name: RemotePlaybackAvailabilityCallback
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cancelWatchAvailability
+        Args:
+          - Name: id
+            Optional: true
+            Type:
+              Name: long
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: prompt
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: remote-playback.idl
+  Callback:
+    Name: RemotePlaybackAvailabilityCallback
+    Args:
+      - Name: available
+        Type:
+          Name: boolean
+    Returns:
+      - Name: undefined
+- File: remote-playback.idl
+  Enum:
+    Name: RemotePlaybackState
+    Values:
+      - connecting
+      - connected
+      - disconnected
+- File: resource-timing.idl
+  Enum:
+    Name: RenderBlockingStatusType
+    Values:
+      - blocking
+      - non-blocking
+- File: html.idl
+  Typedef:
+    Name: RenderingContext
+    Type:
+      Union:
+        - Name: CanvasRenderingContext2D
+        - Name: ImageBitmapRenderingContext
+        - Name: WebGLRenderingContext
+        - Name: WebGL2RenderingContext
+        - Name: GPUCanvasContext
+- File: reporting.idl
+  Interface:
+    Name: Report
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: url
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: body
+        Readonly: true
+        Type:
+          Name: ReportBody
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: reporting.idl
+  Interface:
+    Name: ReportBody
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: fenced-frame.idl
+  Typedef:
+    Name: ReportEventType
+    Type:
+      Union:
+        - Name: FenceEvent
+        - Name: DOMString
+- File: reporting.idl
+  Typedef:
+    Name: ReportList
+    Type:
+      Name: sequence
+      Params:
+        - Name: Report
+- File: turtledove.idl
+  Dict:
+    Name: ReportResultBrowserSignals
+    Inherits: ReportingBrowserSignals
+    Fields:
+      - Name: desirability
+        Required: true
+        Type:
+          Name: double
+      - Name: topLevelSellerSignals
+        Type:
+          Name: DOMString
+      - Name: modifiedBid
+        Type:
+          Name: double
+      - Name: dataVersion
+        Type:
+          Name: unsigned long
+      - Name: topWindowHostname
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: interestGroupOwner
+        Required: true
+        Type:
+          Name: USVString
+      - Name: renderURL
+        Required: true
+        Type:
+          Name: USVString
+      - Name: bid
+        Required: true
+        Type:
+          Name: double
+      - Name: highestScoringOtherBid
+        Required: true
+        Type:
+          Name: double
+      - Name: bidCurrency
+        Type:
+          Name: DOMString
+      - Name: highestScoringOtherBidCurrency
+        Type:
+          Name: DOMString
+      - Name: topLevelSeller
+        Type:
+          Name: USVString
+      - Name: componentSeller
+        Type:
+          Name: USVString
+      - Name: buyerAndSellerReportingId
+        Type:
+          Name: USVString
+- File: turtledove.idl
+  Dict:
+    Name: ReportWinBrowserSignals
+    Inherits: ReportingBrowserSignals
+    Fields:
+      - Name: adCost
+        Type:
+          Name: double
+      - Name: seller
+        Type:
+          Name: USVString
+      - Name: madeHighestScoringOtherBid
+        Type:
+          Name: boolean
+      - Name: interestGroupName
+        Type:
+          Name: DOMString
+      - Name: buyerReportingId
+        Type:
+          Name: DOMString
+      - Name: modelingSignals
+        Type:
+          Name: unsigned short
+      - Name: dataVersion
+        Type:
+          Name: unsigned long
+      - Name: topWindowHostname
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: interestGroupOwner
+        Required: true
+        Type:
+          Name: USVString
+      - Name: renderURL
+        Required: true
+        Type:
+          Name: USVString
+      - Name: bid
+        Required: true
+        Type:
+          Name: double
+      - Name: highestScoringOtherBid
+        Required: true
+        Type:
+          Name: double
+      - Name: bidCurrency
+        Type:
+          Name: DOMString
+      - Name: highestScoringOtherBidCurrency
+        Type:
+          Name: DOMString
+      - Name: topLevelSeller
+        Type:
+          Name: USVString
+      - Name: componentSeller
+        Type:
+          Name: USVString
+      - Name: buyerAndSellerReportingId
+        Type:
+          Name: USVString
+- File: turtledove.idl
+  Dict:
+    Name: ReportingBrowserSignals
+    Fields:
+      - Name: topWindowHostname
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: interestGroupOwner
+        Required: true
+        Type:
+          Name: USVString
+      - Name: renderURL
+        Required: true
+        Type:
+          Name: USVString
+      - Name: bid
+        Required: true
+        Type:
+          Name: double
+      - Name: highestScoringOtherBid
+        Required: true
+        Type:
+          Name: double
+      - Name: bidCurrency
+        Type:
+          Name: DOMString
+      - Name: highestScoringOtherBidCurrency
+        Type:
+          Name: DOMString
+      - Name: topLevelSeller
+        Type:
+          Name: USVString
+      - Name: componentSeller
+        Type:
+          Name: USVString
+      - Name: buyerAndSellerReportingId
+        Type:
+          Name: USVString
+- File: reporting.idl
+  Interface:
+    Name: ReportingObserver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: observe
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: disconnect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: takeRecords
+        Returns:
+          - Name: ReportList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: callback
+            Type:
+              Name: ReportingObserverCallback
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ReportingObserverOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: reporting.idl
+  Callback:
+    Name: ReportingObserverCallback
+    Args:
+      - Name: reports
+        Type:
+          Name: sequence
+          Params:
+            - Name: Report
+      - Name: observer
+        Type:
+          Name: ReportingObserver
+    Returns:
+      - Name: undefined
+- File: reporting.idl
+  Dict:
+    Name: ReportingObserverOptions
+    Fields:
+      - Name: types
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: buffered
+        Default: "false"
+        Type:
+          Name: boolean
+- File: fetch.idl
+  Interface:
+    Name: Request
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: method
+        Readonly: true
+        Type:
+          Name: ByteString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: url
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: headers
+        Readonly: true
+        Type:
+          Name: Headers
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: destination
+        Readonly: true
+        Type:
+          Name: RequestDestination
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: referrer
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: referrerPolicy
+        Readonly: true
+        Type:
+          Name: ReferrerPolicy
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: mode
+        Readonly: true
+        Type:
+          Name: RequestMode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: credentials
+        Readonly: true
+        Type:
+          Name: RequestCredentials
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: cache
+        Readonly: true
+        Type:
+          Name: RequestCache
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: redirect
+        Readonly: true
+        Type:
+          Name: RequestRedirect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: integrity
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: keepalive
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: isReloadNavigation
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: isHistoryNavigation
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: signal
+        Readonly: true
+        Type:
+          Name: AbortSignal
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: duplex
+        Readonly: true
+        Type:
+          Name: RequestDuplex
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: body
+        Readonly: true
+        Type:
+          Name: ReadableStream
+          Nullable: true
+      - Name: bodyUsed
+        Readonly: true
+        Type:
+          Name: boolean
+    Operations:
+      - Name: clone
+        Returns:
+          - Name: Request
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: arrayBuffer
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ArrayBuffer
+        ExtAttrs:
+          - Name: NewObject
+      - Name: blob
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: Blob
+        ExtAttrs:
+          - Name: NewObject
+      - Name: formData
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FormData
+        ExtAttrs:
+          - Name: NewObject
+      - Name: json
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: any
+        ExtAttrs:
+          - Name: NewObject
+      - Name: text
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: USVString
+        ExtAttrs:
+          - Name: NewObject
+    Constructors:
+      - Args:
+          - Name: input
+            Type:
+              Name: RequestInfo
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: RequestInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: fetch.idl
+  Enum:
+    Name: RequestCache
+    Values:
+      - default
+      - no-store
+      - reload
+      - no-cache
+      - force-cache
+      - only-if-cached
+- File: fetch.idl
+  Enum:
+    Name: RequestCredentials
+    Values:
+      - omit
+      - same-origin
+      - include
+- File: fetch.idl
+  Enum:
+    Name: RequestDestination
+    Values:
+      - ""
+      - audio
+      - audioworklet
+      - document
+      - embed
+      - font
+      - frame
+      - iframe
+      - image
+      - manifest
+      - object
+      - paintworklet
+      - report
+      - script
+      - sharedworker
+      - style
+      - track
+      - video
+      - worker
+      - xslt
+- File: web-bluetooth.idl
+  Dict:
+    Name: RequestDeviceOptions
+    Fields:
+      - Name: filters
+        Type:
+          Name: sequence
+          Params:
+            - Name: BluetoothLEScanFilterInit
+      - Name: exclusionFilters
+        Type:
+          Name: sequence
+          Params:
+            - Name: BluetoothLEScanFilterInit
+      - Name: optionalServices
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: BluetoothServiceUUID
+      - Name: optionalManufacturerData
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned short
+      - Name: acceptAllDevices
+        Default: "false"
+        Type:
+          Name: boolean
+- File: fetch.idl
+  Enum:
+    Name: RequestDuplex
+    Values:
+      - half
+- File: fetch.idl
+  Typedef:
+    Name: RequestInfo
+    Type:
+      Union:
+        - Name: Request
+        - Name: USVString
+- File: fetch.idl
+  Dict:
+    Name: RequestInit
+    Fields:
+      - Name: method
+        Type:
+          Name: ByteString
+      - Name: headers
+        Type:
+          Name: HeadersInit
+      - Name: body
+        Type:
+          Name: BodyInit
+          Nullable: true
+      - Name: referrer
+        Type:
+          Name: USVString
+      - Name: referrerPolicy
+        Type:
+          Name: ReferrerPolicy
+      - Name: mode
+        Type:
+          Name: RequestMode
+      - Name: credentials
+        Type:
+          Name: RequestCredentials
+      - Name: cache
+        Type:
+          Name: RequestCache
+      - Name: redirect
+        Type:
+          Name: RequestRedirect
+      - Name: integrity
+        Type:
+          Name: DOMString
+      - Name: keepalive
+        Type:
+          Name: boolean
+      - Name: signal
+        Type:
+          Name: AbortSignal
+          Nullable: true
+      - Name: duplex
+        Type:
+          Name: RequestDuplex
+      - Name: priority
+        Type:
+          Name: RequestPriority
+      - Name: window
+        Type:
+          Name: any
+      - Name: privateToken
+        Type:
+          Name: PrivateToken
+      - Name: targetAddressSpace
+        Type:
+          Name: RequestTargetAddressSpace
+      - Name: attributionReporting
+        Type:
+          Name: AttributionReportingRequestOptions
+- File: fetch.idl
+  Enum:
+    Name: RequestMode
+    Values:
+      - navigate
+      - same-origin
+      - no-cors
+      - cors
+- File: fetch.idl
+  Enum:
+    Name: RequestPriority
+    Values:
+      - high
+      - low
+      - auto
+- File: fetch.idl
+  Enum:
+    Name: RequestRedirect
+    Values:
+      - follow
+      - error
+      - manual
+- File: private-network-access.idl
+  Enum:
+    Name: RequestTargetAddressSpace
+    Values:
+      - private
+      - local
+- File: webauthn.idl
+  Enum:
+    Name: ResidentKeyRequirement
+    Values:
+      - discouraged
+      - preferred
+      - required
+- File: resize-observer.idl
+  Interface:
+    Name: ResizeObserver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: observe
+        Args:
+          - Name: target
+            Type:
+              Name: Element
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ResizeObserverOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: unobserve
+        Args:
+          - Name: target
+            Type:
+              Name: Element
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: callback
+            Type:
+              Name: ResizeObserverCallback
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window

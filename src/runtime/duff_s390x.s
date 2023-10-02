@@ -5,6 +5,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && s390x
+
 #include "textflag.h"
 
 // s390x can copy/zero 1-256 bytes with a single instruction,

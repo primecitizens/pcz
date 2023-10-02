@@ -20,13 +20,27 @@
 // to a Go string, and convert it back to the same original UTF-16 string.
 //
 // See go.dev/issues/59971 for more info.
-
 package wtf16
 
+import (
+	"github.com/primecitizens/std/text/unicode/common"
+	"github.com/primecitizens/std/text/unicode/utf16"
+)
+
+func AsString(s []uint16) String {
+	return String(utf16.AsString(s))
+}
+
+type String string
+
+func (s String) Slice() []uint16 {
+	return utf16.String(s).Slice()
+}
+
 const (
-	surr1 = 0xd800
+	surr1 = common.SurrogateMin
 	surr2 = 0xdc00
-	surr3 = 0xe000
+	surr3 = common.SurrogateMax + 1
 
 	tx    = 0b10000000
 	t3    = 0b11100000

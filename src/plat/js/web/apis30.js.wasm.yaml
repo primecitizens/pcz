@@ -1,0 +1,1254 @@
+- File: presentation-api.idl
+  Interface:
+    Name: PresentationConnectionCloseEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: reason
+        Readonly: true
+        Type:
+          Name: PresentationConnectionCloseReason
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: PresentationConnectionCloseEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: presentation-api.idl
+  Dict:
+    Name: PresentationConnectionCloseEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: reason
+        Required: true
+        Type:
+          Name: PresentationConnectionCloseReason
+      - Name: message
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: presentation-api.idl
+  Enum:
+    Name: PresentationConnectionCloseReason
+    Values:
+      - error
+      - closed
+      - wentaway
+- File: presentation-api.idl
+  Interface:
+    Name: PresentationConnectionList
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: connections
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: PresentationConnection
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onconnectionavailable
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: presentation-api.idl
+  Enum:
+    Name: PresentationConnectionState
+    Values:
+      - connecting
+      - connected
+      - closed
+      - terminated
+- File: presentation-api.idl
+  Interface:
+    Name: PresentationReceiver
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: connectionList
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: PresentationConnectionList
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: presentation-api.idl
+  Interface:
+    Name: PresentationRequest
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onconnectionavailable
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: start
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PresentationConnection
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reconnect
+        Args:
+          - Name: presentationId
+            Type:
+              Name: USVString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PresentationConnection
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAvailability
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PresentationAvailability
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: url
+            Type:
+              Name: USVString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Args:
+          - Name: urls
+            Type:
+              Name: sequence
+              Params:
+                - Name: USVString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: clipboard-apis.idl
+  Enum:
+    Name: PresentationStyle
+    Values:
+      - unspecified
+      - inline
+      - attachment
+- File: compute-pressure.idl
+  Interface:
+    Name: PressureObserver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+          - SharedWorker
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: supportedSources
+        Modifier: static
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: PressureSource
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+    Operations:
+      - Name: observe
+        Args:
+          - Name: source
+            Type:
+              Name: PressureSource
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+      - Name: unobserve
+        Args:
+          - Name: source
+            Type:
+              Name: PressureSource
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+      - Name: disconnect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+      - Name: takeRecords
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: PressureRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: callback
+            Type:
+              Name: PressureUpdateCallback
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PressureObserverOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+- File: compute-pressure.idl
+  Dict:
+    Name: PressureObserverOptions
+    Fields:
+      - Name: sampleRate
+        Default: "1.0"
+        Type:
+          Name: double
+- File: compute-pressure.idl
+  Interface:
+    Name: PressureRecord
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+          - SharedWorker
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: source
+        Readonly: true
+        Type:
+          Name: PressureSource
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+      - Name: state
+        Readonly: true
+        Type:
+          Name: PressureState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+      - Name: time
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+- File: compute-pressure.idl
+  Enum:
+    Name: PressureSource
+    Values:
+      - thermals
+      - cpu
+- File: compute-pressure.idl
+  Enum:
+    Name: PressureState
+    Values:
+      - nominal
+      - fair
+      - serious
+      - critical
+- File: compute-pressure.idl
+  Callback:
+    Name: PressureUpdateCallback
+    Args:
+      - Name: changes
+        Type:
+          Name: sequence
+          Params:
+            - Name: PressureRecord
+      - Name: observer
+        Type:
+          Name: PressureObserver
+    Returns:
+      - Name: undefined
+- File: turtledove.idl
+  Dict:
+    Name: PreviousWin
+    Fields:
+      - Name: timeDelta
+        Required: true
+        Type:
+          Name: long long
+      - Name: adJSON
+        Required: true
+        Type:
+          Name: DOMString
+- File: private-network-access.idl
+  Dict:
+    Name: PrivateNetworkAccessPermissionDescriptor
+    Inherits: PermissionDescriptor
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: trust-token-api.idl
+  Dict:
+    Name: PrivateToken
+    Fields:
+      - Name: version
+        Required: true
+        Type:
+          Name: TokenVersion
+      - Name: operation
+        Required: true
+        Type:
+          Name: OperationType
+      - Name: refreshPolicy
+        Default: '"none"'
+        Type:
+          Name: RefreshPolicy
+      - Name: issuers
+        Type:
+          Name: sequence
+          Params:
+            - Name: USVString
+- File: dom.idl
+  Interface:
+    Name: ProcessingInstruction
+    Inherits: CharacterData
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: target
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sheet
+        Readonly: true
+        Type:
+          Name: CSSStyleSheet
+          Nullable: true
+- File: js-self-profiling.idl
+  Interface:
+    Name: Profiler
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: sampleInterval
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stopped
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: stop
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ProfilerTrace
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Type:
+              Name: ProfilerInitOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: js-self-profiling.idl
+  Dict:
+    Name: ProfilerFrame
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: resourceId
+        Type:
+          Name: unsigned long long
+      - Name: line
+        Type:
+          Name: unsigned long long
+      - Name: column
+        Type:
+          Name: unsigned long long
+- File: js-self-profiling.idl
+  Dict:
+    Name: ProfilerInitOptions
+    Fields:
+      - Name: sampleInterval
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: maxBufferSize
+        Required: true
+        Type:
+          Name: unsigned long
+- File: js-self-profiling.idl
+  Typedef:
+    Name: ProfilerResource
+    Type:
+      Name: DOMString
+- File: js-self-profiling.idl
+  Dict:
+    Name: ProfilerSample
+    Fields:
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: stackId
+        Type:
+          Name: unsigned long long
+- File: js-self-profiling.idl
+  Dict:
+    Name: ProfilerStack
+    Fields:
+      - Name: parentId
+        Type:
+          Name: unsigned long long
+      - Name: frameId
+        Required: true
+        Type:
+          Name: unsigned long long
+- File: js-self-profiling.idl
+  Dict:
+    Name: ProfilerTrace
+    Fields:
+      - Name: resources
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: ProfilerResource
+      - Name: frames
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: ProfilerFrame
+      - Name: stacks
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: ProfilerStack
+      - Name: samples
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: ProfilerSample
+- File: xhr.idl
+  Interface:
+    Name: ProgressEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: lengthComputable
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: loaded
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: total
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ProgressEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: xhr.idl
+  Dict:
+    Name: ProgressEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: lengthComputable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: loaded
+        Default: "0"
+        Type:
+          Name: unsigned long long
+      - Name: total
+        Default: "0"
+        Type:
+          Name: unsigned long long
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Interface:
+    Name: PromiseRejectionEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: promise
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: any
+        ExtAttrs:
+          - Name: Exposed
+      - Name: reason
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: PromiseRejectionEventInit
+        ExtAttrs:
+          - Name: Exposed
+- File: html.idl
+  Dict:
+    Name: PromiseRejectionEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: promise
+        Required: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: any
+      - Name: reason
+        Type:
+          Name: any
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: manifest-incubations.idl
+  Dict:
+    Name: PromptResponseObject
+    Fields:
+      - Name: userChoice
+        Type:
+          Name: AppBannerPromptOutcome
+- File: css-properties-values-api.idl
+  Dict:
+    Name: PropertyDefinition
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: syntax
+        Default: '"*"'
+        Type:
+          Name: DOMString
+      - Name: inherits
+        Required: true
+        Type:
+          Name: boolean
+      - Name: initialValue
+        Type:
+          Name: DOMString
+- File: proximity.idl
+  Dict:
+    Name: ProximityReadingValues
+    Fields:
+      - Name: distance
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: max
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: near
+        Required: true
+        Type:
+          Name: boolean
+          Nullable: true
+- File: proximity.idl
+  Interface:
+    Name: ProximitySensor
+    Inherits: Sensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: distance
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: max
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: near
+        Readonly: true
+        Type:
+          Name: boolean
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: sensorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webauthn.idl
+  Interface:
+    Name: PublicKeyCredential
+    Inherits: Credential
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: rawId
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: response
+        Readonly: true
+        Type:
+          Name: AuthenticatorResponse
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: authenticatorAttachment
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getClientExtensionResults
+        Returns:
+          - Name: AuthenticationExtensionsClientOutputs
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isConditionalMediationAvailable
+        Modifier: static
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: toJSON
+        Returns:
+          - Name: PublicKeyCredentialJSON
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parseRequestOptionsFromJSON
+        Modifier: static
+        Args:
+          - Name: options
+            Type:
+              Name: PublicKeyCredentialRequestOptionsJSON
+        Returns:
+          - Name: PublicKeyCredentialRequestOptions
+      - Name: isPasskeyPlatformAuthenticatorAvailable
+        Modifier: static
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+      - Name: parseCreationOptionsFromJSON
+        Modifier: static
+        Args:
+          - Name: options
+            Type:
+              Name: PublicKeyCredentialCreationOptionsJSON
+        Returns:
+          - Name: PublicKeyCredentialCreationOptions
+      - Name: isUserVerifyingPlatformAuthenticatorAvailable
+        Modifier: static
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialCreationOptions
+    Fields:
+      - Name: rp
+        Required: true
+        Type:
+          Name: PublicKeyCredentialRpEntity
+      - Name: user
+        Required: true
+        Type:
+          Name: PublicKeyCredentialUserEntity
+      - Name: challenge
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: pubKeyCredParams
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: PublicKeyCredentialParameters
+      - Name: timeout
+        Type:
+          Name: unsigned long
+      - Name: excludeCredentials
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: PublicKeyCredentialDescriptor
+      - Name: authenticatorSelection
+        Type:
+          Name: AuthenticatorSelectionCriteria
+      - Name: hints
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: attestation
+        Default: '"none"'
+        Type:
+          Name: DOMString
+      - Name: attestationFormats
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: extensions
+        Type:
+          Name: AuthenticationExtensionsClientInputs
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialCreationOptionsJSON
+    Fields:
+      - Name: rp
+        Required: true
+        Type:
+          Name: PublicKeyCredentialRpEntity
+      - Name: user
+        Required: true
+        Type:
+          Name: PublicKeyCredentialUserEntityJSON
+      - Name: challenge
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: pubKeyCredParams
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: PublicKeyCredentialParameters
+      - Name: timeout
+        Type:
+          Name: unsigned long
+      - Name: excludeCredentials
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: PublicKeyCredentialDescriptorJSON
+      - Name: authenticatorSelection
+        Type:
+          Name: AuthenticatorSelectionCriteria
+      - Name: hints
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: attestation
+        Default: '"none"'
+        Type:
+          Name: DOMString
+      - Name: attestationFormats
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: extensions
+        Type:
+          Name: AuthenticationExtensionsClientInputsJSON
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialDescriptor
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: id
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: transports
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialDescriptorJSON
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: type
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: transports
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialEntity
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: webauthn.idl
+  Enum:
+    Name: PublicKeyCredentialHints
+    Values:
+      - security-key
+      - client-device
+      - hybrid
+- File: webauthn.idl
+  Typedef:
+    Name: PublicKeyCredentialJSON
+    Type:
+      Union:
+        - Name: RegistrationResponseJSON
+        - Name: AuthenticationResponseJSON
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialParameters
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: alg
+        Required: true
+        Type:
+          Name: COSEAlgorithmIdentifier
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialRequestOptions
+    Fields:
+      - Name: challenge
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: timeout
+        Type:
+          Name: unsigned long
+      - Name: rpId
+        Type:
+          Name: USVString
+      - Name: allowCredentials
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: PublicKeyCredentialDescriptor
+      - Name: userVerification
+        Default: '"preferred"'
+        Type:
+          Name: DOMString
+      - Name: hints
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: attestation
+        Default: '"none"'
+        Type:
+          Name: DOMString
+      - Name: attestationFormats
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: extensions
+        Type:
+          Name: AuthenticationExtensionsClientInputs
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialRequestOptionsJSON
+    Fields:
+      - Name: challenge
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: timeout
+        Type:
+          Name: unsigned long
+      - Name: rpId
+        Type:
+          Name: DOMString
+      - Name: allowCredentials
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: PublicKeyCredentialDescriptorJSON
+      - Name: userVerification
+        Default: '"preferred"'
+        Type:
+          Name: DOMString
+      - Name: hints
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: attestation
+        Default: '"none"'
+        Type:
+          Name: DOMString
+      - Name: attestationFormats
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: extensions
+        Type:
+          Name: AuthenticationExtensionsClientInputsJSON
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialRpEntity
+    Inherits: PublicKeyCredentialEntity
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: webauthn.idl
+  Enum:
+    Name: PublicKeyCredentialType
+    Values:
+      - public-key
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialUserEntity
+    Inherits: PublicKeyCredentialEntity
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: displayName
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: webauthn.idl
+  Dict:
+    Name: PublicKeyCredentialUserEntityJSON
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: displayName
+        Required: true
+        Type:
+          Name: DOMString
+- File: digital-goods.idl
+  Dict:
+    Name: PurchaseDetails
+    Fields:
+      - Name: itemId
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: purchaseToken
+        Required: true
+        Type:
+          Name: DOMString
+- File: push-api.idl
+  Enum:
+    Name: PushEncryptionKeyName
+    Values:
+      - p256dh
+      - auth

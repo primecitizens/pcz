@@ -11,18 +11,8 @@ package wasi
 
 import (
 	"unsafe"
-
-	"github.com/primecitizens/std/core/mark"
 )
 
 //go:wasmimport wasi_snapshot_preview1 fd_seek
 //go:noescape
-func fd_seek(fd FD, offset FileDelta, whence uint32, newoffset unsafe.Pointer) Errno
-
-func Seek(fd FD, offset FileDelta, whence uint32) (FileSize, Errno) {
-	var newoffset FileSize
-	errno := fd_seek(
-		fd, offset, whence, unsafe.Pointer(mark.NoEscape(&newoffset)),
-	)
-	return newoffset, errno
-}
+func Seek(fd FD, offset FileDelta, whence uint32, newoffset unsafe.Pointer) Errno

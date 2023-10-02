@@ -22,7 +22,7 @@ func FromBytes[T ~byte](b []T) string {
 //
 //go:nosplit
 func FromByteArray(arr *byte) string {
-	return unsafe.String(arr, FindNULL(arr))
+	return unsafe.String(arr, FindNull(arr))
 }
 
 //go:nosplit

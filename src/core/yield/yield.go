@@ -4,4 +4,5 @@
 // Package yield implements low-level yield intrinsics
 package yield
 
+// Proc yields processor (cpu core).
 func Proc(cycles int32)

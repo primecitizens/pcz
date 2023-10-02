@@ -16,24 +16,18 @@ import (
 // DebugOptions is set to true by the runtime if the OS supports reading
 // GODEBUG early in runtime startup.
 // This should not be changed after it is initialized.
-const DebugOptions = os.IsAix|os.IsDarwin|os.IsIos|os.IsDragonfly|os.IsFreebsd|os.IsNetbsd|os.IsOpenbsd|os.IsIllumos|os.IsSolaris|os.IsLinux != 0
-
-// CacheLinePad is used to pad structs to avoid false sharing.
-type CacheLinePad struct{ _ [CacheLinePadSize]byte }
-
-// CacheLineSize is the CPU's assumed cache line size.
-// There is currently no runtime detection of the real cache line size
-// so we use the constant per GOARCH CacheLinePadSize as an approximation.
-var CacheLineSize uintptr = CacheLinePadSize
-
-// The booleans in ARM contain the correspondingly named cpu feature bit.
-// The struct is padded to avoid false sharing.
-var ARM struct {
-	_        CacheLinePad
-	HasVFPv4 bool
-	HasIDIVA bool
-	_        CacheLinePad
-}
+const DebugOptions = 0|
+	os.IsAix|
+	os.IsDarwin|
+	os.IsIos|
+	os.IsDragonfly|
+	os.IsFreebsd|
+	os.IsNetbsd|
+	os.IsOpenbsd|
+	os.IsIllumos|
+	os.IsSolaris|
+	os.IsLinux|
+	0 != 0
 
 type FeatureChecker[Self any] interface {
 	// HasAll checks whether wanted features are all present
@@ -49,10 +43,48 @@ type FeatureSet[Self any] interface {
 }
 
 var (
-	ARM64 ARM64Features
-	X86   X86Features
-	WASM  WASMFeatures
+	ARM    ARMFeatures
+	X86    X86Features
+	ARM64  ARM64Features
+	MIPS64 MIPS64Features
+	PPC64  PPC64Features
+	S390X  S390XFeatures
+	WASM   WASMFeatures
 )
+
+type ARMFeatures uint32
+
+const (
+	ARMFeature_vfpv4 ARMFeatures = 1 << iota
+	ARMFeature_idiva
+)
+
+func (x ARMFeatures) HasAll(want ARMFeatures) bool {
+	return x&want == want
+}
+
+func (x *ARMFeatures) Set(feat string, enable bool) (enabled bool, found bool) {
+	var want ARMFeatures
+	switch feat {
+	case "vfpv4":
+		want = ARMFeature_vfpv4
+	case "idiva":
+		want = ARMFeature_idiva
+	default:
+		return
+	}
+
+	found = true
+	if *x&want != 0 /* has this feat */ {
+		if enable {
+			enabled = true
+		} else {
+			*x &= ^want
+		}
+	}
+
+	return
+}
 
 type X86Features uint32
 
@@ -185,10 +217,35 @@ func (x *ARM64Features) Set(feat string, enable bool) (enabled bool, found bool)
 	return
 }
 
-var MIPS64X struct {
-	_      CacheLinePad
-	HasMSA bool // MIPS SIMD architecture
-	_      CacheLinePad
+type MIPS64Features uint32
+
+const (
+	MIPS64Feature_msa MIPS64Features = 1 << iota // MIPS SIMD architecture
+)
+
+func (x MIPS64Features) HasAll(want MIPS64Features) bool {
+	return x&want == want
+}
+
+func (x *MIPS64Features) Set(feat string, enable bool) (enabled bool, found bool) {
+	var want MIPS64Features
+	switch feat {
+	case "msa":
+		want = MIPS64Feature_msa
+	default:
+		return
+	}
+
+	found = true
+	if *x&want != 0 /* has this feat */ {
+		if enable {
+			enabled = true
+		} else {
+			*x &= ^want
+		}
+	}
+
+	return
 }
 
 // For ppc64(le), it is safe to check only for ISA level starting on ISA v3.00,
@@ -196,40 +253,138 @@ var MIPS64X struct {
 // require kernel support to work (darn, scv), so there are feature bits for
 // those as well. The minimum processor requirement is POWER8 (ISA 2.07).
 // The struct is padded to avoid false sharing.
-var PPC64 struct {
-	_         CacheLinePad
-	HasDARN   bool // Hardware random number generator (requires kernel enablement)
-	HasSCV    bool // Syscall vectored (requires kernel enablement)
-	IsPOWER8  bool // ISA v2.07 (POWER8)
-	IsPOWER9  bool // ISA v3.00 (POWER9)
-	IsPOWER10 bool // ISA v3.1  (POWER10)
-	_         CacheLinePad
+type PPC64Features uint32
+
+const (
+	PPC64Feature_darn       PPC64Features = 1 << iota // Hardware random number generator (requires kernel enablement)
+	PPC64Feature_scv                                  // Syscall vectored (requires kernel enablement)
+	PPC64Feature_is_power8                            // ISA v2.07 (POWER8)
+	PPC64Feature_is_power9                            // ISA v3.00 (POWER9)
+	PPC64Feature_is_power10                           // ISA v3.1  (POWER10)
+)
+
+func (x PPC64Features) HasAll(want PPC64Features) bool {
+	return x&want == want
 }
 
-var S390X struct {
-	_         CacheLinePad
-	HasZARCH  bool // z architecture mode is active [mandatory]
-	HasSTFLE  bool // store facility list extended [mandatory]
-	HasLDISP  bool // long (20-bit) displacements [mandatory]
-	HasEIMM   bool // 32-bit immediates [mandatory]
-	HasDFP    bool // decimal floating point
-	HasETF3EH bool // ETF-3 enhanced
-	HasMSA    bool // message security assist (CPACF)
-	HasAES    bool // KM-AES{128,192,256} functions
-	HasAESCBC bool // KMC-AES{128,192,256} functions
-	HasAESCTR bool // KMCTR-AES{128,192,256} functions
-	HasAESGCM bool // KMA-GCM-AES{128,192,256} functions
-	HasGHASH  bool // KIMD-GHASH function
-	HasSHA1   bool // K{I,L}MD-SHA-1 functions
-	HasSHA256 bool // K{I,L}MD-SHA-256 functions
-	HasSHA512 bool // K{I,L}MD-SHA-512 functions
-	HasSHA3   bool // K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
-	HasVX     bool // vector facility. Note: the runtime sets this when it processes auxv records.
-	HasVXE    bool // vector-enhancements facility 1
-	HasKDSA   bool // elliptic curve functions
-	HasECDSA  bool // NIST curves
-	HasEDDSA  bool // Edwards curves
-	_         CacheLinePad
+func (x *PPC64Features) Set(feat string, enable bool) (enabled bool, found bool) {
+	var want PPC64Features
+	switch feat {
+	case "darn":
+		want = PPC64Feature_darn
+	case "scv":
+		want = PPC64Feature_scv
+	case "power8":
+		want = PPC64Feature_is_power8
+	case "power9":
+		want = PPC64Feature_is_power9
+	case "power10":
+		want = PPC64Feature_is_power10
+	default:
+		return
+	}
+
+	found = true
+	if *x&want != 0 /* has this feat */ {
+		if enable {
+			enabled = true
+		} else {
+			*x &= ^want
+		}
+	}
+
+	return
+}
+
+type S390XFeatures uint32
+
+const (
+	S390XFeature_zarch  S390XFeatures = 1 << iota // z architecture mode is active [mandatory]
+	S390XFeature_stfle                            // store facility list extended [mandatory]
+	S390XFeature_ldisp                            // long (20-bit) displacements [mandatory]
+	S390XFeature_eimm                             // 32-bit immediates [mandatory]
+	S390XFeature_dfp                              // decimal floating point
+	S390XFeature_etf3eh                           // ETF-3 enhanced
+	S390XFeature_msa                              // message security assist (CPACF)
+	S390XFeature_aes                              // KM-AES{128,192,256} functions
+	S390XFeature_aescbc                           // KMC-AES{128,192,256} functions
+	S390XFeature_aesctr                           // KMCTR-AES{128,192,256} functions
+	S390XFeature_aesgcm                           // KMA-GCM-AES{128,192,256} functions
+	S390XFeature_ghash                            // KIMD-GHASH function
+	S390XFeature_sha1                             // K{I,L}MD-SHA-1 functions
+	S390XFeature_sha256                           // K{I,L}MD-SHA-256 functions
+	S390XFeature_sha512                           // K{I,L}MD-SHA-512 functions
+	S390XFeature_sha3                             // K{I,L}MD-SHA3-{224,256,384,512} and K{I,L}MD-SHAKE-{128,256} functions
+	S390XFeature_vx                               // vector facility. Note: the runtime sets this when it processes auxv records.
+	S390XFeature_vxe                              // vector-enhancements facility 1
+	S390XFeature_kdsa                             // elliptic curve functions
+	S390XFeature_ecdsa                            // NIST curves
+	S390XFeature_eddsa                            // Edwards curves
+)
+
+func (x S390XFeatures) HasAll(want S390XFeatures) bool {
+	return x&want == want
+}
+
+func (x *S390XFeatures) Set(feat string, enable bool) (enabled bool, found bool) {
+	var want S390XFeatures
+	switch feat {
+	case "zarch":
+		want = S390XFeature_zarch
+	case "stfle":
+		want = S390XFeature_stfle
+	case "ldisp":
+		want = S390XFeature_ldisp
+	case "eimm":
+		want = S390XFeature_eimm
+	case "dfp":
+		want = S390XFeature_dfp
+	case "etf3eh":
+		want = S390XFeature_etf3eh
+	case "msa":
+		want = S390XFeature_msa
+	case "aes":
+		want = S390XFeature_aes
+	case "aescbc":
+		want = S390XFeature_aescbc
+	case "aesctr":
+		want = S390XFeature_aesctr
+	case "aesgcm":
+		want = S390XFeature_aesgcm
+	case "ghash":
+		want = S390XFeature_ghash
+	case "sha1":
+		want = S390XFeature_sha1
+	case "sha256":
+		want = S390XFeature_sha256
+	case "sha512":
+		want = S390XFeature_sha512
+	case "sha3":
+		want = S390XFeature_sha3
+	case "vx":
+		want = S390XFeature_vx
+	case "vxe":
+		want = S390XFeature_vxe
+	case "kdsa":
+		want = S390XFeature_kdsa
+	case "ecdsa":
+		want = S390XFeature_ecdsa
+	case "eddsa":
+		want = S390XFeature_eddsa
+	default:
+		return
+	}
+
+	found = true
+	if *x&want != 0 /* has this feat */ {
+		if enable {
+			enabled = true
+		} else {
+			*x &= ^want
+		}
+	}
+
+	return
 }
 
 type WASMFeatures uint32
@@ -250,27 +405,13 @@ func Initialize(env string) {
 	processOptions(doinit(), env)
 }
 
-// options contains the cpu debug options that can be used in GODEBUG.
-// Options are arch dependent and are added by the arch specific doinit functions.
-// Features that are mandatory for the specific GOARCH should not be added to options
-// (e.g. SSE2 on amd64).
-// var options []option
-
-// Option names should be lower case. e.g. avx instead of AVX.
-type option struct {
-	Name      string
-	Feature   *bool
-	Specified bool // whether feature value was specified in GODEBUG
-	Enable    bool // whether feature should be enabled
-}
-
 // processOptions enables or disables CPU feature values based on the parsed env string.
 // The env string is expected to be of the form cpu.feature1=value1,cpu.feature2=value2...
 // where feature names is one of the architecture specific list stored in the
 // cpu packages options variable and values are either 'on' or 'off'.
 // If env contains cpu.all=off then all cpu features referenced through the options
 // variable are disabled. Other feature names and values result in warning messages.
-func processOptions[T FeatureSet[T]](fs T, godebug string) {
+func processOptions[T FeatureSet[T]](fset T, godebug string) {
 	for len(godebug) != 0 {
 		field := ""
 		i := indexByte(godebug, ',')
@@ -300,7 +441,7 @@ func processOptions[T FeatureSet[T]](fs T, godebug string) {
 			continue
 		}
 
-		enabled, found := fs.Set(key, enable)
+		enabled, found := fset.Set(key, enable)
 		if !found {
 			print("GODEBUG: unknown cpu feature \"", key, "\"\n")
 			continue

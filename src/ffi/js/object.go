@@ -7,7 +7,7 @@ import (
 	"github.com/primecitizens/std/ffi/js/bindings"
 )
 
-func New(constructor Func, args ...Ref) Object {
+func New(constructor Func[Any], args ...Ref) Object {
 	return Object{
 		ref: bindings.New(
 			constructor.ref,
@@ -17,13 +17,52 @@ func New(constructor Func, args ...Ref) Object {
 	}
 }
 
+// TODO
+type Record[T any] struct {
+	ref bindings.Ref
+}
+
+func (r Record[T]) FromRef(ref Ref) Record[T] {
+	return Record[T]{
+		ref: bindings.Ref(ref),
+	}
+}
+
+func (r Record[T]) Ref() Ref {
+	return Ref(r.ref)
+}
+
+func (r Record[T]) Once() Record[T] {
+	bindings.Once(r.ref)
+	return r
+}
+
+func (r Record[T]) Free() {
+	bindings.Free(r.ref)
+}
+
 // An Object is a reference to a js object.
 type Object struct {
 	ref bindings.Ref
 }
 
+func (o Object) FromRef(ref Ref) Object {
+	return Object{
+		ref: bindings.Ref(ref),
+	}
+}
+
 func (o Object) Ref() Ref {
 	return Ref(o.ref)
+}
+
+func (o Object) Once() Object {
+	bindings.Once(o.ref)
+	return o
+}
+
+func (o Object) Free() {
+	bindings.Free(o.ref)
 }
 
 func (o Object) Prototype() (proto Object, hasPrototype bool) {
@@ -70,8 +109,8 @@ func (o Object) PropDesc(name string) PropDesc {
 func (o Object) DefineProp(
 	name string,
 	flags PropDesc,
-	getter Func,
-	setter Func,
+	getter Func[func() Any],
+	setter Func[func(Any) bool],
 ) bool {
 	return bindings.Ref(True) == bindings.DefineProp(
 		o.ref,
@@ -91,24 +130,26 @@ func (o Object) DeleteProp(name string) bool {
 	)
 }
 
-func (o Object) Prop(name string) Ref {
-	return Ref(bindings.Prop(
-		o.ref,
-		StringData(name),
-		SizeU(len(name)),
-	))
+func (o Object) Prop(name string) Any {
+	return Any{
+		ref: bindings.Prop(
+			o.ref,
+			StringData(name),
+			SizeU(len(name)),
+		),
+	}
 }
 
 func (o Object) StringProp(name string) String {
 	return o.Prop(name).AsString()
 }
 
-func (o Object) NumProp(name string) Number {
-	return Number(bindings.NumProp(
+func (o Object) NumProp(name string) float64 {
+	return bindings.NumProp(
 		o.ref,
 		StringData(name),
 		SizeU(len(name)),
-	))
+	)
 }
 
 func (o Object) BoolProp(name string) bool {
@@ -119,16 +160,18 @@ func (o Object) BoolProp(name string) bool {
 	)
 }
 
-func (o Object) PropByString(name String) Ref {
-	return Ref(bindings.PropByString(o.ref, name.ref))
+func (o Object) PropByString(name String) Any {
+	return Any{
+		ref: bindings.PropByString(o.ref, name.ref),
+	}
 }
 
 func (o Object) StringPropByString(name String) String {
 	return o.PropByString(name).AsString()
 }
 
-func (o Object) NumPropByString(name String) Number {
-	return Number(bindings.NumPropByString(o.ref, name.ref))
+func (o Object) NumPropByString(name String) float64 {
+	return bindings.NumPropByString(o.ref, name.ref)
 }
 
 func (o Object) BoolPropByString(name String) bool {
@@ -145,12 +188,12 @@ func (o Object) SetProp(name string, free bool, val Ref) bool {
 	)
 }
 
-func (o Object) SetNumProp(name string, val Number) bool {
+func (o Object) SetNumProp(name string, val float64) bool {
 	return bindings.Ref(True) == bindings.SetNumProp(
 		o.ref,
 		StringData(name),
 		SizeU(len(name)),
-		float64(val),
+		val,
 	)
 }
 
@@ -182,9 +225,9 @@ func (o Object) SetPropByString(prop String, free bool, val Ref) bool {
 	)
 }
 
-func (o Object) SetNumPropByString(prop String, val Number) bool {
+func (o Object) SetNumPropByString(prop String, val float64) bool {
 	return bindings.Ref(True) == bindings.SetNumPropByString(
-		o.ref, prop.ref, float64(val),
+		o.ref, prop.ref, val,
 	)
 }
 
@@ -203,8 +246,4 @@ func (o Object) SetStringPropByString(name String, free bool, val String) bool {
 		bindings.Ref(Bool(free)),
 		val.ref,
 	)
-}
-
-func (o Object) Free() {
-	bindings.Free(o.ref)
 }

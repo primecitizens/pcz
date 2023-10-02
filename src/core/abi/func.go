@@ -88,7 +88,7 @@ type FuncInl struct {
 
 type FuncInfo struct {
 	*Func
-	datap *ModuleData
+	Datap *ModuleData
 }
 
 func (f FuncInfo) Valid() bool {
@@ -101,12 +101,12 @@ func (f FuncInfo) Name() string {
 		return ""
 	}
 
-	return f.datap.funcName(f.nameOff)
+	return f.Datap.funcName(f.nameOff)
 }
 
 // Entry returns the entry PC for f.
 func (f FuncInfo) Entry() uintptr {
-	return f.datap.textAddr(f.entryOff)
+	return f.Datap.textAddr(f.entryOff)
 }
 
 // findfuncbucket is an array of these structures.
@@ -156,7 +156,7 @@ func FindFunc(pc uintptr) FuncInfo {
 	funcoff := datap.FTab[idx].Funcoff
 	return FuncInfo{
 		Func:  (*Func)(unsafe.Pointer(&datap.PCLnTable[funcoff])),
-		datap: datap,
+		Datap: datap,
 	}
 }
 

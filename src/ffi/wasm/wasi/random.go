@@ -13,8 +13,4 @@ import "unsafe"
 
 //go:wasmimport wasi_snapshot_preview1 random_get
 //go:noescape
-func random_get(buf unsafe.Pointer, sz Size) Errno
-
-func RandomGet(b []byte) Errno {
-	return random_get(bytesPointer(b), Size(len(b)))
-}
+func RandomGet(buf unsafe.Pointer, sz Size) Errno

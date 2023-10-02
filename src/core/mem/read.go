@@ -10,6 +10,7 @@ import (
 )
 
 // Note: These routines perform the read with a native endianness.
+
 func ReadUnaligned32(p unsafe.Pointer) uint32 {
 	q := (*[4]byte)(p)
 	if arch.BigEndian {

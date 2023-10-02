@@ -18,9 +18,10 @@ We are well aware it is an ambitious project regarding to our small scale, and i
 - [x] Be compatible with go1.21 toolchain.
 - [x] Better structuring of the std.
 - [x] Expose all low-level & reusable bits of the runtime.
-- [ ] Provide apis for custom memory allocator.
-  - [ ] Define behavior of `append`, `make`, `new` to be a strict subset of these in go language specification.
+- [x] Provide apis for custom memory allocator.
 - [ ] Stacktrace.
+- [ ] Stack growth.
+  - [ ] Copy stack.
 - [ ] Debugging with `delve`.
 - [ ] Program startup
   - [x] `js/wasm`
@@ -44,17 +45,20 @@ We are well aware it is an ambitious project regarding to our small scale, and i
   - [ ] `objc` (based on `C`)
   - [ ] `jni` (based on `C`)
 - [ ] Platform SDK (`pcz codegen`)
-  - [ ] apis provided by browser engines (e.g. `chromium`, `firefox`)
-    - [ ] code generation with WebIDL
-      - [x] Add WebIDL to YAML support in `h2y`
-      - [x] parse nrowser compat data (no type information)
-      - [ ] Add YAML to Go package generation support in `ffigen` for WebIDL.
+  - [ ] `DOM` apis (code generation with WebIDL)
+    - [x] Support WebIDL to YAML in `h2y`.
+    - [x] Support Go package generation for WebIDL in `ffigen`.
+    - [ ] Use browser-compat-data for comments.
+  - [ ] `WebExtension` apis (Manifest Version 3).
+    - [x] Normalize chromium web extension idls.
+    - [ ] Generate
+  - [ ] `nodejs` apis.
   - [ ] `android` NDK
     - [x] Add C header file support in `h2y`
-    - [ ] Add YAML to Go package generation support in `ffigen` for C.
+    - [ ] Support Go package generation for C in `ffigen`.
   - [ ] `darwin` XCode (`*.sdk/*.framework`)
     - [x] Add Objective-C header file support in `h2y`
-    - [ ] Add YAML to Go package generation support in `ffigen` for Objective-C.
+    - [ ] Support Go package generation for Objective-C in `ffigen`.
   - [ ] `win32` Windows SDK (see tasks for `android` NDK)
 
 > **NOTE**
@@ -87,11 +91,11 @@ TBD.
 
 ## Phase 2: Compile C in Go
 
-- Enable static binary build when working with `C` (`go build -buildmode=static`)
-  - Bundle `C` libraries used in Go, generate `init()` functions to self relocate.
+- Support static binary build when working with `C` (`go build -buildmode=static`)
+  - Implement a `pcz` subcommand to support go external linking mode.
 - Standardize linker scripts in YAML (in our opinion, they resembles a lot)
   - Implement tool (`l2y`) to convert existing linker scripts to YAML.
-- Add support for custom sections defined in YAML to `$GOROOT/src/cmd/link`.
+  - Implement support for linking custom sections in `pcz`.
 - Support `unsafe.SelectABI` for foreign ABIs in go compiler (inspired by [golang/go#44065](https://github.com/golang/go/issues/44065)).
 - A libc implemented in Go.
 - A configurable run-time linker (`ldso`).

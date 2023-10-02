@@ -35,10 +35,10 @@ type SliceSorter[Elem any] struct {
 }
 
 // Len implements Interface
-func (s SliceSorter[E]) Len() int { return len(s.Data) }
+func (s *SliceSorter[E]) Len() int { return len(s.Data) }
 
 // Less implements Interface
-func (s SliceSorter[E]) Less(i, j int) bool { return s.LessFunc(s.Data, i, j) }
+func (s *SliceSorter[E]) Less(i, j int) bool { return s.LessFunc(s.Data, i, j) }
 
 // Swap implements Interface
-func (s SliceSorter[E]) Swap(i, j int) { s.Data[i], s.Data[j] = s.Data[j], s.Data[i] }
+func (s *SliceSorter[E]) Swap(i, j int) { s.Data[i], s.Data[j] = s.Data[j], s.Data[i] }

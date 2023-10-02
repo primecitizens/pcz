@@ -5,11 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build mips64 || mips64le
+//go:build pcz && (mips64 || mips64le)
 
 #include "textflag.h"
 
-TEXT ·IndexByte(SB),NOSPLIT,$0-40
+TEXT ·IndexSliceByte(SB),NOSPLIT,$0-40
 	MOVV b_base+0(FP), R1
 	MOVV b_len+8(FP), R2
 	MOVBU c+24(FP), R3 // byte to find
@@ -32,7 +32,7 @@ notfound:
 	MOVV R1, ret+32(FP)
 	RET
 
-TEXT ·IndexByteString(SB),NOSPLIT,$0-32
+TEXT ·IndexByte(SB),NOSPLIT,$0-32
 	MOVV s_base+0(FP), R1
 	MOVV s_len+8(FP), R2
 	MOVBU c+16(FP), R3 // byte to find

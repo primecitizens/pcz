@@ -1,0 +1,3455 @@
+- File: geometry.idl
+  Interface:
+    Name: DOMRect
+    Inherits: DOMRectReadOnly
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: Serializable
+      - Name: LegacyWindowAlias
+        Values:
+          - SVGRect
+    Attrs:
+      - Name: x
+        Modifier: inherit
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+          - Name: LegacyWindowAlias
+            Values:
+              - SVGRect
+      - Name: "y"
+        Modifier: inherit
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+          - Name: LegacyWindowAlias
+            Values:
+              - SVGRect
+      - Name: width
+        Modifier: inherit
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+          - Name: LegacyWindowAlias
+            Values:
+              - SVGRect
+      - Name: height
+        Modifier: inherit
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+          - Name: LegacyWindowAlias
+            Values:
+              - SVGRect
+    Operations:
+      - Name: fromRect
+        Modifier: static
+        Args:
+          - Name: other
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMRectInit
+        Returns:
+          - Name: DOMRect
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+          - Name: LegacyWindowAlias
+            Values:
+              - SVGRect
+    Constructors:
+      - Args:
+          - Name: x
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+          - Name: width
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+          - Name: height
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+          - Name: LegacyWindowAlias
+            Values:
+              - SVGRect
+- File: geometry.idl
+  Dict:
+    Name: DOMRectInit
+    Fields:
+      - Name: x
+        Default: "0"
+        Type:
+          Name: unrestricted double
+      - Name: "y"
+        Default: "0"
+        Type:
+          Name: unrestricted double
+      - Name: width
+        Default: "0"
+        Type:
+          Name: unrestricted double
+      - Name: height
+        Default: "0"
+        Type:
+          Name: unrestricted double
+- File: geometry.idl
+  Interface:
+    Name: DOMRectList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMRect
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: geometry.idl
+  Interface:
+    Name: DOMRectReadOnly
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: Serializable
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: width
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: height
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: top
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: right
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: bottom
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: left
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+    Operations:
+      - Name: fromRect
+        Modifier: static
+        Args:
+          - Name: other
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMRectInit
+        Returns:
+          - Name: DOMRectReadOnly
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+    Constructors:
+      - Args:
+          - Name: x
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+          - Name: width
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+          - Name: height
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+- File: html.idl
+  Interface:
+    Name: DOMStringList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: contains
+        Args:
+          - Name: string
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: html.idl
+  Interface:
+    Name: DOMStringMap
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyOverrideBuiltIns
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+      - Modifier: setter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: value
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+      - Modifier: deleter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+- File: dom.idl
+  Interface:
+    Name: DOMTokenList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Modifier: stringifier
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contains
+        Args:
+          - Name: token
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: add
+        Args:
+          - Name: tokens
+            Variadic: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: remove
+        Args:
+          - Name: tokens
+            Variadic: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: toggle
+        Args:
+          - Name: token
+            Type:
+              Name: DOMString
+          - Name: force
+            Optional: true
+            Type:
+              Name: boolean
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replace
+        Args:
+          - Name: token
+            Type:
+              Name: DOMString
+          - Name: newToken
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: supports
+        Args:
+          - Name: token
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Iterable:
+      TypeParams:
+        - Name: DOMString
+- File: datacue.idl
+  Interface:
+    Name: DataCue
+    Inherits: TextTrackCue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: startTime
+            Type:
+              Name: double
+          - Name: endTime
+            Type:
+              Name: unrestricted double
+          - Name: value
+            Type:
+              Name: any
+          - Name: type
+            Optional: true
+            Type:
+              Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: DataTransfer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: dropEffect
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: effectAllowed
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: items
+        Readonly: true
+        Type:
+          Name: DataTransferItemList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: types
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: files
+        Readonly: true
+        Type:
+          Name: FileList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: setDragImage
+        Args:
+          - Name: image
+            Type:
+              Name: Element
+          - Name: x
+            Type:
+              Name: long
+          - Name: "y"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getData
+        Args:
+          - Name: format
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setData
+        Args:
+          - Name: format
+            Type:
+              Name: DOMString
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: clearData
+        Args:
+          - Name: format
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: DataTransferItem
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: kind
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getAsString
+        Args:
+          - Name: callback
+            Type:
+              Name: FunctionStringCallback
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAsFile
+        Returns:
+          - Name: File
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAsFileSystemHandle
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FileSystemHandle
+                Nullable: true
+      - Name: webkitGetAsEntry
+        Returns:
+          - Name: FileSystemEntry
+            Nullable: true
+- File: html.idl
+  Interface:
+    Name: DataTransferItemList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DataTransferItem
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: add
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+          - Name: type
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DataTransferItem
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: add
+        Args:
+          - Name: data
+            Type:
+              Name: File
+        Returns:
+          - Name: DataTransferItem
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: remove
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Callback:
+    Name: DecodeErrorCallback
+    Args:
+      - Name: error
+        Type:
+          Name: DOMException
+    Returns:
+      - Name: undefined
+- File: webaudio.idl
+  Callback:
+    Name: DecodeSuccessCallback
+    Args:
+      - Name: decodedData
+        Type:
+          Name: AudioBuffer
+    Returns:
+      - Name: undefined
+- File: compression.idl
+  Interface:
+    Name: DecompressionStream
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: readable
+        Readonly: true
+        Type:
+          Name: ReadableStream
+      - Name: writable
+        Readonly: true
+        Type:
+          Name: WritableStream
+    Constructors:
+      - Args:
+          - Name: format
+            Type:
+              Name: CompressionFormat
+        ExtAttrs:
+          - Name: Exposed
+- File: html.idl
+  Interface:
+    Name: DedicatedWorkerGlobalScope
+    Inherits: WorkerGlobalScope
+    ExtAttrs:
+      - Name: Global
+        Values:
+          - Worker
+          - DedicatedWorker
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Worker
+              - DedicatedWorker
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worker
+              - DedicatedWorker
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: onmessageerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worker
+              - DedicatedWorker
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: onrtctransform
+        Type:
+          Name: EventHandler
+    Operations:
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: transfer
+            Type:
+              Name: sequence
+              Params:
+                - Name: object
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worker
+              - DedicatedWorker
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StructuredSerializeOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worker
+              - DedicatedWorker
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worker
+              - DedicatedWorker
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: requestAnimationFrame
+        Args:
+          - Name: callback
+            Type:
+              Name: FrameRequestCallback
+        Returns:
+          - Name: unsigned long
+      - Name: cancelAnimationFrame
+        Args:
+          - Name: handle
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+- File: webaudio.idl
+  Interface:
+    Name: DelayNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: delayTime
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DelayOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: DelayOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: maxDelayTime
+        Default: "1"
+        Type:
+          Name: double
+      - Name: delayTime
+        Default: "0"
+        Type:
+          Name: double
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: deprecation-reporting.idl
+  Interface:
+    Name: DeprecationReportBody
+    Inherits: ReportBody
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: anticipatedRemoval
+        Readonly: true
+        Type:
+          Name: object
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: sourceFile
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: lineNumber
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: columnNumber
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: shape-detection-api.idl
+  Dict:
+    Name: DetectedBarcode
+    Fields:
+      - Name: boundingBox
+        Required: true
+        Type:
+          Name: DOMRectReadOnly
+      - Name: rawValue
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: format
+        Required: true
+        Type:
+          Name: BarcodeFormat
+      - Name: cornerPoints
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Point2D
+- File: shape-detection-api.idl
+  Dict:
+    Name: DetectedFace
+    Fields:
+      - Name: boundingBox
+        Required: true
+        Type:
+          Name: DOMRectReadOnly
+      - Name: landmarks
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Landmark
+          Nullable: true
+- File: text-detection-api.idl
+  Dict:
+    Name: DetectedText
+    Fields:
+      - Name: boundingBox
+        Required: true
+        Type:
+          Name: DOMRectReadOnly
+      - Name: rawValue
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: cornerPoints
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Point2D
+- File: orientation-event.idl
+  Interface:
+    Name: DeviceMotionEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: acceleration
+        Readonly: true
+        Type:
+          Name: DeviceMotionEventAcceleration
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: accelerationIncludingGravity
+        Readonly: true
+        Type:
+          Name: DeviceMotionEventAcceleration
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: rotationRate
+        Readonly: true
+        Type:
+          Name: DeviceMotionEventRotationRate
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: interval
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Operations:
+      - Name: requestPermission
+        Modifier: static
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PermissionState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DeviceMotionEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: orientation-event.idl
+  Interface:
+    Name: DeviceMotionEventAcceleration
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: z
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: orientation-event.idl
+  Dict:
+    Name: DeviceMotionEventAccelerationInit
+    Fields:
+      - Name: x
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+      - Name: "y"
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+      - Name: z
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+- File: orientation-event.idl
+  Dict:
+    Name: DeviceMotionEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: acceleration
+        Type:
+          Name: DeviceMotionEventAccelerationInit
+      - Name: accelerationIncludingGravity
+        Type:
+          Name: DeviceMotionEventAccelerationInit
+      - Name: rotationRate
+        Type:
+          Name: DeviceMotionEventRotationRateInit
+      - Name: interval
+        Default: "0"
+        Type:
+          Name: double
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: orientation-event.idl
+  Interface:
+    Name: DeviceMotionEventRotationRate
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: alpha
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: beta
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: gamma
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: orientation-event.idl
+  Dict:
+    Name: DeviceMotionEventRotationRateInit
+    Fields:
+      - Name: alpha
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+      - Name: beta
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+      - Name: gamma
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+- File: orientation-event.idl
+  Interface:
+    Name: DeviceOrientationEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: alpha
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: beta
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: gamma
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: absolute
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Operations:
+      - Name: requestPermission
+        Modifier: static
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PermissionState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DeviceOrientationEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: orientation-event.idl
+  Dict:
+    Name: DeviceOrientationEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: alpha
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+      - Name: beta
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+      - Name: gamma
+        Default: "null"
+        Type:
+          Name: double
+          Nullable: true
+      - Name: absolute
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: device-posture.idl
+  Interface:
+    Name: DevicePosture
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DevicePostureType
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: device-posture.idl
+  Enum:
+    Name: DevicePostureType
+    Values:
+      - continuous
+      - folded
+- File: digital-goods.idl
+  Interface:
+    Name: DigitalGoodsService
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Operations:
+      - Name: getDetails
+        Args:
+          - Name: itemIds
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: ItemDetails
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: listPurchases
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: PurchaseDetails
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: listPurchaseHistory
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: PurchaseDetails
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: consume
+        Args:
+          - Name: purchaseToken
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webvtt.idl
+  Enum:
+    Name: DirectionSetting
+    Values:
+      - ""
+      - rl
+      - lr
+- File: file-system-access.idl
+  Dict:
+    Name: DirectoryPickerOptions
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: startIn
+        Type:
+          Name: StartInDirectory
+      - Name: mode
+        Default: '"read"'
+        Type:
+          Name: FileSystemPermissionMode
+- File: screen-capture.idl
+  Enum:
+    Name: DisplayCaptureSurfaceType
+    Values:
+      - monitor
+      - window
+      - browser
+- File: screen-capture.idl
+  Dict:
+    Name: DisplayMediaStreamOptions
+    Fields:
+      - Name: video
+        Default: "true"
+        Type:
+          Union:
+            - Name: boolean
+            - Name: MediaTrackConstraints
+      - Name: audio
+        Default: "false"
+        Type:
+          Union:
+            - Name: boolean
+            - Name: MediaTrackConstraints
+      - Name: controller
+        Type:
+          Name: CaptureController
+      - Name: selfBrowserSurface
+        Type:
+          Name: SelfCapturePreferenceEnum
+      - Name: systemAudio
+        Type:
+          Name: SystemAudioPreferenceEnum
+      - Name: surfaceSwitching
+        Type:
+          Name: SurfaceSwitchingPreferenceEnum
+      - Name: monitorTypeSurfaces
+        Type:
+          Name: MonitorTypeSurfacesEnum
+- File: webaudio.idl
+  Enum:
+    Name: DistanceModelType
+    Values:
+      - linear
+      - inverse
+      - exponential
+- File: dom.idl
+  Interface:
+    Name: Document
+    Inherits: Node
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: implementation
+        Readonly: true
+        Type:
+          Name: DOMImplementation
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: URL
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: documentURI
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: compatMode
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: characterSet
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: charset
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: inputEncoding
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contentType
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: doctype
+        Readonly: true
+        Type:
+          Name: DocumentType
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: documentElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fragmentDirective
+        Readonly: true
+        Type:
+          Name: FragmentDirective
+        ExtAttrs:
+          - Name: SameObject
+      - Name: permissionsPolicy
+        Readonly: true
+        Type:
+          Name: PermissionsPolicy
+        ExtAttrs:
+          - Name: SameObject
+      - Name: onfreeze
+        Type:
+          Name: EventHandler
+      - Name: onresume
+        Type:
+          Name: EventHandler
+      - Name: wasDiscarded
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: onpointerlockchange
+        Type:
+          Name: EventHandler
+      - Name: onpointerlockerror
+        Type:
+          Name: EventHandler
+      - Name: fullscreenEnabled
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: LegacyLenientSetter
+      - Name: fullscreen
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: LegacyLenientSetter
+          - Name: Unscopable
+      - Name: onfullscreenchange
+        Type:
+          Name: EventHandler
+      - Name: onfullscreenerror
+        Type:
+          Name: EventHandler
+      - Name: timeline
+        Readonly: true
+        Type:
+          Name: DocumentTimeline
+      - Name: pictureInPictureEnabled
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: namedFlows
+        Readonly: true
+        Type:
+          Name: NamedFlowMap
+      - Name: scrollingElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: rootElement
+        Readonly: true
+        Type:
+          Name: SVGSVGElement
+          Nullable: true
+      - Name: prerendering
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: onprerenderingchange
+        Type:
+          Name: EventHandler
+      - Name: fgColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: linkColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: vlinkColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: alinkColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: bgColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: anchors
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+      - Name: applets
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+      - Name: all
+        Readonly: true
+        Type:
+          Name: HTMLAllCollection
+        ExtAttrs:
+          - Name: SameObject
+      - Name: location
+        Readonly: true
+        Type:
+          Name: Location
+          Nullable: true
+        ExtAttrs:
+          - Name: PutForwards
+            Values:
+              - href
+          - Name: LegacyUnforgeable
+          - Name: LegacyOverrideBuiltIns
+      - Name: domain
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: referrer
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: cookie
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: lastModified
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: DocumentReadyState
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: dir
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: body
+        Type:
+          Name: HTMLElement
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: head
+        Readonly: true
+        Type:
+          Name: HTMLHeadElement
+          Nullable: true
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: images
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: LegacyOverrideBuiltIns
+      - Name: embeds
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: LegacyOverrideBuiltIns
+      - Name: plugins
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: LegacyOverrideBuiltIns
+      - Name: links
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: LegacyOverrideBuiltIns
+      - Name: forms
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: LegacyOverrideBuiltIns
+      - Name: scripts
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: LegacyOverrideBuiltIns
+      - Name: currentScript
+        Readonly: true
+        Type:
+          Name: HTMLOrSVGScriptElement
+          Nullable: true
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: defaultView
+        Readonly: true
+        Type:
+          Name: WindowProxy
+          Nullable: true
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: designMode
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: hidden
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: visibilityState
+        Readonly: true
+        Type:
+          Name: DocumentVisibilityState
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: onreadystatechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+          - Name: LegacyOverrideBuiltIns
+      - Name: onvisibilitychange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: fullscreenElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: LegacyLenientSetter
+      - Name: styleSheets
+        Readonly: true
+        Type:
+          Name: StyleSheetList
+        ExtAttrs:
+          - Name: SameObject
+      - Name: adoptedStyleSheets
+        Type:
+          Name: ObservableArray
+          Params:
+            - Name: CSSStyleSheet
+      - Name: pictureInPictureElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: activeElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: pointerLockElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: children
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+      - Name: firstElementChild
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: lastElementChild
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: childElementCount
+        Readonly: true
+        Type:
+          Name: unsigned long
+      - Name: fonts
+        Readonly: true
+        Type:
+          Name: FontFaceSet
+      - Name: onabort
+        Type:
+          Name: EventHandler
+      - Name: onauxclick
+        Type:
+          Name: EventHandler
+      - Name: onbeforeinput
+        Type:
+          Name: EventHandler
+      - Name: onbeforematch
+        Type:
+          Name: EventHandler
+      - Name: onbeforetoggle
+        Type:
+          Name: EventHandler
+      - Name: onblur
+        Type:
+          Name: EventHandler
+      - Name: oncancel
+        Type:
+          Name: EventHandler
+      - Name: oncanplay
+        Type:
+          Name: EventHandler
+      - Name: oncanplaythrough
+        Type:
+          Name: EventHandler
+      - Name: onchange
+        Type:
+          Name: EventHandler
+      - Name: onclick
+        Type:
+          Name: EventHandler
+      - Name: onclose
+        Type:
+          Name: EventHandler
+      - Name: oncontextlost
+        Type:
+          Name: EventHandler
+      - Name: oncontextmenu
+        Type:
+          Name: EventHandler
+      - Name: oncontextrestored
+        Type:
+          Name: EventHandler
+      - Name: oncopy
+        Type:
+          Name: EventHandler
+      - Name: oncuechange
+        Type:
+          Name: EventHandler
+      - Name: oncut
+        Type:
+          Name: EventHandler
+      - Name: ondblclick
+        Type:
+          Name: EventHandler
+      - Name: ondrag
+        Type:
+          Name: EventHandler
+      - Name: ondragend
+        Type:
+          Name: EventHandler
+      - Name: ondragenter
+        Type:
+          Name: EventHandler
+      - Name: ondragleave
+        Type:
+          Name: EventHandler
+      - Name: ondragover
+        Type:
+          Name: EventHandler
+      - Name: ondragstart
+        Type:
+          Name: EventHandler
+      - Name: ondrop
+        Type:
+          Name: EventHandler
+      - Name: ondurationchange
+        Type:
+          Name: EventHandler
+      - Name: onemptied
+        Type:
+          Name: EventHandler
+      - Name: onended
+        Type:
+          Name: EventHandler
+      - Name: onerror
+        Type:
+          Name: OnErrorEventHandler
+      - Name: onfocus
+        Type:
+          Name: EventHandler
+      - Name: onformdata
+        Type:
+          Name: EventHandler
+      - Name: oninput
+        Type:
+          Name: EventHandler
+      - Name: oninvalid
+        Type:
+          Name: EventHandler
+      - Name: onkeydown
+        Type:
+          Name: EventHandler
+      - Name: onkeypress
+        Type:
+          Name: EventHandler
+      - Name: onkeyup
+        Type:
+          Name: EventHandler
+      - Name: onload
+        Type:
+          Name: EventHandler
+      - Name: onloadeddata
+        Type:
+          Name: EventHandler
+      - Name: onloadedmetadata
+        Type:
+          Name: EventHandler
+      - Name: onloadstart
+        Type:
+          Name: EventHandler
+      - Name: onmousedown
+        Type:
+          Name: EventHandler
+      - Name: onmouseenter
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmouseleave
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmousemove
+        Type:
+          Name: EventHandler
+      - Name: onmouseout
+        Type:
+          Name: EventHandler
+      - Name: onmouseover
+        Type:
+          Name: EventHandler
+      - Name: onmouseup
+        Type:
+          Name: EventHandler
+      - Name: onpaste
+        Type:
+          Name: EventHandler
+      - Name: onpause
+        Type:
+          Name: EventHandler
+      - Name: onplay
+        Type:
+          Name: EventHandler
+      - Name: onplaying
+        Type:
+          Name: EventHandler
+      - Name: onprogress
+        Type:
+          Name: EventHandler
+      - Name: onratechange
+        Type:
+          Name: EventHandler
+      - Name: onreset
+        Type:
+          Name: EventHandler
+      - Name: onresize
+        Type:
+          Name: EventHandler
+      - Name: onscroll
+        Type:
+          Name: EventHandler
+      - Name: onscrollend
+        Type:
+          Name: EventHandler
+      - Name: onsecuritypolicyviolation
+        Type:
+          Name: EventHandler
+      - Name: onseeked
+        Type:
+          Name: EventHandler
+      - Name: onseeking
+        Type:
+          Name: EventHandler
+      - Name: onselect
+        Type:
+          Name: EventHandler
+      - Name: onslotchange
+        Type:
+          Name: EventHandler
+      - Name: onstalled
+        Type:
+          Name: EventHandler
+      - Name: onsubmit
+        Type:
+          Name: EventHandler
+      - Name: onsuspend
+        Type:
+          Name: EventHandler
+      - Name: ontimeupdate
+        Type:
+          Name: EventHandler
+      - Name: ontoggle
+        Type:
+          Name: EventHandler
+      - Name: onvolumechange
+        Type:
+          Name: EventHandler
+      - Name: onwaiting
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationend
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onwebkittransitionend
+        Type:
+          Name: EventHandler
+      - Name: onwheel
+        Type:
+          Name: EventHandler
+      - Name: onbeforexrselect
+        Type:
+          Name: EventHandler
+      - Name: onselectstart
+        Type:
+          Name: EventHandler
+      - Name: onselectionchange
+        Type:
+          Name: EventHandler
+      - Name: ontransitionrun
+        Type:
+          Name: EventHandler
+      - Name: ontransitionstart
+        Type:
+          Name: EventHandler
+      - Name: ontransitionend
+        Type:
+          Name: EventHandler
+      - Name: ontransitioncancel
+        Type:
+          Name: EventHandler
+      - Name: onanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onanimationend
+        Type:
+          Name: EventHandler
+      - Name: onanimationcancel
+        Type:
+          Name: EventHandler
+      - Name: ontouchstart
+        Type:
+          Name: EventHandler
+      - Name: ontouchend
+        Type:
+          Name: EventHandler
+      - Name: ontouchmove
+        Type:
+          Name: EventHandler
+      - Name: ontouchcancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerover
+        Type:
+          Name: EventHandler
+      - Name: onpointerenter
+        Type:
+          Name: EventHandler
+      - Name: onpointerdown
+        Type:
+          Name: EventHandler
+      - Name: onpointermove
+        Type:
+          Name: EventHandler
+      - Name: onpointerrawupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: onpointerup
+        Type:
+          Name: EventHandler
+      - Name: onpointercancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerout
+        Type:
+          Name: EventHandler
+      - Name: onpointerleave
+        Type:
+          Name: EventHandler
+      - Name: ongotpointercapture
+        Type:
+          Name: EventHandler
+      - Name: onlostpointercapture
+        Type:
+          Name: EventHandler
+    Operations:
+      - Name: getElementsByTagName
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: HTMLCollection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getElementsByTagNameNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: HTMLCollection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getElementsByClassName
+        Args:
+          - Name: classNames
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: HTMLCollection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createElement
+        Args:
+          - Name: localName
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: ElementCreationOptions
+        Returns:
+          - Name: Element
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createElementNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: ElementCreationOptions
+        Returns:
+          - Name: Element
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createDocumentFragment
+        Returns:
+          - Name: DocumentFragment
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createTextNode
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Text
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createCDATASection
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: CDATASection
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createComment
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Comment
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createProcessingInstruction
+        Args:
+          - Name: target
+            Type:
+              Name: DOMString
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: ProcessingInstruction
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: importNode
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+          - Name: deep
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: adoptNode
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createAttribute
+        Args:
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createAttributeNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createEvent
+        Args:
+          - Name: iface
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Event
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createRange
+        Returns:
+          - Name: Range
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createNodeIterator
+        Args:
+          - Name: root
+            Type:
+              Name: Node
+          - Name: whatToShow
+            Optional: true
+            Default: "0xFFFFFFFF"
+            Type:
+              Name: unsigned long
+          - Name: filter
+            Optional: true
+            Default: "null"
+            Type:
+              Name: NodeFilter
+              Nullable: true
+        Returns:
+          - Name: NodeIterator
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createTreeWalker
+        Args:
+          - Name: root
+            Type:
+              Name: Node
+          - Name: whatToShow
+            Optional: true
+            Default: "0xFFFFFFFF"
+            Type:
+              Name: unsigned long
+          - Name: filter
+            Optional: true
+            Default: "null"
+            Type:
+              Name: NodeFilter
+              Nullable: true
+        Returns:
+          - Name: TreeWalker
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: startViewTransition
+        Args:
+          - Name: updateCallback
+            Optional: true
+            Default: "null"
+            Type:
+              Name: UpdateCallback
+              Nullable: true
+        Returns:
+          - Name: ViewTransition
+      - Name: measureElement
+        Args:
+          - Name: element
+            Type:
+              Name: Element
+        Returns:
+          - Name: FontMetrics
+      - Name: measureText
+        Args:
+          - Name: text
+            Type:
+              Name: DOMString
+          - Name: styleMap
+            Type:
+              Name: StylePropertyMapReadOnly
+        Returns:
+          - Name: FontMetrics
+      - Name: getSelection
+        Returns:
+          - Name: Selection
+            Nullable: true
+      - Name: exitPointerLock
+        Returns:
+          - Name: undefined
+      - Name: exitFullscreen
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+      - Name: hasStorageAccess
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+      - Name: requestStorageAccess
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+      - Name: exitPictureInPicture
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: NewObject
+      - Name: hasPrivateTokens
+        Args:
+          - Name: issuer
+            Type:
+              Name: USVString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+      - Name: hasRedemptionRecord
+        Args:
+          - Name: issuer
+            Type:
+              Name: USVString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+      - Name: elementFromPoint
+        Args:
+          - Name: x
+            Type:
+              Name: double
+          - Name: "y"
+            Type:
+              Name: double
+        Returns:
+          - Name: Element
+            Nullable: true
+      - Name: elementsFromPoint
+        Args:
+          - Name: x
+            Type:
+              Name: double
+          - Name: "y"
+            Type:
+              Name: double
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Element
+      - Name: caretPositionFromPoint
+        Args:
+          - Name: x
+            Type:
+              Name: double
+          - Name: "y"
+            Type:
+              Name: double
+        Returns:
+          - Name: CaretPosition
+            Nullable: true
+      - Name: clear
+        Returns:
+          - Name: undefined
+      - Name: captureEvents
+        Returns:
+          - Name: undefined
+      - Name: releaseEvents
+        Returns:
+          - Name: undefined
+      - Name: requestStorageAccessFor
+        Args:
+          - Name: requestedOrigin
+            Type:
+              Name: USVString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+      - Modifier: getter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: getElementsByName
+        Args:
+          - Name: elementName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: NodeList
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: open
+        Args:
+          - Name: unused1
+            Optional: true
+            Type:
+              Name: DOMString
+          - Name: unused2
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Document
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: open
+        Args:
+          - Name: url
+            Type:
+              Name: USVString
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: features
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: WindowProxy
+            Nullable: true
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: write
+        Args:
+          - Name: text
+            Variadic: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: writeln
+        Args:
+          - Name: text
+            Variadic: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: hasFocus
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: execCommand
+        Args:
+          - Name: commandId
+            Type:
+              Name: DOMString
+          - Name: showUI
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: value
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: LegacyOverrideBuiltIns
+      - Name: queryCommandEnabled
+        Args:
+          - Name: commandId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: queryCommandIndeterm
+        Args:
+          - Name: commandId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: queryCommandState
+        Args:
+          - Name: commandId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: queryCommandSupported
+        Args:
+          - Name: commandId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: queryCommandValue
+        Args:
+          - Name: commandId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: LegacyOverrideBuiltIns
+      - Name: getBoxQuads
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: BoxQuadOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: DOMQuad
+      - Name: convertQuadFromNode
+        Args:
+          - Name: quad
+            Type:
+              Name: DOMQuadInit
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMQuad
+      - Name: convertRectFromNode
+        Args:
+          - Name: rect
+            Type:
+              Name: DOMRectReadOnly
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMQuad
+      - Name: convertPointFromNode
+        Args:
+          - Name: point
+            Type:
+              Name: DOMPointInit
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMPoint
+      - Name: getElementById
+        Args:
+          - Name: elementId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+            Nullable: true
+      - Name: getAnimations
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Animation
+      - Name: prepend
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: append
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: replaceChildren
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: querySelector
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+            Nullable: true
+      - Name: querySelectorAll
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: NodeList
+        ExtAttrs:
+          - Name: NewObject
+      - Name: createExpression
+        Args:
+          - Name: expression
+            Type:
+              Name: DOMString
+          - Name: resolver
+            Optional: true
+            Default: "null"
+            Type:
+              Name: XPathNSResolver
+              Nullable: true
+        Returns:
+          - Name: XPathExpression
+        ExtAttrs:
+          - Name: NewObject
+      - Name: createNSResolver
+        Args:
+          - Name: nodeResolver
+            Type:
+              Name: Node
+        Returns:
+          - Name: Node
+      - Name: evaluate
+        Args:
+          - Name: expression
+            Type:
+              Name: DOMString
+          - Name: contextNode
+            Type:
+              Name: Node
+          - Name: resolver
+            Optional: true
+            Default: "null"
+            Type:
+              Name: XPathNSResolver
+              Nullable: true
+          - Name: type
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned short
+          - Name: result
+            Optional: true
+            Default: "null"
+            Type:
+              Name: XPathResult
+              Nullable: true
+        Returns:
+          - Name: XPathResult
+- File: dom.idl
+  Interface:
+    Name: DocumentFragment
+    Inherits: Node
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: children
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+      - Name: firstElementChild
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: lastElementChild
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: childElementCount
+        Readonly: true
+        Type:
+          Name: unsigned long
+    Operations:
+      - Name: getElementById
+        Args:
+          - Name: elementId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+            Nullable: true
+      - Name: prepend
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: append
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: replaceChildren
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: querySelector
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+            Nullable: true
+      - Name: querySelectorAll
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: NodeList
+        ExtAttrs:
+          - Name: NewObject
+- File: document-picture-in-picture.idl
+  Interface:
+    Name: DocumentPictureInPicture
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: window
+        Readonly: true
+        Type:
+          Name: Window
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: onenter
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Operations:
+      - Name: requestWindow
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DocumentPictureInPictureOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: Window
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: document-picture-in-picture.idl
+  Interface:
+    Name: DocumentPictureInPictureEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: window
+        Readonly: true
+        Type:
+          Name: Window
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: DocumentPictureInPictureEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: document-picture-in-picture.idl
+  Dict:
+    Name: DocumentPictureInPictureEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: window
+        Required: true
+        Type:
+          Name: Window
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: document-picture-in-picture.idl
+  Dict:
+    Name: DocumentPictureInPictureOptions
+    Fields:
+      - Name: width
+        Default: "0"
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: height
+        Default: "0"
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+- File: html.idl
+  Enum:
+    Name: DocumentReadyState
+    Values:
+      - loading
+      - interactive
+      - complete
+- File: web-animations.idl
+  Interface:
+    Name: DocumentTimeline
+    Inherits: AnimationTimeline
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DocumentTimelineOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-animations.idl
+  Dict:
+    Name: DocumentTimelineOptions
+    Fields:
+      - Name: originTime
+        Default: "0"
+        Type:
+          Name: DOMHighResTimeStamp
+- File: dom.idl
+  Interface:
+    Name: DocumentType
+    Inherits: Node
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: publicId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: systemId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: before
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: after
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: replaceWith
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: remove
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+- File: html.idl
+  Enum:
+    Name: DocumentVisibilityState
+    Values:
+      - visible
+      - hidden
+- File: mediacapture-streams.idl
+  Dict:
+    Name: DoubleRange
+    Fields:
+      - Name: max
+        Type:
+          Name: double
+      - Name: min
+        Type:
+          Name: double
+- File: html.idl
+  Interface:
+    Name: DragEvent
+    Inherits: MouseEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: dataTransfer
+        Readonly: true
+        Type:
+          Name: DataTransfer
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DragEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window

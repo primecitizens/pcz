@@ -1,0 +1,2014 @@
+- File: webnn.idl
+  Dict:
+    Name: MLConvTranspose2dOptions
+    Fields:
+      - Name: padding
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: strides
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: dilations
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: outputPadding
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: outputSizes
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: autoPad
+        Default: '"explicit"'
+        Type:
+          Name: MLAutoPad
+      - Name: groups
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: inputLayout
+        Default: '"nchw"'
+        Type:
+          Name: MLInputOperandLayout
+      - Name: filterLayout
+        Default: '"iohw"'
+        Type:
+          Name: MLConvTranspose2dFilterOperandLayout
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: activation
+        Type:
+          Name: MLActivation
+- File: webnn.idl
+  Enum:
+    Name: MLDeviceType
+    Values:
+      - cpu
+      - gpu
+- File: webnn.idl
+  Dict:
+    Name: MLEluOptions
+    Fields:
+      - Name: alpha
+        Default: "1"
+        Type:
+          Name: float
+- File: webnn.idl
+  Typedef:
+    Name: MLGPUResource
+    Type:
+      Union:
+        - Name: GPUBuffer
+        - Name: GPUTexture
+- File: webnn.idl
+  Dict:
+    Name: MLGemmOptions
+    Fields:
+      - Name: c
+        Type:
+          Name: MLOperand
+      - Name: alpha
+        Default: "1.0"
+        Type:
+          Name: float
+      - Name: beta
+        Default: "1.0"
+        Type:
+          Name: float
+      - Name: aTranspose
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: bTranspose
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webnn.idl
+  Interface:
+    Name: MLGraph
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+- File: webnn.idl
+  Interface:
+    Name: MLGraphBuilder
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+    Operations:
+      - Name: input
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: descriptor
+            Type:
+              Name: MLOperandDescriptor
+        Returns:
+          - Name: MLOperand
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: constant
+        Args:
+          - Name: descriptor
+            Type:
+              Name: MLOperandDescriptor
+          - Name: bufferView
+            Type:
+              Name: MLBufferView
+        Returns:
+          - Name: MLOperand
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: constant
+        Args:
+          - Name: value
+            Type:
+              Name: double
+          - Name: type
+            Optional: true
+            Default: '"float32"'
+            Type:
+              Name: MLOperandType
+        Returns:
+          - Name: MLOperand
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: build
+        Args:
+          - Name: outputs
+            Type:
+              Name: MLNamedOperands
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MLGraph
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: buildSync
+        Args:
+          - Name: outputs
+            Type:
+              Name: MLNamedOperands
+        Returns:
+          - Name: MLGraph
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: hardSigmoid
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLHardSigmoidOptions
+        Returns:
+          - Name: MLOperand
+      - Name: hardSigmoid
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLHardSigmoidOptions
+        Returns:
+          - Name: MLActivation
+      - Name: gruCell
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: weight
+            Type:
+              Name: MLOperand
+          - Name: recurrentWeight
+            Type:
+              Name: MLOperand
+          - Name: hiddenState
+            Type:
+              Name: MLOperand
+          - Name: hiddenSize
+            Type:
+              Name: unsigned long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLGruCellOptions
+        Returns:
+          - Name: MLOperand
+      - Name: slice
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: starts
+            Type:
+              Name: sequence
+              Params:
+                - Name: unsigned long
+          - Name: sizes
+            Type:
+              Name: sequence
+              Params:
+                - Name: unsigned long
+        Returns:
+          - Name: MLOperand
+      - Name: averagePool2d
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLPool2dOptions
+        Returns:
+          - Name: MLOperand
+      - Name: l2Pool2d
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLPool2dOptions
+        Returns:
+          - Name: MLOperand
+      - Name: maxPool2d
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLPool2dOptions
+        Returns:
+          - Name: MLOperand
+      - Name: linear
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLLinearOptions
+        Returns:
+          - Name: MLOperand
+      - Name: linear
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLLinearOptions
+        Returns:
+          - Name: MLActivation
+      - Name: leakyRelu
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLLeakyReluOptions
+        Returns:
+          - Name: MLOperand
+      - Name: leakyRelu
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLLeakyReluOptions
+        Returns:
+          - Name: MLActivation
+      - Name: pad
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: beginningPadding
+            Type:
+              Name: sequence
+              Params:
+                - Name: unsigned long
+          - Name: endingPadding
+            Type:
+              Name: sequence
+              Params:
+                - Name: unsigned long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLPadOptions
+        Returns:
+          - Name: MLOperand
+      - Name: instanceNormalization
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLInstanceNormalizationOptions
+        Returns:
+          - Name: MLOperand
+      - Name: softplus
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLSoftplusOptions
+        Returns:
+          - Name: MLOperand
+      - Name: softplus
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLSoftplusOptions
+        Returns:
+          - Name: MLActivation
+      - Name: softsign
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: softsign
+        Returns:
+          - Name: MLActivation
+      - Name: sigmoid
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: sigmoid
+        Returns:
+          - Name: MLActivation
+      - Name: reshape
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: newShape
+            Type:
+              Name: sequence
+              Params:
+                - Name: unsigned long
+                  Nullable: true
+        Returns:
+          - Name: MLOperand
+      - Name: conv2d
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: filter
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLConv2dOptions
+        Returns:
+          - Name: MLOperand
+      - Name: split
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: splits
+            Type:
+              Union:
+                - Name: unsigned long
+                - Name: sequence
+                  Params:
+                    - Name: unsigned long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLSplitOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: MLOperand
+      - Name: resample2d
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLResample2dOptions
+        Returns:
+          - Name: MLOperand
+      - Name: hardSwish
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: hardSwish
+        Returns:
+          - Name: MLActivation
+      - Name: softmax
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: softmax
+        Returns:
+          - Name: MLActivation
+      - Name: convTranspose2d
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: filter
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLConvTranspose2dOptions
+        Returns:
+          - Name: MLOperand
+      - Name: relu
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: relu
+        Returns:
+          - Name: MLActivation
+      - Name: add
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: sub
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: mul
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: div
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: max
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: min
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: pow
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: reduceL1
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceL2
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceLogSum
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceLogSumExp
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceMax
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceMean
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceMin
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceProduct
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceSum
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: reduceSumSquare
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLReduceOptions
+        Returns:
+          - Name: MLOperand
+      - Name: lstm
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: weight
+            Type:
+              Name: MLOperand
+          - Name: recurrentWeight
+            Type:
+              Name: MLOperand
+          - Name: steps
+            Type:
+              Name: unsigned long
+          - Name: hiddenSize
+            Type:
+              Name: unsigned long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLLstmOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: MLOperand
+      - Name: matmul
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: squeeze
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLSqueezeOptions
+        Returns:
+          - Name: MLOperand
+      - Name: tanh
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: tanh
+        Returns:
+          - Name: MLActivation
+      - Name: gru
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: weight
+            Type:
+              Name: MLOperand
+          - Name: recurrentWeight
+            Type:
+              Name: MLOperand
+          - Name: steps
+            Type:
+              Name: unsigned long
+          - Name: hiddenSize
+            Type:
+              Name: unsigned long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLGruOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: MLOperand
+      - Name: abs
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: ceil
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: cos
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: exp
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: floor
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: log
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: neg
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: sin
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: tan
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: transpose
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLTransposeOptions
+        Returns:
+          - Name: MLOperand
+      - Name: prelu
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: slope
+            Type:
+              Name: MLOperand
+        Returns:
+          - Name: MLOperand
+      - Name: concat
+        Args:
+          - Name: inputs
+            Type:
+              Name: sequence
+              Params:
+                - Name: MLOperand
+          - Name: axis
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: MLOperand
+      - Name: gemm
+        Args:
+          - Name: a
+            Type:
+              Name: MLOperand
+          - Name: b
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLGemmOptions
+        Returns:
+          - Name: MLOperand
+      - Name: lstmCell
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: weight
+            Type:
+              Name: MLOperand
+          - Name: recurrentWeight
+            Type:
+              Name: MLOperand
+          - Name: hiddenState
+            Type:
+              Name: MLOperand
+          - Name: cellState
+            Type:
+              Name: MLOperand
+          - Name: hiddenSize
+            Type:
+              Name: unsigned long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLLstmCellOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: MLOperand
+      - Name: batchNormalization
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: mean
+            Type:
+              Name: MLOperand
+          - Name: variance
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLBatchNormalizationOptions
+        Returns:
+          - Name: MLOperand
+      - Name: elu
+        Args:
+          - Name: input
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLEluOptions
+        Returns:
+          - Name: MLOperand
+      - Name: elu
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLEluOptions
+        Returns:
+          - Name: MLActivation
+      - Name: clamp
+        Args:
+          - Name: operand
+            Type:
+              Name: MLOperand
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLClampOptions
+        Returns:
+          - Name: MLOperand
+      - Name: clamp
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLClampOptions
+        Returns:
+          - Name: MLActivation
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: MLContext
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+- File: webnn.idl
+  Dict:
+    Name: MLGruCellOptions
+    Fields:
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: recurrentBias
+        Type:
+          Name: MLOperand
+      - Name: resetAfter
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: layout
+        Default: '"zrn"'
+        Type:
+          Name: MLGruWeightLayout
+      - Name: activations
+        Type:
+          Name: sequence
+          Params:
+            - Name: MLActivation
+- File: webnn.idl
+  Dict:
+    Name: MLGruOptions
+    Fields:
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: recurrentBias
+        Type:
+          Name: MLOperand
+      - Name: initialHiddenState
+        Type:
+          Name: MLOperand
+      - Name: resetAfter
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: returnSequence
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: direction
+        Default: '"forward"'
+        Type:
+          Name: MLRecurrentNetworkDirection
+      - Name: layout
+        Default: '"zrn"'
+        Type:
+          Name: MLGruWeightLayout
+      - Name: activations
+        Type:
+          Name: sequence
+          Params:
+            - Name: MLActivation
+- File: webnn.idl
+  Enum:
+    Name: MLGruWeightLayout
+    Values:
+      - zrn
+      - rzn
+- File: webnn.idl
+  Dict:
+    Name: MLHardSigmoidOptions
+    Fields:
+      - Name: alpha
+        Default: "0.2"
+        Type:
+          Name: float
+      - Name: beta
+        Default: "0.5"
+        Type:
+          Name: float
+- File: webnn.idl
+  Enum:
+    Name: MLInputOperandLayout
+    Values:
+      - nchw
+      - nhwc
+- File: webnn.idl
+  Dict:
+    Name: MLInstanceNormalizationOptions
+    Fields:
+      - Name: scale
+        Type:
+          Name: MLOperand
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: epsilon
+        Default: "1e-5"
+        Type:
+          Name: float
+      - Name: layout
+        Default: '"nchw"'
+        Type:
+          Name: MLInputOperandLayout
+- File: webnn.idl
+  Enum:
+    Name: MLInterpolationMode
+    Values:
+      - nearest-neighbor
+      - linear
+- File: webnn.idl
+  Dict:
+    Name: MLLeakyReluOptions
+    Fields:
+      - Name: alpha
+        Default: "0.01"
+        Type:
+          Name: float
+- File: webnn.idl
+  Dict:
+    Name: MLLinearOptions
+    Fields:
+      - Name: alpha
+        Default: "1"
+        Type:
+          Name: float
+      - Name: beta
+        Default: "0"
+        Type:
+          Name: float
+- File: webnn.idl
+  Dict:
+    Name: MLLstmCellOptions
+    Fields:
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: recurrentBias
+        Type:
+          Name: MLOperand
+      - Name: peepholeWeight
+        Type:
+          Name: MLOperand
+      - Name: layout
+        Default: '"iofg"'
+        Type:
+          Name: MLLstmWeightLayout
+      - Name: activations
+        Type:
+          Name: sequence
+          Params:
+            - Name: MLActivation
+- File: webnn.idl
+  Dict:
+    Name: MLLstmOptions
+    Fields:
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: recurrentBias
+        Type:
+          Name: MLOperand
+      - Name: peepholeWeight
+        Type:
+          Name: MLOperand
+      - Name: initialHiddenState
+        Type:
+          Name: MLOperand
+      - Name: initialCellState
+        Type:
+          Name: MLOperand
+      - Name: returnSequence
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: direction
+        Default: '"forward"'
+        Type:
+          Name: MLRecurrentNetworkDirection
+      - Name: layout
+        Default: '"iofg"'
+        Type:
+          Name: MLLstmWeightLayout
+      - Name: activations
+        Type:
+          Name: sequence
+          Params:
+            - Name: MLActivation
+- File: webnn.idl
+  Enum:
+    Name: MLLstmWeightLayout
+    Values:
+      - iofg
+      - ifgo
+- File: webnn.idl
+  Typedef:
+    Name: MLNamedArrayBufferViews
+    Type:
+      Name: record
+      Params:
+        - Name: DOMString
+        - Name: ArrayBufferView
+- File: webnn.idl
+  Typedef:
+    Name: MLNamedGPUResources
+    Type:
+      Name: record
+      Params:
+        - Name: DOMString
+        - Name: MLGPUResource
+- File: webnn.idl
+  Typedef:
+    Name: MLNamedOperands
+    Type:
+      Name: record
+      Params:
+        - Name: DOMString
+        - Name: MLOperand
+- File: webnn.idl
+  Interface:
+    Name: MLOperand
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+- File: webnn.idl
+  Dict:
+    Name: MLOperandDescriptor
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: MLOperandType
+      - Name: dimensions
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+- File: webnn.idl
+  Enum:
+    Name: MLOperandType
+    Values:
+      - float32
+      - float16
+      - int32
+      - uint32
+      - int8
+      - uint8
+- File: webnn.idl
+  Dict:
+    Name: MLPadOptions
+    Fields:
+      - Name: mode
+        Default: '"constant"'
+        Type:
+          Name: MLPaddingMode
+      - Name: value
+        Default: "0"
+        Type:
+          Name: float
+- File: webnn.idl
+  Enum:
+    Name: MLPaddingMode
+    Values:
+      - constant
+      - edge
+      - reflection
+      - symmetric
+- File: webnn.idl
+  Dict:
+    Name: MLPool2dOptions
+    Fields:
+      - Name: windowDimensions
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: padding
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: strides
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: dilations
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: autoPad
+        Default: '"explicit"'
+        Type:
+          Name: MLAutoPad
+      - Name: layout
+        Default: '"nchw"'
+        Type:
+          Name: MLInputOperandLayout
+      - Name: roundingType
+        Default: '"floor"'
+        Type:
+          Name: MLRoundingType
+      - Name: outputSizes
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+- File: webnn.idl
+  Enum:
+    Name: MLPowerPreference
+    Values:
+      - default
+      - high-performance
+      - low-power
+- File: webnn.idl
+  Enum:
+    Name: MLRecurrentNetworkDirection
+    Values:
+      - forward
+      - backward
+      - both
+- File: webnn.idl
+  Dict:
+    Name: MLReduceOptions
+    Fields:
+      - Name: axes
+        Default: "null"
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: keepDimensions
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webnn.idl
+  Dict:
+    Name: MLResample2dOptions
+    Fields:
+      - Name: mode
+        Default: '"nearest-neighbor"'
+        Type:
+          Name: MLInterpolationMode
+      - Name: scales
+        Type:
+          Name: sequence
+          Params:
+            - Name: float
+      - Name: sizes
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: axes
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+- File: webnn.idl
+  Enum:
+    Name: MLRoundingType
+    Values:
+      - floor
+      - ceil
+- File: webnn.idl
+  Dict:
+    Name: MLSoftplusOptions
+    Fields:
+      - Name: steepness
+        Default: "1"
+        Type:
+          Name: float
+- File: webnn.idl
+  Dict:
+    Name: MLSplitOptions
+    Fields:
+      - Name: axis
+        Default: "0"
+        Type:
+          Name: unsigned long
+- File: webnn.idl
+  Dict:
+    Name: MLSqueezeOptions
+    Fields:
+      - Name: axes
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+- File: webnn.idl
+  Dict:
+    Name: MLTransposeOptions
+    Fields:
+      - Name: permutation
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+- File: magnetometer.idl
+  Interface:
+    Name: Magnetometer
+    Inherits: Sensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: z
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: sensorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MagnetometerSensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: magnetometer.idl
+  Enum:
+    Name: MagnetometerLocalCoordinateSystem
+    Values:
+      - device
+      - screen
+- File: magnetometer.idl
+  Dict:
+    Name: MagnetometerReadingValues
+    Fields:
+      - Name: x
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: "y"
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: z
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+- File: magnetometer.idl
+  Dict:
+    Name: MagnetometerSensorOptions
+    Inherits: SensorOptions
+    Fields:
+      - Name: referenceFrame
+        Default: '"device"'
+        Type:
+          Name: MagnetometerLocalCoordinateSystem
+      - Name: frequency
+        Type:
+          Name: double
+- File: mathml-core.idl
+  Interface:
+    Name: MathMLElement
+    Inherits: Element
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: style
+        Readonly: true
+        Type:
+          Name: CSSStyleDeclaration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - cssText
+      - Name: attributeStyleMap
+        Readonly: true
+        Type:
+          Name: StylePropertyMap
+        ExtAttrs:
+          - Name: SameObject
+      - Name: onabort
+        Type:
+          Name: EventHandler
+      - Name: onauxclick
+        Type:
+          Name: EventHandler
+      - Name: onbeforeinput
+        Type:
+          Name: EventHandler
+      - Name: onbeforematch
+        Type:
+          Name: EventHandler
+      - Name: onbeforetoggle
+        Type:
+          Name: EventHandler
+      - Name: onblur
+        Type:
+          Name: EventHandler
+      - Name: oncancel
+        Type:
+          Name: EventHandler
+      - Name: oncanplay
+        Type:
+          Name: EventHandler
+      - Name: oncanplaythrough
+        Type:
+          Name: EventHandler
+      - Name: onchange
+        Type:
+          Name: EventHandler
+      - Name: onclick
+        Type:
+          Name: EventHandler
+      - Name: onclose
+        Type:
+          Name: EventHandler
+      - Name: oncontextlost
+        Type:
+          Name: EventHandler
+      - Name: oncontextmenu
+        Type:
+          Name: EventHandler
+      - Name: oncontextrestored
+        Type:
+          Name: EventHandler
+      - Name: oncopy
+        Type:
+          Name: EventHandler
+      - Name: oncuechange
+        Type:
+          Name: EventHandler
+      - Name: oncut
+        Type:
+          Name: EventHandler
+      - Name: ondblclick
+        Type:
+          Name: EventHandler
+      - Name: ondrag
+        Type:
+          Name: EventHandler
+      - Name: ondragend
+        Type:
+          Name: EventHandler
+      - Name: ondragenter
+        Type:
+          Name: EventHandler
+      - Name: ondragleave
+        Type:
+          Name: EventHandler
+      - Name: ondragover
+        Type:
+          Name: EventHandler
+      - Name: ondragstart
+        Type:
+          Name: EventHandler
+      - Name: ondrop
+        Type:
+          Name: EventHandler
+      - Name: ondurationchange
+        Type:
+          Name: EventHandler
+      - Name: onemptied
+        Type:
+          Name: EventHandler
+      - Name: onended
+        Type:
+          Name: EventHandler
+      - Name: onerror
+        Type:
+          Name: OnErrorEventHandler
+      - Name: onfocus
+        Type:
+          Name: EventHandler
+      - Name: onformdata
+        Type:
+          Name: EventHandler
+      - Name: oninput
+        Type:
+          Name: EventHandler
+      - Name: oninvalid
+        Type:
+          Name: EventHandler
+      - Name: onkeydown
+        Type:
+          Name: EventHandler
+      - Name: onkeypress
+        Type:
+          Name: EventHandler
+      - Name: onkeyup
+        Type:
+          Name: EventHandler
+      - Name: onload
+        Type:
+          Name: EventHandler
+      - Name: onloadeddata
+        Type:
+          Name: EventHandler
+      - Name: onloadedmetadata
+        Type:
+          Name: EventHandler
+      - Name: onloadstart
+        Type:
+          Name: EventHandler
+      - Name: onmousedown
+        Type:
+          Name: EventHandler
+      - Name: onmouseenter
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmouseleave
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmousemove
+        Type:
+          Name: EventHandler
+      - Name: onmouseout
+        Type:
+          Name: EventHandler
+      - Name: onmouseover
+        Type:
+          Name: EventHandler
+      - Name: onmouseup
+        Type:
+          Name: EventHandler
+      - Name: onpaste
+        Type:
+          Name: EventHandler
+      - Name: onpause
+        Type:
+          Name: EventHandler
+      - Name: onplay
+        Type:
+          Name: EventHandler
+      - Name: onplaying
+        Type:
+          Name: EventHandler
+      - Name: onprogress
+        Type:
+          Name: EventHandler
+      - Name: onratechange
+        Type:
+          Name: EventHandler
+      - Name: onreset
+        Type:
+          Name: EventHandler
+      - Name: onresize
+        Type:
+          Name: EventHandler
+      - Name: onscroll
+        Type:
+          Name: EventHandler
+      - Name: onscrollend
+        Type:
+          Name: EventHandler
+      - Name: onsecuritypolicyviolation
+        Type:
+          Name: EventHandler
+      - Name: onseeked
+        Type:
+          Name: EventHandler
+      - Name: onseeking
+        Type:
+          Name: EventHandler
+      - Name: onselect
+        Type:
+          Name: EventHandler
+      - Name: onslotchange
+        Type:
+          Name: EventHandler
+      - Name: onstalled
+        Type:
+          Name: EventHandler
+      - Name: onsubmit
+        Type:
+          Name: EventHandler
+      - Name: onsuspend
+        Type:
+          Name: EventHandler
+      - Name: ontimeupdate
+        Type:
+          Name: EventHandler
+      - Name: ontoggle
+        Type:
+          Name: EventHandler
+      - Name: onvolumechange
+        Type:
+          Name: EventHandler
+      - Name: onwaiting
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationend
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onwebkittransitionend
+        Type:
+          Name: EventHandler
+      - Name: onwheel
+        Type:
+          Name: EventHandler
+      - Name: onbeforexrselect
+        Type:
+          Name: EventHandler
+      - Name: onselectstart
+        Type:
+          Name: EventHandler
+      - Name: onselectionchange
+        Type:
+          Name: EventHandler
+      - Name: ontransitionrun
+        Type:
+          Name: EventHandler
+      - Name: ontransitionstart
+        Type:
+          Name: EventHandler
+      - Name: ontransitionend
+        Type:
+          Name: EventHandler
+      - Name: ontransitioncancel
+        Type:
+          Name: EventHandler
+      - Name: onanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onanimationend
+        Type:
+          Name: EventHandler
+      - Name: onanimationcancel
+        Type:
+          Name: EventHandler
+      - Name: ontouchstart
+        Type:
+          Name: EventHandler
+      - Name: ontouchend
+        Type:
+          Name: EventHandler
+      - Name: ontouchmove
+        Type:
+          Name: EventHandler
+      - Name: ontouchcancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerover
+        Type:
+          Name: EventHandler
+      - Name: onpointerenter
+        Type:
+          Name: EventHandler
+      - Name: onpointerdown
+        Type:
+          Name: EventHandler
+      - Name: onpointermove
+        Type:
+          Name: EventHandler
+      - Name: onpointerrawupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: onpointerup
+        Type:
+          Name: EventHandler
+      - Name: onpointercancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerout
+        Type:
+          Name: EventHandler
+      - Name: onpointerleave
+        Type:
+          Name: EventHandler
+      - Name: ongotpointercapture
+        Type:
+          Name: EventHandler
+      - Name: onlostpointercapture
+        Type:
+          Name: EventHandler
+      - Name: dataset
+        Readonly: true
+        Type:
+          Name: DOMStringMap
+        ExtAttrs:
+          - Name: SameObject
+      - Name: nonce
+        Type:
+          Name: DOMString
+      - Name: autofocus
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: tabIndex
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: focus
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FocusOptions
+        Returns:
+          - Name: undefined
+      - Name: blur
+        Returns:
+          - Name: undefined
+- File: media-capabilities.idl
+  Interface:
+    Name: MediaCapabilities
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: decodingInfo
+        Args:
+          - Name: configuration
+            Type:
+              Name: MediaDecodingConfiguration
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MediaCapabilitiesDecodingInfo
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: encodingInfo
+        Args:
+          - Name: configuration
+            Type:
+              Name: MediaEncodingConfiguration
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MediaCapabilitiesEncodingInfo
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: media-capabilities.idl
+  Dict:
+    Name: MediaCapabilitiesDecodingInfo
+    Inherits: MediaCapabilitiesInfo
+    Fields:
+      - Name: keySystemAccess
+        Required: true
+        Type:
+          Name: MediaKeySystemAccess
+      - Name: configuration
+        Type:
+          Name: MediaDecodingConfiguration
+      - Name: supported
+        Required: true
+        Type:
+          Name: boolean
+      - Name: smooth
+        Required: true
+        Type:
+          Name: boolean
+      - Name: powerEfficient
+        Required: true
+        Type:
+          Name: boolean
+- File: media-capabilities.idl
+  Dict:
+    Name: MediaCapabilitiesEncodingInfo
+    Inherits: MediaCapabilitiesInfo
+    Fields:
+      - Name: configuration
+        Type:
+          Name: MediaEncodingConfiguration
+      - Name: supported
+        Required: true
+        Type:
+          Name: boolean
+      - Name: smooth
+        Required: true
+        Type:
+          Name: boolean
+      - Name: powerEfficient
+        Required: true
+        Type:
+          Name: boolean
+- File: media-capabilities.idl
+  Dict:
+    Name: MediaCapabilitiesInfo
+    Fields:
+      - Name: supported
+        Required: true
+        Type:
+          Name: boolean
+      - Name: smooth
+        Required: true
+        Type:
+          Name: boolean
+      - Name: powerEfficient
+        Required: true
+        Type:
+          Name: boolean
+- File: media-capabilities.idl
+  Dict:
+    Name: MediaCapabilitiesKeySystemConfiguration
+    Fields:
+      - Name: keySystem
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: initDataType
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: distinctiveIdentifier
+        Default: '"optional"'
+        Type:
+          Name: MediaKeysRequirement
+      - Name: persistentState
+        Default: '"optional"'
+        Type:
+          Name: MediaKeysRequirement
+      - Name: sessionTypes
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: audio
+        Type:
+          Name: KeySystemTrackConfiguration
+      - Name: video
+        Type:
+          Name: KeySystemTrackConfiguration
+- File: media-capabilities.idl
+  Dict:
+    Name: MediaConfiguration
+    Fields:
+      - Name: video
+        Type:
+          Name: VideoConfiguration
+      - Name: audio
+        Type:
+          Name: AudioConfiguration
+- File: media-capabilities.idl
+  Dict:
+    Name: MediaDecodingConfiguration
+    Inherits: MediaConfiguration
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: MediaDecodingType
+      - Name: keySystemConfiguration
+        Type:
+          Name: MediaCapabilitiesKeySystemConfiguration
+      - Name: video
+        Type:
+          Name: VideoConfiguration
+      - Name: audio
+        Type:
+          Name: AudioConfiguration
+- File: media-capabilities.idl
+  Enum:
+    Name: MediaDecodingType
+    Values:
+      - file
+      - media-source
+      - webrtc

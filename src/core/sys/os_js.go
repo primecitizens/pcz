@@ -7,11 +7,9 @@ package sys
 
 import (
 	"unsafe"
-	_ "unsafe" // for go:linkname
 
-	"github.com/primecitizens/std/core/alloc/sysalloc"
-	"github.com/primecitizens/std/core/mark"
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/std/core/sys/bindings"
+	"github.com/primecitizens/std/ffi/js"
 )
 
 var (
@@ -30,14 +28,14 @@ func nthenv(i int) string {
 func init() {
 	var (
 		count     uint32
-		totalSize = uintptr(bindings.ArgsEnvsSize(
-			uint32(uintptr(unsafe.Pointer(mark.NoEscape(&count)))),
-		))
+		totalSize = uintptr(
+			bindings.Sizes(
+				js.Pointer(&count),
+			),
+		)
 
 		i uint32
 		n int32
-
-		buf []byte
 	)
 
 	if count == 0 || totalSize == 0 {
@@ -46,8 +44,7 @@ func init() {
 
 	totalSize += unsafe.Sizeof(string("")) * uintptr(count)
 
-	buf = unsafe.Slice((*byte)(sysalloc.Sbrk(totalSize)), totalSize)
-
+	buf := make([]byte, totalSize)
 	args = unsafe.Slice(
 		(*string)(unsafe.Pointer(unsafe.SliceData(buf))),
 		count,
@@ -55,10 +52,10 @@ func init() {
 	buf = buf[unsafe.Sizeof(string(""))*uintptr(count):]
 
 	for i = 0; ; i++ {
-		n = bindings.NthSysInto(
+		n = bindings.Nth(
 			i,
-			uint32(uintptr(unsafe.Pointer(unsafe.SliceData(buf)))),
-			uint32(len(buf)),
+			js.SliceData(buf),
+			js.SizeU(len(buf)),
 		)
 		if n == -1 {
 			break
@@ -73,10 +70,10 @@ func init() {
 
 	for {
 		i++
-		n = bindings.NthSysInto(
+		n = bindings.Nth(
 			i,
-			uint32(uintptr(unsafe.Pointer(unsafe.SliceData(buf)))),
-			uint32(len(buf)),
+			js.SliceData(buf),
+			js.SizeU(len(buf)),
 		)
 		if n == -1 {
 			break

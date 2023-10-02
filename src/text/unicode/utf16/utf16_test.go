@@ -15,16 +15,6 @@ import (
 	. "github.com/primecitizens/std/text/unicode/utf16"
 )
 
-// Validate the constants redefined from unicode.
-func TestConstants(t *testing.T) {
-	if MaxRune != unicode.MaxRune {
-		t.Errorf("utf16.maxRune is wrong: %x should be %x", MaxRune, unicode.MaxRune)
-	}
-	if ReplacementChar != unicode.ReplacementChar {
-		t.Errorf("utf16.replacementChar is wrong: %x should be %x", ReplacementChar, unicode.ReplacementChar)
-	}
-}
-
 type encodeTest struct {
 	in  []rune
 	out []uint16
@@ -40,7 +30,7 @@ var encodeTests = []encodeTest{
 
 func TestEncode(t *testing.T) {
 	for _, tt := range encodeTests {
-		out := Encode(tt.in)
+		out := AppendRunes(nil, tt.in...)
 		if !reflect.DeepEqual(out, tt.out) {
 			t.Errorf("Encode(%x) = %x; want %x", tt.in, out, tt.out)
 		}
@@ -51,7 +41,7 @@ func TestAppendRune(t *testing.T) {
 	for _, tt := range encodeTests {
 		var out []uint16
 		for _, u := range tt.in {
-			out = AppendRune(out, u)
+			out = AppendRunes(out, u)
 		}
 		if !reflect.DeepEqual(out, tt.out) {
 			t.Errorf("AppendRune(%x) = %x; want %x", tt.in, out, tt.out)
@@ -109,7 +99,7 @@ var decodeTests = []decodeTest{
 
 func TestDecode(t *testing.T) {
 	for _, tt := range decodeTests {
-		out := Decode(tt.in)
+		out := RunesAppend(nil, tt.in...)
 		if !reflect.DeepEqual(out, tt.out) {
 			t.Errorf("Decode(%x) = %x; want %x", tt.in, out, tt.out)
 		}
@@ -168,7 +158,7 @@ func BenchmarkDecodeValidASCII(b *testing.B) {
 	// "hello world"
 	data := []uint16{104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100}
 	for i := 0; i < b.N; i++ {
-		Decode(data)
+		RunesAppend(nil, data...)
 	}
 }
 
@@ -176,7 +166,7 @@ func BenchmarkDecodeValidJapaneseChars(b *testing.B) {
 	// "日本語日本語日本語"
 	data := []uint16{26085, 26412, 35486, 26085, 26412, 35486, 26085, 26412, 35486}
 	for i := 0; i < b.N; i++ {
-		Decode(data)
+		RunesAppend(nil, data...)
 	}
 }
 
@@ -198,14 +188,14 @@ func BenchmarkDecodeRune(b *testing.B) {
 func BenchmarkEncodeValidASCII(b *testing.B) {
 	data := []rune{'h', 'e', 'l', 'l', 'o'}
 	for i := 0; i < b.N; i++ {
-		Encode(data)
+		EncodeRunes(nil, data...)
 	}
 }
 
 func BenchmarkEncodeValidJapaneseChars(b *testing.B) {
 	data := []rune{'日', '本', '語'}
 	for i := 0; i < b.N; i++ {
-		Encode(data)
+		EncodeRunes(nil, data...)
 	}
 }
 
@@ -214,7 +204,7 @@ func BenchmarkAppendRuneValidASCII(b *testing.B) {
 	a := make([]uint16, 0, len(data)*2)
 	for i := 0; i < b.N; i++ {
 		for _, u := range data {
-			a = AppendRune(a, u)
+			a = AppendRunes(a, u)
 		}
 		a = a[:0]
 	}
@@ -225,7 +215,7 @@ func BenchmarkAppendRuneValidJapaneseChars(b *testing.B) {
 	a := make([]uint16, 0, len(data)*2)
 	for i := 0; i < b.N; i++ {
 		for _, u := range data {
-			a = AppendRune(a, u)
+			a = AppendRunes(a, u)
 		}
 		a = a[:0]
 	}

@@ -12,7 +12,7 @@ func Eq[T comparable](a, b T) bool {
 		return true
 	}
 
-	println("assert.Eq failed: ", a, " != ", b)
+	println("assert.Eq", "failed:", a, "!=", b)
 	debug.Abort()
 	return false
 }

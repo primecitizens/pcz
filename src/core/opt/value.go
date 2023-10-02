@@ -3,7 +3,9 @@
 
 package opt
 
-import "github.com/primecitizens/std/core/assert"
+import (
+	"github.com/primecitizens/std/core/assert"
+)
 
 func Maybe[T any](value T, hasValue bool) Value[T] {
 	if hasValue {

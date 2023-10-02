@@ -6,6 +6,6 @@
 package js
 
 //go:noescape
-func callHandler(
-	recv, targetPC uintptr, ctx *CallbackContext, fn dispFunc[uintptr],
+func callDispatcher(
+	recv, targetPC uintptr, ctx *CallbackContext, dispFn uintptr,
 )

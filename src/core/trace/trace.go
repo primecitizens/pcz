@@ -3,7 +3,9 @@
 
 package trace
 
-import "github.com/primecitizens/std/core/arch"
+import (
+	"github.com/primecitizens/std/core/arch"
+)
 
 const (
 	// Timestamps in trace are cputicks/traceTickDiv.

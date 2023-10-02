@@ -78,7 +78,7 @@ func (r *RegArgs) Dump() {
 // by the CPU correctly.
 func (r *RegArgs) IntRegArgAddr(reg int, argSize uintptr) unsafe.Pointer {
 	if argSize > arch.PtrSize || argSize == 0 || argSize&(argSize-1) != 0 {
-		assert.Throw("invalid argSize")
+		assert.Throw("invalid", "argSize")
 	}
 	offset := uintptr(0)
 	if arch.BigEndian {

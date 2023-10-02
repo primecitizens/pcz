@@ -12,17 +12,29 @@ import (
 
 	stdtype "github.com/primecitizens/std/builtin/type"
 	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/std/core/alloc"
 	"github.com/primecitizens/std/core/mark"
 )
 
-// G defines all required methods for a G implementation.
+// G defines required methods for a goroutine implementation.
 type G interface {
 	ID() uint64
-	Fastrand32() uint32
-	Fastrand64() uint64
+	Rand32() uint32
+	Rand64() uint64
 
-	// Status returns the status of this G.
+	// Status returns the status of this goroutine.
 	Status() Status
+
+	// DefaultAlloc returns the default allocator in this goroutine.
+	DefaultAlloc() alloc.M
+
+	// PersistantAlloc returns the persistant allocator in this goroutine.
+	PersistantAlloc() alloc.P
+
+	// TODO:
+	// StackAllocator() alloc.S
+	// HeapAllocator() alloc.H
+	// ArenaAllocator() alloc.A
 
 	// // Park puts the current goroutine into a waiting state and calls unlockf
 	// // on the system stack.
@@ -44,9 +56,13 @@ type G interface {
 	// Park(unlockf func(g G, lock unsafe.Pointer) bool, lock unsafe.Pointer, reason WaitReason, traceReason trace.BlockReason)
 }
 
-// GHead is the required per-G data.
+// GHead contains required per-G data.
 //
-// NOTE: unsafe.Offsetof(CustomGType.GHead.Stack) MUST be 0.
+// See ${GOROOT}/src/runtime/runtime2.go#type:g
+//
+// NOTE:
+//   - unsafe.Offsetof(T.GHead.Stack) MUST be 0.
+//   - (dev) MUST be kept as non-generic struct type.
 type GHead struct {
 	// Stack parameters.
 	//
@@ -60,22 +76,35 @@ type GHead struct {
 	Stackguard0 uintptr // offset known to liblink
 	Stackguard1 uintptr // offset known to liblink
 
-	SyscallPC uintptr
-	SyscallSP uintptr
-	ID        uint64
+	Panic      *Panic         // innermost panic - offset known to liblink
+	Defer      *Defer         // innermost defer
+	M          unsafe.Pointer // current m; offset known to arm liblink
+	Sched      Gobuf
+	SyscallSP  uintptr // if status==Gsyscall, syscallsp = Sched.sp to use during gc
+	SyscallPC  uintptr // if status==Gsyscall, syscallpc = Sched.pc to use during gc
+	StacktopSP uintptr // expected sp at top of stack, to check in traceback
+
+	// NOTE(pcz): following fields are not known to compiler/link
+
+	ID_ uint64
 
 	// Itab for the G interface value.
 	Itab *abi.Itab
 }
 
+func (gp *GHead) Guintptr() Guintptr { return Guintptr(unsafe.Pointer(gp)) }
+
 // G returns the G implementation
 //
 //go:nosplit
-func (h *GHead) G() (g G) {
-	iface := (*stdtype.Iface)(unsafe.Pointer(mark.NoEscape(&g)))
-	iface.Itab, iface.Data = mark.NoEscape(h.Itab), unsafe.Pointer(mark.NoEscape(h))
+func (gp *GHead) G() G {
+	var g G
+	iface := stdtype.IfaceOf(mark.NoEscape(&g))
+	iface.Itab, iface.Data = mark.NoEscape(gp.Itab), unsafe.Pointer(mark.NoEscape(gp))
 	return g
 }
+
+func (gp *GHead) ID() uint64 { return gp.ID_ }
 
 // Stack describes a Go execution Stack.
 // The bounds of the Stack are exactly [lo, hi),
@@ -83,6 +112,58 @@ func (h *GHead) G() (g G) {
 type Stack struct {
 	Lo uintptr
 	Hi uintptr
+}
+
+// A Guintptr holds a goroutine pointer, but typed as a uintptr
+// to bypass write barriers. It is used in the Gobuf goroutine state
+// and in scheduling lists that are manipulated without a P.
+//
+// The Gobuf.G goroutine pointer is almost always updated by assembly code.
+// In one of the few places it is updated by Go code - func save - it must be
+// treated as a uintptr to avoid a write barrier being emitted at a bad time.
+// Instead of figuring out how to emit the write barriers missing in the
+// assembly manipulation, we change the type of the field to uintptr,
+// so that it does not require write barriers at all.
+//
+// Goroutine structs are published in the allg list and never freed.
+// That will keep the goroutine structs from being collected.
+// There is never a time that Gobuf.g's contain the only references
+// to a goroutine: the publishing of the goroutine in allg comes first.
+// Goroutine pointers are also kept in non-GC-visible places like TLS,
+// so I can't see them ever moving. If we did want to start moving data
+// in the GC, we'd need to allocate the goroutine structs from an
+// alternate arena. Using Guintptr doesn't make that problem any worse.
+// Note that pollDesc.rg, pollDesc.wg also store g in uintptr form,
+// so they would need to be updated too if g's start moving.
+type Guintptr uintptr
+
+//go:nosplit
+func (gp Guintptr) Ptr() *GHead { return (*GHead)(unsafe.Pointer(gp)) }
+
+//go:nosplit
+func (gp *Guintptr) Set(g *GHead) { *gp = Guintptr(unsafe.Pointer(g)) }
+
+// See ${GOROOT}/src/runtime/runtime2.go#type:gobuf
+type Gobuf struct {
+	// The offsets of SP, PC, and G are known to (hard-coded in) libmach.
+	//
+	// Ctxt is unusual with respect to GC: it may be a
+	// heap-allocated funcval, so GC needs to track it, but it
+	// needs to be set and cleared from assembly, where it's
+	// difficult to have write barriers. However, ctxt is really a
+	// saved, live register, and we only ever exchange it between
+	// the real register and the gobuf. Hence, we treat it as a
+	// root during stack scanning, which means assembly that saves
+	// and restores it doesn't need write barriers. It's still
+	// typed as a pointer so that any other writes from Go get
+	// write barriers.
+	SP   uintptr
+	PC   uintptr
+	G    Guintptr
+	Ctxt unsafe.Pointer
+	Ret  uintptr
+	LR   uintptr
+	BP   uintptr // for framepointer-enabled architectures
 }
 
 // Sudog represents a g in a wait list, such as for sending/receiving
@@ -95,7 +176,10 @@ type Stack struct {
 //
 // sudogs are allocated from a special pool. Use acquireSudog and
 // releaseSudog to allocate and free them.
+//
+// See ${GOROOT}/src/runtime/runtime2.go#type:sudog
 type Sudog struct {
+
 	// The following fields are protected by the hchan.lock of the
 	// channel this sudog is blocking on. shrinkstack depends on
 	// this for sudogs involved in channel ops.

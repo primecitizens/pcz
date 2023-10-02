@@ -8,36 +8,69 @@
 package wtf16
 
 import (
-	"unicode/utf16"
-	"unicode/utf8"
+	. "github.com/primecitizens/std/text/unicode/common"
+	"github.com/primecitizens/std/text/unicode/utf16"
+	"github.com/primecitizens/std/text/unicode/utf8"
 )
 
-// EecodeWTF16 returns the WTF-8 encoding of the potentially ill-formed
-// UTF-16 s.
-func EecodeWTF16(s []uint16, buf []byte) []byte {
-	for i := 0; i < len(s); i++ {
-		var ar rune
-		switch r := s[i]; {
+func WTF8DecodedSize(s ...uint16) (n int, canDecodeInPlace bool) {
+	// use utf16.UTF8DecodedSize is fine because WTF8Decode handles
+	// invalid surrogates as 3-byte utf8 append, which is the same
+	// as utf8.RuneErrorLen
+	return utf16.UTF8DecodedSize(s...)
+}
+
+func WTF8DecodeAll(dst []byte, src ...uint16) []byte {
+	for n := 0; len(src) != 0; src = src[n:] {
+		if dst, n = WTF8Decode(dst, src...); n == 0 {
+			// TODO(alloc): grow dst
+			return dst
+		}
+	}
+
+	return dst
+}
+
+// WTF8Decode returns the WTF-8 encoding of the potentially ill-formed
+// UTF-16 src.
+func WTF8Decode(dst []byte, src ...uint16) ([]byte, int) {
+	var (
+		r     rune
+		sz, n int
+	)
+
+Loop:
+	for ; n < len(src); n++ {
+		switch r = rune(src[n]); {
 		case r < surr1, surr3 <= r:
 			// normal rune
-			ar = rune(r)
-		case surr1 <= r && r < surr2 && i+1 < len(s) &&
-			surr2 <= s[i+1] && s[i+1] < surr3:
+			dst, sz = utf8.EncodeRune(dst, r)
+		case surr1 <= r && r < surr2 &&
+			n+1 < len(src) &&
+			surr2 <= src[n+1] && src[n+1] < surr3:
 			// valid surrogate sequence
-			ar = utf16.DecodeRune(rune(r), rune(s[i+1]))
-			i++
+			n++
+			dst, sz = utf8.EncodeRune(dst, utf16.DecodeRune(r, rune(src[n])))
 		default:
 			// WTF-8 fallback.
 			// This only handles the 3-byte case of utf8.AppendRune,
 			// as surrogates always fall in that case.
-			ar = rune(r)
-			if ar > utf8.MaxRune {
-				ar = utf8.RuneError
+
+			if cap(dst)-len(dst) < 3 {
+				break Loop
 			}
-			buf = append(buf, t3|byte(ar>>12), tx|byte(ar>>6)&maskx, tx|byte(ar)&maskx)
-			continue
+
+			if r > MaxRune {
+				r = RuneError
+			}
+
+			dst = append(dst, t3|byte(r>>12), tx|byte(r>>6)&maskx, tx|byte(r)&maskx)
 		}
-		buf = utf8.AppendRune(buf, ar)
+
+		if sz == 0 {
+			break
+		}
 	}
-	return buf
+
+	return dst, n
 }

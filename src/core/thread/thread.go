@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
-// Package thread provides low-level access to machine threads
+//go:build pcz
+
 package thread
 
 import (
@@ -13,13 +14,19 @@ import (
 // GetTLSBaseAddress returns the start address of thread local storage
 func GetTLSBaseAddress() uintptr
 
-//go:linkname GetG runtime._getg
-func GetG() *stdgo.GHead
+// G returns the G
+//
+//go:linkname G runtime._getg
+func G() *stdgo.GHead
 
+// SetG
+//
+// NOTE: When changing g, the new g should return the same id from g.G().ID().
+//
 //go:noescape
 func SetG(g *stdgo.GHead)
 
-// Topframe jumps to the funcpc as top-frame.
+// Topframe calls pc(arg1) and sets sp, its callframe is marked as top-frame.
 //
 //go:noescape
 func Topframe(arg1, sp, pc uintptr)

@@ -1,0 +1,1911 @@
+- File: webgpu.idl
+  Enum:
+    Name: GPUStorageTextureAccess
+    Values:
+      - write-only
+- File: webgpu.idl
+  Dict:
+    Name: GPUStorageTextureBindingLayout
+    Fields:
+      - Name: access
+        Default: '"write-only"'
+        Type:
+          Name: GPUStorageTextureAccess
+      - Name: format
+        Required: true
+        Type:
+          Name: GPUTextureFormat
+      - Name: viewDimension
+        Default: '"2d"'
+        Type:
+          Name: GPUTextureViewDimension
+- File: webgpu.idl
+  Enum:
+    Name: GPUStoreOp
+    Values:
+      - store
+      - discard
+- File: webgpu.idl
+  Interface:
+    Name: GPUSupportedFeatures
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Setlike:
+      TypeParams:
+        - Name: DOMString
+      Readonly: true
+- File: webgpu.idl
+  Interface:
+    Name: GPUSupportedLimits
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: maxTextureDimension1D
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxTextureDimension2D
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxTextureDimension3D
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxTextureArrayLayers
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxBindGroups
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxBindGroupsPlusVertexBuffers
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxBindingsPerBindGroup
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxDynamicUniformBuffersPerPipelineLayout
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxDynamicStorageBuffersPerPipelineLayout
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxSampledTexturesPerShaderStage
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxSamplersPerShaderStage
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxStorageBuffersPerShaderStage
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxStorageTexturesPerShaderStage
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxUniformBuffersPerShaderStage
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxUniformBufferBindingSize
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxStorageBufferBindingSize
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: minUniformBufferOffsetAlignment
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: minStorageBufferOffsetAlignment
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxVertexBuffers
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxBufferSize
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxVertexAttributes
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxVertexBufferArrayStride
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxInterStageShaderComponents
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxInterStageShaderVariables
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxColorAttachments
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxColorAttachmentBytesPerSample
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxComputeWorkgroupStorageSize
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxComputeInvocationsPerWorkgroup
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxComputeWorkgroupSizeX
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxComputeWorkgroupSizeY
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxComputeWorkgroupSizeZ
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: maxComputeWorkgroupsPerDimension
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webgpu.idl
+  Interface:
+    Name: GPUTexture
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: width
+        Readonly: true
+        Type:
+          Name: GPUIntegerCoordinateOut
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: height
+        Readonly: true
+        Type:
+          Name: GPUIntegerCoordinateOut
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: depthOrArrayLayers
+        Readonly: true
+        Type:
+          Name: GPUIntegerCoordinateOut
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: mipLevelCount
+        Readonly: true
+        Type:
+          Name: GPUIntegerCoordinateOut
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: sampleCount
+        Readonly: true
+        Type:
+          Name: GPUSize32Out
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: dimension
+        Readonly: true
+        Type:
+          Name: GPUTextureDimension
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: format
+        Readonly: true
+        Type:
+          Name: GPUTextureFormat
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: usage
+        Readonly: true
+        Type:
+          Name: GPUFlagsConstant
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: label
+        Type:
+          Name: USVString
+    Operations:
+      - Name: createView
+        Args:
+          - Name: descriptor
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GPUTextureViewDescriptor
+        Returns:
+          - Name: GPUTextureView
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: destroy
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webgpu.idl
+  Enum:
+    Name: GPUTextureAspect
+    Values:
+      - all
+      - stencil-only
+      - depth-only
+- File: webgpu.idl
+  Dict:
+    Name: GPUTextureBindingLayout
+    Fields:
+      - Name: sampleType
+        Default: '"float"'
+        Type:
+          Name: GPUTextureSampleType
+      - Name: viewDimension
+        Default: '"2d"'
+        Type:
+          Name: GPUTextureViewDimension
+      - Name: multisampled
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webgpu.idl
+  Dict:
+    Name: GPUTextureDescriptor
+    Inherits: GPUObjectDescriptorBase
+    Fields:
+      - Name: size
+        Required: true
+        Type:
+          Name: GPUExtent3D
+      - Name: mipLevelCount
+        Default: "1"
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: sampleCount
+        Default: "1"
+        Type:
+          Name: GPUSize32
+      - Name: dimension
+        Default: '"2d"'
+        Type:
+          Name: GPUTextureDimension
+      - Name: format
+        Required: true
+        Type:
+          Name: GPUTextureFormat
+      - Name: usage
+        Required: true
+        Type:
+          Name: GPUTextureUsageFlags
+      - Name: viewFormats
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: GPUTextureFormat
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Enum:
+    Name: GPUTextureDimension
+    Values:
+      - 1d
+      - 2d
+      - 3d
+- File: webgpu.idl
+  Enum:
+    Name: GPUTextureFormat
+    Values:
+      - r8unorm
+      - r8snorm
+      - r8uint
+      - r8sint
+      - r16uint
+      - r16sint
+      - r16float
+      - rg8unorm
+      - rg8snorm
+      - rg8uint
+      - rg8sint
+      - r32uint
+      - r32sint
+      - r32float
+      - rg16uint
+      - rg16sint
+      - rg16float
+      - rgba8unorm
+      - rgba8unorm-srgb
+      - rgba8snorm
+      - rgba8uint
+      - rgba8sint
+      - bgra8unorm
+      - bgra8unorm-srgb
+      - rgb9e5ufloat
+      - rgb10a2uint
+      - rgb10a2unorm
+      - rg11b10ufloat
+      - rg32uint
+      - rg32sint
+      - rg32float
+      - rgba16uint
+      - rgba16sint
+      - rgba16float
+      - rgba32uint
+      - rgba32sint
+      - rgba32float
+      - stencil8
+      - depth16unorm
+      - depth24plus
+      - depth24plus-stencil8
+      - depth32float
+      - depth32float-stencil8
+      - bc1-rgba-unorm
+      - bc1-rgba-unorm-srgb
+      - bc2-rgba-unorm
+      - bc2-rgba-unorm-srgb
+      - bc3-rgba-unorm
+      - bc3-rgba-unorm-srgb
+      - bc4-r-unorm
+      - bc4-r-snorm
+      - bc5-rg-unorm
+      - bc5-rg-snorm
+      - bc6h-rgb-ufloat
+      - bc6h-rgb-float
+      - bc7-rgba-unorm
+      - bc7-rgba-unorm-srgb
+      - etc2-rgb8unorm
+      - etc2-rgb8unorm-srgb
+      - etc2-rgb8a1unorm
+      - etc2-rgb8a1unorm-srgb
+      - etc2-rgba8unorm
+      - etc2-rgba8unorm-srgb
+      - eac-r11unorm
+      - eac-r11snorm
+      - eac-rg11unorm
+      - eac-rg11snorm
+      - astc-4x4-unorm
+      - astc-4x4-unorm-srgb
+      - astc-5x4-unorm
+      - astc-5x4-unorm-srgb
+      - astc-5x5-unorm
+      - astc-5x5-unorm-srgb
+      - astc-6x5-unorm
+      - astc-6x5-unorm-srgb
+      - astc-6x6-unorm
+      - astc-6x6-unorm-srgb
+      - astc-8x5-unorm
+      - astc-8x5-unorm-srgb
+      - astc-8x6-unorm
+      - astc-8x6-unorm-srgb
+      - astc-8x8-unorm
+      - astc-8x8-unorm-srgb
+      - astc-10x5-unorm
+      - astc-10x5-unorm-srgb
+      - astc-10x6-unorm
+      - astc-10x6-unorm-srgb
+      - astc-10x8-unorm
+      - astc-10x8-unorm-srgb
+      - astc-10x10-unorm
+      - astc-10x10-unorm-srgb
+      - astc-12x10-unorm
+      - astc-12x10-unorm-srgb
+      - astc-12x12-unorm
+      - astc-12x12-unorm-srgb
+- File: webgpu.idl
+  Enum:
+    Name: GPUTextureSampleType
+    Values:
+      - float
+      - unfilterable-float
+      - depth
+      - sint
+      - uint
+- File: webgpu.idl
+  Namespace:
+    Name: GPUTextureUsage
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Constants:
+      - Name: COPY_SRC
+        Value: "0x01"
+        Type:
+          Name: GPUFlagsConstant
+      - Name: COPY_DST
+        Value: "0x02"
+        Type:
+          Name: GPUFlagsConstant
+      - Name: TEXTURE_BINDING
+        Value: "0x04"
+        Type:
+          Name: GPUFlagsConstant
+      - Name: STORAGE_BINDING
+        Value: "0x08"
+        Type:
+          Name: GPUFlagsConstant
+      - Name: RENDER_ATTACHMENT
+        Value: "0x10"
+        Type:
+          Name: GPUFlagsConstant
+- File: webgpu.idl
+  Typedef:
+    Name: GPUTextureUsageFlags
+    Type:
+      Name: unsigned long
+- File: webgpu.idl
+  Interface:
+    Name: GPUTextureView
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: label
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Dict:
+    Name: GPUTextureViewDescriptor
+    Inherits: GPUObjectDescriptorBase
+    Fields:
+      - Name: format
+        Type:
+          Name: GPUTextureFormat
+      - Name: dimension
+        Type:
+          Name: GPUTextureViewDimension
+      - Name: aspect
+        Default: '"all"'
+        Type:
+          Name: GPUTextureAspect
+      - Name: baseMipLevel
+        Default: "0"
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: mipLevelCount
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: baseArrayLayer
+        Default: "0"
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: arrayLayerCount
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Enum:
+    Name: GPUTextureViewDimension
+    Values:
+      - 1d
+      - 2d
+      - 2d-array
+      - cube
+      - cube-array
+      - 3d
+- File: webgpu.idl
+  Interface:
+    Name: GPUUncapturedErrorEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: error
+        Readonly: true
+        Type:
+          Name: GPUError
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: gpuUncapturedErrorEventInitDict
+            Type:
+              Name: GPUUncapturedErrorEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webgpu.idl
+  Dict:
+    Name: GPUUncapturedErrorEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: error
+        Required: true
+        Type:
+          Name: GPUError
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webgpu.idl
+  Interface:
+    Name: GPUValidationError
+    Inherits: GPUError
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: message
+            Type:
+              Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webgpu.idl
+  Dict:
+    Name: GPUVertexAttribute
+    Fields:
+      - Name: format
+        Required: true
+        Type:
+          Name: GPUVertexFormat
+      - Name: offset
+        Required: true
+        Type:
+          Name: GPUSize64
+      - Name: shaderLocation
+        Required: true
+        Type:
+          Name: GPUIndex32
+- File: webgpu.idl
+  Dict:
+    Name: GPUVertexBufferLayout
+    Fields:
+      - Name: arrayStride
+        Required: true
+        Type:
+          Name: GPUSize64
+      - Name: stepMode
+        Default: '"vertex"'
+        Type:
+          Name: GPUVertexStepMode
+      - Name: attributes
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: GPUVertexAttribute
+- File: webgpu.idl
+  Enum:
+    Name: GPUVertexFormat
+    Values:
+      - uint8x2
+      - uint8x4
+      - sint8x2
+      - sint8x4
+      - unorm8x2
+      - unorm8x4
+      - snorm8x2
+      - snorm8x4
+      - uint16x2
+      - uint16x4
+      - sint16x2
+      - sint16x4
+      - unorm16x2
+      - unorm16x4
+      - snorm16x2
+      - snorm16x4
+      - float16x2
+      - float16x4
+      - float32
+      - float32x2
+      - float32x3
+      - float32x4
+      - uint32
+      - uint32x2
+      - uint32x3
+      - uint32x4
+      - sint32
+      - sint32x2
+      - sint32x3
+      - sint32x4
+- File: webgpu.idl
+  Dict:
+    Name: GPUVertexState
+    Inherits: GPUProgrammableStage
+    Fields:
+      - Name: buffers
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: GPUVertexBufferLayout
+              Nullable: true
+      - Name: module
+        Required: true
+        Type:
+          Name: GPUShaderModule
+      - Name: entryPoint
+        Required: true
+        Type:
+          Name: USVString
+      - Name: constants
+        Type:
+          Name: record
+          Params:
+            - Name: USVString
+            - Name: GPUPipelineConstantValue
+- File: webgpu.idl
+  Enum:
+    Name: GPUVertexStepMode
+    Values:
+      - vertex
+      - instance
+- File: webaudio.idl
+  Interface:
+    Name: GainNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: gain
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GainOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: GainOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: gain
+        Default: "1.0"
+        Type:
+          Name: float
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: gamepad.idl
+  Interface:
+    Name: Gamepad
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: index
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: connected
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: mapping
+        Readonly: true
+        Type:
+          Name: GamepadMappingType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: axes
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: buttons
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: GamepadButton
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: hand
+        Readonly: true
+        Type:
+          Name: GamepadHand
+      - Name: hapticActuators
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: GamepadHapticActuator
+      - Name: pose
+        Readonly: true
+        Type:
+          Name: GamepadPose
+          Nullable: true
+      - Name: touchEvents
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: GamepadTouch
+          Nullable: true
+      - Name: vibrationActuator
+        Readonly: true
+        Type:
+          Name: GamepadHapticActuator
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+- File: gamepad.idl
+  Interface:
+    Name: GamepadButton
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: pressed
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: touched
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: value
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: gamepad-extensions.idl
+  Dict:
+    Name: GamepadEffectParameters
+    Fields:
+      - Name: duration
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: startDelay
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: strongMagnitude
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: weakMagnitude
+        Default: "0.0"
+        Type:
+          Name: double
+- File: gamepad.idl
+  Interface:
+    Name: GamepadEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: gamepad
+        Readonly: true
+        Type:
+          Name: Gamepad
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: GamepadEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: gamepad.idl
+  Dict:
+    Name: GamepadEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: gamepad
+        Required: true
+        Type:
+          Name: Gamepad
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: gamepad-extensions.idl
+  Enum:
+    Name: GamepadHand
+    Values:
+      - ""
+      - left
+      - right
+- File: gamepad-extensions.idl
+  Interface:
+    Name: GamepadHapticActuator
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: GamepadHapticActuatorType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: canPlayEffectType
+        Args:
+          - Name: type
+            Type:
+              Name: GamepadHapticEffectType
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: playEffect
+        Args:
+          - Name: type
+            Type:
+              Name: GamepadHapticEffectType
+          - Name: params
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GamepadEffectParameters
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GamepadHapticsResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pulse
+        Args:
+          - Name: value
+            Type:
+              Name: double
+          - Name: duration
+            Type:
+              Name: double
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reset
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GamepadHapticsResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: gamepad-extensions.idl
+  Enum:
+    Name: GamepadHapticActuatorType
+    Values:
+      - vibration
+      - dual-rumble
+- File: gamepad-extensions.idl
+  Enum:
+    Name: GamepadHapticEffectType
+    Values:
+      - dual-rumble
+- File: gamepad-extensions.idl
+  Enum:
+    Name: GamepadHapticsResult
+    Values:
+      - complete
+      - preempted
+- File: gamepad.idl
+  Enum:
+    Name: GamepadMappingType
+    Values:
+      - ""
+      - standard
+      - xr-standard
+- File: gamepad-extensions.idl
+  Interface:
+    Name: GamepadPose
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: hasOrientation
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hasPosition
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: position
+        Readonly: true
+        Type:
+          Name: Float32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: linearVelocity
+        Readonly: true
+        Type:
+          Name: Float32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: linearAcceleration
+        Readonly: true
+        Type:
+          Name: Float32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orientation
+        Readonly: true
+        Type:
+          Name: Float32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: angularVelocity
+        Readonly: true
+        Type:
+          Name: Float32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: angularAcceleration
+        Readonly: true
+        Type:
+          Name: Float32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: gamepad-extensions.idl
+  Interface:
+    Name: GamepadTouch
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: touchId
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: surfaceId
+        Readonly: true
+        Type:
+          Name: octet
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: position
+        Readonly: true
+        Type:
+          Name: Float32Array
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: surfaceDimensions
+        Readonly: true
+        Type:
+          Name: Uint32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webrtc-identity.idl
+  Callback:
+    Name: GenerateAssertionCallback
+    Args:
+      - Name: contents
+        Type:
+          Name: DOMString
+      - Name: origin
+        Type:
+          Name: DOMString
+      - Name: options
+        Type:
+          Name: RTCIdentityProviderOptions
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RTCIdentityAssertionResult
+- File: turtledove.idl
+  Dict:
+    Name: GenerateBidInterestGroup
+    Fields:
+      - Name: owner
+        Required: true
+        Type:
+          Name: USVString
+      - Name: name
+        Required: true
+        Type:
+          Name: USVString
+      - Name: lifetimeMs
+        Required: true
+        Type:
+          Name: double
+      - Name: enableBiddingSignalsPrioritization
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: priorityVector
+        Type:
+          Name: record
+          Params:
+            - Name: DOMString
+            - Name: double
+      - Name: executionMode
+        Default: '"compatibility"'
+        Type:
+          Name: DOMString
+      - Name: biddingLogicURL
+        Type:
+          Name: USVString
+      - Name: biddingWasmHelperURL
+        Type:
+          Name: USVString
+      - Name: updateURL
+        Type:
+          Name: USVString
+      - Name: trustedBiddingSignalsURL
+        Type:
+          Name: USVString
+      - Name: trustedBiddingSignalsKeys
+        Type:
+          Name: sequence
+          Params:
+            - Name: USVString
+      - Name: userBiddingSignals
+        Type:
+          Name: any
+      - Name: ads
+        Type:
+          Name: sequence
+          Params:
+            - Name: AuctionAd
+      - Name: adComponents
+        Type:
+          Name: sequence
+          Params:
+            - Name: AuctionAd
+- File: turtledove.idl
+  Dict:
+    Name: GenerateBidOutput
+    Fields:
+      - Name: bid
+        Default: "-1"
+        Type:
+          Name: double
+      - Name: bidCurrency
+        Type:
+          Name: DOMString
+      - Name: render
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: AdRender
+      - Name: ad
+        Type:
+          Name: any
+      - Name: adComponents
+        Type:
+          Name: sequence
+          Params:
+            - Union:
+                - Name: DOMString
+                - Name: AdRender
+      - Name: adCost
+        Type:
+          Name: double
+      - Name: modelingSignals
+        Type:
+          Name: unrestricted double
+      - Name: allowComponentAuction
+        Default: "false"
+        Type:
+          Name: boolean
+- File: reporting.idl
+  Dict:
+    Name: GenerateTestReportParameters
+    Fields:
+      - Name: message
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: group
+        Default: '"default"'
+        Type:
+          Name: DOMString
+- File: geolocation.idl
+  Interface:
+    Name: Geolocation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: getCurrentPosition
+        Args:
+          - Name: successCallback
+            Type:
+              Name: PositionCallback
+          - Name: errorCallback
+            Optional: true
+            Default: "null"
+            Type:
+              Name: PositionErrorCallback
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PositionOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: watchPosition
+        Args:
+          - Name: successCallback
+            Type:
+              Name: PositionCallback
+          - Name: errorCallback
+            Optional: true
+            Default: "null"
+            Type:
+              Name: PositionErrorCallback
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PositionOptions
+        Returns:
+          - Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: clearWatch
+        Args:
+          - Name: watchId
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: geolocation.idl
+  Interface:
+    Name: GeolocationCoordinates
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: accuracy
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: latitude
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: longitude
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: altitude
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: altitudeAccuracy
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: heading
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: speed
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: geolocation.idl
+  Interface:
+    Name: GeolocationPosition
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: coords
+        Readonly: true
+        Type:
+          Name: GeolocationCoordinates
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: EpochTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: geolocation.idl
+  Interface:
+    Name: GeolocationPositionError
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: PERMISSION_DENIED
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: POSITION_UNAVAILABLE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: TIMEOUT
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: code
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: geolocation-sensor.idl
+  Dict:
+    Name: GeolocationReadingValues
+    Fields:
+      - Name: latitude
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: longitude
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: altitude
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: accuracy
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: altitudeAccuracy
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: heading
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: speed
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+- File: geolocation-sensor.idl
+  Interface:
+    Name: GeolocationSensor
+    Inherits: Sensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+          - Window
+    Attrs:
+      - Name: latitude
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+      - Name: longitude
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+      - Name: altitude
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+      - Name: accuracy
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+      - Name: altitudeAccuracy
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+      - Name: heading
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+      - Name: speed
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+    Operations:
+      - Name: read
+        Modifier: static
+        Args:
+          - Name: readOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ReadOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GeolocationSensorReading
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GeolocationSensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - Window

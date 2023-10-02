@@ -1,0 +1,1247 @@
+- File: html.idl
+  Interface:
+    Name: AudioTrackList
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onaddtrack
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onremovetrack
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: AudioTrack
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getTrackById
+        Args:
+          - Name: id
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: AudioTrack
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Interface:
+    Name: AudioWorklet
+    Inherits: Worklet
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: port
+        Readonly: true
+        Type:
+          Name: MessagePort
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webaudio.idl
+  Interface:
+    Name: AudioWorkletGlobalScope
+    Inherits: WorkletGlobalScope
+    ExtAttrs:
+      - Name: Global
+        Values:
+          - Worklet
+          - AudioWorklet
+      - Name: Exposed
+        Values:
+          - AudioWorklet
+      - Name: SecureContext
+    Attrs:
+      - Name: currentFrame
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - AudioWorklet
+          - Name: Exposed
+            Values:
+              - AudioWorklet
+          - Name: SecureContext
+      - Name: currentTime
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - AudioWorklet
+          - Name: Exposed
+            Values:
+              - AudioWorklet
+          - Name: SecureContext
+      - Name: sampleRate
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - AudioWorklet
+          - Name: Exposed
+            Values:
+              - AudioWorklet
+          - Name: SecureContext
+      - Name: port
+        Readonly: true
+        Type:
+          Name: MessagePort
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - AudioWorklet
+          - Name: Exposed
+            Values:
+              - AudioWorklet
+          - Name: SecureContext
+    Operations:
+      - Name: registerProcessor
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: processorCtor
+            Type:
+              Name: AudioWorkletProcessorConstructor
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - AudioWorklet
+          - Name: Exposed
+            Values:
+              - AudioWorklet
+          - Name: SecureContext
+- File: webaudio.idl
+  Interface:
+    Name: AudioWorkletNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: parameters
+        Readonly: true
+        Type:
+          Name: AudioParamMap
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: port
+        Readonly: true
+        Type:
+          Name: MessagePort
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: onprocessorerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AudioWorkletNodeOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webaudio.idl
+  Dict:
+    Name: AudioWorkletNodeOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: numberOfInputs
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: numberOfOutputs
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: outputChannelCount
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: parameterData
+        Type:
+          Name: record
+          Params:
+            - Name: DOMString
+            - Name: double
+      - Name: processorOptions
+        Type:
+          Name: object
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: webaudio.idl
+  Callback:
+    Name: AudioWorkletProcessCallback
+    Args:
+      - Name: inputs
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: FrozenArray
+              Params:
+                - Name: Float32Array
+      - Name: outputs
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: FrozenArray
+              Params:
+                - Name: Float32Array
+      - Name: parameters
+        Type:
+          Name: object
+    Returns:
+      - Name: boolean
+- File: webaudio.idl
+  Interface:
+    Name: AudioWorkletProcessor
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - AudioWorklet
+    Attrs:
+      - Name: port
+        Readonly: true
+        Type:
+          Name: MessagePort
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - AudioWorklet
+- File: webaudio.idl
+  Callback:
+    Name: AudioWorkletProcessorConstructor
+    Args:
+      - Name: options
+        Type:
+          Name: object
+    Returns:
+      - Name: AudioWorkletProcessor
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsClientInputs
+    Fields:
+      - Name: minPinLength
+        Type:
+          Name: boolean
+      - Name: prf
+        Type:
+          Name: AuthenticationExtensionsPRFInputs
+      - Name: appid
+        Type:
+          Name: USVString
+      - Name: appidExclude
+        Type:
+          Name: USVString
+      - Name: getCredBlob
+        Type:
+          Name: boolean
+      - Name: hmacCreateSecret
+        Type:
+          Name: boolean
+      - Name: credProps
+        Type:
+          Name: boolean
+      - Name: payment
+        Type:
+          Name: AuthenticationExtensionsPaymentInputs
+      - Name: hmacGetSecret
+        Type:
+          Name: HMACGetSecretInput
+      - Name: largeBlob
+        Type:
+          Name: AuthenticationExtensionsLargeBlobInputs
+      - Name: credBlob
+        Type:
+          Name: ArrayBuffer
+      - Name: credentialProtectionPolicy
+        Type:
+          Name: USVString
+      - Name: enforceCredentialProtectionPolicy
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: uvm
+        Type:
+          Name: boolean
+      - Name: devicePubKey
+        Type:
+          Name: AuthenticationExtensionsDevicePublicKeyInputs
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsClientInputsJSON
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsClientOutputs
+    Fields:
+      - Name: devicePubKey
+        Type:
+          Name: AuthenticationExtensionsDevicePublicKeyOutputs
+      - Name: appid
+        Type:
+          Name: boolean
+      - Name: appidExclude
+        Type:
+          Name: boolean
+      - Name: uvm
+        Type:
+          Name: UvmEntries
+      - Name: credProps
+        Type:
+          Name: CredentialPropertiesOutput
+      - Name: largeBlob
+        Type:
+          Name: AuthenticationExtensionsLargeBlobOutputs
+      - Name: hmacGetSecret
+        Type:
+          Name: HMACGetSecretOutput
+      - Name: prf
+        Type:
+          Name: AuthenticationExtensionsPRFOutputs
+      - Name: hmacCreateSecret
+        Type:
+          Name: boolean
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsClientOutputsJSON
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsDevicePublicKeyInputs
+    Fields:
+      - Name: attestation
+        Default: '"none"'
+        Type:
+          Name: DOMString
+      - Name: attestationFormats
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsDevicePublicKeyOutputs
+    Fields:
+      - Name: signature
+        Type:
+          Name: ArrayBuffer
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsLargeBlobInputs
+    Fields:
+      - Name: support
+        Type:
+          Name: DOMString
+      - Name: read
+        Type:
+          Name: boolean
+      - Name: write
+        Type:
+          Name: BufferSource
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsLargeBlobOutputs
+    Fields:
+      - Name: supported
+        Type:
+          Name: boolean
+      - Name: blob
+        Type:
+          Name: ArrayBuffer
+      - Name: written
+        Type:
+          Name: boolean
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsPRFInputs
+    Fields:
+      - Name: eval
+        Type:
+          Name: AuthenticationExtensionsPRFValues
+      - Name: evalByCredential
+        Type:
+          Name: record
+          Params:
+            - Name: USVString
+            - Name: AuthenticationExtensionsPRFValues
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsPRFOutputs
+    Fields:
+      - Name: enabled
+        Type:
+          Name: boolean
+      - Name: results
+        Type:
+          Name: AuthenticationExtensionsPRFValues
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationExtensionsPRFValues
+    Fields:
+      - Name: first
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: second
+        Type:
+          Name: BufferSource
+- File: secure-payment-confirmation.idl
+  Dict:
+    Name: AuthenticationExtensionsPaymentInputs
+    Fields:
+      - Name: isPayment
+        Type:
+          Name: boolean
+      - Name: rpId
+        Type:
+          Name: USVString
+      - Name: topOrigin
+        Type:
+          Name: USVString
+      - Name: payeeName
+        Type:
+          Name: USVString
+      - Name: payeeOrigin
+        Type:
+          Name: USVString
+      - Name: total
+        Type:
+          Name: PaymentCurrencyAmount
+      - Name: instrument
+        Type:
+          Name: PaymentCredentialInstrument
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticationResponseJSON
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: rawId
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: response
+        Required: true
+        Type:
+          Name: AuthenticatorAssertionResponseJSON
+      - Name: authenticatorAttachment
+        Type:
+          Name: DOMString
+      - Name: clientExtensionResults
+        Required: true
+        Type:
+          Name: AuthenticationExtensionsClientOutputsJSON
+      - Name: type
+        Required: true
+        Type:
+          Name: DOMString
+- File: webauthn.idl
+  Interface:
+    Name: AuthenticatorAssertionResponse
+    Inherits: AuthenticatorResponse
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: authenticatorData
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: signature
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: userHandle
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attestationObject
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticatorAssertionResponseJSON
+    Fields:
+      - Name: clientDataJSON
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: authenticatorData
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: signature
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: userHandle
+        Type:
+          Name: Base64URLString
+      - Name: attestationObject
+        Type:
+          Name: Base64URLString
+- File: webauthn.idl
+  Enum:
+    Name: AuthenticatorAttachment
+    Values:
+      - platform
+      - cross-platform
+- File: webauthn.idl
+  Interface:
+    Name: AuthenticatorAttestationResponse
+    Inherits: AuthenticatorResponse
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: attestationObject
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getTransports
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAuthenticatorData
+        Returns:
+          - Name: ArrayBuffer
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getPublicKey
+        Returns:
+          - Name: ArrayBuffer
+            Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getPublicKeyAlgorithm
+        Returns:
+          - Name: COSEAlgorithmIdentifier
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticatorAttestationResponseJSON
+    Fields:
+      - Name: clientDataJSON
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: authenticatorData
+        Required: true
+        Type:
+          Name: Base64URLString
+      - Name: transports
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: publicKey
+        Type:
+          Name: Base64URLString
+      - Name: publicKeyAlgorithm
+        Required: true
+        Type:
+          Name: long long
+      - Name: attestationObject
+        Required: true
+        Type:
+          Name: Base64URLString
+- File: webauthn.idl
+  Interface:
+    Name: AuthenticatorResponse
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: clientDataJSON
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webauthn.idl
+  Dict:
+    Name: AuthenticatorSelectionCriteria
+    Fields:
+      - Name: authenticatorAttachment
+        Type:
+          Name: DOMString
+      - Name: residentKey
+        Type:
+          Name: DOMString
+      - Name: requireResidentKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: userVerification
+        Default: '"preferred"'
+        Type:
+          Name: DOMString
+- File: webauthn.idl
+  Enum:
+    Name: AuthenticatorTransport
+    Values:
+      - usb
+      - nfc
+      - ble
+      - smart-card
+      - hybrid
+      - internal
+- File: webvtt.idl
+  Enum:
+    Name: AutoKeyword
+    Values:
+      - auto
+- File: webaudio.idl
+  Enum:
+    Name: AutomationRate
+    Values:
+      - a-rate
+      - k-rate
+- File: autoplay-detection.idl
+  Enum:
+    Name: AutoplayPolicy
+    Values:
+      - allowed
+      - allowed-muted
+      - disallowed
+- File: autoplay-detection.idl
+  Enum:
+    Name: AutoplayPolicyMediaType
+    Values:
+      - mediaelement
+      - audiocontext
+- File: webcodecs-avc-codec-registration.idl
+  Enum:
+    Name: AvcBitstreamFormat
+    Values:
+      - annexb
+      - avc
+- File: webcodecs-avc-codec-registration.idl
+  Dict:
+    Name: AvcEncoderConfig
+    Fields:
+      - Name: format
+        Default: '"avc"'
+        Type:
+          Name: AvcBitstreamFormat
+- File: background-fetch.idl
+  Interface:
+    Name: BackgroundFetchEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Attrs:
+      - Name: registration
+        Readonly: true
+        Type:
+          Name: BackgroundFetchRegistration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: init
+            Type:
+              Name: BackgroundFetchEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: background-fetch.idl
+  Dict:
+    Name: BackgroundFetchEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: registration
+        Required: true
+        Type:
+          Name: BackgroundFetchRegistration
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: background-fetch.idl
+  Enum:
+    Name: BackgroundFetchFailureReason
+    Values:
+      - ""
+      - aborted
+      - bad-status
+      - fetch-error
+      - quota-exceeded
+      - download-total-exceeded
+- File: background-fetch.idl
+  Interface:
+    Name: BackgroundFetchManager
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: fetch
+        Args:
+          - Name: id
+            Type:
+              Name: DOMString
+          - Name: requests
+            Type:
+              Union:
+                - Name: RequestInfo
+                - Name: sequence
+                  Params:
+                    - Name: RequestInfo
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: BackgroundFetchOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: BackgroundFetchRegistration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: get
+        Args:
+          - Name: id
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: BackgroundFetchRegistration
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getIds
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: background-fetch.idl
+  Dict:
+    Name: BackgroundFetchOptions
+    Inherits: BackgroundFetchUIOptions
+    Fields:
+      - Name: downloadTotal
+        Default: "0"
+        Type:
+          Name: unsigned long long
+      - Name: icons
+        Type:
+          Name: sequence
+          Params:
+            - Name: ImageResource
+      - Name: title
+        Type:
+          Name: DOMString
+- File: background-fetch.idl
+  Interface:
+    Name: BackgroundFetchRecord
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: request
+        Readonly: true
+        Type:
+          Name: Request
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: responseReady
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: Response
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: background-fetch.idl
+  Interface:
+    Name: BackgroundFetchRegistration
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: uploadTotal
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: uploaded
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: downloadTotal
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: downloaded
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: result
+        Readonly: true
+        Type:
+          Name: BackgroundFetchResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: failureReason
+        Readonly: true
+        Type:
+          Name: BackgroundFetchFailureReason
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: recordsAvailable
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onprogress
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: abort
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: match
+        Args:
+          - Name: request
+            Type:
+              Name: RequestInfo
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: CacheQueryOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: BackgroundFetchRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: matchAll
+        Args:
+          - Name: request
+            Optional: true
+            Type:
+              Name: RequestInfo
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: CacheQueryOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: BackgroundFetchRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: background-fetch.idl
+  Enum:
+    Name: BackgroundFetchResult
+    Values:
+      - ""
+      - success
+      - failure
+- File: background-fetch.idl
+  Dict:
+    Name: BackgroundFetchUIOptions
+    Fields:
+      - Name: icons
+        Type:
+          Name: sequence
+          Params:
+            - Name: ImageResource
+      - Name: title
+        Type:
+          Name: DOMString
+- File: background-fetch.idl
+  Interface:
+    Name: BackgroundFetchUpdateUIEvent
+    Inherits: BackgroundFetchEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Operations:
+      - Name: updateUI
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: BackgroundFetchUIOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: init
+            Type:
+              Name: BackgroundFetchEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: periodic-background-sync.idl
+  Dict:
+    Name: BackgroundSyncOptions
+    Fields:
+      - Name: minInterval
+        Default: "0"
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+- File: html.idl
+  Interface:
+    Name: BarProp
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: visible
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: shape-detection-api.idl
+  Interface:
+    Name: BarcodeDetector
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+    Operations:
+      - Name: getSupportedFormats
+        Modifier: static
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: BarcodeFormat
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: detect
+        Args:
+          - Name: image
+            Type:
+              Name: ImageBitmapSource
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: DetectedBarcode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: barcodeDetectorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: BarcodeDetectorOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+- File: shape-detection-api.idl
+  Dict:
+    Name: BarcodeDetectorOptions
+    Fields:
+      - Name: formats
+        Type:
+          Name: sequence
+          Params:
+            - Name: BarcodeFormat
+- File: shape-detection-api.idl
+  Enum:
+    Name: BarcodeFormat
+    Values:
+      - aztec
+      - code_128
+      - code_39
+      - code_93
+      - codabar
+      - data_matrix
+      - ean_13
+      - ean_8
+      - itf
+      - pdf417
+      - qr_code
+      - unknown
+      - upc_a
+      - upc_e

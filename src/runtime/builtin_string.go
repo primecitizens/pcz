@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+//go:build pcz
+
 package runtime
 
 import (
@@ -10,12 +12,12 @@ import (
 	"github.com/primecitizens/std/core/arch"
 	"github.com/primecitizens/std/core/asan"
 	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/bytealg"
+	"github.com/primecitizens/std/core/cmp"
 	"github.com/primecitizens/std/core/mem"
 	"github.com/primecitizens/std/core/msan"
 	"github.com/primecitizens/std/core/os"
 	"github.com/primecitizens/std/core/race"
-	"github.com/primecitizens/std/core/thread"
+	"github.com/primecitizens/std/text/unicode/common"
 	"github.com/primecitizens/std/text/unicode/utf8"
 )
 
@@ -55,7 +57,7 @@ func concatstrings(buf *tmpBuf, a []string) string {
 			continue
 		}
 		if l+n < l {
-			assert.Throw("string concatenation too long")
+			assert.Throw("string", "concatenation", "too", "long")
 		}
 		l += n
 		count++
@@ -79,9 +81,7 @@ func concatstrings(buf *tmpBuf, a []string) string {
 	return s
 }
 
-func cmpstring(a0, a1 string) int {
-	return bytealg.CmpString(a0, a1)
-}
+func cmpstring(a0, a1 string) int { return cmp.String(a0, a1) }
 
 func intstring(buf *[4]byte, v int64) (s string) {
 	var b []byte
@@ -92,9 +92,11 @@ func intstring(buf *[4]byte, v int64) (s string) {
 		s, b = rawstring(4)
 	}
 	if int64(rune(v)) != v {
-		v = utf8.RuneError
+		v = common.RuneError
 	}
-	return s[:utf8.EncodeRune(b, rune(v))]
+
+	_, n := utf8.EncodeRune(b[:0], rune(v))
+	return s[:n]
 }
 
 // slicebytetostring converts a byte slice to a string.
@@ -118,10 +120,10 @@ func slicebytetostring(buf *tmpBuf, ptr *byte, n int) string {
 			abi.FuncPCABIInternal(slicebytetostring))
 	}
 	if msan.Enabled {
-		msanread(unsafe.Pointer(ptr), uintptr(n))
+		msan.Read(unsafe.Pointer(ptr), uintptr(n))
 	}
 	if asan.Enabled {
-		asanread(unsafe.Pointer(ptr), uintptr(n))
+		asan.Read(unsafe.Pointer(ptr), uintptr(n))
 	}
 
 	if n == 1 {
@@ -136,10 +138,10 @@ func slicebytetostring(buf *tmpBuf, ptr *byte, n int) string {
 	if buf != nil && n <= len(buf) {
 		p = unsafe.Pointer(buf)
 	} else {
-		p = mallocgc(uintptr(n), nil, false)
+		p = explicit_mallocgc(nil, uintptr(n), false)
 	}
 
-	mem.Memmove(p, unsafe.Pointer(ptr), uintptr(n))
+	mem.Move(p, unsafe.Pointer(ptr), uintptr(n))
 	return unsafe.String((*byte)(p), n)
 }
 
@@ -181,10 +183,12 @@ func slicebytetostringtmp(ptr *byte, n int) string {
 
 func slicerunetostring(buf *tmpBuf, a []rune) string {
 	if race.Enabled && len(a) > 0 {
-		race.ReadRangePC(unsafe.Pointer(&a[0]),
+		race.ReadRangePC(
+			unsafe.Pointer(&a[0]),
 			uintptr(len(a))*unsafe.Sizeof(a[0]),
 			getcallerpc(),
-			abi.FuncPCABIInternal(slicerunetostring))
+			abi.FuncPCABIInternal(slicerunetostring),
+		)
 	}
 	if msan.Enabled && len(a) > 0 {
 		msanread(unsafe.Pointer(&a[0]), uintptr(len(a))*unsafe.Sizeof(a[0]))
@@ -193,20 +197,24 @@ func slicerunetostring(buf *tmpBuf, a []rune) string {
 		asanread(unsafe.Pointer(&a[0]), uintptr(len(a))*unsafe.Sizeof(a[0]))
 	}
 
-	var dum [4]byte
-	size1 := 0
+	var (
+		size1, size2, n int
+
+		s, b = rawstringtmp(buf, size1+3)
+	)
 	for _, r := range a {
-		size1 += utf8.EncodeRune(dum[:], r)
+		size1 += utf8.RuneLen(r)
 	}
-	s, b := rawstringtmp(buf, size1+3)
-	size2 := 0
+
 	for _, r := range a {
 		// check for race
 		if size2 >= size1 {
 			break
 		}
-		size2 += utf8.EncodeRune(b[size2:], r)
+		b, n = utf8.EncodeRune(b, r)
+		size2 += n
 	}
+
 	return s[:size2]
 }
 
@@ -246,8 +254,8 @@ func stringtoslicerune(buf *[32]rune, s string) []rune {
 	return a
 }
 
-func decoderune(s string, k int) (rune, int) { return utf8.IterRuneInString(s, k) }
-func countrunes(s string) int                { return utf8.RuneCountInString(s) }
+func decoderune(s string, k int) (rune, int) { return utf8.IterRune(s, k) }
+func countrunes(s string) int                { return utf8.Count(s) }
 
 func rawstringtmp(buf *tmpBuf, l int) (s string, b []byte) {
 	if buf != nil && l <= len(buf) {
@@ -263,36 +271,30 @@ func rawstringtmp(buf *tmpBuf, l int) (s string, b []byte) {
 // stored on the current goroutine's stack.
 func stringDataOnStack(s string) bool {
 	ptr := uintptr(unsafe.Pointer(unsafe.StringData(s)))
-	stk := thread.GetG().Stack
+	stk := getg().Stack
 	return stk.Lo <= ptr && ptr < stk.Hi
 }
 
 // rawruneslice allocates a new rune slice. The rune slice is not zeroed.
 func rawruneslice(size int) (b []rune) {
 	if uintptr(size) > os.MaxAlloc/4 {
-		assert.Throw("out of memory")
+		assert.Throw("out", "of", "memory")
 	}
-	// mem := roundupsize(uintptr(size) * 4)
-	mem := uintptr(size) * 4
-	p := mallocgc(mem, nil, false)
-	if mem != uintptr(size)*4 {
-		memclrNoHeapPointers(unsafe.Add(p, uintptr(size)*4), mem-uintptr(size)*4)
+	sz := uintptr(size) * 4
+	p := explicit_mallocgc(nil, sz, false)
+	if sz != uintptr(size)*4 {
+		mem.Clear(unsafe.Add(p, uintptr(size)*4), sz-uintptr(size)*4)
 	}
 
-	*(*slice)(unsafe.Pointer(&b)) = slice{p, size, int(mem / 4)}
+	*(*slice)(unsafe.Pointer(&b)) = slice{p, size, int(sz / 4)}
 	return
 }
 
 // rawbyteslice allocates a new byte slice. The byte slice is not zeroed.
 func rawbyteslice(size int) (b []byte) {
-	// cap := roundupsize(uintptr(size))
-	cap := uintptr(size)
-	p := mallocgc(cap, nil, false)
-	if cap != uintptr(size) {
-		memclrNoHeapPointers(unsafe.Add(p, uintptr(size)), cap-uintptr(size))
-	}
+	p := explicit_mallocgc(nil, uintptr(size), false)
 
-	*(*slice)(unsafe.Pointer(&b)) = slice{p, size, int(cap)}
+	*(*slice)(unsafe.Pointer(&b)) = slice{p, size, size}
 	return
 }
 
@@ -301,6 +303,6 @@ func rawbyteslice(size int) (b []byte) {
 // The storage is not zeroed. Callers should use
 // b to set the string contents and then drop b.
 func rawstring(size int) (s string, b []byte) {
-	p := mallocgc(uintptr(size), nil, false)
+	p := explicit_mallocgc(nil, uintptr(size), false)
 	return unsafe.String((*byte)(p), size), unsafe.Slice((*byte)(p), size)
 }

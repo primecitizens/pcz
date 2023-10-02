@@ -2,7 +2,7 @@ go 1.21
 
 use (
 	./
-	./examples/00-hello
+	./examples
 	./src
 )
 

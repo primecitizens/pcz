@@ -1,0 +1,1774 @@
+- File: html.idl
+  Typedef:
+    Name: EventHandler
+    Type:
+      Name: EventHandlerNonNull
+      Nullable: true
+- File: html.idl
+  Callback:
+    Name: EventHandlerNonNull
+    Args:
+      - Name: event
+        Type:
+          Name: Event
+    Returns:
+      - Name: any
+    ExtAttrs:
+      - Name: LegacyTreatNonObjectAsNull
+- File: dom.idl
+  Dict:
+    Name: EventInit
+    Fields:
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: dom.idl
+  CallbackInterface:
+    Name: EventListener
+    Operations:
+      - Name: handleEvent
+        Args:
+          - Name: event
+            Type:
+              Name: Event
+        Returns:
+          - Name: undefined
+- File: dom.idl
+  Dict:
+    Name: EventListenerOptions
+    Fields:
+      - Name: capture
+        Default: "false"
+        Type:
+          Name: boolean
+- File: uievents.idl
+  Dict:
+    Name: EventModifierInit
+    Inherits: UIEventInit
+    Fields:
+      - Name: ctrlKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: shiftKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: altKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: metaKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierAltGraph
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierCapsLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFn
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFnLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierHyper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierNumLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierScrollLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSuper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbol
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbolLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: view
+        Default: "null"
+        Type:
+          Name: Window
+          Nullable: true
+      - Name: detail
+        Default: "0"
+        Type:
+          Name: long
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Interface:
+    Name: EventSource
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Constants:
+      - Name: CONNECTING
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: OPEN
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: CLOSED
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: url
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: withCredentials
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onopen
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: url
+            Type:
+              Name: USVString
+          - Name: eventSourceInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: EventSourceInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: html.idl
+  Dict:
+    Name: EventSourceInit
+    Fields:
+      - Name: withCredentials
+        Default: "false"
+        Type:
+          Name: boolean
+- File: dom.idl
+  Interface:
+    Name: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+    Operations:
+      - Name: addEventListener
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: callback
+            Type:
+              Name: EventListener
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: AddEventListenerOptions
+                - Name: boolean
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: removeEventListener
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: callback
+            Type:
+              Name: EventListener
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: EventListenerOptions
+                - Name: boolean
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: dispatchEvent
+        Args:
+          - Name: event
+            Type:
+              Name: Event
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+- File: cookie-store.idl
+  Interface:
+    Name: ExtendableCookieChangeEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Attrs:
+      - Name: changed
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CookieListItem
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: deleted
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CookieListItem
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ExtendableCookieChangeEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: cookie-store.idl
+  Dict:
+    Name: ExtendableCookieChangeEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: changed
+        Type:
+          Name: CookieList
+      - Name: deleted
+        Type:
+          Name: CookieList
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: service-workers.idl
+  Interface:
+    Name: ExtendableEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Operations:
+      - Name: waitUntil
+        Args:
+          - Name: f
+            Type:
+              Name: Promise
+              Params:
+                - Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ExtendableEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: service-workers.idl
+  Dict:
+    Name: ExtendableEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: service-workers.idl
+  Interface:
+    Name: ExtendableMessageEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Attrs:
+      - Name: data
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: origin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: lastEventId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: source
+        Readonly: true
+        Type:
+          Union:
+            - Name: Client
+            - Name: ServiceWorker
+            - Name: MessagePort
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: ports
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: MessagePort
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ExtendableMessageEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: service-workers.idl
+  Dict:
+    Name: ExtendableMessageEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: data
+        Default: "null"
+        Type:
+          Name: any
+      - Name: origin
+        Default: '""'
+        Type:
+          Name: USVString
+      - Name: lastEventId
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: source
+        Default: "null"
+        Type:
+          Union:
+            - Name: Client
+            - Name: ServiceWorker
+            - Name: MessagePort
+          Nullable: true
+      - Name: ports
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: MessagePort
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Interface:
+    Name: External
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: AddSearchProvider
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: IsSearchProviderInstalled
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: eyedropper-api.idl
+  Interface:
+    Name: EyeDropper
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Operations:
+      - Name: open
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ColorSelectionOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ColorSelectionResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: shape-detection-api.idl
+  Interface:
+    Name: FaceDetector
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+    Operations:
+      - Name: detect
+        Args:
+          - Name: image
+            Type:
+              Name: ImageBitmapSource
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: DetectedFace
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: faceDetectorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FaceDetectorOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+- File: shape-detection-api.idl
+  Dict:
+    Name: FaceDetectorOptions
+    Fields:
+      - Name: maxDetectedFaces
+        Type:
+          Name: unsigned short
+      - Name: fastMode
+        Type:
+          Name: boolean
+- File: credential-management.idl
+  Interface:
+    Name: FederatedCredential
+    Inherits: Credential
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: provider
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: protocol
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: name
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: iconURL
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: data
+            Type:
+              Name: FederatedCredentialInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: credential-management.idl
+  Dict:
+    Name: FederatedCredentialInit
+    Inherits: CredentialData
+    Fields:
+      - Name: name
+        Type:
+          Name: USVString
+      - Name: iconURL
+        Type:
+          Name: USVString
+      - Name: origin
+        Required: true
+        Type:
+          Name: USVString
+      - Name: provider
+        Required: true
+        Type:
+          Name: USVString
+      - Name: protocol
+        Type:
+          Name: DOMString
+      - Name: id
+        Required: true
+        Type:
+          Name: USVString
+- File: credential-management.idl
+  Dict:
+    Name: FederatedCredentialRequestOptions
+    Fields:
+      - Name: providers
+        Type:
+          Name: sequence
+          Params:
+            - Name: USVString
+      - Name: protocols
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: fenced-frame.idl
+  Interface:
+    Name: Fence
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: reportEvent
+        Args:
+          - Name: event
+            Type:
+              Name: ReportEventType
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setReportEventDataForAutomaticBeacons
+        Args:
+          - Name: event
+            Type:
+              Name: FenceEvent
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getNestedConfigs
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: FencedFrameConfig
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: fenced-frame.idl
+  Dict:
+    Name: FenceEvent
+    Fields:
+      - Name: eventType
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: eventData
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: destination
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: FenceReportingDestination
+      - Name: once
+        Default: "false"
+        Type:
+          Name: boolean
+- File: fenced-frame.idl
+  Enum:
+    Name: FenceReportingDestination
+    Values:
+      - buyer
+      - seller
+      - component-seller
+      - direct-seller
+      - shared-storage-select-url
+- File: fenced-frame.idl
+  Interface:
+    Name: FencedFrameConfig
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: Serializable
+    Attrs:
+      - Name: containerWidth
+        Readonly: true
+        Type:
+          Name: FencedFrameConfigSize
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: containerHeight
+        Readonly: true
+        Type:
+          Name: FencedFrameConfigSize
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: contentWidth
+        Readonly: true
+        Type:
+          Name: FencedFrameConfigSize
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: contentHeight
+        Readonly: true
+        Type:
+          Name: FencedFrameConfigSize
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+    Operations:
+      - Name: setSharedStorageContext
+        Args:
+          - Name: contextString
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+- File: fenced-frame.idl
+  Typedef:
+    Name: FencedFrameConfigSize
+    Type:
+      Union:
+        - Name: unsigned long
+        - Name: OpaqueProperty
+- File: fenced-frame.idl
+  Typedef:
+    Name: FencedFrameConfigURL
+    Type:
+      Name: USVString
+- File: service-workers.idl
+  Interface:
+    Name: FetchEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Attrs:
+      - Name: request
+        Readonly: true
+        Type:
+          Name: Request
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: preloadResponse
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: clientId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: resultingClientId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: replacesClientId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: handled
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Operations:
+      - Name: respondWith
+        Args:
+          - Name: r
+            Type:
+              Name: Promise
+              Params:
+                - Name: Response
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: FetchEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: service-workers.idl
+  Dict:
+    Name: FetchEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: request
+        Required: true
+        Type:
+          Name: Request
+      - Name: preloadResponse
+        Type:
+          Name: Promise
+          Params:
+            - Name: any
+      - Name: clientId
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: resultingClientId
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: replacesClientId
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: handled
+        Type:
+          Name: Promise
+          Params:
+            - Name: undefined
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: FileAPI.idl
+  Interface:
+    Name: File
+    Inherits: Blob
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: Serializable
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: lastModified
+        Readonly: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+      - Name: webkitRelativePath
+        Readonly: true
+        Type:
+          Name: USVString
+    Constructors:
+      - Args:
+          - Name: fileBits
+            Type:
+              Name: sequence
+              Params:
+                - Name: BlobPart
+          - Name: fileName
+            Type:
+              Name: USVString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FilePropertyBag
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+- File: entries-api.idl
+  Callback:
+    Name: FileCallback
+    Args:
+      - Name: file
+        Type:
+          Name: File
+    Returns:
+      - Name: undefined
+- File: FileAPI.idl
+  Interface:
+    Name: FileList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: Serializable
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: File
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Serializable
+- File: file-system-access.idl
+  Dict:
+    Name: FilePickerAcceptType
+    Fields:
+      - Name: description
+        Default: '""'
+        Type:
+          Name: USVString
+      - Name: accept
+        Type:
+          Name: record
+          Params:
+            - Name: USVString
+            - Union:
+                - Name: USVString
+                - Name: sequence
+                  Params:
+                    - Name: USVString
+- File: file-system-access.idl
+  Dict:
+    Name: FilePickerOptions
+    Fields:
+      - Name: types
+        Type:
+          Name: sequence
+          Params:
+            - Name: FilePickerAcceptType
+      - Name: excludeAcceptAllOption
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: startIn
+        Type:
+          Name: StartInDirectory
+- File: FileAPI.idl
+  Dict:
+    Name: FilePropertyBag
+    Inherits: BlobPropertyBag
+    Fields:
+      - Name: lastModified
+        Type:
+          Name: long long
+      - Name: type
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: endings
+        Default: '"transparent"'
+        Type:
+          Name: EndingType
+- File: FileAPI.idl
+  Interface:
+    Name: FileReader
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Constants:
+      - Name: EMPTY
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: LOADING
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: DONE
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: result
+        Readonly: true
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: ArrayBuffer
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: error
+        Readonly: true
+        Type:
+          Name: DOMException
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onloadstart
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onprogress
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onload
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onabort
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onloadend
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: readAsArrayBuffer
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: readAsBinaryString
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: readAsText
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+          - Name: encoding
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: readAsDataURL
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: abort
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: FileAPI.idl
+  Interface:
+    Name: FileReaderSync
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+          - SharedWorker
+    Operations:
+      - Name: readAsArrayBuffer
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+        Returns:
+          - Name: ArrayBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+      - Name: readAsBinaryString
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+      - Name: readAsText
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+          - Name: encoding
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+      - Name: readAsDataURL
+        Args:
+          - Name: blob
+            Type:
+              Name: Blob
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+- File: entries-api.idl
+  Interface:
+    Name: FileSystem
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: root
+        Readonly: true
+        Type:
+          Name: FileSystemDirectoryEntry
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: fs.idl
+  Dict:
+    Name: FileSystemCreateWritableOptions
+    Fields:
+      - Name: keepExistingData
+        Default: "false"
+        Type:
+          Name: boolean
+- File: entries-api.idl
+  Interface:
+    Name: FileSystemDirectoryEntry
+    Inherits: FileSystemEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: createReader
+        Returns:
+          - Name: FileSystemDirectoryReader
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getFile
+        Args:
+          - Name: path
+            Optional: true
+            Type:
+              Name: USVString
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FileSystemFlags
+          - Name: successCallback
+            Optional: true
+            Type:
+              Name: FileSystemEntryCallback
+          - Name: errorCallback
+            Optional: true
+            Type:
+              Name: ErrorCallback
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getDirectory
+        Args:
+          - Name: path
+            Optional: true
+            Type:
+              Name: USVString
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FileSystemFlags
+          - Name: successCallback
+            Optional: true
+            Type:
+              Name: FileSystemEntryCallback
+          - Name: errorCallback
+            Optional: true
+            Type:
+              Name: ErrorCallback
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: fs.idl
+  Interface:
+    Name: FileSystemDirectoryHandle
+    Inherits: FileSystemHandle
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+      - Name: Serializable
+    Operations:
+      - Name: getFileHandle
+        Args:
+          - Name: name
+            Type:
+              Name: USVString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FileSystemGetFileOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FileSystemFileHandle
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+          - Name: Serializable
+      - Name: getDirectoryHandle
+        Args:
+          - Name: name
+            Type:
+              Name: USVString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FileSystemGetDirectoryOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FileSystemDirectoryHandle
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+          - Name: Serializable
+      - Name: removeEntry
+        Args:
+          - Name: name
+            Type:
+              Name: USVString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FileSystemRemoveOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+          - Name: Serializable
+      - Name: resolve
+        Args:
+          - Name: possibleDescendant
+            Type:
+              Name: FileSystemHandle
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: USVString
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+          - Name: Serializable
+    Iterable:
+      TypeParams:
+        - Name: USVString
+        - Name: FileSystemHandle
+      Async: true
+- File: entries-api.idl
+  Interface:
+    Name: FileSystemDirectoryReader
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: readEntries
+        Args:
+          - Name: successCallback
+            Type:
+              Name: FileSystemEntriesCallback
+          - Name: errorCallback
+            Optional: true
+            Type:
+              Name: ErrorCallback
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: entries-api.idl
+  Callback:
+    Name: FileSystemEntriesCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: FileSystemEntry
+    Returns:
+      - Name: undefined
+- File: entries-api.idl
+  Interface:
+    Name: FileSystemEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: isFile
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isDirectory
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fullPath
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: filesystem
+        Readonly: true
+        Type:
+          Name: FileSystem
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getParent
+        Args:
+          - Name: successCallback
+            Optional: true
+            Type:
+              Name: FileSystemEntryCallback
+          - Name: errorCallback
+            Optional: true
+            Type:
+              Name: ErrorCallback
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: entries-api.idl
+  Callback:
+    Name: FileSystemEntryCallback
+    Args:
+      - Name: entry
+        Type:
+          Name: FileSystemEntry
+    Returns:
+      - Name: undefined
+- File: entries-api.idl
+  Interface:
+    Name: FileSystemFileEntry
+    Inherits: FileSystemEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: file
+        Args:
+          - Name: successCallback
+            Type:
+              Name: FileCallback
+          - Name: errorCallback
+            Optional: true
+            Type:
+              Name: ErrorCallback
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: fs.idl
+  Interface:
+    Name: FileSystemFileHandle
+    Inherits: FileSystemHandle
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+      - Name: Serializable
+    Operations:
+      - Name: getFile
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: File
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+          - Name: Serializable
+      - Name: createWritable
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FileSystemCreateWritableOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FileSystemWritableFileStream
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+          - Name: Serializable
+      - Name: createSyncAccessHandle
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FileSystemSyncAccessHandle
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+          - Name: SecureContext
+          - Name: Serializable
+- File: entries-api.idl
+  Dict:
+    Name: FileSystemFlags
+    Fields:
+      - Name: create
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: exclusive
+        Default: "false"
+        Type:
+          Name: boolean
+- File: fs.idl
+  Dict:
+    Name: FileSystemGetDirectoryOptions
+    Fields:
+      - Name: create
+        Default: "false"
+        Type:
+          Name: boolean

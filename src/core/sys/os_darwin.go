@@ -21,12 +21,12 @@ var (
 func ExecutablePath() string { return executablePath }
 
 func init() {
-	// base is the envv
-	base := unsafe.SliceData(args) // no args
-	if base == nil {
+	base := unsafe.SliceData(args)
+	if base == nil { // no args
 		return
 	}
 
+	// base is the envv
 	base = stdptr.Add(base, arch.PtrSize*uintptr(len(args)+1 /* NULL sep */))
 	n := 0
 	for p := base; *p != nil; p = stdptr.Add(p, arch.PtrSize) {

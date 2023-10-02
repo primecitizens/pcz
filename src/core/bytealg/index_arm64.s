@@ -5,9 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && arm64
+
 #include "textflag.h"
 
-TEXT ·Index(SB),NOSPLIT,$0-56
+TEXT ·indexSlice(SB),NOSPLIT,$0-56
 	MOVD a_base+0(FP), R0
 	MOVD a_len+8(FP), R1
 	MOVD b_base+24(FP), R2
@@ -15,7 +17,7 @@ TEXT ·Index(SB),NOSPLIT,$0-56
 	MOVD $ret+48(FP), R9
 	B indexbody<>(SB)
 
-TEXT ·IndexString(SB),NOSPLIT,$0-40
+TEXT ·index(SB),NOSPLIT,$0-40
 	MOVD a_base+0(FP), R0
 	MOVD a_len+8(FP), R1
 	MOVD b_base+16(FP), R2

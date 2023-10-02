@@ -13,4 +13,4 @@ package wasi
 //
 //go:wasmimport wasi_snapshot_preview1 fd_filestat_set_size
 //go:noescape
-func Ftruncate(fd FD, set_size FileSize) Errno
+func Ftruncate(fd FD, set_size Filesize) Errno

@@ -1,0 +1,2111 @@
+- File: SVG.idl
+  Interface:
+    Name: SVGRadialGradientElement
+    Inherits: SVGGradientElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: cx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cy
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: r
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fy
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fr
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGRectElement
+    Inherits: SVGGeometryElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ry
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGSVGElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: currentScale
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: currentTranslate
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: viewBox
+        Readonly: true
+        Type:
+          Name: SVGAnimatedRect
+        ExtAttrs:
+          - Name: SameObject
+      - Name: preserveAspectRatio
+        Readonly: true
+        Type:
+          Name: SVGAnimatedPreserveAspectRatio
+        ExtAttrs:
+          - Name: SameObject
+      - Name: onafterprint
+        Type:
+          Name: EventHandler
+      - Name: onbeforeprint
+        Type:
+          Name: EventHandler
+      - Name: onbeforeunload
+        Type:
+          Name: OnBeforeUnloadEventHandler
+      - Name: onhashchange
+        Type:
+          Name: EventHandler
+      - Name: onlanguagechange
+        Type:
+          Name: EventHandler
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+      - Name: onmessageerror
+        Type:
+          Name: EventHandler
+      - Name: onoffline
+        Type:
+          Name: EventHandler
+      - Name: ononline
+        Type:
+          Name: EventHandler
+      - Name: onpagehide
+        Type:
+          Name: EventHandler
+      - Name: onpageshow
+        Type:
+          Name: EventHandler
+      - Name: onpopstate
+        Type:
+          Name: EventHandler
+      - Name: onrejectionhandled
+        Type:
+          Name: EventHandler
+      - Name: onstorage
+        Type:
+          Name: EventHandler
+      - Name: onunhandledrejection
+        Type:
+          Name: EventHandler
+      - Name: onunload
+        Type:
+          Name: EventHandler
+      - Name: ongamepadconnected
+        Type:
+          Name: EventHandler
+      - Name: ongamepaddisconnected
+        Type:
+          Name: EventHandler
+      - Name: onportalactivate
+        Type:
+          Name: EventHandler
+    Operations:
+      - Name: getIntersectionList
+        Args:
+          - Name: rect
+            Type:
+              Name: DOMRectReadOnly
+          - Name: referenceElement
+            Type:
+              Name: SVGElement
+              Nullable: true
+        Returns:
+          - Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getEnclosureList
+        Args:
+          - Name: rect
+            Type:
+              Name: DOMRectReadOnly
+          - Name: referenceElement
+            Type:
+              Name: SVGElement
+              Nullable: true
+        Returns:
+          - Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: checkIntersection
+        Args:
+          - Name: element
+            Type:
+              Name: SVGElement
+          - Name: rect
+            Type:
+              Name: DOMRectReadOnly
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: checkEnclosure
+        Args:
+          - Name: element
+            Type:
+              Name: SVGElement
+          - Name: rect
+            Type:
+              Name: DOMRectReadOnly
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deselectAll
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGNumber
+        Returns:
+          - Name: SVGNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGLength
+        Returns:
+          - Name: SVGLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGAngle
+        Returns:
+          - Name: SVGAngle
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGPoint
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGMatrix
+        Returns:
+          - Name: DOMMatrix
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGRect
+        Returns:
+          - Name: DOMRect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGTransform
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGTransformFromMatrix
+        Args:
+          - Name: matrix
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMMatrix2DInit
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getElementById
+        Args:
+          - Name: elementId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: suspendRedraw
+        Args:
+          - Name: maxWaitMilliseconds
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: unsuspendRedraw
+        Args:
+          - Name: suspendHandleID
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: unsuspendRedrawAll
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: forceRedraw
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pauseAnimations
+        Returns:
+          - Name: undefined
+      - Name: unpauseAnimations
+        Returns:
+          - Name: undefined
+      - Name: animationsPaused
+        Returns:
+          - Name: boolean
+      - Name: getCurrentTime
+        Returns:
+          - Name: float
+      - Name: setCurrentTime
+        Args:
+          - Name: seconds
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+- File: SVG.idl
+  Interface:
+    Name: SVGScriptElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: crossOrigin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: svg-animations.idl
+  Interface:
+    Name: SVGSetElement
+    Inherits: SVGAnimationElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGStopElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: offset
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGStringList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfItems
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initialize
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getItem
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertItemBefore
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMString
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMString
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeItem
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: appendItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: newItem
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGStyleElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: media
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: title
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sheet
+        Readonly: true
+        Type:
+          Name: CSSStyleSheet
+          Nullable: true
+- File: SVG.idl
+  Interface:
+    Name: SVGSwitchElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGSymbolElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: viewBox
+        Readonly: true
+        Type:
+          Name: SVGAnimatedRect
+        ExtAttrs:
+          - Name: SameObject
+      - Name: preserveAspectRatio
+        Readonly: true
+        Type:
+          Name: SVGAnimatedPreserveAspectRatio
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGTSpanElement
+    Inherits: SVGTextPositioningElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGTextContentElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: LENGTHADJUST_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: LENGTHADJUST_SPACING
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: LENGTHADJUST_SPACINGANDGLYPHS
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: textLength
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lengthAdjust
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getNumberOfChars
+        Returns:
+          - Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getComputedTextLength
+        Returns:
+          - Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getSubStringLength
+        Args:
+          - Name: charnum
+            Type:
+              Name: unsigned long
+          - Name: nchars
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getStartPositionOfChar
+        Args:
+          - Name: charnum
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getEndPositionOfChar
+        Args:
+          - Name: charnum
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getExtentOfChar
+        Args:
+          - Name: charnum
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMRect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getRotationOfChar
+        Args:
+          - Name: charnum
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getCharNumAtPosition
+        Args:
+          - Name: point
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMPointInit
+        Returns:
+          - Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectSubString
+        Args:
+          - Name: charnum
+            Type:
+              Name: unsigned long
+          - Name: nchars
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGTextElement
+    Inherits: SVGTextPositioningElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGTextPathElement
+    Inherits: SVGTextContentElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: TEXTPATH_METHODTYPE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: TEXTPATH_METHODTYPE_ALIGN
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: TEXTPATH_METHODTYPE_STRETCH
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: TEXTPATH_SPACINGTYPE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: TEXTPATH_SPACINGTYPE_AUTO
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: TEXTPATH_SPACINGTYPE_EXACT
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: startOffset
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: method
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: spacing
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGTextPositioningElement
+    Inherits: SVGTextContentElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLengthList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLengthList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLengthList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dy
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLengthList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rotate
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumberList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGTitleElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGTransform
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_TRANSFORM_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TRANSFORM_MATRIX
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TRANSFORM_TRANSLATE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TRANSFORM_SCALE
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TRANSFORM_ROTATE
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TRANSFORM_SKEWX
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TRANSFORM_SKEWY
+        Value: "6"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: matrix
+        Readonly: true
+        Type:
+          Name: DOMMatrix
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: angle
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: setMatrix
+        Args:
+          - Name: matrix
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMMatrix2DInit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setTranslate
+        Args:
+          - Name: tx
+            Type:
+              Name: float
+          - Name: ty
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setScale
+        Args:
+          - Name: sx
+            Type:
+              Name: float
+          - Name: sy
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setRotate
+        Args:
+          - Name: angle
+            Type:
+              Name: float
+          - Name: cx
+            Type:
+              Name: float
+          - Name: cy
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setSkewX
+        Args:
+          - Name: angle
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setSkewY
+        Args:
+          - Name: angle
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGTransformList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfItems
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initialize
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGTransform
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getItem
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertItemBefore
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGTransform
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGTransform
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeItem
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: appendItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGTransform
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: newItem
+            Type:
+              Name: SVGTransform
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createSVGTransformFromMatrix
+        Args:
+          - Name: matrix
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMMatrix2DInit
+        Returns:
+          - Name: SVGTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: consolidate
+        Returns:
+          - Name: SVGTransform
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGUnitTypes
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_UNIT_TYPE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_UNIT_TYPE_USERSPACEONUSE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_UNIT_TYPE_OBJECTBOUNDINGBOX
+        Value: "2"
+        Type:
+          Name: unsigned short
+- File: SVG.idl
+  Interface:
+    Name: SVGUseElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: instanceRoot
+        Readonly: true
+        Type:
+          Name: SVGElement
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: animatedInstanceRoot
+        Readonly: true
+        Type:
+          Name: SVGElement
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGUseElementShadowRoot
+    Inherits: ShadowRoot
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGViewElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: viewBox
+        Readonly: true
+        Type:
+          Name: SVGAnimatedRect
+        ExtAttrs:
+          - Name: SameObject
+      - Name: preserveAspectRatio
+        Readonly: true
+        Type:
+          Name: SVGAnimatedPreserveAspectRatio
+        ExtAttrs:
+          - Name: SameObject
+- File: sanitizer-api.idl
+  Interface:
+    Name: Sanitizer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Operations:
+      - Name: sanitize
+        Args:
+          - Name: input
+            Type:
+              Union:
+                - Name: Document
+                - Name: DocumentFragment
+        Returns:
+          - Name: DocumentFragment
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: sanitizeFor
+        Args:
+          - Name: element
+            Type:
+              Name: DOMString
+          - Name: input
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: getConfiguration
+        Returns:
+          - Name: SanitizerConfig
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: getDefaultConfiguration
+        Modifier: static
+        Returns:
+          - Name: SanitizerConfig
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: config
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SanitizerConfig
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: sanitizer-api.idl
+  Dict:
+    Name: SanitizerConfig
+    Fields:
+      - Name: allowElements
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: blockElements
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: dropElements
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: allowAttributes
+        Type:
+          Name: AttributeMatchList
+      - Name: dropAttributes
+        Type:
+          Name: AttributeMatchList
+      - Name: allowCustomElements
+        Type:
+          Name: boolean
+      - Name: allowUnknownMarkup
+        Type:
+          Name: boolean
+      - Name: allowComments
+        Type:
+          Name: boolean
+- File: file-system-access.idl
+  Dict:
+    Name: SaveFilePickerOptions
+    Inherits: FilePickerOptions
+    Fields:
+      - Name: suggestedName
+        Type:
+          Name: USVString
+          Nullable: true
+      - Name: types
+        Type:
+          Name: sequence
+          Params:
+            - Name: FilePickerAcceptType
+      - Name: excludeAcceptAllOption
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: startIn
+        Type:
+          Name: StartInDirectory
+- File: scheduling-apis.idl
+  Interface:
+    Name: Scheduler
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: postTask
+        Args:
+          - Name: callback
+            Type:
+              Name: SchedulerPostTaskCallback
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SchedulerPostTaskOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: scheduling-apis.idl
+  Callback:
+    Name: SchedulerPostTaskCallback
+    Returns:
+      - Name: any
+- File: scheduling-apis.idl
+  Dict:
+    Name: SchedulerPostTaskOptions
+    Fields:
+      - Name: signal
+        Type:
+          Name: AbortSignal
+      - Name: priority
+        Type:
+          Name: TaskPriority
+      - Name: delay
+        Default: "0"
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+- File: is-input-pending.idl
+  Interface:
+    Name: Scheduling
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: isInputPending
+        Args:
+          - Name: isInputPendingOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: IsInputPendingOptions
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: turtledove.idl
+  Dict:
+    Name: ScoreAdOutput
+    Fields:
+      - Name: desirability
+        Required: true
+        Type:
+          Name: double
+      - Name: bid
+        Type:
+          Name: double
+      - Name: bidCurrency
+        Type:
+          Name: DOMString
+      - Name: incomingBidInSellerCurrency
+        Type:
+          Name: double
+      - Name: allowComponentAuction
+        Default: "false"
+        Type:
+          Name: boolean
+- File: turtledove.idl
+  Dict:
+    Name: ScoringBrowserSignals
+    Fields:
+      - Name: topWindowHostname
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: interestGroupOwner
+        Required: true
+        Type:
+          Name: USVString
+      - Name: renderURL
+        Required: true
+        Type:
+          Name: USVString
+      - Name: biddingDurationMsec
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: bidCurrency
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: dataVersion
+        Type:
+          Name: unsigned long
+      - Name: adComponents
+        Type:
+          Name: sequence
+          Params:
+            - Name: USVString
+- File: cssom-view.idl
+  Interface:
+    Name: Screen
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: availWidth
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: availHeight
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: colorDepth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pixelDepth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isExtended
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: onchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: orientation
+        Readonly: true
+        Type:
+          Name: ScreenOrientation
+        ExtAttrs:
+          - Name: SameObject
+- File: window-management.idl
+  Interface:
+    Name: ScreenDetailed
+    Inherits: Screen
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: availLeft
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: availTop
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: left
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: top
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: isPrimary
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: isInternal
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: devicePixelRatio
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: label
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: window-management.idl
+  Interface:
+    Name: ScreenDetails
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: screens
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: ScreenDetailed
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: currentScreen
+        Readonly: true
+        Type:
+          Name: ScreenDetailed
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: onscreenschange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: oncurrentscreenchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: idle-detection.idl
+  Enum:
+    Name: ScreenIdleState
+    Values:
+      - locked
+      - unlocked
+- File: screen-orientation.idl
+  Interface:
+    Name: ScreenOrientation
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: OrientationType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: angle
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: lock
+        Args:
+          - Name: orientation
+            Type:
+              Name: OrientationLockType
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: unlock
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Interface:
+    Name: ScriptProcessorNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onaudioprocess
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: bufferSize
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: trusted-types.idl
+  Typedef:
+    Name: ScriptString
+    Type:
+      Name: DOMString
+- File: trusted-types.idl
+  Typedef:
+    Name: ScriptURLString
+    Type:
+      Name: USVString
+- File: csp-next.idl
+  Interface:
+    Name: ScriptingPolicyReportBody
+    Inherits: ReportBody
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+    Attrs:
+      - Name: violationType
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: violationURL
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: violationSample
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: lineno
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: colno
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+- File: csp-next.idl
+  Enum:
+    Name: ScriptingPolicyViolationType
+    Values:
+      - externalScript
+      - inlineScript
+      - inlineEventHandler
+      - eval
+- File: scroll-animations.idl
+  Enum:
+    Name: ScrollAxis
+    Values:
+      - block
+      - inline
+      - x
+      - "y"
+- File: cssom-view.idl
+  Enum:
+    Name: ScrollBehavior
+    Values:
+      - auto
+      - instant
+      - smooth
+- File: cssom-view.idl
+  Dict:
+    Name: ScrollIntoViewOptions
+    Inherits: ScrollOptions
+    Fields:
+      - Name: block
+        Default: '"start"'
+        Type:
+          Name: ScrollLogicalPosition
+      - Name: inline
+        Default: '"nearest"'
+        Type:
+          Name: ScrollLogicalPosition
+      - Name: behavior
+        Default: '"auto"'
+        Type:
+          Name: ScrollBehavior
+- File: cssom-view.idl
+  Enum:
+    Name: ScrollLogicalPosition
+    Values:
+      - start
+      - center
+      - end
+      - nearest
+- File: cssom-view.idl
+  Dict:
+    Name: ScrollOptions
+    Fields:
+      - Name: behavior
+        Default: '"auto"'
+        Type:
+          Name: ScrollBehavior
+- File: html.idl
+  Enum:
+    Name: ScrollRestoration
+    Values:
+      - auto
+      - manual
+- File: webvtt.idl
+  Enum:
+    Name: ScrollSetting
+    Values:
+      - ""
+      - up
+- File: scroll-animations.idl
+  Interface:
+    Name: ScrollTimeline
+    Inherits: AnimationTimeline
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: source
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: axis
+        Readonly: true
+        Type:
+          Name: ScrollAxis
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ScrollTimelineOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: scroll-animations.idl
+  Dict:
+    Name: ScrollTimelineOptions
+    Fields:
+      - Name: source
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: axis
+        Default: '"block"'
+        Type:
+          Name: ScrollAxis

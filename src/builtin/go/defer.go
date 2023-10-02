@@ -7,7 +7,9 @@
 
 package stdgo
 
-import "unsafe"
+import (
+	"unsafe"
+)
 
 // A Defer holds an entry on the list of deferred calls.
 // If you add a field here, add code to clear it in deferProcStack.

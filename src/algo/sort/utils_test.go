@@ -4,6 +4,6 @@
 package sort
 
 var (
-	_ Interface = ReverseSorter[SliceSorter[byte]]{}
-	_ Interface = SliceSorter[struct{}]{}
+	_ Interface = ReverseSorter[*SliceSorter[byte]]{}
+	_ Interface = (*SliceSorter[struct{}])(nil)
 )

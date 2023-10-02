@@ -12,3 +12,7 @@ func AlignUp[T Uint](n, a T) T {
 func AlignDown[T Uint](n, a T) T {
 	return n & (^(a - 1))
 }
+
+func IsPowerOfTwo[T Integer](x T) bool {
+	return x&(x-1) == 0
+}

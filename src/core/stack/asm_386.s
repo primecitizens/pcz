@@ -5,6 +5,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && 386
+
 #include "textflag.h"
 
 TEXT ·GetSP(SB),NOSPLIT,$0-4
@@ -24,12 +26,12 @@ TEXT ·SetSP(SB),NOSPLIT,$4-4
 // the top of a stack (for example, morestack calling newstack
 // calling the scheduler calling newm calling gc), so we must
 // record an argument size. For that purpose, it has no arguments.
-TEXT runtime·morestack(SB),NOSPLIT,$0
+TEXT runtime·morestack(SB),NOSPLIT,$0-0
 	// TODO: implement
 	INT $3 // crash
 loop:
 	JMP loop
 
-TEXT runtime·morestack_noctxt(SB),NOSPLIT|NOFRAME,$0
+TEXT runtime·morestack_noctxt(SB),NOSPLIT|NOFRAME,$0-0
 	MOVL $0, DX
 	JMP runtime·morestack(SB)

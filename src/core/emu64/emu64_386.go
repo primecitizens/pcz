@@ -50,7 +50,7 @@ func dodiv(n, d uint64) (q, r uint64) {
 	var qhi uint32
 	if uint32(n>>32) >= uint32(d) {
 		if uint32(d) == 0 {
-			stdpanic.PanicDivide()
+			panicdivide()
 		}
 		qhi = uint32(n>>32) / uint32(d)
 		n -= uint64(uint32(d)*qhi) << 32

@@ -5,22 +5,22 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build ppc64 || ppc64le
+//go:build pcz && (ppc64 || ppc64le)
 
 #include "textflag.h"
 
-TEXT ·IndexByte<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-40
+TEXT ·IndexSliceByte<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-40
 	// R3 = byte array pointer
 	// R4 = length
 	MOVD R6, R5 // R5 = byte
-	MOVBZ core∕cpu·PPC64+const_offsetPPC64HasPOWER9(SB), R16
+	MOVBZ ·isPOWER9(SB), R16
 	BR indexbytebody<>(SB)
 
-TEXT ·IndexByteString<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-32
+TEXT ·IndexByte<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-32
 	// R3 = string
 	// R4 = length
 	// R5 = byte
-	MOVBZ core∕cpu·PPC64+const_offsetPPC64HasPOWER9(SB), R16
+	MOVBZ ·isPOWER9(SB), R16
 	BR indexbytebody<>(SB)
 
 // R3 = addr of string

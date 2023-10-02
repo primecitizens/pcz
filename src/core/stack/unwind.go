@@ -19,6 +19,7 @@ import (
 	"github.com/primecitizens/std/core/assert"
 	"github.com/primecitizens/std/core/num"
 	"github.com/primecitizens/std/core/os"
+	"github.com/primecitizens/std/core/thread"
 )
 
 type hex = uint64
@@ -89,8 +90,8 @@ func pcvalue(f abi.FuncInfo, off uint32, targetpc uintptr, cache *pcvalueCache, 
 		}
 		return -1, 0
 	}
-	datap := f.datap
-	p := datap.pctab[off:]
+	datap := f.Datap
+	p := datap.PCTab[off:]
 	pc := f.Entry()
 	prevpc := pc
 	val := int32(-1)
@@ -138,7 +139,7 @@ func pcvalue(f abi.FuncInfo, off uint32, targetpc uintptr, cache *pcvalueCache, 
 		" ", "tab=", p, "\n",
 	)
 
-	p = datap.pctab[off:]
+	p = datap.PCTab[off:]
 	pc = f.Entry()
 	val = -1
 	for {
@@ -281,7 +282,7 @@ type unwinder struct {
 	// g is the G who's stack is being unwound. If the
 	// unwindJumpStack flag is set and the unwinder jumps stacks,
 	// this will be different from the initial G.
-	g guintptr
+	g stdgo.Guintptr
 
 	// cgoCtxt is the index into g.cgoCtxt of the next frame on the cgo stack.
 	// The cgo stack is unwound in tandem with the Go stack as we find marker frames.
@@ -315,7 +316,7 @@ func (u *unwinder) init(gp *stdgo.GHead, flags unwindFlags) {
 
 func (u *unwinder) initAt(pc0, sp0, lr0 uintptr, gp *stdgo.GHead, flags unwindFlags) {
 	// Don't call this "g"; it's too easy get "g" and "gp" confused.
-	if ourg := getg(); ourg == gp && ourg == ourg.m.curg {
+	if ourg := thread.G(); ourg == gp && ourg == ourg.M.curg {
 		// The starting sp has been passed in as a uintptr, and the caller may
 		// have other uintptr-typed stack references as well.
 		// If during one of the calls that got us here or during one of the
@@ -340,10 +341,10 @@ func (u *unwinder) initAt(pc0, sp0, lr0 uintptr, gp *stdgo.GHead, flags unwindFl
 				lr0 = 0
 			}
 		} else {
-			pc0 = gp.sched.pc
-			sp0 = gp.sched.sp
+			pc0 = gp.Sched.PC
+			sp0 = gp.Sched.SP
 			if usesLR {
-				lr0 = gp.sched.lr
+				lr0 = gp.Sched.LR
 			}
 		}
 	}
@@ -398,7 +399,7 @@ func (u *unwinder) initAt(pc0, sp0, lr0 uintptr, gp *stdgo.GHead, flags unwindFl
 	// Populate the unwinder.
 	*u = unwinder{
 		frame:        frame,
-		g:            gp.guintptr(),
+		g:            gp.Guintptr(),
 		cgoCtxt:      len(gp.cgoCtxt) - 1,
 		calleeFuncID: abi.FuncIDNormal,
 		flags:        flags,
@@ -435,7 +436,7 @@ func (u *unwinder) valid() bool {
 // This is internal to unwinder.
 func (u *unwinder) resolveInternal(innermost, isSyscall bool) {
 	frame := &u.frame
-	gp := u.g.ptr()
+	gp := u.g.Ptr()
 
 	f := frame.fn
 	if f.PCSP == 0 {
@@ -469,7 +470,7 @@ func (u *unwinder) resolveInternal(innermost, isSyscall bool) {
 		// We also defensively check that this won't switch M's on us,
 		// which could happen at critical points in the scheduler.
 		// This ensures gp.m doesn't change from a stack jump.
-		if u.flags&unwindJumpStack != 0 && gp == gp.m.g0 && gp.m.curg != nil && gp.m.curg.m == gp.m {
+		if u.flags&unwindJumpStack != 0 && gp == gp.M.g0 && gp.M.curg != nil && gp.M.curg.M == gp.M {
 			switch f.FuncID {
 			case abi.FuncID_morestack:
 				// morestack does not return normally -- newstack()
@@ -477,14 +478,14 @@ func (u *unwinder) resolveInternal(innermost, isSyscall bool) {
 				// This keeps morestack() from showing up in the backtrace,
 				// but that makes some sense since it'll never be returned
 				// to.
-				gp = gp.m.curg
-				u.g.set(gp)
-				frame.pc = gp.sched.pc
+				gp = gp.M.curg
+				u.g.Set(gp)
+				frame.pc = gp.Sched.PC
 				frame.fn = abi.FindFunc(frame.pc)
 				f = frame.fn
 				flag = f.Flag
-				frame.lr = gp.sched.lr
-				frame.sp = gp.sched.sp
+				frame.lr = gp.Sched.LR
+				frame.sp = gp.Sched.SP
 				u.cgoCtxt = len(gp.cgoCtxt) - 1
 			case abi.FuncID_systemstack:
 				// systemstack returns normally, so just follow the
@@ -500,9 +501,9 @@ func (u *unwinder) resolveInternal(innermost, isSyscall bool) {
 					flag &^= abi.FuncFlagSPWrite
 					break
 				}
-				gp = gp.m.curg
-				u.g.set(gp)
-				frame.sp = gp.sched.sp
+				gp = gp.M.curg
+				u.g.Set(gp)
+				frame.sp = gp.Sched.SP
 				u.cgoCtxt = len(gp.cgoCtxt) - 1
 				flag &^= abi.FuncFlagSPWrite
 			}
@@ -617,7 +618,7 @@ func (u *unwinder) resolveInternal(innermost, isSyscall bool) {
 func (u *unwinder) next() {
 	frame := &u.frame
 	f := frame.fn
-	gp := u.g.ptr()
+	gp := u.g.Ptr()
 
 	// Do not unwind past the bottom of the stack.
 	if frame.lr == 0 {
@@ -632,7 +633,7 @@ func (u *unwinder) next() {
 		// get everything, so crash loudly.
 		fail := u.flags&(unwindPrintErrors|unwindSilentErrors) == 0
 		doPrint := u.flags&unwindSilentErrors == 0
-		if doPrint && gp.m.incgo && f.FuncID == abi.FuncID_sigpanic {
+		if doPrint && gp.M.incgo && f.FuncID == abi.FuncID_sigpanic {
 			// We can inject sigpanic
 			// calls directly into C code,
 			// in which case we'll see a C
@@ -640,8 +641,8 @@ func (u *unwinder) next() {
 			doPrint = false
 		}
 		if fail || doPrint {
-			print("runtime: g ", gp.goid, ": unexpected return pc for ", f.Name(), " called from ", hex(frame.lr), "\n")
-			tracebackHexdump(gp.stack, frame, 0)
+			print("runtime: g ", gp.ID_, ": unexpected return pc for ", f.Name(), " called from ", hex(frame.lr), "\n")
+			tracebackHexdump(gp.Stack, frame, 0)
 		}
 		if fail {
 			assert.Throw("unknown", "caller", "pc")
@@ -654,7 +655,7 @@ func (u *unwinder) next() {
 	if frame.pc == frame.lr && frame.sp == frame.fp {
 		// If the next frame is identical to the current frame, we cannot make progress.
 		print("runtime: traceback stuck. pc=", hex(frame.pc), " sp=", hex(frame.sp), "\n")
-		tracebackHexdump(gp.stack, frame, frame.sp)
+		tracebackHexdump(gp.Stack, frame, frame.sp)
 		assert.Throw("traceback", "stuck")
 	}
 
@@ -823,10 +824,10 @@ func (u *unwinder) finishInternal() {
 	// At other times, such as when gathering a stack for a profiling signal
 	// or when printing a traceback during a crash, everything may not be
 	// stopped nicely, and the stack walk may not be able to complete.
-	gp := u.g.ptr()
-	if u.flags&(unwindPrintErrors|unwindSilentErrors) == 0 && u.frame.sp != gp.stktopsp {
-		print("runtime: g", gp.goid, ": frame.sp=", hex(u.frame.sp), " top=", hex(gp.stktopsp), "\n")
-		print("\tstack=[", hex(gp.stack.lo), "-", hex(gp.stack.hi), "\n")
+	gp := u.g.Ptr()
+	if u.flags&(unwindPrintErrors|unwindSilentErrors) == 0 && u.frame.sp != gp.StacktopSP {
+		print("runtime: g", gp.ID_, ": frame.sp=", hex(u.frame.sp), " top=", hex(gp.StacktopSP), "\n")
+		print("\tstack=[", hex(gp.Stack.Lo), "-", hex(gp.Stack.Hi), "\n")
 		assert.Throw("traceback", "did", "not", "unwind", "completely")
 	}
 }
@@ -861,7 +862,7 @@ func (u *unwinder) cgoCallers(pcBuf []uintptr) int {
 		return 0
 	}
 
-	ctxt := u.g.ptr().cgoCtxt[u.cgoCtxt]
+	ctxt := u.g.Ptr().cgoCtxt[u.cgoCtxt]
 	u.cgoCtxt--
 	cgoContextPCs(ctxt, pcBuf)
 	for i, pc := range pcBuf {

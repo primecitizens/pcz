@@ -1,0 +1,2185 @@
+- File: webauthn.idl
+  Enum:
+    Name: AttestationConveyancePreference
+    Values:
+      - none
+      - indirect
+      - direct
+      - enterprise
+- File: dom.idl
+  Interface:
+    Name: Attr
+    Inherits: Node
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: namespaceURI
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: prefix
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: localName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ownerElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: specified
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: sanitizer-api.idl
+  Typedef:
+    Name: AttributeMatchList
+    Type:
+      Name: record
+      Params:
+        - Name: DOMString
+        - Name: sequence
+          Params:
+            - Name: DOMString
+- File: attribution-reporting-api.idl
+  Dict:
+    Name: AttributionReportingRequestOptions
+    Fields:
+      - Name: eventSourceEligible
+        Required: true
+        Type:
+          Name: boolean
+      - Name: triggerEligible
+        Required: true
+        Type:
+          Name: boolean
+- File: turtledove.idl
+  Dict:
+    Name: AuctionAd
+    Fields:
+      - Name: renderURL
+        Required: true
+        Type:
+          Name: USVString
+      - Name: metadata
+        Type:
+          Name: any
+      - Name: buyerReportingId
+        Type:
+          Name: USVString
+      - Name: buyerAndSellerReportingId
+        Type:
+          Name: USVString
+- File: turtledove.idl
+  Dict:
+    Name: AuctionAdConfig
+    Fields:
+      - Name: seller
+        Required: true
+        Type:
+          Name: USVString
+      - Name: decisionLogicURL
+        Required: true
+        Type:
+          Name: USVString
+      - Name: trustedScoringSignalsURL
+        Type:
+          Name: USVString
+      - Name: interestGroupBuyers
+        Type:
+          Name: sequence
+          Params:
+            - Name: USVString
+      - Name: auctionSignals
+        Type:
+          Name: Promise
+          Params:
+            - Name: any
+      - Name: sellerSignals
+        Type:
+          Name: Promise
+          Params:
+            - Name: any
+      - Name: directFromSellerSignals
+        Type:
+          Name: Promise
+          Params:
+            - Name: USVString
+      - Name: sellerTimeout
+        Type:
+          Name: unsigned long long
+      - Name: sellerExperimentGroupId
+        Type:
+          Name: unsigned short
+      - Name: sellerCurrency
+        Type:
+          Name: USVString
+      - Name: perBuyerSignals
+        Type:
+          Name: Promise
+          Params:
+            - Name: record
+              Params:
+                - Name: USVString
+                - Name: any
+      - Name: perBuyerTimeouts
+        Type:
+          Name: Promise
+          Params:
+            - Name: record
+              Params:
+                - Name: USVString
+                - Name: unsigned long long
+      - Name: perBuyerGroupLimits
+        Type:
+          Name: record
+          Params:
+            - Name: USVString
+            - Name: unsigned short
+      - Name: perBuyerExperimentGroupIds
+        Type:
+          Name: record
+          Params:
+            - Name: USVString
+            - Name: unsigned short
+      - Name: perBuyerPrioritySignals
+        Type:
+          Name: record
+          Params:
+            - Name: USVString
+            - Name: record
+              Params:
+                - Name: USVString
+                - Name: double
+      - Name: perBuyerCurrencies
+        Type:
+          Name: Promise
+          Params:
+            - Name: record
+              Params:
+                - Name: USVString
+                - Name: USVString
+      - Name: componentAuctions
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: AuctionAdConfig
+      - Name: signal
+        Type:
+          Name: AbortSignal
+          Nullable: true
+      - Name: resolveToConfig
+        Type:
+          Name: Promise
+          Params:
+            - Name: boolean
+- File: turtledove.idl
+  Dict:
+    Name: AuctionAdInterestGroup
+    Inherits: GenerateBidInterestGroup
+    Fields:
+      - Name: priority
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: prioritySignalsOverrides
+        Type:
+          Name: record
+          Params:
+            - Name: DOMString
+            - Name: double
+      - Name: owner
+        Required: true
+        Type:
+          Name: USVString
+      - Name: name
+        Required: true
+        Type:
+          Name: USVString
+      - Name: lifetimeMs
+        Required: true
+        Type:
+          Name: double
+      - Name: enableBiddingSignalsPrioritization
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: priorityVector
+        Type:
+          Name: record
+          Params:
+            - Name: DOMString
+            - Name: double
+      - Name: executionMode
+        Default: '"compatibility"'
+        Type:
+          Name: DOMString
+      - Name: biddingLogicURL
+        Type:
+          Name: USVString
+      - Name: biddingWasmHelperURL
+        Type:
+          Name: USVString
+      - Name: updateURL
+        Type:
+          Name: USVString
+      - Name: trustedBiddingSignalsURL
+        Type:
+          Name: USVString
+      - Name: trustedBiddingSignalsKeys
+        Type:
+          Name: sequence
+          Params:
+            - Name: USVString
+      - Name: userBiddingSignals
+        Type:
+          Name: any
+      - Name: ads
+        Type:
+          Name: sequence
+          Params:
+            - Name: AuctionAd
+      - Name: adComponents
+        Type:
+          Name: sequence
+          Params:
+            - Name: AuctionAd
+- File: turtledove.idl
+  Dict:
+    Name: AuctionAdInterestGroupKey
+    Fields:
+      - Name: owner
+        Required: true
+        Type:
+          Name: USVString
+      - Name: name
+        Required: true
+        Type:
+          Name: USVString
+- File: webaudio.idl
+  Interface:
+    Name: AudioBuffer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: sampleRate
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: duration
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfChannels
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getChannelData
+        Args:
+          - Name: channel
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: Float32Array
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: copyFromChannel
+        Args:
+          - Name: destination
+            Type:
+              Name: Float32Array
+          - Name: channelNumber
+            Type:
+              Name: unsigned long
+          - Name: bufferOffset
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: copyToChannel
+        Args:
+          - Name: source
+            Type:
+              Name: Float32Array
+          - Name: channelNumber
+            Type:
+              Name: unsigned long
+          - Name: bufferOffset
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Type:
+              Name: AudioBufferOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AudioBufferOptions
+    Fields:
+      - Name: numberOfChannels
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: length
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: sampleRate
+        Required: true
+        Type:
+          Name: float
+- File: webaudio.idl
+  Interface:
+    Name: AudioBufferSourceNode
+    Inherits: AudioScheduledSourceNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: buffer
+        Type:
+          Name: AudioBuffer
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: playbackRate
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: detune
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loop
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loopStart
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loopEnd
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: start
+        Args:
+          - Name: when
+            Optional: true
+            Default: "0"
+            Type:
+              Name: double
+          - Name: offset
+            Optional: true
+            Type:
+              Name: double
+          - Name: duration
+            Optional: true
+            Type:
+              Name: double
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AudioBufferSourceOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AudioBufferSourceOptions
+    Fields:
+      - Name: buffer
+        Type:
+          Name: AudioBuffer
+          Nullable: true
+      - Name: detune
+        Default: "0"
+        Type:
+          Name: float
+      - Name: loop
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: loopEnd
+        Default: "0"
+        Type:
+          Name: double
+      - Name: loopStart
+        Default: "0"
+        Type:
+          Name: double
+      - Name: playbackRate
+        Default: "1"
+        Type:
+          Name: float
+- File: media-capabilities.idl
+  Dict:
+    Name: AudioConfiguration
+    Fields:
+      - Name: contentType
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: channels
+        Type:
+          Name: DOMString
+      - Name: bitrate
+        Type:
+          Name: unsigned long long
+      - Name: samplerate
+        Type:
+          Name: unsigned long
+      - Name: spatialRendering
+        Type:
+          Name: boolean
+- File: webaudio.idl
+  Interface:
+    Name: AudioContext
+    Inherits: BaseAudioContext
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: baseLatency
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: outputLatency
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sinkId
+        Readonly: true
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: AudioSinkInfo
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: renderCapacity
+        Readonly: true
+        Type:
+          Name: AudioRenderCapacity
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onsinkchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getOutputTimestamp
+        Returns:
+          - Name: AudioTimestamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: resume
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: suspend
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: close
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setSinkId
+        Args:
+          - Name: sinkId
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: AudioSinkOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createMediaElementSource
+        Args:
+          - Name: mediaElement
+            Type:
+              Name: HTMLMediaElement
+        Returns:
+          - Name: MediaElementAudioSourceNode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createMediaStreamSource
+        Args:
+          - Name: mediaStream
+            Type:
+              Name: MediaStream
+        Returns:
+          - Name: MediaStreamAudioSourceNode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createMediaStreamTrackSource
+        Args:
+          - Name: mediaStreamTrack
+            Type:
+              Name: MediaStreamTrack
+        Returns:
+          - Name: MediaStreamTrackAudioSourceNode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createMediaStreamDestination
+        Returns:
+          - Name: MediaStreamAudioDestinationNode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: contextOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AudioContextOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Enum:
+    Name: AudioContextLatencyCategory
+    Values:
+      - balanced
+      - interactive
+      - playback
+- File: webaudio.idl
+  Dict:
+    Name: AudioContextOptions
+    Fields:
+      - Name: latencyHint
+        Default: '"interactive"'
+        Type:
+          Union:
+            - Name: AudioContextLatencyCategory
+            - Name: double
+      - Name: sampleRate
+        Type:
+          Name: float
+      - Name: sinkId
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: AudioSinkOptions
+- File: webaudio.idl
+  Enum:
+    Name: AudioContextState
+    Values:
+      - suspended
+      - running
+      - closed
+- File: webcodecs.idl
+  Interface:
+    Name: AudioData
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: Serializable
+      - Name: Transferable
+    Attrs:
+      - Name: format
+        Readonly: true
+        Type:
+          Name: AudioSampleFormat
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: sampleRate
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: numberOfFrames
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: numberOfChannels
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: duration
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+    Operations:
+      - Name: allocationSize
+        Args:
+          - Name: options
+            Type:
+              Name: AudioDataCopyToOptions
+        Returns:
+          - Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: copyTo
+        Args:
+          - Name: destination
+            Type:
+              Name: AllowSharedBufferSource
+          - Name: options
+            Type:
+              Name: AudioDataCopyToOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: clone
+        Returns:
+          - Name: AudioData
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: AudioDataInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: Transferable
+- File: webcodecs.idl
+  Dict:
+    Name: AudioDataCopyToOptions
+    Fields:
+      - Name: planeIndex
+        Required: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: frameOffset
+        Default: "0"
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: frameCount
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: format
+        Type:
+          Name: AudioSampleFormat
+- File: webcodecs.idl
+  Dict:
+    Name: AudioDataInit
+    Fields:
+      - Name: format
+        Required: true
+        Type:
+          Name: AudioSampleFormat
+      - Name: sampleRate
+        Required: true
+        Type:
+          Name: float
+      - Name: numberOfFrames
+        Required: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: numberOfChannels
+        Required: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: data
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: transfer
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: ArrayBuffer
+- File: webcodecs.idl
+  Callback:
+    Name: AudioDataOutputCallback
+    Args:
+      - Name: output
+        Type:
+          Name: AudioData
+    Returns:
+      - Name: undefined
+- File: webcodecs.idl
+  Interface:
+    Name: AudioDecoder
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: state
+        Readonly: true
+        Type:
+          Name: CodecState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: decodeQueueSize
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: ondequeue
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Operations:
+      - Name: configure
+        Args:
+          - Name: config
+            Type:
+              Name: AudioDecoderConfig
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: decode
+        Args:
+          - Name: chunk
+            Type:
+              Name: EncodedAudioChunk
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: flush
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: reset
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: isConfigSupported
+        Modifier: static
+        Args:
+          - Name: config
+            Type:
+              Name: AudioDecoderConfig
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: AudioDecoderSupport
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: AudioDecoderInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webcodecs.idl
+  Dict:
+    Name: AudioDecoderConfig
+    Fields:
+      - Name: codec
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: sampleRate
+        Required: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: numberOfChannels
+        Required: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: description
+        Type:
+          Name: BufferSource
+- File: webcodecs.idl
+  Dict:
+    Name: AudioDecoderInit
+    Fields:
+      - Name: output
+        Required: true
+        Type:
+          Name: AudioDataOutputCallback
+      - Name: error
+        Required: true
+        Type:
+          Name: WebCodecsErrorCallback
+- File: webcodecs.idl
+  Dict:
+    Name: AudioDecoderSupport
+    Fields:
+      - Name: supported
+        Type:
+          Name: boolean
+      - Name: config
+        Type:
+          Name: AudioDecoderConfig
+- File: webaudio.idl
+  Interface:
+    Name: AudioDestinationNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: maxChannelCount
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webcodecs.idl
+  Interface:
+    Name: AudioEncoder
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: state
+        Readonly: true
+        Type:
+          Name: CodecState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: encodeQueueSize
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: ondequeue
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Operations:
+      - Name: configure
+        Args:
+          - Name: config
+            Type:
+              Name: AudioEncoderConfig
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: encode
+        Args:
+          - Name: data
+            Type:
+              Name: AudioData
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: flush
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: reset
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: isConfigSupported
+        Modifier: static
+        Args:
+          - Name: config
+            Type:
+              Name: AudioEncoderConfig
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: AudioEncoderSupport
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: AudioEncoderInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webcodecs.idl
+  Dict:
+    Name: AudioEncoderConfig
+    Fields:
+      - Name: codec
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: sampleRate
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: numberOfChannels
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: bitrate
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: bitrateMode
+        Default: '"variable"'
+        Type:
+          Name: BitrateMode
+      - Name: flac
+        Type:
+          Name: FlacEncoderConfig
+      - Name: opus
+        Type:
+          Name: OpusEncoderConfig
+      - Name: aac
+        Type:
+          Name: AacEncoderConfig
+- File: webcodecs.idl
+  Dict:
+    Name: AudioEncoderInit
+    Fields:
+      - Name: output
+        Required: true
+        Type:
+          Name: EncodedAudioChunkOutputCallback
+      - Name: error
+        Required: true
+        Type:
+          Name: WebCodecsErrorCallback
+- File: webcodecs.idl
+  Dict:
+    Name: AudioEncoderSupport
+    Fields:
+      - Name: supported
+        Type:
+          Name: boolean
+      - Name: config
+        Type:
+          Name: AudioEncoderConfig
+- File: webaudio.idl
+  Interface:
+    Name: AudioListener
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: positionX
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: positionY
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: positionZ
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: forwardX
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: forwardY
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: forwardZ
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: upX
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: upY
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: upZ
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: setPosition
+        Args:
+          - Name: x
+            Type:
+              Name: float
+          - Name: "y"
+            Type:
+              Name: float
+          - Name: z
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setOrientation
+        Args:
+          - Name: x
+            Type:
+              Name: float
+          - Name: "y"
+            Type:
+              Name: float
+          - Name: z
+            Type:
+              Name: float
+          - Name: xUp
+            Type:
+              Name: float
+          - Name: yUp
+            Type:
+              Name: float
+          - Name: zUp
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Interface:
+    Name: AudioNode
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: context
+        Readonly: true
+        Type:
+          Name: BaseAudioContext
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfInputs
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfOutputs
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: connect
+        Args:
+          - Name: destinationNode
+            Type:
+              Name: AudioNode
+          - Name: output
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+          - Name: input
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: AudioNode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: connect
+        Args:
+          - Name: destinationParam
+            Type:
+              Name: AudioParam
+          - Name: output
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Args:
+          - Name: output
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Args:
+          - Name: destinationNode
+            Type:
+              Name: AudioNode
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Args:
+          - Name: destinationNode
+            Type:
+              Name: AudioNode
+          - Name: output
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Args:
+          - Name: destinationNode
+            Type:
+              Name: AudioNode
+          - Name: output
+            Type:
+              Name: unsigned long
+          - Name: input
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Args:
+          - Name: destinationParam
+            Type:
+              Name: AudioParam
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Args:
+          - Name: destinationParam
+            Type:
+              Name: AudioParam
+          - Name: output
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AudioNodeOptions
+    Fields:
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: audio-output.idl
+  Dict:
+    Name: AudioOutputOptions
+    Fields:
+      - Name: deviceId
+        Default: '""'
+        Type:
+          Name: DOMString
+- File: webaudio.idl
+  Interface:
+    Name: AudioParam
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: automationRate
+        Type:
+          Name: AutomationRate
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defaultValue
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: minValue
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxValue
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: setValueAtTime
+        Args:
+          - Name: value
+            Type:
+              Name: float
+          - Name: startTime
+            Type:
+              Name: double
+        Returns:
+          - Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: linearRampToValueAtTime
+        Args:
+          - Name: value
+            Type:
+              Name: float
+          - Name: endTime
+            Type:
+              Name: double
+        Returns:
+          - Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: exponentialRampToValueAtTime
+        Args:
+          - Name: value
+            Type:
+              Name: float
+          - Name: endTime
+            Type:
+              Name: double
+        Returns:
+          - Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setTargetAtTime
+        Args:
+          - Name: target
+            Type:
+              Name: float
+          - Name: startTime
+            Type:
+              Name: double
+          - Name: timeConstant
+            Type:
+              Name: float
+        Returns:
+          - Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setValueCurveAtTime
+        Args:
+          - Name: values
+            Type:
+              Name: sequence
+              Params:
+                - Name: float
+          - Name: startTime
+            Type:
+              Name: double
+          - Name: duration
+            Type:
+              Name: double
+        Returns:
+          - Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cancelScheduledValues
+        Args:
+          - Name: cancelTime
+            Type:
+              Name: double
+        Returns:
+          - Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cancelAndHoldAtTime
+        Args:
+          - Name: cancelTime
+            Type:
+              Name: double
+        Returns:
+          - Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AudioParamDescriptor
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: defaultValue
+        Default: "0"
+        Type:
+          Name: float
+      - Name: minValue
+        Default: "-3.4028235e38"
+        Type:
+          Name: float
+      - Name: maxValue
+        Default: "3.4028235e38"
+        Type:
+          Name: float
+      - Name: automationRate
+        Default: '"a-rate"'
+        Type:
+          Name: AutomationRate
+- File: webaudio.idl
+  Interface:
+    Name: AudioParamMap
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: DOMString
+        - Name: AudioParam
+      Readonly: true
+- File: webaudio.idl
+  Interface:
+    Name: AudioProcessingEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: playbackTime
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: inputBuffer
+        Readonly: true
+        Type:
+          Name: AudioBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: outputBuffer
+        Readonly: true
+        Type:
+          Name: AudioBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: AudioProcessingEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AudioProcessingEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: playbackTime
+        Required: true
+        Type:
+          Name: double
+      - Name: inputBuffer
+        Required: true
+        Type:
+          Name: AudioBuffer
+      - Name: outputBuffer
+        Required: true
+        Type:
+          Name: AudioBuffer
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webaudio.idl
+  Interface:
+    Name: AudioRenderCapacity
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: start
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AudioRenderCapacityOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stop
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Interface:
+    Name: AudioRenderCapacityEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: averageLoad
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: peakLoad
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: underrunRatio
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AudioRenderCapacityEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AudioRenderCapacityEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: timestamp
+        Default: "0"
+        Type:
+          Name: double
+      - Name: averageLoad
+        Default: "0"
+        Type:
+          Name: double
+      - Name: peakLoad
+        Default: "0"
+        Type:
+          Name: double
+      - Name: underrunRatio
+        Default: "0"
+        Type:
+          Name: double
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webaudio.idl
+  Dict:
+    Name: AudioRenderCapacityOptions
+    Fields:
+      - Name: updateInterval
+        Default: "1"
+        Type:
+          Name: double
+- File: webcodecs.idl
+  Enum:
+    Name: AudioSampleFormat
+    Values:
+      - u8
+      - s16
+      - s32
+      - f32
+      - u8-planar
+      - s16-planar
+      - s32-planar
+      - f32-planar
+- File: webaudio.idl
+  Interface:
+    Name: AudioScheduledSourceNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onended
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: start
+        Args:
+          - Name: when
+            Optional: true
+            Default: "0"
+            Type:
+              Name: double
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stop
+        Args:
+          - Name: when
+            Optional: true
+            Default: "0"
+            Type:
+              Name: double
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Interface:
+    Name: AudioSinkInfo
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: AudioSinkType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AudioSinkOptions
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: AudioSinkType
+- File: webaudio.idl
+  Enum:
+    Name: AudioSinkType
+    Values:
+      - none
+- File: webaudio.idl
+  Dict:
+    Name: AudioTimestamp
+    Fields:
+      - Name: contextTime
+        Type:
+          Name: double
+      - Name: performanceTime
+        Type:
+          Name: DOMHighResTimeStamp
+- File: html.idl
+  Interface:
+    Name: AudioTrack
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kind
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: label
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: language
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: enabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sourceBuffer
+        Readonly: true
+        Type:
+          Name: SourceBuffer
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker

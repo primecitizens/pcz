@@ -5,6 +5,8 @@
 // Run go generate from src/runtime to update.
 // See mkduff.go for comments.
 
+//go:build pcz && arm
+
 #include "textflag.h"
 
 TEXT runtime·duffzero(SB), NOSPLIT, $0-0

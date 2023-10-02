@@ -5,9 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && amd64
+
 #include "textflag.h"
 
-TEXT ·Count(SB),NOSPLIT,$0-40
+TEXT ·CountSlice(SB),NOSPLIT,$0-40
 	CMPB ·hasPOPCNT(SB), $1
 	JEQ 2(PC)
 	JMP ·countGeneric(SB)
@@ -17,7 +19,7 @@ TEXT ·Count(SB),NOSPLIT,$0-40
 	LEAQ ret+32(FP), R8
 	JMP countbody<>(SB)
 
-TEXT ·CountString(SB),NOSPLIT,$0-32
+TEXT ·Count(SB),NOSPLIT,$0-32
 	CMPB ·hasPOPCNT(SB), $1
 	JEQ 2(PC)
 	JMP ·countGenericString(SB)

@@ -1,0 +1,2696 @@
+- File: notifications.idl
+  Interface:
+    Name: NotificationEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Attrs:
+      - Name: notification
+        Readonly: true
+        Type:
+          Name: Notification
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: action
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: NotificationEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: notifications.idl
+  Dict:
+    Name: NotificationEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: notification
+        Required: true
+        Type:
+          Name: Notification
+      - Name: action
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: notifications.idl
+  Dict:
+    Name: NotificationOptions
+    Fields:
+      - Name: dir
+        Default: '"auto"'
+        Type:
+          Name: NotificationDirection
+      - Name: lang
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: body
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: tag
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: image
+        Type:
+          Name: USVString
+      - Name: icon
+        Type:
+          Name: USVString
+      - Name: badge
+        Type:
+          Name: USVString
+      - Name: vibrate
+        Type:
+          Name: VibratePattern
+      - Name: timestamp
+        Type:
+          Name: EpochTimeStamp
+      - Name: renotify
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: silent
+        Default: "null"
+        Type:
+          Name: boolean
+          Nullable: true
+      - Name: requireInteraction
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: data
+        Default: "null"
+        Type:
+          Name: any
+      - Name: actions
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: NotificationAction
+- File: notifications.idl
+  Enum:
+    Name: NotificationPermission
+    Values:
+      - default
+      - denied
+      - granted
+- File: notifications.idl
+  Callback:
+    Name: NotificationPermissionCallback
+    Args:
+      - Name: permission
+        Type:
+          Name: NotificationPermission
+    Returns:
+      - Name: undefined
+- File: OES_draw_buffers_indexed.idl
+  Interface:
+    Name: OES_draw_buffers_indexed
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Operations:
+      - Name: enableiOES
+        Args:
+          - Name: target
+            Type:
+              Name: GLenum
+          - Name: index
+            Type:
+              Name: GLuint
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: disableiOES
+        Args:
+          - Name: target
+            Type:
+              Name: GLenum
+          - Name: index
+            Type:
+              Name: GLuint
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: blendEquationiOES
+        Args:
+          - Name: buf
+            Type:
+              Name: GLuint
+          - Name: mode
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: blendEquationSeparateiOES
+        Args:
+          - Name: buf
+            Type:
+              Name: GLuint
+          - Name: modeRGB
+            Type:
+              Name: GLenum
+          - Name: modeAlpha
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: blendFunciOES
+        Args:
+          - Name: buf
+            Type:
+              Name: GLuint
+          - Name: src
+            Type:
+              Name: GLenum
+          - Name: dst
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: blendFuncSeparateiOES
+        Args:
+          - Name: buf
+            Type:
+              Name: GLuint
+          - Name: srcRGB
+            Type:
+              Name: GLenum
+          - Name: dstRGB
+            Type:
+              Name: GLenum
+          - Name: srcAlpha
+            Type:
+              Name: GLenum
+          - Name: dstAlpha
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: colorMaskiOES
+        Args:
+          - Name: buf
+            Type:
+              Name: GLuint
+          - Name: r
+            Type:
+              Name: GLboolean
+          - Name: g
+            Type:
+              Name: GLboolean
+          - Name: b
+            Type:
+              Name: GLboolean
+          - Name: a
+            Type:
+              Name: GLboolean
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+- File: OES_element_index_uint.idl
+  Interface:
+    Name: OES_element_index_uint
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: OES_fbo_render_mipmap.idl
+  Interface:
+    Name: OES_fbo_render_mipmap
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: OES_standard_derivatives.idl
+  Interface:
+    Name: OES_standard_derivatives
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: FRAGMENT_SHADER_DERIVATIVE_HINT_OES
+        Value: "0x8B8B"
+        Type:
+          Name: GLenum
+- File: OES_texture_float.idl
+  Interface:
+    Name: OES_texture_float
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: OES_texture_float_linear.idl
+  Interface:
+    Name: OES_texture_float_linear
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: OES_texture_half_float.idl
+  Interface:
+    Name: OES_texture_half_float
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: HALF_FLOAT_OES
+        Value: "0x8D61"
+        Type:
+          Name: GLenum
+- File: OES_texture_half_float_linear.idl
+  Interface:
+    Name: OES_texture_half_float_linear
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: OES_vertex_array_object.idl
+  Interface:
+    Name: OES_vertex_array_object
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: VERTEX_ARRAY_BINDING_OES
+        Value: "0x85B5"
+        Type:
+          Name: GLenum
+    Operations:
+      - Name: createVertexArrayOES
+        Returns:
+          - Name: WebGLVertexArrayObjectOES
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: deleteVertexArrayOES
+        Args:
+          - Name: arrayObject
+            Type:
+              Name: WebGLVertexArrayObjectOES
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: isVertexArrayOES
+        Args:
+          - Name: arrayObject
+            Type:
+              Name: WebGLVertexArrayObjectOES
+              Nullable: true
+        Returns:
+          - Name: GLboolean
+        ExtAttrs:
+          - Name: WebGLHandlesContextLoss
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: bindVertexArrayOES
+        Args:
+          - Name: arrayObject
+            Type:
+              Name: WebGLVertexArrayObjectOES
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+- File: web-otp.idl
+  Interface:
+    Name: OTPCredential
+    Inherits: Credential
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: code
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: web-otp.idl
+  Dict:
+    Name: OTPCredentialRequestOptions
+    Fields:
+      - Name: transport
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: OTPCredentialTransportType
+- File: web-otp.idl
+  Enum:
+    Name: OTPCredentialTransportType
+    Values:
+      - sms
+- File: OVR_multiview2.idl
+  Interface:
+    Name: OVR_multiview2
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR
+        Value: "0x9630"
+        Type:
+          Name: GLenum
+      - Name: FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR
+        Value: "0x9632"
+        Type:
+          Name: GLenum
+      - Name: MAX_VIEWS_OVR
+        Value: "0x9631"
+        Type:
+          Name: GLenum
+      - Name: FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR
+        Value: "0x9633"
+        Type:
+          Name: GLenum
+    Operations:
+      - Name: framebufferTextureMultiviewOVR
+        Args:
+          - Name: target
+            Type:
+              Name: GLenum
+          - Name: attachment
+            Type:
+              Name: GLenum
+          - Name: texture
+            Type:
+              Name: WebGLTexture
+              Nullable: true
+          - Name: level
+            Type:
+              Name: GLint
+          - Name: baseViewIndex
+            Type:
+              Name: GLint
+          - Name: numViews
+            Type:
+              Name: GLsizei
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+- File: webaudio.idl
+  Interface:
+    Name: OfflineAudioCompletionEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: renderedBuffer
+        Readonly: true
+        Type:
+          Name: AudioBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: OfflineAudioCompletionEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: OfflineAudioCompletionEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: renderedBuffer
+        Required: true
+        Type:
+          Name: AudioBuffer
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webaudio.idl
+  Interface:
+    Name: OfflineAudioContext
+    Inherits: BaseAudioContext
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oncomplete
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: startRendering
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: AudioBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: resume
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: suspend
+        Args:
+          - Name: suspendTime
+            Type:
+              Name: double
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: contextOptions
+            Type:
+              Name: OfflineAudioContextOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Args:
+          - Name: numberOfChannels
+            Type:
+              Name: unsigned long
+          - Name: length
+            Type:
+              Name: unsigned long
+          - Name: sampleRate
+            Type:
+              Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: OfflineAudioContextOptions
+    Fields:
+      - Name: numberOfChannels
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: length
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: sampleRate
+        Required: true
+        Type:
+          Name: float
+- File: html.idl
+  Interface:
+    Name: OffscreenCanvas
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: Transferable
+    Attrs:
+      - Name: width
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+      - Name: height
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+      - Name: oncontextlost
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+      - Name: oncontextrestored
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+    Operations:
+      - Name: getContext
+        Args:
+          - Name: contextId
+            Type:
+              Name: OffscreenRenderingContextId
+          - Name: options
+            Optional: true
+            Default: "null"
+            Type:
+              Name: any
+        Returns:
+          - Name: OffscreenRenderingContext
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+      - Name: transferToImageBitmap
+        Returns:
+          - Name: ImageBitmap
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+      - Name: convertToBlob
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ImageEncodeOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: Blob
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+    Constructors:
+      - Args:
+          - Name: width
+            Type:
+              Name: unsigned long long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: height
+            Type:
+              Name: unsigned long long
+            ExtAttrs:
+              - Name: EnforceRange
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: Transferable
+- File: html.idl
+  Interface:
+    Name: OffscreenCanvasRenderingContext2D
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: canvas
+        Readonly: true
+        Type:
+          Name: OffscreenCanvas
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: globalAlpha
+        Type:
+          Name: unrestricted double
+      - Name: globalCompositeOperation
+        Type:
+          Name: DOMString
+      - Name: imageSmoothingEnabled
+        Type:
+          Name: boolean
+      - Name: imageSmoothingQuality
+        Type:
+          Name: ImageSmoothingQuality
+      - Name: strokeStyle
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: CanvasGradient
+            - Name: CanvasPattern
+      - Name: fillStyle
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: CanvasGradient
+            - Name: CanvasPattern
+      - Name: shadowOffsetX
+        Type:
+          Name: unrestricted double
+      - Name: shadowOffsetY
+        Type:
+          Name: unrestricted double
+      - Name: shadowBlur
+        Type:
+          Name: unrestricted double
+      - Name: shadowColor
+        Type:
+          Name: DOMString
+      - Name: filter
+        Type:
+          Name: DOMString
+      - Name: lineWidth
+        Type:
+          Name: unrestricted double
+      - Name: lineCap
+        Type:
+          Name: CanvasLineCap
+      - Name: lineJoin
+        Type:
+          Name: CanvasLineJoin
+      - Name: miterLimit
+        Type:
+          Name: unrestricted double
+      - Name: lineDashOffset
+        Type:
+          Name: unrestricted double
+      - Name: font
+        Type:
+          Name: DOMString
+      - Name: textAlign
+        Type:
+          Name: CanvasTextAlign
+      - Name: textBaseline
+        Type:
+          Name: CanvasTextBaseline
+      - Name: direction
+        Type:
+          Name: CanvasDirection
+      - Name: letterSpacing
+        Type:
+          Name: DOMString
+      - Name: fontKerning
+        Type:
+          Name: CanvasFontKerning
+      - Name: fontStretch
+        Type:
+          Name: CanvasFontStretch
+      - Name: fontVariantCaps
+        Type:
+          Name: CanvasFontVariantCaps
+      - Name: textRendering
+        Type:
+          Name: CanvasTextRendering
+      - Name: wordSpacing
+        Type:
+          Name: DOMString
+    Operations:
+      - Name: commit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: scale
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: rotate
+        Args:
+          - Name: angle
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: translate
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: transform
+        Args:
+          - Name: a
+            Type:
+              Name: unrestricted double
+          - Name: b
+            Type:
+              Name: unrestricted double
+          - Name: c
+            Type:
+              Name: unrestricted double
+          - Name: d
+            Type:
+              Name: unrestricted double
+          - Name: e
+            Type:
+              Name: unrestricted double
+          - Name: f
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: getTransform
+        Returns:
+          - Name: DOMMatrix
+        ExtAttrs:
+          - Name: NewObject
+      - Name: setTransform
+        Args:
+          - Name: a
+            Type:
+              Name: unrestricted double
+          - Name: b
+            Type:
+              Name: unrestricted double
+          - Name: c
+            Type:
+              Name: unrestricted double
+          - Name: d
+            Type:
+              Name: unrestricted double
+          - Name: e
+            Type:
+              Name: unrestricted double
+          - Name: f
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: setTransform
+        Args:
+          - Name: transform
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMMatrix2DInit
+        Returns:
+          - Name: undefined
+      - Name: resetTransform
+        Returns:
+          - Name: undefined
+      - Name: createLinearGradient
+        Args:
+          - Name: x0
+            Type:
+              Name: double
+          - Name: y0
+            Type:
+              Name: double
+          - Name: x1
+            Type:
+              Name: double
+          - Name: y1
+            Type:
+              Name: double
+        Returns:
+          - Name: CanvasGradient
+      - Name: createRadialGradient
+        Args:
+          - Name: x0
+            Type:
+              Name: double
+          - Name: y0
+            Type:
+              Name: double
+          - Name: r0
+            Type:
+              Name: double
+          - Name: x1
+            Type:
+              Name: double
+          - Name: y1
+            Type:
+              Name: double
+          - Name: r1
+            Type:
+              Name: double
+        Returns:
+          - Name: CanvasGradient
+      - Name: createConicGradient
+        Args:
+          - Name: startAngle
+            Type:
+              Name: double
+          - Name: x
+            Type:
+              Name: double
+          - Name: "y"
+            Type:
+              Name: double
+        Returns:
+          - Name: CanvasGradient
+      - Name: createPattern
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: repetition
+            Type:
+              Name: DOMString
+            ExtAttrs:
+              - Name: LegacyNullToEmptyString
+        Returns:
+          - Name: CanvasPattern
+            Nullable: true
+      - Name: clearRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: fillRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: strokeRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: beginPath
+        Returns:
+          - Name: undefined
+      - Name: fill
+        Args:
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: fill
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: stroke
+        Returns:
+          - Name: undefined
+      - Name: stroke
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+        Returns:
+          - Name: undefined
+      - Name: clip
+        Args:
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: clip
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: isPointInPath
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: boolean
+      - Name: isPointInPath
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: boolean
+      - Name: isPointInStroke
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: boolean
+      - Name: isPointInStroke
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: boolean
+      - Name: fillText
+        Args:
+          - Name: text
+            Type:
+              Name: DOMString
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: maxWidth
+            Optional: true
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: strokeText
+        Args:
+          - Name: text
+            Type:
+              Name: DOMString
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: maxWidth
+            Optional: true
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: measureText
+        Args:
+          - Name: text
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: TextMetrics
+      - Name: drawImage
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: dx
+            Type:
+              Name: unrestricted double
+          - Name: dy
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: drawImage
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: dx
+            Type:
+              Name: unrestricted double
+          - Name: dy
+            Type:
+              Name: unrestricted double
+          - Name: dw
+            Type:
+              Name: unrestricted double
+          - Name: dh
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: drawImage
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: sx
+            Type:
+              Name: unrestricted double
+          - Name: sy
+            Type:
+              Name: unrestricted double
+          - Name: sw
+            Type:
+              Name: unrestricted double
+          - Name: sh
+            Type:
+              Name: unrestricted double
+          - Name: dx
+            Type:
+              Name: unrestricted double
+          - Name: dy
+            Type:
+              Name: unrestricted double
+          - Name: dw
+            Type:
+              Name: unrestricted double
+          - Name: dh
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: createImageData
+        Args:
+          - Name: sw
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: sh
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: settings
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ImageDataSettings
+        Returns:
+          - Name: ImageData
+      - Name: createImageData
+        Args:
+          - Name: imagedata
+            Type:
+              Name: ImageData
+        Returns:
+          - Name: ImageData
+      - Name: getImageData
+        Args:
+          - Name: sx
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: sy
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: sw
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: sh
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: settings
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ImageDataSettings
+        Returns:
+          - Name: ImageData
+      - Name: putImageData
+        Args:
+          - Name: imagedata
+            Type:
+              Name: ImageData
+          - Name: dx
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: dy
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+        Returns:
+          - Name: undefined
+      - Name: putImageData
+        Args:
+          - Name: imagedata
+            Type:
+              Name: ImageData
+          - Name: dx
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: dy
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: dirtyX
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: dirtyY
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: dirtyWidth
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+          - Name: dirtyHeight
+            Type:
+              Name: long
+            ExtAttrs:
+              - Name: EnforceRange
+        Returns:
+          - Name: undefined
+      - Name: setLineDash
+        Args:
+          - Name: segments
+            Type:
+              Name: sequence
+              Params:
+                - Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: getLineDash
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: unrestricted double
+      - Name: closePath
+        Returns:
+          - Name: undefined
+      - Name: moveTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: lineTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: quadraticCurveTo
+        Args:
+          - Name: cpx
+            Type:
+              Name: unrestricted double
+          - Name: cpy
+            Type:
+              Name: unrestricted double
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: bezierCurveTo
+        Args:
+          - Name: cp1x
+            Type:
+              Name: unrestricted double
+          - Name: cp1y
+            Type:
+              Name: unrestricted double
+          - Name: cp2x
+            Type:
+              Name: unrestricted double
+          - Name: cp2y
+            Type:
+              Name: unrestricted double
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: arcTo
+        Args:
+          - Name: x1
+            Type:
+              Name: unrestricted double
+          - Name: y1
+            Type:
+              Name: unrestricted double
+          - Name: x2
+            Type:
+              Name: unrestricted double
+          - Name: y2
+            Type:
+              Name: unrestricted double
+          - Name: radius
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: rect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: roundRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+          - Name: radii
+            Optional: true
+            Default: "0"
+            Type:
+              Union:
+                - Name: unrestricted double
+                - Name: DOMPointInit
+                - Name: sequence
+                  Params:
+                    - Union:
+                        - Name: unrestricted double
+                        - Name: DOMPointInit
+        Returns:
+          - Name: undefined
+      - Name: arc
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: radius
+            Type:
+              Name: unrestricted double
+          - Name: startAngle
+            Type:
+              Name: unrestricted double
+          - Name: endAngle
+            Type:
+              Name: unrestricted double
+          - Name: counterclockwise
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+      - Name: ellipse
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: radiusX
+            Type:
+              Name: unrestricted double
+          - Name: radiusY
+            Type:
+              Name: unrestricted double
+          - Name: rotation
+            Type:
+              Name: unrestricted double
+          - Name: startAngle
+            Type:
+              Name: unrestricted double
+          - Name: endAngle
+            Type:
+              Name: unrestricted double
+          - Name: counterclockwise
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+      - Name: save
+        Returns:
+          - Name: undefined
+      - Name: restore
+        Returns:
+          - Name: undefined
+      - Name: reset
+        Returns:
+          - Name: undefined
+      - Name: isContextLost
+        Returns:
+          - Name: boolean
+- File: html.idl
+  Typedef:
+    Name: OffscreenRenderingContext
+    Type:
+      Union:
+        - Name: OffscreenCanvasRenderingContext2D
+        - Name: ImageBitmapRenderingContext
+        - Name: WebGLRenderingContext
+        - Name: WebGL2RenderingContext
+        - Name: GPUCanvasContext
+- File: html.idl
+  Enum:
+    Name: OffscreenRenderingContextId
+    Values:
+      - 2d
+      - bitmaprenderer
+      - webgl
+      - webgl2
+      - webgpu
+- File: html.idl
+  Typedef:
+    Name: OnBeforeUnloadEventHandler
+    Type:
+      Name: OnBeforeUnloadEventHandlerNonNull
+      Nullable: true
+- File: html.idl
+  Callback:
+    Name: OnBeforeUnloadEventHandlerNonNull
+    Args:
+      - Name: event
+        Type:
+          Name: Event
+    Returns:
+      - Name: DOMString
+        Nullable: true
+    ExtAttrs:
+      - Name: LegacyTreatNonObjectAsNull
+- File: html.idl
+  Typedef:
+    Name: OnErrorEventHandler
+    Type:
+      Name: OnErrorEventHandlerNonNull
+      Nullable: true
+- File: html.idl
+  Callback:
+    Name: OnErrorEventHandlerNonNull
+    Args:
+      - Name: event
+        Type:
+          Union:
+            - Name: Event
+            - Name: DOMString
+      - Name: source
+        Optional: true
+        Type:
+          Name: DOMString
+      - Name: lineno
+        Optional: true
+        Type:
+          Name: unsigned long
+      - Name: colno
+        Optional: true
+        Type:
+          Name: unsigned long
+      - Name: error
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: any
+    ExtAttrs:
+      - Name: LegacyTreatNonObjectAsNull
+- File: fenced-frame.idl
+  Enum:
+    Name: OpaqueProperty
+    Values:
+      - opaque
+- File: file-system-access.idl
+  Dict:
+    Name: OpenFilePickerOptions
+    Inherits: FilePickerOptions
+    Fields:
+      - Name: multiple
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: types
+        Type:
+          Name: sequence
+          Params:
+            - Name: FilePickerAcceptType
+      - Name: excludeAcceptAllOption
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: startIn
+        Type:
+          Name: StartInDirectory
+- File: trust-token-api.idl
+  Enum:
+    Name: OperationType
+    Values:
+      - token-request
+      - send-redemption-record
+      - token-redemption
+- File: web-animations.idl
+  Dict:
+    Name: OptionalEffectTiming
+    Fields:
+      - Name: delay
+        Type:
+          Name: double
+      - Name: endDelay
+        Type:
+          Name: double
+      - Name: fill
+        Type:
+          Name: FillMode
+      - Name: iterationStart
+        Type:
+          Name: double
+      - Name: iterations
+        Type:
+          Name: unrestricted double
+      - Name: duration
+        Type:
+          Union:
+            - Name: unrestricted double
+            - Name: DOMString
+      - Name: direction
+        Type:
+          Name: PlaybackDirection
+      - Name: easing
+        Type:
+          Name: DOMString
+      - Name: playbackRate
+        Type:
+          Name: double
+- File: webcodecs-opus-codec-registration.idl
+  Enum:
+    Name: OpusBitstreamFormat
+    Values:
+      - opus
+      - ogg
+- File: webcodecs-opus-codec-registration.idl
+  Dict:
+    Name: OpusEncoderConfig
+    Fields:
+      - Name: format
+        Default: '"opus"'
+        Type:
+          Name: OpusBitstreamFormat
+      - Name: frameDuration
+        Default: "20000"
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: complexity
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: packetlossperc
+        Default: "0"
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: useinbandfec
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: usedtx
+        Default: "false"
+        Type:
+          Name: boolean
+- File: screen-orientation.idl
+  Enum:
+    Name: OrientationLockType
+    Values:
+      - any
+      - natural
+      - landscape
+      - portrait
+      - portrait-primary
+      - portrait-secondary
+      - landscape-primary
+      - landscape-secondary
+- File: orientation-sensor.idl
+  Interface:
+    Name: OrientationSensor
+    Inherits: Sensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: quaternion
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: populateMatrix
+        Args:
+          - Name: targetMatrix
+            Type:
+              Name: RotationMatrixType
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: orientation-sensor.idl
+  Enum:
+    Name: OrientationSensorLocalCoordinateSystem
+    Values:
+      - device
+      - screen
+- File: orientation-sensor.idl
+  Dict:
+    Name: OrientationSensorOptions
+    Inherits: SensorOptions
+    Fields:
+      - Name: referenceFrame
+        Default: '"device"'
+        Type:
+          Name: OrientationSensorLocalCoordinateSystem
+      - Name: frequency
+        Type:
+          Name: double
+- File: screen-orientation.idl
+  Enum:
+    Name: OrientationType
+    Values:
+      - portrait-primary
+      - portrait-secondary
+      - landscape-primary
+      - landscape-secondary
+- File: webaudio.idl
+  Interface:
+    Name: OscillatorNode
+    Inherits: AudioScheduledSourceNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Type:
+          Name: OscillatorType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: frequency
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: detune
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: setPeriodicWave
+        Args:
+          - Name: periodicWave
+            Type:
+              Name: PeriodicWave
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: OscillatorOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: OscillatorOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: type
+        Default: '"sine"'
+        Type:
+          Name: OscillatorType
+      - Name: frequency
+        Default: "440"
+        Type:
+          Name: float
+      - Name: detune
+        Default: "0"
+        Type:
+          Name: float
+      - Name: periodicWave
+        Type:
+          Name: PeriodicWave
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: webaudio.idl
+  Enum:
+    Name: OscillatorType
+    Values:
+      - sine
+      - square
+      - sawtooth
+      - triangle
+      - custom
+- File: webaudio.idl
+  Enum:
+    Name: OverSampleType
+    Values:
+      - none
+      - 2x
+      - 4x
+- File: mediacapture-streams.idl
+  Interface:
+    Name: OverconstrainedError
+    Inherits: DOMException
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: Serializable
+    Attrs:
+      - Name: constraint
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+    Constructors:
+      - Args:
+          - Name: constraint
+            Type:
+              Name: DOMString
+          - Name: message
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+- File: html.idl
+  Interface:
+    Name: PageTransitionEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: persisted
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PageTransitionEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Dict:
+    Name: PageTransitionEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: persisted
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: css-paint-api.idl
+  Interface:
+    Name: PaintRenderingContext2D
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - PaintWorklet
+    Attrs:
+      - Name: lineWidth
+        Type:
+          Name: unrestricted double
+      - Name: lineCap
+        Type:
+          Name: CanvasLineCap
+      - Name: lineJoin
+        Type:
+          Name: CanvasLineJoin
+      - Name: miterLimit
+        Type:
+          Name: unrestricted double
+      - Name: lineDashOffset
+        Type:
+          Name: unrestricted double
+      - Name: shadowOffsetX
+        Type:
+          Name: unrestricted double
+      - Name: shadowOffsetY
+        Type:
+          Name: unrestricted double
+      - Name: shadowBlur
+        Type:
+          Name: unrestricted double
+      - Name: shadowColor
+        Type:
+          Name: DOMString
+      - Name: strokeStyle
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: CanvasGradient
+            - Name: CanvasPattern
+      - Name: fillStyle
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: CanvasGradient
+            - Name: CanvasPattern
+      - Name: imageSmoothingEnabled
+        Type:
+          Name: boolean
+      - Name: imageSmoothingQuality
+        Type:
+          Name: ImageSmoothingQuality
+      - Name: globalAlpha
+        Type:
+          Name: unrestricted double
+      - Name: globalCompositeOperation
+        Type:
+          Name: DOMString
+    Operations:
+      - Name: closePath
+        Returns:
+          - Name: undefined
+      - Name: moveTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: lineTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: quadraticCurveTo
+        Args:
+          - Name: cpx
+            Type:
+              Name: unrestricted double
+          - Name: cpy
+            Type:
+              Name: unrestricted double
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: bezierCurveTo
+        Args:
+          - Name: cp1x
+            Type:
+              Name: unrestricted double
+          - Name: cp1y
+            Type:
+              Name: unrestricted double
+          - Name: cp2x
+            Type:
+              Name: unrestricted double
+          - Name: cp2y
+            Type:
+              Name: unrestricted double
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: arcTo
+        Args:
+          - Name: x1
+            Type:
+              Name: unrestricted double
+          - Name: y1
+            Type:
+              Name: unrestricted double
+          - Name: x2
+            Type:
+              Name: unrestricted double
+          - Name: y2
+            Type:
+              Name: unrestricted double
+          - Name: radius
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: rect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: roundRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+          - Name: radii
+            Optional: true
+            Default: "0"
+            Type:
+              Union:
+                - Name: unrestricted double
+                - Name: DOMPointInit
+                - Name: sequence
+                  Params:
+                    - Union:
+                        - Name: unrestricted double
+                        - Name: DOMPointInit
+        Returns:
+          - Name: undefined
+      - Name: arc
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: radius
+            Type:
+              Name: unrestricted double
+          - Name: startAngle
+            Type:
+              Name: unrestricted double
+          - Name: endAngle
+            Type:
+              Name: unrestricted double
+          - Name: counterclockwise
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+      - Name: ellipse
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: radiusX
+            Type:
+              Name: unrestricted double
+          - Name: radiusY
+            Type:
+              Name: unrestricted double
+          - Name: rotation
+            Type:
+              Name: unrestricted double
+          - Name: startAngle
+            Type:
+              Name: unrestricted double
+          - Name: endAngle
+            Type:
+              Name: unrestricted double
+          - Name: counterclockwise
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+      - Name: setLineDash
+        Args:
+          - Name: segments
+            Type:
+              Name: sequence
+              Params:
+                - Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: getLineDash
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: unrestricted double
+      - Name: drawImage
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: dx
+            Type:
+              Name: unrestricted double
+          - Name: dy
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: drawImage
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: dx
+            Type:
+              Name: unrestricted double
+          - Name: dy
+            Type:
+              Name: unrestricted double
+          - Name: dw
+            Type:
+              Name: unrestricted double
+          - Name: dh
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: drawImage
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: sx
+            Type:
+              Name: unrestricted double
+          - Name: sy
+            Type:
+              Name: unrestricted double
+          - Name: sw
+            Type:
+              Name: unrestricted double
+          - Name: sh
+            Type:
+              Name: unrestricted double
+          - Name: dx
+            Type:
+              Name: unrestricted double
+          - Name: dy
+            Type:
+              Name: unrestricted double
+          - Name: dw
+            Type:
+              Name: unrestricted double
+          - Name: dh
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: beginPath
+        Returns:
+          - Name: undefined
+      - Name: fill
+        Args:
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: fill
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: stroke
+        Returns:
+          - Name: undefined
+      - Name: stroke
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+        Returns:
+          - Name: undefined
+      - Name: clip
+        Args:
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: clip
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: undefined
+      - Name: isPointInPath
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: boolean
+      - Name: isPointInPath
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: fillRule
+            Optional: true
+            Default: '"nonzero"'
+            Type:
+              Name: CanvasFillRule
+        Returns:
+          - Name: boolean
+      - Name: isPointInStroke
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: boolean
+      - Name: isPointInStroke
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: boolean
+      - Name: clearRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: fillRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: strokeRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: createLinearGradient
+        Args:
+          - Name: x0
+            Type:
+              Name: double
+          - Name: y0
+            Type:
+              Name: double
+          - Name: x1
+            Type:
+              Name: double
+          - Name: y1
+            Type:
+              Name: double
+        Returns:
+          - Name: CanvasGradient
+      - Name: createRadialGradient
+        Args:
+          - Name: x0
+            Type:
+              Name: double
+          - Name: y0
+            Type:
+              Name: double
+          - Name: r0
+            Type:
+              Name: double
+          - Name: x1
+            Type:
+              Name: double
+          - Name: y1
+            Type:
+              Name: double
+          - Name: r1
+            Type:
+              Name: double
+        Returns:
+          - Name: CanvasGradient
+      - Name: createConicGradient
+        Args:
+          - Name: startAngle
+            Type:
+              Name: double
+          - Name: x
+            Type:
+              Name: double
+          - Name: "y"
+            Type:
+              Name: double
+        Returns:
+          - Name: CanvasGradient
+      - Name: createPattern
+        Args:
+          - Name: image
+            Type:
+              Name: CanvasImageSource
+          - Name: repetition
+            Type:
+              Name: DOMString
+            ExtAttrs:
+              - Name: LegacyNullToEmptyString
+        Returns:
+          - Name: CanvasPattern
+            Nullable: true
+      - Name: scale
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: rotate
+        Args:
+          - Name: angle
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: translate
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: transform
+        Args:
+          - Name: a
+            Type:
+              Name: unrestricted double
+          - Name: b
+            Type:
+              Name: unrestricted double
+          - Name: c
+            Type:
+              Name: unrestricted double
+          - Name: d
+            Type:
+              Name: unrestricted double
+          - Name: e
+            Type:
+              Name: unrestricted double
+          - Name: f
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: getTransform
+        Returns:
+          - Name: DOMMatrix
+        ExtAttrs:
+          - Name: NewObject
+      - Name: setTransform
+        Args:
+          - Name: a
+            Type:
+              Name: unrestricted double
+          - Name: b
+            Type:
+              Name: unrestricted double
+          - Name: c
+            Type:
+              Name: unrestricted double
+          - Name: d
+            Type:
+              Name: unrestricted double
+          - Name: e
+            Type:
+              Name: unrestricted double
+          - Name: f
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: setTransform
+        Args:
+          - Name: transform
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMMatrix2DInit
+        Returns:
+          - Name: undefined
+      - Name: resetTransform
+        Returns:
+          - Name: undefined
+      - Name: save
+        Returns:
+          - Name: undefined
+      - Name: restore
+        Returns:
+          - Name: undefined
+      - Name: reset
+        Returns:
+          - Name: undefined
+      - Name: isContextLost
+        Returns:
+          - Name: boolean
+- File: css-paint-api.idl
+  Dict:
+    Name: PaintRenderingContext2DSettings
+    Fields:
+      - Name: alpha
+        Default: "true"
+        Type:
+          Name: boolean

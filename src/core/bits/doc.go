@@ -5,10 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+package bits
+
 // NOTE: this package MUST be in the exact package math/bits to get functions
 // repalced by compiler intrinsics.
 //
 // See $GOROOT/src/cmd/compile/internal/ssagen/ssa.go#func:InitTables
 //
-//pcz:package math/bits
-package bits
+//pcz:importpath math/bits

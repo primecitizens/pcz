@@ -1,0 +1,1790 @@
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpCodec
+    Fields:
+      - Name: mimeType
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: clockRate
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: channels
+        Type:
+          Name: unsigned short
+      - Name: sdpFmtpLine
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpCodecCapability
+    Inherits: RTCRtpCodec
+    Fields:
+      - Name: mimeType
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: clockRate
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: channels
+        Type:
+          Name: unsigned short
+      - Name: sdpFmtpLine
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpCodecParameters
+    Inherits: RTCRtpCodec
+    Fields:
+      - Name: payloadType
+        Required: true
+        Type:
+          Name: octet
+      - Name: mimeType
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: clockRate
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: channels
+        Type:
+          Name: unsigned short
+      - Name: sdpFmtpLine
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpCodingParameters
+    Fields:
+      - Name: rid
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpContributingSource
+    Fields:
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: source
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: audioLevel
+        Type:
+          Name: double
+      - Name: rtpTimestamp
+        Required: true
+        Type:
+          Name: unsigned long
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpEncodingParameters
+    Inherits: RTCRtpCodingParameters
+    Fields:
+      - Name: active
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: maxBitrate
+        Type:
+          Name: unsigned long
+      - Name: maxFramerate
+        Type:
+          Name: double
+      - Name: scaleResolutionDownBy
+        Type:
+          Name: double
+      - Name: rid
+        Type:
+          Name: DOMString
+      - Name: priority
+        Default: '"low"'
+        Type:
+          Name: RTCPriorityType
+      - Name: networkPriority
+        Type:
+          Name: RTCPriorityType
+      - Name: scalabilityMode
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpHeaderExtensionCapability
+    Fields:
+      - Name: uri
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpHeaderExtensionParameters
+    Fields:
+      - Name: uri
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: id
+        Required: true
+        Type:
+          Name: unsigned short
+      - Name: encrypted
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpParameters
+    Fields:
+      - Name: headerExtensions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpHeaderExtensionParameters
+      - Name: rtcp
+        Required: true
+        Type:
+          Name: RTCRtcpParameters
+      - Name: codecs
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpCodecParameters
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpReceiveParameters
+    Inherits: RTCRtpParameters
+    Fields:
+      - Name: headerExtensions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpHeaderExtensionParameters
+      - Name: rtcp
+        Required: true
+        Type:
+          Name: RTCRtcpParameters
+      - Name: codecs
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpCodecParameters
+- File: webrtc.idl
+  Interface:
+    Name: RTCRtpReceiver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: track
+        Readonly: true
+        Type:
+          Name: MediaStreamTrack
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transport
+        Readonly: true
+        Type:
+          Name: RTCDtlsTransport
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transform
+        Type:
+          Name: RTCRtpTransform
+          Nullable: true
+    Operations:
+      - Name: getCapabilities
+        Modifier: static
+        Args:
+          - Name: kind
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: RTCRtpCapabilities
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getParameters
+        Returns:
+          - Name: RTCRtpReceiveParameters
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getContributingSources
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: RTCRtpContributingSource
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getSynchronizationSources
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: RTCRtpSynchronizationSource
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getStats
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: RTCStatsReport
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc-encoded-transform.idl
+  Interface:
+    Name: RTCRtpScriptTransform
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - Args:
+          - Name: worker
+            Type:
+              Name: Worker
+          - Name: options
+            Optional: true
+            Type:
+              Name: any
+          - Name: transfer
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: object
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc-encoded-transform.idl
+  Interface:
+    Name: RTCRtpScriptTransformer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+    Attrs:
+      - Name: readable
+        Readonly: true
+        Type:
+          Name: ReadableStream
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: writable
+        Readonly: true
+        Type:
+          Name: WritableStream
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: options
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+    Operations:
+      - Name: generateKeyFrame
+        Args:
+          - Name: rid
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: sendKeyFrameRequest
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpSendParameters
+    Inherits: RTCRtpParameters
+    Fields:
+      - Name: transactionId
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: encodings
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpEncodingParameters
+      - Name: headerExtensions
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpHeaderExtensionParameters
+      - Name: rtcp
+        Required: true
+        Type:
+          Name: RTCRtcpParameters
+      - Name: codecs
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpCodecParameters
+      - Name: degradationPreference
+        Type:
+          Name: RTCDegradationPreference
+- File: webrtc.idl
+  Interface:
+    Name: RTCRtpSender
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: track
+        Readonly: true
+        Type:
+          Name: MediaStreamTrack
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transport
+        Readonly: true
+        Type:
+          Name: RTCDtlsTransport
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dtmf
+        Readonly: true
+        Type:
+          Name: RTCDTMFSender
+          Nullable: true
+      - Name: transform
+        Type:
+          Name: RTCRtpTransform
+          Nullable: true
+    Operations:
+      - Name: getCapabilities
+        Modifier: static
+        Args:
+          - Name: kind
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: RTCRtpCapabilities
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setParameters
+        Args:
+          - Name: parameters
+            Type:
+              Name: RTCRtpSendParameters
+          - Name: setParameterOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: RTCSetParameterOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getParameters
+        Returns:
+          - Name: RTCRtpSendParameters
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceTrack
+        Args:
+          - Name: withTrack
+            Type:
+              Name: MediaStreamTrack
+              Nullable: true
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setStreams
+        Args:
+          - Name: streams
+            Variadic: true
+            Type:
+              Name: MediaStream
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getStats
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: RTCStatsReport
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: generateKeyFrame
+        Args:
+          - Name: rids
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCRtpStreamStats
+    Inherits: RTCStats
+    Fields:
+      - Name: ssrc
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: kind
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: transportId
+        Type:
+          Name: DOMString
+      - Name: codecId
+        Type:
+          Name: DOMString
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpSynchronizationSource
+    Inherits: RTCRtpContributingSource
+    Fields:
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: source
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: audioLevel
+        Type:
+          Name: double
+      - Name: rtpTimestamp
+        Required: true
+        Type:
+          Name: unsigned long
+- File: webrtc.idl
+  Interface:
+    Name: RTCRtpTransceiver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: mid
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sender
+        Readonly: true
+        Type:
+          Name: RTCRtpSender
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: receiver
+        Readonly: true
+        Type:
+          Name: RTCRtpReceiver
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: direction
+        Type:
+          Name: RTCRtpTransceiverDirection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: currentDirection
+        Readonly: true
+        Type:
+          Name: RTCRtpTransceiverDirection
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: stop
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setCodecPreferences
+        Args:
+          - Name: codecs
+            Type:
+              Name: sequence
+              Params:
+                - Name: RTCRtpCodecCapability
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Enum:
+    Name: RTCRtpTransceiverDirection
+    Values:
+      - sendrecv
+      - sendonly
+      - recvonly
+      - inactive
+      - stopped
+- File: webrtc.idl
+  Dict:
+    Name: RTCRtpTransceiverInit
+    Fields:
+      - Name: direction
+        Default: '"sendrecv"'
+        Type:
+          Name: RTCRtpTransceiverDirection
+      - Name: streams
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: MediaStream
+      - Name: sendEncodings
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCRtpEncodingParameters
+- File: webrtc-encoded-transform.idl
+  Typedef:
+    Name: RTCRtpTransform
+    Type:
+      Union:
+        - Name: SFrameTransform
+        - Name: RTCRtpScriptTransform
+- File: webrtc.idl
+  Interface:
+    Name: RTCSctpTransport
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: transport
+        Readonly: true
+        Type:
+          Name: RTCDtlsTransport
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: state
+        Readonly: true
+        Type:
+          Name: RTCSctpTransportState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxMessageSize
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxChannels
+        Readonly: true
+        Type:
+          Name: unsigned short
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onstatechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Enum:
+    Name: RTCSctpTransportState
+    Values:
+      - connecting
+      - connected
+      - closed
+- File: webrtc.idl
+  Enum:
+    Name: RTCSdpType
+    Values:
+      - offer
+      - pranswer
+      - answer
+      - rollback
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCSentRtpStreamStats
+    Inherits: RTCRtpStreamStats
+    Fields:
+      - Name: packetsSent
+        Type:
+          Name: unsigned long long
+      - Name: bytesSent
+        Type:
+          Name: unsigned long long
+      - Name: ssrc
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: kind
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: transportId
+        Type:
+          Name: DOMString
+      - Name: codecId
+        Type:
+          Name: DOMString
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Interface:
+    Name: RTCSessionDescription
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: RTCSdpType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sdp
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: descriptionInitDict
+            Type:
+              Name: RTCSessionDescriptionInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Callback:
+    Name: RTCSessionDescriptionCallback
+    Args:
+      - Name: description
+        Type:
+          Name: RTCSessionDescriptionInit
+    Returns:
+      - Name: undefined
+- File: webrtc.idl
+  Dict:
+    Name: RTCSessionDescriptionInit
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCSdpType
+      - Name: sdp
+        Default: '""'
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCSetParameterOptions
+- File: webrtc.idl
+  Enum:
+    Name: RTCSignalingState
+    Values:
+      - stable
+      - have-local-offer
+      - have-remote-offer
+      - have-local-pranswer
+      - have-remote-pranswer
+      - closed
+- File: webrtc.idl
+  Dict:
+    Name: RTCStats
+    Fields:
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc-stats.idl
+  Enum:
+    Name: RTCStatsIceCandidatePairState
+    Values:
+      - frozen
+      - waiting
+      - in-progress
+      - failed
+      - succeeded
+- File: webrtc.idl
+  Interface:
+    Name: RTCStatsReport
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: DOMString
+        - Name: object
+      Readonly: true
+- File: webrtc-stats.idl
+  Enum:
+    Name: RTCStatsType
+    Values:
+      - codec
+      - inbound-rtp
+      - outbound-rtp
+      - remote-inbound-rtp
+      - remote-outbound-rtp
+      - media-source
+      - media-playout
+      - peer-connection
+      - data-channel
+      - transport
+      - candidate-pair
+      - local-candidate
+      - remote-candidate
+      - certificate
+- File: webrtc.idl
+  Interface:
+    Name: RTCTrackEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: receiver
+        Readonly: true
+        Type:
+          Name: RTCRtpReceiver
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: track
+        Readonly: true
+        Type:
+          Name: MediaStreamTrack
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: streams
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: MediaStream
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transceiver
+        Readonly: true
+        Type:
+          Name: RTCRtpTransceiver
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: RTCTrackEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Dict:
+    Name: RTCTrackEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: receiver
+        Required: true
+        Type:
+          Name: RTCRtpReceiver
+      - Name: track
+        Required: true
+        Type:
+          Name: MediaStreamTrack
+      - Name: streams
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: MediaStream
+      - Name: transceiver
+        Required: true
+        Type:
+          Name: RTCRtpTransceiver
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webrtc-encoded-transform.idl
+  Interface:
+    Name: RTCTransformEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+    Attrs:
+      - Name: transformer
+        Readonly: true
+        Type:
+          Name: RTCRtpScriptTransformer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+    Constructors:
+      - Name: RTCTransformEvent
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: EventInit
+        ExtAttrs:
+          - Name: Exposed
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCTransportStats
+    Inherits: RTCStats
+    Fields:
+      - Name: packetsSent
+        Type:
+          Name: unsigned long long
+      - Name: packetsReceived
+        Type:
+          Name: unsigned long long
+      - Name: bytesSent
+        Type:
+          Name: unsigned long long
+      - Name: bytesReceived
+        Type:
+          Name: unsigned long long
+      - Name: iceRole
+        Type:
+          Name: RTCIceRole
+      - Name: iceLocalUsernameFragment
+        Type:
+          Name: DOMString
+      - Name: dtlsState
+        Required: true
+        Type:
+          Name: RTCDtlsTransportState
+      - Name: iceState
+        Type:
+          Name: RTCIceTransportState
+      - Name: selectedCandidatePairId
+        Type:
+          Name: DOMString
+      - Name: localCertificateId
+        Type:
+          Name: DOMString
+      - Name: remoteCertificateId
+        Type:
+          Name: DOMString
+      - Name: tlsVersion
+        Type:
+          Name: DOMString
+      - Name: dtlsCipher
+        Type:
+          Name: DOMString
+      - Name: dtlsRole
+        Type:
+          Name: RTCDtlsRole
+      - Name: srtpCipher
+        Type:
+          Name: DOMString
+      - Name: selectedCandidatePairChanges
+        Type:
+          Name: unsigned long
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCVideoSourceStats
+    Inherits: RTCMediaSourceStats
+    Fields:
+      - Name: width
+        Type:
+          Name: unsigned long
+      - Name: height
+        Type:
+          Name: unsigned long
+      - Name: frames
+        Type:
+          Name: unsigned long
+      - Name: framesPerSecond
+        Type:
+          Name: double
+      - Name: trackIdentifier
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: kind
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: html.idl
+  Interface:
+    Name: RadioNodeList
+    Inherits: NodeList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Iterable:
+      TypeParams:
+        - Name: Node
+- File: dom.idl
+  Interface:
+    Name: Range
+    Inherits: AbstractRange
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: START_TO_START
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: START_TO_END
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: END_TO_END
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: END_TO_START
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: commonAncestorContainer
+        Readonly: true
+        Type:
+          Name: Node
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: setStart
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+          - Name: offset
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setEnd
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+          - Name: offset
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setStartBefore
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setStartAfter
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setEndBefore
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setEndAfter
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: collapse
+        Args:
+          - Name: toStart
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectNode
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectNodeContents
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: compareBoundaryPoints
+        Args:
+          - Name: how
+            Type:
+              Name: unsigned short
+          - Name: sourceRange
+            Type:
+              Name: Range
+        Returns:
+          - Name: short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteContents
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: extractContents
+        Returns:
+          - Name: DocumentFragment
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cloneContents
+        Returns:
+          - Name: DocumentFragment
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertNode
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: surroundContents
+        Args:
+          - Name: newParent
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cloneRange
+        Returns:
+          - Name: Range
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: detach
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isPointInRange
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+          - Name: offset
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: comparePoint
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+          - Name: offset
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: intersectsNode
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getClientRects
+        Returns:
+          - Name: DOMRectList
+      - Name: getBoundingClientRect
+        Returns:
+          - Name: DOMRect
+        ExtAttrs:
+          - Name: NewObject
+      - Name: createContextualFragment
+        Args:
+          - Name: fragment
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DocumentFragment
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: NewObject
+- File: json-ld-api.idl
+  Interface:
+    Name: RdfDataset
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - JsonLd
+    Attrs:
+      - Name: defaultGraph
+        Readonly: true
+        Type:
+          Name: RdfGraph
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+    Operations:
+      - Name: add
+        Args:
+          - Name: graphName
+            Type:
+              Name: USVString
+          - Name: graph
+            Type:
+              Name: RdfGraph
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+    Iterable:
+      TypeParams:
+        - Name: USVString
+          Nullable: true
+        - Name: RdfGraph
+- File: json-ld-api.idl
+  Interface:
+    Name: RdfGraph
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - JsonLd
+    Operations:
+      - Name: add
+        Args:
+          - Name: triple
+            Type:
+              Name: RdfTriple
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+    Iterable:
+      TypeParams:
+        - Name: RdfTriple
+- File: json-ld-api.idl
+  Interface:
+    Name: RdfLiteral
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - JsonLd
+    Attrs:
+      - Name: value
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: datatype
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: language
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+- File: json-ld-api.idl
+  Interface:
+    Name: RdfTriple
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - JsonLd
+    Attrs:
+      - Name: subject
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: predicate
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: object
+        Readonly: true
+        Type:
+          Union:
+            - Name: USVString
+            - Name: RdfLiteral
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+- File: geolocation-sensor.idl
+  Dict:
+    Name: ReadOptions
+    Inherits: GeolocationSensorOptions
+    Fields:
+      - Name: signal
+        Type:
+          Name: AbortSignal
+          Nullable: true
+      - Name: frequency
+        Type:
+          Name: double
+- File: streams.idl
+  Interface:
+    Name: ReadableByteStreamController
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: byobRequest
+        Readonly: true
+        Type:
+          Name: ReadableStreamBYOBRequest
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+      - Name: desiredSize
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+    Operations:
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: enqueue
+        Args:
+          - Name: chunk
+            Type:
+              Name: ArrayBufferView
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: error
+        Args:
+          - Name: e
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+- File: streams.idl
+  Interface:
+    Name: ReadableStream
+    ExtAttrs:
+      - Name: Exposed
+      - Name: Transferable
+    Attrs:
+      - Name: locked
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+    Operations:
+      - Name: from
+        Modifier: static
+        Args:
+          - Name: asyncIterable
+            Type:
+              Name: any
+        Returns:
+          - Name: ReadableStream
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+      - Name: cancel
+        Args:
+          - Name: reason
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+      - Name: getReader
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ReadableStreamGetReaderOptions
+        Returns:
+          - Name: ReadableStreamReader
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+      - Name: pipeThrough
+        Args:
+          - Name: transform
+            Type:
+              Name: ReadableWritablePair
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StreamPipeOptions
+        Returns:
+          - Name: ReadableStream
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+      - Name: pipeTo
+        Args:
+          - Name: destination
+            Type:
+              Name: WritableStream
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StreamPipeOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+      - Name: tee
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: ReadableStream
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+    Constructors:
+      - Args:
+          - Name: underlyingSource
+            Optional: true
+            Type:
+              Name: object
+          - Name: strategy
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: QueuingStrategy
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+    Iterable:
+      TypeParams:
+        - Name: any
+      Async: true
+      Args:
+        - Name: options
+          Optional: true
+          Default: '{}'
+          Type:
+            Name: ReadableStreamIteratorOptions
+- File: streams.idl
+  Interface:
+    Name: ReadableStreamBYOBReader
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: closed
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: undefined
+    Operations:
+      - Name: read
+        Args:
+          - Name: view
+            Type:
+              Name: ArrayBufferView
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ReadableStreamReadResult
+        ExtAttrs:
+          - Name: Exposed
+      - Name: releaseLock
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: cancel
+        Args:
+          - Name: reason
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+    Constructors:
+      - Args:
+          - Name: stream
+            Type:
+              Name: ReadableStream
+        ExtAttrs:
+          - Name: Exposed
+- File: streams.idl
+  Interface:
+    Name: ReadableStreamBYOBRequest
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: view
+        Readonly: true
+        Type:
+          Name: ArrayBufferView
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+    Operations:
+      - Name: respond
+        Args:
+          - Name: bytesWritten
+            Type:
+              Name: unsigned long long
+            ExtAttrs:
+              - Name: EnforceRange
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: respondWithNewView
+        Args:
+          - Name: view
+            Type:
+              Name: ArrayBufferView
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed

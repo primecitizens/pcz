@@ -7,26 +7,24 @@
 
 package utf8
 
-// The conditions RuneError==unicode.ReplacementChar and
-// MaxRune==unicode.MaxRune are verified in the tests.
-// Defining them locally avoids this package depending on package unicode.
-
-// Numbers fundamental to the encoding.
-const (
-	// the "error" Rune or "Unicode replacement character"
-	RuneError = '\uFFFD'
-	// characters below RuneSelf are represented as themselves in a single byte.
-	RuneSelf = 0x80
-	// Maximum valid Unicode code point.
-	MaxRune = '\U0010FFFF'
-	// maximum number of bytes of a UTF-8 encoded Unicode character.
-	UTFMax = 4
+import (
+	"unsafe"
 )
 
-// Code points in the surrogate range are not valid for UTF-8.
+func AsString(s []byte) String {
+	return String(unsafe.String(unsafe.SliceData(s), len(s)))
+}
+
+type String string
+
+func (s String) Slice() []byte {
+	return unsafe.Slice(unsafe.StringData(string(s)), len(s))
+}
+
 const (
-	SurrogateMin = 0xD800
-	SurrogateMax = 0xDFFF
+	RuneSelf     = 0x80 // characters below RuneSelf are represented as themselves in a single byte.
+	RuneErrorLen = 3    // encoded UTF-8 length of a unicodeconst.RuneError
+	MaxRuneLen   = 4    // maximum number of bytes of a UTF-8 encoded Unicode character.
 )
 
 const (
@@ -96,9 +94,9 @@ type acceptRange struct {
 
 // acceptRanges has size 16 to avoid bounds checks in the code that uses it.
 var acceptRanges = [16]acceptRange{
-	0: {locb, hicb},
-	1: {0xA0, hicb},
-	2: {locb, 0x9F},
-	3: {0x90, hicb},
-	4: {locb, 0x8F},
+	0: {lo: locb, hi: hicb},
+	1: {lo: 0xA0, hi: hicb},
+	2: {lo: locb, hi: 0x9F},
+	3: {lo: 0x90, hi: hicb},
+	4: {lo: locb, hi: 0x8F},
 }

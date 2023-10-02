@@ -15,7 +15,7 @@ import (
 
 //go:wasmimport wasi_snapshot_preview1 path_filestat_set_times
 //go:noescape
-func path_filestat_set_times(
+func Utime(
 	fd FD,
 	flags LookupFlags,
 	path unsafe.Pointer, pathLen Size,

@@ -15,11 +15,11 @@
 // consistent across threads with respect to the values they manipulate. More
 // specifically, operations that happen in a specific order on one thread,
 // will always be observed to happen in exactly that order by another thread.
-//
+package atomic
+
 // NOTE: this package MUST be in the exact package runtime/internal/atomic to
 // get functions repalced by compiler intrinsics.
 //
 // See $GOROOT/src/cmd/compile/internal/ssagen/ssa.go#func:InitTables
 //
-//pcz:package runtime/internal/atomic
-package atomic
+//pcz:importpath runtime/internal/atomic

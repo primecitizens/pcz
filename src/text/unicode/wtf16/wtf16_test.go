@@ -11,9 +11,11 @@ import (
 	"fmt"
 	"slices"
 	"testing"
-	"unicode/utf16"
-	"unicode/utf8"
 	"unsafe"
+
+	stdstring "github.com/primecitizens/std/builtin/string"
+	"github.com/primecitizens/std/text/unicode/utf16"
+	"github.com/primecitizens/std/text/unicode/utf8"
 )
 
 var wtf8tests = []struct {
@@ -136,8 +138,8 @@ var wtf8tests = []struct {
 func TestWTF16Rountrip(t *testing.T) {
 	for _, tt := range wtf8tests {
 		t.Run(fmt.Sprintf("%X", tt.str), func(t *testing.T) {
-			got := EncodeWTF16(tt.str, nil)
-			got2 := string(EecodeWTF16(got, nil))
+			got := Encode(nil, tt.str)
+			got2 := string(WTF8DecodeAll(nil, got...))
 			if got2 != tt.str {
 				t.Errorf("got:\n%s\nwant:\n%s", got2, tt.str)
 			}
@@ -148,7 +150,7 @@ func TestWTF16Rountrip(t *testing.T) {
 func TestWTF16Golden(t *testing.T) {
 	for _, tt := range wtf8tests {
 		t.Run(fmt.Sprintf("%X", tt.str), func(t *testing.T) {
-			got := EncodeWTF16(tt.str, nil)
+			got := Encode(nil, tt.str)
 			if !slices.Equal(got, tt.wstr) {
 				t.Errorf("got:\n%v\nwant:\n%v", got, tt.wstr)
 			}
@@ -162,13 +164,13 @@ func FuzzEncodeWTF16(f *testing.F) {
 	}
 	f.Fuzz(func(t *testing.T, b string) {
 		// test that there are no panics
-		got := EncodeWTF16(b, nil)
-		EecodeWTF16(got, nil)
-		if utf8.ValidString(b) {
+		got := Encode(nil, b)
+		WTF8Decode(nil, got...)
+		if utf8.Valid(b) {
 			// if the input is a valid UTF-8 string, then
 			// test that encodeWTF16 behaves as
 			// utf16.Encode
-			want := utf16.Encode([]rune(b))
+			want := utf16.AppendRunes(nil, []rune(b)...)
 			if !slices.Equal(got, want) {
 				t.Errorf("got:\n%v\nwant:\n%v", got, want)
 			}
@@ -183,18 +185,18 @@ func FuzzDecodeWTF16(f *testing.F) {
 	}
 	f.Fuzz(func(t *testing.T, b []byte) {
 		u16 := unsafe.Slice((*uint16)(unsafe.Pointer(unsafe.SliceData(b))), len(b)/2)
-		got := EecodeWTF16(u16, nil)
-		if utf8.Valid(got) {
+		got := WTF8DecodeAll(nil, u16...)
+		if utf8.Valid(stdstring.FromBytes(got)) {
 			// if the input is a valid UTF-8 string, then
 			// test that decodeWTF16 behaves as
 			// utf16.Decode
-			want := utf16.Decode(u16)
+			want := utf16.RunesAppend(nil, u16...)
 			if string(got) != string(want) {
 				t.Errorf("got:\n%s\nwant:\n%s", string(got), string(want))
 			}
 		}
 		// WTF-8 should always roundtrip
-		got2 := EncodeWTF16(string(got), nil)
+		got2 := Encode(nil, string(got))
 		if !slices.Equal(got2, u16) {
 			t.Errorf("got:\n%v\nwant:\n%v", got2, u16)
 		}

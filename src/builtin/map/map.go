@@ -13,12 +13,12 @@ import (
 	"github.com/primecitizens/std/core/abi"
 	"github.com/primecitizens/std/core/arch"
 	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/rand"
+	"github.com/primecitizens/std/core/thread"
 )
 
 func MakeSmall() *hmap {
 	h := new(hmap)
-	h.Hash0 = rand.Fastrand()
+	h.Hash0 = thread.G().G().Rand32()
 	return h
 }
 

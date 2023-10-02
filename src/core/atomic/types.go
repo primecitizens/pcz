@@ -18,7 +18,6 @@ import (
 // An Int32 must not be copied.
 type Int32[T ~int32] struct {
 	noCopy mark.NoCopy
-	_      mark.NoCompare
 	Value  T
 }
 
@@ -71,7 +70,6 @@ func (i *Int32[T]) Add(delta T) T {
 // An Int64 must not be copied.
 type Int64[T ~int64] struct {
 	noCopy mark.NoCopy
-	_      mark.NoCompare
 	_      mark.Align64
 	Value  T
 }
@@ -123,7 +121,6 @@ func (i *Int64[T]) Add(delta T) T {
 // A Uint8 must not be copied.
 type Uint8[T ~uint8] struct {
 	noCopy mark.NoCopy
-	_      mark.NoCompare
 	Value  T
 }
 
@@ -194,7 +191,6 @@ func (b *Bool[T]) Store(value T) {
 // A Uint32 must not be copied.
 type Uint32[T ~uint32] struct {
 	noCopy mark.NoCopy
-	_      mark.NoCompare
 	Value  T
 }
 
@@ -309,7 +305,6 @@ func (u *Uint32[T]) Add(delta int32) T {
 // A Uint64 must not be copied.
 type Uint64[T ~uint64] struct {
 	noCopy mark.NoCopy
-	_      mark.NoCompare
 	_      mark.Align64
 	Value  T
 }
@@ -361,7 +356,6 @@ func (u *Uint64[T]) Add(delta int64) T {
 // A Uintptr must not be copied.
 type Uintptr[T ~uintptr] struct {
 	noCopy mark.NoCopy
-	_      mark.NoCompare
 	Value  T
 }
 
@@ -469,7 +463,6 @@ func (f *Float64[T]) Store(value T) {
 // An UnsafePointer must not be copied.
 type UnsafePointer struct {
 	noCopy mark.NoCopy
-	_      mark.NoCompare
 	Value  unsafe.Pointer
 }
 

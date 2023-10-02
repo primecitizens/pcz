@@ -1,0 +1,2540 @@
+- File: html.idl
+  Interface:
+    Name: HTMLTableRowElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: rowIndex
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sectionRowIndex
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cells
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ch
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: chOff
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: vAlign
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: bgColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: insertCell
+        Args:
+          - Name: index
+            Optional: true
+            Default: "-1"
+            Type:
+              Name: long
+        Returns:
+          - Name: HTMLTableCellElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteCell
+        Args:
+          - Name: index
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTableSectionElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: rows
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ch
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: chOff
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: vAlign
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: insertRow
+        Args:
+          - Name: index
+            Optional: true
+            Default: "-1"
+            Type:
+              Name: long
+        Returns:
+          - Name: HTMLTableRowElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteRow
+        Args:
+          - Name: index
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTemplateElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: content
+        Readonly: true
+        Type:
+          Name: DocumentFragment
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTextAreaElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: autocomplete
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cols
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dirName
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxLength
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: minLength
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: placeholder
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: readOnly
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: required
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rows
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: wrap
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defaultValue
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: textLength
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: willValidate
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validity
+        Readonly: true
+        Type:
+          Name: ValidityState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validationMessage
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: labels
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionStart
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionEnd
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionDirection
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: checkValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reportValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setCustomValidity
+        Args:
+          - Name: error
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: select
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setRangeText
+        Args:
+          - Name: replacement
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setRangeText
+        Args:
+          - Name: replacement
+            Type:
+              Name: DOMString
+          - Name: start
+            Type:
+              Name: unsigned long
+          - Name: end
+            Type:
+              Name: unsigned long
+          - Name: selectionMode
+            Optional: true
+            Default: '"preserve"'
+            Type:
+              Name: SelectionMode
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setSelectionRange
+        Args:
+          - Name: start
+            Type:
+              Name: unsigned long
+          - Name: end
+            Type:
+              Name: unsigned long
+          - Name: direction
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTimeElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: dateTime
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTitleElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: text
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTrackElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: NONE
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: LOADING
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: LOADED
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: ERROR
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: kind
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: srclang
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: label
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: default
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: track
+        Readonly: true
+        Type:
+          Name: TextTrack
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLUListElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: compact
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLUnknownElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: html.idl
+  Interface:
+    Name: HTMLVideoElement
+    Inherits: HTMLMediaElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: width
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: videoWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: videoHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: poster
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: playsInline
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onenterpictureinpicture
+        Type:
+          Name: EventHandler
+      - Name: onleavepictureinpicture
+        Type:
+          Name: EventHandler
+      - Name: disablePictureInPicture
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: requestVideoFrameCallback
+        Args:
+          - Name: callback
+            Type:
+              Name: VideoFrameRequestCallback
+        Returns:
+          - Name: unsigned long
+      - Name: cancelVideoFrameCallback
+        Args:
+          - Name: handle
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+      - Name: requestPictureInPicture
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PictureInPictureWindow
+        ExtAttrs:
+          - Name: NewObject
+      - Name: getVideoPlaybackQuality
+        Returns:
+          - Name: VideoPlaybackQuality
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: webcodecs.idl
+  Enum:
+    Name: HardwareAcceleration
+    Values:
+      - no-preference
+      - prefer-hardware
+      - prefer-software
+- File: WebCryptoAPI.idl
+  Typedef:
+    Name: HashAlgorithmIdentifier
+    Type:
+      Name: AlgorithmIdentifier
+- File: html.idl
+  Interface:
+    Name: HashChangeEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: oldURL
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: newURL
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: HashChangeEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Dict:
+    Name: HashChangeEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: oldURL
+        Default: '""'
+        Type:
+          Name: USVString
+      - Name: newURL
+        Default: '""'
+        Type:
+          Name: USVString
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: media-capabilities.idl
+  Enum:
+    Name: HdrMetadataType
+    Values:
+      - smpteSt2086
+      - smpteSt2094-10
+      - smpteSt2094-40
+- File: fetch.idl
+  Interface:
+    Name: Headers
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: append
+        Args:
+          - Name: name
+            Type:
+              Name: ByteString
+          - Name: value
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: delete
+        Args:
+          - Name: name
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: get
+        Args:
+          - Name: name
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: ByteString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getSetCookie
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: ByteString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: has
+        Args:
+          - Name: name
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: set
+        Args:
+          - Name: name
+            Type:
+              Name: ByteString
+          - Name: value
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: init
+            Optional: true
+            Type:
+              Name: HeadersInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Iterable:
+      TypeParams:
+        - Name: ByteString
+        - Name: ByteString
+- File: fetch.idl
+  Typedef:
+    Name: HeadersInit
+    Type:
+      Union:
+        - Name: sequence
+          Params:
+            - Name: sequence
+              Params:
+                - Name: ByteString
+        - Name: record
+          Params:
+            - Name: ByteString
+            - Name: ByteString
+- File: webcodecs-hevc-codec-registration.idl
+  Enum:
+    Name: HevcBitstreamFormat
+    Values:
+      - annexb
+      - hevc
+- File: webcodecs-hevc-codec-registration.idl
+  Dict:
+    Name: HevcEncoderConfig
+    Fields:
+      - Name: format
+        Default: '"hevc"'
+        Type:
+          Name: HevcBitstreamFormat
+- File: css-highlight-api.idl
+  Interface:
+    Name: Highlight
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: priority
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: HighlightType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: initialRanges
+            Variadic: true
+            Type:
+              Name: AbstractRange
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Setlike:
+      TypeParams:
+        - Name: AbstractRange
+- File: css-highlight-api.idl
+  Interface:
+    Name: HighlightRegistry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: DOMString
+        - Name: Highlight
+- File: css-highlight-api.idl
+  Enum:
+    Name: HighlightType
+    Values:
+      - highlight
+      - spelling-error
+      - grammar-error
+- File: html.idl
+  Interface:
+    Name: History
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scrollRestoration
+        Type:
+          Name: ScrollRestoration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: state
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: go
+        Args:
+          - Name: delta
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: back
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: forward
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pushState
+        Args:
+          - Name: data
+            Type:
+              Name: any
+          - Name: unused
+            Type:
+              Name: DOMString
+          - Name: url
+            Optional: true
+            Default: "null"
+            Type:
+              Name: USVString
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceState
+        Args:
+          - Name: data
+            Type:
+              Name: any
+          - Name: unused
+            Type:
+              Name: DOMString
+          - Name: url
+            Optional: true
+            Default: "null"
+            Type:
+              Name: USVString
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: HkdfParams
+    Inherits: Algorithm
+    Fields:
+      - Name: hash
+        Required: true
+        Type:
+          Name: HashAlgorithmIdentifier
+      - Name: salt
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: info
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: HmacImportParams
+    Inherits: Algorithm
+    Fields:
+      - Name: hash
+        Required: true
+        Type:
+          Name: HashAlgorithmIdentifier
+      - Name: length
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: HmacKeyAlgorithm
+    Inherits: KeyAlgorithm
+    Fields:
+      - Name: hash
+        Required: true
+        Type:
+          Name: KeyAlgorithm
+      - Name: length
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: HmacKeyGenParams
+    Inherits: Algorithm
+    Fields:
+      - Name: hash
+        Required: true
+        Type:
+          Name: HashAlgorithmIdentifier
+      - Name: length
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBCursor
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: source
+        Readonly: true
+        Type:
+          Union:
+            - Name: IDBObjectStore
+            - Name: IDBIndex
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: direction
+        Readonly: true
+        Type:
+          Name: IDBCursorDirection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: key
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: primaryKey
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: request
+        Readonly: true
+        Type:
+          Name: IDBRequest
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: advance
+        Args:
+          - Name: count
+            Type:
+              Name: unsigned long
+            ExtAttrs:
+              - Name: EnforceRange
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: continue
+        Args:
+          - Name: key
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: continuePrimaryKey
+        Args:
+          - Name: key
+            Type:
+              Name: any
+          - Name: primaryKey
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: update
+        Args:
+          - Name: value
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: delete
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Enum:
+    Name: IDBCursorDirection
+    Values:
+      - next
+      - nextunique
+      - prev
+      - prevunique
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBCursorWithValue
+    Inherits: IDBCursor
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: value
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBDatabase
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: version
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: objectStoreNames
+        Readonly: true
+        Type:
+          Name: DOMStringList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onabort
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onclose
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onversionchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: transaction
+        Args:
+          - Name: storeNames
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: sequence
+                  Params:
+                    - Name: DOMString
+          - Name: mode
+            Optional: true
+            Default: '"readonly"'
+            Type:
+              Name: IDBTransactionMode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: IDBTransactionOptions
+        Returns:
+          - Name: IDBTransaction
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: createObjectStore
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: IDBObjectStoreParameters
+        Returns:
+          - Name: IDBObjectStore
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: deleteObjectStore
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Dict:
+    Name: IDBDatabaseInfo
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+      - Name: version
+        Type:
+          Name: unsigned long long
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBFactory
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: open
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: version
+            Optional: true
+            Type:
+              Name: unsigned long long
+        Returns:
+          - Name: IDBOpenDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: deleteDatabase
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: IDBOpenDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: databases
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: IDBDatabaseInfo
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: cmp
+        Args:
+          - Name: first
+            Type:
+              Name: any
+          - Name: second
+            Type:
+              Name: any
+        Returns:
+          - Name: short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBIndex
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: objectStore
+        Readonly: true
+        Type:
+          Name: IDBObjectStore
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: keyPath
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: multiEntry
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: unique
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: get
+        Args:
+          - Name: query
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getKey
+        Args:
+          - Name: query
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getAll
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: count
+            Optional: true
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getAllKeys
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: count
+            Optional: true
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: count
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: openCursor
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: direction
+            Optional: true
+            Default: '"next"'
+            Type:
+              Name: IDBCursorDirection
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: openKeyCursor
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: direction
+            Optional: true
+            Default: '"next"'
+            Type:
+              Name: IDBCursorDirection
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Dict:
+    Name: IDBIndexParameters
+    Fields:
+      - Name: unique
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: multiEntry
+        Default: "false"
+        Type:
+          Name: boolean
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBKeyRange
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: lower
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: upper
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: lowerOpen
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: upperOpen
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: only
+        Modifier: static
+        Args:
+          - Name: value
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBKeyRange
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: lowerBound
+        Modifier: static
+        Args:
+          - Name: lower
+            Type:
+              Name: any
+          - Name: open
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: IDBKeyRange
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: upperBound
+        Modifier: static
+        Args:
+          - Name: upper
+            Type:
+              Name: any
+          - Name: open
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: IDBKeyRange
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: bound
+        Modifier: static
+        Args:
+          - Name: lower
+            Type:
+              Name: any
+          - Name: upper
+            Type:
+              Name: any
+          - Name: lowerOpen
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: upperOpen
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: IDBKeyRange
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: includes
+        Args:
+          - Name: key
+            Type:
+              Name: any
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBObjectStore
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: keyPath
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: indexNames
+        Readonly: true
+        Type:
+          Name: DOMStringList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: transaction
+        Readonly: true
+        Type:
+          Name: IDBTransaction
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: autoIncrement
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: put
+        Args:
+          - Name: value
+            Type:
+              Name: any
+          - Name: key
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: add
+        Args:
+          - Name: value
+            Type:
+              Name: any
+          - Name: key
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: delete
+        Args:
+          - Name: query
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: clear
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: get
+        Args:
+          - Name: query
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getKey
+        Args:
+          - Name: query
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getAll
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: count
+            Optional: true
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getAllKeys
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: count
+            Optional: true
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: count
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: openCursor
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: direction
+            Optional: true
+            Default: '"next"'
+            Type:
+              Name: IDBCursorDirection
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: openKeyCursor
+        Args:
+          - Name: query
+            Optional: true
+            Type:
+              Name: any
+          - Name: direction
+            Optional: true
+            Default: '"next"'
+            Type:
+              Name: IDBCursorDirection
+        Returns:
+          - Name: IDBRequest
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: index
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: IDBIndex
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: createIndex
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: keyPath
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: sequence
+                  Params:
+                    - Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: IDBIndexParameters
+        Returns:
+          - Name: IDBIndex
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: deleteIndex
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Dict:
+    Name: IDBObjectStoreParameters
+    Fields:
+      - Name: keyPath
+        Default: "null"
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: sequence
+              Params:
+                - Name: DOMString
+          Nullable: true
+      - Name: autoIncrement
+        Default: "false"
+        Type:
+          Name: boolean
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBOpenDBRequest
+    Inherits: IDBRequest
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: onblocked
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onupgradeneeded
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBRequest
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: result
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: error
+        Readonly: true
+        Type:
+          Name: DOMException
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: source
+        Readonly: true
+        Type:
+          Union:
+            - Name: IDBObjectStore
+            - Name: IDBIndex
+            - Name: IDBCursor
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: transaction
+        Readonly: true
+        Type:
+          Name: IDBTransaction
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: IDBRequestReadyState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onsuccess
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Enum:
+    Name: IDBRequestReadyState
+    Values:
+      - pending
+      - done
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBTransaction
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: objectStoreNames
+        Readonly: true
+        Type:
+          Name: DOMStringList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: mode
+        Readonly: true
+        Type:
+          Name: IDBTransactionMode
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: durability
+        Readonly: true
+        Type:
+          Name: IDBTransactionDurability
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: db
+        Readonly: true
+        Type:
+          Name: IDBDatabase
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: error
+        Readonly: true
+        Type:
+          Name: DOMException
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onabort
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: oncomplete
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: objectStore
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: IDBObjectStore
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: commit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: abort
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Enum:
+    Name: IDBTransactionDurability
+    Values:
+      - default
+      - strict
+      - relaxed
+- File: IndexedDB.idl
+  Enum:
+    Name: IDBTransactionMode
+    Values:
+      - readonly
+      - readwrite
+      - versionchange
+- File: IndexedDB.idl
+  Dict:
+    Name: IDBTransactionOptions
+    Fields:
+      - Name: durability
+        Default: '"default"'
+        Type:
+          Name: IDBTransactionDurability
+- File: IndexedDB.idl
+  Interface:
+    Name: IDBVersionChangeEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: oldVersion
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: newVersion
+        Readonly: true
+        Type:
+          Name: unsigned long long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: IDBVersionChangeEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: IndexedDB.idl
+  Dict:
+    Name: IDBVersionChangeEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: oldVersion
+        Default: "0"
+        Type:
+          Name: unsigned long long
+      - Name: newVersion
+        Default: "null"
+        Type:
+          Name: unsigned long long
+          Nullable: true
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webaudio.idl
+  Interface:
+    Name: IIRFilterNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: getFrequencyResponse
+        Args:
+          - Name: frequencyHz
+            Type:
+              Name: Float32Array
+          - Name: magResponse
+            Type:
+              Name: Float32Array
+          - Name: phaseResponse
+            Type:
+              Name: Float32Array
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Type:
+              Name: IIRFilterOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: IIRFilterOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: feedforward
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: double
+      - Name: feedback
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: double
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: FedCM.idl
+  Interface:
+    Name: IdentityCredential
+    Inherits: Credential
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: token
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext

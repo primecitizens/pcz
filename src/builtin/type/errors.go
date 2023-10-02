@@ -16,30 +16,28 @@ type error = cerr.E
 
 // A TypeAssertionError explains a failed type assertion.
 type TypeAssertionError struct {
-	_interface    *abi.Type
-	concrete      *abi.Type
-	asserted      *abi.Type
-	missingMethod string // one method needed by Interface, missing from Concrete
+	Interface     *abi.Type
+	Concrete      *abi.Type
+	Asserted      *abi.Type
+	MissingMethod string // one method needed by Interface, missing from Concrete
 }
-
-func (*TypeAssertionError) RuntimeError() {}
 
 // WriteErr implements cerr.E
 func (e *TypeAssertionError) WriteErr(w cerr.Writer) int {
 	inter := "interface"
-	if e._interface != nil {
-		inter = e._interface.String()
+	if e.Interface != nil {
+		inter = e.Interface.String()
 	}
 
 	n := cerr.WriteJoinS(w, " ", "interface", "conversion") + w.Write(": ")
-	as := e.asserted.String()
-	if e.concrete == nil {
+	as := e.Asserted.String()
+	if e.Concrete == nil {
 		return n + cerr.WriteJoinS(w, " ", inter, "is", "nil") + w.Write(", ") +
 			cerr.WriteJoinS(w, " ", "not", as)
 	}
 
-	cs := e.concrete.String()
-	if len(e.missingMethod) == 0 {
+	cs := e.Concrete.String()
+	if len(e.MissingMethod) == 0 {
 		n += cerr.WriteJoinS(w, " ", inter, "is", cs) + w.Write(", ") +
 			cerr.WriteJoinS(w, " ", "not", as)
 
@@ -47,7 +45,7 @@ func (e *TypeAssertionError) WriteErr(w cerr.Writer) int {
 			// provide slightly clearer error message
 			n += w.Write(" (")
 
-			if e.concrete.PkgPath() != e.asserted.String() {
+			if e.Concrete.PkgPath() != e.Asserted.String() {
 				n += cerr.WriteJoinS(w, " ", "types", "from", "different", "packages")
 			} else {
 				n += cerr.WriteJoinS(w, " ", "types", "from", "different", "scopes")
@@ -60,5 +58,5 @@ func (e *TypeAssertionError) WriteErr(w cerr.Writer) int {
 	}
 
 	return n + cerr.WriteJoinS(w, " ", cs, "is", "not", as) + w.Write(": ") +
-		cerr.WriteJoinS(w, " ", "missing", "method", e.missingMethod)
+		cerr.WriteJoinS(w, " ", "missing", "method", e.MissingMethod)
 }

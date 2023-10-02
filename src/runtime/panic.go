@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+//go:build pcz
+
 package runtime
 
 import (
@@ -15,10 +17,8 @@ func throwinit() {
 	// TODO
 }
 
-func panicdivide()       { assert.Throw("integer", "divide", "by zero") }
-func panicshift()        { assert.Throw("negative", "shift", "amount") }
-func panicmakeslicelen() { assert.Throw("makeslice:", "len", "out", "of", "range") }
-func panicmakeslicecap() { assert.Throw("makeslice: cap out of range") }
+func panicdivide() { assert.Throw("integer", "divide", "by", "zero") }
+func panicshift()  { assert.Throw("negative", "shift", "amount") }
 
 // panicwrap generates a panic for a call to a wrapped value method
 // with a nil pointer receiver.
@@ -105,21 +105,24 @@ func goPanicSliceConvert(x int, y int) {
 
 func panicBoundsError(e boundsError) {
 	if e.code == boundsConvert {
-		println("runtime error: cannot convert slice with length", e.y, "to array or pointer to array with length", e.x)
-		debug.Breakpoint()
+		println(
+			"runtime", "error:", "cannot", "convert", "slice", "with", "length", e.y,
+			"to", "array", "or", "pointer", "to", "array", "with", "length", e.x,
+		)
+		debug.Abort()
 		return
 	}
 
 	if e.signed && e.x < 0 {
 		before, after := negBoundsErrorCode(e.code).fmt()
 		println("runtime", "error:", before, e.x, after)
-		debug.Breakpoint()
+		debug.Abort()
 		return
 	}
 
 	before, between, after := e.code.fmt()
 	println("runtime", "error:", before, e.x, between, e.y, after)
-	debug.Breakpoint()
+	debug.Abort()
 	return
 }
 

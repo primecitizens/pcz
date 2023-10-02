@@ -30,8 +30,7 @@ func (r *xorshift) next() uint64 {
 }
 
 func nextPowerOfTwo(length int) uint {
-	shift := uint(bits.Len(uint(length)))
-	return uint(1 << shift)
+	return 1 << bits.Len(uint(length))
 }
 
 // insertionSort sorts data[a:b] using insertion sort.

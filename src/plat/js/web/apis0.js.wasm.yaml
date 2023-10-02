@@ -1,0 +1,1439 @@
+- File: ANGLE_instanced_arrays.idl
+  Interface:
+    Name: ANGLE_instanced_arrays
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE
+        Value: "0x88FE"
+        Type:
+          Name: GLenum
+    Operations:
+      - Name: drawArraysInstancedANGLE
+        Args:
+          - Name: mode
+            Type:
+              Name: GLenum
+          - Name: first
+            Type:
+              Name: GLint
+          - Name: count
+            Type:
+              Name: GLsizei
+          - Name: primcount
+            Type:
+              Name: GLsizei
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: drawElementsInstancedANGLE
+        Args:
+          - Name: mode
+            Type:
+              Name: GLenum
+          - Name: count
+            Type:
+              Name: GLsizei
+          - Name: type
+            Type:
+              Name: GLenum
+          - Name: offset
+            Type:
+              Name: GLintptr
+          - Name: primcount
+            Type:
+              Name: GLsizei
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: vertexAttribDivisorANGLE
+        Args:
+          - Name: index
+            Type:
+              Name: GLuint
+          - Name: divisor
+            Type:
+              Name: GLuint
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+- File: webcodecs-av1-codec-registration.idl
+  Dict:
+    Name: AV1EncoderConfig
+    Fields:
+      - Name: forceScreenContentTools
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webcodecs-aac-codec-registration.idl
+  Enum:
+    Name: AacBitstreamFormat
+    Values:
+      - aac
+      - adts
+- File: webcodecs-aac-codec-registration.idl
+  Dict:
+    Name: AacEncoderConfig
+    Fields:
+      - Name: format
+        Default: '"aac"'
+        Type:
+          Name: AacBitstreamFormat
+- File: dom.idl
+  Interface:
+    Name: AbortController
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: signal
+        Readonly: true
+        Type:
+          Name: AbortSignal
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+    Operations:
+      - Name: abort
+        Args:
+          - Name: reason
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+- File: dom.idl
+  Interface:
+    Name: AbortSignal
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: aborted
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+      - Name: reason
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+      - Name: onabort
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+    Operations:
+      - Name: abort
+        Modifier: static
+        Args:
+          - Name: reason
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: AbortSignal
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+      - Name: timeout
+        Modifier: static
+        Args:
+          - Name: milliseconds
+            Type:
+              Name: unsigned long long
+            ExtAttrs:
+              - Name: EnforceRange
+        Returns:
+          - Name: AbortSignal
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: NewObject
+      - Name: any
+        Modifier: static
+        Args:
+          - Name: signals
+            Type:
+              Name: sequence
+              Params:
+                - Name: AbortSignal
+        Returns:
+          - Name: AbortSignal
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+      - Name: throwIfAborted
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+- File: orientation-sensor.idl
+  Dict:
+    Name: AbsoluteOrientationReadingValues
+    Fields:
+      - Name: quaternion
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: double
+          Nullable: true
+- File: orientation-sensor.idl
+  Interface:
+    Name: AbsoluteOrientationSensor
+    Inherits: OrientationSensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - Args:
+          - Name: sensorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: OrientationSensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  Interface:
+    Name: AbstractRange
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: startContainer
+        Readonly: true
+        Type:
+          Name: Node
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: startOffset
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: endContainer
+        Readonly: true
+        Type:
+          Name: Node
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: endOffset
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: collapsed
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: accelerometer.idl
+  Interface:
+    Name: Accelerometer
+    Inherits: Sensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: z
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AccelerometerSensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: accelerometer.idl
+  Enum:
+    Name: AccelerometerLocalCoordinateSystem
+    Values:
+      - device
+      - screen
+- File: accelerometer.idl
+  Dict:
+    Name: AccelerometerReadingValues
+    Fields:
+      - Name: x
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: "y"
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: z
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+- File: accelerometer.idl
+  Dict:
+    Name: AccelerometerSensorOptions
+    Inherits: SensorOptions
+    Fields:
+      - Name: referenceFrame
+        Default: '"device"'
+        Type:
+          Name: AccelerometerLocalCoordinateSystem
+      - Name: frequency
+        Type:
+          Name: double
+- File: turtledove.idl
+  Dict:
+    Name: AdRender
+    Fields:
+      - Name: url
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: width
+        Type:
+          Name: DOMString
+      - Name: height
+        Type:
+          Name: DOMString
+- File: dom.idl
+  Dict:
+    Name: AddEventListenerOptions
+    Inherits: EventListenerOptions
+    Fields:
+      - Name: passive
+        Type:
+          Name: boolean
+      - Name: once
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: signal
+        Type:
+          Name: AbortSignal
+      - Name: capture
+        Default: "false"
+        Type:
+          Name: boolean
+- File: payment-handler.idl
+  Dict:
+    Name: AddressErrors
+    Fields:
+      - Name: addressLine
+        Type:
+          Name: DOMString
+      - Name: city
+        Type:
+          Name: DOMString
+      - Name: country
+        Type:
+          Name: DOMString
+      - Name: dependentLocality
+        Type:
+          Name: DOMString
+      - Name: organization
+        Type:
+          Name: DOMString
+      - Name: phone
+        Type:
+          Name: DOMString
+      - Name: postalCode
+        Type:
+          Name: DOMString
+      - Name: recipient
+        Type:
+          Name: DOMString
+      - Name: region
+        Type:
+          Name: DOMString
+      - Name: sortingCode
+        Type:
+          Name: DOMString
+- File: payment-handler.idl
+  Dict:
+    Name: AddressInit
+    Fields:
+      - Name: country
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: addressLine
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: region
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: city
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: dependentLocality
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: postalCode
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: sortingCode
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: organization
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: recipient
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: phone
+        Default: '""'
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: AesCbcParams
+    Inherits: Algorithm
+    Fields:
+      - Name: iv
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: AesCtrParams
+    Inherits: Algorithm
+    Fields:
+      - Name: counter
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: length
+        Required: true
+        Type:
+          Name: octet
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: AesDerivedKeyParams
+    Inherits: Algorithm
+    Fields:
+      - Name: length
+        Required: true
+        Type:
+          Name: unsigned short
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: AesGcmParams
+    Inherits: Algorithm
+    Fields:
+      - Name: iv
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: additionalData
+        Type:
+          Name: BufferSource
+      - Name: tagLength
+        Type:
+          Name: octet
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: AesKeyAlgorithm
+    Inherits: KeyAlgorithm
+    Fields:
+      - Name: length
+        Required: true
+        Type:
+          Name: unsigned short
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: AesKeyGenParams
+    Inherits: Algorithm
+    Fields:
+      - Name: length
+        Required: true
+        Type:
+          Name: unsigned short
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: Algorithm
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Typedef:
+    Name: AlgorithmIdentifier
+    Type:
+      Union:
+        - Name: object
+        - Name: DOMString
+- File: webvtt.idl
+  Enum:
+    Name: AlignSetting
+    Values:
+      - start
+      - center
+      - end
+      - left
+      - right
+- File: webidl.idl
+  Typedef:
+    Name: AllowSharedBufferSource
+    Type:
+      Union:
+        - Name: ArrayBuffer
+        - Name: SharedArrayBuffer
+        - Name: ArrayBufferView
+- File: web-bluetooth.idl
+  Dict:
+    Name: AllowedBluetoothDevice
+    Fields:
+      - Name: deviceId
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: mayUseGATT
+        Required: true
+        Type:
+          Name: boolean
+      - Name: allowedServices
+        Required: true
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: sequence
+              Params:
+                - Name: UUID
+      - Name: allowedManufacturerData
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned short
+- File: webusb.idl
+  Dict:
+    Name: AllowedUSBDevice
+    Fields:
+      - Name: vendorId
+        Required: true
+        Type:
+          Name: octet
+      - Name: productId
+        Required: true
+        Type:
+          Name: octet
+      - Name: serialNumber
+        Type:
+          Name: DOMString
+- File: webcodecs.idl
+  Enum:
+    Name: AlphaOption
+    Values:
+      - keep
+      - discard
+- File: ambient-light.idl
+  Dict:
+    Name: AmbientLightReadingValues
+    Fields:
+      - Name: illuminance
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+- File: ambient-light.idl
+  Interface:
+    Name: AmbientLightSensor
+    Inherits: Sensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: illuminance
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: sensorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Interface:
+    Name: AnalyserNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: fftSize
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: frequencyBinCount
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: minDecibels
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxDecibels
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: smoothingTimeConstant
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getFloatFrequencyData
+        Args:
+          - Name: array
+            Type:
+              Name: Float32Array
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getByteFrequencyData
+        Args:
+          - Name: array
+            Type:
+              Name: Uint8Array
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getFloatTimeDomainData
+        Args:
+          - Name: array
+            Type:
+              Name: Float32Array
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getByteTimeDomainData
+        Args:
+          - Name: array
+            Type:
+              Name: Uint8Array
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AnalyserOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: AnalyserOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: fftSize
+        Default: "2048"
+        Type:
+          Name: unsigned long
+      - Name: maxDecibels
+        Default: "-30"
+        Type:
+          Name: double
+      - Name: minDecibels
+        Default: "-100"
+        Type:
+          Name: double
+      - Name: smoothingTimeConstant
+        Default: "0.8"
+        Type:
+          Name: double
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: web-animations.idl
+  Interface:
+    Name: Animation
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: effect
+        Type:
+          Name: AnimationEffect
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: timeline
+        Type:
+          Name: AnimationTimeline
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: playbackRate
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: playState
+        Readonly: true
+        Type:
+          Name: AnimationPlayState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceState
+        Readonly: true
+        Type:
+          Name: AnimationReplaceState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pending
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ready
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: Animation
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: finished
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: Animation
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onfinish
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oncancel
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onremove
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: startTime
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: currentTime
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: cancel
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: finish
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: play
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pause
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updatePlaybackRate
+        Args:
+          - Name: playbackRate
+            Type:
+              Name: double
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reverse
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: persist
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: commitStyles
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: effect
+            Optional: true
+            Default: "null"
+            Type:
+              Name: AnimationEffect
+              Nullable: true
+          - Name: timeline
+            Optional: true
+            Type:
+              Name: AnimationTimeline
+              Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-animations.idl
+  Interface:
+    Name: AnimationEffect
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: parent
+        Readonly: true
+        Type:
+          Name: GroupEffect
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: previousSibling
+        Readonly: true
+        Type:
+          Name: AnimationEffect
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: nextSibling
+        Readonly: true
+        Type:
+          Name: AnimationEffect
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getTiming
+        Returns:
+          - Name: EffectTiming
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getComputedTiming
+        Returns:
+          - Name: ComputedEffectTiming
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updateTiming
+        Args:
+          - Name: timing
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: OptionalEffectTiming
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: before
+        Args:
+          - Name: effects
+            Variadic: true
+            Type:
+              Name: AnimationEffect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: after
+        Args:
+          - Name: effects
+            Variadic: true
+            Type:
+              Name: AnimationEffect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replace
+        Args:
+          - Name: effects
+            Variadic: true
+            Type:
+              Name: AnimationEffect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: remove
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-animations.idl
+  Interface:
+    Name: AnimationEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: animationName
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: elapsedTime
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pseudoElement
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: CSSOMString
+          - Name: animationEventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AnimationEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-animations.idl
+  Dict:
+    Name: AnimationEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: animationName
+        Default: '""'
+        Type:
+          Name: CSSOMString
+      - Name: elapsedTime
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: pseudoElement
+        Default: '""'
+        Type:
+          Name: CSSOMString
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: web-animations-2.idl
+  Interface:
+    Name: AnimationNodeList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: AnimationEffect
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-animations.idl
+  Enum:
+    Name: AnimationPlayState
+    Values:
+      - idle
+      - running
+      - paused
+      - finished
+- File: web-animations-2.idl
+  Interface:
+    Name: AnimationPlaybackEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: currentTime
+        Readonly: true
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: timelineTime
+        Readonly: true
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AnimationPlaybackEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-animations-2.idl
+  Dict:
+    Name: AnimationPlaybackEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: currentTime
+        Default: "null"
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+      - Name: timelineTime
+        Default: "null"
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: web-animations.idl
+  Enum:
+    Name: AnimationReplaceState
+    Values:
+      - active
+      - removed
+      - persisted
+- File: web-animations.idl
+  Interface:
+    Name: AnimationTimeline
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: currentTime
+        Readonly: true
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: duration
+        Readonly: true
+        Type:
+          Name: CSSNumberish
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: play
+        Args:
+          - Name: effect
+            Optional: true
+            Default: "null"
+            Type:
+              Name: AnimationEffect
+              Nullable: true
+        Returns:
+          - Name: Animation
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-animation-worklet.idl
+  Interface:
+    Name: AnimationWorkletGlobalScope
+    Inherits: WorkletGlobalScope
+    ExtAttrs:
+      - Name: Global
+        Values:
+          - Worklet
+          - AnimationWorklet
+      - Name: Exposed
+        Values:
+          - AnimationWorklet
+      - Name: SecureContext
+    Operations:
+      - Name: registerAnimator
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: animatorCtor
+            Type:
+              Name: AnimatorInstanceConstructor
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - AnimationWorklet
+          - Name: Exposed
+            Values:
+              - AnimationWorklet
+          - Name: SecureContext
+- File: css-animation-worklet.idl
+  Callback:
+    Name: AnimatorInstanceConstructor
+    Args:
+      - Name: options
+        Type:
+          Name: any
+      - Name: state
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: any
+- File: manifest-incubations.idl
+  Enum:
+    Name: AppBannerPromptOutcome
+    Values:
+      - accepted
+      - dismissed
+- File: media-source.idl
+  Enum:
+    Name: AppendMode
+    Values:
+      - segments
+      - sequence
+- File: webidl.idl
+  Typedef:
+    Name: ArrayBufferView
+    Type:
+      Union:
+        - Name: Int8Array
+        - Name: Int16Array
+        - Name: Int32Array
+        - Name: Uint8Array
+        - Name: Uint16Array
+        - Name: Uint32Array
+        - Name: Uint8ClampedArray
+        - Name: BigInt64Array
+        - Name: BigUint64Array
+        - Name: Float32Array
+        - Name: Float64Array
+        - Name: DataView
+- File: html.idl
+  Dict:
+    Name: AssignedNodesOptions
+    Fields:
+      - Name: flatten
+        Default: "false"
+        Type:
+          Name: boolean

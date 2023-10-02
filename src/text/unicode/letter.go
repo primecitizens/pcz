@@ -9,11 +9,15 @@
 // Unicode code points.
 package unicode
 
+import (
+	"github.com/primecitizens/std/text/unicode/common"
+)
+
 const (
-	MaxRune         = '\U0010FFFF' // Maximum valid Unicode code point.
-	ReplacementChar = '\uFFFD'     // Represents invalid code points.
-	MaxASCII        = '\u007F'     // maximum ASCII value.
-	MaxLatin1       = '\u00FF'     // maximum Latin-1 value.
+	MaxRune         = common.MaxRune   // Maximum valid Unicode code point.
+	ReplacementChar = common.RuneError // Represents invalid code points.
+	MaxASCII        = '\u007F'         // maximum ASCII value.
+	MaxLatin1       = '\u00FF'         // maximum Latin-1 value.
 )
 
 // RangeTable defines a set of Unicode code points by listing the ranges of

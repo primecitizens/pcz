@@ -2,9 +2,9 @@
 
 ## LICENSE
 
-Code copied from the official Go project is licensed under [BSD 3-Clause (go.LICENSE)](./go.LICENSE).
+Code copied from the official Go project is licensed under its [BSD 3-Clause License (LICENSE.golang)](./LICENSE.golang).
 
-Code written by Prime Citizens is licensed under the [Apache-2.0 (LICENSE)](./LICENSE):
+Code written by Prime Citizens is licensed under the [Apache-2.0 License](./LICENSE):
 
 ```txt
 Copyright 2023 The Prime Citizens

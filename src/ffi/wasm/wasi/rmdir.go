@@ -11,20 +11,8 @@ package wasi
 
 import (
 	"unsafe"
-
-	"github.com/primecitizens/std/core/assert"
 )
 
 //go:wasmimport wasi_snapshot_preview1 path_remove_directory
 //go:noescape
-func path_remove_directory(fd FD, path unsafe.Pointer, pathLen Size) Errno
-
-func Rmdir(path string) Errno {
-	if len(path) == 0 {
-		return EINVAL
-	}
-	assert.TODO()
-	return 0
-	// dirFd, pathPtr, pathLen := preparePath(path)
-	// return path_remove_directory(dirFd, pathPtr, pathLen)
-}
+func Rmdir(fd FD, path unsafe.Pointer, pathLen Size) Errno

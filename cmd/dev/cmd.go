@@ -15,7 +15,7 @@ type Options struct{}
 
 var (
 	_opts    = Options{}
-	_subcmds [4]*cli.Cmd
+	_subcmds [5]*cli.Cmd
 	_cmd     = cli.Cmd{
 		Pattern:    "dev",
 		BriefUsage: "Development helper",

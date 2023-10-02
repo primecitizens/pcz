@@ -5,5 +5,9 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//pcz:package internal/abi
 package abi
+
+// The importpath of this package MUST be internal/abi to make
+// FuncPCABI0 and FuncPCABIInternal working
+//
+//pcz:importpath internal/abi

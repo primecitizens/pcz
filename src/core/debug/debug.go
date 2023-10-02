@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+//go:build pcz
+
 package debug
 
 import (
@@ -43,9 +45,6 @@ func Return0()
 // that might relocate the stack in order to grow or shrink it.
 // A general rule is that the result of getcallersp should be used
 // immediately and can only be passed to nosplit functions.
-
-// functions are implemented as compiler intrinsics for runtime (on most platforms),
-// so we can only link it from runtime package
 
 // GetCallerPC returns the program counter (PC) of its caller's caller.
 func GetCallerPC() uintptr

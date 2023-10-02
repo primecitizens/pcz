@@ -14,10 +14,10 @@ import (
 	"github.com/primecitizens/std/core/os"
 )
 
-// FindNULL returns the index of first \x00 byte, for UTF-8 encoding
+// FindNull returns the index of first \x00 byte, for UTF-8 encoding
 //
 //go:nosplit
-func FindNULL(s *byte) int {
+func FindNull(s *byte) int {
 	if s == nil {
 		return 0
 	}
@@ -50,7 +50,7 @@ func FindNULL(s *byte) int {
 	for {
 		t := unsafe.String((*byte)(ptr), safeLen)
 		// Check one page at a time.
-		if i := bytealg.IndexByteString(t, 0); i != -1 {
+		if i := bytealg.IndexByte(t, 0); i != -1 {
 			return offset + i
 		}
 		// Move to next page
@@ -60,10 +60,10 @@ func FindNULL(s *byte) int {
 	}
 }
 
-// FindNULL2 returns the first \x00 wide-char, intended for UTF-16 encoding
+// FindNull2 returns the first \x00 wide-char, intended for UTF-16 encoding
 //
 //go:nosplit
-func FindNULL2(s *uint16) int {
+func FindNull2(s *uint16) int {
 	if s == nil {
 		return 0
 	}

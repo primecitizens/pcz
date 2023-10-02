@@ -1,0 +1,2174 @@
+- File: css-paint-api.idl
+  Interface:
+    Name: PaintSize
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - PaintWorklet
+    Attrs:
+      - Name: width
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - PaintWorklet
+      - Name: height
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - PaintWorklet
+- File: css-paint-api.idl
+  Interface:
+    Name: PaintWorkletGlobalScope
+    Inherits: WorkletGlobalScope
+    ExtAttrs:
+      - Name: Global
+        Values:
+          - Worklet
+          - PaintWorklet
+      - Name: Exposed
+        Values:
+          - PaintWorklet
+      - Name: SecureContext
+    Attrs:
+      - Name: devicePixelRatio
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - PaintWorklet
+          - Name: Exposed
+            Values:
+              - PaintWorklet
+          - Name: SecureContext
+    Operations:
+      - Name: registerPaint
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: paintCtor
+            Type:
+              Name: VoidFunction
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - PaintWorklet
+          - Name: Exposed
+            Values:
+              - PaintWorklet
+          - Name: SecureContext
+- File: webaudio.idl
+  Interface:
+    Name: PannerNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: panningModel
+        Type:
+          Name: PanningModelType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: positionX
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: positionY
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: positionZ
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orientationX
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orientationY
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orientationZ
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: distanceModel
+        Type:
+          Name: DistanceModelType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: refDistance
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxDistance
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rolloffFactor
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: coneInnerAngle
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: coneOuterAngle
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: coneOuterGain
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: setPosition
+        Args:
+          - Name: x
+            Type:
+              Name: float
+          - Name: "y"
+            Type:
+              Name: float
+          - Name: z
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setOrientation
+        Args:
+          - Name: x
+            Type:
+              Name: float
+          - Name: "y"
+            Type:
+              Name: float
+          - Name: z
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PannerOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: PannerOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: panningModel
+        Default: '"equalpower"'
+        Type:
+          Name: PanningModelType
+      - Name: distanceModel
+        Default: '"inverse"'
+        Type:
+          Name: DistanceModelType
+      - Name: positionX
+        Default: "0"
+        Type:
+          Name: float
+      - Name: positionY
+        Default: "0"
+        Type:
+          Name: float
+      - Name: positionZ
+        Default: "0"
+        Type:
+          Name: float
+      - Name: orientationX
+        Default: "1"
+        Type:
+          Name: float
+      - Name: orientationY
+        Default: "0"
+        Type:
+          Name: float
+      - Name: orientationZ
+        Default: "0"
+        Type:
+          Name: float
+      - Name: refDistance
+        Default: "1"
+        Type:
+          Name: double
+      - Name: maxDistance
+        Default: "10000"
+        Type:
+          Name: double
+      - Name: rolloffFactor
+        Default: "1"
+        Type:
+          Name: double
+      - Name: coneInnerAngle
+        Default: "360"
+        Type:
+          Name: double
+      - Name: coneOuterAngle
+        Default: "360"
+        Type:
+          Name: double
+      - Name: coneOuterGain
+        Default: "0"
+        Type:
+          Name: double
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: webaudio.idl
+  Enum:
+    Name: PanningModelType
+    Values:
+      - equalpower
+      - HRTF
+- File: serial.idl
+  Enum:
+    Name: ParityType
+    Values:
+      - none
+      - even
+      - odd
+- File: credential-management.idl
+  Interface:
+    Name: PasswordCredential
+    Inherits: Credential
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: password
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: name
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: iconURL
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: form
+            Type:
+              Name: HTMLFormElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Args:
+          - Name: data
+            Type:
+              Name: PasswordCredentialData
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: credential-management.idl
+  Dict:
+    Name: PasswordCredentialData
+    Inherits: CredentialData
+    Fields:
+      - Name: name
+        Type:
+          Name: USVString
+      - Name: iconURL
+        Type:
+          Name: USVString
+      - Name: origin
+        Required: true
+        Type:
+          Name: USVString
+      - Name: password
+        Required: true
+        Type:
+          Name: USVString
+      - Name: id
+        Required: true
+        Type:
+          Name: USVString
+- File: credential-management.idl
+  Typedef:
+    Name: PasswordCredentialInit
+    Type:
+      Union:
+        - Name: PasswordCredentialData
+        - Name: HTMLFormElement
+- File: html.idl
+  Interface:
+    Name: Path2D
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: addPath
+        Args:
+          - Name: path
+            Type:
+              Name: Path2D
+          - Name: transform
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMMatrix2DInit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: closePath
+        Returns:
+          - Name: undefined
+      - Name: moveTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: lineTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: quadraticCurveTo
+        Args:
+          - Name: cpx
+            Type:
+              Name: unrestricted double
+          - Name: cpy
+            Type:
+              Name: unrestricted double
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: bezierCurveTo
+        Args:
+          - Name: cp1x
+            Type:
+              Name: unrestricted double
+          - Name: cp1y
+            Type:
+              Name: unrestricted double
+          - Name: cp2x
+            Type:
+              Name: unrestricted double
+          - Name: cp2y
+            Type:
+              Name: unrestricted double
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: arcTo
+        Args:
+          - Name: x1
+            Type:
+              Name: unrestricted double
+          - Name: y1
+            Type:
+              Name: unrestricted double
+          - Name: x2
+            Type:
+              Name: unrestricted double
+          - Name: y2
+            Type:
+              Name: unrestricted double
+          - Name: radius
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: rect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: roundRect
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: w
+            Type:
+              Name: unrestricted double
+          - Name: h
+            Type:
+              Name: unrestricted double
+          - Name: radii
+            Optional: true
+            Default: "0"
+            Type:
+              Union:
+                - Name: unrestricted double
+                - Name: DOMPointInit
+                - Name: sequence
+                  Params:
+                    - Union:
+                        - Name: unrestricted double
+                        - Name: DOMPointInit
+        Returns:
+          - Name: undefined
+      - Name: arc
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: radius
+            Type:
+              Name: unrestricted double
+          - Name: startAngle
+            Type:
+              Name: unrestricted double
+          - Name: endAngle
+            Type:
+              Name: unrestricted double
+          - Name: counterclockwise
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+      - Name: ellipse
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+          - Name: radiusX
+            Type:
+              Name: unrestricted double
+          - Name: radiusY
+            Type:
+              Name: unrestricted double
+          - Name: rotation
+            Type:
+              Name: unrestricted double
+          - Name: startAngle
+            Type:
+              Name: unrestricted double
+          - Name: endAngle
+            Type:
+              Name: unrestricted double
+          - Name: counterclockwise
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+    Constructors:
+      - Args:
+          - Name: path
+            Optional: true
+            Type:
+              Union:
+                - Name: Path2D
+                - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: payment-request.idl
+  Enum:
+    Name: PaymentComplete
+    Values:
+      - fail
+      - success
+      - unknown
+- File: payment-request.idl
+  Dict:
+    Name: PaymentCompleteDetails
+    Fields:
+      - Name: data
+        Default: "null"
+        Type:
+          Name: object
+          Nullable: true
+- File: secure-payment-confirmation.idl
+  Dict:
+    Name: PaymentCredentialInstrument
+    Fields:
+      - Name: displayName
+        Required: true
+        Type:
+          Name: USVString
+      - Name: icon
+        Required: true
+        Type:
+          Name: USVString
+      - Name: iconMustBeShown
+        Default: "true"
+        Type:
+          Name: boolean
+- File: payment-request.idl
+  Dict:
+    Name: PaymentCurrencyAmount
+    Fields:
+      - Name: currency
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: value
+        Required: true
+        Type:
+          Name: DOMString
+- File: payment-handler.idl
+  Enum:
+    Name: PaymentDelegation
+    Values:
+      - shippingAddress
+      - payerName
+      - payerPhone
+      - payerEmail
+- File: payment-request.idl
+  Dict:
+    Name: PaymentDetailsBase
+    Fields:
+      - Name: displayItems
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentItem
+      - Name: modifiers
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentDetailsModifier
+- File: payment-request.idl
+  Dict:
+    Name: PaymentDetailsInit
+    Inherits: PaymentDetailsBase
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: total
+        Required: true
+        Type:
+          Name: PaymentItem
+      - Name: displayItems
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentItem
+      - Name: modifiers
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentDetailsModifier
+- File: payment-request.idl
+  Dict:
+    Name: PaymentDetailsModifier
+    Fields:
+      - Name: supportedMethods
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: total
+        Type:
+          Name: PaymentItem
+      - Name: additionalDisplayItems
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentItem
+      - Name: data
+        Type:
+          Name: object
+- File: payment-request.idl
+  Dict:
+    Name: PaymentDetailsUpdate
+    Inherits: PaymentDetailsBase
+    Fields:
+      - Name: total
+        Type:
+          Name: PaymentItem
+      - Name: paymentMethodErrors
+        Type:
+          Name: object
+      - Name: displayItems
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentItem
+      - Name: modifiers
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentDetailsModifier
+- File: payment-handler.idl
+  Dict:
+    Name: PaymentHandlerResponse
+    Fields:
+      - Name: methodName
+        Type:
+          Name: DOMString
+      - Name: details
+        Type:
+          Name: object
+      - Name: payerName
+        Type:
+          Name: DOMString
+          Nullable: true
+      - Name: payerEmail
+        Type:
+          Name: DOMString
+          Nullable: true
+      - Name: payerPhone
+        Type:
+          Name: DOMString
+          Nullable: true
+      - Name: shippingAddress
+        Type:
+          Name: AddressInit
+      - Name: shippingOption
+        Type:
+          Name: DOMString
+          Nullable: true
+- File: payment-request.idl
+  Dict:
+    Name: PaymentItem
+    Fields:
+      - Name: label
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: amount
+        Required: true
+        Type:
+          Name: PaymentCurrencyAmount
+      - Name: pending
+        Default: "false"
+        Type:
+          Name: boolean
+- File: payment-handler.idl
+  Interface:
+    Name: PaymentManager
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: userHint
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: enableDelegations
+        Args:
+          - Name: delegations
+            Type:
+              Name: sequence
+              Params:
+                - Name: PaymentDelegation
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: payment-request.idl
+  Interface:
+    Name: PaymentMethodChangeEvent
+    Inherits: PaymentRequestUpdateEvent
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: methodName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: methodDetails
+        Readonly: true
+        Type:
+          Name: object
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PaymentMethodChangeEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: payment-request.idl
+  Dict:
+    Name: PaymentMethodChangeEventInit
+    Inherits: PaymentRequestUpdateEventInit
+    Fields:
+      - Name: methodName
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: methodDetails
+        Default: "null"
+        Type:
+          Name: object
+          Nullable: true
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: payment-request.idl
+  Dict:
+    Name: PaymentMethodData
+    Fields:
+      - Name: supportedMethods
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: data
+        Type:
+          Name: object
+- File: payment-handler.idl
+  Dict:
+    Name: PaymentOptions
+    Fields:
+      - Name: requestPayerName
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: requestBillingAddress
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: requestPayerEmail
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: requestPayerPhone
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: requestShipping
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: shippingType
+        Default: '"shipping"'
+        Type:
+          Name: PaymentShippingType
+- File: payment-request.idl
+  Interface:
+    Name: PaymentRequest
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onpaymentmethodchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: show
+        Args:
+          - Name: detailsPromise
+            Optional: true
+            Type:
+              Name: Promise
+              Params:
+                - Name: PaymentDetailsUpdate
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PaymentResponse
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: abort
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: canMakePayment
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isSecurePaymentConfirmationAvailable
+        Modifier: static
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+    Constructors:
+      - Args:
+          - Name: methodData
+            Type:
+              Name: sequence
+              Params:
+                - Name: PaymentMethodData
+          - Name: details
+            Type:
+              Name: PaymentDetailsInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: payment-handler.idl
+  Dict:
+    Name: PaymentRequestDetailsUpdate
+    Fields:
+      - Name: error
+        Type:
+          Name: DOMString
+      - Name: total
+        Type:
+          Name: PaymentCurrencyAmount
+      - Name: modifiers
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentDetailsModifier
+      - Name: shippingOptions
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentShippingOption
+      - Name: paymentMethodErrors
+        Type:
+          Name: object
+      - Name: shippingAddressErrors
+        Type:
+          Name: AddressErrors
+- File: payment-handler.idl
+  Interface:
+    Name: PaymentRequestEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Attrs:
+      - Name: topOrigin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: paymentRequestOrigin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: paymentRequestId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: methodData
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: PaymentMethodData
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: total
+        Readonly: true
+        Type:
+          Name: object
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: modifiers
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: PaymentDetailsModifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: paymentOptions
+        Readonly: true
+        Type:
+          Name: object
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: shippingOptions
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: PaymentShippingOption
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Operations:
+      - Name: openWindow
+        Args:
+          - Name: url
+            Type:
+              Name: USVString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: WindowClient
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: changePaymentMethod
+        Args:
+          - Name: methodName
+            Type:
+              Name: DOMString
+          - Name: methodDetails
+            Optional: true
+            Default: "null"
+            Type:
+              Name: object
+              Nullable: true
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PaymentRequestDetailsUpdate
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: changeShippingAddress
+        Args:
+          - Name: shippingAddress
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AddressInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PaymentRequestDetailsUpdate
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: changeShippingOption
+        Args:
+          - Name: shippingOption
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PaymentRequestDetailsUpdate
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: respondWith
+        Args:
+          - Name: handlerResponsePromise
+            Type:
+              Name: Promise
+              Params:
+                - Name: PaymentHandlerResponse
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PaymentRequestEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: payment-handler.idl
+  Dict:
+    Name: PaymentRequestEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: topOrigin
+        Type:
+          Name: USVString
+      - Name: paymentRequestOrigin
+        Type:
+          Name: USVString
+      - Name: paymentRequestId
+        Type:
+          Name: DOMString
+      - Name: methodData
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentMethodData
+      - Name: total
+        Type:
+          Name: PaymentCurrencyAmount
+      - Name: modifiers
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentDetailsModifier
+      - Name: paymentOptions
+        Type:
+          Name: PaymentOptions
+      - Name: shippingOptions
+        Type:
+          Name: sequence
+          Params:
+            - Name: PaymentShippingOption
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: payment-request.idl
+  Interface:
+    Name: PaymentRequestUpdateEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: updateWith
+        Args:
+          - Name: detailsPromise
+            Type:
+              Name: Promise
+              Params:
+                - Name: PaymentDetailsUpdate
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PaymentRequestUpdateEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: payment-request.idl
+  Dict:
+    Name: PaymentRequestUpdateEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: payment-request.idl
+  Interface:
+    Name: PaymentResponse
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: requestId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: methodName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: details
+        Readonly: true
+        Type:
+          Name: object
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: complete
+        Args:
+          - Name: result
+            Optional: true
+            Default: '"unknown"'
+            Type:
+              Name: PaymentComplete
+          - Name: details
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PaymentCompleteDetails
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: retry
+        Args:
+          - Name: errorFields
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PaymentValidationErrors
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: payment-handler.idl
+  Dict:
+    Name: PaymentShippingOption
+    Fields:
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: label
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: amount
+        Required: true
+        Type:
+          Name: PaymentCurrencyAmount
+      - Name: selected
+        Default: "false"
+        Type:
+          Name: boolean
+- File: payment-handler.idl
+  Enum:
+    Name: PaymentShippingType
+    Values:
+      - shipping
+      - delivery
+      - pickup
+- File: payment-request.idl
+  Dict:
+    Name: PaymentValidationErrors
+    Fields:
+      - Name: error
+        Type:
+          Name: DOMString
+      - Name: paymentMethod
+        Type:
+          Name: object
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: Pbkdf2Params
+    Inherits: Algorithm
+    Fields:
+      - Name: salt
+        Required: true
+        Type:
+          Name: BufferSource
+      - Name: iterations
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: hash
+        Required: true
+        Type:
+          Name: HashAlgorithmIdentifier
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: hr-time.idl
+  Interface:
+    Name: Performance
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: timeOrigin
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: timing
+        Readonly: true
+        Type:
+          Name: PerformanceTiming
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: navigation
+        Readonly: true
+        Type:
+          Name: PerformanceNavigation
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onresourcetimingbufferfull
+        Type:
+          Name: EventHandler
+      - Name: eventCounts
+        Readonly: true
+        Type:
+          Name: EventCounts
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: interactionCount
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: now
+        Returns:
+          - Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: measureUserAgentSpecificMemory
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MemoryMeasurement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - ServiceWorker
+              - SharedWorker
+          - Name: CrossOriginIsolated
+      - Name: mark
+        Args:
+          - Name: markName
+            Type:
+              Name: DOMString
+          - Name: markOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PerformanceMarkOptions
+        Returns:
+          - Name: PerformanceMark
+      - Name: clearMarks
+        Args:
+          - Name: markName
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+      - Name: measure
+        Args:
+          - Name: measureName
+            Type:
+              Name: DOMString
+          - Name: startOrMeasureOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: DOMString
+                - Name: PerformanceMeasureOptions
+          - Name: endMark
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: PerformanceMeasure
+      - Name: clearMeasures
+        Args:
+          - Name: measureName
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+      - Name: clearResourceTimings
+        Returns:
+          - Name: undefined
+      - Name: setResourceTimingBufferSize
+        Args:
+          - Name: maxSize
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+      - Name: getEntries
+        Returns:
+          - Name: PerformanceEntryList
+      - Name: getEntriesByType
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: PerformanceEntryList
+      - Name: getEntriesByName
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: type
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: PerformanceEntryList
+- File: element-timing.idl
+  Interface:
+    Name: PerformanceElementTiming
+    Inherits: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: renderTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loadTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: intersectionRect
+        Readonly: true
+        Type:
+          Name: DOMRectReadOnly
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: identifier
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: naturalWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: naturalHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: element
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: url
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+- File: performance-timeline.idl
+  Interface:
+    Name: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: entryType
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: startTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: duration
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: performance-timeline.idl
+  Typedef:
+    Name: PerformanceEntryList
+    Type:
+      Name: sequence
+      Params:
+        - Name: PerformanceEntry
+- File: event-timing.idl
+  Interface:
+    Name: PerformanceEventTiming
+    Inherits: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: processingStart
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: processingEnd
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cancelable
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: target
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: interactionId
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+- File: longtasks.idl
+  Interface:
+    Name: PerformanceLongTaskTiming
+    Inherits: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: attribution
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: TaskAttributionTiming
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+- File: user-timing.idl
+  Interface:
+    Name: PerformanceMark
+    Inherits: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: detail
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: markName
+            Type:
+              Name: DOMString
+          - Name: markOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PerformanceMarkOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: user-timing.idl
+  Dict:
+    Name: PerformanceMarkOptions
+    Fields:
+      - Name: detail
+        Type:
+          Name: any
+      - Name: startTime
+        Type:
+          Name: DOMHighResTimeStamp
+- File: user-timing.idl
+  Interface:
+    Name: PerformanceMeasure
+    Inherits: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: detail
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: user-timing.idl
+  Dict:
+    Name: PerformanceMeasureOptions
+    Fields:
+      - Name: detail
+        Type:
+          Name: any
+      - Name: start
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: DOMHighResTimeStamp
+      - Name: duration
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: end
+        Type:
+          Union:
+            - Name: DOMString
+            - Name: DOMHighResTimeStamp
+- File: navigation-timing.idl
+  Interface:
+    Name: PerformanceNavigation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: TYPE_NAVIGATE
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: TYPE_RELOAD
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: TYPE_BACK_FORWARD
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: TYPE_RESERVED
+        Value: "255"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: redirectCount
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+- File: navigation-timing.idl
+  Interface:
+    Name: PerformanceNavigationTiming
+    Inherits: PerformanceResourceTiming
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: unloadEventStart
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: unloadEventEnd
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: domInteractive
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: domContentLoadedEventStart
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: domContentLoadedEventEnd
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: domComplete
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loadEventStart
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loadEventEnd
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: NavigationTimingType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: redirectCount
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: criticalCHRestart
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: activationStart
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+- File: performance-timeline.idl
+  Interface:
+    Name: PerformanceObserver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: supportedEntryTypes
+        Modifier: static
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: observe
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PerformanceObserverInit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: disconnect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: takeRecords
+        Returns:
+          - Name: PerformanceEntryList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: callback
+            Type:
+              Name: PerformanceObserverCallback
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker

@@ -3,8 +3,3 @@
 
 // Package sys provides access to args and environment variables.
 package sys
-
-// link time options
-var (
-	nosort bool
-)

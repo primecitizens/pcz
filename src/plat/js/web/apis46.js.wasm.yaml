@@ -1,0 +1,1553 @@
+- File: webxr-dom-overlays.idl
+  Enum:
+    Name: XRDOMOverlayType
+    Values:
+      - screen
+      - floating
+      - head-locked
+- File: webxr-depth-sensing.idl
+  Enum:
+    Name: XRDepthDataFormat
+    Values:
+      - luminance-alpha
+      - float32
+- File: webxr-depth-sensing.idl
+  Interface:
+    Name: XRDepthInformation
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: width
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: normDepthBufferFromNormView
+        Readonly: true
+        Type:
+          Name: XRRigidTransform
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rawValueToMeters
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-depth-sensing.idl
+  Dict:
+    Name: XRDepthStateInit
+    Fields:
+      - Name: usagePreference
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: XRDepthUsage
+      - Name: dataFormatPreference
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: XRDepthDataFormat
+- File: webxr-depth-sensing.idl
+  Enum:
+    Name: XRDepthUsage
+    Values:
+      - cpu-optimized
+      - gpu-optimized
+- File: webxr-ar-module.idl
+  Enum:
+    Name: XREnvironmentBlendMode
+    Values:
+      - opaque
+      - alpha-blend
+      - additive
+- File: webxrlayers.idl
+  Interface:
+    Name: XREquirectLayer
+    Inherits: XRCompositionLayer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: space
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: radius
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: centralHorizontalAngle
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: upperVerticalAngle
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: lowerVerticalAngle
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: onredraw
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxrlayers.idl
+  Dict:
+    Name: XREquirectLayerInit
+    Inherits: XRLayerInit
+    Fields:
+      - Name: textureType
+        Default: '"texture"'
+        Type:
+          Name: XRTextureType
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+      - Name: radius
+        Default: "0"
+        Type:
+          Name: float
+      - Name: centralHorizontalAngle
+        Default: "6.28318"
+        Type:
+          Name: float
+      - Name: upperVerticalAngle
+        Default: "1.570795"
+        Type:
+          Name: float
+      - Name: lowerVerticalAngle
+        Default: "-1.570795"
+        Type:
+          Name: float
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: colorFormat
+        Default: "0x1908"
+        Type:
+          Name: GLenum
+      - Name: depthFormat
+        Type:
+          Name: GLenum
+          Nullable: true
+      - Name: mipLevels
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: viewPixelWidth
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: viewPixelHeight
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: isStatic
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: clearOnAccess
+        Default: "true"
+        Type:
+          Name: boolean
+- File: webxr.idl
+  Enum:
+    Name: XREye
+    Values:
+      - none
+      - left
+      - right
+- File: webxr.idl
+  Interface:
+    Name: XRFrame
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: session
+        Readonly: true
+        Type:
+          Name: XRSession
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: predictedDisplayTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: detectedMeshes
+        Readonly: true
+        Type:
+          Name: XRMeshSet
+      - Name: trackedAnchors
+        Readonly: true
+        Type:
+          Name: XRAnchorSet
+        ExtAttrs:
+          - Name: SameObject
+    Operations:
+      - Name: getViewerPose
+        Args:
+          - Name: referenceSpace
+            Type:
+              Name: XRReferenceSpace
+        Returns:
+          - Name: XRViewerPose
+            Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getPose
+        Args:
+          - Name: space
+            Type:
+              Name: XRSpace
+          - Name: baseSpace
+            Type:
+              Name: XRSpace
+        Returns:
+          - Name: XRPose
+            Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createAnchor
+        Args:
+          - Name: pose
+            Type:
+              Name: XRRigidTransform
+          - Name: space
+            Type:
+              Name: XRSpace
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRAnchor
+      - Name: getLightEstimate
+        Args:
+          - Name: lightProbe
+            Type:
+              Name: XRLightProbe
+        Returns:
+          - Name: XRLightEstimate
+            Nullable: true
+      - Name: getDepthInformation
+        Args:
+          - Name: view
+            Type:
+              Name: XRView
+        Returns:
+          - Name: XRCPUDepthInformation
+            Nullable: true
+      - Name: getJointPose
+        Args:
+          - Name: joint
+            Type:
+              Name: XRJointSpace
+          - Name: baseSpace
+            Type:
+              Name: XRSpace
+        Returns:
+          - Name: XRJointPose
+            Nullable: true
+      - Name: fillJointRadii
+        Args:
+          - Name: jointSpaces
+            Type:
+              Name: sequence
+              Params:
+                - Name: XRJointSpace
+          - Name: radii
+            Type:
+              Name: Float32Array
+        Returns:
+          - Name: boolean
+      - Name: fillPoses
+        Args:
+          - Name: spaces
+            Type:
+              Name: sequence
+              Params:
+                - Name: XRSpace
+          - Name: baseSpace
+            Type:
+              Name: XRSpace
+          - Name: transforms
+            Type:
+              Name: Float32Array
+        Returns:
+          - Name: boolean
+      - Name: getHitTestResults
+        Args:
+          - Name: hitTestSource
+            Type:
+              Name: XRHitTestSource
+        Returns:
+          - Name: FrozenArray
+            Params:
+              - Name: XRHitTestResult
+      - Name: getHitTestResultsForTransientInput
+        Args:
+          - Name: hitTestSource
+            Type:
+              Name: XRTransientInputHitTestSource
+        Returns:
+          - Name: FrozenArray
+            Params:
+              - Name: XRTransientInputHitTestResult
+- File: webxr.idl
+  Callback:
+    Name: XRFrameRequestCallback
+    Args:
+      - Name: time
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: frame
+        Type:
+          Name: XRFrame
+    Returns:
+      - Name: undefined
+- File: webxr-hand-input.idl
+  Interface:
+    Name: XRHand
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: size
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: get
+        Args:
+          - Name: key
+            Type:
+              Name: XRHandJoint
+        Returns:
+          - Name: XRJointSpace
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Iterable:
+      TypeParams:
+        - Name: XRHandJoint
+        - Name: XRJointSpace
+- File: webxr-hand-input.idl
+  Enum:
+    Name: XRHandJoint
+    Values:
+      - wrist
+      - thumb-metacarpal
+      - thumb-phalanx-proximal
+      - thumb-phalanx-distal
+      - thumb-tip
+      - index-finger-metacarpal
+      - index-finger-phalanx-proximal
+      - index-finger-phalanx-intermediate
+      - index-finger-phalanx-distal
+      - index-finger-tip
+      - middle-finger-metacarpal
+      - middle-finger-phalanx-proximal
+      - middle-finger-phalanx-intermediate
+      - middle-finger-phalanx-distal
+      - middle-finger-tip
+      - ring-finger-metacarpal
+      - ring-finger-phalanx-proximal
+      - ring-finger-phalanx-intermediate
+      - ring-finger-phalanx-distal
+      - ring-finger-tip
+      - pinky-finger-metacarpal
+      - pinky-finger-phalanx-proximal
+      - pinky-finger-phalanx-intermediate
+      - pinky-finger-phalanx-distal
+      - pinky-finger-tip
+- File: webxr.idl
+  Enum:
+    Name: XRHandedness
+    Values:
+      - none
+      - left
+      - right
+- File: webxr-hit-test.idl
+  Dict:
+    Name: XRHitTestOptionsInit
+    Fields:
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: entityTypes
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRHitTestTrackableType
+      - Name: offsetRay
+        Type:
+          Name: XRRay
+- File: webxr-hit-test.idl
+  Interface:
+    Name: XRHitTestResult
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: getPose
+        Args:
+          - Name: baseSpace
+            Type:
+              Name: XRSpace
+        Returns:
+          - Name: XRPose
+            Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createAnchor
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRAnchor
+- File: webxr-hit-test.idl
+  Interface:
+    Name: XRHitTestSource
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: cancel
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-hit-test.idl
+  Enum:
+    Name: XRHitTestTrackableType
+    Values:
+      - point
+      - plane
+      - mesh
+- File: webxr.idl
+  Interface:
+    Name: XRInputSource
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: handedness
+        Readonly: true
+        Type:
+          Name: XRHandedness
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: targetRayMode
+        Readonly: true
+        Type:
+          Name: XRTargetRayMode
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: targetRaySpace
+        Readonly: true
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: gripSpace
+        Readonly: true
+        Type:
+          Name: XRSpace
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: profiles
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: gamepad
+        Readonly: true
+        Type:
+          Name: Gamepad
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+      - Name: hand
+        Readonly: true
+        Type:
+          Name: XRHand
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+- File: webxr.idl
+  Interface:
+    Name: XRInputSourceArray
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: XRInputSource
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Iterable:
+      TypeParams:
+        - Name: XRInputSource
+- File: webxr.idl
+  Interface:
+    Name: XRInputSourceEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: frame
+        Readonly: true
+        Type:
+          Name: XRFrame
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: inputSource
+        Readonly: true
+        Type:
+          Name: XRInputSource
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: XRInputSourceEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Dict:
+    Name: XRInputSourceEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: frame
+        Required: true
+        Type:
+          Name: XRFrame
+      - Name: inputSource
+        Required: true
+        Type:
+          Name: XRInputSource
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxr.idl
+  Interface:
+    Name: XRInputSourcesChangeEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: session
+        Readonly: true
+        Type:
+          Name: XRSession
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: added
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRInputSource
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removed
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRInputSource
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: XRInputSourcesChangeEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Dict:
+    Name: XRInputSourcesChangeEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: session
+        Required: true
+        Type:
+          Name: XRSession
+      - Name: added
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRInputSource
+      - Name: removed
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRInputSource
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxr-ar-module.idl
+  Enum:
+    Name: XRInteractionMode
+    Values:
+      - screen-space
+      - world-space
+- File: webxr-hand-input.idl
+  Interface:
+    Name: XRJointPose
+    Inherits: XRPose
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: radius
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxr-hand-input.idl
+  Interface:
+    Name: XRJointSpace
+    Inherits: XRSpace
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: jointName
+        Readonly: true
+        Type:
+          Name: XRHandJoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxr.idl
+  Interface:
+    Name: XRLayer
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+- File: webxrlayers.idl
+  Interface:
+    Name: XRLayerEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: layer
+        Readonly: true
+        Type:
+          Name: XRLayer
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: XRLayerEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxrlayers.idl
+  Dict:
+    Name: XRLayerEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: layer
+        Required: true
+        Type:
+          Name: XRLayer
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxrlayers.idl
+  Dict:
+    Name: XRLayerInit
+    Fields:
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: colorFormat
+        Default: "0x1908"
+        Type:
+          Name: GLenum
+      - Name: depthFormat
+        Type:
+          Name: GLenum
+          Nullable: true
+      - Name: mipLevels
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: viewPixelWidth
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: viewPixelHeight
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: isStatic
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: clearOnAccess
+        Default: "true"
+        Type:
+          Name: boolean
+- File: webxrlayers.idl
+  Enum:
+    Name: XRLayerLayout
+    Values:
+      - default
+      - mono
+      - stereo
+      - stereo-left-right
+      - stereo-top-bottom
+- File: webxrlayers.idl
+  Enum:
+    Name: XRLayerQuality
+    Values:
+      - default
+      - text-optimized
+      - graphics-optimized
+- File: webxr-lighting-estimation.idl
+  Interface:
+    Name: XRLightEstimate
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: sphericalHarmonicsCoefficients
+        Readonly: true
+        Type:
+          Name: Float32Array
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: primaryLightDirection
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: primaryLightIntensity
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-lighting-estimation.idl
+  Interface:
+    Name: XRLightProbe
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: probeSpace
+        Readonly: true
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onreflectionchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-lighting-estimation.idl
+  Dict:
+    Name: XRLightProbeInit
+    Fields:
+      - Name: reflectionFormat
+        Default: '"srgba8"'
+        Type:
+          Name: XRReflectionFormat
+- File: webxrlayers.idl
+  Interface:
+    Name: XRMediaBinding
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: createQuadLayer
+        Args:
+          - Name: video
+            Type:
+              Name: HTMLVideoElement
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRMediaQuadLayerInit
+        Returns:
+          - Name: XRQuadLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createCylinderLayer
+        Args:
+          - Name: video
+            Type:
+              Name: HTMLVideoElement
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRMediaCylinderLayerInit
+        Returns:
+          - Name: XRCylinderLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createEquirectLayer
+        Args:
+          - Name: video
+            Type:
+              Name: HTMLVideoElement
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRMediaEquirectLayerInit
+        Returns:
+          - Name: XREquirectLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: session
+            Type:
+              Name: XRSession
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxrlayers.idl
+  Dict:
+    Name: XRMediaCylinderLayerInit
+    Inherits: XRMediaLayerInit
+    Fields:
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+      - Name: radius
+        Default: "2.0"
+        Type:
+          Name: float
+      - Name: centralAngle
+        Default: "0.78539"
+        Type:
+          Name: float
+      - Name: aspectRatio
+        Type:
+          Name: float
+          Nullable: true
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: invertStereo
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxrlayers.idl
+  Dict:
+    Name: XRMediaEquirectLayerInit
+    Inherits: XRMediaLayerInit
+    Fields:
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+      - Name: radius
+        Default: "0.0"
+        Type:
+          Name: float
+      - Name: centralHorizontalAngle
+        Default: "6.28318"
+        Type:
+          Name: float
+      - Name: upperVerticalAngle
+        Default: "1.570795"
+        Type:
+          Name: float
+      - Name: lowerVerticalAngle
+        Default: "-1.570795"
+        Type:
+          Name: float
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: invertStereo
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxrlayers.idl
+  Dict:
+    Name: XRMediaLayerInit
+    Fields:
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: invertStereo
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxrlayers.idl
+  Dict:
+    Name: XRMediaQuadLayerInit
+    Inherits: XRMediaLayerInit
+    Fields:
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+      - Name: width
+        Type:
+          Name: float
+          Nullable: true
+      - Name: height
+        Type:
+          Name: float
+          Nullable: true
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: invertStereo
+        Default: "false"
+        Type:
+          Name: boolean
+- File: real-world-meshing.idl
+  Interface:
+    Name: XRMesh
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: meshSpace
+        Readonly: true
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: vertices
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Float32Array
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: indices
+        Readonly: true
+        Type:
+          Name: Uint32Array
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lastChangedTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: semanticLabel
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: real-world-meshing.idl
+  Interface:
+    Name: XRMeshSet
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Setlike:
+      TypeParams:
+        - Name: XRMesh
+      Readonly: true
+- File: webxr.idl
+  Dict:
+    Name: XRPermissionDescriptor
+    Inherits: PermissionDescriptor
+    Fields:
+      - Name: mode
+        Type:
+          Name: XRSessionMode
+      - Name: requiredFeatures
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: optionalFeatures
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: webxr.idl
+  Interface:
+    Name: XRPermissionStatus
+    Inherits: PermissionStatus
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: granted
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Interface:
+    Name: XRPose
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: transform
+        Readonly: true
+        Type:
+          Name: XRRigidTransform
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: linearVelocity
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: angularVelocity
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: emulatedPosition
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxrlayers.idl
+  Interface:
+    Name: XRProjectionLayer
+    Inherits: XRCompositionLayer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: textureWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: textureHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: textureArrayLength
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: ignoreDepthValues
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: fixedFoveation
+        Type:
+          Name: float
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: deltaPose
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxrlayers.idl
+  Dict:
+    Name: XRProjectionLayerInit
+    Fields:
+      - Name: textureType
+        Default: '"texture"'
+        Type:
+          Name: XRTextureType
+      - Name: colorFormat
+        Default: "0x1908"
+        Type:
+          Name: GLenum
+      - Name: depthFormat
+        Default: "0x1902"
+        Type:
+          Name: GLenum
+      - Name: scaleFactor
+        Default: "1.0"
+        Type:
+          Name: double
+      - Name: clearOnAccess
+        Default: "true"
+        Type:
+          Name: boolean
+- File: webxrlayers.idl
+  Interface:
+    Name: XRQuadLayer
+    Inherits: XRCompositionLayer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: space
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: width
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: height
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: onredraw
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxrlayers.idl
+  Dict:
+    Name: XRQuadLayerInit
+    Inherits: XRLayerInit
+    Fields:
+      - Name: textureType
+        Default: '"texture"'
+        Type:
+          Name: XRTextureType
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+      - Name: width
+        Default: "1.0"
+        Type:
+          Name: float
+      - Name: height
+        Default: "1.0"
+        Type:
+          Name: float
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: colorFormat
+        Default: "0x1908"
+        Type:
+          Name: GLenum
+      - Name: depthFormat
+        Type:
+          Name: GLenum
+          Nullable: true
+      - Name: mipLevels
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: viewPixelWidth
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: viewPixelHeight
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: isStatic
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: clearOnAccess
+        Default: "true"
+        Type:
+          Name: boolean

@@ -11,10 +11,10 @@ import (
 	stdgo "github.com/primecitizens/std/builtin/go"
 	stdtype "github.com/primecitizens/std/builtin/type"
 	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/std/core/alloc"
 	"github.com/primecitizens/std/core/arch"
 	"github.com/primecitizens/std/core/assert"
 	"github.com/primecitizens/std/core/cpu"
-	"github.com/primecitizens/std/core/mark"
 	"github.com/primecitizens/std/core/stack"
 	"github.com/primecitizens/std/core/thread"
 )
@@ -55,21 +55,25 @@ const (
 type rt0G struct {
 	head  stdgo.GHead
 	frand fastrand.Source
-
-	_ mark.NoCompare
 }
 
 //go:nosplit
-func (b *rt0G) ID() uint64 { return 0 }
+func (gp *rt0G) ID() uint64 { return 0 }
 
 //go:nosplit
-func (b *rt0G) Fastrand32() uint32 { return b.frand.Rand32() }
+func (gp *rt0G) Rand32() uint32 { return gp.frand.Rand32() }
 
 //go:nosplit
-func (b *rt0G) Fastrand64() uint64 { return b.frand.Rand64() }
+func (gp *rt0G) Rand64() uint64 { return gp.frand.Rand64() }
 
 //go:nosplit
-func (b *rt0G) Status() uint32 { return stdgo.StatusGrunning }
+func (gp *rt0G) Status() uint32 { return stdgo.StatusGrunning }
+
+//go:nosplit
+func (gp *rt0G) DefaultAlloc() alloc.M { return malloc() }
+
+//go:nosplit
+func (gp *rt0G) PersistantAlloc() alloc.P { return palloc() }
 
 // rt0 starts the program, this function should be considered as the mstart1
 // in the official go runtime.
@@ -85,10 +89,12 @@ func rt0(argc int32, argv **byte) {
 		args = unsafe.Slice(argv, argc)
 	}
 
-	if stacksize == 0 {
-		// TODO: get actual size of the process stack
-		//
-		// - linux/darwin: check RLIMIT_STACK
+	// TODO: get actual size of the process stack
+	//
+	// - linux/darwin: check RLIMIT_STACK
+	if arch.IsWasm == 1 {
+		stacksize = 8192
+	} else {
 		stacksize = 4 * 1024 * 1024
 	}
 
@@ -106,7 +112,7 @@ func rt0(argc int32, argv **byte) {
 	//
 	// go linker doesn't mark `type:uintptr` reachable during deadcode analysis if it's
 	// not converted to an interface type, and that's the case for this runtime
-	mainG.Itab = (*stdtype.Iface)(unsafe.Pointer(mark.NoEscape(&_g0iface))).Itab
+	mainG.Itab = stdtype.IfaceOf(&_g0iface).Itab
 
 	thread.SetG(mainG)
 	thread.Topframe(mainG.Stack.Hi, mainG.Stack.Hi, abi.FuncPCABIInternal(start))
@@ -118,22 +124,34 @@ func rt0(argc int32, argv **byte) {
 //go:linkname main main.main
 func main()
 
+// TODO: link main.preinit before doInit
+func preinit() (skip bool) {
+	return false
+}
+
 func start(arg uintptr) {
-	cpu.Initialize("")
+	if !preinit() {
+		cpu.Initialize("")
 
-	for _, tsk := range runtime_inittasks {
-		doInit(tsk)
-	}
-
-	for i, iter := 0, abi.ModuleIter(0); ; i++ {
-		md, ok := iter.Nth(i)
-		if !ok {
-			break
-		}
-
-		for _, tsk := range md.InitTasks {
+		for _, tsk := range runtime_inittasks {
 			doInit(tsk)
 		}
+
+		for i, iter := 0, abi.ModuleIter(0); ; i++ {
+			md, ok := iter.Nth(i)
+			if !ok {
+				break
+			}
+
+			for _, tsk := range md.InitTasks {
+				doInit(tsk)
+			}
+		}
+	}
+
+	// verify g works
+	if thread.G().G().Status() != stdgo.StatusGrunning {
+		assert.Throw("goroutine", "not", "working", "properly")
 	}
 
 	main()

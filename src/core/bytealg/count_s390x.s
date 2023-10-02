@@ -5,6 +5,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && s390x
+
 #include "textflag.h"
 
 // condition code masks
@@ -35,15 +37,15 @@ GLOBL countbytemask<>(SB), RODATA, $16
 DATA countbytemask<>+0(SB)/8, $0x0101010101010101
 DATA countbytemask<>+8(SB)/8, $0x0101010101010101
 
-// func Count(b []byte, c byte) int
-TEXT ·Count(SB), NOSPLIT|NOFRAME, $0-40
+// func CountSlice(b []byte, c byte) int
+TEXT ·CountSlice(SB), NOSPLIT|NOFRAME, $0-40
 	LMG   b+0(FP), R_PTR, R_LEN
 	MOVBZ c+24(FP), R_CHAR
 	MOVD  $ret+32(FP), R_RET
 	BR    countbytebody<>(SB)
 
-// func CountString(s string, c byte) int
-TEXT ·CountString(SB), NOSPLIT|NOFRAME, $0-32
+// func Count(s string, c byte) int
+TEXT ·Count(SB), NOSPLIT|NOFRAME, $0-32
 	LMG   s+0(FP), R_PTR, R_LEN
 	MOVBZ c+16(FP), R_CHAR
 	MOVD  $ret+24(FP), R_RET
@@ -55,7 +57,7 @@ TEXT ·CountString(SB), NOSPLIT|NOFRAME, $0-32
 // R_CHAR = byte value to count zero (extended to register width)
 // R_RET  = address of return value
 TEXT countbytebody<>(SB), NOSPLIT|NOFRAME, $0-0
-	MOVD  $core∕cpu·S390X+const_offsetS390xHasVX(SB), R_TMP
+	MOVD  ·hasVX(SB), R_TMP
 	MOVD  $countbytemask<>(SB), R_MPTR
 	CGIJ  $EQ, R_LEN, $0, ret0 // return if length is 0.
 	SRD   $4, R_LEN, R_ITER    // R_ITER is the number of 16-byte chunks

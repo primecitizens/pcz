@@ -8,6 +8,8 @@
 // Note: some of these functions are semantically inlined
 // by the compiler (in src/cmd/compile/internal/gc/ssa.go).
 
+//go:build amd64
+
 #include "textflag.h"
 
 TEXT ·PublicationBarrier(SB),NOSPLIT,$0-0

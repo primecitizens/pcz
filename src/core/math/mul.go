@@ -5,13 +5,14 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// NOTE: this package MUST be in exact package runtime/internal/math to be
-// replaced with compiler intrinsics.
+package math
+
+// NOTE: this package MUST be in exact package runtime/internal/math to
+// get functions replaced by compiler intrinsics.
 //
 // See $GOROOT/src/cmd/compile/internal/ssagen/ssa.go#func:InitTables
 //
-//pcz:package runtime/internal/math
-package math
+//pcz:importpath runtime/internal/math
 
 import (
 	"github.com/primecitizens/std/core/arch"

@@ -1,0 +1,3278 @@
+- File: SVG.idl
+  Interface:
+    Name: SVGElement
+    Inherits: Element
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: className
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ownerSVGElement
+        Readonly: true
+        Type:
+          Name: SVGSVGElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: viewportElement
+        Readonly: true
+        Type:
+          Name: SVGElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: style
+        Readonly: true
+        Type:
+          Name: CSSStyleDeclaration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - cssText
+      - Name: attributeStyleMap
+        Readonly: true
+        Type:
+          Name: StylePropertyMap
+        ExtAttrs:
+          - Name: SameObject
+      - Name: onabort
+        Type:
+          Name: EventHandler
+      - Name: onauxclick
+        Type:
+          Name: EventHandler
+      - Name: onbeforeinput
+        Type:
+          Name: EventHandler
+      - Name: onbeforematch
+        Type:
+          Name: EventHandler
+      - Name: onbeforetoggle
+        Type:
+          Name: EventHandler
+      - Name: onblur
+        Type:
+          Name: EventHandler
+      - Name: oncancel
+        Type:
+          Name: EventHandler
+      - Name: oncanplay
+        Type:
+          Name: EventHandler
+      - Name: oncanplaythrough
+        Type:
+          Name: EventHandler
+      - Name: onchange
+        Type:
+          Name: EventHandler
+      - Name: onclick
+        Type:
+          Name: EventHandler
+      - Name: onclose
+        Type:
+          Name: EventHandler
+      - Name: oncontextlost
+        Type:
+          Name: EventHandler
+      - Name: oncontextmenu
+        Type:
+          Name: EventHandler
+      - Name: oncontextrestored
+        Type:
+          Name: EventHandler
+      - Name: oncopy
+        Type:
+          Name: EventHandler
+      - Name: oncuechange
+        Type:
+          Name: EventHandler
+      - Name: oncut
+        Type:
+          Name: EventHandler
+      - Name: ondblclick
+        Type:
+          Name: EventHandler
+      - Name: ondrag
+        Type:
+          Name: EventHandler
+      - Name: ondragend
+        Type:
+          Name: EventHandler
+      - Name: ondragenter
+        Type:
+          Name: EventHandler
+      - Name: ondragleave
+        Type:
+          Name: EventHandler
+      - Name: ondragover
+        Type:
+          Name: EventHandler
+      - Name: ondragstart
+        Type:
+          Name: EventHandler
+      - Name: ondrop
+        Type:
+          Name: EventHandler
+      - Name: ondurationchange
+        Type:
+          Name: EventHandler
+      - Name: onemptied
+        Type:
+          Name: EventHandler
+      - Name: onended
+        Type:
+          Name: EventHandler
+      - Name: onerror
+        Type:
+          Name: OnErrorEventHandler
+      - Name: onfocus
+        Type:
+          Name: EventHandler
+      - Name: onformdata
+        Type:
+          Name: EventHandler
+      - Name: oninput
+        Type:
+          Name: EventHandler
+      - Name: oninvalid
+        Type:
+          Name: EventHandler
+      - Name: onkeydown
+        Type:
+          Name: EventHandler
+      - Name: onkeypress
+        Type:
+          Name: EventHandler
+      - Name: onkeyup
+        Type:
+          Name: EventHandler
+      - Name: onload
+        Type:
+          Name: EventHandler
+      - Name: onloadeddata
+        Type:
+          Name: EventHandler
+      - Name: onloadedmetadata
+        Type:
+          Name: EventHandler
+      - Name: onloadstart
+        Type:
+          Name: EventHandler
+      - Name: onmousedown
+        Type:
+          Name: EventHandler
+      - Name: onmouseenter
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmouseleave
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmousemove
+        Type:
+          Name: EventHandler
+      - Name: onmouseout
+        Type:
+          Name: EventHandler
+      - Name: onmouseover
+        Type:
+          Name: EventHandler
+      - Name: onmouseup
+        Type:
+          Name: EventHandler
+      - Name: onpaste
+        Type:
+          Name: EventHandler
+      - Name: onpause
+        Type:
+          Name: EventHandler
+      - Name: onplay
+        Type:
+          Name: EventHandler
+      - Name: onplaying
+        Type:
+          Name: EventHandler
+      - Name: onprogress
+        Type:
+          Name: EventHandler
+      - Name: onratechange
+        Type:
+          Name: EventHandler
+      - Name: onreset
+        Type:
+          Name: EventHandler
+      - Name: onresize
+        Type:
+          Name: EventHandler
+      - Name: onscroll
+        Type:
+          Name: EventHandler
+      - Name: onscrollend
+        Type:
+          Name: EventHandler
+      - Name: onsecuritypolicyviolation
+        Type:
+          Name: EventHandler
+      - Name: onseeked
+        Type:
+          Name: EventHandler
+      - Name: onseeking
+        Type:
+          Name: EventHandler
+      - Name: onselect
+        Type:
+          Name: EventHandler
+      - Name: onslotchange
+        Type:
+          Name: EventHandler
+      - Name: onstalled
+        Type:
+          Name: EventHandler
+      - Name: onsubmit
+        Type:
+          Name: EventHandler
+      - Name: onsuspend
+        Type:
+          Name: EventHandler
+      - Name: ontimeupdate
+        Type:
+          Name: EventHandler
+      - Name: ontoggle
+        Type:
+          Name: EventHandler
+      - Name: onvolumechange
+        Type:
+          Name: EventHandler
+      - Name: onwaiting
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationend
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onwebkittransitionend
+        Type:
+          Name: EventHandler
+      - Name: onwheel
+        Type:
+          Name: EventHandler
+      - Name: onbeforexrselect
+        Type:
+          Name: EventHandler
+      - Name: onselectstart
+        Type:
+          Name: EventHandler
+      - Name: onselectionchange
+        Type:
+          Name: EventHandler
+      - Name: ontransitionrun
+        Type:
+          Name: EventHandler
+      - Name: ontransitionstart
+        Type:
+          Name: EventHandler
+      - Name: ontransitionend
+        Type:
+          Name: EventHandler
+      - Name: ontransitioncancel
+        Type:
+          Name: EventHandler
+      - Name: onanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onanimationend
+        Type:
+          Name: EventHandler
+      - Name: onanimationcancel
+        Type:
+          Name: EventHandler
+      - Name: ontouchstart
+        Type:
+          Name: EventHandler
+      - Name: ontouchend
+        Type:
+          Name: EventHandler
+      - Name: ontouchmove
+        Type:
+          Name: EventHandler
+      - Name: ontouchcancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerover
+        Type:
+          Name: EventHandler
+      - Name: onpointerenter
+        Type:
+          Name: EventHandler
+      - Name: onpointerdown
+        Type:
+          Name: EventHandler
+      - Name: onpointermove
+        Type:
+          Name: EventHandler
+      - Name: onpointerrawupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: onpointerup
+        Type:
+          Name: EventHandler
+      - Name: onpointercancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerout
+        Type:
+          Name: EventHandler
+      - Name: onpointerleave
+        Type:
+          Name: EventHandler
+      - Name: ongotpointercapture
+        Type:
+          Name: EventHandler
+      - Name: onlostpointercapture
+        Type:
+          Name: EventHandler
+      - Name: correspondingElement
+        Readonly: true
+        Type:
+          Name: SVGElement
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+      - Name: correspondingUseElement
+        Readonly: true
+        Type:
+          Name: SVGUseElement
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+      - Name: dataset
+        Readonly: true
+        Type:
+          Name: DOMStringMap
+        ExtAttrs:
+          - Name: SameObject
+      - Name: nonce
+        Type:
+          Name: DOMString
+      - Name: autofocus
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: tabIndex
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: focus
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FocusOptions
+        Returns:
+          - Name: undefined
+      - Name: blur
+        Returns:
+          - Name: undefined
+- File: SVG.idl
+  Interface:
+    Name: SVGEllipseElement
+    Inherits: SVGGeometryElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: cx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cy
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ry
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEBlendElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_FEBLEND_MODE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_NORMAL
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_MULTIPLY
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_SCREEN
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_DARKEN
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_LIGHTEN
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_OVERLAY
+        Value: "6"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_COLOR_DODGE
+        Value: "7"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_COLOR_BURN
+        Value: "8"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_HARD_LIGHT
+        Value: "9"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_SOFT_LIGHT
+        Value: "10"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_DIFFERENCE
+        Value: "11"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_EXCLUSION
+        Value: "12"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_HUE
+        Value: "13"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_SATURATION
+        Value: "14"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_COLOR
+        Value: "15"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FEBLEND_MODE_LUMINOSITY
+        Value: "16"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: in2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: mode
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEColorMatrixElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_FECOLORMATRIX_TYPE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOLORMATRIX_TYPE_MATRIX
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOLORMATRIX_TYPE_SATURATE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOLORMATRIX_TYPE_HUEROTATE
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOLORMATRIX_TYPE_LUMINANCETOALPHA
+        Value: "4"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: values
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumberList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEComponentTransferElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFECompositeElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_FECOMPOSITE_OPERATOR_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOMPOSITE_OPERATOR_OVER
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOMPOSITE_OPERATOR_IN
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOMPOSITE_OPERATOR_OUT
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOMPOSITE_OPERATOR_ATOP
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOMPOSITE_OPERATOR_XOR
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: SVG_FECOMPOSITE_OPERATOR_ARITHMETIC
+        Value: "6"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: in2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: operator
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: k1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: k2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: k3
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: k4
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEConvolveMatrixElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_EDGEMODE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_EDGEMODE_DUPLICATE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_EDGEMODE_WRAP
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_EDGEMODE_NONE
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orderX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedInteger
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orderY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedInteger
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kernelMatrix
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumberList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: divisor
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: bias
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: targetX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedInteger
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: targetY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedInteger
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: edgeMode
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kernelUnitLengthX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kernelUnitLengthY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: preserveAlpha
+        Readonly: true
+        Type:
+          Name: SVGAnimatedBoolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEDiffuseLightingElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: surfaceScale
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: diffuseConstant
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kernelUnitLengthX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kernelUnitLengthY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEDisplacementMapElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_CHANNEL_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_CHANNEL_R
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_CHANNEL_G
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_CHANNEL_B
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SVG_CHANNEL_A
+        Value: "4"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: in2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scale
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: xChannelSelector
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: yChannelSelector
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEDistantLightElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: azimuth
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: elevation
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEDropShadowElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dy
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stdDeviationX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stdDeviationY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+    Operations:
+      - Name: setStdDeviation
+        Args:
+          - Name: stdDeviationX
+            Type:
+              Name: float
+          - Name: stdDeviationY
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEFloodElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEFuncAElement
+    Inherits: SVGComponentTransferFunctionElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEFuncBElement
+    Inherits: SVGComponentTransferFunctionElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEFuncGElement
+    Inherits: SVGComponentTransferFunctionElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEFuncRElement
+    Inherits: SVGComponentTransferFunctionElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEGaussianBlurElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_EDGEMODE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_EDGEMODE_DUPLICATE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_EDGEMODE_WRAP
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_EDGEMODE_NONE
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stdDeviationX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stdDeviationY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: edgeMode
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+    Operations:
+      - Name: setStdDeviation
+        Args:
+          - Name: stdDeviationX
+            Type:
+              Name: float
+          - Name: stdDeviationY
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEImageElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: preserveAspectRatio
+        Readonly: true
+        Type:
+          Name: SVGAnimatedPreserveAspectRatio
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: crossOrigin
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEMergeElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEMergeNodeElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEMorphologyElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_MORPHOLOGY_OPERATOR_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MORPHOLOGY_OPERATOR_ERODE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MORPHOLOGY_OPERATOR_DILATE
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: operator
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: radiusX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: radiusY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEOffsetElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dx
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dy
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFEPointLightElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: z
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFESpecularLightingElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: surfaceScale
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: specularConstant
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: specularExponent
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kernelUnitLengthX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: kernelUnitLengthY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFESpotLightElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: z
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pointsAtX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pointsAtY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pointsAtZ
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: specularExponent
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: limitingConeAngle
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFETileElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: in1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFETurbulenceElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_TURBULENCE_TYPE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TURBULENCE_TYPE_FRACTALNOISE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_TURBULENCE_TYPE_TURBULENCE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_STITCHTYPE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_STITCHTYPE_STITCH
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_STITCHTYPE_NOSTITCH
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: baseFrequencyX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: baseFrequencyY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numOctaves
+        Readonly: true
+        Type:
+          Name: SVGAnimatedInteger
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: seed
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stitchTiles
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+      - Name: result
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+- File: filter-effects.idl
+  Interface:
+    Name: SVGFilterElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: filterUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: primitiveUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGForeignObjectElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGGElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGGeometryElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: pathLength
+        Readonly: true
+        Type:
+          Name: SVGAnimatedNumber
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: isPointInFill
+        Args:
+          - Name: point
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMPointInit
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isPointInStroke
+        Args:
+          - Name: point
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMPointInit
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getTotalLength
+        Returns:
+          - Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getPointAtLength
+        Args:
+          - Name: distance
+            Type:
+              Name: float
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGGradientElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_SPREADMETHOD_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_SPREADMETHOD_PAD
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_SPREADMETHOD_REFLECT
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_SPREADMETHOD_REPEAT
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: gradientUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: gradientTransform
+        Readonly: true
+        Type:
+          Name: SVGAnimatedTransformList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: spreadMethod
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGGraphicsElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: transform
+        Readonly: true
+        Type:
+          Name: SVGAnimatedTransformList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: requiredExtensions
+        Readonly: true
+        Type:
+          Name: SVGStringList
+        ExtAttrs:
+          - Name: SameObject
+      - Name: systemLanguage
+        Readonly: true
+        Type:
+          Name: SVGStringList
+        ExtAttrs:
+          - Name: SameObject
+    Operations:
+      - Name: getBBox
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SVGBoundingBoxOptions
+        Returns:
+          - Name: DOMRect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getCTM
+        Returns:
+          - Name: DOMMatrix
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getScreenCTM
+        Returns:
+          - Name: DOMMatrix
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGImageElement
+    Inherits: SVGGraphicsElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: preserveAspectRatio
+        Readonly: true
+        Type:
+          Name: SVGAnimatedPreserveAspectRatio
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: crossOrigin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGLength
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_LENGTHTYPE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_NUMBER
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_PERCENTAGE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_EMS
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_EXS
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_PX
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_CM
+        Value: "6"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_MM
+        Value: "7"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_IN
+        Value: "8"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_PT
+        Value: "9"
+        Type:
+          Name: unsigned short
+      - Name: SVG_LENGTHTYPE_PC
+        Value: "10"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: unitType
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: valueInSpecifiedUnits
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: valueAsString
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: newValueSpecifiedUnits
+        Args:
+          - Name: unitType
+            Type:
+              Name: unsigned short
+          - Name: valueInSpecifiedUnits
+            Type:
+              Name: float
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: convertToSpecifiedUnits
+        Args:
+          - Name: unitType
+            Type:
+              Name: unsigned short
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGLengthList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfItems
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initialize
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGLength
+        Returns:
+          - Name: SVGLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getItem
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertItemBefore
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGLength
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGLength
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeItem
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: appendItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGLength
+        Returns:
+          - Name: SVGLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: newItem
+            Type:
+              Name: SVGLength
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGLineElement
+    Inherits: SVGGeometryElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: y1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: y2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGLinearGradientElement
+    Inherits: SVGGradientElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: y1
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: y2
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: svg-animations.idl
+  Interface:
+    Name: SVGMPathElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGMarkerElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_MARKERUNITS_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MARKERUNITS_USERSPACEONUSE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MARKERUNITS_STROKEWIDTH
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MARKER_ORIENT_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MARKER_ORIENT_AUTO
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MARKER_ORIENT_ANGLE
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: refX
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: refY
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: markerUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: markerWidth
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: markerHeight
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orientType
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orientAngle
+        Readonly: true
+        Type:
+          Name: SVGAnimatedAngle
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orient
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: viewBox
+        Readonly: true
+        Type:
+          Name: SVGAnimatedRect
+        ExtAttrs:
+          - Name: SameObject
+      - Name: preserveAspectRatio
+        Readonly: true
+        Type:
+          Name: SVGAnimatedPreserveAspectRatio
+        ExtAttrs:
+          - Name: SameObject
+    Operations:
+      - Name: setOrientToAuto
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setOrientToAngle
+        Args:
+          - Name: angle
+            Type:
+              Name: SVGAngle
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-masking.idl
+  Interface:
+    Name: SVGMaskElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: maskUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maskContentUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGMetadataElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGNumber
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGNumberList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfItems
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initialize
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGNumber
+        Returns:
+          - Name: SVGNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getItem
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertItemBefore
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGNumber
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGNumber
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeItem
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: SVGNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: appendItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: SVGNumber
+        Returns:
+          - Name: SVGNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: newItem
+            Type:
+              Name: SVGNumber
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGPathElement
+    Inherits: SVGGeometryElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGPatternElement
+    Inherits: SVGElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: patternUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: patternContentUnits
+        Readonly: true
+        Type:
+          Name: SVGAnimatedEnumeration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: patternTransform
+        Readonly: true
+        Type:
+          Name: SVGAnimatedTransformList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: x
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: SVGAnimatedLength
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: viewBox
+        Readonly: true
+        Type:
+          Name: SVGAnimatedRect
+        ExtAttrs:
+          - Name: SameObject
+      - Name: preserveAspectRatio
+        Readonly: true
+        Type:
+          Name: SVGAnimatedPreserveAspectRatio
+        ExtAttrs:
+          - Name: SameObject
+      - Name: href
+        Readonly: true
+        Type:
+          Name: SVGAnimatedString
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGPointList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberOfItems
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initialize
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMPoint
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getItem
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertItemBefore
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMPoint
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMPoint
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeItem
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: appendItem
+        Args:
+          - Name: newItem
+            Type:
+              Name: DOMPoint
+        Returns:
+          - Name: DOMPoint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: newItem
+            Type:
+              Name: DOMPoint
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: SVG.idl
+  Interface:
+    Name: SVGPolygonElement
+    Inherits: SVGGeometryElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: points
+        Readonly: true
+        Type:
+          Name: SVGPointList
+        ExtAttrs:
+          - Name: SameObject
+      - Name: animatedPoints
+        Readonly: true
+        Type:
+          Name: SVGPointList
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGPolylineElement
+    Inherits: SVGGeometryElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: points
+        Readonly: true
+        Type:
+          Name: SVGPointList
+        ExtAttrs:
+          - Name: SameObject
+      - Name: animatedPoints
+        Readonly: true
+        Type:
+          Name: SVGPointList
+        ExtAttrs:
+          - Name: SameObject
+- File: SVG.idl
+  Interface:
+    Name: SVGPreserveAspectRatio
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: SVG_PRESERVEASPECTRATIO_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_NONE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMINYMIN
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMIDYMIN
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMAXYMIN
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMINYMID
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMIDYMID
+        Value: "6"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMAXYMID
+        Value: "7"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMINYMAX
+        Value: "8"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMIDYMAX
+        Value: "9"
+        Type:
+          Name: unsigned short
+      - Name: SVG_PRESERVEASPECTRATIO_XMAXYMAX
+        Value: "10"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MEETORSLICE_UNKNOWN
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MEETORSLICE_MEET
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: SVG_MEETORSLICE_SLICE
+        Value: "2"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: align
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: meetOrSlice
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window

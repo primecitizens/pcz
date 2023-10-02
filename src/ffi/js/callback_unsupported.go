@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2023 The Prime Citizens
+
 //go:build noos || !(js && wasm)
 
 package js
@@ -6,8 +9,8 @@ import (
 	"github.com/primecitizens/std/core/assert"
 )
 
-func callHandler(
-	recv, targetPC uintptr, ctx *CallbackContext, fn dispFunc[uintptr],
+func callDispatcher(
+	recv, targetPC uintptr, ctx *CallbackContext, fn uintptr,
 ) {
 	assert.Throw("unsupported", "operation")
 }

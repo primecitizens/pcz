@@ -5,9 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && riscv64
+
 #include "textflag.h"
 
-TEXT ·IndexByte<ABIInternal>(SB),NOSPLIT,$0-40
+TEXT ·IndexSliceByte<ABIInternal>(SB),NOSPLIT,$0-40
 	// X10 = b_base
 	// X11 = b_len
 	// X12 = b_cap (unused)
@@ -30,7 +32,7 @@ notfound:
 	MOV $-1, X10
 	RET
 
-TEXT ·IndexByteString<ABIInternal>(SB),NOSPLIT,$0-32
+TEXT ·IndexByte<ABIInternal>(SB),NOSPLIT,$0-32
 	// X10 = b_base
 	// X11 = b_len
 	// X12 = byte to find

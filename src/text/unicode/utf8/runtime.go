@@ -7,15 +7,19 @@
 
 package utf8
 
+import (
+	. "github.com/primecitizens/std/text/unicode/common"
+)
+
 // functions used by the runtime
 
-// IterRuneInString returns the rune at the start of p[pos:] and the index
+// IterRune returns the rune at the start of p[pos:] and the index
 // after the rune in p.
 //
-// If the string appears to be incomplete or decoding problems are encountered
-// (RuneError, pos+1) is returned to ensure progress when IterRuneInString is
-// used to iterate over a string.
-func IterRuneInString(p string, pos int) (r rune, next int) {
+// If the string appears to be incomplete or decoding problems are
+// encountered (RuneError, pos+1) is returned to ensure
+// progress when IterRune is used to iterate over a string.
+func IterRune(p string, pos int) (r rune, next int) {
 	n := len(p) - pos
 	if n < 1 {
 		return RuneError, pos + 1

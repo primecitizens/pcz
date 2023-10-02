@@ -114,7 +114,7 @@ func AddCovMeta(p unsafe.Pointer, dlen uint32, hash [16]byte, pkpath string, pkg
 			covMeta.pkgMap = make(map[int]int)
 		}
 		if _, ok := covMeta.pkgMap[pkgid]; ok {
-			assert.Throw("runtime.addCovMeta: coverage package map collision")
+			assert.Throw("runtime.addCovMeta:", "coverage", "package", "map", "collision")
 		}
 		// Record the real slot (position on meta-list) for this
 		// package; we'll use the map to fix things up later on.

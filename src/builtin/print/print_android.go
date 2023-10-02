@@ -8,8 +8,8 @@ import (
 
 	stdslice "github.com/primecitizens/std/builtin/slice"
 	stdstring "github.com/primecitizens/std/builtin/string"
-	"github.com/primecitizens/std/platform/android"
-	"github.com/primecitizens/std/platform/libc"
+	"github.com/primecitizens/std/plat/android"
+	"github.com/primecitizens/std/plat/libc"
 )
 
 func gwrite(b []byte) {

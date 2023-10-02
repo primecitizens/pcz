@@ -1,0 +1,2923 @@
+- File: web-nfc.idl
+  Dict:
+    Name: NDEFMessageInit
+    Fields:
+      - Name: records
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: NDEFRecordInit
+- File: web-nfc.idl
+  Typedef:
+    Name: NDEFMessageSource
+    Type:
+      Union:
+        - Name: DOMString
+        - Name: BufferSource
+        - Name: NDEFMessageInit
+- File: web-nfc.idl
+  Interface:
+    Name: NDEFReader
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onreading
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onreadingerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: scan
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NDEFScanOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: write
+        Args:
+          - Name: message
+            Type:
+              Name: NDEFMessageSource
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NDEFWriteOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: makeReadOnly
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NDEFMakeReadOnlyOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-nfc.idl
+  Interface:
+    Name: NDEFReadingEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: serialNumber
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: message
+        Readonly: true
+        Type:
+          Name: NDEFMessage
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: readingEventInitDict
+            Type:
+              Name: NDEFReadingEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-nfc.idl
+  Dict:
+    Name: NDEFReadingEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: serialNumber
+        Default: '""'
+        Type:
+          Name: DOMString
+          Nullable: true
+      - Name: message
+        Required: true
+        Type:
+          Name: NDEFMessageInit
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: web-nfc.idl
+  Interface:
+    Name: NDEFRecord
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: recordType
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: mediaType
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: id
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: data
+        Readonly: true
+        Type:
+          Name: DataView
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: encoding
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lang
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toRecords
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: NDEFRecord
+            Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: recordInit
+            Type:
+              Name: NDEFRecordInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-nfc.idl
+  Dict:
+    Name: NDEFRecordInit
+    Fields:
+      - Name: recordType
+        Required: true
+        Type:
+          Name: USVString
+      - Name: mediaType
+        Type:
+          Name: USVString
+      - Name: id
+        Type:
+          Name: USVString
+      - Name: encoding
+        Type:
+          Name: USVString
+      - Name: lang
+        Type:
+          Name: USVString
+      - Name: data
+        Type:
+          Name: any
+- File: web-nfc.idl
+  Dict:
+    Name: NDEFScanOptions
+    Fields:
+      - Name: signal
+        Type:
+          Name: AbortSignal
+- File: web-nfc.idl
+  Dict:
+    Name: NDEFWriteOptions
+    Fields:
+      - Name: overwrite
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: signal
+        Type:
+          Name: AbortSignal
+          Nullable: true
+- File: WebCryptoAPI.idl
+  Typedef:
+    Name: NamedCurve
+    Type:
+      Name: DOMString
+- File: css-regions.idl
+  Interface:
+    Name: NamedFlow
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: overset
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: firstEmptyRegionIndex
+        Readonly: true
+        Type:
+          Name: short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getRegions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getContent
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Node
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getRegionsByContent
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-regions.idl
+  Interface:
+    Name: NamedFlowMap
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: CSSOMString
+        - Name: NamedFlow
+- File: dom.idl
+  Interface:
+    Name: NamedNodeMap
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyUnenumerableNamedProperties
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: getNamedItem
+        Modifier: getter
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: getNamedItemNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: setNamedItem
+        Args:
+          - Name: attr
+            Type:
+              Name: Attr
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: setNamedItemNS
+        Args:
+          - Name: attr
+            Type:
+              Name: Attr
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: removeNamedItem
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: removeNamedItemNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+- File: html.idl
+  Interface:
+    Name: NavigateEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: navigationType
+        Readonly: true
+        Type:
+          Name: NavigationType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: destination
+        Readonly: true
+        Type:
+          Name: NavigationDestination
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: canIntercept
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: userInitiated
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hashChange
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: signal
+        Readonly: true
+        Type:
+          Name: AbortSignal
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: formData
+        Readonly: true
+        Type:
+          Name: FormData
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: downloadRequest
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: info
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hasUAVisualTransition
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: intercept
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NavigationInterceptOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scroll
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: NavigateEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Dict:
+    Name: NavigateEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: navigationType
+        Default: '"push"'
+        Type:
+          Name: NavigationType
+      - Name: destination
+        Required: true
+        Type:
+          Name: NavigationDestination
+      - Name: canIntercept
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: userInitiated
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: hashChange
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: signal
+        Required: true
+        Type:
+          Name: AbortSignal
+      - Name: formData
+        Default: "null"
+        Type:
+          Name: FormData
+          Nullable: true
+      - Name: downloadRequest
+        Default: "null"
+        Type:
+          Name: DOMString
+          Nullable: true
+      - Name: info
+        Type:
+          Name: any
+      - Name: hasUAVisualTransition
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Interface:
+    Name: Navigation
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: currentEntry
+        Readonly: true
+        Type:
+          Name: NavigationHistoryEntry
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transition
+        Readonly: true
+        Type:
+          Name: NavigationTransition
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: canGoBack
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: canGoForward
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onnavigate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onnavigatesuccess
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onnavigateerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oncurrententrychange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: entries
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: NavigationHistoryEntry
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updateCurrentEntry
+        Args:
+          - Name: options
+            Type:
+              Name: NavigationUpdateCurrentEntryOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: navigate
+        Args:
+          - Name: url
+            Type:
+              Name: USVString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NavigationNavigateOptions
+        Returns:
+          - Name: NavigationResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reload
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NavigationReloadOptions
+        Returns:
+          - Name: NavigationResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: traverseTo
+        Args:
+          - Name: key
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NavigationOptions
+        Returns:
+          - Name: NavigationResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: back
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NavigationOptions
+        Returns:
+          - Name: NavigationResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: forward
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NavigationOptions
+        Returns:
+          - Name: NavigationResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: NavigationCurrentEntryChangeEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: navigationType
+        Readonly: true
+        Type:
+          Name: NavigationType
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: from
+        Readonly: true
+        Type:
+          Name: NavigationHistoryEntry
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: NavigationCurrentEntryChangeEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Dict:
+    Name: NavigationCurrentEntryChangeEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: navigationType
+        Default: "null"
+        Type:
+          Name: NavigationType
+          Nullable: true
+      - Name: from
+        Required: true
+        Type:
+          Name: NavigationHistoryEntry
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Interface:
+    Name: NavigationDestination
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: url
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: key
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: index
+        Readonly: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sameDocument
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getState
+        Returns:
+          - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-nav.idl
+  Interface:
+    Name: NavigationEvent
+    Inherits: UIEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: dir
+        Readonly: true
+        Type:
+          Name: SpatialNavigationDirection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: relatedTarget
+        Readonly: true
+        Type:
+          Name: EventTarget
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NavigationEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-nav.idl
+  Dict:
+    Name: NavigationEventInit
+    Inherits: UIEventInit
+    Fields:
+      - Name: dir
+        Type:
+          Name: SpatialNavigationDirection
+      - Name: relatedTarget
+        Default: "null"
+        Type:
+          Name: EventTarget
+          Nullable: true
+      - Name: view
+        Default: "null"
+        Type:
+          Name: Window
+          Nullable: true
+      - Name: detail
+        Default: "0"
+        Type:
+          Name: long
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Enum:
+    Name: NavigationFocusReset
+    Values:
+      - after-transition
+      - manual
+- File: html.idl
+  Enum:
+    Name: NavigationHistoryBehavior
+    Values:
+      - auto
+      - push
+      - replace
+- File: html.idl
+  Interface:
+    Name: NavigationHistoryEntry
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: url
+        Readonly: true
+        Type:
+          Name: USVString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: key
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: index
+        Readonly: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sameDocument
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ondispose
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getState
+        Returns:
+          - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Callback:
+    Name: NavigationInterceptHandler
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: undefined
+- File: html.idl
+  Dict:
+    Name: NavigationInterceptOptions
+    Fields:
+      - Name: handler
+        Type:
+          Name: NavigationInterceptHandler
+      - Name: focusReset
+        Type:
+          Name: NavigationFocusReset
+      - Name: scroll
+        Type:
+          Name: NavigationScrollBehavior
+- File: html.idl
+  Dict:
+    Name: NavigationNavigateOptions
+    Inherits: NavigationOptions
+    Fields:
+      - Name: state
+        Type:
+          Name: any
+      - Name: history
+        Default: '"auto"'
+        Type:
+          Name: NavigationHistoryBehavior
+      - Name: info
+        Type:
+          Name: any
+- File: html.idl
+  Dict:
+    Name: NavigationOptions
+    Fields:
+      - Name: info
+        Type:
+          Name: any
+- File: service-workers.idl
+  Interface:
+    Name: NavigationPreloadManager
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: enable
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: disable
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: setHeaderValue
+        Args:
+          - Name: value
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: getState
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: NavigationPreloadState
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: service-workers.idl
+  Dict:
+    Name: NavigationPreloadState
+    Fields:
+      - Name: enabled
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: headerValue
+        Type:
+          Name: ByteString
+- File: html.idl
+  Dict:
+    Name: NavigationReloadOptions
+    Inherits: NavigationOptions
+    Fields:
+      - Name: state
+        Type:
+          Name: any
+      - Name: info
+        Type:
+          Name: any
+- File: html.idl
+  Dict:
+    Name: NavigationResult
+    Fields:
+      - Name: committed
+        Type:
+          Name: Promise
+          Params:
+            - Name: NavigationHistoryEntry
+      - Name: finished
+        Type:
+          Name: Promise
+          Params:
+            - Name: NavigationHistoryEntry
+- File: html.idl
+  Enum:
+    Name: NavigationScrollBehavior
+    Values:
+      - after-transition
+      - manual
+- File: navigation-timing.idl
+  Enum:
+    Name: NavigationTimingType
+    Values:
+      - navigate
+      - reload
+      - back_forward
+      - prerender
+- File: html.idl
+  Interface:
+    Name: NavigationTransition
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: navigationType
+        Readonly: true
+        Type:
+          Name: NavigationType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: from
+        Readonly: true
+        Type:
+          Name: NavigationHistoryEntry
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: finished
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Enum:
+    Name: NavigationType
+    Values:
+      - push
+      - replace
+      - reload
+      - traverse
+- File: html.idl
+  Dict:
+    Name: NavigationUpdateCurrentEntryOptions
+    Fields:
+      - Name: state
+        Required: true
+        Type:
+          Name: any
+- File: html.idl
+  Interface:
+    Name: Navigator
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: hid
+        Readonly: true
+        Type:
+          Name: HID
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: windowControlsOverlay
+        Readonly: true
+        Type:
+          Name: WindowControlsOverlay
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: credentials
+        Readonly: true
+        Type:
+          Name: CredentialsContainer
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: clipboard
+        Readonly: true
+        Type:
+          Name: Clipboard
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: geolocation
+        Readonly: true
+        Type:
+          Name: Geolocation
+        ExtAttrs:
+          - Name: SameObject
+      - Name: usb
+        Readonly: true
+        Type:
+          Name: USB
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: epubReadingSystem
+        Readonly: true
+        Type:
+          Name: EpubReadingSystem
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: SameObject
+      - Name: xr
+        Readonly: true
+        Type:
+          Name: XRSystem
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: serviceWorker
+        Readonly: true
+        Type:
+          Name: ServiceWorkerContainer
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: mediaDevices
+        Readonly: true
+        Type:
+          Name: MediaDevices
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: bluetooth
+        Readonly: true
+        Type:
+          Name: Bluetooth
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: serial
+        Readonly: true
+        Type:
+          Name: Serial
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: mediaCapabilities
+        Readonly: true
+        Type:
+          Name: MediaCapabilities
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: userActivation
+        Readonly: true
+        Type:
+          Name: UserActivation
+        ExtAttrs:
+          - Name: SameObject
+      - Name: permissions
+        Readonly: true
+        Type:
+          Name: Permissions
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contacts
+        Readonly: true
+        Type:
+          Name: ContactsManager
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: keyboard
+        Readonly: true
+        Type:
+          Name: Keyboard
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: mediaSession
+        Readonly: true
+        Type:
+          Name: MediaSession
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: devicePosture
+        Readonly: true
+        Type:
+          Name: DevicePosture
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxTouchPoints
+        Readonly: true
+        Type:
+          Name: long
+      - Name: scheduling
+        Readonly: true
+        Type:
+          Name: Scheduling
+      - Name: wakeLock
+        Readonly: true
+        Type:
+          Name: WakeLock
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: ink
+        Readonly: true
+        Type:
+          Name: Ink
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: presentation
+        Readonly: true
+        Type:
+          Name: Presentation
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: virtualKeyboard
+        Readonly: true
+        Type:
+          Name: VirtualKeyboard
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: userAgentData
+        Readonly: true
+        Type:
+          Name: NavigatorUAData
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: hardwareConcurrency
+        Readonly: true
+        Type:
+          Name: unsigned long long
+      - Name: deviceMemory
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: storage
+        Readonly: true
+        Type:
+          Name: StorageManager
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: storageBuckets
+        Readonly: true
+        Type:
+          Name: StorageBucketManager
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: locks
+        Readonly: true
+        Type:
+          Name: LockManager
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: appCodeName
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: appName
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: appVersion
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: platform
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: product
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: productSub
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: userAgent
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: vendor
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: vendorSub
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oscpu
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: language
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: languages
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+      - Name: onLine
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: cookieEnabled
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: plugins
+        Readonly: true
+        Type:
+          Name: PluginArray
+        ExtAttrs:
+          - Name: SameObject
+      - Name: mimeTypes
+        Readonly: true
+        Type:
+          Name: MimeTypeArray
+        ExtAttrs:
+          - Name: SameObject
+      - Name: pdfViewerEnabled
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: webdriver
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: ml
+        Readonly: true
+        Type:
+          Name: ML
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: connection
+        Readonly: true
+        Type:
+          Name: NetworkInformation
+        ExtAttrs:
+          - Name: SameObject
+      - Name: gpu
+        Readonly: true
+        Type:
+          Name: GPU
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+    Operations:
+      - Name: updateAdInterestGroups
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: sendBeacon
+        Args:
+          - Name: url
+            Type:
+              Name: USVString
+          - Name: data
+            Optional: true
+            Default: "null"
+            Type:
+              Name: BodyInit
+              Nullable: true
+        Returns:
+          - Name: boolean
+      - Name: getBattery
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: BatteryManager
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: vibrate
+        Args:
+          - Name: pattern
+            Type:
+              Name: VibratePattern
+        Returns:
+          - Name: boolean
+      - Name: getGamepads
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Gamepad
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getInstalledRelatedApps
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: RelatedApplication
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: requestMediaKeySystemAccess
+        Args:
+          - Name: keySystem
+            Type:
+              Name: DOMString
+          - Name: supportedConfigurations
+            Type:
+              Name: sequence
+              Params:
+                - Name: MediaKeySystemConfiguration
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MediaKeySystemAccess
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: joinAdInterestGroup
+        Args:
+          - Name: group
+            Type:
+              Name: AuctionAdInterestGroup
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: getUserMedia
+        Args:
+          - Name: constraints
+            Type:
+              Name: MediaStreamConstraints
+          - Name: successCallback
+            Type:
+              Name: NavigatorUserMediaSuccessCallback
+          - Name: errorCallback
+            Type:
+              Name: NavigatorUserMediaErrorCallback
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: leaveAdInterestGroup
+        Args:
+          - Name: group
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AuctionAdInterestGroupKey
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: runAdAuction
+        Args:
+          - Name: config
+            Type:
+              Name: AuctionAdConfig
+        Returns:
+          - Name: Promise
+            Params:
+              - Union:
+                  - Name: USVString
+                  - Name: FencedFrameConfig
+                Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: share
+        Args:
+          - Name: data
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ShareData
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: canShare
+        Args:
+          - Name: data
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ShareData
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: requestMIDIAccess
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MIDIOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MIDIAccess
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: getAutoplayPolicy
+        Args:
+          - Name: type
+            Type:
+              Name: AutoplayPolicyMediaType
+        Returns:
+          - Name: AutoplayPolicy
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAutoplayPolicy
+        Args:
+          - Name: element
+            Type:
+              Name: HTMLMediaElement
+        Returns:
+          - Name: AutoplayPolicy
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAutoplayPolicy
+        Args:
+          - Name: context
+            Type:
+              Name: AudioContext
+        Returns:
+          - Name: AutoplayPolicy
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: taintEnabled
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: registerProtocolHandler
+        Args:
+          - Name: scheme
+            Type:
+              Name: DOMString
+          - Name: url
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: unregisterProtocolHandler
+        Args:
+          - Name: scheme
+            Type:
+              Name: DOMString
+          - Name: url
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: javaEnabled
+        Returns:
+          - Name: boolean
+      - Name: setAppBadge
+        Args:
+          - Name: contents
+            Optional: true
+            Type:
+              Name: unsigned long long
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: clearAppBadge
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+- File: ua-client-hints.idl
+  Dict:
+    Name: NavigatorUABrandVersion
+    Fields:
+      - Name: brand
+        Type:
+          Name: DOMString
+      - Name: version
+        Type:
+          Name: DOMString
+- File: ua-client-hints.idl
+  Interface:
+    Name: NavigatorUAData
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: brands
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: NavigatorUABrandVersion
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: mobile
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: platform
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: getHighEntropyValues
+        Args:
+          - Name: hints
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: UADataValues
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: toJSON
+        Returns:
+          - Name: UALowEntropyJSON
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: mediacapture-streams.idl
+  Callback:
+    Name: NavigatorUserMediaErrorCallback
+    Args:
+      - Name: error
+        Type:
+          Name: DOMException
+    Returns:
+      - Name: undefined
+- File: mediacapture-streams.idl
+  Callback:
+    Name: NavigatorUserMediaSuccessCallback
+    Args:
+      - Name: stream
+        Type:
+          Name: MediaStream
+    Returns:
+      - Name: undefined
+- File: netinfo.idl
+  Interface:
+    Name: NetworkInformation
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: ConnectionType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: effectiveType
+        Readonly: true
+        Type:
+          Name: EffectiveConnectionType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: downlinkMax
+        Readonly: true
+        Type:
+          Name: Megabit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: downlink
+        Readonly: true
+        Type:
+          Name: Megabit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: rtt
+        Readonly: true
+        Type:
+          Name: Millisecond
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onchange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: saveData
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: SameObject
+- File: dom.idl
+  Interface:
+    Name: Node
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: ELEMENT_NODE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: ATTRIBUTE_NODE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: TEXT_NODE
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: CDATA_SECTION_NODE
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: ENTITY_REFERENCE_NODE
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: ENTITY_NODE
+        Value: "6"
+        Type:
+          Name: unsigned short
+      - Name: PROCESSING_INSTRUCTION_NODE
+        Value: "7"
+        Type:
+          Name: unsigned short
+      - Name: COMMENT_NODE
+        Value: "8"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_NODE
+        Value: "9"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_TYPE_NODE
+        Value: "10"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_FRAGMENT_NODE
+        Value: "11"
+        Type:
+          Name: unsigned short
+      - Name: NOTATION_NODE
+        Value: "12"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_POSITION_DISCONNECTED
+        Value: "0x01"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_POSITION_PRECEDING
+        Value: "0x02"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_POSITION_FOLLOWING
+        Value: "0x04"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_POSITION_CONTAINS
+        Value: "0x08"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_POSITION_CONTAINED_BY
+        Value: "0x10"
+        Type:
+          Name: unsigned short
+      - Name: DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC
+        Value: "0x20"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: nodeType
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: nodeName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: baseURI
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isConnected
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ownerDocument
+        Readonly: true
+        Type:
+          Name: Document
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parentNode
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parentElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: childNodes
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: firstChild
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lastChild
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: previousSibling
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: nextSibling
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: nodeValue
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: textContent
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getRootNode
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GetRootNodeOptions
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hasChildNodes
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: normalize
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cloneNode
+        Args:
+          - Name: deep
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isEqualNode
+        Args:
+          - Name: otherNode
+            Type:
+              Name: Node
+              Nullable: true
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isSameNode
+        Args:
+          - Name: otherNode
+            Type:
+              Name: Node
+              Nullable: true
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: compareDocumentPosition
+        Args:
+          - Name: other
+            Type:
+              Name: Node
+        Returns:
+          - Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contains
+        Args:
+          - Name: other
+            Type:
+              Name: Node
+              Nullable: true
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lookupPrefix
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+        Returns:
+          - Name: DOMString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lookupNamespaceURI
+        Args:
+          - Name: prefix
+            Type:
+              Name: DOMString
+              Nullable: true
+        Returns:
+          - Name: DOMString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isDefaultNamespace
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertBefore
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+          - Name: child
+            Type:
+              Name: Node
+              Nullable: true
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: appendChild
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceChild
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+          - Name: child
+            Type:
+              Name: Node
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeChild
+        Args:
+          - Name: child
+            Type:
+              Name: Node
+        Returns:
+          - Name: Node
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  CallbackInterface:
+    Name: NodeFilter
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: FILTER_ACCEPT
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: FILTER_REJECT
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: FILTER_SKIP
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: SHOW_ALL
+        Value: "0xFFFFFFFF"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_ELEMENT
+        Value: "0x1"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_ATTRIBUTE
+        Value: "0x2"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_TEXT
+        Value: "0x4"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_CDATA_SECTION
+        Value: "0x8"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_ENTITY_REFERENCE
+        Value: "0x10"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_ENTITY
+        Value: "0x20"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_PROCESSING_INSTRUCTION
+        Value: "0x40"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_COMMENT
+        Value: "0x80"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_DOCUMENT
+        Value: "0x100"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_DOCUMENT_TYPE
+        Value: "0x200"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_DOCUMENT_FRAGMENT
+        Value: "0x400"
+        Type:
+          Name: unsigned long
+      - Name: SHOW_NOTATION
+        Value: "0x800"
+        Type:
+          Name: unsigned long
+    Operations:
+      - Name: acceptNode
+        Args:
+          - Name: node
+            Type:
+              Name: Node
+        Returns:
+          - Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  Interface:
+    Name: NodeIterator
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: root
+        Readonly: true
+        Type:
+          Name: Node
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: referenceNode
+        Readonly: true
+        Type:
+          Name: Node
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pointerBeforeReferenceNode
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: whatToShow
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: filter
+        Readonly: true
+        Type:
+          Name: NodeFilter
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: nextNode
+        Returns:
+          - Name: Node
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: previousNode
+        Returns:
+          - Name: Node
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: detach
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  Interface:
+    Name: NodeList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: Node
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Iterable:
+      TypeParams:
+        - Name: Node
+- File: notifications.idl
+  Interface:
+    Name: Notification
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: permission
+        Modifier: static
+        Readonly: true
+        Type:
+          Name: NotificationPermission
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: maxActions
+        Modifier: static
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onclick
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onshow
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: onclose
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: title
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: dir
+        Readonly: true
+        Type:
+          Name: NotificationDirection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: lang
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: body
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: tag
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: image
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: icon
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: badge
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: vibrate
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: unsigned long
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: EpochTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: renotify
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: silent
+        Readonly: true
+        Type:
+          Name: boolean
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: requireInteraction
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: data
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: actions
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: NotificationAction
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: requestPermission
+        Modifier: static
+        Args:
+          - Name: deprecatedCallback
+            Optional: true
+            Type:
+              Name: NotificationPermissionCallback
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: NotificationPermission
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Constructors:
+      - Args:
+          - Name: title
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: NotificationOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: notifications.idl
+  Dict:
+    Name: NotificationAction
+    Fields:
+      - Name: action
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: title
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: icon
+        Type:
+          Name: USVString
+- File: notifications.idl
+  Enum:
+    Name: NotificationDirection
+    Values:
+      - auto
+      - ltr
+      - rtl

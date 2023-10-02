@@ -5,16 +5,18 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && arm64
+
 #include "textflag.h"
 
-TEXT ·IndexByte(SB),NOSPLIT,$0-40
+TEXT ·IndexSliceByte(SB),NOSPLIT,$0-40
 	MOVD b_base+0(FP), R0
 	MOVD b_len+8(FP), R2
 	MOVBU c+24(FP), R1
 	MOVD $ret+32(FP), R8
 	B indexbytebody<>(SB)
 
-TEXT ·IndexByteString(SB),NOSPLIT,$0-32
+TEXT ·IndexByte(SB),NOSPLIT,$0-32
 	MOVD s_base+0(FP), R0
 	MOVD s_len+8(FP), R2
 	MOVBU c+16(FP), R1

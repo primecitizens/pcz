@@ -5,6 +5,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build arm
+
 package cpu
 
 const CacheLinePadSize = 32
@@ -15,11 +17,6 @@ const CacheLinePadSize = 32
 var (
 	HWCap  uint
 	HWCap2 uint
-
-	options = []option{
-		{Name: "vfpv4", Feature: &ARM.HasVFPv4},
-		{Name: "idiva", Feature: &ARM.HasIDIVA},
-	}
 )
 
 // HWCAP/HWCAP2 bits. These are exposed by Linux and FreeBSD.

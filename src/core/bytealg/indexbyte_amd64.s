@@ -5,16 +5,18 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && amd64
+
 #include "textflag.h"
 
-TEXT ·IndexByte(SB), NOSPLIT, $0-40
+TEXT ·IndexSliceByte(SB),NOSPLIT,$0-40
 	MOVQ b_base+0(FP), SI
 	MOVQ b_len+8(FP), BX
 	MOVB c+24(FP), AL
 	LEAQ ret+32(FP), R8
 	JMP  indexbytebody<>(SB)
 
-TEXT ·IndexByteString(SB), NOSPLIT, $0-32
+TEXT ·IndexByte(SB),NOSPLIT,$0-32
 	MOVQ s_base+0(FP), SI
 	MOVQ s_len+8(FP), BX
 	MOVB c+16(FP), AL

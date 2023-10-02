@@ -11,7 +11,7 @@ import (
 // the created string.
 func NewString(s string) String {
 	return String{
-		bindings.StringFromUTF8(
+		ref: bindings.DecodeUTF8(
 			StringData(s),
 			SizeU(len(s)),
 		),
@@ -23,20 +23,55 @@ type String struct {
 	ref bindings.Ref
 }
 
+func (s String) FromRef(ref Ref) String {
+	return String{
+		ref: bindings.Ref(ref),
+	}
+}
+
 func (s String) Ref() Ref {
 	return Ref(s.ref)
 }
 
+func (s String) Once() String {
+	bindings.Once(s.ref)
+	return s
+}
+
+func (s String) Free() {
+	bindings.Free(s.ref)
+}
+
 func (s String) Equals(other string) bool {
-	return bindings.StringEqualsUTF8(
+	return bindings.Ref(True) == bindings.EqualsUTF8(
 		s.ref,
 		StringData(other),
 		SizeU(len(other)),
-	) == bindings.Ref(True)
+	)
 }
 
-func (s String) Into(buf []byte) int {
-	n := bindings.StringIntoUTF8(
+func (s String) Prepend(x string) String {
+	bindings.PrependUTF8(
+		s.ref,
+		StringData(x),
+		SizeU(len(x)),
+	)
+	return s
+}
+
+func (s String) Append(x string) String {
+	bindings.AppendUTF8(
+		s.ref,
+		StringData(x),
+		SizeU(len(x)),
+	)
+	return s
+}
+
+// Read encodes the js string to buf (UTF-8 encoding) and
+// returns the count of bytes encoded.
+func (s String) Read(buf []byte) int {
+	n := bindings.EncodeUTF8(
 		s.ref,
 		SliceData(buf),
 		SizeU(len(buf)),
@@ -46,9 +81,5 @@ func (s String) Into(buf []byte) int {
 
 // Len returns the utf-8 length of the js string.
 func (s String) Len() int {
-	return int(bindings.StringSizeUTF8(s.ref))
-}
-
-func (s String) Free() {
-	bindings.Free(s.ref)
+	return int(bindings.SizeUTF8(s.ref))
 }

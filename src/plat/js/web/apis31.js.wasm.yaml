@@ -1,0 +1,1518 @@
+- File: push-api.idl
+  Interface:
+    Name: PushEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: data
+        Readonly: true
+        Type:
+          Name: PushMessageData
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PushEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+- File: push-api.idl
+  Dict:
+    Name: PushEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: data
+        Type:
+          Name: PushMessageDataInit
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: push-api.idl
+  Interface:
+    Name: PushManager
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+    Attrs:
+      - Name: supportedContentEncodings
+        Modifier: static
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+    Operations:
+      - Name: subscribe
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PushSubscriptionOptionsInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PushSubscription
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: getSubscription
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PushSubscription
+                Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: permissionState
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PushSubscriptionOptionsInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: PermissionState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+- File: push-api.idl
+  Interface:
+    Name: PushMessageData
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+      - Name: SecureContext
+    Operations:
+      - Name: arrayBuffer
+        Returns:
+          - Name: ArrayBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+      - Name: blob
+        Returns:
+          - Name: Blob
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+      - Name: json
+        Returns:
+          - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+      - Name: text
+        Returns:
+          - Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+- File: push-api.idl
+  Typedef:
+    Name: PushMessageDataInit
+    Type:
+      Union:
+        - Name: BufferSource
+        - Name: USVString
+- File: push-api.idl
+  Dict:
+    Name: PushPermissionDescriptor
+    Inherits: PermissionDescriptor
+    Fields:
+      - Name: userVisibleOnly
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: push-api.idl
+  Interface:
+    Name: PushSubscription
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+    Attrs:
+      - Name: endpoint
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: expirationTime
+        Readonly: true
+        Type:
+          Name: EpochTimeStamp
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: options
+        Readonly: true
+        Type:
+          Name: PushSubscriptionOptions
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+    Operations:
+      - Name: getKey
+        Args:
+          - Name: name
+            Type:
+              Name: PushEncryptionKeyName
+        Returns:
+          - Name: ArrayBuffer
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: unsubscribe
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: toJSON
+        Returns:
+          - Name: PushSubscriptionJSON
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+- File: push-api.idl
+  Interface:
+    Name: PushSubscriptionChangeEvent
+    Inherits: ExtendableEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: newSubscription
+        Readonly: true
+        Type:
+          Name: PushSubscription
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+      - Name: oldSubscription
+        Readonly: true
+        Type:
+          Name: PushSubscription
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PushSubscriptionChangeEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+- File: push-api.idl
+  Dict:
+    Name: PushSubscriptionChangeEventInit
+    Inherits: ExtendableEventInit
+    Fields:
+      - Name: newSubscription
+        Default: "null"
+        Type:
+          Name: PushSubscription
+      - Name: oldSubscription
+        Default: "null"
+        Type:
+          Name: PushSubscription
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: push-api.idl
+  Dict:
+    Name: PushSubscriptionJSON
+    Fields:
+      - Name: endpoint
+        Type:
+          Name: USVString
+      - Name: expirationTime
+        Default: "null"
+        Type:
+          Name: EpochTimeStamp
+          Nullable: true
+      - Name: keys
+        Type:
+          Name: record
+          Params:
+            - Name: DOMString
+            - Name: USVString
+- File: push-api.idl
+  Interface:
+    Name: PushSubscriptionOptions
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: SecureContext
+    Attrs:
+      - Name: userVisibleOnly
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+      - Name: applicationServerKey
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: SecureContext
+- File: push-api.idl
+  Dict:
+    Name: PushSubscriptionOptionsInit
+    Fields:
+      - Name: userVisibleOnly
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: applicationServerKey
+        Default: "null"
+        Type:
+          Union:
+            - Name: BufferSource
+            - Name: DOMString
+          Nullable: true
+- File: local-font-access.idl
+  Dict:
+    Name: QueryOptions
+    Fields:
+      - Name: postscriptNames
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: streams.idl
+  Dict:
+    Name: QueuingStrategy
+    Fields:
+      - Name: highWaterMark
+        Type:
+          Name: unrestricted double
+      - Name: size
+        Type:
+          Name: QueuingStrategySize
+- File: streams.idl
+  Dict:
+    Name: QueuingStrategyInit
+    Fields:
+      - Name: highWaterMark
+        Required: true
+        Type:
+          Name: unrestricted double
+- File: streams.idl
+  Callback:
+    Name: QueuingStrategySize
+    Args:
+      - Name: chunk
+        Type:
+          Name: any
+    Returns:
+      - Name: unrestricted double
+- File: webrtc.idl
+  Dict:
+    Name: RTCAnswerOptions
+    Inherits: RTCOfferAnswerOptions
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCAudioPlayoutStats
+    Inherits: RTCStats
+    Fields:
+      - Name: kind
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: synthesizedSamplesDuration
+        Type:
+          Name: double
+      - Name: synthesizedSamplesEvents
+        Type:
+          Name: unsigned long
+      - Name: totalSamplesDuration
+        Type:
+          Name: double
+      - Name: totalPlayoutDelay
+        Type:
+          Name: double
+      - Name: totalSamplesCount
+        Type:
+          Name: unsigned long long
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCAudioSourceStats
+    Inherits: RTCMediaSourceStats
+    Fields:
+      - Name: audioLevel
+        Type:
+          Name: double
+      - Name: totalAudioEnergy
+        Type:
+          Name: double
+      - Name: totalSamplesDuration
+        Type:
+          Name: double
+      - Name: echoReturnLoss
+        Type:
+          Name: double
+      - Name: echoReturnLossEnhancement
+        Type:
+          Name: double
+      - Name: droppedSamplesDuration
+        Type:
+          Name: double
+      - Name: droppedSamplesEvents
+        Type:
+          Name: unsigned long
+      - Name: totalCaptureDelay
+        Type:
+          Name: double
+      - Name: totalSamplesCaptured
+        Type:
+          Name: unsigned long long
+      - Name: trackIdentifier
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: kind
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Enum:
+    Name: RTCBundlePolicy
+    Values:
+      - balanced
+      - max-compat
+      - max-bundle
+- File: webrtc.idl
+  Interface:
+    Name: RTCCertificate
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: Serializable
+    Attrs:
+      - Name: expires
+        Readonly: true
+        Type:
+          Name: EpochTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+    Operations:
+      - Name: getFingerprints
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: RTCDtlsFingerprint
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+- File: webrtc.idl
+  Dict:
+    Name: RTCCertificateExpiration
+    Fields:
+      - Name: expires
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCCertificateStats
+    Inherits: RTCStats
+    Fields:
+      - Name: fingerprint
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: fingerprintAlgorithm
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: base64Certificate
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: issuerCertificateId
+        Type:
+          Name: DOMString
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCCodecStats
+    Inherits: RTCStats
+    Fields:
+      - Name: payloadType
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: transportId
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: mimeType
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: clockRate
+        Type:
+          Name: unsigned long
+      - Name: channels
+        Type:
+          Name: unsigned long
+      - Name: sdpFmtpLine
+        Type:
+          Name: DOMString
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Dict:
+    Name: RTCConfiguration
+    Fields:
+      - Name: iceServers
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCIceServer
+      - Name: iceTransportPolicy
+        Default: '"all"'
+        Type:
+          Name: RTCIceTransportPolicy
+      - Name: bundlePolicy
+        Default: '"balanced"'
+        Type:
+          Name: RTCBundlePolicy
+      - Name: rtcpMuxPolicy
+        Default: '"require"'
+        Type:
+          Name: RTCRtcpMuxPolicy
+      - Name: certificates
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: RTCCertificate
+      - Name: iceCandidatePoolSize
+        Default: "0"
+        Type:
+          Name: octet
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: peerIdentity
+        Type:
+          Name: DOMString
+- File: webrtc.idl
+  Interface:
+    Name: RTCDTMFSender
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: ontonechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: canInsertDTMF
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: toneBuffer
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: insertDTMF
+        Args:
+          - Name: tones
+            Type:
+              Name: DOMString
+          - Name: duration
+            Optional: true
+            Default: "100"
+            Type:
+              Name: unsigned long
+          - Name: interToneGap
+            Optional: true
+            Default: "70"
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Interface:
+    Name: RTCDTMFToneChangeEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: tone
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: RTCDTMFToneChangeEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Dict:
+    Name: RTCDTMFToneChangeEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: tone
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webrtc.idl
+  Interface:
+    Name: RTCDataChannel
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: label
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ordered
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxPacketLifeTime
+        Readonly: true
+        Type:
+          Name: unsigned short
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxRetransmits
+        Readonly: true
+        Type:
+          Name: unsigned short
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: protocol
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: negotiated
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: id
+        Readonly: true
+        Type:
+          Name: unsigned short
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: RTCDataChannelState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: bufferedAmount
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: bufferedAmountLowThreshold
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onopen
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onbufferedamountlow
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onclosing
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onclose
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: binaryType
+        Type:
+          Name: BinaryType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: priority
+        Readonly: true
+        Type:
+          Name: RTCPriorityType
+    Operations:
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: send
+        Args:
+          - Name: data
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: send
+        Args:
+          - Name: data
+            Type:
+              Name: Blob
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: send
+        Args:
+          - Name: data
+            Type:
+              Name: ArrayBuffer
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: send
+        Args:
+          - Name: data
+            Type:
+              Name: ArrayBufferView
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Interface:
+    Name: RTCDataChannelEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: channel
+        Readonly: true
+        Type:
+          Name: RTCDataChannel
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: RTCDataChannelEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Dict:
+    Name: RTCDataChannelEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: channel
+        Required: true
+        Type:
+          Name: RTCDataChannel
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webrtc.idl
+  Dict:
+    Name: RTCDataChannelInit
+    Fields:
+      - Name: ordered
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: maxPacketLifeTime
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: maxRetransmits
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: protocol
+        Default: '""'
+        Type:
+          Name: USVString
+      - Name: negotiated
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: id
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: priority
+        Default: '"low"'
+        Type:
+          Name: RTCPriorityType
+- File: webrtc.idl
+  Enum:
+    Name: RTCDataChannelState
+    Values:
+      - connecting
+      - open
+      - closing
+      - closed
+- File: webrtc-stats.idl
+  Dict:
+    Name: RTCDataChannelStats
+    Inherits: RTCStats
+    Fields:
+      - Name: label
+        Type:
+          Name: DOMString
+      - Name: protocol
+        Type:
+          Name: DOMString
+      - Name: dataChannelIdentifier
+        Type:
+          Name: unsigned short
+      - Name: state
+        Required: true
+        Type:
+          Name: RTCDataChannelState
+      - Name: messagesSent
+        Type:
+          Name: unsigned long
+      - Name: bytesSent
+        Type:
+          Name: unsigned long long
+      - Name: messagesReceived
+        Type:
+          Name: unsigned long
+      - Name: bytesReceived
+        Type:
+          Name: unsigned long long
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: type
+        Required: true
+        Type:
+          Name: RTCStatsType
+      - Name: id
+        Required: true
+        Type:
+          Name: DOMString
+- File: mst-content-hint.idl
+  Enum:
+    Name: RTCDegradationPreference
+    Values:
+      - maintain-framerate
+      - maintain-resolution
+      - balanced
+- File: webrtc.idl
+  Dict:
+    Name: RTCDtlsFingerprint
+    Fields:
+      - Name: algorithm
+        Type:
+          Name: DOMString
+      - Name: value
+        Type:
+          Name: DOMString
+- File: webrtc-stats.idl
+  Enum:
+    Name: RTCDtlsRole
+    Values:
+      - client
+      - server
+      - unknown
+- File: webrtc.idl
+  Interface:
+    Name: RTCDtlsTransport
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: iceTransport
+        Readonly: true
+        Type:
+          Name: RTCIceTransport
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: state
+        Readonly: true
+        Type:
+          Name: RTCDtlsTransportState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onstatechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getRemoteCertificates
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: ArrayBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Enum:
+    Name: RTCDtlsTransportState
+    Values:
+      - new
+      - connecting
+      - connected
+      - closed
+      - failed
+- File: webrtc-encoded-transform.idl
+  Interface:
+    Name: RTCEncodedAudioFrame
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+    Attrs:
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+    Operations:
+      - Name: getMetadata
+        Returns:
+          - Name: RTCEncodedAudioFrameMetadata
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+- File: webrtc-encoded-transform.idl
+  Dict:
+    Name: RTCEncodedAudioFrameMetadata
+    Fields:
+      - Name: synchronizationSource
+        Type:
+          Name: unsigned long
+      - Name: payloadType
+        Type:
+          Name: octet
+      - Name: contributingSources
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: sequenceNumber
+        Type:
+          Name: short
+- File: webrtc-encoded-transform.idl
+  Interface:
+    Name: RTCEncodedVideoFrame
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: RTCEncodedVideoFrameType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: data
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+    Operations:
+      - Name: getMetadata
+        Returns:
+          - Name: RTCEncodedVideoFrameMetadata
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+- File: webrtc-encoded-transform.idl
+  Dict:
+    Name: RTCEncodedVideoFrameMetadata
+    Fields:
+      - Name: frameId
+        Type:
+          Name: unsigned long long
+      - Name: dependencies
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long long
+      - Name: width
+        Type:
+          Name: unsigned short
+      - Name: height
+        Type:
+          Name: unsigned short
+      - Name: spatialIndex
+        Type:
+          Name: unsigned long
+      - Name: temporalIndex
+        Type:
+          Name: unsigned long
+      - Name: synchronizationSource
+        Type:
+          Name: unsigned long
+      - Name: payloadType
+        Type:
+          Name: octet
+      - Name: contributingSources
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: timestamp
+        Type:
+          Name: long long
+- File: webrtc-encoded-transform.idl
+  Enum:
+    Name: RTCEncodedVideoFrameType
+    Values:
+      - empty
+      - key
+      - delta
+- File: webrtc.idl
+  Interface:
+    Name: RTCError
+    Inherits: DOMException
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: Serializable
+    Attrs:
+      - Name: errorDetail
+        Readonly: true
+        Type:
+          Name: RTCErrorDetailType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: sdpLineNumber
+        Readonly: true
+        Type:
+          Name: long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: sctpCauseCode
+        Readonly: true
+        Type:
+          Name: long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: receivedAlert
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: sentAlert
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+      - Name: httpRequestStatusCode
+        Readonly: true
+        Type:
+          Name: long
+          Nullable: true
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: RTCErrorInit
+          - Name: message
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: Serializable
+- File: webrtc.idl
+  Enum:
+    Name: RTCErrorDetailType
+    Values:
+      - data-channel-failure
+      - dtls-failure
+      - fingerprint-failure
+      - sctp-failure
+      - sdp-syntax-error
+      - hardware-encoder-not-available
+      - hardware-encoder-error
+- File: webrtc-identity.idl
+  Enum:
+    Name: RTCErrorDetailTypeIdp
+    Values:
+      - idp-bad-script-failure
+      - idp-execution-failure
+      - idp-load-failure
+      - idp-need-login
+      - idp-timeout
+      - idp-tls-failure
+      - idp-token-expired
+      - idp-token-invalid
+- File: webrtc.idl
+  Interface:
+    Name: RTCErrorEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: error
+        Readonly: true
+        Type:
+          Name: RTCError
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: RTCErrorEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc.idl
+  Dict:
+    Name: RTCErrorEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: error
+        Required: true
+        Type:
+          Name: RTCError
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webrtc.idl
+  Dict:
+    Name: RTCErrorInit
+    Fields:
+      - Name: errorDetail
+        Required: true
+        Type:
+          Name: RTCErrorDetailType
+      - Name: sdpLineNumber
+        Type:
+          Name: long
+      - Name: sctpCauseCode
+        Type:
+          Name: long
+      - Name: receivedAlert
+        Type:
+          Name: unsigned long
+      - Name: sentAlert
+        Type:
+          Name: unsigned long
+      - Name: httpRequestStatusCode
+        Type:
+          Name: long

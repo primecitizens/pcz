@@ -1,0 +1,1804 @@
+- File: webxr-hit-test.idl
+  Interface:
+    Name: XRRay
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: origin
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: direction
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: matrix
+        Readonly: true
+        Type:
+          Name: Float32Array
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: origin
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMPointInit
+          - Name: direction
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRRayDirectionInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Args:
+          - Name: transform
+            Type:
+              Name: XRRigidTransform
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-hit-test.idl
+  Dict:
+    Name: XRRayDirectionInit
+    Fields:
+      - Name: x
+        Default: "0"
+        Type:
+          Name: double
+      - Name: "y"
+        Default: "0"
+        Type:
+          Name: double
+      - Name: z
+        Default: "-1"
+        Type:
+          Name: double
+      - Name: w
+        Default: "0"
+        Type:
+          Name: double
+- File: webxr.idl
+  Interface:
+    Name: XRReferenceSpace
+    Inherits: XRSpace
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onreset
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getOffsetReferenceSpace
+        Args:
+          - Name: originOffset
+            Type:
+              Name: XRRigidTransform
+        Returns:
+          - Name: XRReferenceSpace
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Interface:
+    Name: XRReferenceSpaceEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: referenceSpace
+        Readonly: true
+        Type:
+          Name: XRReferenceSpace
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transform
+        Readonly: true
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: XRReferenceSpaceEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Dict:
+    Name: XRReferenceSpaceEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: referenceSpace
+        Required: true
+        Type:
+          Name: XRReferenceSpace
+      - Name: transform
+        Default: "null"
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxr.idl
+  Enum:
+    Name: XRReferenceSpaceType
+    Values:
+      - viewer
+      - local
+      - local-floor
+      - bounded-floor
+      - unbounded
+- File: webxr-lighting-estimation.idl
+  Enum:
+    Name: XRReflectionFormat
+    Values:
+      - srgba8
+      - rgba16f
+- File: webxr.idl
+  Interface:
+    Name: XRRenderState
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: depthNear
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: depthFar
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: inlineVerticalFieldOfView
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: baseLayer
+        Readonly: true
+        Type:
+          Name: XRWebGLLayer
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: layers
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRLayer
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Dict:
+    Name: XRRenderStateInit
+    Fields:
+      - Name: depthNear
+        Type:
+          Name: double
+      - Name: depthFar
+        Type:
+          Name: double
+      - Name: inlineVerticalFieldOfView
+        Type:
+          Name: double
+      - Name: baseLayer
+        Type:
+          Name: XRWebGLLayer
+          Nullable: true
+      - Name: layers
+        Type:
+          Name: sequence
+          Params:
+            - Name: XRLayer
+          Nullable: true
+- File: webxr.idl
+  Interface:
+    Name: XRRigidTransform
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: position
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: orientation
+        Readonly: true
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: matrix
+        Readonly: true
+        Type:
+          Name: Float32Array
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: inverse
+        Readonly: true
+        Type:
+          Name: XRRigidTransform
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: position
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMPointInit
+          - Name: orientation
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DOMPointInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Interface:
+    Name: XRSession
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: visibilityState
+        Readonly: true
+        Type:
+          Name: XRVisibilityState
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: frameRate
+        Readonly: true
+        Type:
+          Name: float
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: supportedFrameRates
+        Readonly: true
+        Type:
+          Name: Float32Array
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: renderState
+        Readonly: true
+        Type:
+          Name: XRRenderState
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: inputSources
+        Readonly: true
+        Type:
+          Name: XRInputSourceArray
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: enabledFeatures
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isSystemKeyboardSupported
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onend
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oninputsourceschange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onselect
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onselectstart
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onselectend
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onsqueeze
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onsqueezestart
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onsqueezeend
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onvisibilitychange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onframeratechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: environmentBlendMode
+        Readonly: true
+        Type:
+          Name: XREnvironmentBlendMode
+      - Name: interactionMode
+        Readonly: true
+        Type:
+          Name: XRInteractionMode
+      - Name: domOverlayState
+        Readonly: true
+        Type:
+          Name: XRDOMOverlayState
+          Nullable: true
+      - Name: depthUsage
+        Readonly: true
+        Type:
+          Name: XRDepthUsage
+      - Name: depthDataFormat
+        Readonly: true
+        Type:
+          Name: XRDepthDataFormat
+      - Name: persistentAnchors
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+      - Name: preferredReflectionFormat
+        Readonly: true
+        Type:
+          Name: XRReflectionFormat
+    Operations:
+      - Name: updateRenderState
+        Args:
+          - Name: state
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRRenderStateInit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updateTargetFrameRate
+        Args:
+          - Name: rate
+            Type:
+              Name: float
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: requestReferenceSpace
+        Args:
+          - Name: type
+            Type:
+              Name: XRReferenceSpaceType
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRReferenceSpace
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: requestAnimationFrame
+        Args:
+          - Name: callback
+            Type:
+              Name: XRFrameRequestCallback
+        Returns:
+          - Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cancelAnimationFrame
+        Args:
+          - Name: handle
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: end
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: restorePersistentAnchor
+        Args:
+          - Name: uuid
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRAnchor
+      - Name: deletePersistentAnchor
+        Args:
+          - Name: uuid
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+      - Name: requestLightProbe
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRLightProbeInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRLightProbe
+      - Name: requestHitTestSource
+        Args:
+          - Name: options
+            Type:
+              Name: XRHitTestOptionsInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRHitTestSource
+      - Name: requestHitTestSourceForTransientInput
+        Args:
+          - Name: options
+            Type:
+              Name: XRTransientInputHitTestOptionsInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRTransientInputHitTestSource
+- File: webxr.idl
+  Interface:
+    Name: XRSessionEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: session
+        Readonly: true
+        Type:
+          Name: XRSession
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: XRSessionEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Dict:
+    Name: XRSessionEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: session
+        Required: true
+        Type:
+          Name: XRSession
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webxr.idl
+  Dict:
+    Name: XRSessionInit
+    Fields:
+      - Name: requiredFeatures
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: optionalFeatures
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: domOverlay
+        Type:
+          Name: XRDOMOverlayInit
+          Nullable: true
+      - Name: depthSensing
+        Type:
+          Name: XRDepthStateInit
+- File: webxr.idl
+  Enum:
+    Name: XRSessionMode
+    Values:
+      - inline
+      - immersive-vr
+      - immersive-ar
+- File: webxr.idl
+  Dict:
+    Name: XRSessionSupportedPermissionDescriptor
+    Inherits: PermissionDescriptor
+    Fields:
+      - Name: mode
+        Type:
+          Name: XRSessionMode
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: webxr.idl
+  Interface:
+    Name: XRSpace
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+- File: webxrlayers.idl
+  Interface:
+    Name: XRSubImage
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: viewport
+        Readonly: true
+        Type:
+          Name: XRViewport
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Interface:
+    Name: XRSystem
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: ondevicechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: isSessionSupported
+        Args:
+          - Name: mode
+            Type:
+              Name: XRSessionMode
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: requestSession
+        Args:
+          - Name: mode
+            Type:
+              Name: XRSessionMode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRSessionInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: XRSession
+        ExtAttrs:
+          - Name: NewObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Enum:
+    Name: XRTargetRayMode
+    Values:
+      - gaze
+      - tracked-pointer
+      - screen
+- File: webxrlayers.idl
+  Enum:
+    Name: XRTextureType
+    Values:
+      - texture
+      - texture-array
+- File: webxr-hit-test.idl
+  Dict:
+    Name: XRTransientInputHitTestOptionsInit
+    Fields:
+      - Name: profile
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: entityTypes
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRHitTestTrackableType
+      - Name: offsetRay
+        Type:
+          Name: XRRay
+- File: webxr-hit-test.idl
+  Interface:
+    Name: XRTransientInputHitTestResult
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: inputSource
+        Readonly: true
+        Type:
+          Name: XRInputSource
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: results
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRHitTestResult
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-hit-test.idl
+  Interface:
+    Name: XRTransientInputHitTestSource
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: cancel
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Interface:
+    Name: XRView
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: eye
+        Readonly: true
+        Type:
+          Name: XREye
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: projectionMatrix
+        Readonly: true
+        Type:
+          Name: Float32Array
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transform
+        Readonly: true
+        Type:
+          Name: XRRigidTransform
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: recommendedViewportScale
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isFirstPersonObserver
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: camera
+        Readonly: true
+        Type:
+          Name: XRCamera
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+    Operations:
+      - Name: requestViewportScale
+        Args:
+          - Name: scale
+            Type:
+              Name: double
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Interface:
+    Name: XRViewerPose
+    Inherits: XRPose
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: views
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: XRView
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Interface:
+    Name: XRViewport
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Enum:
+    Name: XRVisibilityState
+    Values:
+      - visible
+      - visible-blurred
+      - hidden
+- File: webxrlayers.idl
+  Interface:
+    Name: XRWebGLBinding
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: nativeProjectionScaleFactor
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: usesDepthValues
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: createProjectionLayer
+        Args:
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRProjectionLayerInit
+        Returns:
+          - Name: XRProjectionLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createQuadLayer
+        Args:
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRQuadLayerInit
+        Returns:
+          - Name: XRQuadLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createCylinderLayer
+        Args:
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRCylinderLayerInit
+        Returns:
+          - Name: XRCylinderLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createEquirectLayer
+        Args:
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XREquirectLayerInit
+        Returns:
+          - Name: XREquirectLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createCubeLayer
+        Args:
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRCubeLayerInit
+        Returns:
+          - Name: XRCubeLayer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getSubImage
+        Args:
+          - Name: layer
+            Type:
+              Name: XRCompositionLayer
+          - Name: frame
+            Type:
+              Name: XRFrame
+          - Name: eye
+            Optional: true
+            Default: '"none"'
+            Type:
+              Name: XREye
+        Returns:
+          - Name: XRWebGLSubImage
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getViewSubImage
+        Args:
+          - Name: layer
+            Type:
+              Name: XRProjectionLayer
+          - Name: view
+            Type:
+              Name: XRView
+        Returns:
+          - Name: XRWebGLSubImage
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getCameraImage
+        Args:
+          - Name: camera
+            Type:
+              Name: XRCamera
+        Returns:
+          - Name: WebGLTexture
+            Nullable: true
+      - Name: getDepthInformation
+        Args:
+          - Name: view
+            Type:
+              Name: XRView
+        Returns:
+          - Name: XRWebGLDepthInformation
+            Nullable: true
+      - Name: getReflectionCubeMap
+        Args:
+          - Name: lightProbe
+            Type:
+              Name: XRLightProbe
+        Returns:
+          - Name: WebGLTexture
+            Nullable: true
+    Constructors:
+      - Args:
+          - Name: session
+            Type:
+              Name: XRSession
+          - Name: context
+            Type:
+              Name: XRWebGLRenderingContext
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-depth-sensing.idl
+  Interface:
+    Name: XRWebGLDepthInformation
+    Inherits: XRDepthInformation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: texture
+        Readonly: true
+        Type:
+          Name: WebGLTexture
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxr.idl
+  Interface:
+    Name: XRWebGLLayer
+    Inherits: XRLayer
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: antialias
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ignoreDepthValues
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fixedFoveation
+        Type:
+          Name: float
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: framebuffer
+        Readonly: true
+        Type:
+          Name: WebGLFramebuffer
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: framebufferWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: framebufferHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getViewport
+        Args:
+          - Name: view
+            Type:
+              Name: XRView
+        Returns:
+          - Name: XRViewport
+            Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getNativeFramebufferScaleFactor
+        Modifier: static
+        Args:
+          - Name: session
+            Type:
+              Name: XRSession
+        Returns:
+          - Name: double
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: session
+            Type:
+              Name: XRSession
+          - Name: context
+            Type:
+              Name: XRWebGLRenderingContext
+          - Name: layerInit
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: XRWebGLLayerInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr.idl
+  Dict:
+    Name: XRWebGLLayerInit
+    Fields:
+      - Name: antialias
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: depth
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: stencil
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: alpha
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: ignoreDepthValues
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: framebufferScaleFactor
+        Default: "1.0"
+        Type:
+          Name: double
+- File: webxr.idl
+  Typedef:
+    Name: XRWebGLRenderingContext
+    Type:
+      Union:
+        - Name: WebGLRenderingContext
+        - Name: WebGL2RenderingContext
+- File: webxrlayers.idl
+  Interface:
+    Name: XRWebGLSubImage
+    Inherits: XRSubImage
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: colorTexture
+        Readonly: true
+        Type:
+          Name: WebGLTexture
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: depthStencilTexture
+        Readonly: true
+        Type:
+          Name: WebGLTexture
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: motionVectorTexture
+        Readonly: true
+        Type:
+          Name: WebGLTexture
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: imageIndex
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: colorTextureWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: colorTextureHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: depthStencilTextureWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: depthStencilTextureHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: motionVectorTextureWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: motionVectorTextureHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  Interface:
+    Name: XSLTProcessor
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: importStylesheet
+        Args:
+          - Name: style
+            Type:
+              Name: Node
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transformToFragment
+        Args:
+          - Name: source
+            Type:
+              Name: Node
+          - Name: output
+            Type:
+              Name: Document
+        Returns:
+          - Name: DocumentFragment
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: transformToDocument
+        Args:
+          - Name: source
+            Type:
+              Name: Node
+        Returns:
+          - Name: Document
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setParameter
+        Args:
+          - Name: namespaceURI
+            Type:
+              Name: DOMString
+            ExtAttrs:
+              - Name: LegacyNullToEmptyString
+          - Name: localName
+            Type:
+              Name: DOMString
+          - Name: value
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getParameter
+        Args:
+          - Name: namespaceURI
+            Type:
+              Name: DOMString
+            ExtAttrs:
+              - Name: LegacyNullToEmptyString
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeParameter
+        Args:
+          - Name: namespaceURI
+            Type:
+              Name: DOMString
+            ExtAttrs:
+              - Name: LegacyNullToEmptyString
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: clearParameters
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reset
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: console.idl
+  Namespace:
+    Name: console
+    ExtAttrs:
+      - Name: Exposed
+    Operations:
+      - Name: assert
+        Args:
+          - Name: condition
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: debug
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: error
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: info
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: log
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: table
+        Args:
+          - Name: tabularData
+            Optional: true
+            Type:
+              Name: any
+          - Name: properties
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: trace
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: warn
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: dir
+        Args:
+          - Name: item
+            Optional: true
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Type:
+              Name: object
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: dirxml
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: count
+        Args:
+          - Name: label
+            Optional: true
+            Default: '"default"'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: countReset
+        Args:
+          - Name: label
+            Optional: true
+            Default: '"default"'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: group
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: groupCollapsed
+        Args:
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: groupEnd
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: time
+        Args:
+          - Name: label
+            Optional: true
+            Default: '"default"'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: timeLog
+        Args:
+          - Name: label
+            Optional: true
+            Default: '"default"'
+            Type:
+              Name: DOMString
+          - Name: data
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: timeEnd
+        Args:
+          - Name: label
+            Optional: true
+            Default: '"default"'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed

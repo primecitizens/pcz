@@ -57,7 +57,7 @@ func findModuleForType(ptrInModule uintptr) (md *ModuleData) {
 	return nil
 }
 
-func ResolveNameOff(ptrInModule unsafe.Pointer, off NameOff) Name {
+func resolveNameOff(ptrInModule unsafe.Pointer, off NameOff) Name {
 	if off == 0 {
 		return Name{}
 	}
@@ -87,7 +87,7 @@ func ResolveNameOff(ptrInModule unsafe.Pointer, off NameOff) Name {
 		assert.Throw("runtime:", "name", "offset", "out", "of", "range")
 	}
 
-	return Name{(*byte)(unsafe.Pointer(res))}
+	return Name{Bytes: (*byte)(unsafe.Pointer(res))}
 }
 
 // resolveTypeOff resolves an *rtype offset from a base type.
@@ -261,8 +261,18 @@ type ModuleData struct {
 	GoFunc                uintptr // go.func.*
 
 	TextSectMap []TextSect
-	TypeLinks   []int32 // offsets from types
-	ITabLinks   []*Itab
+
+	// .Types + .TypeLinks[i] = uintptr(unsafe.Pointer(*Type))
+	//
+	// The linker will leave a table of all the typelinks for
+	// types in the binary, so the runtime can find them.
+	//
+	// When buildmode=shared, all types are in typelinks so the
+	// runtime can deduplicate type pointers.
+	//
+	// Ref: ${GOROOT}/src/cmd/compile/internal/reflectdata/reflect.go#func:writeType
+	TypeLinks []int32 // offsets from types
+	ITabLinks []*Itab
 
 	PTab []PTabEntry
 
@@ -516,7 +526,7 @@ func pkgPath(n Name) string {
 	}
 	var nameOff NameOff
 	copy((*[4]byte)(unsafe.Pointer(&nameOff))[:], (*[4]byte)(unsafe.Pointer(n.Data(off)))[:])
-	pkgPathName := ResolveNameOff(unsafe.Pointer(n.Bytes), nameOff)
+	pkgPathName := resolveNameOff(unsafe.Pointer(n.Bytes), nameOff)
 	return pkgPathName.Name()
 }
 

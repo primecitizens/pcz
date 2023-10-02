@@ -1,0 +1,2248 @@
+- File: css-conditional.idl
+  Interface:
+    Name: CSSMediaRule
+    Inherits: CSSConditionRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: media
+        Readonly: true
+        Type:
+          Name: MediaList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - mediaText
+          - Name: Exposed
+            Values:
+              - Window
+- File: cssom.idl
+  Interface:
+    Name: CSSNamespaceRule
+    Inherits: CSSRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: namespaceURI
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: prefix
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-typed-om.idl
+  Typedef:
+    Name: CSSNumberish
+    Type:
+      Union:
+        - Name: double
+        - Name: CSSNumericValue
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSNumericArray
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Iterable:
+      TypeParams:
+        - Name: CSSNumericValue
+- File: css-typed-om.idl
+  Enum:
+    Name: CSSNumericBaseType
+    Values:
+      - length
+      - angle
+      - time
+      - frequency
+      - resolution
+      - flex
+      - percent
+- File: css-typed-om.idl
+  Dict:
+    Name: CSSNumericType
+    Fields:
+      - Name: length
+        Type:
+          Name: long
+      - Name: angle
+        Type:
+          Name: long
+      - Name: time
+        Type:
+          Name: long
+      - Name: frequency
+        Type:
+          Name: long
+      - Name: resolution
+        Type:
+          Name: long
+      - Name: flex
+        Type:
+          Name: long
+      - Name: percent
+        Type:
+          Name: long
+      - Name: percentHint
+        Type:
+          Name: CSSNumericBaseType
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSNumericValue
+    Inherits: CSSStyleValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Operations:
+      - Name: add
+        Args:
+          - Name: values
+            Variadic: true
+            Type:
+              Name: CSSNumberish
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: sub
+        Args:
+          - Name: values
+            Variadic: true
+            Type:
+              Name: CSSNumberish
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: mul
+        Args:
+          - Name: values
+            Variadic: true
+            Type:
+              Name: CSSNumberish
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: div
+        Args:
+          - Name: values
+            Variadic: true
+            Type:
+              Name: CSSNumberish
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: min
+        Args:
+          - Name: values
+            Variadic: true
+            Type:
+              Name: CSSNumberish
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: max
+        Args:
+          - Name: values
+            Variadic: true
+            Type:
+              Name: CSSNumberish
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: equals
+        Args:
+          - Name: value
+            Variadic: true
+            Type:
+              Name: CSSNumberish
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: to
+        Args:
+          - Name: unit
+            Type:
+              Name: USVString
+        Returns:
+          - Name: CSSUnitValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: toSum
+        Args:
+          - Name: units
+            Variadic: true
+            Type:
+              Name: USVString
+        Returns:
+          - Name: CSSMathSum
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: type
+        Returns:
+          - Name: CSSNumericType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: parse
+        Modifier: static
+        Args:
+          - Name: cssText
+            Type:
+              Name: USVString
+        Returns:
+          - Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSOKLCH
+    Inherits: CSSColorValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: l
+        Type:
+          Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: c
+        Type:
+          Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: h
+        Type:
+          Name: CSSColorAngle
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: alpha
+        Type:
+          Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: l
+            Type:
+              Name: CSSColorPercent
+          - Name: c
+            Type:
+              Name: CSSColorPercent
+          - Name: h
+            Type:
+              Name: CSSColorAngle
+          - Name: alpha
+            Optional: true
+            Default: "1"
+            Type:
+              Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSOKLab
+    Inherits: CSSColorValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: l
+        Type:
+          Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: a
+        Type:
+          Name: CSSColorNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: b
+        Type:
+          Name: CSSColorNumber
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: alpha
+        Type:
+          Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: l
+            Type:
+              Name: CSSColorPercent
+          - Name: a
+            Type:
+              Name: CSSColorNumber
+          - Name: b
+            Type:
+              Name: CSSColorNumber
+          - Name: alpha
+            Optional: true
+            Default: "1"
+            Type:
+              Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: cssom.idl
+  Interface:
+    Name: CSSPageRule
+    Inherits: CSSGroupingRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: selectorText
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: style
+        Readonly: true
+        Type:
+          Name: CSSStyleDeclaration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - cssText
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-parser-api.idl
+  Interface:
+    Name: CSSParserAtRule
+    Inherits: CSSParserRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: prelude
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CSSParserValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: body
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CSSParserRule
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: prelude
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSToken
+          - Name: body
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSParserRule
+              Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-parser-api.idl
+  Interface:
+    Name: CSSParserBlock
+    Inherits: CSSParserValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: body
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CSSParserValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: body
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSParserValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-parser-api.idl
+  Interface:
+    Name: CSSParserDeclaration
+    Inherits: CSSParserRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: body
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CSSParserValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: body
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSParserRule
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-parser-api.idl
+  Interface:
+    Name: CSSParserFunction
+    Inherits: CSSParserValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: args
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: FrozenArray
+              Params:
+                - Name: CSSParserValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: args
+            Type:
+              Name: sequence
+              Params:
+                - Name: sequence
+                  Params:
+                    - Name: CSSParserValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-parser-api.idl
+  Dict:
+    Name: CSSParserOptions
+    Fields:
+      - Name: atRules
+        Type:
+          Name: object
+- File: css-parser-api.idl
+  Interface:
+    Name: CSSParserQualifiedRule
+    Inherits: CSSParserRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: prelude
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CSSParserValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: body
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: CSSParserRule
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: prelude
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSToken
+          - Name: body
+            Optional: true
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSParserRule
+              Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-parser-api.idl
+  Interface:
+    Name: CSSParserRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: css-parser-api.idl
+  Interface:
+    Name: CSSParserValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSPerspective
+    Inherits: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: length
+        Type:
+          Name: CSSPerspectiveValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: length
+            Type:
+              Name: CSSPerspectiveValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-typed-om.idl
+  Typedef:
+    Name: CSSPerspectiveValue
+    Type:
+      Union:
+        - Name: CSSNumericValue
+        - Name: CSSKeywordish
+- File: css-anchor-position.idl
+  Interface:
+    Name: CSSPositionFallbackRule
+    Inherits: CSSGroupingRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-properties-values-api.idl
+  Interface:
+    Name: CSSPropertyRule
+    Inherits: CSSRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: syntax
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: inherits
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initialValue
+        Readonly: true
+        Type:
+          Name: CSSOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-pseudo.idl
+  Interface:
+    Name: CSSPseudoElement
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: element
+        Readonly: true
+        Type:
+          Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parent
+        Readonly: true
+        Type:
+          Union:
+            - Name: Element
+            - Name: CSSPseudoElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: pseudo
+        Args:
+          - Name: type
+            Type:
+              Name: CSSOMString
+        Returns:
+          - Name: CSSPseudoElement
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getBoxQuads
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: BoxQuadOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: DOMQuad
+      - Name: convertQuadFromNode
+        Args:
+          - Name: quad
+            Type:
+              Name: DOMQuadInit
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMQuad
+      - Name: convertRectFromNode
+        Args:
+          - Name: rect
+            Type:
+              Name: DOMRectReadOnly
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMQuad
+      - Name: convertPointFromNode
+        Args:
+          - Name: point
+            Type:
+              Name: DOMPointInit
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMPoint
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSRGB
+    Inherits: CSSColorValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: r
+        Type:
+          Name: CSSColorRGBComp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: g
+        Type:
+          Name: CSSColorRGBComp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: b
+        Type:
+          Name: CSSColorRGBComp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: alpha
+        Type:
+          Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: r
+            Type:
+              Name: CSSColorRGBComp
+          - Name: g
+            Type:
+              Name: CSSColorRGBComp
+          - Name: b
+            Type:
+              Name: CSSColorRGBComp
+          - Name: alpha
+            Optional: true
+            Default: "1"
+            Type:
+              Name: CSSColorPercent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSRotate
+    Inherits: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: x
+        Type:
+          Name: CSSNumberish
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: "y"
+        Type:
+          Name: CSSNumberish
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: z
+        Type:
+          Name: CSSNumberish
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: angle
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: angle
+            Type:
+              Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Args:
+          - Name: x
+            Type:
+              Name: CSSNumberish
+          - Name: "y"
+            Type:
+              Name: CSSNumberish
+          - Name: z
+            Type:
+              Name: CSSNumberish
+          - Name: angle
+            Type:
+              Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: cssom.idl
+  Interface:
+    Name: CSSRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: STYLE_RULE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: CHARSET_RULE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: IMPORT_RULE
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: MEDIA_RULE
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: FONT_FACE_RULE
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: PAGE_RULE
+        Value: "6"
+        Type:
+          Name: unsigned short
+      - Name: MARGIN_RULE
+        Value: "9"
+        Type:
+          Name: unsigned short
+      - Name: NAMESPACE_RULE
+        Value: "10"
+        Type:
+          Name: unsigned short
+      - Name: COUNTER_STYLE_RULE
+        Value: "11"
+        Type:
+          Name: unsigned short
+      - Name: SUPPORTS_RULE
+        Value: "12"
+        Type:
+          Name: unsigned short
+      - Name: FONT_FEATURE_VALUES_RULE
+        Value: "14"
+        Type:
+          Name: unsigned short
+      - Name: KEYFRAMES_RULE
+        Value: "7"
+        Type:
+          Name: unsigned short
+      - Name: KEYFRAME_RULE
+        Value: "8"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: cssText
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parentRule
+        Readonly: true
+        Type:
+          Name: CSSRule
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parentStyleSheet
+        Readonly: true
+        Type:
+          Name: CSSStyleSheet
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: cssom.idl
+  Interface:
+    Name: CSSRuleList
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: CSSRule
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSScale
+    Inherits: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: x
+        Type:
+          Name: CSSNumberish
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: "y"
+        Type:
+          Name: CSSNumberish
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: z
+        Type:
+          Name: CSSNumberish
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: x
+            Type:
+              Name: CSSNumberish
+          - Name: "y"
+            Type:
+              Name: CSSNumberish
+          - Name: z
+            Optional: true
+            Type:
+              Name: CSSNumberish
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-cascade-6.idl
+  Interface:
+    Name: CSSScopeRule
+    Inherits: CSSGroupingRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: start
+        Readonly: true
+        Type:
+          Name: CSSOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: end
+        Readonly: true
+        Type:
+          Name: CSSOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSSkew
+    Inherits: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: ax
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: ay
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: ax
+            Type:
+              Name: CSSNumericValue
+          - Name: ay
+            Type:
+              Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSSkewX
+    Inherits: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: ax
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: ax
+            Type:
+              Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSSkewY
+    Inherits: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: ay
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: ay
+            Type:
+              Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-transitions-2.idl
+  Interface:
+    Name: CSSStartingStyleRule
+    Inherits: CSSGroupingRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: css-parser-api.idl
+  Typedef:
+    Name: CSSStringSource
+    Type:
+      Union:
+        - Name: DOMString
+        - Name: ReadableStream
+- File: cssom.idl
+  Interface:
+    Name: CSSStyleDeclaration
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: cssText
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parentRule
+        Readonly: true
+        Type:
+          Name: CSSRule
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cssFloat
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getPropertyValue
+        Args:
+          - Name: property
+            Type:
+              Name: CSSOMString
+        Returns:
+          - Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getPropertyPriority
+        Args:
+          - Name: property
+            Type:
+              Name: CSSOMString
+        Returns:
+          - Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setProperty
+        Args:
+          - Name: property
+            Type:
+              Name: CSSOMString
+          - Name: value
+            Type:
+              Name: CSSOMString
+            ExtAttrs:
+              - Name: LegacyNullToEmptyString
+          - Name: priority
+            Optional: true
+            Default: '""'
+            Type:
+              Name: CSSOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeProperty
+        Args:
+          - Name: property
+            Type:
+              Name: CSSOMString
+        Returns:
+          - Name: CSSOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+- File: cssom.idl
+  Interface:
+    Name: CSSStyleRule
+    Inherits: CSSGroupingRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: selectorText
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: style
+        Readonly: true
+        Type:
+          Name: CSSStyleDeclaration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - cssText
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: styleMap
+        Readonly: true
+        Type:
+          Name: StylePropertyMap
+        ExtAttrs:
+          - Name: SameObject
+- File: cssom.idl
+  Interface:
+    Name: CSSStyleSheet
+    Inherits: StyleSheet
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: ownerRule
+        Readonly: true
+        Type:
+          Name: CSSRule
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cssRules
+        Readonly: true
+        Type:
+          Name: CSSRuleList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rules
+        Readonly: true
+        Type:
+          Name: CSSRuleList
+        ExtAttrs:
+          - Name: SameObject
+    Operations:
+      - Name: insertRule
+        Args:
+          - Name: rule
+            Type:
+              Name: CSSOMString
+          - Name: index
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteRule
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replace
+        Args:
+          - Name: text
+            Type:
+              Name: USVString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: CSSStyleSheet
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replaceSync
+        Args:
+          - Name: text
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: addRule
+        Args:
+          - Name: selector
+            Optional: true
+            Default: '"undefined"'
+            Type:
+              Name: DOMString
+          - Name: style
+            Optional: true
+            Default: '"undefined"'
+            Type:
+              Name: DOMString
+          - Name: index
+            Optional: true
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: long
+      - Name: removeRule
+        Args:
+          - Name: index
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+    Constructors:
+      - Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: CSSStyleSheetInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: cssom.idl
+  Dict:
+    Name: CSSStyleSheetInit
+    Fields:
+      - Name: baseURL
+        Default: "null"
+        Type:
+          Name: DOMString
+      - Name: media
+        Default: '""'
+        Type:
+          Union:
+            - Name: MediaList
+            - Name: DOMString
+      - Name: disabled
+        Default: "false"
+        Type:
+          Name: boolean
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSStyleValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Operations:
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: parse
+        Modifier: static
+        Args:
+          - Name: property
+            Type:
+              Name: USVString
+          - Name: cssText
+            Type:
+              Name: USVString
+        Returns:
+          - Name: CSSStyleValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: parseAll
+        Modifier: static
+        Args:
+          - Name: property
+            Type:
+              Name: USVString
+          - Name: cssText
+            Type:
+              Name: USVString
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: CSSStyleValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-conditional.idl
+  Interface:
+    Name: CSSSupportsRule
+    Inherits: CSSConditionRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: css-parser-api.idl
+  Typedef:
+    Name: CSSToken
+    Type:
+      Union:
+        - Name: DOMString
+        - Name: CSSStyleValue
+        - Name: CSSParserValue
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: is2D
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Operations:
+      - Modifier: stringifier
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: toMatrix
+        Returns:
+          - Name: DOMMatrix
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSTransformValue
+    Inherits: CSSStyleValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: is2D
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: CSSTransformComponent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: val
+            Type:
+              Name: CSSTransformComponent
+        Returns:
+          - Name: CSSTransformComponent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: toMatrix
+        Returns:
+          - Name: DOMMatrix
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: transforms
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSTransformComponent
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Iterable:
+      TypeParams:
+        - Name: CSSTransformComponent
+- File: css-transitions-2.idl
+  Interface:
+    Name: CSSTransition
+    Inherits: Animation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: transitionProperty
+        Readonly: true
+        Type:
+          Name: CSSOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Name: CSSTransition
+        Args:
+          - Name: effect
+            Optional: true
+            Default: "null"
+            Type:
+              Name: AnimationEffect
+              Nullable: true
+          - Name: timeline
+            Optional: true
+            Type:
+              Name: AnimationTimeline
+              Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSTranslate
+    Inherits: CSSTransformComponent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: x
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: "y"
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: z
+        Type:
+          Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: x
+            Type:
+              Name: CSSNumericValue
+          - Name: "y"
+            Type:
+              Name: CSSNumericValue
+          - Name: z
+            Optional: true
+            Type:
+              Name: CSSNumericValue
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-anchor-position.idl
+  Interface:
+    Name: CSSTryRule
+    Inherits: CSSRule
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: style
+        Readonly: true
+        Type:
+          Name: CSSStyleDeclaration
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - cssText
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSUnitValue
+    Inherits: CSSNumericValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: value
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: unit
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: value
+            Type:
+              Name: double
+          - Name: unit
+            Type:
+              Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+- File: css-typed-om.idl
+  Typedef:
+    Name: CSSUnparsedSegment
+    Type:
+      Union:
+        - Name: USVString
+        - Name: CSSVariableReferenceValue
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSUnparsedValue
+    Inherits: CSSStyleValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: CSSUnparsedSegment
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: val
+            Type:
+              Name: CSSUnparsedSegment
+        Returns:
+          - Name: CSSUnparsedSegment
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: members
+            Type:
+              Name: sequence
+              Params:
+                - Name: CSSUnparsedSegment
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Iterable:
+      TypeParams:
+        - Name: CSSUnparsedSegment
+- File: css-typed-om.idl
+  Interface:
+    Name: CSSVariableReferenceValue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - PaintWorklet
+          - LayoutWorklet
+    Attrs:
+      - Name: variable
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+      - Name: fallback
+        Readonly: true
+        Type:
+          Name: CSSUnparsedValue
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet
+    Constructors:
+      - Args:
+          - Name: variable
+            Type:
+              Name: USVString
+          - Name: fallback
+            Optional: true
+            Default: "null"
+            Type:
+              Name: CSSUnparsedValue
+              Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - PaintWorklet
+              - LayoutWorklet

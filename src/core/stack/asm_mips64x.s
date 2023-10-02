@@ -5,7 +5,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build mips64 || mips64le
+//go:build pcz && (mips64 || mips64le)
 
 #include "textflag.h"
 
@@ -27,12 +27,12 @@ TEXT ·SetSP(SB),NOSPLIT,$8-8
 // the top of a stack (for example, morestack calling newstack
 // calling the scheduler calling newm calling gc), so we must
 // record an argument size. For that purpose, it has no arguments.
-TEXT runtime·morestack(SB),NOSPLIT|NOFRAME,$0
+TEXT runtime·morestack(SB),NOSPLIT|NOFRAME,$0-0
 	// TODO: implement
 	UNDEF // crash
 
 // morestack but not preserving ctxt.
-TEXT runtime·morestack_noctxt(SB),NOSPLIT|NOFRAME,$0
+TEXT runtime·morestack_noctxt(SB),NOSPLIT|NOFRAME,$0-0
 	// Force SPWRITE. This function doesn't actually write SP,
 	// but it is called with a special calling convention where
 	// the caller doesn't save LR on stack but passes it as a

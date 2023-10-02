@@ -6,8 +6,8 @@
 package stdprint
 
 import (
-	"github.com/primecitizens/std/core/mark"
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/std/builtin/print/bindings"
+	"github.com/primecitizens/std/ffi/js"
 )
 
 func gwrite(b []byte) {
@@ -15,5 +15,5 @@ func gwrite(b []byte) {
 		return
 	}
 
-	bindings.Print(mark.NoEscapeBytesString(b))
+	bindings.Print(js.SliceData(b), js.SizeU(len(b)))
 }

@@ -1,0 +1,8 @@
+printWidth: 120
+tabWidth: 2
+useTabs: false
+arrowParens: always
+quoteProps: preserve
+trailingComma: es5
+semi: true
+singleQuote: false

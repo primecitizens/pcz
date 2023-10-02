@@ -1,0 +1,3122 @@
+- File: html.idl
+  Dict:
+    Name: DragEventInit
+    Inherits: MouseEventInit
+    Fields:
+      - Name: dataTransfer
+        Default: "null"
+        Type:
+          Name: DataTransfer
+          Nullable: true
+      - Name: movementX
+        Default: "0"
+        Type:
+          Name: double
+      - Name: movementY
+        Default: "0"
+        Type:
+          Name: double
+- File: webaudio.idl
+  Interface:
+    Name: DynamicsCompressorNode
+    Inherits: AudioNode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: threshold
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: knee
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ratio
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reduction
+        Readonly: true
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attack
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: release
+        Readonly: true
+        Type:
+          Name: AudioParam
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: context
+            Type:
+              Name: BaseAudioContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DynamicsCompressorOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webaudio.idl
+  Dict:
+    Name: DynamicsCompressorOptions
+    Inherits: AudioNodeOptions
+    Fields:
+      - Name: attack
+        Default: "0.003"
+        Type:
+          Name: float
+      - Name: knee
+        Default: "30"
+        Type:
+          Name: float
+      - Name: ratio
+        Default: "12"
+        Type:
+          Name: float
+      - Name: release
+        Default: "0.25"
+        Type:
+          Name: float
+      - Name: threshold
+        Default: "-24"
+        Type:
+          Name: float
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: channelCountMode
+        Type:
+          Name: ChannelCountMode
+      - Name: channelInterpretation
+        Type:
+          Name: ChannelInterpretation
+- File: EXT_blend_minmax.idl
+  Interface:
+    Name: EXT_blend_minmax
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: MIN_EXT
+        Value: "0x8007"
+        Type:
+          Name: GLenum
+      - Name: MAX_EXT
+        Value: "0x8008"
+        Type:
+          Name: GLenum
+- File: EXT_color_buffer_float.idl
+  Interface:
+    Name: EXT_color_buffer_float
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: EXT_color_buffer_half_float.idl
+  Interface:
+    Name: EXT_color_buffer_half_float
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: RGBA16F_EXT
+        Value: "0x881A"
+        Type:
+          Name: GLenum
+      - Name: RGB16F_EXT
+        Value: "0x881B"
+        Type:
+          Name: GLenum
+      - Name: FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT
+        Value: "0x8211"
+        Type:
+          Name: GLenum
+      - Name: UNSIGNED_NORMALIZED_EXT
+        Value: "0x8C17"
+        Type:
+          Name: GLenum
+- File: EXT_disjoint_timer_query.idl
+  Interface:
+    Name: EXT_disjoint_timer_query
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: QUERY_COUNTER_BITS_EXT
+        Value: "0x8864"
+        Type:
+          Name: GLenum
+      - Name: CURRENT_QUERY_EXT
+        Value: "0x8865"
+        Type:
+          Name: GLenum
+      - Name: QUERY_RESULT_EXT
+        Value: "0x8866"
+        Type:
+          Name: GLenum
+      - Name: QUERY_RESULT_AVAILABLE_EXT
+        Value: "0x8867"
+        Type:
+          Name: GLenum
+      - Name: TIME_ELAPSED_EXT
+        Value: "0x88BF"
+        Type:
+          Name: GLenum
+      - Name: TIMESTAMP_EXT
+        Value: "0x8E28"
+        Type:
+          Name: GLenum
+      - Name: GPU_DISJOINT_EXT
+        Value: "0x8FBB"
+        Type:
+          Name: GLenum
+    Operations:
+      - Name: createQueryEXT
+        Returns:
+          - Name: WebGLTimerQueryEXT
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: deleteQueryEXT
+        Args:
+          - Name: query
+            Type:
+              Name: WebGLTimerQueryEXT
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: isQueryEXT
+        Args:
+          - Name: query
+            Type:
+              Name: WebGLTimerQueryEXT
+              Nullable: true
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: WebGLHandlesContextLoss
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: beginQueryEXT
+        Args:
+          - Name: target
+            Type:
+              Name: GLenum
+          - Name: query
+            Type:
+              Name: WebGLTimerQueryEXT
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: endQueryEXT
+        Args:
+          - Name: target
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: queryCounterEXT
+        Args:
+          - Name: query
+            Type:
+              Name: WebGLTimerQueryEXT
+          - Name: target
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: getQueryEXT
+        Args:
+          - Name: target
+            Type:
+              Name: GLenum
+          - Name: pname
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+      - Name: getQueryObjectEXT
+        Args:
+          - Name: query
+            Type:
+              Name: WebGLTimerQueryEXT
+          - Name: pname
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+- File: EXT_disjoint_timer_query_webgl2.idl
+  Interface:
+    Name: EXT_disjoint_timer_query_webgl2
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: QUERY_COUNTER_BITS_EXT
+        Value: "0x8864"
+        Type:
+          Name: GLenum
+      - Name: TIME_ELAPSED_EXT
+        Value: "0x88BF"
+        Type:
+          Name: GLenum
+      - Name: TIMESTAMP_EXT
+        Value: "0x8E28"
+        Type:
+          Name: GLenum
+      - Name: GPU_DISJOINT_EXT
+        Value: "0x8FBB"
+        Type:
+          Name: GLenum
+    Operations:
+      - Name: queryCounterEXT
+        Args:
+          - Name: query
+            Type:
+              Name: WebGLQuery
+          - Name: target
+            Type:
+              Name: GLenum
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+          - Name: LegacyNoInterfaceObject
+- File: EXT_float_blend.idl
+  Interface:
+    Name: EXT_float_blend
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: EXT_frag_depth.idl
+  Interface:
+    Name: EXT_frag_depth
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: EXT_sRGB.idl
+  Interface:
+    Name: EXT_sRGB
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: SRGB_EXT
+        Value: "0x8C40"
+        Type:
+          Name: GLenum
+      - Name: SRGB_ALPHA_EXT
+        Value: "0x8C42"
+        Type:
+          Name: GLenum
+      - Name: SRGB8_ALPHA8_EXT
+        Value: "0x8C43"
+        Type:
+          Name: GLenum
+      - Name: FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT
+        Value: "0x8210"
+        Type:
+          Name: GLenum
+- File: EXT_shader_texture_lod.idl
+  Interface:
+    Name: EXT_shader_texture_lod
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+- File: EXT_texture_compression_bptc.idl
+  Interface:
+    Name: EXT_texture_compression_bptc
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: COMPRESSED_RGBA_BPTC_UNORM_EXT
+        Value: "0x8E8C"
+        Type:
+          Name: GLenum
+      - Name: COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT
+        Value: "0x8E8D"
+        Type:
+          Name: GLenum
+      - Name: COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT
+        Value: "0x8E8E"
+        Type:
+          Name: GLenum
+      - Name: COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT
+        Value: "0x8E8F"
+        Type:
+          Name: GLenum
+- File: EXT_texture_compression_rgtc.idl
+  Interface:
+    Name: EXT_texture_compression_rgtc
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: COMPRESSED_RED_RGTC1_EXT
+        Value: "0x8DBB"
+        Type:
+          Name: GLenum
+      - Name: COMPRESSED_SIGNED_RED_RGTC1_EXT
+        Value: "0x8DBC"
+        Type:
+          Name: GLenum
+      - Name: COMPRESSED_RED_GREEN_RGTC2_EXT
+        Value: "0x8DBD"
+        Type:
+          Name: GLenum
+      - Name: COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT
+        Value: "0x8DBE"
+        Type:
+          Name: GLenum
+- File: EXT_texture_filter_anisotropic.idl
+  Interface:
+    Name: EXT_texture_filter_anisotropic
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: TEXTURE_MAX_ANISOTROPY_EXT
+        Value: "0x84FE"
+        Type:
+          Name: GLenum
+      - Name: MAX_TEXTURE_MAX_ANISOTROPY_EXT
+        Value: "0x84FF"
+        Type:
+          Name: GLenum
+- File: EXT_texture_norm16.idl
+  Interface:
+    Name: EXT_texture_norm16
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: R16_EXT
+        Value: "0x822A"
+        Type:
+          Name: GLenum
+      - Name: RG16_EXT
+        Value: "0x822C"
+        Type:
+          Name: GLenum
+      - Name: RGB16_EXT
+        Value: "0x8054"
+        Type:
+          Name: GLenum
+      - Name: RGBA16_EXT
+        Value: "0x805B"
+        Type:
+          Name: GLenum
+      - Name: R16_SNORM_EXT
+        Value: "0x8F98"
+        Type:
+          Name: GLenum
+      - Name: RG16_SNORM_EXT
+        Value: "0x8F99"
+        Type:
+          Name: GLenum
+      - Name: RGB16_SNORM_EXT
+        Value: "0x8F9A"
+        Type:
+          Name: GLenum
+      - Name: RGBA16_SNORM_EXT
+        Value: "0x8F9B"
+        Type:
+          Name: GLenum
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: EcKeyAlgorithm
+    Inherits: KeyAlgorithm
+    Fields:
+      - Name: namedCurve
+        Required: true
+        Type:
+          Name: NamedCurve
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: EcKeyGenParams
+    Inherits: Algorithm
+    Fields:
+      - Name: namedCurve
+        Required: true
+        Type:
+          Name: NamedCurve
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: EcKeyImportParams
+    Inherits: Algorithm
+    Fields:
+      - Name: namedCurve
+        Required: true
+        Type:
+          Name: NamedCurve
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: EcdhKeyDeriveParams
+    Inherits: Algorithm
+    Fields:
+      - Name: public
+        Required: true
+        Type:
+          Name: CryptoKey
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: EcdsaParams
+    Inherits: Algorithm
+    Fields:
+      - Name: hash
+        Required: true
+        Type:
+          Name: HashAlgorithmIdentifier
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: webcrypto-secure-curves.idl
+  Dict:
+    Name: Ed448Params
+    Inherits: Algorithm
+    Fields:
+      - Name: context
+        Type:
+          Name: BufferSource
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: edit-context.idl
+  Interface:
+    Name: EditContext
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: text
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionStart
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionEnd
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: compositionRangeStart
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: compositionRangeEnd
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isComposing
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: controlBounds
+        Readonly: true
+        Type:
+          Name: DOMRect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionBounds
+        Readonly: true
+        Type:
+          Name: DOMRect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: characterBoundsRangeStart
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ontextupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ontextformatupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oncharacterboundsupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oncompositionstart
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oncompositionend
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: updateText
+        Args:
+          - Name: rangeStart
+            Type:
+              Name: unsigned long
+          - Name: rangeEnd
+            Type:
+              Name: unsigned long
+          - Name: text
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updateSelection
+        Args:
+          - Name: start
+            Type:
+              Name: unsigned long
+          - Name: end
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updateControlBounds
+        Args:
+          - Name: controlBounds
+            Type:
+              Name: DOMRect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updateSelectionBounds
+        Args:
+          - Name: selectionBounds
+            Type:
+              Name: DOMRect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: updateCharacterBounds
+        Args:
+          - Name: rangeStart
+            Type:
+              Name: unsigned long
+          - Name: characterBounds
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMRect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attachedElements
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: characterBounds
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: DOMRect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: EditContextInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: edit-context.idl
+  Dict:
+    Name: EditContextInit
+    Fields:
+      - Name: text
+        Type:
+          Name: DOMString
+      - Name: selectionStart
+        Type:
+          Name: unsigned long
+      - Name: selectionEnd
+        Type:
+          Name: unsigned long
+- File: web-animations-2.idl
+  Callback:
+    Name: EffectCallback
+    Args:
+      - Name: progress
+        Type:
+          Name: double
+          Nullable: true
+      - Name: currentTarget
+        Type:
+          Union:
+            - Name: Element
+            - Name: CSSPseudoElement
+      - Name: animation
+        Type:
+          Name: Animation
+    Returns:
+      - Name: undefined
+- File: web-animations.idl
+  Dict:
+    Name: EffectTiming
+    Fields:
+      - Name: fill
+        Default: '"auto"'
+        Type:
+          Name: FillMode
+      - Name: iterationStart
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: iterations
+        Default: "1.0"
+        Type:
+          Name: unrestricted double
+      - Name: direction
+        Default: '"normal"'
+        Type:
+          Name: PlaybackDirection
+      - Name: easing
+        Default: '"linear"'
+        Type:
+          Name: DOMString
+      - Name: delay
+        Type:
+          Name: double
+      - Name: endDelay
+        Type:
+          Name: double
+      - Name: playbackRate
+        Default: "1.0"
+        Type:
+          Name: double
+      - Name: duration
+        Default: '"auto"'
+        Type:
+          Union:
+            - Name: unrestricted double
+            - Name: CSSNumericValue
+            - Name: DOMString
+- File: netinfo.idl
+  Enum:
+    Name: EffectiveConnectionType
+    Values:
+      - 2g
+      - 3g
+      - 4g
+      - slow-2g
+- File: dom.idl
+  Interface:
+    Name: Element
+    Inherits: Node
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: namespaceURI
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: prefix
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: localName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: tagName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: className
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: classList
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: slot
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attributes
+        Readonly: true
+        Type:
+          Name: NamedNodeMap
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: shadowRoot
+        Readonly: true
+        Type:
+          Name: ShadowRoot
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onfullscreenchange
+        Type:
+          Name: EventHandler
+      - Name: onfullscreenerror
+        Type:
+          Name: EventHandler
+      - Name: elementTiming
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: part
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+      - Name: outerHTML
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: scrollTop
+        Type:
+          Name: unrestricted double
+      - Name: scrollLeft
+        Type:
+          Name: unrestricted double
+      - Name: scrollWidth
+        Readonly: true
+        Type:
+          Name: long
+      - Name: scrollHeight
+        Readonly: true
+        Type:
+          Name: long
+      - Name: clientTop
+        Readonly: true
+        Type:
+          Name: long
+      - Name: clientLeft
+        Readonly: true
+        Type:
+          Name: long
+      - Name: clientWidth
+        Readonly: true
+        Type:
+          Name: long
+      - Name: clientHeight
+        Readonly: true
+        Type:
+          Name: long
+      - Name: role
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaActiveDescendantElement
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaAtomic
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaAutoComplete
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaBusy
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaChecked
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColCount
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColIndex
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColIndexText
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColSpan
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaControlsElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaCurrent
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDescribedByElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDescription
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDetailsElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDisabled
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaErrorMessageElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaExpanded
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaFlowToElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaHasPopup
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaHidden
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaInvalid
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaKeyShortcuts
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLabel
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLabelledByElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLevel
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLive
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaModal
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaMultiLine
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaMultiSelectable
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaOrientation
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaOwnsElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaPlaceholder
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaPosInSet
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaPressed
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaReadOnly
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRequired
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRoleDescription
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowCount
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowIndex
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowIndexText
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowSpan
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaSelected
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaSetSize
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaSort
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueMax
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueMin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueNow
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueText
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: innerHTML
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: children
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+      - Name: firstElementChild
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: lastElementChild
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: childElementCount
+        Readonly: true
+        Type:
+          Name: unsigned long
+      - Name: previousElementSibling
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: nextElementSibling
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+      - Name: assignedSlot
+        Readonly: true
+        Type:
+          Name: HTMLSlotElement
+          Nullable: true
+      - Name: regionOverset
+        Readonly: true
+        Type:
+          Name: CSSOMString
+    Operations:
+      - Name: hasAttributes
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAttributeNames
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAttribute
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAttributeNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setAttribute
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+          - Name: value
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setAttributeNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+          - Name: value
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeAttribute
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeAttributeNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: toggleAttribute
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+          - Name: force
+            Optional: true
+            Type:
+              Name: boolean
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hasAttribute
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hasAttributeNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAttributeNode
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getAttributeNodeNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setAttributeNode
+        Args:
+          - Name: attr
+            Type:
+              Name: Attr
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setAttributeNodeNS
+        Args:
+          - Name: attr
+            Type:
+              Name: Attr
+        Returns:
+          - Name: Attr
+            Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removeAttributeNode
+        Args:
+          - Name: attr
+            Type:
+              Name: Attr
+        Returns:
+          - Name: Attr
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attachShadow
+        Args:
+          - Name: init
+            Type:
+              Name: ShadowRootInit
+        Returns:
+          - Name: ShadowRoot
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: closest
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: matches
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: webkitMatchesSelector
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getElementsByTagName
+        Args:
+          - Name: qualifiedName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: HTMLCollection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getElementsByTagNameNS
+        Args:
+          - Name: namespace
+            Type:
+              Name: DOMString
+              Nullable: true
+          - Name: localName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: HTMLCollection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getElementsByClassName
+        Args:
+          - Name: classNames
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: HTMLCollection
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertAdjacentElement
+        Args:
+          - Name: where
+            Type:
+              Name: DOMString
+          - Name: element
+            Type:
+              Name: Element
+        Returns:
+          - Name: Element
+            Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertAdjacentText
+        Args:
+          - Name: where
+            Type:
+              Name: DOMString
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: requestFullscreen
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FullscreenOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+      - Name: requestPointerLock
+        Returns:
+          - Name: undefined
+      - Name: computedStyleMap
+        Returns:
+          - Name: StylePropertyMapReadOnly
+        ExtAttrs:
+          - Name: SameObject
+      - Name: getSpatialNavigationContainer
+        Returns:
+          - Name: Node
+      - Name: focusableAreas
+        Args:
+          - Name: option
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: FocusableAreasOption
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Node
+      - Name: spatialNavigationSearch
+        Args:
+          - Name: dir
+            Type:
+              Name: SpatialNavigationDirection
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SpatialNavigationSearchOptions
+        Returns:
+          - Name: Node
+            Nullable: true
+      - Name: setPointerCapture
+        Args:
+          - Name: pointerId
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: releasePointerCapture
+        Args:
+          - Name: pointerId
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: hasPointerCapture
+        Args:
+          - Name: pointerId
+            Type:
+              Name: long
+        Returns:
+          - Name: boolean
+      - Name: pseudo
+        Args:
+          - Name: type
+            Type:
+              Name: CSSOMString
+        Returns:
+          - Name: CSSPseudoElement
+            Nullable: true
+      - Name: insertAdjacentHTML
+        Args:
+          - Name: position
+            Type:
+              Name: DOMString
+          - Name: text
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: setHTML
+        Args:
+          - Name: input
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SetHTMLOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: getClientRects
+        Returns:
+          - Name: DOMRectList
+      - Name: getBoundingClientRect
+        Returns:
+          - Name: DOMRect
+        ExtAttrs:
+          - Name: NewObject
+      - Name: checkVisibility
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: CheckVisibilityOptions
+        Returns:
+          - Name: boolean
+      - Name: scrollIntoView
+        Args:
+          - Name: arg
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: boolean
+                - Name: ScrollIntoViewOptions
+        Returns:
+          - Name: undefined
+      - Name: scroll
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ScrollToOptions
+        Returns:
+          - Name: undefined
+      - Name: scroll
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: scrollTo
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ScrollToOptions
+        Returns:
+          - Name: undefined
+      - Name: scrollTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: scrollBy
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ScrollToOptions
+        Returns:
+          - Name: undefined
+      - Name: scrollBy
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: getBoxQuads
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: BoxQuadOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: DOMQuad
+      - Name: convertQuadFromNode
+        Args:
+          - Name: quad
+            Type:
+              Name: DOMQuadInit
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMQuad
+      - Name: convertRectFromNode
+        Args:
+          - Name: rect
+            Type:
+              Name: DOMRectReadOnly
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMQuad
+      - Name: convertPointFromNode
+        Args:
+          - Name: point
+            Type:
+              Name: DOMPointInit
+          - Name: from
+            Type:
+              Name: GeometryNode
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ConvertCoordinateOptions
+        Returns:
+          - Name: DOMPoint
+      - Name: prepend
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: append
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: replaceChildren
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: querySelector
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Element
+            Nullable: true
+      - Name: querySelectorAll
+        Args:
+          - Name: selectors
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: NodeList
+        ExtAttrs:
+          - Name: NewObject
+      - Name: before
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: after
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: replaceWith
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Node
+                - Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: remove
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Unscopable
+      - Name: animate
+        Args:
+          - Name: keyframes
+            Type:
+              Name: object
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: unrestricted double
+                - Name: KeyframeAnimationOptions
+        Returns:
+          - Name: Animation
+      - Name: getAnimations
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GetAnimationsOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Animation
+      - Name: getRegionFlowRanges
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Range
+            Nullable: true
+- File: dom.idl
+  Dict:
+    Name: ElementCreationOptions
+    Fields:
+      - Name: is
+        Type:
+          Name: DOMString
+- File: html.idl
+  Dict:
+    Name: ElementDefinitionOptions
+    Fields:
+      - Name: extends
+        Type:
+          Name: DOMString
+- File: html.idl
+  Interface:
+    Name: ElementInternals
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: shadowRoot
+        Readonly: true
+        Type:
+          Name: ShadowRoot
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: willValidate
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validity
+        Readonly: true
+        Type:
+          Name: ValidityState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validationMessage
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: labels
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: states
+        Readonly: true
+        Type:
+          Name: CustomStateSet
+      - Name: role
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaActiveDescendantElement
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaAtomic
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaAutoComplete
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaBusy
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaChecked
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColCount
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColIndex
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColIndexText
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaColSpan
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaControlsElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaCurrent
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDescribedByElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDescription
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDetailsElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaDisabled
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaErrorMessageElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaExpanded
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaFlowToElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaHasPopup
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaHidden
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaInvalid
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaKeyShortcuts
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLabel
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLabelledByElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLevel
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaLive
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaModal
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaMultiLine
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaMultiSelectable
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaOrientation
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaOwnsElements
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaPlaceholder
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaPosInSet
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaPressed
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaReadOnly
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRequired
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRoleDescription
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowCount
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowIndex
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowIndexText
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaRowSpan
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaSelected
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaSetSize
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaSort
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueMax
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueMin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueNow
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ariaValueText
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: setFormValue
+        Args:
+          - Name: value
+            Type:
+              Union:
+                - Name: File
+                - Name: USVString
+                - Name: FormData
+              Nullable: true
+          - Name: state
+            Optional: true
+            Type:
+              Union:
+                - Name: File
+                - Name: USVString
+                - Name: FormData
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setValidity
+        Args:
+          - Name: flags
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ValidityStateFlags
+          - Name: message
+            Optional: true
+            Type:
+              Name: DOMString
+          - Name: anchor
+            Optional: true
+            Type:
+              Name: HTMLElement
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: checkValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reportValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webcodecs.idl
+  Interface:
+    Name: EncodedAudioChunk
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: Serializable
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: EncodedAudioChunkType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+      - Name: duration
+        Readonly: true
+        Type:
+          Name: unsigned long long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+      - Name: byteLength
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+    Operations:
+      - Name: copyTo
+        Args:
+          - Name: destination
+            Type:
+              Name: AllowSharedBufferSource
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: EncodedAudioChunkInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+- File: webcodecs.idl
+  Dict:
+    Name: EncodedAudioChunkInit
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: EncodedAudioChunkType
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: duration
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: data
+        Required: true
+        Type:
+          Name: BufferSource
+- File: webcodecs.idl
+  Dict:
+    Name: EncodedAudioChunkMetadata
+    Fields:
+      - Name: decoderConfig
+        Type:
+          Name: AudioDecoderConfig
+- File: webcodecs.idl
+  Callback:
+    Name: EncodedAudioChunkOutputCallback
+    Args:
+      - Name: output
+        Type:
+          Name: EncodedAudioChunk
+      - Name: metadata
+        Optional: true
+        Default: '{}'
+        Type:
+          Name: EncodedAudioChunkMetadata
+    Returns:
+      - Name: undefined
+- File: webcodecs.idl
+  Enum:
+    Name: EncodedAudioChunkType
+    Values:
+      - key
+      - delta
+- File: webcodecs.idl
+  Interface:
+    Name: EncodedVideoChunk
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: Serializable
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: EncodedVideoChunkType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+      - Name: timestamp
+        Readonly: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+      - Name: duration
+        Readonly: true
+        Type:
+          Name: unsigned long long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+      - Name: byteLength
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+    Operations:
+      - Name: copyTo
+        Args:
+          - Name: destination
+            Type:
+              Name: AllowSharedBufferSource
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: EncodedVideoChunkInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+- File: webcodecs.idl
+  Dict:
+    Name: EncodedVideoChunkInit
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: EncodedVideoChunkType
+      - Name: timestamp
+        Required: true
+        Type:
+          Name: long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: duration
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: data
+        Required: true
+        Type:
+          Name: AllowSharedBufferSource
+- File: webcodecs.idl
+  Dict:
+    Name: EncodedVideoChunkMetadata
+    Fields:
+      - Name: decoderConfig
+        Type:
+          Name: VideoDecoderConfig
+      - Name: svc
+        Type:
+          Name: SvcOutputMetadata
+      - Name: alphaSideData
+        Type:
+          Name: BufferSource
+- File: webcodecs.idl
+  Callback:
+    Name: EncodedVideoChunkOutputCallback
+    Args:
+      - Name: chunk
+        Type:
+          Name: EncodedVideoChunk
+      - Name: metadata
+        Optional: true
+        Default: '{}'
+        Type:
+          Name: EncodedVideoChunkMetadata
+    Returns:
+      - Name: undefined
+- File: webcodecs.idl
+  Enum:
+    Name: EncodedVideoChunkType
+    Values:
+      - key
+      - delta
+- File: media-source.idl
+  Enum:
+    Name: EndOfStreamError
+    Values:
+      - network
+      - decode
+- File: FileAPI.idl
+  Enum:
+    Name: EndingType
+    Values:
+      - transparent
+      - native
+- File: hr-time.idl
+  Typedef:
+    Name: EpochTimeStamp
+    Type:
+      Name: unsigned long long
+- File: epub-rs.idl
+  Interface:
+    Name: EpubReadingSystem
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: hasFeature
+        Args:
+          - Name: feature
+            Type:
+              Name: DOMString
+          - Name: version
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: entries-api.idl
+  Callback:
+    Name: ErrorCallback
+    Args:
+      - Name: err
+        Type:
+          Name: DOMException
+    Returns:
+      - Name: undefined
+- File: html.idl
+  Interface:
+    Name: ErrorEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+      - Name: filename
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+      - Name: lineno
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+      - Name: colno
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+      - Name: error
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ErrorEventInit
+        ExtAttrs:
+          - Name: Exposed
+- File: html.idl
+  Dict:
+    Name: ErrorEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: message
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: filename
+        Default: '""'
+        Type:
+          Name: USVString
+      - Name: lineno
+        Default: "0"
+        Type:
+          Name: unsigned long
+      - Name: colno
+        Default: "0"
+        Type:
+          Name: unsigned long
+      - Name: error
+        Type:
+          Name: any
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: dom.idl
+  Interface:
+    Name: Event
+    ExtAttrs:
+      - Name: Exposed
+    Constants:
+      - Name: NONE
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: CAPTURING_PHASE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: AT_TARGET
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: BUBBLING_PHASE
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+      - Name: target
+        Readonly: true
+        Type:
+          Name: EventTarget
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+      - Name: srcElement
+        Readonly: true
+        Type:
+          Name: EventTarget
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+      - Name: currentTarget
+        Readonly: true
+        Type:
+          Name: EventTarget
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+      - Name: eventPhase
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+      - Name: cancelBubble
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+      - Name: bubbles
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+      - Name: cancelable
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+      - Name: returnValue
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+      - Name: defaultPrevented
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+      - Name: composed
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+      - Name: isTrusted
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+      - Name: timeStamp
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+    Operations:
+      - Name: composedPath
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: EventTarget
+        ExtAttrs:
+          - Name: Exposed
+      - Name: stopPropagation
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: stopImmediatePropagation
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: preventDefault
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: initEvent
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: bubbles
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: cancelable
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: EventInit
+        ExtAttrs:
+          - Name: Exposed
+- File: event-timing.idl
+  Interface:
+    Name: EventCounts
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: DOMString
+        - Name: unsigned long long
+      Readonly: true

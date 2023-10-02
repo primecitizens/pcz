@@ -18,8 +18,8 @@ import (
 // this constraint will be modified to include them.
 type Ordered interface{ num.Integer | ~string }
 
-// Less reports whether x is less than y.
-func Less[T Ordered](x, y T) bool { return x < y }
+// Less reports whether a is less than b.
+func Less[T Ordered](a, b T) bool { return a < b }
 
 // Compare returns
 //
@@ -41,10 +41,10 @@ func Compare[T Ordered](x, y T) int {
 // Note that floating-point types may contain NaN ("not-a-number") values.
 // An operator such as == or < will always report false when
 // comparing a NaN value with any other value, NaN or not.
-// See the [Compare] function for a consistent way to compare NaN values.
+// See the [FCompare] function for a consistent way to compare NaN values.
 type FOrdered interface{ Ordered | num.Float }
 
-// FLess is Less with floating-point types allowed.
+// FLess is Less with floating-point types.
 //
 // Note:
 //   - A NaN is considered less than any non-NaN

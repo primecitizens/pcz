@@ -9,7 +9,6 @@ package reflect
 
 import (
 	"unsafe"
-	_ "unsafe" // for go:linkname
 
 	"github.com/primecitizens/std/core/abi"
 	"github.com/primecitizens/std/core/assert"
@@ -88,7 +87,7 @@ func call536870912(typ, fn, stackArgs unsafe.Pointer, stackArgsSize, stackRetOff
 func call1073741824(typ, fn, stackArgs unsafe.Pointer, stackArgsSize, stackRetOffset, frameSize uint32, regArgs *abi.RegArgs)
 
 func badreflectcall() {
-	assert.Throw("arg size to reflect.call more than 1GB")
+	assert.Throw("arg", "size", "to", "reflect.call", "more", "than", "1GB")
 }
 
 // reflectcallmove is invoked by reflectcall to copy the return values
@@ -106,7 +105,7 @@ func reflectcallmove(typ *abi.Type, dst, src unsafe.Pointer, size uintptr, regs 
 	// 	bulkBarrierPreWrite(uintptr(dst), uintptr(src), size)
 	// }
 
-	mem.Memmove(dst, src, size)
+	mem.Move(dst, src, size)
 
 	// Move pointers returned in registers to a place where the GC can see them.
 	for i := range regs.Ints {

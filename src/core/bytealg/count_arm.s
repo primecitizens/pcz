@@ -5,16 +5,18 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && arm
+
 #include "textflag.h"
 
-TEXT ·Count(SB),NOSPLIT,$0-20
+TEXT ·CountSlice(SB),NOSPLIT,$0-20
 	MOVW b_base+0(FP), R0
 	MOVW b_len+4(FP), R1
 	MOVBU c+12(FP), R2
 	MOVW $ret+16(FP), R7
 	B countbytebody<>(SB)
 
-TEXT ·CountString(SB),NOSPLIT,$0-16
+TEXT ·Count(SB),NOSPLIT,$0-16
 	MOVW s_base+0(FP), R0
 	MOVW s_len+4(FP), R1
 	MOVBU c+8(FP), R2

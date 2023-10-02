@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+//go:build pcz && arm64
+
 #include "textflag.h"
 
 TEXT ·SetFPUMode<ABIInternal>(SB),NOSPLIT,$0

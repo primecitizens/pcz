@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/primecitizens/cli"
-	"github.com/primecitizens/pcz/cmd/buildcfg"
+	"github.com/primecitizens/pcz/cmd/build/toolchain"
 )
 
 func Cmd() *cli.Cmd {
@@ -16,8 +16,8 @@ func Cmd() *cli.Cmd {
 }
 
 var (
-	_buildOpts = buildcfg.BuildOptions{
-		Context: &buildcfg.Context,
+	_buildOpts = toolchain.Options{
+		Context: &toolchain.Context,
 	}
 	_opts  = Options{}
 	_build = cli.Cmd{
@@ -39,7 +39,7 @@ func runBuild(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string)
 		return fmt.Errorf("expecting exactly one package to build, got %d", len(posArgs))
 	}
 
-	tc := buildcfg.NewToolchain(route.Target().Extra.(*buildcfg.BuildOptions))
+	tc := toolchain.NewToolchain(route.Target().Extra.(*toolchain.Options))
 	if err := tc.VerifyVersion(tc.GoVersion()); err != nil {
 		panic(err)
 	}
@@ -49,7 +49,12 @@ func runBuild(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []string)
 		panic(err)
 	}
 
-	err = tc.Build(posArgs[0], output)
+	pkgs, err := tc.List(posArgs[0])
+	if err != nil {
+		panic(err)
+	}
+
+	err = tc.Build(pkgs, output)
 	if err != nil {
 		panic(err)
 	}

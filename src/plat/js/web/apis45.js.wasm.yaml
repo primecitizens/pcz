@@ -1,0 +1,4101 @@
+- File: uievents.idl
+  Interface:
+    Name: WheelEvent
+    Inherits: MouseEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: DOM_DELTA_PIXEL
+        Value: "0x00"
+        Type:
+          Name: unsigned long
+      - Name: DOM_DELTA_LINE
+        Value: "0x01"
+        Type:
+          Name: unsigned long
+      - Name: DOM_DELTA_PAGE
+        Value: "0x02"
+        Type:
+          Name: unsigned long
+    Attrs:
+      - Name: deltaX
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deltaY
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deltaZ
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deltaMode
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: WheelEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: uievents.idl
+  Dict:
+    Name: WheelEventInit
+    Inherits: MouseEventInit
+    Fields:
+      - Name: deltaX
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: deltaY
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: deltaZ
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: deltaMode
+        Default: "0"
+        Type:
+          Name: unsigned long
+      - Name: screenX
+        Default: "0"
+        Type:
+          Name: long
+      - Name: screenY
+        Default: "0"
+        Type:
+          Name: long
+      - Name: clientX
+        Default: "0"
+        Type:
+          Name: long
+      - Name: clientY
+        Default: "0"
+        Type:
+          Name: long
+      - Name: button
+        Default: "0"
+        Type:
+          Name: short
+      - Name: buttons
+        Default: "0"
+        Type:
+          Name: unsigned short
+      - Name: relatedTarget
+        Default: "null"
+        Type:
+          Name: EventTarget
+          Nullable: true
+      - Name: ctrlKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: shiftKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: altKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: metaKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierAltGraph
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierCapsLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFn
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFnLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierHyper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierNumLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierScrollLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSuper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbol
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbolLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: view
+        Default: "null"
+        Type:
+          Name: Window
+          Nullable: true
+      - Name: detail
+        Default: "0"
+        Type:
+          Name: long
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Interface:
+    Name: Window
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Global
+        Values:
+          - Window
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyUnenumerableNamedProperties
+    Attrs:
+      - Name: window
+        Readonly: true
+        Type:
+          Name: WindowProxy
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: self
+        Readonly: true
+        Type:
+          Name: WindowProxy
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: document
+        Readonly: true
+        Type:
+          Name: Document
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: location
+        Readonly: true
+        Type:
+          Name: Location
+        ExtAttrs:
+          - Name: PutForwards
+            Values:
+              - href
+          - Name: LegacyUnforgeable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: history
+        Readonly: true
+        Type:
+          Name: History
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: navigation
+        Readonly: true
+        Type:
+          Name: Navigation
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: customElements
+        Readonly: true
+        Type:
+          Name: CustomElementRegistry
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: locationbar
+        Readonly: true
+        Type:
+          Name: BarProp
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: menubar
+        Readonly: true
+        Type:
+          Name: BarProp
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: personalbar
+        Readonly: true
+        Type:
+          Name: BarProp
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: scrollbars
+        Readonly: true
+        Type:
+          Name: BarProp
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: statusbar
+        Readonly: true
+        Type:
+          Name: BarProp
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: toolbar
+        Readonly: true
+        Type:
+          Name: BarProp
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: status
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: closed
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: frames
+        Readonly: true
+        Type:
+          Name: WindowProxy
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: top
+        Readonly: true
+        Type:
+          Name: WindowProxy
+          Nullable: true
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: opener
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: parent
+        Readonly: true
+        Type:
+          Name: WindowProxy
+          Nullable: true
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: frameElement
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: navigator
+        Readonly: true
+        Type:
+          Name: Navigator
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: clientInformation
+        Readonly: true
+        Type:
+          Name: Navigator
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: originAgentCluster
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: orientation
+        Readonly: true
+        Type:
+          Name: short
+      - Name: onorientationchange
+        Type:
+          Name: EventHandler
+      - Name: ondeviceorientation
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: ondeviceorientationabsolute
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: launchQueue
+        Readonly: true
+        Type:
+          Name: LaunchQueue
+      - Name: fence
+        Readonly: true
+        Type:
+          Name: Fence
+          Nullable: true
+      - Name: ondevicemotion
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: portalHost
+        Readonly: true
+        Type:
+          Name: PortalHost
+          Nullable: true
+      - Name: screen
+        Readonly: true
+        Type:
+          Name: Screen
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Replaceable
+      - Name: visualViewport
+        Readonly: true
+        Type:
+          Name: VisualViewport
+          Nullable: true
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Replaceable
+      - Name: innerWidth
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: innerHeight
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: scrollX
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: pageXOffset
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: scrollY
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: pageYOffset
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: screenX
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: screenLeft
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: screenY
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: screenTop
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: outerWidth
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: outerHeight
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: devicePixelRatio
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: sharedStorage
+        Readonly: true
+        Type:
+          Name: WindowSharedStorage
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: event
+        Readonly: true
+        Type:
+          Union:
+            - Name: Event
+            - Name: undefined
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: cookieStore
+        Readonly: true
+        Type:
+          Name: CookieStore
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: onappinstalled
+        Type:
+          Name: EventHandler
+      - Name: onbeforeinstallprompt
+        Type:
+          Name: EventHandler
+      - Name: documentPictureInPicture
+        Readonly: true
+        Type:
+          Name: DocumentPictureInPicture
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: external
+        Readonly: true
+        Type:
+          Name: External
+        ExtAttrs:
+          - Name: Replaceable
+          - Name: SameObject
+      - Name: speechSynthesis
+        Readonly: true
+        Type:
+          Name: SpeechSynthesis
+        ExtAttrs:
+          - Name: SameObject
+      - Name: onabort
+        Type:
+          Name: EventHandler
+      - Name: onauxclick
+        Type:
+          Name: EventHandler
+      - Name: onbeforeinput
+        Type:
+          Name: EventHandler
+      - Name: onbeforematch
+        Type:
+          Name: EventHandler
+      - Name: onbeforetoggle
+        Type:
+          Name: EventHandler
+      - Name: onblur
+        Type:
+          Name: EventHandler
+      - Name: oncancel
+        Type:
+          Name: EventHandler
+      - Name: oncanplay
+        Type:
+          Name: EventHandler
+      - Name: oncanplaythrough
+        Type:
+          Name: EventHandler
+      - Name: onchange
+        Type:
+          Name: EventHandler
+      - Name: onclick
+        Type:
+          Name: EventHandler
+      - Name: onclose
+        Type:
+          Name: EventHandler
+      - Name: oncontextlost
+        Type:
+          Name: EventHandler
+      - Name: oncontextmenu
+        Type:
+          Name: EventHandler
+      - Name: oncontextrestored
+        Type:
+          Name: EventHandler
+      - Name: oncopy
+        Type:
+          Name: EventHandler
+      - Name: oncuechange
+        Type:
+          Name: EventHandler
+      - Name: oncut
+        Type:
+          Name: EventHandler
+      - Name: ondblclick
+        Type:
+          Name: EventHandler
+      - Name: ondrag
+        Type:
+          Name: EventHandler
+      - Name: ondragend
+        Type:
+          Name: EventHandler
+      - Name: ondragenter
+        Type:
+          Name: EventHandler
+      - Name: ondragleave
+        Type:
+          Name: EventHandler
+      - Name: ondragover
+        Type:
+          Name: EventHandler
+      - Name: ondragstart
+        Type:
+          Name: EventHandler
+      - Name: ondrop
+        Type:
+          Name: EventHandler
+      - Name: ondurationchange
+        Type:
+          Name: EventHandler
+      - Name: onemptied
+        Type:
+          Name: EventHandler
+      - Name: onended
+        Type:
+          Name: EventHandler
+      - Name: onerror
+        Type:
+          Name: OnErrorEventHandler
+      - Name: onfocus
+        Type:
+          Name: EventHandler
+      - Name: onformdata
+        Type:
+          Name: EventHandler
+      - Name: oninput
+        Type:
+          Name: EventHandler
+      - Name: oninvalid
+        Type:
+          Name: EventHandler
+      - Name: onkeydown
+        Type:
+          Name: EventHandler
+      - Name: onkeypress
+        Type:
+          Name: EventHandler
+      - Name: onkeyup
+        Type:
+          Name: EventHandler
+      - Name: onload
+        Type:
+          Name: EventHandler
+      - Name: onloadeddata
+        Type:
+          Name: EventHandler
+      - Name: onloadedmetadata
+        Type:
+          Name: EventHandler
+      - Name: onloadstart
+        Type:
+          Name: EventHandler
+      - Name: onmousedown
+        Type:
+          Name: EventHandler
+      - Name: onmouseenter
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmouseleave
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: LegacyLenientThis
+      - Name: onmousemove
+        Type:
+          Name: EventHandler
+      - Name: onmouseout
+        Type:
+          Name: EventHandler
+      - Name: onmouseover
+        Type:
+          Name: EventHandler
+      - Name: onmouseup
+        Type:
+          Name: EventHandler
+      - Name: onpaste
+        Type:
+          Name: EventHandler
+      - Name: onpause
+        Type:
+          Name: EventHandler
+      - Name: onplay
+        Type:
+          Name: EventHandler
+      - Name: onplaying
+        Type:
+          Name: EventHandler
+      - Name: onprogress
+        Type:
+          Name: EventHandler
+      - Name: onratechange
+        Type:
+          Name: EventHandler
+      - Name: onreset
+        Type:
+          Name: EventHandler
+      - Name: onresize
+        Type:
+          Name: EventHandler
+      - Name: onscroll
+        Type:
+          Name: EventHandler
+      - Name: onscrollend
+        Type:
+          Name: EventHandler
+      - Name: onsecuritypolicyviolation
+        Type:
+          Name: EventHandler
+      - Name: onseeked
+        Type:
+          Name: EventHandler
+      - Name: onseeking
+        Type:
+          Name: EventHandler
+      - Name: onselect
+        Type:
+          Name: EventHandler
+      - Name: onslotchange
+        Type:
+          Name: EventHandler
+      - Name: onstalled
+        Type:
+          Name: EventHandler
+      - Name: onsubmit
+        Type:
+          Name: EventHandler
+      - Name: onsuspend
+        Type:
+          Name: EventHandler
+      - Name: ontimeupdate
+        Type:
+          Name: EventHandler
+      - Name: ontoggle
+        Type:
+          Name: EventHandler
+      - Name: onvolumechange
+        Type:
+          Name: EventHandler
+      - Name: onwaiting
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationend
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onwebkitanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onwebkittransitionend
+        Type:
+          Name: EventHandler
+      - Name: onwheel
+        Type:
+          Name: EventHandler
+      - Name: onbeforexrselect
+        Type:
+          Name: EventHandler
+      - Name: onselectstart
+        Type:
+          Name: EventHandler
+      - Name: onselectionchange
+        Type:
+          Name: EventHandler
+      - Name: ontransitionrun
+        Type:
+          Name: EventHandler
+      - Name: ontransitionstart
+        Type:
+          Name: EventHandler
+      - Name: ontransitionend
+        Type:
+          Name: EventHandler
+      - Name: ontransitioncancel
+        Type:
+          Name: EventHandler
+      - Name: onanimationstart
+        Type:
+          Name: EventHandler
+      - Name: onanimationiteration
+        Type:
+          Name: EventHandler
+      - Name: onanimationend
+        Type:
+          Name: EventHandler
+      - Name: onanimationcancel
+        Type:
+          Name: EventHandler
+      - Name: ontouchstart
+        Type:
+          Name: EventHandler
+      - Name: ontouchend
+        Type:
+          Name: EventHandler
+      - Name: ontouchmove
+        Type:
+          Name: EventHandler
+      - Name: ontouchcancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerover
+        Type:
+          Name: EventHandler
+      - Name: onpointerenter
+        Type:
+          Name: EventHandler
+      - Name: onpointerdown
+        Type:
+          Name: EventHandler
+      - Name: onpointermove
+        Type:
+          Name: EventHandler
+      - Name: onpointerrawupdate
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: onpointerup
+        Type:
+          Name: EventHandler
+      - Name: onpointercancel
+        Type:
+          Name: EventHandler
+      - Name: onpointerout
+        Type:
+          Name: EventHandler
+      - Name: onpointerleave
+        Type:
+          Name: EventHandler
+      - Name: ongotpointercapture
+        Type:
+          Name: EventHandler
+      - Name: onlostpointercapture
+        Type:
+          Name: EventHandler
+      - Name: onafterprint
+        Type:
+          Name: EventHandler
+      - Name: onbeforeprint
+        Type:
+          Name: EventHandler
+      - Name: onbeforeunload
+        Type:
+          Name: OnBeforeUnloadEventHandler
+      - Name: onhashchange
+        Type:
+          Name: EventHandler
+      - Name: onlanguagechange
+        Type:
+          Name: EventHandler
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+      - Name: onmessageerror
+        Type:
+          Name: EventHandler
+      - Name: onoffline
+        Type:
+          Name: EventHandler
+      - Name: ononline
+        Type:
+          Name: EventHandler
+      - Name: onpagehide
+        Type:
+          Name: EventHandler
+      - Name: onpageshow
+        Type:
+          Name: EventHandler
+      - Name: onpopstate
+        Type:
+          Name: EventHandler
+      - Name: onrejectionhandled
+        Type:
+          Name: EventHandler
+      - Name: onstorage
+        Type:
+          Name: EventHandler
+      - Name: onunhandledrejection
+        Type:
+          Name: EventHandler
+      - Name: onunload
+        Type:
+          Name: EventHandler
+      - Name: ongamepadconnected
+        Type:
+          Name: EventHandler
+      - Name: ongamepaddisconnected
+        Type:
+          Name: EventHandler
+      - Name: onportalactivate
+        Type:
+          Name: EventHandler
+      - Name: origin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: isSecureContext
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: crossOriginIsolated
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: scheduler
+        Readonly: true
+        Type:
+          Name: Scheduler
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: trustedTypes
+        Readonly: true
+        Type:
+          Name: TrustedTypePolicyFactory
+      - Name: caches
+        Readonly: true
+        Type:
+          Name: CacheStorage
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: crypto
+        Readonly: true
+        Type:
+          Name: Crypto
+        ExtAttrs:
+          - Name: SameObject
+      - Name: indexedDB
+        Readonly: true
+        Type:
+          Name: IDBFactory
+        ExtAttrs:
+          - Name: SameObject
+      - Name: performance
+        Readonly: true
+        Type:
+          Name: Performance
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: sessionStorage
+        Readonly: true
+        Type:
+          Name: Storage
+      - Name: localStorage
+        Readonly: true
+        Type:
+          Name: Storage
+    Operations:
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: stop
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: focus
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: blur
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: open
+        Args:
+          - Name: url
+            Optional: true
+            Default: '""'
+            Type:
+              Name: USVString
+          - Name: target
+            Optional: true
+            Default: '"_blank"'
+            Type:
+              Name: DOMString
+          - Name: features
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: WindowProxy
+            Nullable: true
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Modifier: getter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: alert
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: alert
+        Args:
+          - Name: message
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: confirm
+        Args:
+          - Name: message
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: prompt
+        Args:
+          - Name: message
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: def
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+            Nullable: true
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: print
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: targetOrigin
+            Type:
+              Name: USVString
+          - Name: transfer
+            Optional: true
+            Default: '[]'
+            Type:
+              Name: sequence
+              Params:
+                - Name: object
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: WindowPostMessageOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Window
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: getSelection
+        Returns:
+          - Name: Selection
+            Nullable: true
+      - Name: navigate
+        Args:
+          - Name: dir
+            Type:
+              Name: SpatialNavigationDirection
+        Returns:
+          - Name: undefined
+      - Name: getComputedStyle
+        Args:
+          - Name: elt
+            Type:
+              Name: Element
+          - Name: pseudoElt
+            Optional: true
+            Type:
+              Name: CSSOMString
+              Nullable: true
+        Returns:
+          - Name: CSSStyleDeclaration
+        ExtAttrs:
+          - Name: NewObject
+      - Name: matchMedia
+        Args:
+          - Name: query
+            Type:
+              Name: CSSOMString
+        Returns:
+          - Name: MediaQueryList
+        ExtAttrs:
+          - Name: NewObject
+      - Name: moveTo
+        Args:
+          - Name: x
+            Type:
+              Name: long
+          - Name: "y"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: moveBy
+        Args:
+          - Name: x
+            Type:
+              Name: long
+          - Name: "y"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: resizeTo
+        Args:
+          - Name: width
+            Type:
+              Name: long
+          - Name: height
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: resizeBy
+        Args:
+          - Name: x
+            Type:
+              Name: long
+          - Name: "y"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: scroll
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ScrollToOptions
+        Returns:
+          - Name: undefined
+      - Name: scroll
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: scrollTo
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ScrollToOptions
+        Returns:
+          - Name: undefined
+      - Name: scrollTo
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: scrollBy
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ScrollToOptions
+        Returns:
+          - Name: undefined
+      - Name: scrollBy
+        Args:
+          - Name: x
+            Type:
+              Name: unrestricted double
+          - Name: "y"
+            Type:
+              Name: unrestricted double
+        Returns:
+          - Name: undefined
+      - Name: requestIdleCallback
+        Args:
+          - Name: callback
+            Type:
+              Name: IdleRequestCallback
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: IdleRequestOptions
+        Returns:
+          - Name: unsigned long
+      - Name: cancelIdleCallback
+        Args:
+          - Name: handle
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+      - Name: showOpenFilePicker
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: OpenFilePickerOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: FileSystemFileHandle
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: showSaveFilePicker
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SaveFilePickerOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FileSystemFileHandle
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: showDirectoryPicker
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: DirectoryPickerOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: FileSystemDirectoryHandle
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: queryLocalFonts
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: QueryOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: FontData
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: getScreenDetails
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ScreenDetails
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: getDigitalGoodsService
+        Args:
+          - Name: serviceProvider
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: DigitalGoodsService
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: captureEvents
+        Returns:
+          - Name: undefined
+      - Name: releaseEvents
+        Returns:
+          - Name: undefined
+      - Name: reportError
+        Args:
+          - Name: e
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+      - Name: btoa
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+      - Name: atob
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: ByteString
+      - Name: setTimeout
+        Args:
+          - Name: handler
+            Type:
+              Name: TimerHandler
+          - Name: timeout
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: arguments
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: long
+      - Name: clearTimeout
+        Args:
+          - Name: id
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: setInterval
+        Args:
+          - Name: handler
+            Type:
+              Name: TimerHandler
+          - Name: timeout
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: arguments
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: long
+      - Name: clearInterval
+        Args:
+          - Name: id
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: queueMicrotask
+        Args:
+          - Name: callback
+            Type:
+              Name: VoidFunction
+        Returns:
+          - Name: undefined
+      - Name: createImageBitmap
+        Args:
+          - Name: image
+            Type:
+              Name: ImageBitmapSource
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ImageBitmapOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ImageBitmap
+      - Name: createImageBitmap
+        Args:
+          - Name: image
+            Type:
+              Name: ImageBitmapSource
+          - Name: sx
+            Type:
+              Name: long
+          - Name: sy
+            Type:
+              Name: long
+          - Name: sw
+            Type:
+              Name: long
+          - Name: sh
+            Type:
+              Name: long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ImageBitmapOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ImageBitmap
+      - Name: structuredClone
+        Args:
+          - Name: value
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StructuredSerializeOptions
+        Returns:
+          - Name: any
+      - Name: fetch
+        Args:
+          - Name: input
+            Type:
+              Name: RequestInfo
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: RequestInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: Response
+        ExtAttrs:
+          - Name: NewObject
+      - Name: requestAnimationFrame
+        Args:
+          - Name: callback
+            Type:
+              Name: FrameRequestCallback
+        Returns:
+          - Name: unsigned long
+      - Name: cancelAnimationFrame
+        Args:
+          - Name: handle
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: undefined
+- File: service-workers.idl
+  Interface:
+    Name: WindowClient
+    Inherits: Client
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - ServiceWorker
+    Attrs:
+      - Name: visibilityState
+        Readonly: true
+        Type:
+          Name: DocumentVisibilityState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: focused
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: ancestorOrigins
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: USVString
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+    Operations:
+      - Name: focus
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: WindowClient
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+      - Name: navigate
+        Args:
+          - Name: url
+            Type:
+              Name: USVString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: WindowClient
+                Nullable: true
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+- File: window-controls-overlay.idl
+  Interface:
+    Name: WindowControlsOverlay
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: visible
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ongeometrychange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getTitlebarAreaRect
+        Returns:
+          - Name: DOMRect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: window-controls-overlay.idl
+  Interface:
+    Name: WindowControlsOverlayGeometryChangeEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: titlebarAreaRect
+        Readonly: true
+        Type:
+          Name: DOMRect
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: visible
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: WindowControlsOverlayGeometryChangeEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: window-controls-overlay.idl
+  Dict:
+    Name: WindowControlsOverlayGeometryChangeEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: titlebarAreaRect
+        Required: true
+        Type:
+          Name: DOMRect
+      - Name: visible
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Dict:
+    Name: WindowPostMessageOptions
+    Inherits: StructuredSerializeOptions
+    Fields:
+      - Name: targetOrigin
+        Default: '"/"'
+        Type:
+          Name: USVString
+      - Name: transfer
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: object
+- File: shared-storage.idl
+  Interface:
+    Name: WindowSharedStorage
+    Inherits: SharedStorage
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: worklet
+        Readonly: true
+        Type:
+          Name: SharedStorageWorklet
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: run
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SharedStorageRunOperationMethodOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectURL
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: urls
+            Type:
+              Name: FrozenArray
+              Params:
+                - Name: SharedStorageUrlWithMetadata
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: SharedStorageRunOperationMethodOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: SharedStorageResponse
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: Worker
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+          - SharedWorker
+    Attrs:
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: onmessageerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+    Operations:
+      - Name: terminate
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: transfer
+            Type:
+              Name: sequence
+              Params:
+                - Name: object
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StructuredSerializeOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+    Constructors:
+      - Args:
+          - Name: scriptURL
+            Type:
+              Name: USVString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: WorkerOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+- File: html.idl
+  Interface:
+    Name: WorkerGlobalScope
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Worker
+    Attrs:
+      - Name: self
+        Readonly: true
+        Type:
+          Name: WorkerGlobalScope
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: location
+        Readonly: true
+        Type:
+          Name: WorkerLocation
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: navigator
+        Readonly: true
+        Type:
+          Name: WorkerNavigator
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: onerror
+        Type:
+          Name: OnErrorEventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: onlanguagechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: onoffline
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: ononline
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: onrejectionhandled
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: onunhandledrejection
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: fonts
+        Readonly: true
+        Type:
+          Name: FontFaceSet
+      - Name: origin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: isSecureContext
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: crossOriginIsolated
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: scheduler
+        Readonly: true
+        Type:
+          Name: Scheduler
+        ExtAttrs:
+          - Name: Replaceable
+      - Name: trustedTypes
+        Readonly: true
+        Type:
+          Name: TrustedTypePolicyFactory
+      - Name: caches
+        Readonly: true
+        Type:
+          Name: CacheStorage
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: crypto
+        Readonly: true
+        Type:
+          Name: Crypto
+        ExtAttrs:
+          - Name: SameObject
+      - Name: indexedDB
+        Readonly: true
+        Type:
+          Name: IDBFactory
+        ExtAttrs:
+          - Name: SameObject
+      - Name: performance
+        Readonly: true
+        Type:
+          Name: Performance
+        ExtAttrs:
+          - Name: Replaceable
+    Operations:
+      - Name: importScripts
+        Args:
+          - Name: urls
+            Variadic: true
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: reportError
+        Args:
+          - Name: e
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+      - Name: btoa
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: DOMString
+      - Name: atob
+        Args:
+          - Name: data
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: ByteString
+      - Name: setTimeout
+        Args:
+          - Name: handler
+            Type:
+              Name: TimerHandler
+          - Name: timeout
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: arguments
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: long
+      - Name: clearTimeout
+        Args:
+          - Name: id
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: setInterval
+        Args:
+          - Name: handler
+            Type:
+              Name: TimerHandler
+          - Name: timeout
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: arguments
+            Variadic: true
+            Type:
+              Name: any
+        Returns:
+          - Name: long
+      - Name: clearInterval
+        Args:
+          - Name: id
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+      - Name: queueMicrotask
+        Args:
+          - Name: callback
+            Type:
+              Name: VoidFunction
+        Returns:
+          - Name: undefined
+      - Name: createImageBitmap
+        Args:
+          - Name: image
+            Type:
+              Name: ImageBitmapSource
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ImageBitmapOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ImageBitmap
+      - Name: createImageBitmap
+        Args:
+          - Name: image
+            Type:
+              Name: ImageBitmapSource
+          - Name: sx
+            Type:
+              Name: long
+          - Name: sy
+            Type:
+              Name: long
+          - Name: sw
+            Type:
+              Name: long
+          - Name: sh
+            Type:
+              Name: long
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ImageBitmapOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: ImageBitmap
+      - Name: structuredClone
+        Args:
+          - Name: value
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StructuredSerializeOptions
+        Returns:
+          - Name: any
+      - Name: fetch
+        Args:
+          - Name: input
+            Type:
+              Name: RequestInfo
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: RequestInit
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: Response
+        ExtAttrs:
+          - Name: NewObject
+- File: html.idl
+  Interface:
+    Name: WorkerLocation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Worker
+    Attrs:
+      - Name: href
+        Modifier: stringifier
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: origin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: protocol
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: host
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: hostname
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: port
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: pathname
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: search
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: hash
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Worker
+- File: html.idl
+  Interface:
+    Name: WorkerNavigator
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Worker
+    Attrs:
+      - Name: hid
+        Readonly: true
+        Type:
+          Name: HID
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - ServiceWorker
+          - Name: SecureContext
+      - Name: serial
+        Readonly: true
+        Type:
+          Name: Serial
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: permissions
+        Readonly: true
+        Type:
+          Name: Permissions
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: usb
+        Readonly: true
+        Type:
+          Name: USB
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Worker
+          - Name: SecureContext
+      - Name: mediaCapabilities
+        Readonly: true
+        Type:
+          Name: MediaCapabilities
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Worker
+      - Name: serviceWorker
+        Readonly: true
+        Type:
+          Name: ServiceWorkerContainer
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: userAgentData
+        Readonly: true
+        Type:
+          Name: NavigatorUAData
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: deviceMemory
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: storage
+        Readonly: true
+        Type:
+          Name: StorageManager
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: storageBuckets
+        Readonly: true
+        Type:
+          Name: StorageBucketManager
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+      - Name: locks
+        Readonly: true
+        Type:
+          Name: LockManager
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: appCodeName
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: appName
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: appVersion
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: platform
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: product
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: productSub
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: userAgent
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: vendor
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: vendorSub
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oscpu
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: language
+        Readonly: true
+        Type:
+          Name: DOMString
+      - Name: languages
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMString
+      - Name: onLine
+        Readonly: true
+        Type:
+          Name: boolean
+      - Name: hardwareConcurrency
+        Readonly: true
+        Type:
+          Name: unsigned long long
+      - Name: connection
+        Readonly: true
+        Type:
+          Name: NetworkInformation
+        ExtAttrs:
+          - Name: SameObject
+      - Name: ml
+        Readonly: true
+        Type:
+          Name: ML
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: SameObject
+      - Name: gpu
+        Readonly: true
+        Type:
+          Name: GPU
+        ExtAttrs:
+          - Name: SameObject
+          - Name: SecureContext
+    Operations:
+      - Name: taintEnabled
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setAppBadge
+        Args:
+          - Name: contents
+            Optional: true
+            Type:
+              Name: unsigned long long
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: clearAppBadge
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+- File: html.idl
+  Dict:
+    Name: WorkerOptions
+    Fields:
+      - Name: type
+        Default: '"classic"'
+        Type:
+          Name: WorkerType
+      - Name: credentials
+        Default: '"same-origin"'
+        Type:
+          Name: RequestCredentials
+      - Name: name
+        Default: '""'
+        Type:
+          Name: DOMString
+- File: html.idl
+  Enum:
+    Name: WorkerType
+    Values:
+      - classic
+      - module
+- File: html.idl
+  Interface:
+    Name: Worklet
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Operations:
+      - Name: addModule
+        Args:
+          - Name: moduleURL
+            Type:
+              Name: USVString
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: WorkletOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: css-animation-worklet.idl
+  Interface:
+    Name: WorkletAnimation
+    Inherits: Animation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: animatorName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: animatorName
+            Type:
+              Name: DOMString
+          - Name: effects
+            Optional: true
+            Default: "null"
+            Type:
+              Union:
+                - Name: AnimationEffect
+                - Name: sequence
+                  Params:
+                    - Name: AnimationEffect
+              Nullable: true
+          - Name: timeline
+            Optional: true
+            Type:
+              Name: AnimationTimeline
+              Nullable: true
+          - Name: options
+            Optional: true
+            Type:
+              Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-animation-worklet.idl
+  Interface:
+    Name: WorkletAnimationEffect
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - AnimationWorklet
+    Attrs:
+      - Name: localTime
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - AnimationWorklet
+    Operations:
+      - Name: getTiming
+        Returns:
+          - Name: EffectTiming
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - AnimationWorklet
+      - Name: getComputedTiming
+        Returns:
+          - Name: ComputedEffectTiming
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - AnimationWorklet
+- File: html.idl
+  Interface:
+    Name: WorkletGlobalScope
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Worklet
+      - Name: SecureContext
+- File: css-animation-worklet.idl
+  Interface:
+    Name: WorkletGroupEffect
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - AnimationWorklet
+    Operations:
+      - Name: getChildren
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: WorkletAnimationEffect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - AnimationWorklet
+- File: html.idl
+  Dict:
+    Name: WorkletOptions
+    Fields:
+      - Name: credentials
+        Default: '"same-origin"'
+        Type:
+          Name: RequestCredentials
+- File: shared-storage.idl
+  Interface:
+    Name: WorkletSharedStorage
+    Inherits: SharedStorage
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - SharedStorageWorklet
+    Operations:
+      - Name: get
+        Args:
+          - Name: key
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - SharedStorageWorklet
+      - Name: length
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - SharedStorageWorklet
+      - Name: remainingBudget
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - SharedStorageWorklet
+    Iterable:
+      TypeParams:
+        - Name: DOMString
+        - Name: DOMString
+      Async: true
+- File: streams.idl
+  Interface:
+    Name: WritableStream
+    ExtAttrs:
+      - Name: Exposed
+      - Name: Transferable
+    Attrs:
+      - Name: locked
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+    Operations:
+      - Name: abort
+        Args:
+          - Name: reason
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+      - Name: close
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+      - Name: getWriter
+        Returns:
+          - Name: WritableStreamDefaultWriter
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+    Constructors:
+      - Args:
+          - Name: underlyingSink
+            Optional: true
+            Type:
+              Name: object
+          - Name: strategy
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: QueuingStrategy
+        ExtAttrs:
+          - Name: Exposed
+          - Name: Transferable
+- File: streams.idl
+  Interface:
+    Name: WritableStreamDefaultController
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: signal
+        Readonly: true
+        Type:
+          Name: AbortSignal
+        ExtAttrs:
+          - Name: Exposed
+    Operations:
+      - Name: error
+        Args:
+          - Name: e
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+- File: streams.idl
+  Interface:
+    Name: WritableStreamDefaultWriter
+    ExtAttrs:
+      - Name: Exposed
+    Attrs:
+      - Name: closed
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: desiredSize
+        Readonly: true
+        Type:
+          Name: unrestricted double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+      - Name: ready
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+    Operations:
+      - Name: abort
+        Args:
+          - Name: reason
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: close
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: releaseLock
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+      - Name: write
+        Args:
+          - Name: chunk
+            Optional: true
+            Type:
+              Name: any
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+    Constructors:
+      - Args:
+          - Name: stream
+            Type:
+              Name: WritableStream
+        ExtAttrs:
+          - Name: Exposed
+- File: fs.idl
+  Enum:
+    Name: WriteCommandType
+    Values:
+      - write
+      - seek
+      - truncate
+- File: fs.idl
+  Dict:
+    Name: WriteParams
+    Fields:
+      - Name: type
+        Required: true
+        Type:
+          Name: WriteCommandType
+      - Name: size
+        Type:
+          Name: unsigned long long
+          Nullable: true
+      - Name: position
+        Type:
+          Name: unsigned long long
+          Nullable: true
+      - Name: data
+        Type:
+          Union:
+            - Name: BufferSource
+            - Name: Blob
+            - Name: USVString
+          Nullable: true
+- File: dom.idl
+  Interface:
+    Name: XMLDocument
+    Inherits: Document
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: xhr.idl
+  Interface:
+    Name: XMLHttpRequest
+    Inherits: XMLHttpRequestEventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+          - SharedWorker
+    Constants:
+      - Name: UNSENT
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: OPENED
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: HEADERS_RECEIVED
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: LOADING
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: DONE
+        Value: "4"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: onreadystatechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: timeout
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: withCredentials
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: upload
+        Readonly: true
+        Type:
+          Name: XMLHttpRequestUpload
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: responseURL
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: status
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: statusText
+        Readonly: true
+        Type:
+          Name: ByteString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: responseType
+        Type:
+          Name: XMLHttpRequestResponseType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: response
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: responseText
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: responseXML
+        Readonly: true
+        Type:
+          Name: Document
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: open
+        Args:
+          - Name: method
+            Type:
+              Name: ByteString
+          - Name: url
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: open
+        Args:
+          - Name: method
+            Type:
+              Name: ByteString
+          - Name: url
+            Type:
+              Name: USVString
+          - Name: async
+            Type:
+              Name: boolean
+          - Name: username
+            Optional: true
+            Default: "null"
+            Type:
+              Name: USVString
+              Nullable: true
+          - Name: password
+            Optional: true
+            Default: "null"
+            Type:
+              Name: USVString
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: setRequestHeader
+        Args:
+          - Name: name
+            Type:
+              Name: ByteString
+          - Name: value
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: send
+        Args:
+          - Name: body
+            Optional: true
+            Default: "null"
+            Type:
+              Union:
+                - Name: Document
+                - Name: XMLHttpRequestBodyInit
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: abort
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: getResponseHeader
+        Args:
+          - Name: name
+            Type:
+              Name: ByteString
+        Returns:
+          - Name: ByteString
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: getAllResponseHeaders
+        Returns:
+          - Name: ByteString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: overrideMimeType
+        Args:
+          - Name: mime
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: setAttributionReporting
+        Args:
+          - Name: options
+            Type:
+              Name: AttributionReportingRequestOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: setPrivateToken
+        Args:
+          - Name: privateToken
+            Type:
+              Name: PrivateToken
+        Returns:
+          - Name: undefined
+- File: fetch.idl
+  Typedef:
+    Name: XMLHttpRequestBodyInit
+    Type:
+      Union:
+        - Name: Blob
+        - Name: BufferSource
+        - Name: FormData
+        - Name: URLSearchParams
+        - Name: USVString
+- File: xhr.idl
+  Interface:
+    Name: XMLHttpRequestEventTarget
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+          - SharedWorker
+    Attrs:
+      - Name: onloadstart
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: onprogress
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: onabort
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: onerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: onload
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: ontimeout
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+      - Name: onloadend
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+              - SharedWorker
+- File: xhr.idl
+  Enum:
+    Name: XMLHttpRequestResponseType
+    Values:
+      - ""
+      - arraybuffer
+      - blob
+      - document
+      - json
+      - text
+- File: xhr.idl
+  Interface:
+    Name: XMLHttpRequestUpload
+    Inherits: XMLHttpRequestEventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+          - SharedWorker
+- File: DOM-Parsing.idl
+  Interface:
+    Name: XMLSerializer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: serializeToString
+        Args:
+          - Name: root
+            Type:
+              Name: Node
+        Returns:
+          - Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  Interface:
+    Name: XPathEvaluator
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: createExpression
+        Args:
+          - Name: expression
+            Type:
+              Name: DOMString
+          - Name: resolver
+            Optional: true
+            Default: "null"
+            Type:
+              Name: XPathNSResolver
+              Nullable: true
+        Returns:
+          - Name: XPathExpression
+        ExtAttrs:
+          - Name: NewObject
+      - Name: createNSResolver
+        Args:
+          - Name: nodeResolver
+            Type:
+              Name: Node
+        Returns:
+          - Name: Node
+      - Name: evaluate
+        Args:
+          - Name: expression
+            Type:
+              Name: DOMString
+          - Name: contextNode
+            Type:
+              Name: Node
+          - Name: resolver
+            Optional: true
+            Default: "null"
+            Type:
+              Name: XPathNSResolver
+              Nullable: true
+          - Name: type
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned short
+          - Name: result
+            Optional: true
+            Default: "null"
+            Type:
+              Name: XPathResult
+              Nullable: true
+        Returns:
+          - Name: XPathResult
+- File: dom.idl
+  Interface:
+    Name: XPathExpression
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: evaluate
+        Args:
+          - Name: contextNode
+            Type:
+              Name: Node
+          - Name: type
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned short
+          - Name: result
+            Optional: true
+            Default: "null"
+            Type:
+              Name: XPathResult
+              Nullable: true
+        Returns:
+          - Name: XPathResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  CallbackInterface:
+    Name: XPathNSResolver
+    Operations:
+      - Name: lookupNamespaceURI
+        Args:
+          - Name: prefix
+            Type:
+              Name: DOMString
+              Nullable: true
+        Returns:
+          - Name: DOMString
+            Nullable: true
+- File: dom.idl
+  Interface:
+    Name: XPathResult
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: ANY_TYPE
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: NUMBER_TYPE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: STRING_TYPE
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: BOOLEAN_TYPE
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: UNORDERED_NODE_ITERATOR_TYPE
+        Value: "4"
+        Type:
+          Name: unsigned short
+      - Name: ORDERED_NODE_ITERATOR_TYPE
+        Value: "5"
+        Type:
+          Name: unsigned short
+      - Name: UNORDERED_NODE_SNAPSHOT_TYPE
+        Value: "6"
+        Type:
+          Name: unsigned short
+      - Name: ORDERED_NODE_SNAPSHOT_TYPE
+        Value: "7"
+        Type:
+          Name: unsigned short
+      - Name: ANY_UNORDERED_NODE_TYPE
+        Value: "8"
+        Type:
+          Name: unsigned short
+      - Name: FIRST_ORDERED_NODE_TYPE
+        Value: "9"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: resultType
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: numberValue
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stringValue
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: booleanValue
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: singleNodeValue
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: invalidIteratorState
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: snapshotLength
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: iterateNext
+        Returns:
+          - Name: Node
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: snapshotItem
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: Node
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: anchors.idl
+  Interface:
+    Name: XRAnchor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: anchorSpace
+        Readonly: true
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: requestPersistentHandle
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: delete
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: anchors.idl
+  Interface:
+    Name: XRAnchorSet
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Setlike:
+      TypeParams:
+        - Name: XRAnchor
+      Readonly: true
+- File: webxr.idl
+  Interface:
+    Name: XRBoundedReferenceSpace
+    Inherits: XRReferenceSpace
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: boundsGeometry
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxr-depth-sensing.idl
+  Interface:
+    Name: XRCPUDepthInformation
+    Inherits: XRDepthInformation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: data
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Operations:
+      - Name: getDepthInMeters
+        Args:
+          - Name: x
+            Type:
+              Name: float
+          - Name: "y"
+            Type:
+              Name: float
+        Returns:
+          - Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: raw-camera-access.idl
+  Interface:
+    Name: XRCamera
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: width
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webxrlayers.idl
+  Interface:
+    Name: XRCompositionLayer
+    Inherits: XRLayer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: layout
+        Readonly: true
+        Type:
+          Name: XRLayerLayout
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: blendTextureSourceAlpha
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: forceMonoPresentation
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: opacity
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: mipLevels
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: quality
+        Type:
+          Name: XRLayerQuality
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: needsRedraw
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Operations:
+      - Name: destroy
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxrlayers.idl
+  Interface:
+    Name: XRCubeLayer
+    Inherits: XRCompositionLayer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: space
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: orientation
+        Type:
+          Name: DOMPointReadOnly
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: onredraw
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxrlayers.idl
+  Dict:
+    Name: XRCubeLayerInit
+    Inherits: XRLayerInit
+    Fields:
+      - Name: orientation
+        Type:
+          Name: DOMPointReadOnly
+          Nullable: true
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: colorFormat
+        Default: "0x1908"
+        Type:
+          Name: GLenum
+      - Name: depthFormat
+        Type:
+          Name: GLenum
+          Nullable: true
+      - Name: mipLevels
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: viewPixelWidth
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: viewPixelHeight
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: isStatic
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: clearOnAccess
+        Default: "true"
+        Type:
+          Name: boolean
+- File: webxrlayers.idl
+  Interface:
+    Name: XRCylinderLayer
+    Inherits: XRCompositionLayer
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: space
+        Type:
+          Name: XRSpace
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: radius
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: centralAngle
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: aspectRatio
+        Type:
+          Name: float
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+      - Name: onredraw
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: webxrlayers.idl
+  Dict:
+    Name: XRCylinderLayerInit
+    Inherits: XRLayerInit
+    Fields:
+      - Name: textureType
+        Default: '"texture"'
+        Type:
+          Name: XRTextureType
+      - Name: transform
+        Type:
+          Name: XRRigidTransform
+          Nullable: true
+      - Name: radius
+        Default: "2.0"
+        Type:
+          Name: float
+      - Name: centralAngle
+        Default: "0.78539"
+        Type:
+          Name: float
+      - Name: aspectRatio
+        Default: "2.0"
+        Type:
+          Name: float
+      - Name: space
+        Required: true
+        Type:
+          Name: XRSpace
+      - Name: colorFormat
+        Default: "0x1908"
+        Type:
+          Name: GLenum
+      - Name: depthFormat
+        Type:
+          Name: GLenum
+          Nullable: true
+      - Name: mipLevels
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: viewPixelWidth
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: viewPixelHeight
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: layout
+        Default: '"mono"'
+        Type:
+          Name: XRLayerLayout
+      - Name: isStatic
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: clearOnAccess
+        Default: "true"
+        Type:
+          Name: boolean
+- File: webxr-dom-overlays.idl
+  Dict:
+    Name: XRDOMOverlayInit
+    Fields:
+      - Name: root
+        Required: true
+        Type:
+          Name: Element
+- File: webxr-dom-overlays.idl
+  Dict:
+    Name: XRDOMOverlayState
+    Fields:
+      - Name: type
+        Type:
+          Name: XRDOMOverlayType

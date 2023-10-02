@@ -4,15 +4,41 @@
 package js
 
 import (
+	"github.com/primecitizens/std/core/assert"
 	"github.com/primecitizens/std/ffi/js/bindings"
 )
 
-type Func struct {
+func ThrowInvalidCallbackInvocation() {
+	assert.Throw("invalid", "callback", "invocation")
+}
+
+func ThrowCallbackValueNotReturned() {
+	assert.Throw(
+		"value", "not", "returned:", "internal", "callback", "bindings", "error",
+	)
+}
+
+type Func[T any] struct {
 	ref bindings.Ref
 }
 
-func (fn Func) Ref() Ref {
+func (fn Func[T]) FromRef(ref Ref) Func[T] {
+	return Func[T]{
+		ref: bindings.Ref(ref),
+	}
+}
+
+func (fn Func[T]) Ref() Ref {
 	return Ref(fn.ref)
+}
+
+func (fn Func[T]) Once() Func[T] {
+	Ref(fn.ref).Once()
+	return fn
+}
+
+func (fn Func[T]) Free() {
+	bindings.Free(fn.ref)
 }
 
 // Try runs the fn in a trycatch block, return heap reference of the result
@@ -23,12 +49,18 @@ func (fn Func) Ref() Ref {
 //
 // The bool return value indicates whether the try was successful (catch was
 // not called)
-func (fn Func) Try(this Ref, free bool, catch, finally Func, args ...Ref) (Ref, bool) {
+func (fn Func[T]) Try(
+	this Ref,
+	take bool,
+	catch Func[func(err Any, args []Ref) Ref],
+	finally Func[func(args []Ref)],
+	args ...Ref,
+) (Ref, bool) {
 	var caught bool
 	ret := bindings.Try(
 		fn.ref,
-		uint32(this),
-		uint32(Bool(free)),
+		bindings.Ref(this),
+		bindings.Ref(Bool(take)),
 		catch.ref,
 		finally.ref,
 		SliceData(args),
@@ -43,11 +75,11 @@ func (fn Func) Try(this Ref, free bool, catch, finally Func, args ...Ref) (Ref, 
 // value.
 //
 // When free is ture, all args after it are freed after the call.
-func (fn Func) Call(this Ref, free bool, args ...Ref) Ref {
+func (fn Func[T]) Call(this Ref, take bool, args ...Ref) Ref {
 	return Ref(bindings.Call(
 		fn.ref,
-		uint32(this),
-		uint32(Bool(free)),
+		bindings.Ref(this),
+		bindings.Ref(Bool(take)),
 		SliceData(args),
 		SizeU(len(args)),
 	))
@@ -56,11 +88,11 @@ func (fn Func) Call(this Ref, free bool, args ...Ref) Ref {
 // CallVoid calls js function fn and discard any return value.
 //
 // When free is ture, all args after it are freed after the call.
-func (fn Func) CallVoid(this Ref, free bool, args ...Ref) {
+func (fn Func[T]) CallVoid(this Ref, take bool, args ...Ref) {
 	bindings.CallVoid(
 		fn.ref,
-		uint32(this),
-		uint32(Bool(free)),
+		bindings.Ref(this),
+		bindings.Ref(Bool(take)),
 		SliceData(args),
 		SizeU(len(args)),
 	)
@@ -69,11 +101,11 @@ func (fn Func) CallVoid(this Ref, free bool, args ...Ref) {
 // CallNum calls js function fn and treate the return value as a js number.
 //
 // When free is ture, all args after it are freed after the call.
-func (fn Func) CallNum(this Ref, free bool, args ...Ref) Number {
+func (fn Func[T]) CallNum(this Ref, take bool, args ...Ref) float64 {
 	return bindings.CallNum(
 		fn.ref,
-		uint32(this),
-		uint32(Bool(free)),
+		bindings.Ref(this),
+		bindings.Ref(Bool(take)),
 		SliceData(args),
 		SizeU(len(args)),
 	)
@@ -82,16 +114,12 @@ func (fn Func) CallNum(this Ref, free bool, args ...Ref) Number {
 // CallBool calls js function fn and treate the return value as a js boolean.
 //
 // When free is ture, all args after it are freed after the call.
-func (fn Func) CallBool(this Ref, free bool, args ...Ref) bool {
-	return bindings.CallBool(
+func (fn Func[T]) CallBool(this Ref, take bool, args ...Ref) bool {
+	return bindings.Ref(True) == bindings.CallBool(
 		fn.ref,
-		uint32(this),
-		uint32(Bool(free)),
+		bindings.Ref(this),
+		bindings.Ref(Bool(take)),
 		SliceData(args),
 		SizeU(len(args)),
-	) == bindings.Ref(True)
-}
-
-func (fn Func) Free() {
-	bindings.Free(fn.ref)
+	)
 }

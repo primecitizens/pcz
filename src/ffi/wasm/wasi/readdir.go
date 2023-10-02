@@ -12,30 +12,62 @@ package wasi
 import (
 	"unsafe"
 
+	"github.com/primecitizens/std/core/assert"
 	"github.com/primecitizens/std/core/mark"
 )
 
+type Dirent struct {
+	// The offset of the next directory entry stored in this directory.
+	Next Dircookie
+	// The serial number of the file referred to by this directory entry.
+	Ino uint64
+	// The length of the name of the directory entry.
+	Namlen uint32
+
+	// The type of the file referred to by this directory entry.
+	Type Filetype
+	_    [3]byte
+}
+
+func (ent *Dirent) Decode(buf []byte) (name string, next []byte, ok bool) {
+	const (
+		direntOffsetsOK = true &&
+			unsafe.Offsetof(Dirent{}.Next) == 0 &&
+			unsafe.Offsetof(Dirent{}.Ino) == 8 &&
+			unsafe.Offsetof(Dirent{}.Namlen) == 16 &&
+			unsafe.Offsetof(Dirent{}.Type) == 20
+
+		direntSize = unsafe.Sizeof(Dirent{})
+	)
+
+	if !direntOffsetsOK || direntSize != 24 {
+		assert.Throw("dirent", "size", "or", "offsets", "not", "match")
+	}
+
+	if uintptr(len(buf)) < direntSize {
+		next = buf[:0]
+		return
+	}
+
+	*ent = *(*Dirent)(mark.NoEscapeSliceDataPointer(buf))
+	buf = buf[direntSize:]
+	if len(buf) < int(ent.Namlen) {
+		next = buf[:0]
+		return
+	}
+
+	name = mark.NoEscapeBytesString(buf)[:ent.Namlen]
+	next = buf[ent.Namlen:]
+	ok = true
+	return
+}
+
 //go:wasmimport wasi_snapshot_preview1 fd_readdir
 //go:noescape
-func fd_readdir(
-	fd FD, buf unsafe.Pointer, bufLen Size,
-	cookie DirCookie,
+func Readdir(
+	fd FD,
+	buf unsafe.Pointer,
+	bufLen Size,
+	cookie Dircookie,
 	nwritten unsafe.Pointer,
 ) Errno
-
-func ReadDir(fd FD, cookie DirCookie, buf []byte) (Size, Errno) {
-	if len(buf) == 0 {
-		return 0, 0
-	}
-	buf = mark.NoEscapeSlice(buf)
-
-	var nwritten Size
-	errno := fd_readdir(
-		fd,
-		unsafe.Pointer(&buf[0]),
-		Size(len(buf)),
-		cookie,
-		unsafe.Pointer(&nwritten),
-	)
-	return nwritten, errno
-}

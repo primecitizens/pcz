@@ -5,16 +5,18 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && s390x
+
 #include "textflag.h"
 
-TEXT ·IndexByte(SB),NOSPLIT|NOFRAME,$0-40
+TEXT ·IndexSliceByte(SB),NOSPLIT|NOFRAME,$0-40
 	MOVD b_base+0(FP), R3// b_base => R3
 	MOVD b_len+8(FP), R4 // b_len => R4
 	MOVBZ c+24(FP), R5    // c => R5
 	MOVD $ret+32(FP), R2 // &ret => R9
 	BR indexbytebody<>(SB)
 
-TEXT ·IndexByteString(SB),NOSPLIT|NOFRAME,$0-32
+TEXT ·IndexByte(SB),NOSPLIT|NOFRAME,$0-32
 	MOVD s_base+0(FP), R3// s_base => R3
 	MOVD s_len+8(FP), R4 // s_len => R4
 	MOVBZ c+16(FP), R5    // c => R5
@@ -50,7 +52,7 @@ notfound:
 	RET
 
 large:
-	MOVBZ core∕cpu·S390X+const_offsetS390xHasVX(SB), R1
+	MOVBZ ·hasVX(SB), R1
 	CMPBNE R1, $0, vectorimpl
 
 srstimpl:                       // no vector facility

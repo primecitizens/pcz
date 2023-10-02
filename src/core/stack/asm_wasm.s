@@ -5,6 +5,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && wasm
+
 #include "textflag.h"
 
 TEXT ·GetSP(SB),NOSPLIT,$0-8
@@ -25,7 +27,7 @@ TEXT ·SetSP(SB),NOSPLIT,$8-8
 // the top of a stack (for example, morestack calling newstack
 // calling the scheduler calling newm calling gc), so we must
 // record an argument size. For that purpose, it has no arguments.
-TEXT runtime·morestack(SB), NOSPLIT, $0
+TEXT runtime·morestack(SB),NOSPLIT,$0-0
 	// TODO: implement
 	UNDEF // crash
 

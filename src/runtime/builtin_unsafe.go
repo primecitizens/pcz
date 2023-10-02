@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+//go:build pcz
+
 package runtime
 
 import (
@@ -32,7 +34,7 @@ func panicunsafeslicelen1(pc uintptr) {
 
 func panicunsafeslicenilptr1(pc uintptr) {
 	// panicCheck1(pc, "unsafe.Slice: ptr is nil and len is not zero")
-	assert.Panic("unsafe.Slice: ptr is nil and len is not zero")
+	assert.Panic("unsafe.Slice:", "ptr", "is", "nil", "and", "len", "is", "not", "zero")
 }
 
 // Keep this code in sync with cmd/compile/internal/walk/builtin.go:walkUnsafeSlice
@@ -71,7 +73,7 @@ func unsafeslicecheckptr(et *abi.Type, ptr unsafe.Pointer, len64 int64) {
 	// Check that underlying array doesn't straddle multiple heap objects.
 	// unsafeslice64 has already checked for overflow.
 	if stdptr.CheckptrStraddles(ptr, uintptr(len64)*et.Size_) {
-		assert.Throw("checkptr: unsafe.Slice result straddles multiple allocations")
+		assert.Throw("checkptr:", "unsafe.Slice", "result", "straddles", "multiple", "allocations")
 	}
 }
 
@@ -79,8 +81,13 @@ func unsafeslicecheckptr(et *abi.Type, ptr unsafe.Pointer, len64 int64) {
 // unsafe.String
 //
 
-func panicunsafestringlen()    { assert.Panic("unsafe.String: len out of range") }
-func panicunsafestringnilptr() { assert.Panic("unsafe.String: ptr is nil and len is not zero") }
+func panicunsafestringlen() {
+	assert.Panic("unsafe.String:", "len", "out", "of", "range")
+}
+
+func panicunsafestringnilptr() {
+	assert.Panic("unsafe.String:", "ptr", "is", "nil", "and", "len", "is", "not", "zero")
+}
 
 func unsafestring(ptr unsafe.Pointer, len int) {
 	if len < 0 {
@@ -110,6 +117,6 @@ func unsafestringcheckptr(ptr unsafe.Pointer, len64 int64) {
 	// Check that underlying array doesn't straddle multiple heap objects.
 	// unsafestring64 has already checked for overflow.
 	if stdptr.CheckptrStraddles(ptr, uintptr(len64)) {
-		assert.Throw("checkptr: unsafe.String result straddles multiple allocations")
+		assert.Throw("checkptr:", "unsafe.String", "result", "straddles", "multiple", "allocations")
 	}
 }

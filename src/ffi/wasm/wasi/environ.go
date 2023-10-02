@@ -9,7 +9,9 @@
 
 package wasi
 
-import "unsafe"
+import (
+	"unsafe"
+)
 
 // Environ depends on values returned by EnvironSizes
 //

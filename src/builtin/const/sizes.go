@@ -11,6 +11,8 @@ const (
 	SizeEfaceType  = unsafe.Sizeof(any((*byte)(nil)))
 	SizeIfaceType  = unsafe.Sizeof(iface((*ifaceImpl)(nil)))
 
+	SizePointer       = unsafe.Sizeof((*byte)(nil))
+	SizeFunc          = unsafe.Sizeof(fn)
 	SizeUnsafePointer = unsafe.Sizeof(unsafe.Pointer(nil))
 
 	SizeUintType    = unsafe.Sizeof(uint(0))
@@ -37,4 +39,6 @@ type iface interface{ isiface() }
 
 type ifaceImpl struct{}
 
-func (*ifaceImpl) isiface()
+func (*ifaceImpl) isiface() {}
+
+func fn() {}

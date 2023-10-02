@@ -1,0 +1,1734 @@
+- File: turtledove.idl
+  Interface:
+    Name: InterestGroupReportingScriptRunnerGlobalScope
+    Inherits: InterestGroupScriptRunnerGlobalScope
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - InterestGroupReportingScriptRunnerGlobalScope
+      - Name: Global
+        Values:
+          - InterestGroupScriptRunnerGlobalScope
+          - InterestGroupReportingScriptRunnerGlobalScope
+    Operations:
+      - Name: sendReportTo
+        Args:
+          - Name: url
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - InterestGroupReportingScriptRunnerGlobalScope
+          - Name: Global
+            Values:
+              - InterestGroupScriptRunnerGlobalScope
+              - InterestGroupReportingScriptRunnerGlobalScope
+      - Name: registerAdBeacon
+        Args:
+          - Name: map
+            Type:
+              Name: record
+              Params:
+                - Name: DOMString
+                - Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - InterestGroupReportingScriptRunnerGlobalScope
+          - Name: Global
+            Values:
+              - InterestGroupScriptRunnerGlobalScope
+              - InterestGroupReportingScriptRunnerGlobalScope
+- File: turtledove.idl
+  Interface:
+    Name: InterestGroupScoringScriptRunnerGlobalScope
+    Inherits: InterestGroupScriptRunnerGlobalScope
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - InterestGroupScoringScriptRunnerGlobalScope
+      - Name: Global
+        Values:
+          - InterestGroupScriptRunnerGlobalScope
+          - InterestGroupScoringScriptRunnerGlobalScope
+- File: turtledove.idl
+  Interface:
+    Name: InterestGroupScriptRunnerGlobalScope
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - InterestGroupScriptRunnerGlobalScope
+- File: intersection-observer.idl
+  Interface:
+    Name: IntersectionObserver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: root
+        Readonly: true
+        Type:
+          Union:
+            - Name: Element
+            - Name: Document
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rootMargin
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: thresholds
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: observe
+        Args:
+          - Name: target
+            Type:
+              Name: Element
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: unobserve
+        Args:
+          - Name: target
+            Type:
+              Name: Element
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: takeRecords
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: IntersectionObserverEntry
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: callback
+            Type:
+              Name: IntersectionObserverCallback
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: IntersectionObserverInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: intersection-observer.idl
+  Callback:
+    Name: IntersectionObserverCallback
+    Args:
+      - Name: entries
+        Type:
+          Name: sequence
+          Params:
+            - Name: IntersectionObserverEntry
+      - Name: observer
+        Type:
+          Name: IntersectionObserver
+    Returns:
+      - Name: undefined
+- File: intersection-observer.idl
+  Interface:
+    Name: IntersectionObserverEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: time
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rootBounds
+        Readonly: true
+        Type:
+          Name: DOMRectReadOnly
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: boundingClientRect
+        Readonly: true
+        Type:
+          Name: DOMRectReadOnly
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: intersectionRect
+        Readonly: true
+        Type:
+          Name: DOMRectReadOnly
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isIntersecting
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: intersectionRatio
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: target
+        Readonly: true
+        Type:
+          Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: intersectionObserverEntryInit
+            Type:
+              Name: IntersectionObserverEntryInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: intersection-observer.idl
+  Dict:
+    Name: IntersectionObserverEntryInit
+    Fields:
+      - Name: time
+        Required: true
+        Type:
+          Name: DOMHighResTimeStamp
+      - Name: rootBounds
+        Required: true
+        Type:
+          Name: DOMRectInit
+          Nullable: true
+      - Name: boundingClientRect
+        Required: true
+        Type:
+          Name: DOMRectInit
+      - Name: intersectionRect
+        Required: true
+        Type:
+          Name: DOMRectInit
+      - Name: isIntersecting
+        Required: true
+        Type:
+          Name: boolean
+      - Name: intersectionRatio
+        Required: true
+        Type:
+          Name: double
+      - Name: target
+        Required: true
+        Type:
+          Name: Element
+- File: intersection-observer.idl
+  Dict:
+    Name: IntersectionObserverInit
+    Fields:
+      - Name: root
+        Default: "null"
+        Type:
+          Union:
+            - Name: Element
+            - Name: Document
+          Nullable: true
+      - Name: rootMargin
+        Default: '"0px"'
+        Type:
+          Name: DOMString
+      - Name: threshold
+        Default: "0"
+        Type:
+          Union:
+            - Name: double
+            - Name: sequence
+              Params:
+                - Name: double
+- File: intervention-reporting.idl
+  Interface:
+    Name: InterventionReportBody
+    Inherits: ReportBody
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: sourceFile
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: lineNumber
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: columnNumber
+        Readonly: true
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: css-layout-api.idl
+  Interface:
+    Name: IntrinsicSizes
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - LayoutWorklet
+    Attrs:
+      - Name: minContentSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: maxContentSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+- File: css-layout-api.idl
+  Dict:
+    Name: IntrinsicSizesResultOptions
+    Fields:
+      - Name: maxContentSize
+        Type:
+          Name: double
+      - Name: minContentSize
+        Type:
+          Name: double
+- File: is-input-pending.idl
+  Dict:
+    Name: IsInputPendingOptions
+    Fields:
+      - Name: includeContinuous
+        Default: "false"
+        Type:
+          Name: boolean
+- File: digital-goods.idl
+  Dict:
+    Name: ItemDetails
+    Fields:
+      - Name: itemId
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: title
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: price
+        Required: true
+        Type:
+          Name: PaymentCurrencyAmount
+      - Name: type
+        Type:
+          Name: ItemType
+      - Name: description
+        Type:
+          Name: DOMString
+      - Name: iconURLs
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: subscriptionPeriod
+        Type:
+          Name: DOMString
+      - Name: freeTrialPeriod
+        Type:
+          Name: DOMString
+      - Name: introductoryPrice
+        Type:
+          Name: PaymentCurrencyAmount
+      - Name: introductoryPricePeriod
+        Type:
+          Name: DOMString
+      - Name: introductoryPriceCycles
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+- File: digital-goods.idl
+  Enum:
+    Name: ItemType
+    Values:
+      - product
+      - subscription
+- File: web-animations-2.idl
+  Enum:
+    Name: IterationCompositeOperation
+    Values:
+      - replace
+      - accumulate
+- File: json-ld-api.idl
+  Interface:
+    Name: JsonLd
+    ExtAttrs:
+      - Name: Global
+        Values:
+          - JsonLd
+      - Name: Exposed
+        Values:
+          - JsonLd
+- File: json-ld-api.idl
+  Typedef:
+    Name: JsonLdContext
+    Type:
+      Union:
+        - Name: JsonLdRecord
+        - Name: sequence
+          Params:
+            - Union:
+                - Name: JsonLdRecord
+                - Name: USVString
+        - Name: USVString
+- File: json-ld-framing.idl
+  Enum:
+    Name: JsonLdEmbed
+    Values:
+      - '@always'
+      - '@once'
+      - '@never'
+- File: json-ld-api.idl
+  Dict:
+    Name: JsonLdError
+    Fields:
+      - Name: code
+        Type:
+          Name: JsonLdErrorCode
+      - Name: message
+        Default: "null"
+        Type:
+          Name: USVString
+          Nullable: true
+- File: json-ld-api.idl
+  Enum:
+    Name: JsonLdErrorCode
+    Values:
+      - colliding keywords
+      - conflicting indexes
+      - context overflow
+      - cyclic IRI mapping
+      - invalid @id value
+      - invalid @import value
+      - invalid @included value
+      - invalid @index value
+      - invalid @nest value
+      - invalid @prefix value
+      - invalid @propagate value
+      - invalid @protected value
+      - invalid @reverse value
+      - invalid @version value
+      - invalid base direction
+      - invalid base IRI
+      - invalid container mapping
+      - invalid context entry
+      - invalid context nullification
+      - invalid default language
+      - invalid IRI mapping
+      - invalid JSON literal
+      - invalid keyword alias
+      - invalid language map value
+      - invalid language mapping
+      - invalid language-tagged string
+      - invalid language-tagged value
+      - invalid local context
+      - invalid remote context
+      - invalid reverse property map
+      - invalid reverse property value
+      - invalid reverse property
+      - invalid scoped context
+      - invalid script element
+      - invalid set or list object
+      - invalid term definition
+      - invalid type mapping
+      - invalid type value
+      - invalid typed value
+      - invalid value object value
+      - invalid value object
+      - invalid vocab mapping
+      - IRI confused with prefix
+      - keyword redefinition
+      - loading document failed
+      - loading remote context failed
+      - multiple context link headers
+      - processing mode conflict
+      - protected term redefinition
+- File: json-ld-framing.idl
+  Dict:
+    Name: JsonLdFramingError
+    Fields:
+      - Name: code
+        Type:
+          Name: JsonLdFramingErrorCode
+      - Name: message
+        Default: "null"
+        Type:
+          Name: USVString
+          Nullable: true
+- File: json-ld-framing.idl
+  Enum:
+    Name: JsonLdFramingErrorCode
+    Values:
+      - invalid frame
+      - invalid @embed value
+- File: json-ld-api.idl
+  Typedef:
+    Name: JsonLdInput
+    Type:
+      Union:
+        - Name: JsonLdRecord
+        - Name: sequence
+          Params:
+            - Name: JsonLdRecord
+        - Name: USVString
+        - Name: RemoteDocument
+- File: json-ld-api.idl
+  Dict:
+    Name: JsonLdOptions
+    Fields:
+      - Name: base
+        Default: "null"
+        Type:
+          Name: USVString
+          Nullable: true
+      - Name: compactArrays
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: compactToRelative
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: documentLoader
+        Default: "null"
+        Type:
+          Name: LoadDocumentCallback
+          Nullable: true
+      - Name: expandContext
+        Default: "null"
+        Type:
+          Union:
+            - Name: JsonLdRecord
+              Nullable: true
+            - Name: USVString
+      - Name: extractAllScripts
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: frameExpansion
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: ordered
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: processingMode
+        Default: '"json-ld-1.1"'
+        Type:
+          Name: USVString
+      - Name: produceGeneralizedRdf
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: rdfDirection
+        Default: "null"
+        Type:
+          Name: USVString
+          Nullable: true
+      - Name: useNativeTypes
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: useRdfType
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: embed
+        Default: '"@once"'
+        Type:
+          Union:
+            - Name: JsonLdEmbed
+            - Name: boolean
+      - Name: explicit
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: omitDefault
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: omitGraph
+        Type:
+          Name: boolean
+      - Name: requireAll
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: frameDefault
+        Default: "false"
+        Type:
+          Name: boolean
+- File: json-ld-api.idl
+  Interface:
+    Name: JsonLdProcessor
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - JsonLd
+    Operations:
+      - Name: compact
+        Modifier: static
+        Args:
+          - Name: input
+            Type:
+              Name: JsonLdInput
+          - Name: context
+            Optional: true
+            Default: "null"
+            Type:
+              Name: JsonLdContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: JsonLdOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: JsonLdRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: expand
+        Modifier: static
+        Args:
+          - Name: input
+            Type:
+              Name: JsonLdInput
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: JsonLdOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: JsonLdRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: flatten
+        Modifier: static
+        Args:
+          - Name: input
+            Type:
+              Name: JsonLdInput
+          - Name: context
+            Optional: true
+            Default: "null"
+            Type:
+              Name: JsonLdContext
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: JsonLdOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: JsonLdRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: fromRdf
+        Modifier: static
+        Args:
+          - Name: input
+            Type:
+              Name: RdfDataset
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: JsonLdOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: sequence
+                Params:
+                  - Name: JsonLdRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: toRdf
+        Modifier: static
+        Args:
+          - Name: input
+            Type:
+              Name: JsonLdInput
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: JsonLdOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: RdfDataset
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+      - Name: frame
+        Modifier: static
+        Args:
+          - Name: input
+            Type:
+              Name: JsonLdInput
+          - Name: frame
+            Type:
+              Name: JsonLdInput
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: JsonLdOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: JsonLdRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - JsonLd
+- File: json-ld-api.idl
+  Typedef:
+    Name: JsonLdRecord
+    Type:
+      Name: record
+      Params:
+        - Name: USVString
+        - Name: any
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: JsonWebKey
+    Fields:
+      - Name: kty
+        Type:
+          Name: DOMString
+      - Name: use
+        Type:
+          Name: DOMString
+      - Name: key_ops
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: alg
+        Type:
+          Name: DOMString
+      - Name: ext
+        Type:
+          Name: boolean
+      - Name: crv
+        Type:
+          Name: DOMString
+      - Name: x
+        Type:
+          Name: DOMString
+      - Name: "y"
+        Type:
+          Name: DOMString
+      - Name: d
+        Type:
+          Name: DOMString
+      - Name: "n"
+        Type:
+          Name: DOMString
+      - Name: e
+        Type:
+          Name: DOMString
+      - Name: p
+        Type:
+          Name: DOMString
+      - Name: q
+        Type:
+          Name: DOMString
+      - Name: dp
+        Type:
+          Name: DOMString
+      - Name: dq
+        Type:
+          Name: DOMString
+      - Name: qi
+        Type:
+          Name: DOMString
+      - Name: oth
+        Type:
+          Name: sequence
+          Params:
+            - Name: RsaOtherPrimesInfo
+      - Name: k
+        Type:
+          Name: DOMString
+- File: KHR_parallel_shader_compile.idl
+  Interface:
+    Name: KHR_parallel_shader_compile
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+      - Name: LegacyNoInterfaceObject
+    Constants:
+      - Name: COMPLETION_STATUS_KHR
+        Value: "0x91B1"
+        Type:
+          Name: GLenum
+- File: WebCryptoAPI.idl
+  Dict:
+    Name: KeyAlgorithm
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: WebCryptoAPI.idl
+  Enum:
+    Name: KeyFormat
+    Values:
+      - raw
+      - spki
+      - pkcs8
+      - jwk
+- File: media-capabilities.idl
+  Dict:
+    Name: KeySystemTrackConfiguration
+    Fields:
+      - Name: robustness
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: encryptionScheme
+        Default: "null"
+        Type:
+          Name: DOMString
+          Nullable: true
+- File: WebCryptoAPI.idl
+  Enum:
+    Name: KeyType
+    Values:
+      - public
+      - private
+      - secret
+- File: WebCryptoAPI.idl
+  Enum:
+    Name: KeyUsage
+    Values:
+      - encrypt
+      - decrypt
+      - sign
+      - verify
+      - deriveKey
+      - deriveBits
+      - wrapKey
+      - unwrapKey
+- File: keyboard-lock.idl
+  Interface:
+    Name: Keyboard
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onlayoutchange
+        Type:
+          Name: EventHandler
+    Operations:
+      - Name: lock
+        Args:
+          - Name: keyCodes
+            Optional: true
+            Default: '[]'
+            Type:
+              Name: sequence
+              Params:
+                - Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: unlock
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getLayoutMap
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: KeyboardLayoutMap
+- File: uievents.idl
+  Interface:
+    Name: KeyboardEvent
+    Inherits: UIEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: DOM_KEY_LOCATION_STANDARD
+        Value: "0x00"
+        Type:
+          Name: unsigned long
+      - Name: DOM_KEY_LOCATION_LEFT
+        Value: "0x01"
+        Type:
+          Name: unsigned long
+      - Name: DOM_KEY_LOCATION_RIGHT
+        Value: "0x02"
+        Type:
+          Name: unsigned long
+      - Name: DOM_KEY_LOCATION_NUMPAD
+        Value: "0x03"
+        Type:
+          Name: unsigned long
+    Attrs:
+      - Name: key
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: code
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: location
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ctrlKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: shiftKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: altKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: metaKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: repeat
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isComposing
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: charCode
+        Readonly: true
+        Type:
+          Name: unsigned long
+      - Name: keyCode
+        Readonly: true
+        Type:
+          Name: unsigned long
+    Operations:
+      - Name: getModifierState
+        Args:
+          - Name: keyArg
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initKeyboardEvent
+        Args:
+          - Name: typeArg
+            Type:
+              Name: DOMString
+          - Name: bubblesArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: cancelableArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: viewArg
+            Optional: true
+            Default: "null"
+            Type:
+              Name: Window
+              Nullable: true
+          - Name: keyArg
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: locationArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+          - Name: ctrlKey
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: altKey
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: shiftKey
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: metaKey
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Returns:
+          - Name: undefined
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: KeyboardEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: uievents.idl
+  Dict:
+    Name: KeyboardEventInit
+    Inherits: EventModifierInit
+    Fields:
+      - Name: key
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: code
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: location
+        Default: "0"
+        Type:
+          Name: unsigned long
+      - Name: repeat
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: isComposing
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: ctrlKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: shiftKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: altKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: metaKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierAltGraph
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierCapsLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFn
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFnLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierHyper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierNumLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierScrollLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSuper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbol
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbolLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: view
+        Default: "null"
+        Type:
+          Name: Window
+          Nullable: true
+      - Name: detail
+        Default: "0"
+        Type:
+          Name: long
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: charCode
+        Default: "0"
+        Type:
+          Name: unsigned long
+      - Name: keyCode
+        Default: "0"
+        Type:
+          Name: unsigned long
+- File: keyboard-map.idl
+  Interface:
+    Name: KeyboardLayoutMap
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: DOMString
+        - Name: DOMString
+      Readonly: true
+- File: web-animations.idl
+  Dict:
+    Name: KeyframeAnimationOptions
+    Inherits: KeyframeEffectOptions
+    Fields:
+      - Name: id
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: timeline
+        Type:
+          Name: AnimationTimeline
+          Nullable: true
+      - Name: iterationComposite
+        Default: '"replace"'
+        Type:
+          Name: IterationCompositeOperation
+      - Name: rangeStart
+        Default: '"normal"'
+        Type:
+          Union:
+            - Name: TimelineRangeOffset
+            - Name: CSSNumericValue
+            - Name: CSSKeywordValue
+            - Name: DOMString
+      - Name: rangeEnd
+        Default: '"normal"'
+        Type:
+          Union:
+            - Name: TimelineRangeOffset
+            - Name: CSSNumericValue
+            - Name: CSSKeywordValue
+            - Name: DOMString
+- File: web-animations.idl
+  Interface:
+    Name: KeyframeEffect
+    Inherits: AnimationEffect
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: target
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pseudoElement
+        Type:
+          Name: CSSOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: composite
+        Type:
+          Name: CompositeOperation
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: iterationComposite
+        Type:
+          Name: IterationCompositeOperation
+    Operations:
+      - Name: getKeyframes
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: object
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setKeyframes
+        Args:
+          - Name: keyframes
+            Type:
+              Name: object
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: target
+            Type:
+              Name: Element
+              Nullable: true
+          - Name: keyframes
+            Type:
+              Name: object
+              Nullable: true
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Union:
+                - Name: unrestricted double
+                - Name: KeyframeEffectOptions
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Args:
+          - Name: source
+            Type:
+              Name: KeyframeEffect
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-animations.idl
+  Dict:
+    Name: KeyframeEffectOptions
+    Inherits: EffectTiming
+    Fields:
+      - Name: composite
+        Default: '"replace"'
+        Type:
+          Name: CompositeOperation
+      - Name: pseudoElement
+        Default: "null"
+        Type:
+          Name: CSSOMString
+          Nullable: true
+      - Name: fill
+        Default: '"auto"'
+        Type:
+          Name: FillMode
+      - Name: iterationStart
+        Default: "0.0"
+        Type:
+          Name: double
+      - Name: iterations
+        Default: "1.0"
+        Type:
+          Name: unrestricted double
+      - Name: direction
+        Default: '"normal"'
+        Type:
+          Name: PlaybackDirection
+      - Name: easing
+        Default: '"linear"'
+        Type:
+          Name: DOMString
+      - Name: iterationComposite
+        Default: '"replace"'
+        Type:
+          Name: IterationCompositeOperation
+- File: shape-detection-api.idl
+  Dict:
+    Name: Landmark
+    Fields:
+      - Name: locations
+        Required: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: Point2D
+      - Name: type
+        Type:
+          Name: LandmarkType
+- File: shape-detection-api.idl
+  Enum:
+    Name: LandmarkType
+    Values:
+      - mouth
+      - eye
+      - nose
+- File: webauthn.idl
+  Enum:
+    Name: LargeBlobSupport
+    Values:
+      - required
+      - preferred
+- File: largest-contentful-paint.idl
+  Interface:
+    Name: LargestContentfulPaint
+    Inherits: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: renderTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loadTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: size
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: url
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: element
+        Readonly: true
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+- File: webcodecs.idl
+  Enum:
+    Name: LatencyMode
+    Values:
+      - quality
+      - realtime
+- File: web-app-launch.idl
+  Callback:
+    Name: LaunchConsumer
+    Args:
+      - Name: params
+        Type:
+          Name: LaunchParams
+    Returns:
+      - Name: any
+- File: web-app-launch.idl
+  Interface:
+    Name: LaunchParams
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: targetURL
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: files
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: FileSystemHandle
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-app-launch.idl
+  Interface:
+    Name: LaunchQueue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: setConsumer
+        Args:
+          - Name: consumer
+            Type:
+              Name: LaunchConsumer
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-layout-api.idl
+  Interface:
+    Name: LayoutChild
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - LayoutWorklet
+    Attrs:
+      - Name: styleMap
+        Readonly: true
+        Type:
+          Name: StylePropertyMapReadOnly
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+    Operations:
+      - Name: intrinsicSizes
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: IntrinsicSizes
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: layoutNextFragment
+        Args:
+          - Name: constraints
+            Type:
+              Name: LayoutConstraintsOptions
+          - Name: breakToken
+            Type:
+              Name: ChildBreakToken
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: LayoutFragment
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+- File: css-layout-api.idl
+  Interface:
+    Name: LayoutConstraints
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - LayoutWorklet
+    Attrs:
+      - Name: availableInlineSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: availableBlockSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: fixedInlineSize
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: fixedBlockSize
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: percentageInlineSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: percentageBlockSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: blockFragmentationOffset
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: blockFragmentationType
+        Readonly: true
+        Type:
+          Name: BlockFragmentationType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: data
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet

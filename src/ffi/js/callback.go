@@ -6,92 +6,118 @@ package js
 import (
 	"unsafe"
 
+	stdconst "github.com/primecitizens/std/builtin/const"
 	"github.com/primecitizens/std/core/abi"
 	"github.com/primecitizens/std/core/assert"
 	"github.com/primecitizens/std/core/mark"
 	"github.com/primecitizens/std/core/math"
 	"github.com/primecitizens/std/ffi"
 	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/std/ffi/js/callback"
 )
 
-type CallbackDispatcher ffi.CallbackDispatcher[CallbackContext]
-
-type DummyDispatcher func()
-
-func (fn DummyDispatcher) DispatchCallback(_ uintptr, ctx *CallbackContext) {
-	fn()
+// CallbackDispatcher defines the interface of a js callback dispatcher.
+type CallbackDispatcher interface {
+	ffi.CallbackDispatcher[CallbackContext]
 }
 
-func (fn DummyDispatcher) Register() Func {
-	return RegisterCallback(fn, abi.FuncPCABIInternal(fn))
+// UntypedCallback dispatches js callbacks without resolving argument types.
+//
+// By convension, args[0] refers to the js `this` context.
+type UntypedCallback func(args []Ref)
+
+// Register registers this function to js and return the reference to that js function.
+func (fn UntypedCallback) Register() Func[func([]Ref)] {
+	return RegisterCallback[func([]Ref)](fn, abi.FuncPCABIInternal(fn))
+}
+
+// DispatchCallback implements [CallbackDispatcher].
+func (fn UntypedCallback) DispatchCallback(_ uintptr, ctx *CallbackContext) {
+	fn(ctx.Args())
 }
 
 // dispFunc for type checking
 type dispFunc[T any] ffi.DispatchFunc[T, CallbackContext]
 
-// RegisterCallback
+// RegisterCallback creates a js function to be called from js.
 //
-// NOTE: type param H MUST be a concrete pointer type, that is, it either
+// See [CallbackContext] for more details.
+//
+// NOTE: type param D MUST be a pointer type, that is, it either
 //   - comes with star sign (e.g. *Foo)
-//   - or being a function (e.g. [PromiseCallbackHandleFunc]).
-func RegisterCallback[D CallbackDispatcher](dispatcher D, targetPC uintptr) Func {
-	if unsafe.Sizeof(unsafe.Pointer(nil)) != unsafe.Sizeof(uintptr(0)) {
-		assert.Throw("unexpected", "pointer", "size", "not", "match")
-	}
-
-	if unsafe.Sizeof(dispatcher) != unsafe.Sizeof((*byte)(nil)) {
+//   - or being a function (e.g. PromiseCallbackHandleFunc).
+func RegisterCallback[F any, D CallbackDispatcher](dispatcher D, targetPC uintptr) Func[F] {
+	if unsafe.Sizeof(dispatcher) != stdconst.SizePointer {
 		assert.Throw("invalid", "callback", "handler:", "not", "a", "pointer", "value")
 	}
 
 	var _ dispFunc[D] = D.DispatchCallback // type check
-	return Func{
-		ref: bindings.Func(
-			SizeU(abi.FuncPCABIInternal(D.DispatchCallback)),
-			// this is still the `handler` as passed in
+	return Func[F]{
+		ref: callback.Func(
+			unsafe.Pointer(abi.FuncPCABIInternal(D.DispatchCallback)),
+			// NOTE: this is still the `dispatcher`
 			// we just converted it to pointer value as assumed
-			SizeU(uintptr(
-				unsafe.Pointer(
-					*(**byte)(
-						unsafe.Pointer(mark.NoEscape(&dispatcher)),
-					),
-				),
-			)),
+			Pointer(*(**byte)(mark.NoEscapePointer(&dispatcher))),
 			SizeU(targetPC),
 		),
 	}
 }
 
+// CallbackContext is the context of a function call from JS to Go.
+//
+// Limitation: At most 16 args (including `this`) are allowed.
+//
+// The call can be made synchronously (go -> js -> go) and
+// asynchronously (js -> go), the library supports both in one form.
+//
+// It is user's responsibility to ensure the callback does not call await-like
+// functions such as js.Promise.Await() and yield.Thread() when the js side
+// expects returning result synchronously, and if not so, the js side will
+// get a Promise instead of immediate value.
+//
+// To return value, call one of .ReturnXxx functions.
+// If none of the return functions was called, it returns js value "undefined".
+// If more than one return functions were called, it returns the value passed
+// in the last .ReturnXxx function.
+//
+// After returning from the target Go function,
+// All heap references available in the slice returned by .Args() are
+// freed, so users MUST NOT retain any of these references, and if
+// you do want to use after the callback, call Ref.Clone() to make a copy.
 type CallbackContext struct {
-	dispFnPC uint32
-	handler  uint32
-	targetPC uint32
-	retRef   bindings.Ref
-	nargs    uint32
-	args     [16]bindings.Ref
+	dispFnPC     uint32
+	handler      uint32
+	targetPC     uint32
+	retRef       bindings.Ref
+	resolveFnRef bindings.Ref
+	nargs        uint32
+	args         [16]bindings.Ref
 }
 
 func (ctx *CallbackContext) Args() []Ref {
 	return unsafe.Slice((*Ref)(mark.NoEscape(&ctx.args[0])), ctx.nargs)
 }
 
-func (ctx *CallbackContext) Return(ref Ref) {
-	bindings.Fill(ctx.retRef, bindings.Ref(ref))
+func (ctx *CallbackContext) Return(ref Ref) bool {
+	return bindings.Ref(True) == bindings.Replace(
+		ctx.retRef, bindings.Ref(ref),
+	)
 }
 
-func (ctx *CallbackContext) ReturnNum(n Number) {
-	bindings.FillNum(ctx.retRef, float64(n))
+func (ctx *CallbackContext) ReturnNum(n float64) bool {
+	return bindings.Ref(True) == bindings.ReplaceNum(
+		ctx.retRef, n,
+	)
 }
 
-func (ctx *CallbackContext) ReturnBool(b bool) {
-	if b {
-		bindings.FillBool(ctx.retRef, 1)
-	} else {
-		bindings.FillBool(ctx.retRef, 0)
-	}
+func (ctx *CallbackContext) ReturnBool(b bool) bool {
+	return bindings.Ref(True) == bindings.ReplaceBool(
+		ctx.retRef, bindings.Ref(Bool(b)),
+	)
 }
 
-func (ctx *CallbackContext) ReturnString(s string) {
-	bindings.FillString(
+func (ctx *CallbackContext) ReturnString(s string) bool {
+	return bindings.Ref(True) == bindings.ReplaceString(
 		ctx.retRef,
 		StringData(s),
 		SizeU(len(s)),
@@ -99,14 +125,20 @@ func (ctx *CallbackContext) ReturnString(s string) {
 }
 
 // handleCallback called from wasm_export_run.
-func handleCallback(ref bindings.Ref, unused uint32) {
+//
+// NOTE: When inserting code after `callDispatcher` and `DONE`
+// also update the LR update code pointing to this function
+// inside callDispatcher (asm implementation).
+func handleCallback(ref bindings.Ref) {
 	const validOffsets = true &&
 		unsafe.Offsetof(CallbackContext{}.dispFnPC) == 0 &&
 		unsafe.Offsetof(CallbackContext{}.handler) == 4 &&
 		unsafe.Offsetof(CallbackContext{}.targetPC) == 8 &&
 		unsafe.Offsetof(CallbackContext{}.retRef) == 12 &&
-		unsafe.Offsetof(CallbackContext{}.nargs) == 16 &&
-		unsafe.Offsetof(CallbackContext{}.args) == 20
+		unsafe.Offsetof(CallbackContext{}.resolveFnRef) == 16 &&
+		unsafe.Offsetof(CallbackContext{}.nargs) == 20 &&
+		unsafe.Offsetof(CallbackContext{}.args) == 24
+
 	if !validOffsets {
 		assert.Throw("unexpected", "invalid", "callback", "context", "field", "offsets")
 	}
@@ -116,16 +148,18 @@ func handleCallback(ref bindings.Ref, unused uint32) {
 	// defensive, to ensure js side sets nargs.
 	cb.nargs = math.MaxUint32
 
-	bindings.CallbackContext(ref, Pointer(&cb))
+	callback.Context(ref, Pointer(&cb))
 	if cb.nargs > 16 {
 		assert.Throw("too", "many", "args", "to", "callback", "func")
 	}
 
-	pc := uintptr(cb.dispFnPC)
-	callHandler(
+	callDispatcher(
 		uintptr(cb.handler),
 		uintptr(cb.targetPC),
 		mark.NoEscape(&cb),
-		(*(*dispFunc[uintptr])(unsafe.Pointer(mark.NoEscape(&pc)))),
+		uintptr(cb.dispFnPC),
 	)
+
+	// DONE:
+	Func[func(bool)]{ref: cb.resolveFnRef}.CallVoid(Undefined, false)
 }

@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+// when building with the "noos" tag, the GOOS is actually "linux".
+//
 //go:build noos && arm64
 
 #include "textflag.h"

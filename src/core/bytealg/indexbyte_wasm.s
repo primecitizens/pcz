@@ -5,9 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && wasm
+
 #include "textflag.h"
 
-TEXT ·IndexByte(SB), NOSPLIT, $0-40
+TEXT ·IndexSliceByte(SB), NOSPLIT, $0-40
 	I64Load b_base+0(FP)
 	I32WrapI64
 	I32Load8U c+24(FP)
@@ -29,7 +31,7 @@ TEXT ·IndexByte(SB), NOSPLIT, $0-40
 
 	RET
 
-TEXT ·IndexByteString(SB), NOSPLIT, $0-32
+TEXT ·IndexByte(SB), NOSPLIT, $0-32
 	Get SP
 	I64Load s_base+0(FP)
 	I32WrapI64

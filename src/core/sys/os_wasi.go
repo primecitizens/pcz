@@ -8,7 +8,6 @@ package sys
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/alloc/sysalloc"
 	"github.com/primecitizens/std/core/assert"
 	"github.com/primecitizens/std/ffi/wasm/wasi"
 )
@@ -54,7 +53,7 @@ func init() {
 	totalSize := uintptr(envSz) + uintptr(argSz) +
 		unsafe.Sizeof(string(""))*(uintptr(envc)+uintptr(argc))
 
-	buf := unsafe.Slice((*byte)(sysalloc.Sbrk(totalSize)), totalSize)
+	buf := make([]byte, totalSize)
 	args = unsafe.Slice(
 		(*string)(unsafe.Pointer(unsafe.SliceData(buf))),
 		argc,

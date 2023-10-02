@@ -5,17 +5,17 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build ppc64le || ppc64
+//go:build pcz && (ppc64le || ppc64)
 
 #include "textflag.h"
 
-TEXT ·Count<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-40
+TEXT ·CountSlice<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-40
 	// R3 = byte array pointer 
 	// R4 = length
 	MOVBZ R6, R5              // R5 = byte
 	BR    countbytebody<>(SB)
 
-TEXT ·CountString<ABIInternal>(SB), NOSPLIT|NOFRAME, $0-32
+TEXT ·Count<ABIInternal>(SB), NOSPLIT|NOFRAME, $0-32
 	// R3 = byte array pointer
 	// R4 = length
 	MOVBZ R5, R5              // R5 = byte

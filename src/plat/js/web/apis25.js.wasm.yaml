@@ -1,0 +1,2136 @@
+- File: mediacapture-streams.idl
+  Interface:
+    Name: MediaStreamTrackEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: track
+        Readonly: true
+        Type:
+          Name: MediaStreamTrack
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Type:
+              Name: MediaStreamTrackEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: mediacapture-streams.idl
+  Dict:
+    Name: MediaStreamTrackEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: track
+        Required: true
+        Type:
+          Name: MediaStreamTrack
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: mediacapture-transform.idl
+  Interface:
+    Name: MediaStreamTrackProcessor
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+    Attrs:
+      - Name: readable
+        Type:
+          Name: ReadableStream
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: MediaStreamTrackProcessorInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+- File: mediacapture-transform.idl
+  Dict:
+    Name: MediaStreamTrackProcessorInit
+    Fields:
+      - Name: track
+        Required: true
+        Type:
+          Name: MediaStreamTrack
+      - Name: maxBufferSize
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: EnforceRange
+- File: mediacapture-streams.idl
+  Enum:
+    Name: MediaStreamTrackState
+    Values:
+      - live
+      - ended
+- File: mediacapture-streams.idl
+  Dict:
+    Name: MediaTrackCapabilities
+    Fields:
+      - Name: width
+        Type:
+          Name: ULongRange
+      - Name: height
+        Type:
+          Name: ULongRange
+      - Name: aspectRatio
+        Type:
+          Name: DoubleRange
+      - Name: frameRate
+        Type:
+          Name: DoubleRange
+      - Name: facingMode
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: resizeMode
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: sampleRate
+        Type:
+          Name: ULongRange
+      - Name: sampleSize
+        Type:
+          Name: ULongRange
+      - Name: echoCancellation
+        Type:
+          Name: sequence
+          Params:
+            - Name: boolean
+      - Name: autoGainControl
+        Type:
+          Name: sequence
+          Params:
+            - Name: boolean
+      - Name: noiseSuppression
+        Type:
+          Name: sequence
+          Params:
+            - Name: boolean
+      - Name: latency
+        Type:
+          Name: DoubleRange
+      - Name: channelCount
+        Type:
+          Name: ULongRange
+      - Name: deviceId
+        Type:
+          Name: DOMString
+      - Name: groupId
+        Type:
+          Name: DOMString
+      - Name: whiteBalanceMode
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: exposureMode
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: focusMode
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+      - Name: exposureCompensation
+        Type:
+          Name: MediaSettingsRange
+      - Name: exposureTime
+        Type:
+          Name: MediaSettingsRange
+      - Name: colorTemperature
+        Type:
+          Name: MediaSettingsRange
+      - Name: iso
+        Type:
+          Name: MediaSettingsRange
+      - Name: brightness
+        Type:
+          Name: MediaSettingsRange
+      - Name: contrast
+        Type:
+          Name: MediaSettingsRange
+      - Name: saturation
+        Type:
+          Name: MediaSettingsRange
+      - Name: sharpness
+        Type:
+          Name: MediaSettingsRange
+      - Name: focusDistance
+        Type:
+          Name: MediaSettingsRange
+      - Name: pan
+        Type:
+          Name: MediaSettingsRange
+      - Name: tilt
+        Type:
+          Name: MediaSettingsRange
+      - Name: zoom
+        Type:
+          Name: MediaSettingsRange
+      - Name: torch
+        Type:
+          Name: boolean
+      - Name: displaySurface
+        Type:
+          Name: DOMString
+      - Name: logicalSurface
+        Type:
+          Name: boolean
+      - Name: cursor
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: mediacapture-streams.idl
+  Dict:
+    Name: MediaTrackConstraintSet
+    Fields:
+      - Name: width
+        Type:
+          Name: ConstrainULong
+      - Name: height
+        Type:
+          Name: ConstrainULong
+      - Name: aspectRatio
+        Type:
+          Name: ConstrainDouble
+      - Name: frameRate
+        Type:
+          Name: ConstrainDouble
+      - Name: facingMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: resizeMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: sampleRate
+        Type:
+          Name: ConstrainULong
+      - Name: sampleSize
+        Type:
+          Name: ConstrainULong
+      - Name: echoCancellation
+        Type:
+          Name: ConstrainBoolean
+      - Name: autoGainControl
+        Type:
+          Name: ConstrainBoolean
+      - Name: noiseSuppression
+        Type:
+          Name: ConstrainBoolean
+      - Name: latency
+        Type:
+          Name: ConstrainDouble
+      - Name: channelCount
+        Type:
+          Name: ConstrainULong
+      - Name: deviceId
+        Type:
+          Name: ConstrainDOMString
+      - Name: groupId
+        Type:
+          Name: ConstrainDOMString
+      - Name: whiteBalanceMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: exposureMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: focusMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: pointsOfInterest
+        Type:
+          Name: ConstrainPoint2D
+      - Name: exposureCompensation
+        Type:
+          Name: ConstrainDouble
+      - Name: exposureTime
+        Type:
+          Name: ConstrainDouble
+      - Name: colorTemperature
+        Type:
+          Name: ConstrainDouble
+      - Name: iso
+        Type:
+          Name: ConstrainDouble
+      - Name: brightness
+        Type:
+          Name: ConstrainDouble
+      - Name: contrast
+        Type:
+          Name: ConstrainDouble
+      - Name: saturation
+        Type:
+          Name: ConstrainDouble
+      - Name: sharpness
+        Type:
+          Name: ConstrainDouble
+      - Name: focusDistance
+        Type:
+          Name: ConstrainDouble
+      - Name: pan
+        Type:
+          Union:
+            - Name: boolean
+            - Name: ConstrainDouble
+      - Name: tilt
+        Type:
+          Union:
+            - Name: boolean
+            - Name: ConstrainDouble
+      - Name: zoom
+        Type:
+          Union:
+            - Name: boolean
+            - Name: ConstrainDouble
+      - Name: torch
+        Type:
+          Name: ConstrainBoolean
+      - Name: displaySurface
+        Type:
+          Name: ConstrainDOMString
+      - Name: logicalSurface
+        Type:
+          Name: ConstrainBoolean
+      - Name: cursor
+        Type:
+          Name: ConstrainDOMString
+      - Name: restrictOwnAudio
+        Type:
+          Name: ConstrainBoolean
+      - Name: suppressLocalAudioPlayback
+        Type:
+          Name: ConstrainBoolean
+- File: mediacapture-streams.idl
+  Dict:
+    Name: MediaTrackConstraints
+    Inherits: MediaTrackConstraintSet
+    Fields:
+      - Name: advanced
+        Type:
+          Name: sequence
+          Params:
+            - Name: MediaTrackConstraintSet
+      - Name: whiteBalanceMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: exposureMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: focusMode
+        Type:
+          Name: ConstrainDOMString
+      - Name: pointsOfInterest
+        Type:
+          Name: ConstrainPoint2D
+      - Name: exposureCompensation
+        Type:
+          Name: ConstrainDouble
+      - Name: exposureTime
+        Type:
+          Name: ConstrainDouble
+      - Name: colorTemperature
+        Type:
+          Name: ConstrainDouble
+      - Name: iso
+        Type:
+          Name: ConstrainDouble
+      - Name: brightness
+        Type:
+          Name: ConstrainDouble
+      - Name: contrast
+        Type:
+          Name: ConstrainDouble
+      - Name: saturation
+        Type:
+          Name: ConstrainDouble
+      - Name: sharpness
+        Type:
+          Name: ConstrainDouble
+      - Name: focusDistance
+        Type:
+          Name: ConstrainDouble
+      - Name: pan
+        Type:
+          Union:
+            - Name: boolean
+            - Name: ConstrainDouble
+      - Name: tilt
+        Type:
+          Union:
+            - Name: boolean
+            - Name: ConstrainDouble
+      - Name: zoom
+        Type:
+          Union:
+            - Name: boolean
+            - Name: ConstrainDouble
+      - Name: torch
+        Type:
+          Name: ConstrainBoolean
+- File: mediacapture-streams.idl
+  Dict:
+    Name: MediaTrackSettings
+    Fields:
+      - Name: width
+        Type:
+          Name: unsigned long
+      - Name: height
+        Type:
+          Name: unsigned long
+      - Name: aspectRatio
+        Type:
+          Name: double
+      - Name: frameRate
+        Type:
+          Name: double
+      - Name: facingMode
+        Type:
+          Name: DOMString
+      - Name: resizeMode
+        Type:
+          Name: DOMString
+      - Name: sampleRate
+        Type:
+          Name: unsigned long
+      - Name: sampleSize
+        Type:
+          Name: unsigned long
+      - Name: echoCancellation
+        Type:
+          Name: boolean
+      - Name: autoGainControl
+        Type:
+          Name: boolean
+      - Name: noiseSuppression
+        Type:
+          Name: boolean
+      - Name: latency
+        Type:
+          Name: double
+      - Name: channelCount
+        Type:
+          Name: unsigned long
+      - Name: deviceId
+        Type:
+          Name: DOMString
+      - Name: groupId
+        Type:
+          Name: DOMString
+      - Name: whiteBalanceMode
+        Type:
+          Name: DOMString
+      - Name: exposureMode
+        Type:
+          Name: DOMString
+      - Name: focusMode
+        Type:
+          Name: DOMString
+      - Name: pointsOfInterest
+        Type:
+          Name: sequence
+          Params:
+            - Name: Point2D
+      - Name: exposureCompensation
+        Type:
+          Name: double
+      - Name: exposureTime
+        Type:
+          Name: double
+      - Name: colorTemperature
+        Type:
+          Name: double
+      - Name: iso
+        Type:
+          Name: double
+      - Name: brightness
+        Type:
+          Name: double
+      - Name: contrast
+        Type:
+          Name: double
+      - Name: saturation
+        Type:
+          Name: double
+      - Name: sharpness
+        Type:
+          Name: double
+      - Name: focusDistance
+        Type:
+          Name: double
+      - Name: pan
+        Type:
+          Name: double
+      - Name: tilt
+        Type:
+          Name: double
+      - Name: zoom
+        Type:
+          Name: double
+      - Name: torch
+        Type:
+          Name: boolean
+      - Name: displaySurface
+        Type:
+          Name: DOMString
+      - Name: logicalSurface
+        Type:
+          Name: boolean
+      - Name: cursor
+        Type:
+          Name: DOMString
+      - Name: restrictOwnAudio
+        Type:
+          Name: boolean
+      - Name: suppressLocalAudioPlayback
+        Type:
+          Name: boolean
+- File: mediacapture-streams.idl
+  Dict:
+    Name: MediaTrackSupportedConstraints
+    Fields:
+      - Name: width
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: height
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: aspectRatio
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: frameRate
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: facingMode
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: resizeMode
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: sampleRate
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: sampleSize
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: echoCancellation
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: autoGainControl
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: noiseSuppression
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: latency
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: channelCount
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: deviceId
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: groupId
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: whiteBalanceMode
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: exposureMode
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: focusMode
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: pointsOfInterest
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: exposureCompensation
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: exposureTime
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: colorTemperature
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: iso
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: brightness
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: contrast
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: pan
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: saturation
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: sharpness
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: focusDistance
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: tilt
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: zoom
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: torch
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: displaySurface
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: logicalSurface
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: cursor
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: restrictOwnAudio
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: suppressLocalAudioPlayback
+        Default: "true"
+        Type:
+          Name: boolean
+- File: netinfo.idl
+  Typedef:
+    Name: Megabit
+    Type:
+      Name: unrestricted double
+- File: wasm-js-api.idl
+  Interface:
+    Name: Memory
+    ExtAttrs:
+      - Name: LegacyNamespace
+        Values:
+          - WebAssembly
+      - Name: Exposed
+    Attrs:
+      - Name: buffer
+        Readonly: true
+        Type:
+          Name: ArrayBuffer
+        ExtAttrs:
+          - Name: LegacyNamespace
+            Values:
+              - WebAssembly
+          - Name: Exposed
+    Operations:
+      - Name: grow
+        Args:
+          - Name: delta
+            Type:
+              Name: unsigned long
+            ExtAttrs:
+              - Name: EnforceRange
+        Returns:
+          - Name: unsigned long
+        ExtAttrs:
+          - Name: LegacyNamespace
+            Values:
+              - WebAssembly
+          - Name: Exposed
+    Constructors:
+      - Args:
+          - Name: descriptor
+            Type:
+              Name: MemoryDescriptor
+        ExtAttrs:
+          - Name: LegacyNamespace
+            Values:
+              - WebAssembly
+          - Name: Exposed
+- File: performance-measure-memory.idl
+  Dict:
+    Name: MemoryAttribution
+    Fields:
+      - Name: url
+        Type:
+          Name: USVString
+      - Name: container
+        Type:
+          Name: MemoryAttributionContainer
+      - Name: scope
+        Type:
+          Name: DOMString
+- File: performance-measure-memory.idl
+  Dict:
+    Name: MemoryAttributionContainer
+    Fields:
+      - Name: id
+        Type:
+          Name: DOMString
+      - Name: src
+        Type:
+          Name: USVString
+- File: performance-measure-memory.idl
+  Dict:
+    Name: MemoryBreakdownEntry
+    Fields:
+      - Name: bytes
+        Type:
+          Name: unsigned long long
+      - Name: attribution
+        Type:
+          Name: sequence
+          Params:
+            - Name: MemoryAttribution
+      - Name: types
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: wasm-js-api.idl
+  Dict:
+    Name: MemoryDescriptor
+    Fields:
+      - Name: initial
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: maximum
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+- File: performance-measure-memory.idl
+  Dict:
+    Name: MemoryMeasurement
+    Fields:
+      - Name: bytes
+        Type:
+          Name: unsigned long long
+      - Name: breakdown
+        Type:
+          Name: sequence
+          Params:
+            - Name: MemoryBreakdownEntry
+- File: html.idl
+  Interface:
+    Name: MessageChannel
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: port1
+        Readonly: true
+        Type:
+          Name: MessagePort
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: port2
+        Readonly: true
+        Type:
+          Name: MessagePort
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: html.idl
+  Interface:
+    Name: MessageEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - AudioWorklet
+    Attrs:
+      - Name: data
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+      - Name: origin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+      - Name: lastEventId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+      - Name: source
+        Readonly: true
+        Type:
+          Name: MessageEventSource
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+      - Name: ports
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: MessagePort
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+    Operations:
+      - Name: initMessageEvent
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: bubbles
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: cancelable
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: data
+            Optional: true
+            Default: "null"
+            Type:
+              Name: any
+          - Name: origin
+            Optional: true
+            Default: '""'
+            Type:
+              Name: USVString
+          - Name: lastEventId
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: source
+            Optional: true
+            Default: "null"
+            Type:
+              Name: MessageEventSource
+              Nullable: true
+          - Name: ports
+            Optional: true
+            Default: '[]'
+            Type:
+              Name: sequence
+              Params:
+                - Name: MessagePort
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MessageEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+- File: html.idl
+  Dict:
+    Name: MessageEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: data
+        Default: "null"
+        Type:
+          Name: any
+      - Name: origin
+        Default: '""'
+        Type:
+          Name: USVString
+      - Name: lastEventId
+        Default: '""'
+        Type:
+          Name: DOMString
+      - Name: source
+        Default: "null"
+        Type:
+          Name: MessageEventSource
+          Nullable: true
+      - Name: ports
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: MessagePort
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: html.idl
+  Typedef:
+    Name: MessageEventSource
+    Type:
+      Union:
+        - Name: WindowProxy
+        - Name: MessagePort
+        - Name: ServiceWorker
+- File: html.idl
+  Interface:
+    Name: MessagePort
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+          - AudioWorklet
+      - Name: Transferable
+    Attrs:
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+          - Name: Transferable
+      - Name: onmessageerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+          - Name: Transferable
+    Operations:
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: transfer
+            Type:
+              Name: sequence
+              Params:
+                - Name: object
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+          - Name: Transferable
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StructuredSerializeOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+          - Name: Transferable
+      - Name: start
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+          - Name: Transferable
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+              - AudioWorklet
+          - Name: Transferable
+- File: image-capture.idl
+  Enum:
+    Name: MeteringMode
+    Values:
+      - none
+      - manual
+      - single-shot
+      - continuous
+- File: webmidi.idl
+  Dict:
+    Name: MidiPermissionDescriptor
+    Inherits: PermissionDescriptor
+    Fields:
+      - Name: sysex
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: netinfo.idl
+  Typedef:
+    Name: Millisecond
+    Type:
+      Name: unsigned long long
+- File: html.idl
+  Interface:
+    Name: MimeType
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: description
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: suffixes
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: enabledPlugin
+        Readonly: true
+        Type:
+          Name: Plugin
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: MimeTypeArray
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyUnenumerableNamedProperties
+    Attrs:
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: MimeType
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: namedItem
+        Modifier: getter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: MimeType
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+- File: mediacapture-automation.idl
+  Dict:
+    Name: MockCameraConfiguration
+    Inherits: MockCaptureDeviceConfiguration
+    Fields:
+      - Name: defaultFrameRate
+        Default: "30"
+        Type:
+          Name: double
+      - Name: facingMode
+        Default: '"user"'
+        Type:
+          Name: DOMString
+      - Name: label
+        Type:
+          Name: DOMString
+      - Name: deviceId
+        Type:
+          Name: DOMString
+      - Name: groupId
+        Type:
+          Name: DOMString
+- File: mediacapture-automation.idl
+  Dict:
+    Name: MockCaptureDeviceConfiguration
+    Fields:
+      - Name: label
+        Type:
+          Name: DOMString
+      - Name: deviceId
+        Type:
+          Name: DOMString
+      - Name: groupId
+        Type:
+          Name: DOMString
+- File: mediacapture-automation.idl
+  Enum:
+    Name: MockCapturePromptResult
+    Values:
+      - granted
+      - denied
+- File: mediacapture-automation.idl
+  Dict:
+    Name: MockCapturePromptResultConfiguration
+    Fields:
+      - Name: getUserMedia
+        Type:
+          Name: MockCapturePromptResult
+      - Name: getDisplayMedia
+        Type:
+          Name: MockCapturePromptResult
+- File: mediacapture-automation.idl
+  Dict:
+    Name: MockMicrophoneConfiguration
+    Inherits: MockCaptureDeviceConfiguration
+    Fields:
+      - Name: defaultSampleRate
+        Default: "44100"
+        Type:
+          Name: unsigned long
+      - Name: label
+        Type:
+          Name: DOMString
+      - Name: deviceId
+        Type:
+          Name: DOMString
+      - Name: groupId
+        Type:
+          Name: DOMString
+- File: generic-sensor.idl
+  Dict:
+    Name: MockSensor
+    Fields:
+      - Name: maxSamplingFrequency
+        Type:
+          Name: double
+      - Name: minSamplingFrequency
+        Type:
+          Name: double
+      - Name: requestedSamplingFrequency
+        Type:
+          Name: double
+- File: generic-sensor.idl
+  Dict:
+    Name: MockSensorConfiguration
+    Fields:
+      - Name: mockSensorType
+        Required: true
+        Type:
+          Name: MockSensorType
+      - Name: connected
+        Default: "true"
+        Type:
+          Name: boolean
+      - Name: maxSamplingFrequency
+        Type:
+          Name: double
+          Nullable: true
+      - Name: minSamplingFrequency
+        Type:
+          Name: double
+          Nullable: true
+- File: generic-sensor.idl
+  Dict:
+    Name: MockSensorReadingValues
+- File: generic-sensor.idl
+  Enum:
+    Name: MockSensorType
+    Values:
+      - ambient-light
+      - accelerometer
+      - linear-acceleration
+      - gravity
+      - gyroscope
+      - magnetometer
+      - uncalibrated-magnetometer
+      - absolute-orientation
+      - relative-orientation
+      - geolocation
+      - proximity
+- File: wasm-js-api.idl
+  Interface:
+    Name: Module
+    ExtAttrs:
+      - Name: LegacyNamespace
+        Values:
+          - WebAssembly
+      - Name: Exposed
+    Operations:
+      - Name: exports
+        Modifier: static
+        Args:
+          - Name: moduleObject
+            Type:
+              Name: Module
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: ModuleExportDescriptor
+        ExtAttrs:
+          - Name: LegacyNamespace
+            Values:
+              - WebAssembly
+          - Name: Exposed
+      - Name: imports
+        Modifier: static
+        Args:
+          - Name: moduleObject
+            Type:
+              Name: Module
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: ModuleImportDescriptor
+        ExtAttrs:
+          - Name: LegacyNamespace
+            Values:
+              - WebAssembly
+          - Name: Exposed
+      - Name: customSections
+        Modifier: static
+        Args:
+          - Name: moduleObject
+            Type:
+              Name: Module
+          - Name: sectionName
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: ArrayBuffer
+        ExtAttrs:
+          - Name: LegacyNamespace
+            Values:
+              - WebAssembly
+          - Name: Exposed
+    Constructors:
+      - Args:
+          - Name: bytes
+            Type:
+              Name: BufferSource
+        ExtAttrs:
+          - Name: LegacyNamespace
+            Values:
+              - WebAssembly
+          - Name: Exposed
+- File: wasm-js-api.idl
+  Dict:
+    Name: ModuleExportDescriptor
+    Fields:
+      - Name: name
+        Required: true
+        Type:
+          Name: USVString
+      - Name: kind
+        Required: true
+        Type:
+          Name: ImportExportKind
+- File: wasm-js-api.idl
+  Dict:
+    Name: ModuleImportDescriptor
+    Fields:
+      - Name: module
+        Required: true
+        Type:
+          Name: USVString
+      - Name: name
+        Required: true
+        Type:
+          Name: USVString
+      - Name: kind
+        Required: true
+        Type:
+          Name: ImportExportKind
+- File: screen-capture.idl
+  Enum:
+    Name: MonitorTypeSurfacesEnum
+    Values:
+      - include
+      - exclude
+- File: uievents.idl
+  Interface:
+    Name: MouseEvent
+    Inherits: UIEvent
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: screenX
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: screenY
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: clientX
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: clientY
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ctrlKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: shiftKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: altKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: metaKey
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: button
+        Readonly: true
+        Type:
+          Name: short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: buttons
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: relatedTarget
+        Readonly: true
+        Type:
+          Name: EventTarget
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: movementX
+        Readonly: true
+        Type:
+          Name: double
+      - Name: movementY
+        Readonly: true
+        Type:
+          Name: double
+      - Name: pageX
+        Readonly: true
+        Type:
+          Name: double
+      - Name: pageY
+        Readonly: true
+        Type:
+          Name: double
+      - Name: x
+        Readonly: true
+        Type:
+          Name: double
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: double
+      - Name: offsetX
+        Readonly: true
+        Type:
+          Name: double
+      - Name: offsetY
+        Readonly: true
+        Type:
+          Name: double
+    Operations:
+      - Name: getModifierState
+        Args:
+          - Name: keyArg
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: initMouseEvent
+        Args:
+          - Name: typeArg
+            Type:
+              Name: DOMString
+          - Name: bubblesArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: cancelableArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: viewArg
+            Optional: true
+            Default: "null"
+            Type:
+              Name: Window
+              Nullable: true
+          - Name: detailArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: screenXArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: screenYArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: clientXArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: clientYArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: long
+          - Name: ctrlKeyArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: altKeyArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: shiftKeyArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: metaKeyArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: buttonArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: short
+          - Name: relatedTargetArg
+            Optional: true
+            Default: "null"
+            Type:
+              Name: EventTarget
+              Nullable: true
+        Returns:
+          - Name: undefined
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MouseEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: uievents.idl
+  Dict:
+    Name: MouseEventInit
+    Inherits: EventModifierInit
+    Fields:
+      - Name: screenX
+        Default: "0"
+        Type:
+          Name: long
+      - Name: screenY
+        Default: "0"
+        Type:
+          Name: long
+      - Name: clientX
+        Default: "0"
+        Type:
+          Name: long
+      - Name: clientY
+        Default: "0"
+        Type:
+          Name: long
+      - Name: button
+        Default: "0"
+        Type:
+          Name: short
+      - Name: buttons
+        Default: "0"
+        Type:
+          Name: unsigned short
+      - Name: relatedTarget
+        Default: "null"
+        Type:
+          Name: EventTarget
+          Nullable: true
+      - Name: ctrlKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: shiftKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: altKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: metaKey
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierAltGraph
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierCapsLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFn
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierFnLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierHyper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierNumLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierScrollLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSuper
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbol
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: modifierSymbolLock
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: view
+        Default: "null"
+        Type:
+          Name: Window
+          Nullable: true
+      - Name: detail
+        Default: "0"
+        Type:
+          Name: long
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: movementX
+        Default: "0"
+        Type:
+          Name: double
+      - Name: movementY
+        Default: "0"
+        Type:
+          Name: double
+- File: service-workers.idl
+  Dict:
+    Name: MultiCacheQueryOptions
+    Inherits: CacheQueryOptions
+    Fields:
+      - Name: cacheName
+        Type:
+          Name: DOMString
+      - Name: ignoreSearch
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: ignoreMethod
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: ignoreVary
+        Default: "false"
+        Type:
+          Name: boolean
+- File: dom.idl
+  Callback:
+    Name: MutationCallback
+    Args:
+      - Name: mutations
+        Type:
+          Name: sequence
+          Params:
+            - Name: MutationRecord
+      - Name: observer
+        Type:
+          Name: MutationObserver
+    Returns:
+      - Name: undefined
+- File: uievents.idl
+  Interface:
+    Name: MutationEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: MODIFICATION
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: ADDITION
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: REMOVAL
+        Value: "3"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: relatedNode
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: prevValue
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: newValue
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attrName
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attrChange
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: initMutationEvent
+        Args:
+          - Name: typeArg
+            Type:
+              Name: DOMString
+          - Name: bubblesArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: cancelableArg
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: relatedNodeArg
+            Optional: true
+            Default: "null"
+            Type:
+              Name: Node
+              Nullable: true
+          - Name: prevValueArg
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: newValueArg
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: attrNameArg
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: attrChangeArg
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned short
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Name: MutationEvent
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: EventInit
+        ExtAttrs:
+          - Name: Exposed
+- File: dom.idl
+  Interface:
+    Name: MutationObserver
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: observe
+        Args:
+          - Name: target
+            Type:
+              Name: Node
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MutationObserverInit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disconnect
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: takeRecords
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: MutationRecord
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: callback
+            Type:
+              Name: MutationCallback
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: dom.idl
+  Dict:
+    Name: MutationObserverInit
+    Fields:
+      - Name: childList
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: attributes
+        Type:
+          Name: boolean
+      - Name: characterData
+        Type:
+          Name: boolean
+      - Name: subtree
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: attributeOldValue
+        Type:
+          Name: boolean
+      - Name: characterDataOldValue
+        Type:
+          Name: boolean
+      - Name: attributeFilter
+        Type:
+          Name: sequence
+          Params:
+            - Name: DOMString
+- File: dom.idl
+  Interface:
+    Name: MutationRecord
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: target
+        Readonly: true
+        Type:
+          Name: Node
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: addedNodes
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: removedNodes
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: previousSibling
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: nextSibling
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attributeName
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: attributeNamespace
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: oldValue
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-nfc.idl
+  Dict:
+    Name: NDEFMakeReadOnlyOptions
+    Fields:
+      - Name: signal
+        Type:
+          Name: AbortSignal
+          Nullable: true
+- File: web-nfc.idl
+  Interface:
+    Name: NDEFMessage
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: records
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: NDEFRecord
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: messageInit
+            Type:
+              Name: NDEFMessageInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window

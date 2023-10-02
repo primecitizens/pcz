@@ -16,4 +16,6 @@ type CallbackDispatcher[CallbackContext any] interface {
 
 // DispatchFunc is the function signature of
 // CallbackDispatcher.DispatchCallback
-type DispatchFunc[T any, CallbackContext any] func(recv T, targetPC uintptr, ctx *CallbackContext)
+type DispatchFunc[T any, CallbackContext any] func(
+	recv T, targetPC uintptr, ctx *CallbackContext,
+)

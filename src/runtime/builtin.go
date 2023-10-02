@@ -13,11 +13,10 @@ import (
 	stdptr "github.com/primecitizens/std/builtin/ptr"
 	stdtype "github.com/primecitizens/std/builtin/type"
 	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/std/core/alloc"
 	"github.com/primecitizens/std/core/asan"
 	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/cmp"
 	"github.com/primecitizens/std/core/cover"
-	"github.com/primecitizens/std/core/debug"
 	"github.com/primecitizens/std/core/emu64"
 	"github.com/primecitizens/std/core/fuzz"
 	"github.com/primecitizens/std/core/hash"
@@ -25,33 +24,48 @@ import (
 	"github.com/primecitizens/std/core/mem"
 	"github.com/primecitizens/std/core/msan"
 	"github.com/primecitizens/std/core/race"
-	"github.com/primecitizens/std/core/rand"
 )
 
 //
 // rand
 //
 
-func fastrand() uint32 { return rand.Fastrand() }
+func fastrand() uint32 {
+	return getg().G().Rand32()
+}
 
 //
 // new
 //
 
 func newobject(typ *abi.Type) unsafe.Pointer {
-	assert.Panic("Implicit allocation! Call alloc.Malloc and alloc.Free instead")
-	return nil
+	if typ.Size_ == 0 {
+		return alloc.ZeroSized()
+	}
+
+	return getg().G().DefaultAlloc().Malloc(typ, 1, true)
 }
 
+// > Allocate an object of size bytes.
+// > Small objects are allocated from the per-P cache's free lists.
+// > Large objects (> 32 kB) are allocated straight from the heap.
+//
+// See ${GOROOT}/src/runtime/malloc.go#func:mallocgc
 func mallocgc(size uintptr, typ *abi.Type, needszero bool) unsafe.Pointer {
-	assert.Panic("Implicit allocation! Call alloc.Malloc and alloc.Free instead")
+	if typ.Size_ == 0 {
+		return alloc.ZeroSized()
+	}
+
+	assert.Panic("invalid", "implicit", "allocation")
 	return nil
 }
 
+//
 // goroutine
+//
 
 func gopanic(v any) {
-	debug.Abort()
+	assert.Panic(v)
 }
 
 // GoSchedGuarded yields the processor like gosched, but also checks
@@ -92,79 +106,109 @@ func printlock()                    { stdprint.PrintLock() }
 func printunlock()                  { stdprint.PrintUnlock() }
 
 //
-// interface type operations
-//
-
-// Non-empty-interface to non-empty-interface conversion.
-func convI2I(typ *abi.InterfaceType, itab *abi.Itab) *abi.Itab {
-	return stdtype.ConvI2I(typ, itab)
-}
-
-// Convert non-interface type to the data word of a (empty or nonempty) interface.
-func convT(typ *abi.Type, elem unsafe.Pointer) unsafe.Pointer {
-	return stdtype.ConvT(typ, elem)
-}
-
-// Same as convT, for types with no pointers in them.
-func convTnoptr(typ *abi.Type, elem unsafe.Pointer) unsafe.Pointer {
-	return stdtype.ConvTNoPtr(typ, elem)
-}
-
-func convT16(val uint16) unsafe.Pointer     { return stdtype.ConvT16(val) }
-func convT32(val uint32) unsafe.Pointer     { return stdtype.ConvT32(val) }
-func convT64(val uint64) unsafe.Pointer     { return stdtype.ConvT64(val) }
-func convTstring(val string) unsafe.Pointer { return stdtype.ConvTstring(val) }
-func convTslice(val []uint8) unsafe.Pointer { return stdtype.ConvTslice(val) }
-
-func assertE2I(it *abi.InterfaceType, typ *abi.Type) *abi.Itab {
-	return stdtype.AssertE2I(it, typ)
-}
-
-func assertE2I2(it *abi.InterfaceType, eface stdtype.Eface) stdtype.Iface {
-	return stdtype.AssertE2I2(it, eface)
-}
-
-func assertI2I(it *abi.InterfaceType, tab *abi.Itab) *abi.Itab {
-	return stdtype.AssertI2I(it, tab)
-}
-
-func assertI2I2(it *abi.InterfaceType, i stdtype.Iface) stdtype.Iface {
-	return stdtype.AssertI2I2(it, i)
-}
-
-func panicdottypeE(have, want, iface *abi.Type) {
-	stdtype.PanicDotTypeE(have, want, iface)
-}
-
-func panicdottypeI(have *abi.Itab, want, iface *abi.Type) {
-	stdtype.PanicDotTypeI(have, want, iface)
-}
-
-func panicnildottype(want *abi.Type) {
-	stdtype.PanicNilDotType(want)
-}
-
-func ifaceeq(tab *abi.Itab, x, y unsafe.Pointer) bool {
-	return stdtype.IfaceEq(tab, x, y)
-}
-
-func efaceeq(typ *abi.Type, x, y unsafe.Pointer) bool {
-	return stdtype.EfaceEq(typ, x, y)
-}
-
-//
 // mem
 //
 
-func memmove(to, from unsafe.Pointer, n uintptr)         { mem.Memmove(to, from, n) }
-func memclrNoHeapPointers(ptr unsafe.Pointer, n uintptr) { mem.MemclrNoHeapPointers(uintptr(ptr), n) }
-func memclrHasPointers(ptr unsafe.Pointer, n uintptr)    { mem.MemclrHasPointers(ptr, n) }
+func memmove(to, from unsafe.Pointer, n uintptr) {
+	mem.Move(to, from, n)
+}
 
-func TypedMemmove(typ *abi.Type, dst, src unsafe.Pointer) { mem.TypedMemmove(typ, dst, src) }
-func typedmemclr(typ *abi.Type, dst unsafe.Pointer)       { mem.TypedMemClr(typ, dst) }
+// See ${GOROOT}/src/runtime/mbarrier.go#func:typedmemmove
+func typedmemmove(typ *abi.Type, dst, src unsafe.Pointer) {
+	if dst == src {
+		return
+	}
+	if writeBarrier.needed && typ.PtrBytes != 0 {
+		bulkBarrierPreWrite(uintptr(dst), uintptr(src), typ.PtrBytes)
+	}
+	// There's a race here: if some other goroutine can write to
+	// src, it may change some pointer in src after we've
+	// performed the write barrier but before we perform the
+	// memory copy. This safe because the write performed by that
+	// other goroutine must also be accompanied by a write
+	// barrier, so at worst we've unnecessarily greyed the old
+	// pointer that was in src.
+	mem.Move(dst, src, typ.Size_)
+}
 
+// See ${GOROOT}/src/runtime/stubs.go#func:memclrNoHeapPointers
+func memclrNoHeapPointers(ptr unsafe.Pointer, n uintptr) {
+	mem.Clear(ptr, n)
+}
+
+// See ${GOROOT}/src/runtime/mbarrier.go#func:memclrHasPointers
+func memclrHasPointers(ptr unsafe.Pointer, n uintptr) {
+	bulkBarrierPreWrite(uintptr(ptr), 0, n)
+	mem.Clear(ptr, n)
+}
+
+// typedmemclr clears the typed memory at ptr with type typ. The
+// memory at ptr must already be initialized (and hence in type-safe
+// state). If the memory is being initialized for the first time, see
+// memclrNoHeapPointers.
+//
+// If the caller knows that typ has pointers, it can alternatively
+// call memclrHasPointers.
+//
+// TODO: A "go:nosplitrec" annotation would be perfect for this.
+//
+// See ${GOROOT}/src/runtime/mbarrier.go#func:typedmemclr
+//
+//go:nosplit
+func typedmemclr(typ *abi.Type, ptr unsafe.Pointer) {
+	if writeBarrier.needed && typ.PtrBytes != 0 {
+		bulkBarrierPreWrite(uintptr(ptr), 0, typ.PtrBytes)
+	}
+
+	mem.Clear(ptr, typ.Size_)
+}
+
+// See: ${GOROOT}/src/runtime/mbarrier.go#func:typedslicecopy
 func typedslicecopy(typ *abi.Type, dstPtr unsafe.Pointer, dstLen int, srcPtr unsafe.Pointer, srcLen int) int {
-	return mem.TypedSliceCopy(typ, dstPtr, dstLen, srcPtr, srcLen)
+	n := dstLen
+	if n > srcLen {
+		n = srcLen
+	}
+	if n == 0 {
+		return 0
+	}
+
+	// The compiler emits calls to typedslicecopy before
+	// instrumentation runs, so unlike the other copying and
+	// assignment operations, it's not instrumented in the calling
+	// code and needs its own instrumentation.
+	if race.Enabled {
+		callerpc := getcallerpc()
+		pc := abi.FuncPCABIInternal(slicecopy)
+		race.WriteRangePC(dstPtr, uintptr(n)*typ.Size_, callerpc, pc)
+		race.ReadRangePC(srcPtr, uintptr(n)*typ.Size_, callerpc, pc)
+	}
+	if msan.Enabled {
+		msan.Write(dstPtr, uintptr(n)*typ.Size_)
+		msan.Read(srcPtr, uintptr(n)*typ.Size_)
+	}
+	if asan.Enabled {
+		asan.Write(dstPtr, uintptr(n)*typ.Size_)
+		asan.Read(srcPtr, uintptr(n)*typ.Size_)
+	}
+
+	if dstPtr == srcPtr {
+		return n
+	}
+
+	// Note: No point in checking typ.PtrBytes here:
+	// compiler only emits calls to typedslicecopy for types with pointers,
+	// and growslice and reflect_typedslicecopy check for pointers
+	// before calling typedslicecopy.
+	size := uintptr(n) * typ.Size_
+	if writeBarrier.needed {
+		pwsize := size - typ.Size_ + typ.PtrBytes
+		bulkBarrierPreWrite(uintptr(dstPtr), uintptr(srcPtr), pwsize)
+	}
+	// See typedmemmove for a discussion of the race between the
+	// barrier and memmove.
+	mem.Move(dstPtr, srcPtr, size)
+	return n
 }
 
 //
@@ -237,9 +281,9 @@ func getclosureptr() uintptr
 // equal
 //
 
-// implemented inside core/cmp
+// implemented inside core/mem
 func memequal_varlen(p, q unsafe.Pointer) bool
-func memequal(p, q unsafe.Pointer, sz uintptr) bool { return cmp.MemEqual(p, q, sz) }
+func memequal(p, q unsafe.Pointer, sz uintptr) bool { return mem.Equal(p, q, sz) }
 func memequal0(p, q unsafe.Pointer) bool            { return true }
 func memequal8(p, q unsafe.Pointer) bool            { return *(*int8)(p) == *(*int8)(q) }
 func memequal16(p, q unsafe.Pointer) bool           { return *(*int16)(p) == *(*int16)(q) }
@@ -251,8 +295,18 @@ func f64equal(p, q unsafe.Pointer) bool             { return *(*float64)(p) == *
 func c64equal(p, q unsafe.Pointer) bool             { return *(*complex64)(p) == *(*complex64)(q) }
 func c128equal(p, q unsafe.Pointer) bool            { return *(*complex128)(p) == *(*complex128)(q) }
 func strequal(p, q unsafe.Pointer) bool             { return *(*string)(p) == *(*string)(q) }
-func interequal(p, q unsafe.Pointer) bool           { return stdtype.InterfaceEqual(p, q) }
-func nilinterequal(p, q unsafe.Pointer) bool        { return stdtype.NilInterfaceEqual(p, q) }
+
+func interequal(p, q unsafe.Pointer) bool {
+	x := *(*stdtype.Iface)(p)
+	y := *(*stdtype.Iface)(q)
+	return x.Itab == y.Itab && ifaceeq(x.Itab, x.Data, y.Data)
+}
+
+func nilinterequal(p, q unsafe.Pointer) bool {
+	x := *(*stdtype.Eface)(p)
+	y := *(*stdtype.Eface)(q)
+	return x.Type == y.Type && efaceeq(x.Type, x.Data, y.Data)
+}
 
 //
 // hashing
@@ -266,6 +320,8 @@ func memhash32(p unsafe.Pointer, h uintptr) uintptr           { return hash.MemH
 func memhash64(p unsafe.Pointer, h uintptr) uintptr           { return hash.MemHash64(p, h) }
 func memhash128(p unsafe.Pointer, h uintptr) uintptr          { return hash.MemHash(p, h, 16) }
 
+// See ${GOROOT}/src/runtime/alg.go#func:memhash_varlen
+//
 //go:nosplit
 func memhash_varlen(p unsafe.Pointer, h uintptr) uintptr {
 	ptr := getclosureptr()

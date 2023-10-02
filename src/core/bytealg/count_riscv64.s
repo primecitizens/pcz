@@ -5,9 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && riscv64
+
 #include "textflag.h"
 
-TEXT ·Count<ABIInternal>(SB),NOSPLIT,$0-40
+TEXT ·CountSlice<ABIInternal>(SB),NOSPLIT,$0-40
 	// X10 = b_base
 	// X11 = b_len
 	// X12 = b_cap (unused)
@@ -28,7 +30,7 @@ done:
 	MOV X14, X10
 	RET
 
-TEXT ·CountString<ABIInternal>(SB),NOSPLIT,$0-32
+TEXT ·Count<ABIInternal>(SB),NOSPLIT,$0-32
 	// X10 = s_base
 	// X11 = s_len
 	// X12 = byte to count

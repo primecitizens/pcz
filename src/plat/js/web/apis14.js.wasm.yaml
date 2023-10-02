@@ -1,0 +1,1337 @@
+- File: webgpu.idl
+  Dict:
+    Name: GPUCommandBufferDescriptor
+    Inherits: GPUObjectDescriptorBase
+    Fields:
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Interface:
+    Name: GPUCommandEncoder
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: label
+        Type:
+          Name: USVString
+    Operations:
+      - Name: beginRenderPass
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPURenderPassDescriptor
+        Returns:
+          - Name: GPURenderPassEncoder
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: beginComputePass
+        Args:
+          - Name: descriptor
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GPUComputePassDescriptor
+        Returns:
+          - Name: GPUComputePassEncoder
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: copyBufferToBuffer
+        Args:
+          - Name: source
+            Type:
+              Name: GPUBuffer
+          - Name: sourceOffset
+            Type:
+              Name: GPUSize64
+          - Name: destination
+            Type:
+              Name: GPUBuffer
+          - Name: destinationOffset
+            Type:
+              Name: GPUSize64
+          - Name: size
+            Type:
+              Name: GPUSize64
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: copyBufferToTexture
+        Args:
+          - Name: source
+            Type:
+              Name: GPUImageCopyBuffer
+          - Name: destination
+            Type:
+              Name: GPUImageCopyTexture
+          - Name: copySize
+            Type:
+              Name: GPUExtent3D
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: copyTextureToBuffer
+        Args:
+          - Name: source
+            Type:
+              Name: GPUImageCopyTexture
+          - Name: destination
+            Type:
+              Name: GPUImageCopyBuffer
+          - Name: copySize
+            Type:
+              Name: GPUExtent3D
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: copyTextureToTexture
+        Args:
+          - Name: source
+            Type:
+              Name: GPUImageCopyTexture
+          - Name: destination
+            Type:
+              Name: GPUImageCopyTexture
+          - Name: copySize
+            Type:
+              Name: GPUExtent3D
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: clearBuffer
+        Args:
+          - Name: buffer
+            Type:
+              Name: GPUBuffer
+          - Name: offset
+            Optional: true
+            Default: "0"
+            Type:
+              Name: GPUSize64
+          - Name: size
+            Optional: true
+            Type:
+              Name: GPUSize64
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: writeTimestamp
+        Args:
+          - Name: querySet
+            Type:
+              Name: GPUQuerySet
+          - Name: queryIndex
+            Type:
+              Name: GPUSize32
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: resolveQuerySet
+        Args:
+          - Name: querySet
+            Type:
+              Name: GPUQuerySet
+          - Name: firstQuery
+            Type:
+              Name: GPUSize32
+          - Name: queryCount
+            Type:
+              Name: GPUSize32
+          - Name: destination
+            Type:
+              Name: GPUBuffer
+          - Name: destinationOffset
+            Type:
+              Name: GPUSize64
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: finish
+        Args:
+          - Name: descriptor
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GPUCommandBufferDescriptor
+        Returns:
+          - Name: GPUCommandBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: pushDebugGroup
+        Args:
+          - Name: groupLabel
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+      - Name: popDebugGroup
+        Returns:
+          - Name: undefined
+      - Name: insertDebugMarker
+        Args:
+          - Name: markerLabel
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+- File: webgpu.idl
+  Dict:
+    Name: GPUCommandEncoderDescriptor
+    Inherits: GPUObjectDescriptorBase
+    Fields:
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Enum:
+    Name: GPUCompareFunction
+    Values:
+      - never
+      - less
+      - equal
+      - less-equal
+      - greater
+      - not-equal
+      - greater-equal
+      - always
+- File: webgpu.idl
+  Interface:
+    Name: GPUCompilationInfo
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: Serializable
+      - Name: SecureContext
+    Attrs:
+      - Name: messages
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: GPUCompilationMessage
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: SecureContext
+- File: webgpu.idl
+  Interface:
+    Name: GPUCompilationMessage
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: Serializable
+      - Name: SecureContext
+    Attrs:
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: SecureContext
+      - Name: type
+        Readonly: true
+        Type:
+          Name: GPUCompilationMessageType
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: SecureContext
+      - Name: lineNum
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: SecureContext
+      - Name: linePos
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: SecureContext
+      - Name: offset
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: SecureContext
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: Serializable
+          - Name: SecureContext
+- File: webgpu.idl
+  Enum:
+    Name: GPUCompilationMessageType
+    Values:
+      - error
+      - warning
+      - info
+- File: webgpu.idl
+  Dict:
+    Name: GPUComputePassDescriptor
+    Inherits: GPUObjectDescriptorBase
+    Fields:
+      - Name: timestampWrites
+        Type:
+          Name: GPUComputePassTimestampWrites
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Interface:
+    Name: GPUComputePassEncoder
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: label
+        Type:
+          Name: USVString
+    Operations:
+      - Name: setPipeline
+        Args:
+          - Name: pipeline
+            Type:
+              Name: GPUComputePipeline
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: dispatchWorkgroups
+        Args:
+          - Name: workgroupCountX
+            Type:
+              Name: GPUSize32
+          - Name: workgroupCountY
+            Optional: true
+            Default: "1"
+            Type:
+              Name: GPUSize32
+          - Name: workgroupCountZ
+            Optional: true
+            Default: "1"
+            Type:
+              Name: GPUSize32
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: dispatchWorkgroupsIndirect
+        Args:
+          - Name: indirectBuffer
+            Type:
+              Name: GPUBuffer
+          - Name: indirectOffset
+            Type:
+              Name: GPUSize64
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: end
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: pushDebugGroup
+        Args:
+          - Name: groupLabel
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+      - Name: popDebugGroup
+        Returns:
+          - Name: undefined
+      - Name: insertDebugMarker
+        Args:
+          - Name: markerLabel
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+      - Name: setBindGroup
+        Args:
+          - Name: index
+            Type:
+              Name: GPUIndex32
+          - Name: bindGroup
+            Type:
+              Name: GPUBindGroup
+              Nullable: true
+          - Name: dynamicOffsets
+            Optional: true
+            Default: '[]'
+            Type:
+              Name: sequence
+              Params:
+                - Name: GPUBufferDynamicOffset
+        Returns:
+          - Name: undefined
+      - Name: setBindGroup
+        Args:
+          - Name: index
+            Type:
+              Name: GPUIndex32
+          - Name: bindGroup
+            Type:
+              Name: GPUBindGroup
+              Nullable: true
+          - Name: dynamicOffsetsData
+            Type:
+              Name: Uint32Array
+          - Name: dynamicOffsetsDataStart
+            Type:
+              Name: GPUSize64
+          - Name: dynamicOffsetsDataLength
+            Type:
+              Name: GPUSize32
+        Returns:
+          - Name: undefined
+- File: webgpu.idl
+  Dict:
+    Name: GPUComputePassTimestampWrites
+    Fields:
+      - Name: querySet
+        Required: true
+        Type:
+          Name: GPUQuerySet
+      - Name: beginningOfPassWriteIndex
+        Type:
+          Name: GPUSize32
+      - Name: endOfPassWriteIndex
+        Type:
+          Name: GPUSize32
+- File: webgpu.idl
+  Interface:
+    Name: GPUComputePipeline
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: label
+        Type:
+          Name: USVString
+    Operations:
+      - Name: getBindGroupLayout
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: GPUBindGroupLayout
+        ExtAttrs:
+          - Name: NewObject
+- File: webgpu.idl
+  Dict:
+    Name: GPUComputePipelineDescriptor
+    Inherits: GPUPipelineDescriptorBase
+    Fields:
+      - Name: compute
+        Required: true
+        Type:
+          Name: GPUProgrammableStage
+      - Name: layout
+        Required: true
+        Type:
+          Union:
+            - Name: GPUPipelineLayout
+            - Name: GPUAutoLayoutMode
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Enum:
+    Name: GPUCullMode
+    Values:
+      - none
+      - front
+      - back
+- File: webgpu.idl
+  Typedef:
+    Name: GPUDepthBias
+    Type:
+      Name: long
+- File: webgpu.idl
+  Dict:
+    Name: GPUDepthStencilState
+    Fields:
+      - Name: format
+        Required: true
+        Type:
+          Name: GPUTextureFormat
+      - Name: depthWriteEnabled
+        Required: true
+        Type:
+          Name: boolean
+      - Name: depthCompare
+        Required: true
+        Type:
+          Name: GPUCompareFunction
+      - Name: stencilFront
+        Default: '{}'
+        Type:
+          Name: GPUStencilFaceState
+      - Name: stencilBack
+        Default: '{}'
+        Type:
+          Name: GPUStencilFaceState
+      - Name: stencilReadMask
+        Default: "0xFFFFFFFF"
+        Type:
+          Name: GPUStencilValue
+      - Name: stencilWriteMask
+        Default: "0xFFFFFFFF"
+        Type:
+          Name: GPUStencilValue
+      - Name: depthBias
+        Default: "0"
+        Type:
+          Name: GPUDepthBias
+      - Name: depthBiasSlopeScale
+        Default: "0"
+        Type:
+          Name: float
+      - Name: depthBiasClamp
+        Default: "0"
+        Type:
+          Name: float
+- File: webgpu.idl
+  Interface:
+    Name: GPUDevice
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: features
+        Readonly: true
+        Type:
+          Name: GPUSupportedFeatures
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: limits
+        Readonly: true
+        Type:
+          Name: GPUSupportedLimits
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: queue
+        Readonly: true
+        Type:
+          Name: GPUQueue
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: onuncapturederror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: lost
+        Readonly: true
+        Type:
+          Name: Promise
+          Params:
+            - Name: GPUDeviceLostInfo
+      - Name: label
+        Type:
+          Name: USVString
+    Operations:
+      - Name: destroy
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createBuffer
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUBufferDescriptor
+        Returns:
+          - Name: GPUBuffer
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createTexture
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUTextureDescriptor
+        Returns:
+          - Name: GPUTexture
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createSampler
+        Args:
+          - Name: descriptor
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GPUSamplerDescriptor
+        Returns:
+          - Name: GPUSampler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: importExternalTexture
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUExternalTextureDescriptor
+        Returns:
+          - Name: GPUExternalTexture
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createBindGroupLayout
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUBindGroupLayoutDescriptor
+        Returns:
+          - Name: GPUBindGroupLayout
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createPipelineLayout
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUPipelineLayoutDescriptor
+        Returns:
+          - Name: GPUPipelineLayout
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createBindGroup
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUBindGroupDescriptor
+        Returns:
+          - Name: GPUBindGroup
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createShaderModule
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUShaderModuleDescriptor
+        Returns:
+          - Name: GPUShaderModule
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createComputePipeline
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUComputePipelineDescriptor
+        Returns:
+          - Name: GPUComputePipeline
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createRenderPipeline
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPURenderPipelineDescriptor
+        Returns:
+          - Name: GPURenderPipeline
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createComputePipelineAsync
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUComputePipelineDescriptor
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GPUComputePipeline
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createRenderPipelineAsync
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPURenderPipelineDescriptor
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GPURenderPipeline
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createCommandEncoder
+        Args:
+          - Name: descriptor
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GPUCommandEncoderDescriptor
+        Returns:
+          - Name: GPUCommandEncoder
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createRenderBundleEncoder
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPURenderBundleEncoderDescriptor
+        Returns:
+          - Name: GPURenderBundleEncoder
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createQuerySet
+        Args:
+          - Name: descriptor
+            Type:
+              Name: GPUQuerySetDescriptor
+        Returns:
+          - Name: GPUQuerySet
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: pushErrorScope
+        Args:
+          - Name: filter
+            Type:
+              Name: GPUErrorFilter
+        Returns:
+          - Name: undefined
+      - Name: popErrorScope
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: GPUError
+                Nullable: true
+- File: webgpu.idl
+  Dict:
+    Name: GPUDeviceDescriptor
+    Inherits: GPUObjectDescriptorBase
+    Fields:
+      - Name: requiredFeatures
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: GPUFeatureName
+      - Name: requiredLimits
+        Default: '{}'
+        Type:
+          Name: record
+          Params:
+            - Name: DOMString
+            - Name: GPUSize64
+      - Name: defaultQueue
+        Default: '{}'
+        Type:
+          Name: GPUQueueDescriptor
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Interface:
+    Name: GPUDeviceLostInfo
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: reason
+        Readonly: true
+        Type:
+          Name: GPUDeviceLostReason
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webgpu.idl
+  Enum:
+    Name: GPUDeviceLostReason
+    Values:
+      - unknown
+      - destroyed
+- File: webgpu.idl
+  Interface:
+    Name: GPUError
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: message
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webgpu.idl
+  Enum:
+    Name: GPUErrorFilter
+    Values:
+      - validation
+      - out-of-memory
+      - internal
+- File: webgpu.idl
+  Typedef:
+    Name: GPUExtent3D
+    Type:
+      Union:
+        - Name: sequence
+          Params:
+            - Name: GPUIntegerCoordinate
+        - Name: GPUExtent3DDict
+- File: webgpu.idl
+  Dict:
+    Name: GPUExtent3DDict
+    Fields:
+      - Name: width
+        Required: true
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: height
+        Default: "1"
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: depthOrArrayLayers
+        Default: "1"
+        Type:
+          Name: GPUIntegerCoordinate
+- File: webgpu.idl
+  Interface:
+    Name: GPUExternalTexture
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: label
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Dict:
+    Name: GPUExternalTextureBindingLayout
+- File: webgpu.idl
+  Dict:
+    Name: GPUExternalTextureDescriptor
+    Inherits: GPUObjectDescriptorBase
+    Fields:
+      - Name: source
+        Required: true
+        Type:
+          Union:
+            - Name: HTMLVideoElement
+            - Name: VideoFrame
+      - Name: colorSpace
+        Default: '"srgb"'
+        Type:
+          Name: PredefinedColorSpace
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Enum:
+    Name: GPUFeatureName
+    Values:
+      - depth-clip-control
+      - depth32float-stencil8
+      - texture-compression-bc
+      - texture-compression-etc2
+      - texture-compression-astc
+      - timestamp-query
+      - indirect-first-instance
+      - shader-f16
+      - rg11b10ufloat-renderable
+      - bgra8unorm-storage
+      - float32-filterable
+- File: webgpu.idl
+  Enum:
+    Name: GPUFilterMode
+    Values:
+      - nearest
+      - linear
+- File: webgpu.idl
+  Typedef:
+    Name: GPUFlagsConstant
+    Type:
+      Name: unsigned long
+- File: webgpu.idl
+  Dict:
+    Name: GPUFragmentState
+    Inherits: GPUProgrammableStage
+    Fields:
+      - Name: targets
+        Required: true
+        Type:
+          Name: sequence
+          Params:
+            - Name: GPUColorTargetState
+              Nullable: true
+      - Name: module
+        Required: true
+        Type:
+          Name: GPUShaderModule
+      - Name: entryPoint
+        Required: true
+        Type:
+          Name: USVString
+      - Name: constants
+        Type:
+          Name: record
+          Params:
+            - Name: USVString
+            - Name: GPUPipelineConstantValue
+- File: webgpu.idl
+  Enum:
+    Name: GPUFrontFace
+    Values:
+      - ccw
+      - cw
+- File: webgpu.idl
+  Dict:
+    Name: GPUImageCopyBuffer
+    Inherits: GPUImageDataLayout
+    Fields:
+      - Name: buffer
+        Required: true
+        Type:
+          Name: GPUBuffer
+      - Name: offset
+        Default: "0"
+        Type:
+          Name: GPUSize64
+      - Name: bytesPerRow
+        Type:
+          Name: GPUSize32
+      - Name: rowsPerImage
+        Type:
+          Name: GPUSize32
+- File: webgpu.idl
+  Dict:
+    Name: GPUImageCopyExternalImage
+    Fields:
+      - Name: source
+        Required: true
+        Type:
+          Name: GPUImageCopyExternalImageSource
+      - Name: origin
+        Default: '{}'
+        Type:
+          Name: GPUOrigin2D
+      - Name: flipY
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webgpu.idl
+  Typedef:
+    Name: GPUImageCopyExternalImageSource
+    Type:
+      Union:
+        - Name: ImageBitmap
+        - Name: ImageData
+        - Name: HTMLImageElement
+        - Name: HTMLVideoElement
+        - Name: VideoFrame
+        - Name: HTMLCanvasElement
+        - Name: OffscreenCanvas
+- File: webgpu.idl
+  Dict:
+    Name: GPUImageCopyTexture
+    Fields:
+      - Name: texture
+        Required: true
+        Type:
+          Name: GPUTexture
+      - Name: mipLevel
+        Default: "0"
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: origin
+        Default: '{}'
+        Type:
+          Name: GPUOrigin3D
+      - Name: aspect
+        Default: '"all"'
+        Type:
+          Name: GPUTextureAspect
+- File: webgpu.idl
+  Dict:
+    Name: GPUImageCopyTextureTagged
+    Inherits: GPUImageCopyTexture
+    Fields:
+      - Name: colorSpace
+        Default: '"srgb"'
+        Type:
+          Name: PredefinedColorSpace
+      - Name: premultipliedAlpha
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: texture
+        Required: true
+        Type:
+          Name: GPUTexture
+      - Name: mipLevel
+        Default: "0"
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: origin
+        Default: '{}'
+        Type:
+          Name: GPUOrigin3D
+      - Name: aspect
+        Default: '"all"'
+        Type:
+          Name: GPUTextureAspect
+- File: webgpu.idl
+  Dict:
+    Name: GPUImageDataLayout
+    Fields:
+      - Name: offset
+        Default: "0"
+        Type:
+          Name: GPUSize64
+      - Name: bytesPerRow
+        Type:
+          Name: GPUSize32
+      - Name: rowsPerImage
+        Type:
+          Name: GPUSize32
+- File: webgpu.idl
+  Typedef:
+    Name: GPUIndex32
+    Type:
+      Name: unsigned long
+- File: webgpu.idl
+  Enum:
+    Name: GPUIndexFormat
+    Values:
+      - uint16
+      - uint32
+- File: webgpu.idl
+  Typedef:
+    Name: GPUIntegerCoordinate
+    Type:
+      Name: unsigned long
+- File: webgpu.idl
+  Typedef:
+    Name: GPUIntegerCoordinateOut
+    Type:
+      Name: unsigned long
+- File: webgpu.idl
+  Interface:
+    Name: GPUInternalError
+    Inherits: GPUError
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: message
+            Type:
+              Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webgpu.idl
+  Enum:
+    Name: GPULoadOp
+    Values:
+      - load
+      - clear
+- File: webgpu.idl
+  Namespace:
+    Name: GPUMapMode
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Constants:
+      - Name: READ
+        Value: "0x0001"
+        Type:
+          Name: GPUFlagsConstant
+      - Name: WRITE
+        Value: "0x0002"
+        Type:
+          Name: GPUFlagsConstant
+- File: webgpu.idl
+  Typedef:
+    Name: GPUMapModeFlags
+    Type:
+      Name: unsigned long
+- File: webgpu.idl
+  Enum:
+    Name: GPUMipmapFilterMode
+    Values:
+      - nearest
+      - linear
+- File: webgpu.idl
+  Dict:
+    Name: GPUMultisampleState
+    Fields:
+      - Name: count
+        Default: "1"
+        Type:
+          Name: GPUSize32
+      - Name: mask
+        Default: "0xFFFFFFFF"
+        Type:
+          Name: GPUSampleMask
+      - Name: alphaToCoverageEnabled
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webgpu.idl
+  Dict:
+    Name: GPUObjectDescriptorBase
+    Fields:
+      - Name: label
+        Default: '""'
+        Type:
+          Name: USVString
+- File: webgpu.idl
+  Typedef:
+    Name: GPUOrigin2D
+    Type:
+      Union:
+        - Name: sequence
+          Params:
+            - Name: GPUIntegerCoordinate
+        - Name: GPUOrigin2DDict
+- File: webgpu.idl
+  Dict:
+    Name: GPUOrigin2DDict
+    Fields:
+      - Name: x
+        Default: "0"
+        Type:
+          Name: GPUIntegerCoordinate
+      - Name: "y"
+        Default: "0"
+        Type:
+          Name: GPUIntegerCoordinate

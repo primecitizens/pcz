@@ -1,0 +1,4754 @@
+- File: html.idl
+  Interface:
+    Name: HTMLFontElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: color
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: face
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: size
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLFormControlsCollection
+    Inherits: HTMLCollection
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyUnenumerableNamedProperties
+    Operations:
+      - Name: namedItem
+        Modifier: getter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Union:
+              - Name: RadioNodeList
+              - Name: Element
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+- File: html.idl
+  Interface:
+    Name: HTMLFormElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyOverrideBuiltIns
+      - Name: LegacyUnenumerableNamedProperties
+    Attrs:
+      - Name: acceptCharset
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: action
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: autocomplete
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: enctype
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: encoding
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: method
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: noValidate
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: target
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: rel
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: relList
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: elements
+        Readonly: true
+        Type:
+          Name: HTMLFormControlsCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: length
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+    Operations:
+      - Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Modifier: getter
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Union:
+              - Name: RadioNodeList
+              - Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: submit
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: requestSubmit
+        Args:
+          - Name: submitter
+            Optional: true
+            Default: "null"
+            Type:
+              Name: HTMLElement
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: reset
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: checkValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: reportValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyOverrideBuiltIns
+          - Name: LegacyUnenumerableNamedProperties
+- File: html.idl
+  Interface:
+    Name: HTMLFrameElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scrolling
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: frameBorder
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: longDesc
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: noResize
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contentDocument
+        Readonly: true
+        Type:
+          Name: Document
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contentWindow
+        Readonly: true
+        Type:
+          Name: WindowProxy
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: marginHeight
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: marginWidth
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLFrameSetElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: cols
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rows
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onafterprint
+        Type:
+          Name: EventHandler
+      - Name: onbeforeprint
+        Type:
+          Name: EventHandler
+      - Name: onbeforeunload
+        Type:
+          Name: OnBeforeUnloadEventHandler
+      - Name: onhashchange
+        Type:
+          Name: EventHandler
+      - Name: onlanguagechange
+        Type:
+          Name: EventHandler
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+      - Name: onmessageerror
+        Type:
+          Name: EventHandler
+      - Name: onoffline
+        Type:
+          Name: EventHandler
+      - Name: ononline
+        Type:
+          Name: EventHandler
+      - Name: onpagehide
+        Type:
+          Name: EventHandler
+      - Name: onpageshow
+        Type:
+          Name: EventHandler
+      - Name: onpopstate
+        Type:
+          Name: EventHandler
+      - Name: onrejectionhandled
+        Type:
+          Name: EventHandler
+      - Name: onstorage
+        Type:
+          Name: EventHandler
+      - Name: onunhandledrejection
+        Type:
+          Name: EventHandler
+      - Name: onunload
+        Type:
+          Name: EventHandler
+      - Name: ongamepadconnected
+        Type:
+          Name: EventHandler
+      - Name: ongamepaddisconnected
+        Type:
+          Name: EventHandler
+      - Name: onportalactivate
+        Type:
+          Name: EventHandler
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLHRElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: color
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: noShade
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: size
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: width
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLHeadElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLHeadingElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLHtmlElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: version
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLIFrameElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: srcdoc
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sandbox
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: allow
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: allowFullscreen
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: referrerPolicy
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loading
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contentDocument
+        Readonly: true
+        Type:
+          Name: Document
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contentWindow
+        Readonly: true
+        Type:
+          Name: WindowProxy
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: permissionsPolicy
+        Readonly: true
+        Type:
+          Name: PermissionsPolicy
+        ExtAttrs:
+          - Name: SameObject
+      - Name: csp
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: privateToken
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: scrolling
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: frameBorder
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: longDesc
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: marginHeight
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: marginWidth
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: getSVGDocument
+        Returns:
+          - Name: Document
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLImageElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyFactoryFunction
+        Args:
+          - Name: width
+            Optional: true
+            Type:
+              Name: unsigned long
+          - Name: height
+            Optional: true
+            Type:
+              Name: unsigned long
+        Values:
+          - Image
+    Attrs:
+      - Name: alt
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: srcset
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: sizes
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: crossOrigin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: useMap
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: isMap
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: width
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: height
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: naturalWidth
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: naturalHeight
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: complete
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: currentSrc
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: referrerPolicy
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: decoding
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: loading
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: fetchPriority
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+      - Name: x
+        Readonly: true
+        Type:
+          Name: long
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: long
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: lowsrc
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: hspace
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: vspace
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: longDesc
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: border
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: attributionSrc
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: SecureContext
+    Operations:
+      - Name: decode
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: width
+                Optional: true
+                Type:
+                  Name: unsigned long
+              - Name: height
+                Optional: true
+                Type:
+                  Name: unsigned long
+            Values:
+              - Image
+- File: html.idl
+  Interface:
+    Name: HTMLInputElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: accept
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: alt
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: autocomplete
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defaultChecked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: checked
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dirName
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: files
+        Type:
+          Name: FileList
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: formAction
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: formEnctype
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: formMethod
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: formNoValidate
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: formTarget
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: indeterminate
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: list
+        Readonly: true
+        Type:
+          Name: HTMLDataListElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: max
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: maxLength
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: min
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: minLength
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: multiple
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pattern
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: placeholder
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: readOnly
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: required
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: size
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: step
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defaultValue
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: valueAsDate
+        Type:
+          Name: object
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: valueAsNumber
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: willValidate
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validity
+        Readonly: true
+        Type:
+          Name: ValidityState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validationMessage
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: labels
+        Readonly: true
+        Type:
+          Name: NodeList
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionStart
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionEnd
+        Type:
+          Name: unsigned long
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectionDirection
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: useMap
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: webkitdirectory
+        Type:
+          Name: boolean
+      - Name: webkitEntries
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: FileSystemEntry
+      - Name: capture
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: popoverTargetElement
+        Type:
+          Name: Element
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: popoverTargetAction
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: stepUp
+        Args:
+          - Name: "n"
+            Optional: true
+            Default: "1"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stepDown
+        Args:
+          - Name: "n"
+            Optional: true
+            Default: "1"
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: checkValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reportValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setCustomValidity
+        Args:
+          - Name: error
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: select
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setRangeText
+        Args:
+          - Name: replacement
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setRangeText
+        Args:
+          - Name: replacement
+            Type:
+              Name: DOMString
+          - Name: start
+            Type:
+              Name: unsigned long
+          - Name: end
+            Type:
+              Name: unsigned long
+          - Name: selectionMode
+            Optional: true
+            Default: '"preserve"'
+            Type:
+              Name: SelectionMode
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setSelectionRange
+        Args:
+          - Name: start
+            Type:
+              Name: unsigned long
+          - Name: end
+            Type:
+              Name: unsigned long
+          - Name: direction
+            Optional: true
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: showPicker
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLLIElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLLabelElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: htmlFor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: control
+        Readonly: true
+        Type:
+          Name: HTMLElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLLegendElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLLinkElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: href
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: crossOrigin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rel
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: as
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: relList
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: media
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: integrity
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hreflang
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sizes
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: imageSrcset
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: imageSizes
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: referrerPolicy
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: blocking
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fetchPriority
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: charset
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: rev
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: target
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: sheet
+        Readonly: true
+        Type:
+          Name: CSSStyleSheet
+          Nullable: true
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLMapElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: areas
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLMarqueeElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: behavior
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: bgColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: direction
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hspace
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loop
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scrollAmount
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scrollDelay
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: trueSpeed
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: vspace
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: start
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stop
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLMediaElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constants:
+      - Name: NETWORK_EMPTY
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: NETWORK_IDLE
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: NETWORK_LOADING
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: NETWORK_NO_SOURCE
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: HAVE_NOTHING
+        Value: "0"
+        Type:
+          Name: unsigned short
+      - Name: HAVE_METADATA
+        Value: "1"
+        Type:
+          Name: unsigned short
+      - Name: HAVE_CURRENT_DATA
+        Value: "2"
+        Type:
+          Name: unsigned short
+      - Name: HAVE_FUTURE_DATA
+        Value: "3"
+        Type:
+          Name: unsigned short
+      - Name: HAVE_ENOUGH_DATA
+        Value: "4"
+        Type:
+          Name: unsigned short
+    Attrs:
+      - Name: error
+        Readonly: true
+        Type:
+          Name: MediaError
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: srcObject
+        Type:
+          Name: MediaProvider
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: currentSrc
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: crossOrigin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: networkState
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: preload
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: buffered
+        Readonly: true
+        Type:
+          Name: TimeRanges
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: readyState
+        Readonly: true
+        Type:
+          Name: unsigned short
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: seeking
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: currentTime
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: duration
+        Readonly: true
+        Type:
+          Name: unrestricted double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: paused
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defaultPlaybackRate
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: playbackRate
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: preservesPitch
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: played
+        Readonly: true
+        Type:
+          Name: TimeRanges
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: seekable
+        Readonly: true
+        Type:
+          Name: TimeRanges
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ended
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: autoplay
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: loop
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: controls
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: volume
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: muted
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defaultMuted
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: audioTracks
+        Readonly: true
+        Type:
+          Name: AudioTrackList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: videoTracks
+        Readonly: true
+        Type:
+          Name: VideoTrackList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: textTracks
+        Readonly: true
+        Type:
+          Name: TextTrackList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: mediaKeys
+        Readonly: true
+        Type:
+          Name: MediaKeys
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onencrypted
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onwaitingforkey
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: remote
+        Readonly: true
+        Type:
+          Name: RemotePlayback
+        ExtAttrs:
+          - Name: SameObject
+      - Name: disableRemotePlayback
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: sinkId
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+    Operations:
+      - Name: load
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: canPlayType
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: CanPlayTypeResult
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fastSeek
+        Args:
+          - Name: time
+            Type:
+              Name: double
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: getStartDate
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: play
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pause
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: addTextTrack
+        Args:
+          - Name: kind
+            Type:
+              Name: TextTrackKind
+          - Name: label
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: language
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: TextTrack
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setMediaKeys
+        Args:
+          - Name: mediaKeys
+            Type:
+              Name: MediaKeys
+              Nullable: true
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: captureStream
+        Returns:
+          - Name: MediaStream
+      - Name: setSinkId
+        Args:
+          - Name: sinkId
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+- File: html.idl
+  Interface:
+    Name: HTMLMenuElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: compact
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLMetaElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: httpEquiv
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: content
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: media
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scheme
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLMeterElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: min
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: max
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: low
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: high
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: optimum
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: labels
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLModElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: cite
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: dateTime
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: model-element.idl
+  Interface:
+    Name: HTMLModelElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+- File: html.idl
+  Interface:
+    Name: HTMLOListElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: reversed
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: start
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: compact
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLObjectElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: data
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contentDocument
+        Readonly: true
+        Type:
+          Name: Document
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: contentWindow
+        Readonly: true
+        Type:
+          Name: WindowProxy
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: willValidate
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validity
+        Readonly: true
+        Type:
+          Name: ValidityState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validationMessage
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: archive
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: code
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: declare
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: hspace
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: standby
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: vspace
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: codeBase
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: codeType
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: useMap
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: border
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: getSVGDocument
+        Returns:
+          - Name: Document
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: checkValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reportValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setCustomValidity
+        Args:
+          - Name: error
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLOptGroupElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: disabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: label
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLOptionElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyFactoryFunction
+        Args:
+          - Name: text
+            Optional: true
+            Default: '""'
+            Type:
+              Name: DOMString
+          - Name: value
+            Optional: true
+            Type:
+              Name: DOMString
+          - Name: defaultSelected
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+          - Name: selected
+            Optional: true
+            Default: "false"
+            Type:
+              Name: boolean
+        Values:
+          - Option
+    Attrs:
+      - Name: disabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+      - Name: label
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+      - Name: defaultSelected
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+      - Name: selected
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+      - Name: text
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+      - Name: index
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyFactoryFunction
+            Args:
+              - Name: text
+                Optional: true
+                Default: '""'
+                Type:
+                  Name: DOMString
+              - Name: value
+                Optional: true
+                Type:
+                  Name: DOMString
+              - Name: defaultSelected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+              - Name: selected
+                Optional: true
+                Default: "false"
+                Type:
+                  Name: boolean
+            Values:
+              - Option
+- File: html.idl
+  Interface:
+    Name: HTMLOptionsCollection
+    Inherits: HTMLCollection
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: LegacyUnenumerableNamedProperties
+    Attrs:
+      - Name: length
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: selectedIndex
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+    Operations:
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: option
+            Type:
+              Name: HTMLOptionElement
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: add
+        Args:
+          - Name: element
+            Type:
+              Union:
+                - Name: HTMLOptionElement
+                - Name: HTMLOptGroupElement
+          - Name: before
+            Optional: true
+            Default: "null"
+            Type:
+              Union:
+                - Name: HTMLElement
+                - Name: long
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+      - Name: remove
+        Args:
+          - Name: index
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: LegacyUnenumerableNamedProperties
+- File: html.idl
+  Typedef:
+    Name: HTMLOrSVGImageElement
+    Type:
+      Union:
+        - Name: HTMLImageElement
+        - Name: SVGImageElement
+- File: html.idl
+  Typedef:
+    Name: HTMLOrSVGScriptElement
+    Type:
+      Union:
+        - Name: HTMLScriptElement
+        - Name: SVGScriptElement
+- File: html.idl
+  Interface:
+    Name: HTMLOutputElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: htmlFor
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defaultValue
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: willValidate
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validity
+        Readonly: true
+        Type:
+          Name: ValidityState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validationMessage
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: labels
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: checkValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reportValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setCustomValidity
+        Args:
+          - Name: error
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLParagraphElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLParamElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: valueType
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLPictureElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: portals.idl
+  Interface:
+    Name: HTMLPortalElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: referrerPolicy
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onmessage
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onmessageerror
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: activate
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: PortalActivateOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: NewObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: postMessage
+        Args:
+          - Name: message
+            Type:
+              Name: any
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: StructuredSerializeOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLPreElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: width
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLProgressElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: max
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: position
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: labels
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLQuoteElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: cite
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLScriptElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: noModule
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: async
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: defer
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: crossOrigin
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: text
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: integrity
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: referrerPolicy
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: blocking
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: fetchPriority
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: charset
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: event
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: htmlFor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: attributionSrc
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: SecureContext
+    Operations:
+      - Name: supports
+        Modifier: static
+        Args:
+          - Name: type
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLSelectElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: autocomplete
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: disabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: form
+        Readonly: true
+        Type:
+          Name: HTMLFormElement
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: multiple
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: required
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: size
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: options
+        Readonly: true
+        Type:
+          Name: HTMLOptionsCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: length
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectedOptions
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: selectedIndex
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: value
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: willValidate
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validity
+        Readonly: true
+        Type:
+          Name: ValidityState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: validationMessage
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: labels
+        Readonly: true
+        Type:
+          Name: NodeList
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: item
+        Modifier: getter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+        Returns:
+          - Name: HTMLOptionElement
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: namedItem
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: HTMLOptionElement
+            Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: add
+        Args:
+          - Name: element
+            Type:
+              Union:
+                - Name: HTMLOptionElement
+                - Name: HTMLOptGroupElement
+          - Name: before
+            Optional: true
+            Default: "null"
+            Type:
+              Union:
+                - Name: HTMLElement
+                - Name: long
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: remove
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: remove
+        Args:
+          - Name: index
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Modifier: setter
+        Args:
+          - Name: index
+            Type:
+              Name: unsigned long
+          - Name: option
+            Type:
+              Name: HTMLOptionElement
+              Nullable: true
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: checkValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reportValidity
+        Returns:
+          - Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: setCustomValidity
+        Args:
+          - Name: error
+            Type:
+              Name: DOMString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLSlotElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: name
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: assignedNodes
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AssignedNodesOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Node
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: assignedElements
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AssignedNodesOptions
+        Returns:
+          - Name: sequence
+            Params:
+              - Name: Element
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: assign
+        Args:
+          - Name: nodes
+            Variadic: true
+            Type:
+              Union:
+                - Name: Element
+                - Name: Text
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLSourceElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: src
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: srcset
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sizes
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: media
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: height
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLSpanElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: trusted-types.idl
+  Typedef:
+    Name: HTMLString
+    Type:
+      Name: DOMString
+- File: html.idl
+  Interface:
+    Name: HTMLStyleElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: disabled
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: media
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: blocking
+        Readonly: true
+        Type:
+          Name: DOMTokenList
+        ExtAttrs:
+          - Name: SameObject
+          - Name: PutForwards
+            Values:
+              - value
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: sheet
+        Readonly: true
+        Type:
+          Name: CSSStyleSheet
+          Nullable: true
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTableCaptionElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTableCellElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: colSpan
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rowSpan
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: headers
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: cellIndex
+        Readonly: true
+        Type:
+          Name: long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scope
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: abbr
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: axis
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: height
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: width
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ch
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: chOff
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: noWrap
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: vAlign
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: bgColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTableColElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: span
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: ch
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: chOff
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: vAlign
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: width
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Interface:
+    Name: HTMLTableElement
+    Inherits: HTMLElement
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: caption
+        Type:
+          Name: HTMLTableCaptionElement
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: tHead
+        Type:
+          Name: HTMLTableSectionElement
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: tFoot
+        Type:
+          Name: HTMLTableSectionElement
+          Nullable: true
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: tBodies
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rows
+        Readonly: true
+        Type:
+          Name: HTMLCollection
+        ExtAttrs:
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: border
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: frame
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: rules
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: summary
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: width
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: bgColor
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: cellPadding
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+      - Name: cellSpacing
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: CEReactions
+    Operations:
+      - Name: createCaption
+        Returns:
+          - Name: HTMLTableCaptionElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteCaption
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createTHead
+        Returns:
+          - Name: HTMLTableSectionElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteTHead
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createTFoot
+        Returns:
+          - Name: HTMLTableSectionElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteTFoot
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: createTBody
+        Returns:
+          - Name: HTMLTableSectionElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: insertRow
+        Args:
+          - Name: index
+            Optional: true
+            Default: "-1"
+            Type:
+              Name: long
+        Returns:
+          - Name: HTMLTableRowElement
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: deleteRow
+        Args:
+          - Name: index
+            Type:
+              Name: long
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: CEReactions
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - ExtAttrs:
+          - Name: HTMLConstructor
+          - Name: Exposed
+            Values:
+              - Window

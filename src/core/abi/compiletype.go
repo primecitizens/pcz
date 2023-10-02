@@ -7,7 +7,9 @@
 
 package abi
 
-import "github.com/primecitizens/std/core/assert"
+import (
+	"github.com/primecitizens/std/core/assert"
+)
 
 // These functions are the build-time version of the Go type data structures.
 

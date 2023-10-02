@@ -1,0 +1,1316 @@
+- File: css-layout-api.idl
+  Dict:
+    Name: LayoutConstraintsOptions
+    Fields:
+      - Name: availableInlineSize
+        Type:
+          Name: double
+      - Name: availableBlockSize
+        Type:
+          Name: double
+      - Name: fixedInlineSize
+        Type:
+          Name: double
+      - Name: fixedBlockSize
+        Type:
+          Name: double
+      - Name: percentageInlineSize
+        Type:
+          Name: double
+      - Name: percentageBlockSize
+        Type:
+          Name: double
+      - Name: blockFragmentationOffset
+        Type:
+          Name: double
+      - Name: blockFragmentationType
+        Default: '"none"'
+        Type:
+          Name: BlockFragmentationType
+      - Name: data
+        Type:
+          Name: any
+- File: css-layout-api.idl
+  Interface:
+    Name: LayoutEdges
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - LayoutWorklet
+    Attrs:
+      - Name: inlineStart
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: inlineEnd
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: blockStart
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: blockEnd
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: inline
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: block
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+- File: css-layout-api.idl
+  Interface:
+    Name: LayoutFragment
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - LayoutWorklet
+    Attrs:
+      - Name: inlineSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: blockSize
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: inlineOffset
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: blockOffset
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: data
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+      - Name: breakToken
+        Readonly: true
+        Type:
+          Name: ChildBreakToken
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+- File: css-layout-api.idl
+  Dict:
+    Name: LayoutOptions
+    Fields:
+      - Name: childDisplay
+        Default: '"block"'
+        Type:
+          Name: ChildDisplayType
+      - Name: sizing
+        Default: '"block-like"'
+        Type:
+          Name: LayoutSizingMode
+- File: layout-instability.idl
+  Interface:
+    Name: LayoutShift
+    Inherits: PerformanceEntry
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: value
+        Readonly: true
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hadRecentInput
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lastInputTime
+        Readonly: true
+        Type:
+          Name: DOMHighResTimeStamp
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sources
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: LayoutShiftAttribution
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: object
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+- File: layout-instability.idl
+  Interface:
+    Name: LayoutShiftAttribution
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: node
+        Readonly: true
+        Type:
+          Name: Node
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: previousRect
+        Readonly: true
+        Type:
+          Name: DOMRectReadOnly
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: currentRect
+        Readonly: true
+        Type:
+          Name: DOMRectReadOnly
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: css-layout-api.idl
+  Enum:
+    Name: LayoutSizingMode
+    Values:
+      - block-like
+      - manual
+- File: css-layout-api.idl
+  Interface:
+    Name: LayoutWorkletGlobalScope
+    Inherits: WorkletGlobalScope
+    ExtAttrs:
+      - Name: Global
+        Values:
+          - Worklet
+          - LayoutWorklet
+      - Name: Exposed
+        Values:
+          - LayoutWorklet
+      - Name: SecureContext
+    Operations:
+      - Name: registerLayout
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: layoutCtor
+            Type:
+              Name: VoidFunction
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Global
+            Values:
+              - Worklet
+              - LayoutWorklet
+          - Name: Exposed
+            Values:
+              - LayoutWorklet
+          - Name: SecureContext
+- File: webvtt.idl
+  Enum:
+    Name: LineAlignSetting
+    Values:
+      - start
+      - center
+      - end
+- File: webvtt.idl
+  Typedef:
+    Name: LineAndPositionSetting
+    Type:
+      Union:
+        - Name: double
+        - Name: AutoKeyword
+- File: accelerometer.idl
+  Dict:
+    Name: LinearAccelerationReadingValues
+    Inherits: AccelerometerReadingValues
+    Fields:
+      - Name: x
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: "y"
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: z
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+- File: accelerometer.idl
+  Interface:
+    Name: LinearAccelerationSensor
+    Inherits: Accelerometer
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Constructors:
+      - Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: AccelerometerSensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: json-ld-api.idl
+  Callback:
+    Name: LoadDocumentCallback
+    Args:
+      - Name: url
+        Type:
+          Name: USVString
+      - Name: options
+        Optional: true
+        Type:
+          Name: LoadDocumentOptions
+          Nullable: true
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RemoteDocument
+- File: json-ld-api.idl
+  Dict:
+    Name: LoadDocumentOptions
+    Fields:
+      - Name: extractAllScripts
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: profile
+        Default: "null"
+        Type:
+          Name: USVString
+      - Name: requestProfile
+        Default: "null"
+        Type:
+          Union:
+            - Name: USVString
+            - Name: sequence
+              Params:
+                - Name: USVString
+- File: html.idl
+  Interface:
+    Name: Location
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: href
+        Modifier: stringifier
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: origin
+        Readonly: true
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: protocol
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: host
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hostname
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: port
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: pathname
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: search
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: hash
+        Type:
+          Name: USVString
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: ancestorOrigins
+        Readonly: true
+        Type:
+          Name: DOMStringList
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: SameObject
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: assign
+        Args:
+          - Name: url
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: replace
+        Args:
+          - Name: url
+            Type:
+              Name: USVString
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: reload
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: LegacyUnforgeable
+          - Name: Exposed
+            Values:
+              - Window
+- File: web-locks.idl
+  Interface:
+    Name: Lock
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Attrs:
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: mode
+        Readonly: true
+        Type:
+          Name: LockMode
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: web-locks.idl
+  Callback:
+    Name: LockGrantedCallback
+    Args:
+      - Name: lock
+        Type:
+          Name: Lock
+          Nullable: true
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+- File: web-locks.idl
+  Dict:
+    Name: LockInfo
+    Fields:
+      - Name: name
+        Type:
+          Name: DOMString
+      - Name: mode
+        Type:
+          Name: LockMode
+      - Name: clientId
+        Type:
+          Name: DOMString
+- File: web-locks.idl
+  Interface:
+    Name: LockManager
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - Worker
+    Operations:
+      - Name: request
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: callback
+            Type:
+              Name: LockGrantedCallback
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: any
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: request
+        Args:
+          - Name: name
+            Type:
+              Name: DOMString
+          - Name: options
+            Type:
+              Name: LockOptions
+          - Name: callback
+            Type:
+              Name: LockGrantedCallback
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: any
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+      - Name: query
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: LockManagerSnapshot
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - Worker
+- File: web-locks.idl
+  Dict:
+    Name: LockManagerSnapshot
+    Fields:
+      - Name: held
+        Type:
+          Name: sequence
+          Params:
+            - Name: LockInfo
+      - Name: pending
+        Type:
+          Name: sequence
+          Params:
+            - Name: LockInfo
+- File: web-locks.idl
+  Enum:
+    Name: LockMode
+    Values:
+      - shared
+      - exclusive
+- File: web-locks.idl
+  Dict:
+    Name: LockOptions
+    Fields:
+      - Name: mode
+        Default: '"exclusive"'
+        Type:
+          Name: LockMode
+      - Name: ifAvailable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: steal
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: signal
+        Type:
+          Name: AbortSignal
+- File: webmidi.idl
+  Interface:
+    Name: MIDIAccess
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: inputs
+        Readonly: true
+        Type:
+          Name: MIDIInputMap
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: outputs
+        Readonly: true
+        Type:
+          Name: MIDIOutputMap
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onstatechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: sysexEnabled
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webmidi.idl
+  Interface:
+    Name: MIDIConnectionEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: port
+        Readonly: true
+        Type:
+          Name: MIDIPort
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MIDIConnectionEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webmidi.idl
+  Dict:
+    Name: MIDIConnectionEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: port
+        Type:
+          Name: MIDIPort
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webmidi.idl
+  Interface:
+    Name: MIDIInput
+    Inherits: MIDIPort
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: onmidimessage
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webmidi.idl
+  Interface:
+    Name: MIDIInputMap
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: DOMString
+        - Name: MIDIInput
+      Readonly: true
+- File: webmidi.idl
+  Interface:
+    Name: MIDIMessageEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: data
+        Readonly: true
+        Type:
+          Name: Uint8Array
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: eventInitDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MIDIMessageEventInit
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webmidi.idl
+  Dict:
+    Name: MIDIMessageEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: data
+        Type:
+          Name: Uint8Array
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: webmidi.idl
+  Dict:
+    Name: MIDIOptions
+    Fields:
+      - Name: sysex
+        Type:
+          Name: boolean
+      - Name: software
+        Type:
+          Name: boolean
+- File: webmidi.idl
+  Interface:
+    Name: MIDIOutput
+    Inherits: MIDIPort
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Operations:
+      - Name: send
+        Args:
+          - Name: data
+            Type:
+              Name: sequence
+              Params:
+                - Name: octet
+          - Name: timestamp
+            Optional: true
+            Default: "0"
+            Type:
+              Name: DOMHighResTimeStamp
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: clear
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webmidi.idl
+  Interface:
+    Name: MIDIOutputMap
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Maplike:
+      TypeParams:
+        - Name: DOMString
+        - Name: MIDIOutput
+      Readonly: true
+- File: webmidi.idl
+  Interface:
+    Name: MIDIPort
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: id
+        Readonly: true
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: manufacturer
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: name
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: type
+        Readonly: true
+        Type:
+          Name: MIDIPortType
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: version
+        Readonly: true
+        Type:
+          Name: DOMString
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: state
+        Readonly: true
+        Type:
+          Name: MIDIPortDeviceState
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: connection
+        Readonly: true
+        Type:
+          Name: MIDIPortConnectionState
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: onstatechange
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: open
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MIDIPort
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: close
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MIDIPort
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: webmidi.idl
+  Enum:
+    Name: MIDIPortConnectionState
+    Values:
+      - open
+      - closed
+      - pending
+- File: webmidi.idl
+  Enum:
+    Name: MIDIPortDeviceState
+    Values:
+      - disconnected
+      - connected
+- File: webmidi.idl
+  Enum:
+    Name: MIDIPortType
+    Values:
+      - input
+      - output
+- File: webnn.idl
+  Interface:
+    Name: ML
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+    Operations:
+      - Name: createContext
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLContextOptions
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MLContext
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: createContext
+        Args:
+          - Name: gpuDevice
+            Type:
+              Name: GPUDevice
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MLContext
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: createContextSync
+        Args:
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MLContextOptions
+        Returns:
+          - Name: MLContext
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: createContextSync
+        Args:
+          - Name: gpuDevice
+            Type:
+              Name: GPUDevice
+        Returns:
+          - Name: MLContext
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webnn.idl
+  Interface:
+    Name: MLActivation
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+- File: webnn.idl
+  Enum:
+    Name: MLAutoPad
+    Values:
+      - explicit
+      - same-upper
+      - same-lower
+- File: webnn.idl
+  Dict:
+    Name: MLBatchNormalizationOptions
+    Fields:
+      - Name: scale
+        Type:
+          Name: MLOperand
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: axis
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: epsilon
+        Default: "1e-5"
+        Type:
+          Name: float
+      - Name: activation
+        Type:
+          Name: MLActivation
+- File: webnn.idl
+  Dict:
+    Name: MLBufferResourceView
+    Fields:
+      - Name: resource
+        Required: true
+        Type:
+          Name: GPUBuffer
+      - Name: offset
+        Default: "0"
+        Type:
+          Name: unsigned long long
+      - Name: size
+        Type:
+          Name: unsigned long long
+- File: webnn.idl
+  Typedef:
+    Name: MLBufferView
+    Type:
+      Union:
+        - Name: ArrayBufferView
+        - Name: MLBufferResourceView
+- File: webnn.idl
+  Dict:
+    Name: MLClampOptions
+    Fields:
+      - Name: minValue
+        Type:
+          Name: float
+      - Name: maxValue
+        Type:
+          Name: float
+- File: webnn.idl
+  Interface:
+    Name: MLCommandEncoder
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+    Operations:
+      - Name: dispatch
+        Args:
+          - Name: graph
+            Type:
+              Name: MLGraph
+          - Name: inputs
+            Type:
+              Name: MLNamedGPUResources
+          - Name: outputs
+            Type:
+              Name: MLNamedGPUResources
+        Returns:
+          - Name: undefined
+      - Name: finish
+        Args:
+          - Name: descriptor
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: GPUCommandBufferDescriptor
+        Returns:
+          - Name: GPUCommandBuffer
+      - Name: initializeGraph
+        Args:
+          - Name: graph
+            Type:
+              Name: MLGraph
+        Returns:
+          - Name: undefined
+- File: webnn.idl
+  Dict:
+    Name: MLComputeResult
+    Fields:
+      - Name: inputs
+        Type:
+          Name: MLNamedArrayBufferViews
+      - Name: outputs
+        Type:
+          Name: MLNamedArrayBufferViews
+- File: webnn.idl
+  Interface:
+    Name: MLContext
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+    Operations:
+      - Name: compute
+        Args:
+          - Name: graph
+            Type:
+              Name: MLGraph
+          - Name: inputs
+            Type:
+              Name: MLNamedArrayBufferViews
+          - Name: outputs
+            Type:
+              Name: MLNamedArrayBufferViews
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: MLComputeResult
+      - Name: computeSync
+        Args:
+          - Name: graph
+            Type:
+              Name: MLGraph
+          - Name: inputs
+            Type:
+              Name: MLNamedArrayBufferViews
+          - Name: outputs
+            Type:
+              Name: MLNamedArrayBufferViews
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+      - Name: createCommandEncoder
+        Returns:
+          - Name: MLCommandEncoder
+- File: webnn.idl
+  Dict:
+    Name: MLContextOptions
+    Fields:
+      - Name: deviceType
+        Default: '"cpu"'
+        Type:
+          Name: MLDeviceType
+      - Name: powerPreference
+        Default: '"default"'
+        Type:
+          Name: MLPowerPreference
+- File: webnn.idl
+  Enum:
+    Name: MLConv2dFilterOperandLayout
+    Values:
+      - oihw
+      - hwio
+      - ohwi
+      - ihwo
+- File: webnn.idl
+  Dict:
+    Name: MLConv2dOptions
+    Fields:
+      - Name: padding
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: strides
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: dilations
+        Type:
+          Name: sequence
+          Params:
+            - Name: unsigned long
+      - Name: autoPad
+        Default: '"explicit"'
+        Type:
+          Name: MLAutoPad
+      - Name: groups
+        Default: "1"
+        Type:
+          Name: unsigned long
+      - Name: inputLayout
+        Default: '"nchw"'
+        Type:
+          Name: MLInputOperandLayout
+      - Name: filterLayout
+        Default: '"oihw"'
+        Type:
+          Name: MLConv2dFilterOperandLayout
+      - Name: bias
+        Type:
+          Name: MLOperand
+      - Name: activation
+        Type:
+          Name: MLActivation
+- File: webnn.idl
+  Enum:
+    Name: MLConvTranspose2dFilterOperandLayout
+    Values:
+      - iohw
+      - hwoi
+      - ohwi

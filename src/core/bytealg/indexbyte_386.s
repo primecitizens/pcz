@@ -5,9 +5,11 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build pcz && 386
+
 #include "textflag.h"
 
-TEXT ·IndexByte(SB),NOSPLIT,$0-20
+TEXT ·IndexSliceByte(SB),NOSPLIT,$0-20
 	MOVL b_base+0(FP), SI
 	MOVL b_len+4(FP), CX
 	MOVB c+12(FP), AL
@@ -21,7 +23,7 @@ TEXT ·IndexByte(SB),NOSPLIT,$0-20
 	MOVL DI, ret+16(FP)
 	RET
 
-TEXT ·IndexByteString(SB),NOSPLIT,$0-16
+TEXT ·IndexByte(SB),NOSPLIT,$0-16
 	MOVL s_base+0(FP), SI
 	MOVL s_len+4(FP), CX
 	MOVB c+8(FP), AL

@@ -10,7 +10,9 @@ package mem
 // alias implements memory alaising tests.
 // This code also exists as golang.org/x/crypto/internal/alias.
 
-import "unsafe"
+import (
+	"unsafe"
+)
 
 // AnyOverlap reports whether x and y share memory at any (not necessarily
 // corresponding) index. The memory beyond the slice length is ignored.

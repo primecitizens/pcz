@@ -1,0 +1,1428 @@
+- File: webusb.idl
+  Interface:
+    Name: USBIsochronousOutTransferResult
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+          - SharedWorker
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: packets
+        Readonly: true
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: USBIsochronousOutTransferPacket
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: packets
+            Type:
+              Name: sequence
+              Params:
+                - Name: USBIsochronousOutTransferPacket
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+- File: webusb.idl
+  Interface:
+    Name: USBOutTransferResult
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+          - SharedWorker
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: bytesWritten
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+      - Name: status
+        Readonly: true
+        Type:
+          Name: USBTransferStatus
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: status
+            Type:
+              Name: USBTransferStatus
+          - Name: bytesWritten
+            Optional: true
+            Default: "0"
+            Type:
+              Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+          - Name: SecureContext
+- File: webusb.idl
+  Dict:
+    Name: USBPermissionDescriptor
+    Inherits: PermissionDescriptor
+    Fields:
+      - Name: filters
+        Type:
+          Name: sequence
+          Params:
+            - Name: USBDeviceFilter
+      - Name: exclusionFilters
+        Type:
+          Name: sequence
+          Params:
+            - Name: USBDeviceFilter
+      - Name: name
+        Required: true
+        Type:
+          Name: DOMString
+- File: webusb.idl
+  Interface:
+    Name: USBPermissionResult
+    Inherits: PermissionStatus
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - DedicatedWorker
+          - SharedWorker
+          - Window
+    Attrs:
+      - Name: devices
+        Type:
+          Name: FrozenArray
+          Params:
+            - Name: USBDevice
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - DedicatedWorker
+              - SharedWorker
+              - Window
+- File: webusb.idl
+  Dict:
+    Name: USBPermissionStorage
+    Fields:
+      - Name: allowedDevices
+        Default: '[]'
+        Type:
+          Name: sequence
+          Params:
+            - Name: AllowedUSBDevice
+- File: webusb.idl
+  Enum:
+    Name: USBRecipient
+    Values:
+      - device
+      - interface
+      - endpoint
+      - other
+- File: webusb.idl
+  Enum:
+    Name: USBRequestType
+    Values:
+      - standard
+      - class
+      - vendor
+- File: webusb.idl
+  Enum:
+    Name: USBTransferStatus
+    Values:
+      - ok
+      - stall
+      - babble
+- File: web-bluetooth.idl
+  Typedef:
+    Name: UUID
+    Type:
+      Name: DOMString
+- File: webgl2.idl
+  Typedef:
+    Name: Uint32List
+    Type:
+      Union:
+        - Name: Uint32Array
+        - Name: sequence
+          Params:
+            - Name: GLuint
+- File: magnetometer.idl
+  Interface:
+    Name: UncalibratedMagnetometer
+    Inherits: Sensor
+    ExtAttrs:
+      - Name: SecureContext
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: x
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: "y"
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: z
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: xBias
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: yBias
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: zBias
+        Readonly: true
+        Type:
+          Name: double
+          Nullable: true
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: sensorOptions
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: MagnetometerSensorOptions
+        ExtAttrs:
+          - Name: SecureContext
+          - Name: Exposed
+            Values:
+              - Window
+- File: magnetometer.idl
+  Dict:
+    Name: UncalibratedMagnetometerReadingValues
+    Fields:
+      - Name: x
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: "y"
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: z
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: xBias
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: yBias
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+      - Name: zBias
+        Required: true
+        Type:
+          Name: double
+          Nullable: true
+- File: streams.idl
+  Dict:
+    Name: UnderlyingSink
+    Fields:
+      - Name: start
+        Type:
+          Name: UnderlyingSinkStartCallback
+      - Name: write
+        Type:
+          Name: UnderlyingSinkWriteCallback
+      - Name: close
+        Type:
+          Name: UnderlyingSinkCloseCallback
+      - Name: abort
+        Type:
+          Name: UnderlyingSinkAbortCallback
+      - Name: type
+        Type:
+          Name: any
+- File: streams.idl
+  Callback:
+    Name: UnderlyingSinkAbortCallback
+    Args:
+      - Name: reason
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: undefined
+- File: streams.idl
+  Callback:
+    Name: UnderlyingSinkCloseCallback
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: undefined
+- File: streams.idl
+  Callback:
+    Name: UnderlyingSinkStartCallback
+    Args:
+      - Name: controller
+        Type:
+          Name: WritableStreamDefaultController
+    Returns:
+      - Name: any
+- File: streams.idl
+  Callback:
+    Name: UnderlyingSinkWriteCallback
+    Args:
+      - Name: chunk
+        Type:
+          Name: any
+      - Name: controller
+        Type:
+          Name: WritableStreamDefaultController
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: undefined
+- File: streams.idl
+  Dict:
+    Name: UnderlyingSource
+    Fields:
+      - Name: start
+        Type:
+          Name: UnderlyingSourceStartCallback
+      - Name: pull
+        Type:
+          Name: UnderlyingSourcePullCallback
+      - Name: cancel
+        Type:
+          Name: UnderlyingSourceCancelCallback
+      - Name: type
+        Type:
+          Name: ReadableStreamType
+      - Name: autoAllocateChunkSize
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+- File: streams.idl
+  Callback:
+    Name: UnderlyingSourceCancelCallback
+    Args:
+      - Name: reason
+        Optional: true
+        Type:
+          Name: any
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: undefined
+- File: streams.idl
+  Callback:
+    Name: UnderlyingSourcePullCallback
+    Args:
+      - Name: controller
+        Type:
+          Name: ReadableStreamController
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: undefined
+- File: streams.idl
+  Callback:
+    Name: UnderlyingSourceStartCallback
+    Args:
+      - Name: controller
+        Type:
+          Name: ReadableStreamController
+    Returns:
+      - Name: any
+- File: css-view-transitions.idl
+  Callback:
+    Name: UpdateCallback
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: any
+- File: html.idl
+  Interface:
+    Name: UserActivation
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: hasBeenActive
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: isActive
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: idle-detection.idl
+  Enum:
+    Name: UserIdleState
+    Values:
+      - active
+      - idle
+- File: webauthn.idl
+  Enum:
+    Name: UserVerificationRequirement
+    Values:
+      - required
+      - preferred
+      - discouraged
+- File: webauthn.idl
+  Typedef:
+    Name: UvmEntries
+    Type:
+      Name: sequence
+      Params:
+        - Name: UvmEntry
+- File: webauthn.idl
+  Typedef:
+    Name: UvmEntry
+    Type:
+      Name: sequence
+      Params:
+        - Name: unsigned long
+- File: webvtt.idl
+  Interface:
+    Name: VTTCue
+    Inherits: TextTrackCue
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: region
+        Type:
+          Name: VTTRegion
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: vertical
+        Type:
+          Name: DirectionSetting
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: snapToLines
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: line
+        Type:
+          Name: LineAndPositionSetting
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lineAlign
+        Type:
+          Name: LineAlignSetting
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: position
+        Type:
+          Name: LineAndPositionSetting
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: positionAlign
+        Type:
+          Name: PositionAlignSetting
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: size
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: align
+        Type:
+          Name: AlignSetting
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: text
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Operations:
+      - Name: getCueAsHTML
+        Returns:
+          - Name: DocumentFragment
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+    Constructors:
+      - Args:
+          - Name: startTime
+            Type:
+              Name: double
+          - Name: endTime
+            Type:
+              Name: unrestricted double
+          - Name: text
+            Type:
+              Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webvtt.idl
+  Interface:
+    Name: VTTRegion
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: id
+        Type:
+          Name: DOMString
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: width
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: lines
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: regionAnchorX
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: regionAnchorY
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: viewportAnchorX
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: viewportAnchorY
+        Type:
+          Name: double
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: scroll
+        Type:
+          Name: ScrollSetting
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: webrtc-identity.idl
+  Callback:
+    Name: ValidateAssertionCallback
+    Args:
+      - Name: assertion
+        Type:
+          Name: DOMString
+      - Name: origin
+        Type:
+          Name: DOMString
+    Returns:
+      - Name: Promise
+        Params:
+          - Name: RTCIdentityValidationResult
+- File: html.idl
+  Interface:
+    Name: ValidityState
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+    Attrs:
+      - Name: valueMissing
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: typeMismatch
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: patternMismatch
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: tooLong
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: tooShort
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rangeUnderflow
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: rangeOverflow
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: stepMismatch
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: badInput
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: customError
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+      - Name: valid
+        Readonly: true
+        Type:
+          Name: boolean
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+- File: html.idl
+  Dict:
+    Name: ValidityStateFlags
+    Fields:
+      - Name: valueMissing
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: typeMismatch
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: patternMismatch
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: tooLong
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: tooShort
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: rangeUnderflow
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: rangeOverflow
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: stepMismatch
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: badInput
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: customError
+        Default: "false"
+        Type:
+          Name: boolean
+- File: web-bluetooth.idl
+  Interface:
+    Name: ValueEvent
+    Inherits: Event
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+      - Name: SecureContext
+    Attrs:
+      - Name: value
+        Readonly: true
+        Type:
+          Name: any
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: type
+            Type:
+              Name: DOMString
+          - Name: initDict
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: ValueEventInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+          - Name: SecureContext
+- File: web-bluetooth.idl
+  Dict:
+    Name: ValueEventInit
+    Inherits: EventInit
+    Fields:
+      - Name: value
+        Default: "null"
+        Type:
+          Name: any
+      - Name: bubbles
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: cancelable
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: composed
+        Default: "false"
+        Type:
+          Name: boolean
+- File: wasm-js-api.idl
+  Enum:
+    Name: ValueType
+    Values:
+      - i32
+      - i64
+      - f32
+      - f64
+      - v128
+      - externref
+      - anyfunc
+- File: vibration.idl
+  Typedef:
+    Name: VibratePattern
+    Type:
+      Union:
+        - Name: unsigned long
+        - Name: sequence
+          Params:
+            - Name: unsigned long
+- File: webcodecs.idl
+  Enum:
+    Name: VideoColorPrimaries
+    Values:
+      - bt709
+      - bt470bg
+      - smpte170m
+      - bt2020
+      - smpte432
+- File: webcodecs.idl
+  Interface:
+    Name: VideoColorSpace
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+    Attrs:
+      - Name: primaries
+        Readonly: true
+        Type:
+          Name: VideoColorPrimaries
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: transfer
+        Readonly: true
+        Type:
+          Name: VideoTransferCharacteristics
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: matrix
+        Readonly: true
+        Type:
+          Name: VideoMatrixCoefficients
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+      - Name: fullRange
+        Readonly: true
+        Type:
+          Name: boolean
+          Nullable: true
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+    Operations:
+      - Name: toJSON
+        Returns:
+          - Name: VideoColorSpaceInit
+        ExtAttrs:
+          - Name: Default
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+    Constructors:
+      - Args:
+          - Name: init
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: VideoColorSpaceInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+- File: webcodecs.idl
+  Dict:
+    Name: VideoColorSpaceInit
+    Fields:
+      - Name: primaries
+        Default: "null"
+        Type:
+          Name: VideoColorPrimaries
+          Nullable: true
+      - Name: transfer
+        Default: "null"
+        Type:
+          Name: VideoTransferCharacteristics
+          Nullable: true
+      - Name: matrix
+        Default: "null"
+        Type:
+          Name: VideoMatrixCoefficients
+          Nullable: true
+      - Name: fullRange
+        Default: "null"
+        Type:
+          Name: boolean
+          Nullable: true
+- File: media-capabilities.idl
+  Dict:
+    Name: VideoConfiguration
+    Fields:
+      - Name: contentType
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: width
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: height
+        Required: true
+        Type:
+          Name: unsigned long
+      - Name: bitrate
+        Required: true
+        Type:
+          Name: unsigned long long
+      - Name: framerate
+        Required: true
+        Type:
+          Name: double
+      - Name: hasAlphaChannel
+        Type:
+          Name: boolean
+      - Name: hdrMetadataType
+        Type:
+          Name: HdrMetadataType
+      - Name: colorGamut
+        Type:
+          Name: ColorGamut
+      - Name: transferFunction
+        Type:
+          Name: TransferFunction
+      - Name: scalabilityMode
+        Type:
+          Name: DOMString
+      - Name: spatialScalability
+        Type:
+          Name: boolean
+- File: webcodecs.idl
+  Interface:
+    Name: VideoDecoder
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: state
+        Readonly: true
+        Type:
+          Name: CodecState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: decodeQueueSize
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: ondequeue
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Operations:
+      - Name: configure
+        Args:
+          - Name: config
+            Type:
+              Name: VideoDecoderConfig
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: decode
+        Args:
+          - Name: chunk
+            Type:
+              Name: EncodedVideoChunk
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: flush
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: reset
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: isConfigSupported
+        Modifier: static
+        Args:
+          - Name: config
+            Type:
+              Name: VideoDecoderConfig
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: VideoDecoderSupport
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: VideoDecoderInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webcodecs.idl
+  Dict:
+    Name: VideoDecoderConfig
+    Fields:
+      - Name: codec
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: description
+        Type:
+          Name: AllowSharedBufferSource
+      - Name: codedWidth
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: codedHeight
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: displayAspectWidth
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: displayAspectHeight
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: colorSpace
+        Type:
+          Name: VideoColorSpaceInit
+      - Name: hardwareAcceleration
+        Default: '"no-preference"'
+        Type:
+          Name: HardwareAcceleration
+      - Name: optimizeForLatency
+        Type:
+          Name: boolean
+- File: webcodecs.idl
+  Dict:
+    Name: VideoDecoderInit
+    Fields:
+      - Name: output
+        Required: true
+        Type:
+          Name: VideoFrameOutputCallback
+      - Name: error
+        Required: true
+        Type:
+          Name: WebCodecsErrorCallback
+- File: webcodecs.idl
+  Dict:
+    Name: VideoDecoderSupport
+    Fields:
+      - Name: supported
+        Type:
+          Name: boolean
+      - Name: config
+        Type:
+          Name: VideoDecoderConfig
+- File: webcodecs.idl
+  Interface:
+    Name: VideoEncoder
+    Inherits: EventTarget
+    ExtAttrs:
+      - Name: Exposed
+        Values:
+          - Window
+          - DedicatedWorker
+      - Name: SecureContext
+    Attrs:
+      - Name: state
+        Readonly: true
+        Type:
+          Name: CodecState
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: encodeQueueSize
+        Readonly: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: ondequeue
+        Type:
+          Name: EventHandler
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Operations:
+      - Name: configure
+        Args:
+          - Name: config
+            Type:
+              Name: VideoEncoderConfig
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: encode
+        Args:
+          - Name: frame
+            Type:
+              Name: VideoFrame
+          - Name: options
+            Optional: true
+            Default: '{}'
+            Type:
+              Name: VideoEncoderEncodeOptions
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: flush
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: reset
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: close
+        Returns:
+          - Name: undefined
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+      - Name: isConfigSupported
+        Modifier: static
+        Args:
+          - Name: config
+            Type:
+              Name: VideoEncoderConfig
+        Returns:
+          - Name: Promise
+            Params:
+              - Name: VideoEncoderSupport
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+    Constructors:
+      - Args:
+          - Name: init
+            Type:
+              Name: VideoEncoderInit
+        ExtAttrs:
+          - Name: Exposed
+            Values:
+              - Window
+              - DedicatedWorker
+          - Name: SecureContext
+- File: webcodecs.idl
+  Enum:
+    Name: VideoEncoderBitrateMode
+    Values:
+      - constant
+      - variable
+      - quantizer
+- File: webcodecs.idl
+  Dict:
+    Name: VideoEncoderConfig
+    Fields:
+      - Name: codec
+        Required: true
+        Type:
+          Name: DOMString
+      - Name: width
+        Required: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: height
+        Required: true
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: displayWidth
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: displayHeight
+        Type:
+          Name: unsigned long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: bitrate
+        Type:
+          Name: unsigned long long
+        ExtAttrs:
+          - Name: EnforceRange
+      - Name: framerate
+        Type:
+          Name: double
+      - Name: hardwareAcceleration
+        Default: '"no-preference"'
+        Type:
+          Name: HardwareAcceleration
+      - Name: alpha
+        Default: '"discard"'
+        Type:
+          Name: AlphaOption
+      - Name: scalabilityMode
+        Type:
+          Name: DOMString
+      - Name: bitrateMode
+        Default: '"variable"'
+        Type:
+          Name: VideoEncoderBitrateMode
+      - Name: latencyMode
+        Default: '"quality"'
+        Type:
+          Name: LatencyMode
+      - Name: hevc
+        Type:
+          Name: HevcEncoderConfig
+      - Name: avc
+        Type:
+          Name: AvcEncoderConfig
+      - Name: av1
+        Type:
+          Name: AV1EncoderConfig
+- File: webcodecs.idl
+  Dict:
+    Name: VideoEncoderEncodeOptions
+    Fields:
+      - Name: keyFrame
+        Default: "false"
+        Type:
+          Name: boolean
+      - Name: hevc
+        Type:
+          Name: VideoEncoderEncodeOptionsForHevc
+      - Name: vp9
+        Type:
+          Name: VideoEncoderEncodeOptionsForVp9
+      - Name: av1
+        Type:
+          Name: VideoEncoderEncodeOptionsForAv1
+      - Name: avc
+        Type:
+          Name: VideoEncoderEncodeOptionsForAvc
+- File: webcodecs-av1-codec-registration.idl
+  Dict:
+    Name: VideoEncoderEncodeOptionsForAv1
+    Fields:
+      - Name: quantizer
+        Type:
+          Name: unsigned short
+          Nullable: true
+- File: webcodecs-avc-codec-registration.idl
+  Dict:
+    Name: VideoEncoderEncodeOptionsForAvc
+    Fields:
+      - Name: quantizer
+        Type:
+          Name: unsigned short
+          Nullable: true

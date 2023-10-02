@@ -6,8 +6,15 @@
 package rt0
 
 import (
+	"github.com/primecitizens/std/core/alloc"
+	"github.com/primecitizens/std/core/alloc/sbrkalloc"
 	"github.com/primecitizens/std/ffi/wasm/wasi"
 )
+
+var _alloc sbrkalloc.T
+
+func malloc() alloc.M { return &_alloc }
+func palloc() alloc.P { return &_alloc }
 
 func exit0() {
 	wasi.Exit(0)

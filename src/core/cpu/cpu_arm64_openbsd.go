@@ -5,7 +5,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-//go:build arm64
+//go:build arm64 && openbsd
 
 package cpu
 
@@ -21,7 +21,7 @@ const (
 //go:noescape
 func sysctlUint64(mib []uint32) (uint64, bool)
 
-func osInit() *ARM64 {
+func osInit() *ARM64Features {
 	// Get ID_AA64ISAR0 from sysctl.
 	isar0, ok := sysctlUint64([]uint32{_CTL_MACHDEP, _CPU_ID_AA64ISAR0})
 	if !ok {

@@ -25,7 +25,7 @@
 // Work is still needed for a big endian
 // implementation on power9.
 
-//go:build ppc64 || ppc64le
+//go:build pcz && (ppc64 || ppc64le)
 
 #include "textflag.h"
 
@@ -48,14 +48,14 @@ DATA byteswap<>+8(SB)/8, $0x0f0e0d0c0b0a0908
 
 GLOBL byteswap<>+0(SB), RODATA, $16
 
-TEXT ·Index<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-56
+TEXT ·indexSlice<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-56
 	// R3 = byte array pointer
 	// R4 = length
 	MOVD R6, R5             // R5 = separator pointer
 	MOVD R7, R6             // R6 = separator length
 
 #ifdef GOARCH_ppc64le
-	MOVBZ core∕cpu·PPC64+const_offsetPPC64HasPOWER9(SB), R7
+	MOVBZ ·isPOWER9(SB), R7
 	CMP   R7, $1
 	BNE   power8
 	BR    indexbodyp9<>(SB)
@@ -63,14 +63,14 @@ TEXT ·Index<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-56
 power8:
 	BR indexbody<>(SB)
 
-TEXT ·IndexString<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-40
+TEXT ·index<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-40
 	// R3 = string
 	// R4 = length
 	// R5 = separator pointer
 	// R6 = separator length
 
 #ifdef GOARCH_ppc64le
-	MOVBZ core∕cpu·PPC64+const_offsetPPC64HasPOWER9(SB), R7
+	MOVBZ ·isPOWER9(SB), R7
 	CMP   R7, $1
 	BNE   power8
 	BR    indexbodyp9<>(SB)

@@ -4,6 +4,7 @@
 package main
 
 import (
+	_ "embed" // for go:embed
 	"errors"
 	"os"
 	"time"
@@ -13,7 +14,7 @@ import (
 	"github.com/primecitizens/pcz/cmd/codegen"
 	"github.com/primecitizens/pcz/cmd/dev"
 
-	// codegen platforms
+	// codegen targets
 	_ "github.com/primecitizens/pcz/cmd/codegen/android"
 	_ "github.com/primecitizens/pcz/cmd/codegen/darwin"
 	_ "github.com/primecitizens/pcz/cmd/codegen/js"
@@ -22,7 +23,9 @@ import (
 	// dev tool platforms
 	_ "github.com/primecitizens/pcz/cmd/dev/android"
 	_ "github.com/primecitizens/pcz/cmd/dev/ios"
-	_ "github.com/primecitizens/pcz/cmd/dev/js"
+	_ "github.com/primecitizens/pcz/cmd/dev/nodejs"
+	_ "github.com/primecitizens/pcz/cmd/dev/web"
+	_ "github.com/primecitizens/pcz/cmd/dev/webext"
 )
 
 func main() {

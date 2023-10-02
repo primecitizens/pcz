@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+//go:build pcz
+
 package runtime
 
 import (
@@ -92,7 +94,7 @@ func unreachableMethod() {
 //go:nosplit
 //go:linkname morestackc
 func morestackc() {
-	assert.Throw("attempt to execute system stack code on user stack")
+	assert.Throw("attempt", "to", "execute", "system", "stack", "code", "on", "user", "stack")
 }
 
 type (

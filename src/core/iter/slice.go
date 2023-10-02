@@ -3,6 +3,15 @@
 
 package iter
 
+func SliceNth[Elem any](s []Elem, i int) (elem Elem, ok bool) {
+	i, ok = Index(i, len(s))
+	if ok {
+		return s[i], true
+	}
+
+	return
+}
+
 // Slice returns an iterator for the given slice.
 func Slice[Elem any](x []Elem) SliceIter[Elem] {
 	return SliceIter[Elem](x)

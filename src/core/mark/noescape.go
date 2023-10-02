@@ -5,6 +5,9 @@ package mark
 
 import (
 	"unsafe"
+	_ "unsafe" // for go:linkname
+
+	_ "github.com/primecitizens/std/core/mark/internal/reflect" // import reflect.noescape
 )
 
 // NoEscape hides a pointer from escape analysis. USE CAREFULLY!
@@ -16,44 +19,75 @@ import (
 //
 //go:nosplit
 func NoEscape[T any](p *T) *T {
-	x := uintptr(unsafe.Pointer(p)) // this line is required
-	return (*T)(unsafe.Pointer(x ^ 0))
+	return (*T)(NoEscapeUnsafePointer(unsafe.Pointer(p)))
 }
 
-// NoEscapeUnsafePointer is [NoEscape] but taking and returning unsafe.Pointer.
+//go:linkname NoEscapeUnsafePointer reflect.noescape
+//go:noescape
+func NoEscapeUnsafePointer(p unsafe.Pointer) unsafe.Pointer
+
+// NoEscapePointer is [NoEscape] but returns unsafe.Pointer.
 //
 //go:nosplit
-func NoEscapeUnsafePointer(ptr unsafe.Pointer) unsafe.Pointer {
-	x := uintptr(ptr) // this line is required
-	return unsafe.Pointer(x ^ 0)
+func NoEscapePointer[T any](p *T) unsafe.Pointer {
+	return NoEscapeUnsafePointer(unsafe.Pointer(p))
 }
 
 // NoEscapeSlice is [NoEscape] for slices.
 //
 //go:nosplit
-func NoEscapeSlice[T any](p []T) (ret []T) {
-	ret = unsafe.Slice(
-		NoEscape(unsafe.SliceData(p)),
-		cap(p),
-	)
-	return ret[:len(p)]
+func NoEscapeSlice[T any](p []T) []T {
+	return unsafe.Slice(NoEscape(unsafe.SliceData(p)), cap(p))[:len(p)]
 }
 
-// NoescapeSlice is [NoEscape] for strings.
+// NoEscapeSliceData is [NoEscapeSlice] but returns the pointer
+// to the underlay array.
 //
 //go:nosplit
-func NoEscapeString[T ~string](s T) T {
-	return T(unsafe.String(
-		NoEscape(unsafe.StringData(string(s))),
-		len(s),
-	))
+func NoEscapeSliceData[T any](p []T) *T {
+	return NoEscape(unsafe.SliceData(p))
 }
 
-// NoEscapeBytesString is [NoEscapeSlice] for bytes but returning string
-// instead.
+// NoEscapeSliceDataPointer is [NoEscapeSliceData] but returns an
+// unsafe.Pointer.
+//
+//go:nosplit
+func NoEscapeSliceDataPointer[T any](p []T) unsafe.Pointer {
+	return NoEscapeUnsafePointer(unsafe.Pointer(unsafe.SliceData(p)))
+}
+
+// NoEscapeString is [NoEscape] for string.
+//
+//go:nosplit
+func NoEscapeString[String ~string](s String) String {
+	return String(
+		unsafe.String(
+			NoEscape(unsafe.StringData(string(s))),
+			len(s),
+		),
+	)
+}
+
+// NoEscapeStringData is [NoEscapeString] but returns the pointer to
+// the underlay byte array.
+//
+//go:nosplit
+func NoEscapeStringData[String ~string](s String) *byte {
+	return NoEscape(unsafe.StringData(string(s)))
+}
+
+// NoEscapeStringDataPointer is [NoEscapeStringData] but returns an
+// unsafe.Pointer.
+//
+//go:nosplit
+func NoEscapeStringDataPointer[String ~string](s String) unsafe.Pointer {
+	return NoEscapeUnsafePointer(unsafe.Pointer(unsafe.StringData(string(s))))
+}
+
+// NoEscapeBytesString is [NoEscapeString] but taking bytes as the argument.
 func NoEscapeBytesString[T ~byte](s []T) string {
 	return unsafe.String(
-		(*byte)(unsafe.Pointer(NoEscape(unsafe.SliceData(s)))),
+		(*byte)(NoEscapeUnsafePointer(unsafe.Pointer(unsafe.SliceData(s)))),
 		len(s),
 	)
 }

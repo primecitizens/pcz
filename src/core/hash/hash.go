@@ -11,7 +11,7 @@ import (
 	"github.com/primecitizens/std/core/abi"
 	"github.com/primecitizens/std/core/arch"
 	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/rand"
+	"github.com/primecitizens/std/core/thread"
 )
 
 var (
@@ -35,7 +35,7 @@ func Float32Hash(p unsafe.Pointer, h uintptr) uintptr {
 	case f == 0:
 		return c1 * (c0 ^ h) // +0, -0
 	case f != f:
-		return c1 * (c0 ^ h ^ uintptr(rand.Fastrand())) // any kind of NaN
+		return c1 * (c0 ^ h ^ uintptr(thread.G().G().Rand32())) // any kind of NaN
 	default:
 		return MemHash(p, h, 4)
 	}
@@ -47,7 +47,7 @@ func Float64Hash(p unsafe.Pointer, h uintptr) uintptr {
 	case f == 0:
 		return c1 * (c0 ^ h) // +0, -0
 	case f != f:
-		return c1 * (c0 ^ h ^ uintptr(rand.Fastrand())) // any kind of NaN
+		return c1 * (c0 ^ h ^ uintptr(thread.G().G().Rand32())) // any kind of NaN
 	default:
 		return MemHash(p, h, 8)
 	}
@@ -75,7 +75,7 @@ func InterfaceHash(p unsafe.Pointer, h uintptr) uintptr {
 		// typehash, but we want to report the topmost type in
 		// the error text (e.g. in a struct with a field of slice type
 		// we want to report the struct, not the slice).
-		assert.Panic("hash of unhashable type ", t.String())
+		assert.Panic("hash", "of", "unhashable", "type ", t.String())
 		return h
 	}
 
@@ -94,7 +94,7 @@ func NilInterfaceHash(p unsafe.Pointer, h uintptr) uintptr {
 	}
 	if t.Equal == nil {
 		// See comment in interhash above.
-		assert.Panic("hash of unhashable type ", t.String())
+		assert.Panic("hash", "of", "unhashable", "type ", t.String())
 		return h
 	}
 
@@ -129,27 +129,27 @@ func TypeHash(t *abi.Type, p unsafe.Pointer, h uintptr) uintptr {
 	}
 
 	switch t.Kind() {
-	case abi.Float32:
+	case abi.KindFloat32:
 		return Float32Hash(p, h)
-	case abi.Float64:
+	case abi.KindFloat64:
 		return Float64Hash(p, h)
-	case abi.Complex64:
+	case abi.KindComplex64:
 		return Complex64Hash(p, h)
-	case abi.Complex128:
+	case abi.KindComplex128:
 		return Complex128Hash(p, h)
-	case abi.String:
+	case abi.KindString:
 		return StringHash(p, h)
-	case abi.Interface:
+	case abi.KindInterface:
 		if len(t.InterfaceType().Methods) == 0 {
 			return NilInterfaceHash(p, h)
 		}
 		return InterfaceHash(p, h)
-	case abi.Array:
+	case abi.KindArray:
 		for a, i := t.ArrayType(), uintptr(0); i < a.Len; i++ {
 			h = TypeHash(a.Elem, unsafe.Add(p, i*a.Elem.Size_), h)
 		}
 		return h
-	case abi.Struct:
+	case abi.KindStruct:
 		s := t.StructType()
 		for _, f := range s.Fields {
 			if f.Name.IsBlank() {
@@ -161,7 +161,7 @@ func TypeHash(t *abi.Type, p unsafe.Pointer, h uintptr) uintptr {
 	default:
 		// Should never happen, as typehash should only be called
 		// with comparable types.
-		assert.Panic("hash of unhashable type ", t.String())
+		assert.Panic("hash", "of", "unhashable", "type ", t.String())
 		return h
 	}
 }

@@ -33,7 +33,7 @@ package emu64
 import (
 	"unsafe"
 
-	stdpanic "github.com/primecitizens/std/builtin/panic"
+	"github.com/primecitizens/std/core/assert"
 )
 
 const (
@@ -148,7 +148,7 @@ func Uint64Div(n, d uint64) uint64 {
 	// Check for 32 bit operands
 	if uint32(n>>32) == 0 && uint32(d>>32) == 0 {
 		if uint32(d) == 0 {
-			stdpanic.PanicDivide()
+			panicdivide()
 		}
 		return uint64(uint32(n) / uint32(d))
 	}
@@ -160,7 +160,7 @@ func Uint64Mod(n, d uint64) uint64 {
 	// Check for 32 bit operands
 	if uint32(n>>32) == 0 && uint32(d>>32) == 0 {
 		if uint32(d) == 0 {
-			stdpanic.PanicDivide()
+			panicdivide()
 		}
 		return uint64(uint32(n) % uint32(d))
 	}
@@ -177,7 +177,7 @@ func Int64Div(n, d int64) int64 {
 			return 0x80000000
 		}
 		if int32(d) == 0 {
-			stdpanic.PanicDivide()
+			panicdivide()
 		}
 		return int64(int32(n) / int32(d))
 	}
@@ -203,7 +203,7 @@ func Int64Mod(n, d int64) int64 {
 	// Check for 32 bit operands
 	if int64(int32(n)) == n && int64(int32(d)) == d {
 		if int32(d) == 0 {
-			stdpanic.PanicDivide()
+			panicdivide()
 		}
 		return int64(int32(n) % int32(d))
 	}
@@ -226,7 +226,7 @@ func Int64Mod(n, d int64) int64 {
 //go:nosplit
 func slowdodiv(n, d uint64) (q, r uint64) {
 	if d == 0 {
-		stdpanic.PanicDivide()
+		panicdivide()
 	}
 
 	// Set up the divisor and find the number of iterations needed.
@@ -250,3 +250,5 @@ func slowdodiv(n, d uint64) (q, r uint64) {
 	}
 	return q, n
 }
+
+func panicdivide() { assert.Throw("integer", "divide", "by", "zero") }

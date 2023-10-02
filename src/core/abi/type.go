@@ -22,6 +22,9 @@ import (
 // (e.g. data[2*arch.PtrSize+4] references the TFlag field)
 // unsafe.OffsetOf(Type{}.TFlag) cannot be used directly in those
 // places because it varies with cross compilation and experiments.
+//
+// NOTE: The type name has to be Type, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type Type struct {
 	Size_       uintptr
 	PtrBytes    uintptr // number of (prefix) bytes in the type that can contain pointers
@@ -46,33 +49,33 @@ type Type struct {
 type Kind uint
 
 const (
-	Invalid Kind = iota
-	Bool
-	Int
-	Int8
-	Int16
-	Int32
-	Int64
-	Uint
-	Uint8
-	Uint16
-	Uint32
-	Uint64
-	Uintptr
-	Float32
-	Float64
-	Complex64
-	Complex128
-	Array
-	Chan
-	KindFunc
-	Interface
-	Map
-	Pointer
-	Slice
-	String
-	Struct
-	UnsafePointer
+	KindInvalid Kind = iota
+	KindBool
+	KindInt
+	KindInt8
+	KindInt16
+	KindInt32
+	KindInt64
+	KindUint
+	KindUint8
+	KindUint16
+	KindUint32
+	KindUint64
+	KindUintptr
+	KindFloat32
+	KindFloat64
+	KindComplex64
+	KindComplex128
+	KindArray
+	KindChan
+	KindKindFunc
+	KindInterface
+	KindMap
+	KindPointer
+	KindSlice
+	KindString
+	KindStruct
+	KindUnsafePointer
 )
 
 const (
@@ -140,7 +143,15 @@ func (t *Type) IfaceIndir() bool {
 	return t.Kind_&KindDirectIface == 0
 }
 
-// isDirectIface reports whether t is stored directly in an interface value.
+// IsDirectIface reports whether t is stored directly in an interface value.
+//
+// To find out what types stores value directly as iface.Data,
+// See ${GOROOT}/src/cmd/internal/types/type.go#func:IsDirectIface
+//
+// As of go1.21, following types return true:
+//   - pointer types whose elem type doesn't have mark.NotInHeap
+//   - chan, map, func, unsafe.Pointer
+//   - struct/array of 1 field/elem of above types
 func (t *Type) IsDirectIface() bool {
 	return t.Kind_&KindDirectIface != 0
 }
@@ -150,7 +161,7 @@ func (t *Type) GcSlice(begin, end uintptr) []byte {
 }
 
 func (t *Type) NameOff(off NameOff) Name {
-	return ResolveNameOff(unsafe.Pointer(t), off)
+	return resolveNameOff(unsafe.Pointer(t), off)
 }
 
 func (t *Type) TypeOff(off TypeOff) *Type {
@@ -197,10 +208,10 @@ func (t *Type) PkgPath() string {
 		return t.NameOff(u.PkgPath).Name()
 	}
 	switch t.Kind() {
-	case Struct:
+	case KindStruct:
 		st := (*StructType)(unsafe.Pointer(t))
 		return st.PkgPath.Name()
-	case Interface:
+	case KindInterface:
 		it := (*InterfaceType)(unsafe.Pointer(t))
 		return it.PkgPath.Name()
 	}
@@ -253,12 +264,18 @@ func addChecked(p unsafe.Pointer, x uintptr, whySafe string) unsafe.Pointer {
 }
 
 // Imethod represents a method on an interface type
+//
+// NOTE: The type name has to be `Imethod`, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type Imethod struct {
 	Name NameOff // name of method
 	Typ  TypeOff // .(*FuncType) underneath
 }
 
 // ArrayType represents a fixed array type.
+//
+// NOTE: The type name has to be ArrayType, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type ArrayType struct {
 	Type
 	Elem  *Type // array element type
@@ -268,7 +285,7 @@ type ArrayType struct {
 
 // Len returns the length of t if t is an array type, otherwise 0
 func (t *Type) Len() int {
-	if t.Kind() == Array {
+	if t.Kind() == KindArray {
 		return int((*ArrayType)(unsafe.Pointer(t)).Len)
 	}
 	return 0
@@ -281,13 +298,16 @@ func (t *Type) Common() *Type {
 type ChanDir int
 
 const (
-	RecvDir    ChanDir = 1 << iota         // <-chan
-	SendDir                                // chan<-
-	BothDir            = RecvDir | SendDir // chan
-	InvalidDir ChanDir = 0
+	ChanDirRecv    ChanDir = 1 << iota                 // <-chan
+	ChanDirSend                                        // chan<-
+	ChanDirBoth            = ChanDirRecv | ChanDirSend // chan
+	ChanDirInvalid ChanDir = 0
 )
 
 // ChanType represents a channel type
+//
+// NOTE: The type name has to be ChanType, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type ChanType struct {
 	Type
 	Elem *Type
@@ -301,11 +321,11 @@ type structTypeUncommon struct {
 
 // ChanDir returns the direction of t if t is a channel type, otherwise InvalidDir (0).
 func (t *Type) ChanDir() ChanDir {
-	if t.Kind() == Chan {
+	if t.Kind() == KindChan {
 		ch := (*ChanType)(unsafe.Pointer(t))
 		return ch.Dir
 	}
-	return InvalidDir
+	return ChanDirInvalid
 }
 
 // Uncommon returns a pointer to T's "uncommon" data if there is any, otherwise nil
@@ -314,45 +334,45 @@ func (t *Type) Uncommon() *UncommonType {
 		return nil
 	}
 	switch t.Kind() {
-	case Struct:
+	case KindStruct:
 		return &(*structTypeUncommon)(unsafe.Pointer(t)).u
-	case Pointer:
+	case KindPointer:
 		type u struct {
 			PtrType
 			u UncommonType
 		}
 		return &(*u)(unsafe.Pointer(t)).u
-	case KindFunc:
+	case KindKindFunc:
 		type u struct {
 			FuncType
 			u UncommonType
 		}
 		return &(*u)(unsafe.Pointer(t)).u
-	case Slice:
+	case KindSlice:
 		type u struct {
 			SliceType
 			u UncommonType
 		}
 		return &(*u)(unsafe.Pointer(t)).u
-	case Array:
+	case KindArray:
 		type u struct {
 			ArrayType
 			u UncommonType
 		}
 		return &(*u)(unsafe.Pointer(t)).u
-	case Chan:
+	case KindChan:
 		type u struct {
 			ChanType
 			u UncommonType
 		}
 		return &(*u)(unsafe.Pointer(t)).u
-	case Map:
+	case KindMap:
 		type u struct {
 			MapType
 			u UncommonType
 		}
 		return &(*u)(unsafe.Pointer(t)).u
-	case Interface:
+	case KindInterface:
 		type u struct {
 			InterfaceType
 			u UncommonType
@@ -370,63 +390,115 @@ func (t *Type) Uncommon() *UncommonType {
 // Elem returns the element type for t if t is an array, channel, map, pointer, or slice, otherwise nil.
 func (t *Type) Elem() *Type {
 	switch t.Kind() {
-	case Array:
-		tt := (*ArrayType)(unsafe.Pointer(t))
-		return tt.Elem
-	case Chan:
-		tt := (*ChanType)(unsafe.Pointer(t))
-		return tt.Elem
-	case Map:
-		tt := (*MapType)(unsafe.Pointer(t))
-		return tt.Elem
-	case Pointer:
-		tt := (*PtrType)(unsafe.Pointer(t))
-		return tt.Elem
-	case Slice:
-		tt := (*SliceType)(unsafe.Pointer(t))
-		return tt.Elem
+	case KindArray:
+		return t.ArrayTypeUnsafe().Elem
+	case KindChan:
+		return t.ChanTypeUnsafe().Elem
+	case KindMap:
+		return t.MapTypeUnsafe().Elem
+	case KindPointer:
+		return t.PointerTypeUnsafe().Elem
+	case KindSlice:
+		return t.SliceTypeUnsafe().Elem
 	}
 	return nil
 }
 
-// StructType returns t cast to a *StructType, or nil if its tag does not match.
-func (t *Type) StructType() *StructType {
-	if t.Kind() != Struct {
+// ChanType returns t cast to a *ChanType, or nil if its tag does not match.
+func (t *Type) ChanType() *ChanType {
+	if t.Kind() != KindStruct {
 		return nil
 	}
+	return t.ChanTypeUnsafe()
+}
+
+func (t *Type) ChanTypeUnsafe() *ChanType {
+	return (*ChanType)(unsafe.Pointer(t))
+}
+
+// StructType returns t cast to a *StructType, or nil if its tag does not match.
+func (t *Type) StructType() *StructType {
+	if t.Kind() != KindStruct {
+		return nil
+	}
+	return t.StructTypeUnsafe()
+}
+
+func (t *Type) StructTypeUnsafe() *StructType {
 	return (*StructType)(unsafe.Pointer(t))
 }
 
 // MapType returns t cast to a *MapType, or nil if its tag does not match.
 func (t *Type) MapType() *MapType {
-	if t.Kind() != Map {
+	if t.Kind() != KindMap {
 		return nil
 	}
 	return (*MapType)(unsafe.Pointer(t))
 }
 
-// ArrayType returns t cast to a *ArrayType, or nil if its tag does not match.
-func (t *Type) ArrayType() *ArrayType {
-	if t.Kind() != Array {
+func (t *Type) MapTypeUnsafe() *MapType {
+	return (*MapType)(unsafe.Pointer(t))
+}
+
+// SliceType returns t cast to a *SliceType, or nil if its tag does not match.
+func (t *Type) SliceType() *SliceType {
+	if t.Kind() != KindSlice {
 		return nil
 	}
+	return t.SliceTypeUnsafe()
+}
+
+func (t *Type) SliceTypeUnsafe() *SliceType {
+	return (*SliceType)(unsafe.Pointer(t))
+}
+
+// ArrayType returns t cast to a *ArrayType, or nil if its tag does not match.
+func (t *Type) ArrayType() *ArrayType {
+	if t.Kind() != KindArray {
+		return nil
+	}
+	return t.ArrayTypeUnsafe()
+}
+
+func (t *Type) ArrayTypeUnsafe() *ArrayType {
 	return (*ArrayType)(unsafe.Pointer(t))
 }
 
 // FuncType returns t cast to a *FuncType, or nil if its tag does not match.
 func (t *Type) FuncType() *FuncType {
-	if t.Kind() != KindFunc {
+	if t.Kind() != KindKindFunc {
 		return nil
 	}
+	return t.FuncTypeUnsafe()
+}
+
+func (t *Type) FuncTypeUnsafe() *FuncType {
 	return (*FuncType)(unsafe.Pointer(t))
 }
 
 // InterfaceType returns t cast to a *InterfaceType, or nil if its tag does not match.
 func (t *Type) InterfaceType() *InterfaceType {
-	if t.Kind() != Interface {
+	if t.Kind() != KindInterface {
 		return nil
 	}
+	return t.InterfaceTypeUnsafe()
+}
+
+func (t *Type) InterfaceTypeUnsafe() *InterfaceType {
 	return (*InterfaceType)(unsafe.Pointer(t))
+}
+
+// PointerType returns t cast to a *InterfaceType, or nil if its tag does not match.
+func (t *Type) PointerType() *PtrType {
+	if t.Kind() != KindPointer {
+		return nil
+	}
+
+	return t.PointerTypeUnsafe()
+}
+
+func (t *Type) PointerTypeUnsafe() *PtrType {
+	return (*PtrType)(unsafe.Pointer(t))
 }
 
 // Size returns the size of data with type t.
@@ -437,6 +509,8 @@ func (t *Type) Align() int { return int(t.Align_) }
 
 func (t *Type) FieldAlign() int { return int(t.FieldAlign_) }
 
+// NOTE: The type name has to be `InterfaceType`, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type InterfaceType struct {
 	Type
 	PkgPath Name      // import path
@@ -452,7 +526,7 @@ func (t *Type) ExportedMethods() []Method {
 }
 
 func (t *Type) NumMethod() int {
-	if t.Kind() == Interface {
+	if t.Kind() == KindInterface {
 		tt := (*InterfaceType)(unsafe.Pointer(t))
 		return tt.NumMethod()
 	}
@@ -462,6 +536,8 @@ func (t *Type) NumMethod() int {
 // NumMethod returns the number of interface methods in the type's method set.
 func (t *InterfaceType) NumMethod() int { return len(t.Methods) }
 
+// NOTE: The type name has to be `MapType`, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type MapType struct {
 	Type
 	Key    *Type
@@ -494,12 +570,14 @@ func (mt *MapType) HashMightPanic() bool { // true if hash function might panic
 }
 
 func (t *Type) Key() *Type {
-	if t.Kind() == Map {
+	if t.Kind() == KindMap {
 		return (*MapType)(unsafe.Pointer(t)).Key
 	}
 	return nil
 }
 
+// NOTE: The type name has to be `SliceType`, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type SliceType struct {
 	Type
 	Elem *Type // slice element type
@@ -516,6 +594,9 @@ type SliceType struct {
 //		uncommonType
 //		[2]*rtype    // [0] is in, [1] is out
 //	}
+//
+// NOTE: The type name has to be `FuncType`, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type FuncType struct {
 	Type
 	InCount  uint16
@@ -565,6 +646,8 @@ func (t *FuncType) IsVariadic() bool {
 	return t.OutCount&(1<<15) != 0
 }
 
+// NOTE: The type name has to be `PtrType`, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type PtrType struct {
 	Type
 	Elem *Type // pointer element (pointed at) type
@@ -580,6 +663,8 @@ func (f *StructField) Embedded() bool {
 	return f.Name.IsEmbedded()
 }
 
+// NOTE: The type name has to be `StructType`, as expected by dwarf
+// See ${GOROOT}/src/cmd/link/internal/ld/dwarf.go#func:dwarfGenerateDebugInfo
 type StructType struct {
 	Type
 	PkgPath Name

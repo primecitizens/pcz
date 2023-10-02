@@ -1,0 +1,31 @@
+<!--
+SPDX-License-Identifier: Apache-2.0
+Copyright 2023 The Prime Citizens
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Example WebAssembly Native Web Application</title>
+    <script src="/bindings.js"></script>
+  </head>
+
+  <body>
+    <script>
+      const app = new globalThis.bindings.Application();
+      let mod, inst;
+      app.loadStream(fetch("/app.wasm")).then((res) => {
+        mod = res.module;
+        inst = res.instance;
+        run();
+      });
+
+      async function run() {
+        const code = await app.run(inst);
+        console.log(`program exit, code=${code}`);
+        inst = await WebAssembly.instantiate(mod, app.importObject); // reset instance
+      }
+    </script>
+  </body>
+</html>

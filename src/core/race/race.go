@@ -109,7 +109,7 @@ func ReadRangePC(addr unsafe.Pointer, sz, callerpc, pc uintptr) {
 // pc is start PC of the function that calls this function.
 func ReadObjectPC(t *abi.Type, addr unsafe.Pointer, callerpc, pc uintptr) {
 	switch t.Kind() {
-	case abi.Array, abi.Struct:
+	case abi.KindArray, abi.KindStruct:
 		// for composite objects we have to read every address
 		// because a write might happen to any subobject.
 		ReadRangePC(addr, t.Size_, callerpc, pc)
@@ -151,7 +151,7 @@ func WriteRangePC(addr unsafe.Pointer, sz, callerpc, pc uintptr) {
 // runtime.raceWriteObjectPC
 func WriteObjectPC(t *abi.Type, addr unsafe.Pointer, callerpc, pc uintptr) {
 	switch t.Kind() {
-	case abi.Array, abi.Struct:
+	case abi.KindArray, abi.KindStruct:
 		// for composite objects we have to write every address
 		// because a write might happen to any subobject.
 		WriteRangePC(addr, t.Size_, callerpc, pc)

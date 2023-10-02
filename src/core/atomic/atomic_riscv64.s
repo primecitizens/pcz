@@ -31,6 +31,8 @@
 // aq is sufficient to guarantee this, so that's what we use here. (This jibes
 // with ARM, which uses dmb ishst.)
 
+//go:build riscv64
+
 #include "textflag.h"
 
 TEXT ·PublicationBarrier(SB),NOSPLIT|NOFRAME,$0-0
