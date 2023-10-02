@@ -48,7 +48,7 @@ func (p Transformer) FromRef(ref js.Ref) Transformer {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 Transformer Transformer [// Transformer] [0x14000a9adc0 0x14000a9ae60 0x14000a9af00 0x14000a9afa0 0x14000a9b040] 0x14000a035c0 {0 0}} in the application heap.
+// New creates a new Transformer in the application heap.
 func (p Transformer) New() js.Ref {
 	return bindings.TransformerJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -77,6 +77,8 @@ type TransitionEventInit struct {
 	// ElapsedTime is "TransitionEventInit.elapsedTime"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_ElapsedTime MUST be set to true to make this field effective.
 	ElapsedTime float64
 	// PseudoElement is "TransitionEventInit.pseudoElement"
 	//
@@ -85,14 +87,20 @@ type TransitionEventInit struct {
 	// Bubbles is "TransitionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "TransitionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "TransitionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_ElapsedTime bool // for ElapsedTime.
@@ -109,7 +117,7 @@ func (p TransitionEventInit) FromRef(ref js.Ref) TransitionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TransitionEventInit TransitionEventInit [// TransitionEventInit] [0x14000a9b0e0 0x14000a9b180 0x14000a9b2c0 0x14000a9b360 0x14000a9b4a0 0x14000a9b5e0 0x14000a9b220 0x14000a9b400 0x14000a9b540 0x14000a9b680] 0x14000a03608 {0 0}} in the application heap.
+// New creates a new TransitionEventInit in the application heap.
 func (p TransitionEventInit) New() js.Ref {
 	return bindings.TransitionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -240,18 +248,26 @@ type UIEventInit struct {
 	// Detail is "UIEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "UIEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "UIEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "UIEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 	// SourceCapabilities is "UIEventInit.sourceCapabilities"
 	//
@@ -260,6 +276,8 @@ type UIEventInit struct {
 	// Which is "UIEventInit.which"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Which MUST be set to true to make this field effective.
 	Which uint32
 
 	FFI_USE_Detail     bool // for Detail.
@@ -277,7 +295,7 @@ func (p UIEventInit) FromRef(ref js.Ref) UIEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 UIEventInit UIEventInit [// UIEventInit] [0x14000a9b7c0 0x14000a9b860 0x14000a9b9a0 0x14000a9bae0 0x14000a9bc20 0x14000a9bd60 0x14000a9be00 0x14000a9b900 0x14000a9ba40 0x14000a9bb80 0x14000a9bcc0 0x14000a9bea0] 0x14000a03680 {0 0}} in the application heap.
+// New creates a new UIEventInit in the application heap.
 func (p UIEventInit) New() js.Ref {
 	return bindings.UIEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -977,7 +995,7 @@ func (p URLPatternInit) FromRef(ref js.Ref) URLPatternInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 URLPatternInit URLPatternInit [// URLPatternInit] [0x14000aac0a0 0x14000aac140 0x14000aac1e0 0x14000aac280 0x14000aac320 0x14000aac3c0 0x14000aac460 0x14000aac500 0x14000aac5a0] 0x14000a03728 {0 0}} in the application heap.
+// New creates a new URLPatternInit in the application heap.
 func (p URLPatternInit) New() js.Ref {
 	return bindings.URLPatternInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1032,6 +1050,8 @@ type URLPatternOptions struct {
 	// IgnoreCase is "URLPatternOptions.ignoreCase"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreCase MUST be set to true to make this field effective.
 	IgnoreCase bool
 
 	FFI_USE_IgnoreCase bool // for IgnoreCase.
@@ -1045,7 +1065,7 @@ func (p URLPatternOptions) FromRef(ref js.Ref) URLPatternOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 URLPatternOptions URLPatternOptions [// URLPatternOptions] [0x14000aac640 0x14000aac6e0] 0x14000a037a0 {0 0}} in the application heap.
+// New creates a new URLPatternOptions in the application heap.
 func (p URLPatternOptions) New() js.Ref {
 	return bindings.URLPatternOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1111,7 +1131,7 @@ func (p URLPatternComponentResult) FromRef(ref js.Ref) URLPatternComponentResult
 	return p
 }
 
-// New creates a new {0x140004cc0e0 URLPatternComponentResult URLPatternComponentResult [// URLPatternComponentResult] [0x14000aac820 0x14000aac8c0] 0x14000a03878 {0 0}} in the application heap.
+// New creates a new URLPatternComponentResult in the application heap.
 func (p URLPatternComponentResult) New() js.Ref {
 	return bindings.URLPatternComponentResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1179,7 +1199,7 @@ func (p URLPatternResult) FromRef(ref js.Ref) URLPatternResult {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 URLPatternResult URLPatternResult [// URLPatternResult] [0x14000aac780 0x14000aac960 0x14000aaca00 0x14000aacaa0 0x14000aacb40 0x14000aacbe0 0x14000aacc80 0x14000aacd20 0x14000aacdc0] 0x14000a03860 {0 0}} in the application heap.
+// New creates a new URLPatternResult in the application heap.
 func (p URLPatternResult) New() js.Ref {
 	return bindings.URLPatternResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1500,14 +1520,20 @@ type USBConnectionEventInit struct {
 	// Bubbles is "USBConnectionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "USBConnectionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "USBConnectionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1523,7 +1549,7 @@ func (p USBConnectionEventInit) FromRef(ref js.Ref) USBConnectionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 USBConnectionEventInit USBConnectionEventInit [// USBConnectionEventInit] [0x14000aacf00 0x14000aacfa0 0x14000aad0e0 0x14000aad220 0x14000aad040 0x14000aad180 0x14000aad2c0] 0x14000a038d8 {0 0}} in the application heap.
+// New creates a new USBConnectionEventInit in the application heap.
 func (p USBConnectionEventInit) New() js.Ref {
 	return bindings.USBConnectionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1608,7 +1634,7 @@ func (p USBPermissionDescriptor) FromRef(ref js.Ref) USBPermissionDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 USBPermissionDescriptor USBPermissionDescriptor [// USBPermissionDescriptor] [0x14000aad360 0x14000aad400 0x14000aad4a0] 0x14000a03908 {0 0}} in the application heap.
+// New creates a new USBPermissionDescriptor in the application heap.
 func (p USBPermissionDescriptor) New() js.Ref {
 	return bindings.USBPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1687,7 +1713,7 @@ func (p USBPermissionStorage) FromRef(ref js.Ref) USBPermissionStorage {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 USBPermissionStorage USBPermissionStorage [// USBPermissionStorage] [0x14000aad540] 0x14000a03950 {0 0}} in the application heap.
+// New creates a new USBPermissionStorage in the application heap.
 func (p USBPermissionStorage) New() js.Ref {
 	return bindings.USBPermissionStorageJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1844,7 +1870,7 @@ func (p UncalibratedMagnetometerReadingValues) FromRef(ref js.Ref) UncalibratedM
 	return p
 }
 
-// New creates a new {0x140004cc0e0 UncalibratedMagnetometerReadingValues UncalibratedMagnetometerReadingValues [// UncalibratedMagnetometerReadingValues] [0x14000aad680 0x14000aad720 0x14000aad7c0 0x14000aad860 0x14000aad900 0x14000aad9a0] 0x14000a03980 {0 0}} in the application heap.
+// New creates a new UncalibratedMagnetometerReadingValues in the application heap.
 func (p UncalibratedMagnetometerReadingValues) New() js.Ref {
 	return bindings.UncalibratedMagnetometerReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2216,7 +2242,7 @@ func (p UnderlyingSink) FromRef(ref js.Ref) UnderlyingSink {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 UnderlyingSink UnderlyingSink [// UnderlyingSink] [0x14000aada40 0x14000aadae0 0x14000aadb80 0x14000aadc20 0x14000aadcc0] 0x14000a039f8 {0 0}} in the application heap.
+// New creates a new UnderlyingSink in the application heap.
 func (p UnderlyingSink) New() js.Ref {
 	return bindings.UnderlyingSinkJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2437,6 +2463,8 @@ type UnderlyingSource struct {
 	// AutoAllocateChunkSize is "UnderlyingSource.autoAllocateChunkSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AutoAllocateChunkSize MUST be set to true to make this field effective.
 	AutoAllocateChunkSize uint64
 
 	FFI_USE_AutoAllocateChunkSize bool // for AutoAllocateChunkSize.
@@ -2450,7 +2478,7 @@ func (p UnderlyingSource) FromRef(ref js.Ref) UnderlyingSource {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 UnderlyingSource UnderlyingSource [// UnderlyingSource] [0x14000aadd60 0x14000aade00 0x14000aadea0 0x14000aadf40 0x14000ab4000 0x14000ab40a0] 0x14000a03a40 {0 0}} in the application heap.
+// New creates a new UnderlyingSource in the application heap.
 func (p UnderlyingSource) New() js.Ref {
 	return bindings.UnderlyingSourceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2960,14 +2988,20 @@ type ValueEventInit struct {
 	// Bubbles is "ValueEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ValueEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ValueEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2983,7 +3017,7 @@ func (p ValueEventInit) FromRef(ref js.Ref) ValueEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ValueEventInit ValueEventInit [// ValueEventInit] [0x14000ab4280 0x14000ab4320 0x14000ab4460 0x14000ab45a0 0x14000ab43c0 0x14000ab4500 0x14000ab4640] 0x14000a03ab8 {0 0}} in the application heap.
+// New creates a new ValueEventInit in the application heap.
 func (p ValueEventInit) New() js.Ref {
 	return bindings.ValueEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3131,7 +3165,7 @@ func (p VideoDecoderInit) FromRef(ref js.Ref) VideoDecoderInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoDecoderInit VideoDecoderInit [// VideoDecoderInit] [0x14000ab46e0 0x14000ab4780] 0x14000a03b00 {0 0}} in the application heap.
+// New creates a new VideoDecoderInit in the application heap.
 func (p VideoDecoderInit) New() js.Ref {
 	return bindings.VideoDecoderInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3156,6 +3190,8 @@ type VideoDecoderSupport struct {
 	// Supported is "VideoDecoderSupport.supported"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Supported MUST be set to true to make this field effective.
 	Supported bool
 	// Config is "VideoDecoderSupport.config"
 	//
@@ -3173,7 +3209,7 @@ func (p VideoDecoderSupport) FromRef(ref js.Ref) VideoDecoderSupport {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoDecoderSupport VideoDecoderSupport [// VideoDecoderSupport] [0x14000ab4820 0x14000ab4960 0x14000ab48c0] 0x14000a03b30 {0 0}} in the application heap.
+// New creates a new VideoDecoderSupport in the application heap.
 func (p VideoDecoderSupport) New() js.Ref {
 	return bindings.VideoDecoderSupportJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3409,7 +3445,7 @@ func (p VideoEncoderInit) FromRef(ref js.Ref) VideoEncoderInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderInit VideoEncoderInit [// VideoEncoderInit] [0x14000ab4aa0 0x14000ab4b40] 0x14000a03b78 {0 0}} in the application heap.
+// New creates a new VideoEncoderInit in the application heap.
 func (p VideoEncoderInit) New() js.Ref {
 	return bindings.VideoEncoderInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3473,18 +3509,26 @@ type VideoEncoderConfig struct {
 	// DisplayWidth is "VideoEncoderConfig.displayWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayWidth MUST be set to true to make this field effective.
 	DisplayWidth uint32
 	// DisplayHeight is "VideoEncoderConfig.displayHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayHeight MUST be set to true to make this field effective.
 	DisplayHeight uint32
 	// Bitrate is "VideoEncoderConfig.bitrate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Bitrate MUST be set to true to make this field effective.
 	Bitrate uint64
 	// Framerate is "VideoEncoderConfig.framerate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Framerate MUST be set to true to make this field effective.
 	Framerate float64
 	// HardwareAcceleration is "VideoEncoderConfig.hardwareAcceleration"
 	//
@@ -3533,7 +3577,7 @@ func (p VideoEncoderConfig) FromRef(ref js.Ref) VideoEncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderConfig VideoEncoderConfig [// VideoEncoderConfig] [0x14000ab4be0 0x14000ab4c80 0x14000ab4d20 0x14000ab4dc0 0x14000ab4f00 0x14000ab5040 0x14000ab5180 0x14000ab52c0 0x14000ab5360 0x14000ab5400 0x14000ab54a0 0x14000ab5540 0x14000ab55e0 0x14000ab5680 0x14000ab5720 0x14000ab4e60 0x14000ab4fa0 0x14000ab50e0 0x14000ab5220] 0x14000a03ba8 {0 0}} in the application heap.
+// New creates a new VideoEncoderConfig in the application heap.
 func (p VideoEncoderConfig) New() js.Ref {
 	return bindings.VideoEncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3558,6 +3602,8 @@ type VideoEncoderEncodeOptionsForHevc struct {
 	// Quantizer is "VideoEncoderEncodeOptionsForHevc.quantizer"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Quantizer MUST be set to true to make this field effective.
 	Quantizer uint16
 
 	FFI_USE_Quantizer bool // for Quantizer.
@@ -3571,7 +3617,7 @@ func (p VideoEncoderEncodeOptionsForHevc) FromRef(ref js.Ref) VideoEncoderEncode
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderEncodeOptionsForHevc VideoEncoderEncodeOptionsForHevc [// VideoEncoderEncodeOptionsForHevc] [0x14000ab5900 0x14000ab59a0] 0x14000a03c98 {0 0}} in the application heap.
+// New creates a new VideoEncoderEncodeOptionsForHevc in the application heap.
 func (p VideoEncoderEncodeOptionsForHevc) New() js.Ref {
 	return bindings.VideoEncoderEncodeOptionsForHevcJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3596,6 +3642,8 @@ type VideoEncoderEncodeOptionsForVp9 struct {
 	// Quantizer is "VideoEncoderEncodeOptionsForVp9.quantizer"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Quantizer MUST be set to true to make this field effective.
 	Quantizer uint16
 
 	FFI_USE_Quantizer bool // for Quantizer.
@@ -3609,7 +3657,7 @@ func (p VideoEncoderEncodeOptionsForVp9) FromRef(ref js.Ref) VideoEncoderEncodeO
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderEncodeOptionsForVp9 VideoEncoderEncodeOptionsForVp9 [// VideoEncoderEncodeOptionsForVp9] [0x14000ab5ae0 0x14000ab5b80] 0x14000a03ce0 {0 0}} in the application heap.
+// New creates a new VideoEncoderEncodeOptionsForVp9 in the application heap.
 func (p VideoEncoderEncodeOptionsForVp9) New() js.Ref {
 	return bindings.VideoEncoderEncodeOptionsForVp9JSLoad(
 		js.Pointer(&p), js.True, 0,

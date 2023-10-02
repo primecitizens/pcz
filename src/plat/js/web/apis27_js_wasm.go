@@ -758,7 +758,7 @@ func (p XRLightProbeInit) FromRef(ref js.Ref) XRLightProbeInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRLightProbeInit XRLightProbeInit [// XRLightProbeInit] [0x140007a4fa0] 0x140007806f0 {0 0}} in the application heap.
+// New creates a new XRLightProbeInit in the application heap.
 func (p XRLightProbeInit) New() js.Ref {
 	return bindings.XRLightProbeInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -810,18 +810,26 @@ type XRRayDirectionInit struct {
 	// X is "XRRayDirectionInit.x"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_X MUST be set to true to make this field effective.
 	X float64
 	// Y is "XRRayDirectionInit.y"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Y MUST be set to true to make this field effective.
 	Y float64
 	// Z is "XRRayDirectionInit.z"
 	//
 	// Optional, defaults to -1.
+	//
+	// NOTE: FFI_USE_Z MUST be set to true to make this field effective.
 	Z float64
 	// W is "XRRayDirectionInit.w"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_W MUST be set to true to make this field effective.
 	W float64
 
 	FFI_USE_X bool // for X.
@@ -838,7 +846,7 @@ func (p XRRayDirectionInit) FromRef(ref js.Ref) XRRayDirectionInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRRayDirectionInit XRRayDirectionInit [// XRRayDirectionInit] [0x140007a5180 0x140007a52c0 0x140007a5400 0x140007a5540 0x140007a5220 0x140007a5360 0x140007a54a0 0x140007a55e0] 0x140007807b0 {0 0}} in the application heap.
+// New creates a new XRRayDirectionInit in the application heap.
 func (p XRRayDirectionInit) New() js.Ref {
 	return bindings.XRRayDirectionInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -965,7 +973,7 @@ func (p XRHitTestOptionsInit) FromRef(ref js.Ref) XRHitTestOptionsInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRHitTestOptionsInit XRHitTestOptionsInit [// XRHitTestOptionsInit] [0x140007a5040 0x140007a50e0 0x140007a5720] 0x14000780750 {0 0}} in the application heap.
+// New creates a new XRHitTestOptionsInit in the application heap.
 func (p XRHitTestOptionsInit) New() js.Ref {
 	return bindings.XRHitTestOptionsInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1009,7 +1017,7 @@ func (p XRTransientInputHitTestOptionsInit) FromRef(ref js.Ref) XRTransientInput
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRTransientInputHitTestOptionsInit XRTransientInputHitTestOptionsInit [// XRTransientInputHitTestOptionsInit] [0x140007a57c0 0x140007a5860 0x140007a5900] 0x14000780828 {0 0}} in the application heap.
+// New creates a new XRTransientInputHitTestOptionsInit in the application heap.
 func (p XRTransientInputHitTestOptionsInit) New() js.Ref {
 	return bindings.XRTransientInputHitTestOptionsInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1284,7 +1292,7 @@ func (p XRDOMOverlayState) FromRef(ref js.Ref) XRDOMOverlayState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRDOMOverlayState XRDOMOverlayState [// XRDOMOverlayState] [0x140007a5ae0] 0x140007808e8 {0 0}} in the application heap.
+// New creates a new XRDOMOverlayState in the application heap.
 func (p XRDOMOverlayState) New() js.Ref {
 	return bindings.XRDOMOverlayStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1858,7 +1866,7 @@ func (p XRDOMOverlayInit) FromRef(ref js.Ref) XRDOMOverlayInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRDOMOverlayInit XRDOMOverlayInit [// XRDOMOverlayInit] [0x140007a5cc0] 0x140007809f0 {0 0}} in the application heap.
+// New creates a new XRDOMOverlayInit in the application heap.
 func (p XRDOMOverlayInit) New() js.Ref {
 	return bindings.XRDOMOverlayInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1898,7 +1906,7 @@ func (p XRDepthStateInit) FromRef(ref js.Ref) XRDepthStateInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRDepthStateInit XRDepthStateInit [// XRDepthStateInit] [0x140007a5e00 0x140007a5ea0] 0x14000780a38 {0 0}} in the application heap.
+// New creates a new XRDepthStateInit in the application heap.
 func (p XRDepthStateInit) New() js.Ref {
 	return bindings.XRDepthStateInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1946,7 +1954,7 @@ func (p XRSessionInit) FromRef(ref js.Ref) XRSessionInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRSessionInit XRSessionInit [// XRSessionInit] [0x140007a5b80 0x140007a5c20 0x140007a5d60 0x140007a5f40] 0x140007809c0 {0 0}} in the application heap.
+// New creates a new XRSessionInit in the application heap.
 func (p XRSessionInit) New() js.Ref {
 	return bindings.XRSessionInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2112,7 +2120,7 @@ func (p NotificationAction) FromRef(ref js.Ref) NotificationAction {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NotificationAction NotificationAction [// NotificationAction] [0x140007beaa0 0x140007beb40 0x140007bebe0] 0x14000780b58 {0 0}} in the application heap.
+// New creates a new NotificationAction in the application heap.
 func (p NotificationAction) New() js.Ref {
 	return bindings.NotificationActionJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2169,18 +2177,26 @@ type NotificationOptions struct {
 	// Timestamp is "NotificationOptions.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp EpochTimeStamp
 	// Renotify is "NotificationOptions.renotify"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Renotify MUST be set to true to make this field effective.
 	Renotify bool
 	// Silent is "NotificationOptions.silent"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Silent MUST be set to true to make this field effective.
 	Silent bool
 	// RequireInteraction is "NotificationOptions.requireInteraction"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequireInteraction MUST be set to true to make this field effective.
 	RequireInteraction bool
 	// Data is "NotificationOptions.data"
 	//
@@ -2205,7 +2221,7 @@ func (p NotificationOptions) FromRef(ref js.Ref) NotificationOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NotificationOptions NotificationOptions [// NotificationOptions] [0x140007be000 0x140007be0a0 0x140007be140 0x140007be1e0 0x140007be280 0x140007be320 0x140007be3c0 0x140007be460 0x140007be500 0x140007be640 0x140007be780 0x140007be8c0 0x140007bea00 0x140007bec80 0x140007be5a0 0x140007be6e0 0x140007be820 0x140007be960] 0x14000780a80 {0 0}} in the application heap.
+// New creates a new NotificationOptions in the application heap.
 func (p NotificationOptions) New() js.Ref {
 	return bindings.NotificationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2623,7 +2639,7 @@ func (p GetNotificationOptions) FromRef(ref js.Ref) GetNotificationOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GetNotificationOptions GetNotificationOptions [// GetNotificationOptions] [0x140007bedc0] 0x14000780be8 {0 0}} in the application heap.
+// New creates a new GetNotificationOptions in the application heap.
 func (p GetNotificationOptions) New() js.Ref {
 	return bindings.GetNotificationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

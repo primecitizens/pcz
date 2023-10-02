@@ -470,6 +470,8 @@ type ResponseInit struct {
 	// Status is "ResponseInit.status"
 	//
 	// Optional, defaults to 200.
+	//
+	// NOTE: FFI_USE_Status MUST be set to true to make this field effective.
 	Status uint16
 	// StatusText is "ResponseInit.statusText"
 	//
@@ -491,7 +493,7 @@ func (p ResponseInit) FromRef(ref js.Ref) ResponseInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ResponseInit ResponseInit [// ResponseInit] [0x140002943c0 0x14000294500 0x140002945a0 0x14000294460] 0x1400107e5b8 {0 0}} in the application heap.
+// New creates a new ResponseInit in the application heap.
 func (p ResponseInit) New() js.Ref {
 	return bindings.ResponseInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -997,14 +999,20 @@ type CacheQueryOptions struct {
 	// IgnoreSearch is "CacheQueryOptions.ignoreSearch"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreSearch MUST be set to true to make this field effective.
 	IgnoreSearch bool
 	// IgnoreMethod is "CacheQueryOptions.ignoreMethod"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreMethod MUST be set to true to make this field effective.
 	IgnoreMethod bool
 	// IgnoreVary is "CacheQueryOptions.ignoreVary"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreVary MUST be set to true to make this field effective.
 	IgnoreVary bool
 
 	FFI_USE_IgnoreSearch bool // for IgnoreSearch.
@@ -1020,7 +1028,7 @@ func (p CacheQueryOptions) FromRef(ref js.Ref) CacheQueryOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CacheQueryOptions CacheQueryOptions [// CacheQueryOptions] [0x14000294780 0x140002948c0 0x14000294a00 0x14000294820 0x14000294960 0x14000294aa0] 0x1400107e6c0 {0 0}} in the application heap.
+// New creates a new CacheQueryOptions in the application heap.
 func (p CacheQueryOptions) New() js.Ref {
 	return bindings.CacheQueryOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1366,14 +1374,20 @@ type BackgroundFetchEventInit struct {
 	// Bubbles is "BackgroundFetchEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "BackgroundFetchEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "BackgroundFetchEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1389,7 +1403,7 @@ func (p BackgroundFetchEventInit) FromRef(ref js.Ref) BackgroundFetchEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BackgroundFetchEventInit BackgroundFetchEventInit [// BackgroundFetchEventInit] [0x14000294be0 0x14000294c80 0x14000294dc0 0x14000294f00 0x14000294d20 0x14000294e60 0x14000294fa0] 0x1400107e150 {0 0}} in the application heap.
+// New creates a new BackgroundFetchEventInit in the application heap.
 func (p BackgroundFetchEventInit) New() js.Ref {
 	return bindings.BackgroundFetchEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1508,7 +1522,7 @@ func (p ImageResource) FromRef(ref js.Ref) ImageResource {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageResource ImageResource [// ImageResource] [0x14000295180 0x14000295220 0x140002952c0 0x14000295360] 0x1400107e7e0 {0 0}} in the application heap.
+// New creates a new ImageResource in the application heap.
 func (p ImageResource) New() js.Ref {
 	return bindings.ImageResourceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1533,6 +1547,8 @@ type BackgroundFetchOptions struct {
 	// DownloadTotal is "BackgroundFetchOptions.downloadTotal"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_DownloadTotal MUST be set to true to make this field effective.
 	DownloadTotal uint64
 	// Icons is "BackgroundFetchOptions.icons"
 	//
@@ -1554,7 +1570,7 @@ func (p BackgroundFetchOptions) FromRef(ref js.Ref) BackgroundFetchOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BackgroundFetchOptions BackgroundFetchOptions [// BackgroundFetchOptions] [0x14000295040 0x14000295400 0x140002954a0 0x140002950e0] 0x1400107e7b0 {0 0}} in the application heap.
+// New creates a new BackgroundFetchOptions in the application heap.
 func (p BackgroundFetchOptions) New() js.Ref {
 	return bindings.BackgroundFetchOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1714,7 +1730,7 @@ func (p BackgroundFetchUIOptions) FromRef(ref js.Ref) BackgroundFetchUIOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BackgroundFetchUIOptions BackgroundFetchUIOptions [// BackgroundFetchUIOptions] [0x14000295540 0x140002955e0] 0x1400107e840 {0 0}} in the application heap.
+// New creates a new BackgroundFetchUIOptions in the application heap.
 func (p BackgroundFetchUIOptions) New() js.Ref {
 	return bindings.BackgroundFetchUIOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1816,6 +1832,8 @@ type BackgroundSyncOptions struct {
 	// MinInterval is "BackgroundSyncOptions.minInterval"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MinInterval MUST be set to true to make this field effective.
 	MinInterval uint64
 
 	FFI_USE_MinInterval bool // for MinInterval.
@@ -1829,7 +1847,7 @@ func (p BackgroundSyncOptions) FromRef(ref js.Ref) BackgroundSyncOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BackgroundSyncOptions BackgroundSyncOptions [// BackgroundSyncOptions] [0x14000295680 0x14000295720] 0x1400107e888 {0 0}} in the application heap.
+// New creates a new BackgroundSyncOptions in the application heap.
 func (p BackgroundSyncOptions) New() js.Ref {
 	return bindings.BackgroundSyncOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1958,7 +1976,7 @@ func (p BarcodeDetectorOptions) FromRef(ref js.Ref) BarcodeDetectorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BarcodeDetectorOptions BarcodeDetectorOptions [// BarcodeDetectorOptions] [0x140002957c0] 0x1400107e8d0 {0 0}} in the application heap.
+// New creates a new BarcodeDetectorOptions in the application heap.
 func (p BarcodeDetectorOptions) New() js.Ref {
 	return bindings.BarcodeDetectorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2006,7 +2024,7 @@ func (p DetectedBarcode) FromRef(ref js.Ref) DetectedBarcode {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DetectedBarcode DetectedBarcode [// DetectedBarcode] [0x14000295860 0x14000295900 0x140002959a0 0x14000295a40] 0x1400107e918 {0 0}} in the application heap.
+// New creates a new DetectedBarcode in the application heap.
 func (p DetectedBarcode) New() js.Ref {
 	return bindings.DetectedBarcodeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2784,18 +2802,26 @@ type VideoFrameCallbackMetadata struct {
 	// ProcessingDuration is "VideoFrameCallbackMetadata.processingDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ProcessingDuration MUST be set to true to make this field effective.
 	ProcessingDuration float64
 	// CaptureTime is "VideoFrameCallbackMetadata.captureTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CaptureTime MUST be set to true to make this field effective.
 	CaptureTime DOMHighResTimeStamp
 	// ReceiveTime is "VideoFrameCallbackMetadata.receiveTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ReceiveTime MUST be set to true to make this field effective.
 	ReceiveTime DOMHighResTimeStamp
 	// RtpTimestamp is "VideoFrameCallbackMetadata.rtpTimestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RtpTimestamp MUST be set to true to make this field effective.
 	RtpTimestamp uint32
 
 	FFI_USE_ProcessingDuration bool // for ProcessingDuration.
@@ -2812,7 +2838,7 @@ func (p VideoFrameCallbackMetadata) FromRef(ref js.Ref) VideoFrameCallbackMetada
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoFrameCallbackMetadata VideoFrameCallbackMetadata [// VideoFrameCallbackMetadata] [0x14000295c20 0x14000295cc0 0x14000295d60 0x14000295e00 0x14000295ea0 0x14000295f40 0x140002c2000 0x140002c21e0 0x140002c2320 0x140002c2460 0x140002c20a0 0x140002c2280 0x140002c23c0 0x140002c2500] 0x1400107e960 {0 0}} in the application heap.
+// New creates a new VideoFrameCallbackMetadata in the application heap.
 func (p VideoFrameCallbackMetadata) New() js.Ref {
 	return bindings.VideoFrameCallbackMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3221,10 +3247,14 @@ type CanvasRenderingContext2DSettings struct {
 	// Alpha is "CanvasRenderingContext2DSettings.alpha"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha bool
 	// Desynchronized is "CanvasRenderingContext2DSettings.desynchronized"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Desynchronized MUST be set to true to make this field effective.
 	Desynchronized bool
 	// ColorSpace is "CanvasRenderingContext2DSettings.colorSpace"
 	//
@@ -3233,6 +3263,8 @@ type CanvasRenderingContext2DSettings struct {
 	// WillReadFrequently is "CanvasRenderingContext2DSettings.willReadFrequently"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_WillReadFrequently MUST be set to true to make this field effective.
 	WillReadFrequently bool
 
 	FFI_USE_Alpha              bool // for Alpha.
@@ -3248,7 +3280,7 @@ func (p CanvasRenderingContext2DSettings) FromRef(ref js.Ref) CanvasRenderingCon
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CanvasRenderingContext2DSettings CanvasRenderingContext2DSettings [// CanvasRenderingContext2DSettings] [0x140002c2780 0x140002c28c0 0x140002c2a00 0x140002c2aa0 0x140002c2820 0x140002c2960 0x140002c2b40] 0x1400107e9d8 {0 0}} in the application heap.
+// New creates a new CanvasRenderingContext2DSettings in the application heap.
 func (p CanvasRenderingContext2DSettings) New() js.Ref {
 	return bindings.CanvasRenderingContext2DSettingsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4191,7 +4223,7 @@ func (p ImageDataSettings) FromRef(ref js.Ref) ImageDataSettings {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageDataSettings ImageDataSettings [// ImageDataSettings] [0x140002c2d20] 0x1400107f020 {0 0}} in the application heap.
+// New creates a new ImageDataSettings in the application heap.
 func (p ImageDataSettings) New() js.Ref {
 	return bindings.ImageDataSettingsJSLoad(
 		js.Pointer(&p), js.True, 0,

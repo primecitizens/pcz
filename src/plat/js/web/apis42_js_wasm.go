@@ -70,7 +70,7 @@ func (p MLOperandDescriptor) FromRef(ref js.Ref) MLOperandDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLOperandDescriptor MLOperandDescriptor [// MLOperandDescriptor] [0x140008d0b40 0x140008d0be0] 0x140008be4b0 {0 0}} in the application heap.
+// New creates a new MLOperandDescriptor in the application heap.
 func (p MLOperandDescriptor) New() js.Ref {
 	return bindings.MLOperandDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -97,10 +97,14 @@ type MLHardSigmoidOptions struct {
 	// Alpha is "MLHardSigmoidOptions.alpha"
 	//
 	// Optional, defaults to 0.2.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha float32
 	// Beta is "MLHardSigmoidOptions.beta"
 	//
 	// Optional, defaults to 0.5.
+	//
+	// NOTE: FFI_USE_Beta MUST be set to true to make this field effective.
 	Beta float32
 
 	FFI_USE_Alpha bool // for Alpha.
@@ -115,7 +119,7 @@ func (p MLHardSigmoidOptions) FromRef(ref js.Ref) MLHardSigmoidOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLHardSigmoidOptions MLHardSigmoidOptions [// MLHardSigmoidOptions] [0x140008d0c80 0x140008d0dc0 0x140008d0d20 0x140008d0e60] 0x140008be540 {0 0}} in the application heap.
+// New creates a new MLHardSigmoidOptions in the application heap.
 func (p MLHardSigmoidOptions) New() js.Ref {
 	return bindings.MLHardSigmoidOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -172,6 +176,8 @@ type MLGruCellOptions struct {
 	// ResetAfter is "MLGruCellOptions.resetAfter"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ResetAfter MUST be set to true to make this field effective.
 	ResetAfter bool
 	// Layout is "MLGruCellOptions.layout"
 	//
@@ -193,7 +199,7 @@ func (p MLGruCellOptions) FromRef(ref js.Ref) MLGruCellOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLGruCellOptions MLGruCellOptions [// MLGruCellOptions] [0x140008d0f00 0x140008d0fa0 0x140008d1040 0x140008d1180 0x140008d1220 0x140008d10e0] 0x140008be5b8 {0 0}} in the application heap.
+// New creates a new MLGruCellOptions in the application heap.
 func (p MLGruCellOptions) New() js.Ref {
 	return bindings.MLGruCellOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -281,7 +287,7 @@ func (p MLPool2dOptions) FromRef(ref js.Ref) MLPool2dOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLPool2dOptions MLPool2dOptions [// MLPool2dOptions] [0x140008d12c0 0x140008d1360 0x140008d1400 0x140008d14a0 0x140008d1540 0x140008d15e0 0x140008d1680 0x140008d1720] 0x140008be630 {0 0}} in the application heap.
+// New creates a new MLPool2dOptions in the application heap.
 func (p MLPool2dOptions) New() js.Ref {
 	return bindings.MLPool2dOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -306,10 +312,14 @@ type MLLinearOptions struct {
 	// Alpha is "MLLinearOptions.alpha"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha float32
 	// Beta is "MLLinearOptions.beta"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Beta MUST be set to true to make this field effective.
 	Beta float32
 
 	FFI_USE_Alpha bool // for Alpha.
@@ -324,7 +334,7 @@ func (p MLLinearOptions) FromRef(ref js.Ref) MLLinearOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLLinearOptions MLLinearOptions [// MLLinearOptions] [0x140008d17c0 0x140008d1900 0x140008d1860 0x140008d19a0] 0x140008be6a8 {0 0}} in the application heap.
+// New creates a new MLLinearOptions in the application heap.
 func (p MLLinearOptions) New() js.Ref {
 	return bindings.MLLinearOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -349,6 +359,8 @@ type MLLeakyReluOptions struct {
 	// Alpha is "MLLeakyReluOptions.alpha"
 	//
 	// Optional, defaults to 0.01.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha float32
 
 	FFI_USE_Alpha bool // for Alpha.
@@ -362,7 +374,7 @@ func (p MLLeakyReluOptions) FromRef(ref js.Ref) MLLeakyReluOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLLeakyReluOptions MLLeakyReluOptions [// MLLeakyReluOptions] [0x140008d1a40 0x140008d1ae0] 0x140008be720 {0 0}} in the application heap.
+// New creates a new MLLeakyReluOptions in the application heap.
 func (p MLLeakyReluOptions) New() js.Ref {
 	return bindings.MLLeakyReluOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -421,6 +433,8 @@ type MLPadOptions struct {
 	// Value is "MLPadOptions.value"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Value MUST be set to true to make this field effective.
 	Value float32
 
 	FFI_USE_Value bool // for Value.
@@ -434,7 +448,7 @@ func (p MLPadOptions) FromRef(ref js.Ref) MLPadOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLPadOptions MLPadOptions [// MLPadOptions] [0x140008d1b80 0x140008d1c20 0x140008d1cc0] 0x140008be780 {0 0}} in the application heap.
+// New creates a new MLPadOptions in the application heap.
 func (p MLPadOptions) New() js.Ref {
 	return bindings.MLPadOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -467,6 +481,8 @@ type MLInstanceNormalizationOptions struct {
 	// Epsilon is "MLInstanceNormalizationOptions.epsilon"
 	//
 	// Optional, defaults to 1e-5.
+	//
+	// NOTE: FFI_USE_Epsilon MUST be set to true to make this field effective.
 	Epsilon float32
 	// Layout is "MLInstanceNormalizationOptions.layout"
 	//
@@ -484,7 +500,7 @@ func (p MLInstanceNormalizationOptions) FromRef(ref js.Ref) MLInstanceNormalizat
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLInstanceNormalizationOptions MLInstanceNormalizationOptions [// MLInstanceNormalizationOptions] [0x140008d1d60 0x140008d1e00 0x140008d1ea0 0x140008dc000 0x140008d1f40] 0x140008be7c8 {0 0}} in the application heap.
+// New creates a new MLInstanceNormalizationOptions in the application heap.
 func (p MLInstanceNormalizationOptions) New() js.Ref {
 	return bindings.MLInstanceNormalizationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -509,6 +525,8 @@ type MLSoftplusOptions struct {
 	// Steepness is "MLSoftplusOptions.steepness"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Steepness MUST be set to true to make this field effective.
 	Steepness float32
 
 	FFI_USE_Steepness bool // for Steepness.
@@ -522,7 +540,7 @@ func (p MLSoftplusOptions) FromRef(ref js.Ref) MLSoftplusOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLSoftplusOptions MLSoftplusOptions [// MLSoftplusOptions] [0x140008dc0a0 0x140008dc140] 0x140008be840 {0 0}} in the application heap.
+// New creates a new MLSoftplusOptions in the application heap.
 func (p MLSoftplusOptions) New() js.Ref {
 	return bindings.MLSoftplusOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -547,6 +565,8 @@ type MLSplitOptions struct {
 	// Axis is "MLSplitOptions.axis"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Axis MUST be set to true to make this field effective.
 	Axis uint32
 
 	FFI_USE_Axis bool // for Axis.
@@ -560,7 +580,7 @@ func (p MLSplitOptions) FromRef(ref js.Ref) MLSplitOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLSplitOptions MLSplitOptions [// MLSplitOptions] [0x140008dc1e0 0x140008dc280] 0x140008be8d0 {0 0}} in the application heap.
+// New creates a new MLSplitOptions in the application heap.
 func (p MLSplitOptions) New() js.Ref {
 	return bindings.MLSplitOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -632,7 +652,7 @@ func (p MLResample2dOptions) FromRef(ref js.Ref) MLResample2dOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLResample2dOptions MLResample2dOptions [// MLResample2dOptions] [0x140008dc320 0x140008dc3c0 0x140008dc460 0x140008dc500] 0x140008be930 {0 0}} in the application heap.
+// New creates a new MLResample2dOptions in the application heap.
 func (p MLResample2dOptions) New() js.Ref {
 	return bindings.MLResample2dOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -661,6 +681,8 @@ type MLReduceOptions struct {
 	// KeepDimensions is "MLReduceOptions.keepDimensions"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_KeepDimensions MUST be set to true to make this field effective.
 	KeepDimensions bool
 
 	FFI_USE_KeepDimensions bool // for KeepDimensions.
@@ -674,7 +696,7 @@ func (p MLReduceOptions) FromRef(ref js.Ref) MLReduceOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLReduceOptions MLReduceOptions [// MLReduceOptions] [0x140008dc5a0 0x140008dc640 0x140008dc6e0] 0x140008beaf8 {0 0}} in the application heap.
+// New creates a new MLReduceOptions in the application heap.
 func (p MLReduceOptions) New() js.Ref {
 	return bindings.MLReduceOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -770,6 +792,8 @@ type MLLstmOptions struct {
 	// ReturnSequence is "MLLstmOptions.returnSequence"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ReturnSequence MUST be set to true to make this field effective.
 	ReturnSequence bool
 	// Direction is "MLLstmOptions.direction"
 	//
@@ -795,7 +819,7 @@ func (p MLLstmOptions) FromRef(ref js.Ref) MLLstmOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLLstmOptions MLLstmOptions [// MLLstmOptions] [0x140008dc780 0x140008dc820 0x140008dc8c0 0x140008dc960 0x140008dca00 0x140008dcaa0 0x140008dcbe0 0x140008dcc80 0x140008dcd20 0x140008dcb40] 0x140008bec48 {0 0}} in the application heap.
+// New creates a new MLLstmOptions in the application heap.
 func (p MLLstmOptions) New() js.Ref {
 	return bindings.MLLstmOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -831,7 +855,7 @@ func (p MLSqueezeOptions) FromRef(ref js.Ref) MLSqueezeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLSqueezeOptions MLSqueezeOptions [// MLSqueezeOptions] [0x140008dcdc0] 0x140008becc0 {0 0}} in the application heap.
+// New creates a new MLSqueezeOptions in the application heap.
 func (p MLSqueezeOptions) New() js.Ref {
 	return bindings.MLSqueezeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -868,10 +892,14 @@ type MLGruOptions struct {
 	// ResetAfter is "MLGruOptions.resetAfter"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ResetAfter MUST be set to true to make this field effective.
 	ResetAfter bool
 	// ReturnSequence is "MLGruOptions.returnSequence"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ReturnSequence MUST be set to true to make this field effective.
 	ReturnSequence bool
 	// Direction is "MLGruOptions.direction"
 	//
@@ -898,7 +926,7 @@ func (p MLGruOptions) FromRef(ref js.Ref) MLGruOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLGruOptions MLGruOptions [// MLGruOptions] [0x140008dce60 0x140008dcf00 0x140008dcfa0 0x140008dd040 0x140008dd180 0x140008dd2c0 0x140008dd360 0x140008dd400 0x140008dd0e0 0x140008dd220] 0x140008bed50 {0 0}} in the application heap.
+// New creates a new MLGruOptions in the application heap.
 func (p MLGruOptions) New() js.Ref {
 	return bindings.MLGruOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -934,7 +962,7 @@ func (p MLTransposeOptions) FromRef(ref js.Ref) MLTransposeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLTransposeOptions MLTransposeOptions [// MLTransposeOptions] [0x140008dd4a0] 0x140008beea0 {0 0}} in the application heap.
+// New creates a new MLTransposeOptions in the application heap.
 func (p MLTransposeOptions) New() js.Ref {
 	return bindings.MLTransposeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -986,7 +1014,7 @@ func (p MLLstmCellOptions) FromRef(ref js.Ref) MLLstmCellOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLLstmCellOptions MLLstmCellOptions [// MLLstmCellOptions] [0x140008dd540 0x140008dd5e0 0x140008dd680 0x140008dd720 0x140008dd7c0] 0x140008bef18 {0 0}} in the application heap.
+// New creates a new MLLstmCellOptions in the application heap.
 func (p MLLstmCellOptions) New() js.Ref {
 	return bindings.MLLstmCellOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3963,6 +3991,8 @@ type MagnetometerSensorOptions struct {
 	// Frequency is "MagnetometerSensorOptions.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float64
 
 	FFI_USE_Frequency bool // for Frequency.
@@ -3976,7 +4006,7 @@ func (p MagnetometerSensorOptions) FromRef(ref js.Ref) MagnetometerSensorOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MagnetometerSensorOptions MagnetometerSensorOptions [// MagnetometerSensorOptions] [0x140008dd860 0x140008dd900 0x140008dd9a0] 0x140008bf020 {0 0}} in the application heap.
+// New creates a new MagnetometerSensorOptions in the application heap.
 func (p MagnetometerSensorOptions) New() js.Ref {
 	return bindings.MagnetometerSensorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4088,7 +4118,7 @@ func (p MagnetometerReadingValues) FromRef(ref js.Ref) MagnetometerReadingValues
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MagnetometerReadingValues MagnetometerReadingValues [// MagnetometerReadingValues] [0x140008ddae0 0x140008ddb80 0x140008ddc20] 0x140008bf050 {0 0}} in the application heap.
+// New creates a new MagnetometerReadingValues in the application heap.
 func (p MagnetometerReadingValues) New() js.Ref {
 	return bindings.MagnetometerReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4323,7 +4353,7 @@ func (p MediaCapabilitiesInfo) FromRef(ref js.Ref) MediaCapabilitiesInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaCapabilitiesInfo MediaCapabilitiesInfo [// MediaCapabilitiesInfo] [0x140008ddd60 0x140008dde00 0x140008ddea0] 0x140008bf0f8 {0 0}} in the application heap.
+// New creates a new MediaCapabilitiesInfo in the application heap.
 func (p MediaCapabilitiesInfo) New() js.Ref {
 	return bindings.MediaCapabilitiesInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4363,7 +4393,7 @@ func (p MediaConfiguration) FromRef(ref js.Ref) MediaConfiguration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaConfiguration MediaConfiguration [// MediaConfiguration] [0x140008ddf40 0x140008ec000] 0x140008bf128 {0 0}} in the application heap.
+// New creates a new MediaConfiguration in the application heap.
 func (p MediaConfiguration) New() js.Ref {
 	return bindings.MediaConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4396,14 +4426,20 @@ type MediaEncryptedEventInit struct {
 	// Bubbles is "MediaEncryptedEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MediaEncryptedEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MediaEncryptedEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -4419,7 +4455,7 @@ func (p MediaEncryptedEventInit) FromRef(ref js.Ref) MediaEncryptedEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaEncryptedEventInit MediaEncryptedEventInit [// MediaEncryptedEventInit] [0x140008ec0a0 0x140008ec140 0x140008ec1e0 0x140008ec320 0x140008ec460 0x140008ec280 0x140008ec3c0 0x140008ec500] 0x140008bf158 {0 0}} in the application heap.
+// New creates a new MediaEncryptedEventInit in the application heap.
 func (p MediaEncryptedEventInit) New() js.Ref {
 	return bindings.MediaEncryptedEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4541,14 +4577,20 @@ type MediaKeyMessageEventInit struct {
 	// Bubbles is "MediaKeyMessageEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MediaKeyMessageEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MediaKeyMessageEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -4564,7 +4606,7 @@ func (p MediaKeyMessageEventInit) FromRef(ref js.Ref) MediaKeyMessageEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaKeyMessageEventInit MediaKeyMessageEventInit [// MediaKeyMessageEventInit] [0x140008ec640 0x140008ec6e0 0x140008ec780 0x140008ec8c0 0x140008eca00 0x140008ec820 0x140008ec960 0x140008ecaa0] 0x140008bf1a0 {0 0}} in the application heap.
+// New creates a new MediaKeyMessageEventInit in the application heap.
 func (p MediaKeyMessageEventInit) New() js.Ref {
 	return bindings.MediaKeyMessageEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4645,18 +4687,26 @@ type MediaQueryListEventInit struct {
 	// Matches is "MediaQueryListEventInit.matches"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Matches MUST be set to true to make this field effective.
 	Matches bool
 	// Bubbles is "MediaQueryListEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MediaQueryListEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MediaQueryListEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Matches    bool // for Matches.
@@ -4673,7 +4723,7 @@ func (p MediaQueryListEventInit) FromRef(ref js.Ref) MediaQueryListEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaQueryListEventInit MediaQueryListEventInit [// MediaQueryListEventInit] [0x140008ecbe0 0x140008ecc80 0x140008ecdc0 0x140008ecf00 0x140008ed040 0x140008ecd20 0x140008ece60 0x140008ecfa0 0x140008ed0e0] 0x140008bf320 {0 0}} in the application heap.
+// New creates a new MediaQueryListEventInit in the application heap.
 func (p MediaQueryListEventInit) New() js.Ref {
 	return bindings.MediaQueryListEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4761,14 +4811,20 @@ type MediaRecorderOptions struct {
 	// AudioBitsPerSecond is "MediaRecorderOptions.audioBitsPerSecond"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AudioBitsPerSecond MUST be set to true to make this field effective.
 	AudioBitsPerSecond uint32
 	// VideoBitsPerSecond is "MediaRecorderOptions.videoBitsPerSecond"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_VideoBitsPerSecond MUST be set to true to make this field effective.
 	VideoBitsPerSecond uint32
 	// BitsPerSecond is "MediaRecorderOptions.bitsPerSecond"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BitsPerSecond MUST be set to true to make this field effective.
 	BitsPerSecond uint32
 	// AudioBitrateMode is "MediaRecorderOptions.audioBitrateMode"
 	//
@@ -4777,10 +4833,14 @@ type MediaRecorderOptions struct {
 	// VideoKeyFrameIntervalDuration is "MediaRecorderOptions.videoKeyFrameIntervalDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_VideoKeyFrameIntervalDuration MUST be set to true to make this field effective.
 	VideoKeyFrameIntervalDuration DOMHighResTimeStamp
 	// VideoKeyFrameIntervalCount is "MediaRecorderOptions.videoKeyFrameIntervalCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_VideoKeyFrameIntervalCount MUST be set to true to make this field effective.
 	VideoKeyFrameIntervalCount uint32
 
 	FFI_USE_AudioBitsPerSecond            bool // for AudioBitsPerSecond.
@@ -4798,7 +4858,7 @@ func (p MediaRecorderOptions) FromRef(ref js.Ref) MediaRecorderOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaRecorderOptions MediaRecorderOptions [// MediaRecorderOptions] [0x140008ed220 0x140008ed2c0 0x140008ed400 0x140008ed540 0x140008ed680 0x140008ed720 0x140008ed860 0x140008ed360 0x140008ed4a0 0x140008ed5e0 0x140008ed7c0 0x140008ed900] 0x140008bf398 {0 0}} in the application heap.
+// New creates a new MediaRecorderOptions in the application heap.
 func (p MediaRecorderOptions) New() js.Ref {
 	return bindings.MediaRecorderOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

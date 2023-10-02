@@ -29,6 +29,8 @@ type WaveShaperOptions struct {
 	// ChannelCount is "WaveShaperOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "WaveShaperOptions.channelCountMode"
 	//
@@ -50,7 +52,7 @@ func (p WaveShaperOptions) FromRef(ref js.Ref) WaveShaperOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WaveShaperOptions WaveShaperOptions [// WaveShaperOptions] [0x140001823c0 0x14000182460 0x14000182500 0x14000182640 0x140001826e0 0x140001825a0] 0x14000aa32c0 {0 0}} in the application heap.
+// New creates a new WaveShaperOptions in the application heap.
 func (p WaveShaperOptions) New() js.Ref {
 	return bindings.WaveShaperOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -627,7 +629,7 @@ func (p StructuredSerializeOptions) FromRef(ref js.Ref) StructuredSerializeOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 StructuredSerializeOptions StructuredSerializeOptions [// StructuredSerializeOptions] [0x14000182a00] 0x14000aa33f8 {0 0}} in the application heap.
+// New creates a new StructuredSerializeOptions in the application heap.
 func (p StructuredSerializeOptions) New() js.Ref {
 	return bindings.StructuredSerializeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1589,22 +1591,32 @@ type AnalyserOptions struct {
 	// FftSize is "AnalyserOptions.fftSize"
 	//
 	// Optional, defaults to 2048.
+	//
+	// NOTE: FFI_USE_FftSize MUST be set to true to make this field effective.
 	FftSize uint32
 	// MaxDecibels is "AnalyserOptions.maxDecibels"
 	//
 	// Optional, defaults to -30.
+	//
+	// NOTE: FFI_USE_MaxDecibels MUST be set to true to make this field effective.
 	MaxDecibels float64
 	// MinDecibels is "AnalyserOptions.minDecibels"
 	//
 	// Optional, defaults to -100.
+	//
+	// NOTE: FFI_USE_MinDecibels MUST be set to true to make this field effective.
 	MinDecibels float64
 	// SmoothingTimeConstant is "AnalyserOptions.smoothingTimeConstant"
 	//
 	// Optional, defaults to 0.8.
+	//
+	// NOTE: FFI_USE_SmoothingTimeConstant MUST be set to true to make this field effective.
 	SmoothingTimeConstant float64
 	// ChannelCount is "AnalyserOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "AnalyserOptions.channelCountMode"
 	//
@@ -1630,7 +1642,7 @@ func (p AnalyserOptions) FromRef(ref js.Ref) AnalyserOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AnalyserOptions AnalyserOptions [// AnalyserOptions] [0x14000182aa0 0x14000182be0 0x14000182d20 0x14000182e60 0x14000182fa0 0x140001830e0 0x14000183180 0x14000182b40 0x14000182c80 0x14000182dc0 0x14000182f00 0x14000183040] 0x14000aa3590 {0 0}} in the application heap.
+// New creates a new AnalyserOptions in the application heap.
 func (p AnalyserOptions) New() js.Ref {
 	return bindings.AnalyserOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1891,6 +1903,8 @@ type AnimationEventInit struct {
 	// ElapsedTime is "AnimationEventInit.elapsedTime"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_ElapsedTime MUST be set to true to make this field effective.
 	ElapsedTime float64
 	// PseudoElement is "AnimationEventInit.pseudoElement"
 	//
@@ -1899,14 +1913,20 @@ type AnimationEventInit struct {
 	// Bubbles is "AnimationEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "AnimationEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "AnimationEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_ElapsedTime bool // for ElapsedTime.
@@ -1923,7 +1943,7 @@ func (p AnimationEventInit) FromRef(ref js.Ref) AnimationEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AnimationEventInit AnimationEventInit [// AnimationEventInit] [0x140001832c0 0x14000183360 0x140001834a0 0x14000183540 0x14000183680 0x140001837c0 0x14000183400 0x140001835e0 0x14000183720 0x14000183860] 0x14000aa3620 {0 0}} in the application heap.
+// New creates a new AnimationEventInit in the application heap.
 func (p AnimationEventInit) New() js.Ref {
 	return bindings.AnimationEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2026,14 +2046,20 @@ type AnimationPlaybackEventInit struct {
 	// Bubbles is "AnimationPlaybackEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "AnimationPlaybackEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "AnimationPlaybackEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2049,7 +2075,7 @@ func (p AnimationPlaybackEventInit) FromRef(ref js.Ref) AnimationPlaybackEventIn
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AnimationPlaybackEventInit AnimationPlaybackEventInit [// AnimationPlaybackEventInit] [0x140001839a0 0x14000183a40 0x14000183ae0 0x14000183c20 0x14000183d60 0x14000183b80 0x14000183cc0 0x14000183e00] 0x14000aa3680 {0 0}} in the application heap.
+// New creates a new AnimationPlaybackEventInit in the application heap.
 func (p AnimationPlaybackEventInit) New() js.Ref {
 	return bindings.AnimationPlaybackEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2336,7 +2362,7 @@ func (p AttributionReportingRequestOptions) FromRef(ref js.Ref) AttributionRepor
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AttributionReportingRequestOptions AttributionReportingRequestOptions [// AttributionReportingRequestOptions] [0x14000183f40 0x1400019e000] 0x14000aa36c8 {0 0}} in the application heap.
+// New creates a new AttributionReportingRequestOptions in the application heap.
 func (p AttributionReportingRequestOptions) New() js.Ref {
 	return bindings.AttributionReportingRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2384,7 +2410,7 @@ func (p AuctionAd) FromRef(ref js.Ref) AuctionAd {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuctionAd AuctionAd [// AuctionAd] [0x1400019e0a0 0x1400019e140 0x1400019e1e0 0x1400019e280] 0x14000aa36e0 {0 0}} in the application heap.
+// New creates a new AuctionAd in the application heap.
 func (p AuctionAd) New() js.Ref {
 	return bindings.AuctionAdJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2437,10 +2463,14 @@ type AuctionAdConfig struct {
 	// SellerTimeout is "AuctionAdConfig.sellerTimeout"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SellerTimeout MUST be set to true to make this field effective.
 	SellerTimeout uint64
 	// SellerExperimentGroupId is "AuctionAdConfig.sellerExperimentGroupId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SellerExperimentGroupId MUST be set to true to make this field effective.
 	SellerExperimentGroupId uint16
 	// SellerCurrency is "AuctionAdConfig.sellerCurrency"
 	//
@@ -2495,7 +2525,7 @@ func (p AuctionAdConfig) FromRef(ref js.Ref) AuctionAdConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuctionAdConfig AuctionAdConfig [// AuctionAdConfig] [0x1400019e3c0 0x1400019e460 0x1400019e500 0x1400019e5a0 0x1400019e640 0x1400019e6e0 0x1400019e780 0x1400019e820 0x1400019e960 0x1400019eaa0 0x1400019eb40 0x1400019ebe0 0x1400019ec80 0x1400019ed20 0x1400019edc0 0x1400019ee60 0x1400019ef00 0x1400019efa0 0x1400019f040 0x1400019e8c0 0x1400019ea00] 0x14000aa3710 {0 0}} in the application heap.
+// New creates a new AuctionAdConfig in the application heap.
 func (p AuctionAdConfig) New() js.Ref {
 	return bindings.AuctionAdConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2520,6 +2550,8 @@ type AuctionAdInterestGroup struct {
 	// Priority is "AuctionAdInterestGroup.priority"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_Priority MUST be set to true to make this field effective.
 	Priority float64
 	// PrioritySignalsOverrides is "AuctionAdInterestGroup.prioritySignalsOverrides"
 	//
@@ -2540,6 +2572,8 @@ type AuctionAdInterestGroup struct {
 	// EnableBiddingSignalsPrioritization is "AuctionAdInterestGroup.enableBiddingSignalsPrioritization"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_EnableBiddingSignalsPrioritization MUST be set to true to make this field effective.
 	EnableBiddingSignalsPrioritization bool
 	// PriorityVector is "AuctionAdInterestGroup.priorityVector"
 	//
@@ -2594,7 +2628,7 @@ func (p AuctionAdInterestGroup) FromRef(ref js.Ref) AuctionAdInterestGroup {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuctionAdInterestGroup AuctionAdInterestGroup [// AuctionAdInterestGroup] [0x1400019f0e0 0x1400019f220 0x1400019f2c0 0x1400019f360 0x1400019f400 0x1400019f4a0 0x1400019f5e0 0x1400019f680 0x1400019f720 0x1400019f7c0 0x1400019f860 0x1400019f900 0x1400019f9a0 0x1400019fa40 0x1400019fae0 0x1400019fb80 0x1400019f180 0x1400019f540] 0x14000aa3740 {0 0}} in the application heap.
+// New creates a new AuctionAdInterestGroup in the application heap.
 func (p AuctionAdInterestGroup) New() js.Ref {
 	return bindings.AuctionAdInterestGroupJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2634,7 +2668,7 @@ func (p AuctionAdInterestGroupKey) FromRef(ref js.Ref) AuctionAdInterestGroupKey
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuctionAdInterestGroupKey AuctionAdInterestGroupKey [// AuctionAdInterestGroupKey] [0x1400019fc20 0x1400019fcc0] 0x14000aa3788 {0 0}} in the application heap.
+// New creates a new AuctionAdInterestGroupKey in the application heap.
 func (p AuctionAdInterestGroupKey) New() js.Ref {
 	return bindings.AuctionAdInterestGroupKeyJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2667,14 +2701,20 @@ type AudioConfiguration struct {
 	// Bitrate is "AudioConfiguration.bitrate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Bitrate MUST be set to true to make this field effective.
 	Bitrate uint64
 	// Samplerate is "AudioConfiguration.samplerate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Samplerate MUST be set to true to make this field effective.
 	Samplerate uint32
 	// SpatialRendering is "AudioConfiguration.spatialRendering"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SpatialRendering MUST be set to true to make this field effective.
 	SpatialRendering bool
 
 	FFI_USE_Bitrate          bool // for Bitrate.
@@ -2690,7 +2730,7 @@ func (p AudioConfiguration) FromRef(ref js.Ref) AudioConfiguration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioConfiguration AudioConfiguration [// AudioConfiguration] [0x1400019fd60 0x1400019fe00 0x1400019fea0 0x1400020c000 0x1400020c140 0x1400019ff40 0x1400020c0a0 0x1400020c1e0] 0x14000aa37d0 {0 0}} in the application heap.
+// New creates a new AudioConfiguration in the application heap.
 func (p AudioConfiguration) New() js.Ref {
 	return bindings.AudioConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2800,7 +2840,7 @@ func (p AudioSinkOptions) FromRef(ref js.Ref) AudioSinkOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioSinkOptions AudioSinkOptions [// AudioSinkOptions] [0x1400020c460] 0x14000aa3890 {0 0}} in the application heap.
+// New creates a new AudioSinkOptions in the application heap.
 func (p AudioSinkOptions) New() js.Ref {
 	return bindings.AudioSinkOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2857,6 +2897,8 @@ type AudioContextOptions struct {
 	// SampleRate is "AudioContextOptions.sampleRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SampleRate MUST be set to true to make this field effective.
 	SampleRate float32
 	// SinkId is "AudioContextOptions.sinkId"
 	//
@@ -2874,7 +2916,7 @@ func (p AudioContextOptions) FromRef(ref js.Ref) AudioContextOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioContextOptions AudioContextOptions [// AudioContextOptions] [0x1400020c280 0x1400020c320 0x1400020c500 0x1400020c3c0] 0x14000aa3848 {0 0}} in the application heap.
+// New creates a new AudioContextOptions in the application heap.
 func (p AudioContextOptions) New() js.Ref {
 	return bindings.AudioContextOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2899,10 +2941,14 @@ type AudioTimestamp struct {
 	// ContextTime is "AudioTimestamp.contextTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ContextTime MUST be set to true to make this field effective.
 	ContextTime float64
 	// PerformanceTime is "AudioTimestamp.performanceTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PerformanceTime MUST be set to true to make this field effective.
 	PerformanceTime DOMHighResTimeStamp
 
 	FFI_USE_ContextTime     bool // for ContextTime.
@@ -2917,7 +2963,7 @@ func (p AudioTimestamp) FromRef(ref js.Ref) AudioTimestamp {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioTimestamp AudioTimestamp [// AudioTimestamp] [0x1400020c5a0 0x1400020c6e0 0x1400020c640 0x1400020c780] 0x14000aa38d8 {0 0}} in the application heap.
+// New creates a new AudioTimestamp in the application heap.
 func (p AudioTimestamp) New() js.Ref {
 	return bindings.AudioTimestampJSLoad(
 		js.Pointer(&p), js.True, 0,

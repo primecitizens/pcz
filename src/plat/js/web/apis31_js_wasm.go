@@ -336,7 +336,7 @@ func (p MLContextOptions) FromRef(ref js.Ref) MLContextOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLContextOptions MLContextOptions [// MLContextOptions] [0x140007d3180 0x140007d3220] 0x1400081f200 {0 0}} in the application heap.
+// New creates a new MLContextOptions in the application heap.
 func (p MLContextOptions) New() js.Ref {
 	return bindings.MLContextOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -754,7 +754,7 @@ func (p GPUQueueDescriptor) FromRef(ref js.Ref) GPUQueueDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUQueueDescriptor GPUQueueDescriptor [// GPUQueueDescriptor] [0x140007d34a0] 0x1400081f5a8 {0 0}} in the application heap.
+// New creates a new GPUQueueDescriptor in the application heap.
 func (p GPUQueueDescriptor) New() js.Ref {
 	return bindings.GPUQueueDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -802,7 +802,7 @@ func (p GPUDeviceDescriptor) FromRef(ref js.Ref) GPUDeviceDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUDeviceDescriptor GPUDeviceDescriptor [// GPUDeviceDescriptor] [0x140007d3360 0x140007d3400 0x140007d3540 0x140007d35e0] 0x1400081f2f0 {0 0}} in the application heap.
+// New creates a new GPUDeviceDescriptor in the application heap.
 func (p GPUDeviceDescriptor) New() js.Ref {
 	return bindings.GPUDeviceDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1070,6 +1070,8 @@ type GPURequestAdapterOptions struct {
 	// ForceFallbackAdapter is "GPURequestAdapterOptions.forceFallbackAdapter"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ForceFallbackAdapter MUST be set to true to make this field effective.
 	ForceFallbackAdapter bool
 
 	FFI_USE_ForceFallbackAdapter bool // for ForceFallbackAdapter.
@@ -1083,7 +1085,7 @@ func (p GPURequestAdapterOptions) FromRef(ref js.Ref) GPURequestAdapterOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURequestAdapterOptions GPURequestAdapterOptions [// GPURequestAdapterOptions] [0x140007d37c0 0x140007d3860 0x140007d3900] 0x1400081f608 {0 0}} in the application heap.
+// New creates a new GPURequestAdapterOptions in the application heap.
 func (p GPURequestAdapterOptions) New() js.Ref {
 	return bindings.GPURequestAdapterOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2717,6 +2719,8 @@ type FenceEvent struct {
 	// Once is "FenceEvent.once"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Once MUST be set to true to make this field effective.
 	Once bool
 
 	FFI_USE_Once bool // for Once.
@@ -2730,7 +2734,7 @@ func (p FenceEvent) FromRef(ref js.Ref) FenceEvent {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FenceEvent FenceEvent [// FenceEvent] [0x140007d3a40 0x140007d3ae0 0x140007d3b80 0x140007d3c20 0x140007d3cc0] 0x1400081f680 {0 0}} in the application heap.
+// New creates a new FenceEvent in the application heap.
 func (p FenceEvent) New() js.Ref {
 	return bindings.FenceEventJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3330,10 +3334,14 @@ type SharedStorageRunOperationMethodOptions struct {
 	// ResolveToConfig is "SharedStorageRunOperationMethodOptions.resolveToConfig"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ResolveToConfig MUST be set to true to make this field effective.
 	ResolveToConfig bool
 	// KeepAlive is "SharedStorageRunOperationMethodOptions.keepAlive"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_KeepAlive MUST be set to true to make this field effective.
 	KeepAlive bool
 
 	FFI_USE_ResolveToConfig bool // for ResolveToConfig.
@@ -3348,7 +3356,7 @@ func (p SharedStorageRunOperationMethodOptions) FromRef(ref js.Ref) SharedStorag
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SharedStorageRunOperationMethodOptions SharedStorageRunOperationMethodOptions [// SharedStorageRunOperationMethodOptions] [0x140007d3f40 0x140007da000 0x140007da140 0x140007da0a0 0x140007da1e0] 0x1400081f9e0 {0 0}} in the application heap.
+// New creates a new SharedStorageRunOperationMethodOptions in the application heap.
 func (p SharedStorageRunOperationMethodOptions) New() js.Ref {
 	return bindings.SharedStorageRunOperationMethodOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3390,7 +3398,7 @@ func (p SharedStorageUrlWithMetadata) FromRef(ref js.Ref) SharedStorageUrlWithMe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SharedStorageUrlWithMetadata SharedStorageUrlWithMetadata [// SharedStorageUrlWithMetadata] [0x140007da280 0x140007da320] 0x1400081fa58 {0 0}} in the application heap.
+// New creates a new SharedStorageUrlWithMetadata in the application heap.
 func (p SharedStorageUrlWithMetadata) New() js.Ref {
 	return bindings.SharedStorageUrlWithMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,

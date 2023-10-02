@@ -29,6 +29,8 @@ type PerformanceMeasureOptions struct {
 	// Duration is "PerformanceMeasureOptions.duration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Duration MUST be set to true to make this field effective.
 	Duration DOMHighResTimeStamp
 	// End is "PerformanceMeasureOptions.end"
 	//
@@ -46,7 +48,7 @@ func (p PerformanceMeasureOptions) FromRef(ref js.Ref) PerformanceMeasureOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PerformanceMeasureOptions PerformanceMeasureOptions [// PerformanceMeasureOptions] [0x140007ef4a0 0x140007ef540 0x140007ef5e0 0x140007ef720 0x140007ef680] 0x14000780e88 {0 0}} in the application heap.
+// New creates a new PerformanceMeasureOptions in the application heap.
 func (p PerformanceMeasureOptions) New() js.Ref {
 	return bindings.PerformanceMeasureOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3834,18 +3836,26 @@ type CompositionEventInit struct {
 	// Detail is "CompositionEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "CompositionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "CompositionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "CompositionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Detail     bool // for Detail.
@@ -3862,7 +3872,7 @@ func (p CompositionEventInit) FromRef(ref js.Ref) CompositionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CompositionEventInit CompositionEventInit [// CompositionEventInit] [0x140005f0000 0x140007efa40 0x140007efae0 0x140007efc20 0x140007efd60 0x140007efea0 0x140007efb80 0x140007efcc0 0x140007efe00 0x140007eff40] 0x140005749f0 {0 0}} in the application heap.
+// New creates a new CompositionEventInit in the application heap.
 func (p CompositionEventInit) New() js.Ref {
 	return bindings.CompositionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4152,14 +4162,20 @@ type ContentIndexEventInit struct {
 	// Bubbles is "ContentIndexEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ContentIndexEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ContentIndexEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -4175,7 +4191,7 @@ func (p ContentIndexEventInit) FromRef(ref js.Ref) ContentIndexEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ContentIndexEventInit ContentIndexEventInit [// ContentIndexEventInit] [0x140007f40a0 0x140007f4140 0x140007f4280 0x140007f43c0 0x140007f41e0 0x140007f4320 0x140007f4460] 0x14000781068 {0 0}} in the application heap.
+// New creates a new ContentIndexEventInit in the application heap.
 func (p ContentIndexEventInit) New() js.Ref {
 	return bindings.ContentIndexEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4241,18 +4257,26 @@ type ContentVisibilityAutoStateChangeEventInit struct {
 	// Skipped is "ContentVisibilityAutoStateChangeEventInit.skipped"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Skipped MUST be set to true to make this field effective.
 	Skipped bool
 	// Bubbles is "ContentVisibilityAutoStateChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ContentVisibilityAutoStateChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ContentVisibilityAutoStateChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Skipped    bool // for Skipped.
@@ -4269,7 +4293,7 @@ func (p ContentVisibilityAutoStateChangeEventInit) FromRef(ref js.Ref) ContentVi
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ContentVisibilityAutoStateChangeEventInit ContentVisibilityAutoStateChangeEventInit [// ContentVisibilityAutoStateChangeEventInit] [0x140007f4500 0x140007f4640 0x140007f4780 0x140007f48c0 0x140007f45a0 0x140007f46e0 0x140007f4820 0x140007f4960] 0x140007810c8 {0 0}} in the application heap.
+// New creates a new ContentVisibilityAutoStateChangeEventInit in the application heap.
 func (p ContentVisibilityAutoStateChangeEventInit) New() js.Ref {
 	return bindings.ContentVisibilityAutoStateChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4350,14 +4374,20 @@ type CookieChangeEventInit struct {
 	// Bubbles is "CookieChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "CookieChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "CookieChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -4373,7 +4403,7 @@ func (p CookieChangeEventInit) FromRef(ref js.Ref) CookieChangeEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CookieChangeEventInit CookieChangeEventInit [// CookieChangeEventInit] [0x140007f4a00 0x140007f4aa0 0x140007f4b40 0x140007f4c80 0x140007f4dc0 0x140007f4be0 0x140007f4d20 0x140007f4e60] 0x14000781128 {0 0}} in the application heap.
+// New creates a new CookieChangeEventInit in the application heap.
 func (p CookieChangeEventInit) New() js.Ref {
 	return bindings.CookieChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4575,7 +4605,7 @@ func (p CredentialData) FromRef(ref js.Ref) CredentialData {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CredentialData CredentialData [// CredentialData] [0x140007f5040] 0x14000781188 {0 0}} in the application heap.
+// New creates a new CredentialData in the application heap.
 func (p CredentialData) New() js.Ref {
 	return bindings.CredentialDataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4643,7 +4673,7 @@ func (p CryptoKeyPair) FromRef(ref js.Ref) CryptoKeyPair {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CryptoKeyPair CryptoKeyPair [// CryptoKeyPair] [0x140007f50e0 0x140007f5180] 0x140007811b8 {0 0}} in the application heap.
+// New creates a new CryptoKeyPair in the application heap.
 func (p CryptoKeyPair) New() js.Ref {
 	return bindings.CryptoKeyPairJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4699,14 +4729,20 @@ type CustomEventInit struct {
 	// Bubbles is "CustomEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "CustomEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "CustomEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -4722,7 +4758,7 @@ func (p CustomEventInit) FromRef(ref js.Ref) CustomEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CustomEventInit CustomEventInit [// CustomEventInit] [0x140007f5220 0x140007f52c0 0x140007f5400 0x140007f5540 0x140007f5360 0x140007f54a0 0x140007f55e0] 0x14000781200 {0 0}} in the application heap.
+// New creates a new CustomEventInit in the application heap.
 func (p CustomEventInit) New() js.Ref {
 	return bindings.CustomEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5441,7 +5477,7 @@ func (p Landmark) FromRef(ref js.Ref) Landmark {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 Landmark Landmark [// Landmark] [0x140007f5900 0x140007f59a0] 0x14000781350 {0 0}} in the application heap.
+// New creates a new Landmark in the application heap.
 func (p Landmark) New() js.Ref {
 	return bindings.LandmarkJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5481,7 +5517,7 @@ func (p DetectedFace) FromRef(ref js.Ref) DetectedFace {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DetectedFace DetectedFace [// DetectedFace] [0x140007f5860 0x140007f5a40] 0x14000781338 {0 0}} in the application heap.
+// New creates a new DetectedFace in the application heap.
 func (p DetectedFace) New() js.Ref {
 	return bindings.DetectedFaceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5525,7 +5561,7 @@ func (p DetectedText) FromRef(ref js.Ref) DetectedText {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DetectedText DetectedText [// DetectedText] [0x140007f5ae0 0x140007f5b80 0x140007f5c20] 0x14000781380 {0 0}} in the application heap.
+// New creates a new DetectedText in the application heap.
 func (p DetectedText) New() js.Ref {
 	return bindings.DetectedTextJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5550,14 +5586,20 @@ type DeviceMotionEventAccelerationInit struct {
 	// X is "DeviceMotionEventAccelerationInit.x"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_X MUST be set to true to make this field effective.
 	X float64
 	// Y is "DeviceMotionEventAccelerationInit.y"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Y MUST be set to true to make this field effective.
 	Y float64
 	// Z is "DeviceMotionEventAccelerationInit.z"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Z MUST be set to true to make this field effective.
 	Z float64
 
 	FFI_USE_X bool // for X.
@@ -5573,7 +5615,7 @@ func (p DeviceMotionEventAccelerationInit) FromRef(ref js.Ref) DeviceMotionEvent
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DeviceMotionEventAccelerationInit DeviceMotionEventAccelerationInit [// DeviceMotionEventAccelerationInit] [0x140007f5cc0 0x140007f5e00 0x140007f5f40 0x140007f5d60 0x140007f5ea0 0x140007fa000] 0x140007813e0 {0 0}} in the application heap.
+// New creates a new DeviceMotionEventAccelerationInit in the application heap.
 func (p DeviceMotionEventAccelerationInit) New() js.Ref {
 	return bindings.DeviceMotionEventAccelerationInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5598,14 +5640,20 @@ type DeviceMotionEventRotationRateInit struct {
 	// Alpha is "DeviceMotionEventRotationRateInit.alpha"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha float64
 	// Beta is "DeviceMotionEventRotationRateInit.beta"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Beta MUST be set to true to make this field effective.
 	Beta float64
 	// Gamma is "DeviceMotionEventRotationRateInit.gamma"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Gamma MUST be set to true to make this field effective.
 	Gamma float64
 
 	FFI_USE_Alpha bool // for Alpha.
@@ -5621,7 +5669,7 @@ func (p DeviceMotionEventRotationRateInit) FromRef(ref js.Ref) DeviceMotionEvent
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DeviceMotionEventRotationRateInit DeviceMotionEventRotationRateInit [// DeviceMotionEventRotationRateInit] [0x140007fa1e0 0x140007fa320 0x140007fa460 0x140007fa280 0x140007fa3c0 0x140007fa500] 0x14000781440 {0 0}} in the application heap.
+// New creates a new DeviceMotionEventRotationRateInit in the application heap.
 func (p DeviceMotionEventRotationRateInit) New() js.Ref {
 	return bindings.DeviceMotionEventRotationRateInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5658,18 +5706,26 @@ type DeviceMotionEventInit struct {
 	// Interval is "DeviceMotionEventInit.interval"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Interval MUST be set to true to make this field effective.
 	Interval float64
 	// Bubbles is "DeviceMotionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "DeviceMotionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "DeviceMotionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Interval   bool // for Interval.
@@ -5686,7 +5742,7 @@ func (p DeviceMotionEventInit) FromRef(ref js.Ref) DeviceMotionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DeviceMotionEventInit DeviceMotionEventInit [// DeviceMotionEventInit] [0x140007fa0a0 0x140007fa140 0x140007fa5a0 0x140007fa640 0x140007fa780 0x140007fa8c0 0x140007faa00 0x140007fa6e0 0x140007fa820 0x140007fa960 0x140007faaa0] 0x140007813c8 {0 0}} in the application heap.
+// New creates a new DeviceMotionEventInit in the application heap.
 func (p DeviceMotionEventInit) New() js.Ref {
 	return bindings.DeviceMotionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

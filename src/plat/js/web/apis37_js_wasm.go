@@ -7090,7 +7090,7 @@ func (p PortalActivateOptions) FromRef(ref js.Ref) PortalActivateOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PortalActivateOptions PortalActivateOptions [// PortalActivateOptions] [0x1400073ed20 0x1400073edc0] 0x14001af2060 {0 0}} in the application heap.
+// New creates a new PortalActivateOptions in the application heap.
 func (p PortalActivateOptions) New() js.Ref {
 	return bindings.PortalActivateOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

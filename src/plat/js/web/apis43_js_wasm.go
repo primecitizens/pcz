@@ -322,14 +322,20 @@ type MediaStreamTrackEventInit struct {
 	// Bubbles is "MediaStreamTrackEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MediaStreamTrackEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MediaStreamTrackEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -345,7 +351,7 @@ func (p MediaStreamTrackEventInit) FromRef(ref js.Ref) MediaStreamTrackEventInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaStreamTrackEventInit MediaStreamTrackEventInit [// MediaStreamTrackEventInit] [0x140008eda40 0x140008edae0 0x140008edc20 0x140008edd60 0x140008edb80 0x140008edcc0 0x140008ede00] 0x140008bf3e0 {0 0}} in the application heap.
+// New creates a new MediaStreamTrackEventInit in the application heap.
 func (p MediaStreamTrackEventInit) New() js.Ref {
 	return bindings.MediaStreamTrackEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -415,6 +421,8 @@ type MediaStreamTrackProcessorInit struct {
 	// MaxBufferSize is "MediaStreamTrackProcessorInit.maxBufferSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxBufferSize MUST be set to true to make this field effective.
 	MaxBufferSize uint16
 
 	FFI_USE_MaxBufferSize bool // for MaxBufferSize.
@@ -428,7 +436,7 @@ func (p MediaStreamTrackProcessorInit) FromRef(ref js.Ref) MediaStreamTrackProce
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaStreamTrackProcessorInit MediaStreamTrackProcessorInit [// MediaStreamTrackProcessorInit] [0x140008edea0 0x140008edf40 0x140008fe000] 0x140008bf410 {0 0}} in the application heap.
+// New creates a new MediaStreamTrackProcessorInit in the application heap.
 func (p MediaStreamTrackProcessorInit) New() js.Ref {
 	return bindings.MediaStreamTrackProcessorInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -507,6 +515,8 @@ type MemoryDescriptor struct {
 	// Maximum is "MemoryDescriptor.maximum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Maximum MUST be set to true to make this field effective.
 	Maximum uint32
 
 	FFI_USE_Maximum bool // for Maximum.
@@ -520,7 +530,7 @@ func (p MemoryDescriptor) FromRef(ref js.Ref) MemoryDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MemoryDescriptor MemoryDescriptor [// MemoryDescriptor] [0x140008fe0a0 0x140008fe140 0x140008fe1e0] 0x140008bf458 {0 0}} in the application heap.
+// New creates a new MemoryDescriptor in the application heap.
 func (p MemoryDescriptor) New() js.Ref {
 	return bindings.MemoryDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -705,14 +715,20 @@ type MessageEventInit struct {
 	// Bubbles is "MessageEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MessageEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MessageEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -728,7 +744,7 @@ func (p MessageEventInit) FromRef(ref js.Ref) MessageEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MessageEventInit MessageEventInit [// MessageEventInit] [0x140008fe320 0x140008fe3c0 0x140008fe460 0x140008fe500 0x140008fe5a0 0x140008fe640 0x140008fe780 0x140008fe8c0 0x140008fe6e0 0x140008fe820 0x140008fe960] 0x140008bf4d0 {0 0}} in the application heap.
+// New creates a new MessageEventInit in the application heap.
 func (p MessageEventInit) New() js.Ref {
 	return bindings.MessageEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1103,6 +1119,8 @@ type MidiPermissionDescriptor struct {
 	// Sysex is "MidiPermissionDescriptor.sysex"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Sysex MUST be set to true to make this field effective.
 	Sysex bool
 	// Name is "MidiPermissionDescriptor.name"
 	//
@@ -1120,7 +1138,7 @@ func (p MidiPermissionDescriptor) FromRef(ref js.Ref) MidiPermissionDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MidiPermissionDescriptor MidiPermissionDescriptor [// MidiPermissionDescriptor] [0x140008feaa0 0x140008febe0 0x140008feb40] 0x140008bf860 {0 0}} in the application heap.
+// New creates a new MidiPermissionDescriptor in the application heap.
 func (p MidiPermissionDescriptor) New() js.Ref {
 	return bindings.MidiPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1145,6 +1163,8 @@ type MockCameraConfiguration struct {
 	// DefaultFrameRate is "MockCameraConfiguration.defaultFrameRate"
 	//
 	// Optional, defaults to 30.
+	//
+	// NOTE: FFI_USE_DefaultFrameRate MUST be set to true to make this field effective.
 	DefaultFrameRate float64
 	// FacingMode is "MockCameraConfiguration.facingMode"
 	//
@@ -1174,7 +1194,7 @@ func (p MockCameraConfiguration) FromRef(ref js.Ref) MockCameraConfiguration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MockCameraConfiguration MockCameraConfiguration [// MockCameraConfiguration] [0x140008fec80 0x140008fedc0 0x140008fee60 0x140008fef00 0x140008fefa0 0x140008fed20] 0x140008bf890 {0 0}} in the application heap.
+// New creates a new MockCameraConfiguration in the application heap.
 func (p MockCameraConfiguration) New() js.Ref {
 	return bindings.MockCameraConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1218,7 +1238,7 @@ func (p MockCaptureDeviceConfiguration) FromRef(ref js.Ref) MockCaptureDeviceCon
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MockCaptureDeviceConfiguration MockCaptureDeviceConfiguration [// MockCaptureDeviceConfiguration] [0x140008ff040 0x140008ff0e0 0x140008ff180] 0x140008bf8c0 {0 0}} in the application heap.
+// New creates a new MockCaptureDeviceConfiguration in the application heap.
 func (p MockCaptureDeviceConfiguration) New() js.Ref {
 	return bindings.MockCaptureDeviceConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1282,7 +1302,7 @@ func (p MockCapturePromptResultConfiguration) FromRef(ref js.Ref) MockCapturePro
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MockCapturePromptResultConfiguration MockCapturePromptResultConfiguration [// MockCapturePromptResultConfiguration] [0x140008ff220 0x140008ff2c0] 0x140008bf8d8 {0 0}} in the application heap.
+// New creates a new MockCapturePromptResultConfiguration in the application heap.
 func (p MockCapturePromptResultConfiguration) New() js.Ref {
 	return bindings.MockCapturePromptResultConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1307,6 +1327,8 @@ type MockMicrophoneConfiguration struct {
 	// DefaultSampleRate is "MockMicrophoneConfiguration.defaultSampleRate"
 	//
 	// Optional, defaults to 44100.
+	//
+	// NOTE: FFI_USE_DefaultSampleRate MUST be set to true to make this field effective.
 	DefaultSampleRate uint32
 	// Label is "MockMicrophoneConfiguration.label"
 	//
@@ -1332,7 +1354,7 @@ func (p MockMicrophoneConfiguration) FromRef(ref js.Ref) MockMicrophoneConfigura
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MockMicrophoneConfiguration MockMicrophoneConfiguration [// MockMicrophoneConfiguration] [0x140008ff360 0x140008ff4a0 0x140008ff540 0x140008ff5e0 0x140008ff400] 0x140008bf8f0 {0 0}} in the application heap.
+// New creates a new MockMicrophoneConfiguration in the application heap.
 func (p MockMicrophoneConfiguration) New() js.Ref {
 	return bindings.MockMicrophoneConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1357,14 +1379,20 @@ type MockSensor struct {
 	// MaxSamplingFrequency is "MockSensor.maxSamplingFrequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxSamplingFrequency MUST be set to true to make this field effective.
 	MaxSamplingFrequency float64
 	// MinSamplingFrequency is "MockSensor.minSamplingFrequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MinSamplingFrequency MUST be set to true to make this field effective.
 	MinSamplingFrequency float64
 	// RequestedSamplingFrequency is "MockSensor.requestedSamplingFrequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RequestedSamplingFrequency MUST be set to true to make this field effective.
 	RequestedSamplingFrequency float64
 
 	FFI_USE_MaxSamplingFrequency       bool // for MaxSamplingFrequency.
@@ -1380,7 +1408,7 @@ func (p MockSensor) FromRef(ref js.Ref) MockSensor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MockSensor MockSensor [// MockSensor] [0x140008ff680 0x140008ff7c0 0x140008ff900 0x140008ff720 0x140008ff860 0x140008ff9a0] 0x140008bf908 {0 0}} in the application heap.
+// New creates a new MockSensor in the application heap.
 func (p MockSensor) New() js.Ref {
 	return bindings.MockSensorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1460,14 +1488,20 @@ type MockSensorConfiguration struct {
 	// Connected is "MockSensorConfiguration.connected"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Connected MUST be set to true to make this field effective.
 	Connected bool
 	// MaxSamplingFrequency is "MockSensorConfiguration.maxSamplingFrequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxSamplingFrequency MUST be set to true to make this field effective.
 	MaxSamplingFrequency float64
 	// MinSamplingFrequency is "MockSensorConfiguration.minSamplingFrequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MinSamplingFrequency MUST be set to true to make this field effective.
 	MinSamplingFrequency float64
 
 	FFI_USE_Connected            bool // for Connected.
@@ -1483,7 +1517,7 @@ func (p MockSensorConfiguration) FromRef(ref js.Ref) MockSensorConfiguration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MockSensorConfiguration MockSensorConfiguration [// MockSensorConfiguration] [0x140008ffa40 0x140008ffae0 0x140008ffc20 0x140008ffd60 0x140008ffb80 0x140008ffcc0 0x140008ffe00] 0x140008bf920 {0 0}} in the application heap.
+// New creates a new MockSensorConfiguration in the application heap.
 func (p MockSensorConfiguration) New() js.Ref {
 	return bindings.MockSensorConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1514,7 +1548,7 @@ func (p MockSensorReadingValues) FromRef(ref js.Ref) MockSensorReadingValues {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MockSensorReadingValues MockSensorReadingValues [// MockSensorReadingValues] [] 0x140008bfaa0 {0 0}} in the application heap.
+// New creates a new MockSensorReadingValues in the application heap.
 func (p MockSensorReadingValues) New() js.Ref {
 	return bindings.MockSensorReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1539,26 +1573,38 @@ type MouseEventInit struct {
 	// ScreenX is "MouseEventInit.screenX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ScreenX MUST be set to true to make this field effective.
 	ScreenX int32
 	// ScreenY is "MouseEventInit.screenY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ScreenY MUST be set to true to make this field effective.
 	ScreenY int32
 	// ClientX is "MouseEventInit.clientX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ClientX MUST be set to true to make this field effective.
 	ClientX int32
 	// ClientY is "MouseEventInit.clientY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ClientY MUST be set to true to make this field effective.
 	ClientY int32
 	// Button is "MouseEventInit.button"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Button MUST be set to true to make this field effective.
 	Button int16
 	// Buttons is "MouseEventInit.buttons"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Buttons MUST be set to true to make this field effective.
 	Buttons uint16
 	// RelatedTarget is "MouseEventInit.relatedTarget"
 	//
@@ -1567,58 +1613,86 @@ type MouseEventInit struct {
 	// CtrlKey is "MouseEventInit.ctrlKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CtrlKey MUST be set to true to make this field effective.
 	CtrlKey bool
 	// ShiftKey is "MouseEventInit.shiftKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ShiftKey MUST be set to true to make this field effective.
 	ShiftKey bool
 	// AltKey is "MouseEventInit.altKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AltKey MUST be set to true to make this field effective.
 	AltKey bool
 	// MetaKey is "MouseEventInit.metaKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_MetaKey MUST be set to true to make this field effective.
 	MetaKey bool
 	// ModifierAltGraph is "MouseEventInit.modifierAltGraph"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierAltGraph MUST be set to true to make this field effective.
 	ModifierAltGraph bool
 	// ModifierCapsLock is "MouseEventInit.modifierCapsLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierCapsLock MUST be set to true to make this field effective.
 	ModifierCapsLock bool
 	// ModifierFn is "MouseEventInit.modifierFn"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFn MUST be set to true to make this field effective.
 	ModifierFn bool
 	// ModifierFnLock is "MouseEventInit.modifierFnLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFnLock MUST be set to true to make this field effective.
 	ModifierFnLock bool
 	// ModifierHyper is "MouseEventInit.modifierHyper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierHyper MUST be set to true to make this field effective.
 	ModifierHyper bool
 	// ModifierNumLock is "MouseEventInit.modifierNumLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierNumLock MUST be set to true to make this field effective.
 	ModifierNumLock bool
 	// ModifierScrollLock is "MouseEventInit.modifierScrollLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierScrollLock MUST be set to true to make this field effective.
 	ModifierScrollLock bool
 	// ModifierSuper is "MouseEventInit.modifierSuper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSuper MUST be set to true to make this field effective.
 	ModifierSuper bool
 	// ModifierSymbol is "MouseEventInit.modifierSymbol"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbol MUST be set to true to make this field effective.
 	ModifierSymbol bool
 	// ModifierSymbolLock is "MouseEventInit.modifierSymbolLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbolLock MUST be set to true to make this field effective.
 	ModifierSymbolLock bool
 	// View is "MouseEventInit.view"
 	//
@@ -1627,26 +1701,38 @@ type MouseEventInit struct {
 	// Detail is "MouseEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "MouseEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MouseEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MouseEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 	// MovementX is "MouseEventInit.movementX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MovementX MUST be set to true to make this field effective.
 	MovementX float64
 	// MovementY is "MouseEventInit.movementY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MovementY MUST be set to true to make this field effective.
 	MovementY float64
 
 	FFI_USE_ScreenX            bool // for ScreenX.
@@ -1685,7 +1771,7 @@ func (p MouseEventInit) FromRef(ref js.Ref) MouseEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MouseEventInit MouseEventInit [// MouseEventInit] [0x140008ffea0 0x14000904000 0x14000904140 0x14000904280 0x140009043c0 0x14000904500 0x14000904640 0x140009046e0 0x14000904820 0x14000904960 0x14000904aa0 0x14000904be0 0x14000904d20 0x14000904e60 0x14000904fa0 0x140009050e0 0x14000905220 0x14000905360 0x140009054a0 0x140009055e0 0x14000905720 0x14000905860 0x14000905900 0x14000905a40 0x14000905b80 0x14000905cc0 0x14000905e00 0x14000905f40 0x140008fff40 0x140009040a0 0x140009041e0 0x14000904320 0x14000904460 0x140009045a0 0x14000904780 0x140009048c0 0x14000904a00 0x14000904b40 0x14000904c80 0x14000904dc0 0x14000904f00 0x14000905040 0x14000905180 0x140009052c0 0x14000905400 0x14000905540 0x14000905680 0x140009057c0 0x140009059a0 0x14000905ae0 0x14000905c20 0x14000905d60 0x14000905ea0 0x1400090a000] 0x140008bfae8 {0 0}} in the application heap.
+// New creates a new MouseEventInit in the application heap.
 func (p MouseEventInit) New() js.Ref {
 	return bindings.MouseEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2643,26 +2729,38 @@ type MutationObserverInit struct {
 	// ChildList is "MutationObserverInit.childList"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ChildList MUST be set to true to make this field effective.
 	ChildList bool
 	// Attributes is "MutationObserverInit.attributes"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Attributes MUST be set to true to make this field effective.
 	Attributes bool
 	// CharacterData is "MutationObserverInit.characterData"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CharacterData MUST be set to true to make this field effective.
 	CharacterData bool
 	// Subtree is "MutationObserverInit.subtree"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Subtree MUST be set to true to make this field effective.
 	Subtree bool
 	// AttributeOldValue is "MutationObserverInit.attributeOldValue"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AttributeOldValue MUST be set to true to make this field effective.
 	AttributeOldValue bool
 	// CharacterDataOldValue is "MutationObserverInit.characterDataOldValue"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CharacterDataOldValue MUST be set to true to make this field effective.
 	CharacterDataOldValue bool
 	// AttributeFilter is "MutationObserverInit.attributeFilter"
 	//
@@ -2685,7 +2783,7 @@ func (p MutationObserverInit) FromRef(ref js.Ref) MutationObserverInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MutationObserverInit MutationObserverInit [// MutationObserverInit] [0x1400090a1e0 0x1400090a320 0x1400090a460 0x1400090a5a0 0x1400090a6e0 0x1400090a820 0x1400090a960 0x1400090a280 0x1400090a3c0 0x1400090a500 0x1400090a640 0x1400090a780 0x1400090a8c0] 0x140008bfd10 {0 0}} in the application heap.
+// New creates a new MutationObserverInit in the application heap.
 func (p MutationObserverInit) New() js.Ref {
 	return bindings.MutationObserverInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3174,7 +3272,7 @@ func (p NDEFMakeReadOnlyOptions) FromRef(ref js.Ref) NDEFMakeReadOnlyOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NDEFMakeReadOnlyOptions NDEFMakeReadOnlyOptions [// NDEFMakeReadOnlyOptions] [0x1400090aaa0] 0x140009200d8 {0 0}} in the application heap.
+// New creates a new NDEFMakeReadOnlyOptions in the application heap.
 func (p NDEFMakeReadOnlyOptions) New() js.Ref {
 	return bindings.NDEFMakeReadOnlyOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3230,7 +3328,7 @@ func (p NDEFRecordInit) FromRef(ref js.Ref) NDEFRecordInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NDEFRecordInit NDEFRecordInit [// NDEFRecordInit] [0x1400090ab40 0x1400090abe0 0x1400090ac80 0x1400090ad20 0x1400090adc0 0x1400090ae60] 0x14000920138 {0 0}} in the application heap.
+// New creates a new NDEFRecordInit in the application heap.
 func (p NDEFRecordInit) New() js.Ref {
 	return bindings.NDEFRecordInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3266,7 +3364,7 @@ func (p NDEFMessageInit) FromRef(ref js.Ref) NDEFMessageInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NDEFMessageInit NDEFMessageInit [// NDEFMessageInit] [0x1400090af00] 0x14000920108 {0 0}} in the application heap.
+// New creates a new NDEFMessageInit in the application heap.
 func (p NDEFMessageInit) New() js.Ref {
 	return bindings.NDEFMessageInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3538,7 +3636,7 @@ func (p NDEFScanOptions) FromRef(ref js.Ref) NDEFScanOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NDEFScanOptions NDEFScanOptions [// NDEFScanOptions] [0x1400090b040] 0x14000920258 {0 0}} in the application heap.
+// New creates a new NDEFScanOptions in the application heap.
 func (p NDEFScanOptions) New() js.Ref {
 	return bindings.NDEFScanOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3563,6 +3661,8 @@ type NDEFWriteOptions struct {
 	// Overwrite is "NDEFWriteOptions.overwrite"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Overwrite MUST be set to true to make this field effective.
 	Overwrite bool
 	// Signal is "NDEFWriteOptions.signal"
 	//
@@ -3580,7 +3680,7 @@ func (p NDEFWriteOptions) FromRef(ref js.Ref) NDEFWriteOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NDEFWriteOptions NDEFWriteOptions [// NDEFWriteOptions] [0x1400090b0e0 0x1400090b220 0x1400090b180] 0x140009202a0 {0 0}} in the application heap.
+// New creates a new NDEFWriteOptions in the application heap.
 func (p NDEFWriteOptions) New() js.Ref {
 	return bindings.NDEFWriteOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3778,14 +3878,20 @@ type NDEFReadingEventInit struct {
 	// Bubbles is "NDEFReadingEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "NDEFReadingEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "NDEFReadingEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -3801,7 +3907,7 @@ func (p NDEFReadingEventInit) FromRef(ref js.Ref) NDEFReadingEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NDEFReadingEventInit NDEFReadingEventInit [// NDEFReadingEventInit] [0x1400090b2c0 0x1400090b360 0x1400090b400 0x1400090b540 0x1400090b680 0x1400090b4a0 0x1400090b5e0 0x1400090b720] 0x14000920300 {0 0}} in the application heap.
+// New creates a new NDEFReadingEventInit in the application heap.
 func (p NDEFReadingEventInit) New() js.Ref {
 	return bindings.NDEFReadingEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4111,14 +4217,20 @@ type NavigateEventInit struct {
 	// CanIntercept is "NavigateEventInit.canIntercept"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CanIntercept MUST be set to true to make this field effective.
 	CanIntercept bool
 	// UserInitiated is "NavigateEventInit.userInitiated"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_UserInitiated MUST be set to true to make this field effective.
 	UserInitiated bool
 	// HashChange is "NavigateEventInit.hashChange"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_HashChange MUST be set to true to make this field effective.
 	HashChange bool
 	// Signal is "NavigateEventInit.signal"
 	//
@@ -4139,18 +4251,26 @@ type NavigateEventInit struct {
 	// HasUAVisualTransition is "NavigateEventInit.hasUAVisualTransition"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_HasUAVisualTransition MUST be set to true to make this field effective.
 	HasUAVisualTransition bool
 	// Bubbles is "NavigateEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "NavigateEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "NavigateEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_CanIntercept          bool // for CanIntercept.
@@ -4170,7 +4290,7 @@ func (p NavigateEventInit) FromRef(ref js.Ref) NavigateEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigateEventInit NavigateEventInit [// NavigateEventInit] [0x1400090b900 0x1400090ba40 0x1400090bae0 0x1400090bc20 0x1400090bd60 0x1400090bea0 0x1400090bf40 0x14000934000 0x140009340a0 0x14000934140 0x14000934280 0x140009343c0 0x14000934500 0x1400090bb80 0x1400090bcc0 0x1400090be00 0x140009341e0 0x14000934320 0x14000934460 0x140009345a0] 0x14000920348 {0 0}} in the application heap.
+// New creates a new NavigateEventInit in the application heap.
 func (p NavigateEventInit) New() js.Ref {
 	return bindings.NavigateEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

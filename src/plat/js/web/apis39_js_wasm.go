@@ -695,22 +695,32 @@ type IDBVersionChangeEventInit struct {
 	// OldVersion is "IDBVersionChangeEventInit.oldVersion"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_OldVersion MUST be set to true to make this field effective.
 	OldVersion uint64
 	// NewVersion is "IDBVersionChangeEventInit.newVersion"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_NewVersion MUST be set to true to make this field effective.
 	NewVersion uint64
 	// Bubbles is "IDBVersionChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "IDBVersionChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "IDBVersionChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_OldVersion bool // for OldVersion.
@@ -728,7 +738,7 @@ func (p IDBVersionChangeEventInit) FromRef(ref js.Ref) IDBVersionChangeEventInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IDBVersionChangeEventInit IDBVersionChangeEventInit [// IDBVersionChangeEventInit] [0x1400084f0e0 0x1400084f220 0x1400084f360 0x1400084f4a0 0x1400084f5e0 0x1400084f180 0x1400084f2c0 0x1400084f400 0x1400084f540 0x1400084f680] 0x14000aa2438 {0 0}} in the application heap.
+// New creates a new IDBVersionChangeEventInit in the application heap.
 func (p IDBVersionChangeEventInit) New() js.Ref {
 	return bindings.IDBVersionChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -868,7 +878,7 @@ func (p IdentityUserInfo) FromRef(ref js.Ref) IdentityUserInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityUserInfo IdentityUserInfo [// IdentityUserInfo] [0x1400084f7c0 0x1400084f860 0x1400084f900 0x1400084f9a0] 0x14000aa31a0 {0 0}} in the application heap.
+// New creates a new IdentityUserInfo in the application heap.
 func (p IdentityUserInfo) New() js.Ref {
 	return bindings.IdentityUserInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -943,6 +953,8 @@ type IdentityProviderIcon struct {
 	// Size is "IdentityProviderIcon.size"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Size MUST be set to true to make this field effective.
 	Size uint32
 
 	FFI_USE_Size bool // for Size.
@@ -956,7 +968,7 @@ func (p IdentityProviderIcon) FromRef(ref js.Ref) IdentityProviderIcon {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderIcon IdentityProviderIcon [// IdentityProviderIcon] [0x1400084fd60 0x1400084fe00 0x1400084fea0] 0x14000aa3b78 {0 0}} in the application heap.
+// New creates a new IdentityProviderIcon in the application heap.
 func (p IdentityProviderIcon) New() js.Ref {
 	return bindings.IdentityProviderIconJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1004,7 +1016,7 @@ func (p IdentityProviderBranding) FromRef(ref js.Ref) IdentityProviderBranding {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderBranding IdentityProviderBranding [// IdentityProviderBranding] [0x1400084fc20 0x1400084fcc0 0x1400084ff40 0x14000862000] 0x14000aa3a10 {0 0}} in the application heap.
+// New creates a new IdentityProviderBranding in the application heap.
 func (p IdentityProviderBranding) New() js.Ref {
 	return bindings.IdentityProviderBrandingJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1052,7 +1064,7 @@ func (p IdentityProviderAPIConfig) FromRef(ref js.Ref) IdentityProviderAPIConfig
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderAPIConfig IdentityProviderAPIConfig [// IdentityProviderAPIConfig] [0x1400084fa40 0x1400084fae0 0x1400084fb80 0x140008620a0] 0x14000aa39e0 {0 0}} in the application heap.
+// New creates a new IdentityProviderAPIConfig in the application heap.
 func (p IdentityProviderAPIConfig) New() js.Ref {
 	return bindings.IdentityProviderAPIConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1112,7 +1124,7 @@ func (p IdentityProviderAccount) FromRef(ref js.Ref) IdentityProviderAccount {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderAccount IdentityProviderAccount [// IdentityProviderAccount] [0x14000862140 0x140008621e0 0x14000862280 0x14000862320 0x140008623c0 0x14000862460 0x14000862500] 0x14000aa3f50 {0 0}} in the application heap.
+// New creates a new IdentityProviderAccount in the application heap.
 func (p IdentityProviderAccount) New() js.Ref {
 	return bindings.IdentityProviderAccountJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1148,7 +1160,7 @@ func (p IdentityProviderAccountList) FromRef(ref js.Ref) IdentityProviderAccount
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderAccountList IdentityProviderAccountList [// IdentityProviderAccountList] [0x140008625a0] 0x14000aa3fe0 {0 0}} in the application heap.
+// New creates a new IdentityProviderAccountList in the application heap.
 func (p IdentityProviderAccountList) New() js.Ref {
 	return bindings.IdentityProviderAccountListJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1188,7 +1200,7 @@ func (p IdentityProviderClientMetadata) FromRef(ref js.Ref) IdentityProviderClie
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderClientMetadata IdentityProviderClientMetadata [// IdentityProviderClientMetadata] [0x14000862640 0x140008626e0] 0x14001c3a5d0 {0 0}} in the application heap.
+// New creates a new IdentityProviderClientMetadata in the application heap.
 func (p IdentityProviderClientMetadata) New() js.Ref {
 	return bindings.IdentityProviderClientMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1224,7 +1236,7 @@ func (p IdentityProviderToken) FromRef(ref js.Ref) IdentityProviderToken {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderToken IdentityProviderToken [// IdentityProviderToken] [0x14000862780] 0x14001c3ae28 {0 0}} in the application heap.
+// New creates a new IdentityProviderToken in the application heap.
 func (p IdentityProviderToken) New() js.Ref {
 	return bindings.IdentityProviderTokenJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1260,7 +1272,7 @@ func (p IdentityProviderWellKnown) FromRef(ref js.Ref) IdentityProviderWellKnown
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderWellKnown IdentityProviderWellKnown [// IdentityProviderWellKnown] [0x14000862820] 0x14001c3ae88 {0 0}} in the application heap.
+// New creates a new IdentityProviderWellKnown in the application heap.
 func (p IdentityProviderWellKnown) New() js.Ref {
 	return bindings.IdentityProviderWellKnownJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1285,6 +1297,8 @@ type IdleOptions struct {
 	// Threshold is "IdleOptions.threshold"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Threshold MUST be set to true to make this field effective.
 	Threshold uint64
 	// Signal is "IdleOptions.signal"
 	//
@@ -1302,7 +1316,7 @@ func (p IdleOptions) FromRef(ref js.Ref) IdleOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdleOptions IdleOptions [// IdleOptions] [0x140008628c0 0x14000862a00 0x14000862960] 0x14001c3bbc0 {0 0}} in the application heap.
+// New creates a new IdleOptions in the application heap.
 func (p IdleOptions) New() js.Ref {
 	return bindings.IdleOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1489,6 +1503,8 @@ type ImageBitmapRenderingContextSettings struct {
 	// Alpha is "ImageBitmapRenderingContextSettings.alpha"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha bool
 
 	FFI_USE_Alpha bool // for Alpha.
@@ -1502,7 +1518,7 @@ func (p ImageBitmapRenderingContextSettings) FromRef(ref js.Ref) ImageBitmapRend
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageBitmapRenderingContextSettings ImageBitmapRenderingContextSettings [// ImageBitmapRenderingContextSettings] [0x14000862b40 0x14000862be0] 0x14001c3bbf0 {0 0}} in the application heap.
+// New creates a new ImageBitmapRenderingContextSettings in the application heap.
 func (p ImageBitmapRenderingContextSettings) New() js.Ref {
 	return bindings.ImageBitmapRenderingContextSettingsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1603,14 +1619,20 @@ type PhotoSettings struct {
 	// ImageHeight is "PhotoSettings.imageHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ImageHeight MUST be set to true to make this field effective.
 	ImageHeight float64
 	// ImageWidth is "PhotoSettings.imageWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ImageWidth MUST be set to true to make this field effective.
 	ImageWidth float64
 	// RedEyeReduction is "PhotoSettings.redEyeReduction"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RedEyeReduction MUST be set to true to make this field effective.
 	RedEyeReduction bool
 
 	FFI_USE_ImageHeight     bool // for ImageHeight.
@@ -1626,7 +1648,7 @@ func (p PhotoSettings) FromRef(ref js.Ref) PhotoSettings {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PhotoSettings PhotoSettings [// PhotoSettings] [0x14000862c80 0x14000862d20 0x14000862e60 0x14000862fa0 0x14000862dc0 0x14000862f00 0x14000863040] 0x14001c3bd88 {0 0}} in the application heap.
+// New creates a new PhotoSettings in the application heap.
 func (p PhotoSettings) New() js.Ref {
 	return bindings.PhotoSettingsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1701,7 +1723,7 @@ func (p PhotoCapabilities) FromRef(ref js.Ref) PhotoCapabilities {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PhotoCapabilities PhotoCapabilities [// PhotoCapabilities] [0x140008630e0 0x14000863180 0x14000863220 0x140008632c0] 0x14001c3bf08 {0 0}} in the application heap.
+// New creates a new PhotoCapabilities in the application heap.
 func (p PhotoCapabilities) New() js.Ref {
 	return bindings.PhotoCapabilitiesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1882,10 +1904,14 @@ type ImageDecodeOptions struct {
 	// FrameIndex is "ImageDecodeOptions.frameIndex"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_FrameIndex MUST be set to true to make this field effective.
 	FrameIndex uint32
 	// CompleteFramesOnly is "ImageDecodeOptions.completeFramesOnly"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_CompleteFramesOnly MUST be set to true to make this field effective.
 	CompleteFramesOnly bool
 
 	FFI_USE_FrameIndex         bool // for FrameIndex.
@@ -1900,7 +1926,7 @@ func (p ImageDecodeOptions) FromRef(ref js.Ref) ImageDecodeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageDecodeOptions ImageDecodeOptions [// ImageDecodeOptions] [0x14000863360 0x140008634a0 0x14000863400 0x14000863540] 0x14001c3bf50 {0 0}} in the application heap.
+// New creates a new ImageDecodeOptions in the application heap.
 func (p ImageDecodeOptions) New() js.Ref {
 	return bindings.ImageDecodeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1940,7 +1966,7 @@ func (p ImageDecodeResult) FromRef(ref js.Ref) ImageDecodeResult {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageDecodeResult ImageDecodeResult [// ImageDecodeResult] [0x140008635e0 0x14000863680] 0x1400107e060 {0 0}} in the application heap.
+// New creates a new ImageDecodeResult in the application heap.
 func (p ImageDecodeResult) New() js.Ref {
 	return bindings.ImageDecodeResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1977,14 +2003,20 @@ type ImageDecoderInit struct {
 	// DesiredWidth is "ImageDecoderInit.desiredWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DesiredWidth MUST be set to true to make this field effective.
 	DesiredWidth uint32
 	// DesiredHeight is "ImageDecoderInit.desiredHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DesiredHeight MUST be set to true to make this field effective.
 	DesiredHeight uint32
 	// PreferAnimation is "ImageDecoderInit.preferAnimation"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PreferAnimation MUST be set to true to make this field effective.
 	PreferAnimation bool
 	// Transfer is "ImageDecoderInit.transfer"
 	//
@@ -2004,7 +2036,7 @@ func (p ImageDecoderInit) FromRef(ref js.Ref) ImageDecoderInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageDecoderInit ImageDecoderInit [// ImageDecoderInit] [0x14000863720 0x140008637c0 0x14000863860 0x14000863900 0x14000863a40 0x14000863b80 0x14000863cc0 0x140008639a0 0x14000863ae0 0x14000863c20] 0x1400107e0d8 {0 0}} in the application heap.
+// New creates a new ImageDecoderInit in the application heap.
 func (p ImageDecoderInit) New() js.Ref {
 	return bindings.ImageDecoderInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2417,10 +2449,14 @@ type InputDeviceCapabilitiesInit struct {
 	// FiresTouchEvents is "InputDeviceCapabilitiesInit.firesTouchEvents"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_FiresTouchEvents MUST be set to true to make this field effective.
 	FiresTouchEvents bool
 	// PointerMovementScrolls is "InputDeviceCapabilitiesInit.pointerMovementScrolls"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PointerMovementScrolls MUST be set to true to make this field effective.
 	PointerMovementScrolls bool
 
 	FFI_USE_FiresTouchEvents       bool // for FiresTouchEvents.
@@ -2435,7 +2471,7 @@ func (p InputDeviceCapabilitiesInit) FromRef(ref js.Ref) InputDeviceCapabilities
 	return p
 }
 
-// New creates a new {0x140004cc0e0 InputDeviceCapabilitiesInit InputDeviceCapabilitiesInit [// InputDeviceCapabilitiesInit] [0x14000863f40 0x1400086a0a0 0x1400086a000 0x1400086a140] 0x1400107e228 {0 0}} in the application heap.
+// New creates a new InputDeviceCapabilitiesInit in the application heap.
 func (p InputDeviceCapabilitiesInit) New() js.Ref {
 	return bindings.InputDeviceCapabilitiesInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2566,6 +2602,8 @@ type InputEventInit struct {
 	// IsComposing is "InputEventInit.isComposing"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsComposing MUST be set to true to make this field effective.
 	IsComposing bool
 	// InputType is "InputEventInit.inputType"
 	//
@@ -2578,18 +2616,26 @@ type InputEventInit struct {
 	// Detail is "InputEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "InputEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "InputEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "InputEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 	// DataTransfer is "InputEventInit.dataTransfer"
 	//
@@ -2615,7 +2661,7 @@ func (p InputEventInit) FromRef(ref js.Ref) InputEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 InputEventInit InputEventInit [// InputEventInit] [0x1400086a280 0x1400086a320 0x1400086a500 0x1400086a5a0 0x1400086a640 0x1400086a780 0x1400086a8c0 0x1400086aa00 0x1400086ab40 0x1400086abe0 0x1400086a3c0 0x1400086a6e0 0x1400086a820 0x1400086a960 0x1400086aaa0] 0x1400107e330 {0 0}} in the application heap.
+// New creates a new InputEventInit in the application heap.
 func (p InputEventInit) New() js.Ref {
 	return bindings.InputEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2759,7 +2805,7 @@ func (p ModuleExportDescriptor) FromRef(ref js.Ref) ModuleExportDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ModuleExportDescriptor ModuleExportDescriptor [// ModuleExportDescriptor] [0x1400086ad20 0x1400086adc0] 0x1400107e3c0 {0 0}} in the application heap.
+// New creates a new ModuleExportDescriptor in the application heap.
 func (p ModuleExportDescriptor) New() js.Ref {
 	return bindings.ModuleExportDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2803,7 +2849,7 @@ func (p ModuleImportDescriptor) FromRef(ref js.Ref) ModuleImportDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ModuleImportDescriptor ModuleImportDescriptor [// ModuleImportDescriptor] [0x1400086ae60 0x1400086af00 0x1400086afa0] 0x1400107e540 {0 0}} in the application heap.
+// New creates a new ModuleImportDescriptor in the application heap.
 func (p ModuleImportDescriptor) New() js.Ref {
 	return bindings.ModuleImportDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,

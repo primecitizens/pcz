@@ -522,7 +522,7 @@ func (p BoxQuadOptions) FromRef(ref js.Ref) BoxQuadOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BoxQuadOptions BoxQuadOptions [// BoxQuadOptions] [0x14000be81e0 0x14000be8960] 0x14000d9d8c0 {0 0}} in the application heap.
+// New creates a new BoxQuadOptions in the application heap.
 func (p BoxQuadOptions) New() js.Ref {
 	return bindings.BoxQuadOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -874,14 +874,20 @@ type SanitizerConfig struct {
 	// AllowCustomElements is "SanitizerConfig.allowCustomElements"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AllowCustomElements MUST be set to true to make this field effective.
 	AllowCustomElements bool
 	// AllowUnknownMarkup is "SanitizerConfig.allowUnknownMarkup"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AllowUnknownMarkup MUST be set to true to make this field effective.
 	AllowUnknownMarkup bool
 	// AllowComments is "SanitizerConfig.allowComments"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AllowComments MUST be set to true to make this field effective.
 	AllowComments bool
 
 	FFI_USE_AllowCustomElements bool // for AllowCustomElements.
@@ -897,7 +903,7 @@ func (p SanitizerConfig) FromRef(ref js.Ref) SanitizerConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SanitizerConfig SanitizerConfig [// SanitizerConfig] [0x14000be8be0 0x14000be8c80 0x14000be8d20 0x14000be8dc0 0x14000be8e60 0x14000be8f00 0x14000be9040 0x14000be9180 0x14000be8fa0 0x14000be90e0 0x14000be9220] 0x14000d9dd10 {0 0}} in the application heap.
+// New creates a new SanitizerConfig in the application heap.
 func (p SanitizerConfig) New() js.Ref {
 	return bindings.SanitizerConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1388,7 +1394,7 @@ func (p SetHTMLOptions) FromRef(ref js.Ref) SetHTMLOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SetHTMLOptions SetHTMLOptions [// SetHTMLOptions] [0x14000be9360] 0x14000d9dcc8 {0 0}} in the application heap.
+// New creates a new SetHTMLOptions in the application heap.
 func (p SetHTMLOptions) New() js.Ref {
 	return bindings.SetHTMLOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1470,10 +1476,14 @@ type CheckVisibilityOptions struct {
 	// CheckOpacity is "CheckVisibilityOptions.checkOpacity"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CheckOpacity MUST be set to true to make this field effective.
 	CheckOpacity bool
 	// CheckVisibilityCSS is "CheckVisibilityOptions.checkVisibilityCSS"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CheckVisibilityCSS MUST be set to true to make this field effective.
 	CheckVisibilityCSS bool
 
 	FFI_USE_CheckOpacity       bool // for CheckOpacity.
@@ -1488,7 +1498,7 @@ func (p CheckVisibilityOptions) FromRef(ref js.Ref) CheckVisibilityOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CheckVisibilityOptions CheckVisibilityOptions [// CheckVisibilityOptions] [0x14000be9400 0x14000be9540 0x14000be94a0 0x14000be95e0] 0x14000d9de48 {0 0}} in the application heap.
+// New creates a new CheckVisibilityOptions in the application heap.
 func (p CheckVisibilityOptions) New() js.Ref {
 	return bindings.CheckVisibilityOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1589,7 +1599,7 @@ func (p ScrollIntoViewOptions) FromRef(ref js.Ref) ScrollIntoViewOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ScrollIntoViewOptions ScrollIntoViewOptions [// ScrollIntoViewOptions] [0x14000be9680 0x14000be9720 0x14000be97c0] 0x14000d9dea8 {0 0}} in the application heap.
+// New creates a new ScrollIntoViewOptions in the application heap.
 func (p ScrollIntoViewOptions) New() js.Ref {
 	return bindings.ScrollIntoViewOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1642,10 +1652,14 @@ type ScrollToOptions struct {
 	// Left is "ScrollToOptions.left"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Left MUST be set to true to make this field effective.
 	Left float64
 	// Top is "ScrollToOptions.top"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Top MUST be set to true to make this field effective.
 	Top float64
 	// Behavior is "ScrollToOptions.behavior"
 	//
@@ -1664,7 +1678,7 @@ func (p ScrollToOptions) FromRef(ref js.Ref) ScrollToOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ScrollToOptions ScrollToOptions [// ScrollToOptions] [0x14000be9860 0x14000be99a0 0x14000be9ae0 0x14000be9900 0x14000be9a40] 0x14000d9def0 {0 0}} in the application heap.
+// New creates a new ScrollToOptions in the application heap.
 func (p ScrollToOptions) New() js.Ref {
 	return bindings.ScrollToOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1728,7 +1742,7 @@ func (p TimelineRangeOffset) FromRef(ref js.Ref) TimelineRangeOffset {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TimelineRangeOffset TimelineRangeOffset [// TimelineRangeOffset] [0x14000be9d60 0x14000be9e00] 0x14003d94f00 {0 0}} in the application heap.
+// New creates a new TimelineRangeOffset in the application heap.
 func (p TimelineRangeOffset) New() js.Ref {
 	return bindings.TimelineRangeOffsetJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1866,7 +1880,7 @@ func (p KeyframeAnimationOptions) FromRef(ref js.Ref) KeyframeAnimationOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 KeyframeAnimationOptions KeyframeAnimationOptions [// KeyframeAnimationOptions] [0x14000be9b80 0x14000be9c20 0x14000be9cc0 0x14000be9ea0 0x14000be9f40] 0x14003d94ea0 {0 0}} in the application heap.
+// New creates a new KeyframeAnimationOptions in the application heap.
 func (p KeyframeAnimationOptions) New() js.Ref {
 	return bindings.KeyframeAnimationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1919,6 +1933,8 @@ type GetAnimationsOptions struct {
 	// Subtree is "GetAnimationsOptions.subtree"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Subtree MUST be set to true to make this field effective.
 	Subtree bool
 
 	FFI_USE_Subtree bool // for Subtree.
@@ -1932,7 +1948,7 @@ func (p GetAnimationsOptions) FromRef(ref js.Ref) GetAnimationsOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GetAnimationsOptions GetAnimationsOptions [// GetAnimationsOptions] [0x14000ca20a0 0x14000ca2140] 0x14003d94f48 {0 0}} in the application heap.
+// New creates a new GetAnimationsOptions in the application heap.
 func (p GetAnimationsOptions) New() js.Ref {
 	return bindings.GetAnimationsOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -6555,7 +6571,7 @@ func (p ElementCreationOptions) FromRef(ref js.Ref) ElementCreationOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ElementCreationOptions ElementCreationOptions [// ElementCreationOptions] [0x14000ca2320] 0x14003d95d88 {0 0}} in the application heap.
+// New creates a new ElementCreationOptions in the application heap.
 func (p ElementCreationOptions) New() js.Ref {
 	return bindings.ElementCreationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

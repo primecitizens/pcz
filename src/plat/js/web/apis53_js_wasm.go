@@ -32,7 +32,7 @@ func (p ScrollOptions) FromRef(ref js.Ref) ScrollOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ScrollOptions ScrollOptions [// ScrollOptions] [0x14000a43b80] 0x14000a02228 {0 0}} in the application heap.
+// New creates a new ScrollOptions in the application heap.
 func (p ScrollOptions) New() js.Ref {
 	return bindings.ScrollOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -96,7 +96,7 @@ func (p ScrollTimelineOptions) FromRef(ref js.Ref) ScrollTimelineOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ScrollTimelineOptions ScrollTimelineOptions [// ScrollTimelineOptions] [0x14000a43c20 0x14000a43cc0] 0x14000a02270 {0 0}} in the application heap.
+// New creates a new ScrollTimelineOptions in the application heap.
 func (p ScrollTimelineOptions) New() js.Ref {
 	return bindings.ScrollTimelineOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -194,6 +194,8 @@ type SecurePaymentConfirmationRequest struct {
 	// Timeout is "SecurePaymentConfirmationRequest.timeout"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timeout MUST be set to true to make this field effective.
 	Timeout uint32
 	// PayeeName is "SecurePaymentConfirmationRequest.payeeName"
 	//
@@ -214,6 +216,8 @@ type SecurePaymentConfirmationRequest struct {
 	// ShowOptOut is "SecurePaymentConfirmationRequest.showOptOut"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ShowOptOut MUST be set to true to make this field effective.
 	ShowOptOut bool
 
 	FFI_USE_Timeout    bool // for Timeout.
@@ -228,7 +232,7 @@ func (p SecurePaymentConfirmationRequest) FromRef(ref js.Ref) SecurePaymentConfi
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SecurePaymentConfirmationRequest SecurePaymentConfirmationRequest [// SecurePaymentConfirmationRequest] [0x14000a43e00 0x14000a43ea0 0x14000a43f40 0x14000a50000 0x14000a500a0 0x14000a50280 0x14000a50320 0x14000a503c0 0x14000a50460 0x14000a50500 0x14000a50140 0x14000a505a0] 0x14000a022a0 {0 0}} in the application heap.
+// New creates a new SecurePaymentConfirmationRequest in the application heap.
 func (p SecurePaymentConfirmationRequest) New() js.Ref {
 	return bindings.SecurePaymentConfirmationRequestJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -293,22 +297,32 @@ type SecurityPolicyViolationEventInit struct {
 	// LineNumber is "SecurityPolicyViolationEventInit.lineNumber"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_LineNumber MUST be set to true to make this field effective.
 	LineNumber uint32
 	// ColumnNumber is "SecurityPolicyViolationEventInit.columnNumber"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ColumnNumber MUST be set to true to make this field effective.
 	ColumnNumber uint32
 	// Bubbles is "SecurityPolicyViolationEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SecurityPolicyViolationEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SecurityPolicyViolationEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_LineNumber   bool // for LineNumber.
@@ -326,7 +340,7 @@ func (p SecurityPolicyViolationEventInit) FromRef(ref js.Ref) SecurityPolicyViol
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SecurityPolicyViolationEventInit SecurityPolicyViolationEventInit [// SecurityPolicyViolationEventInit] [0x14000a50640 0x14000a506e0 0x14000a50780 0x14000a50820 0x14000a508c0 0x14000a50960 0x14000a50a00 0x14000a50aa0 0x14000a50b40 0x14000a50be0 0x14000a50c80 0x14000a50dc0 0x14000a50f00 0x14000a51040 0x14000a51180 0x14000a50d20 0x14000a50e60 0x14000a50fa0 0x14000a510e0 0x14000a51220] 0x14000a02300 {0 0}} in the application heap.
+// New creates a new SecurityPolicyViolationEventInit in the application heap.
 func (p SecurityPolicyViolationEventInit) New() js.Ref {
 	return bindings.SecurityPolicyViolationEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -627,14 +641,20 @@ type SensorErrorEventInit struct {
 	// Bubbles is "SensorErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SensorErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SensorErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -650,7 +670,7 @@ func (p SensorErrorEventInit) FromRef(ref js.Ref) SensorErrorEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SensorErrorEventInit SensorErrorEventInit [// SensorErrorEventInit] [0x14000a51400 0x14000a514a0 0x14000a515e0 0x14000a51720 0x14000a51540 0x14000a51680 0x14000a517c0] 0x14000a02390 {0 0}} in the application heap.
+// New creates a new SensorErrorEventInit in the application heap.
 func (p SensorErrorEventInit) New() js.Ref {
 	return bindings.SensorErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -906,6 +926,8 @@ type SharedStorageSetMethodOptions struct {
 	// IgnoreIfPresent is "SharedStorageSetMethodOptions.ignoreIfPresent"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreIfPresent MUST be set to true to make this field effective.
 	IgnoreIfPresent bool
 
 	FFI_USE_IgnoreIfPresent bool // for IgnoreIfPresent.
@@ -919,7 +941,7 @@ func (p SharedStorageSetMethodOptions) FromRef(ref js.Ref) SharedStorageSetMetho
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SharedStorageSetMethodOptions SharedStorageSetMethodOptions [// SharedStorageSetMethodOptions] [0x14000a51900 0x14000a519a0] 0x14000a02408 {0 0}} in the application heap.
+// New creates a new SharedStorageSetMethodOptions in the application heap.
 func (p SharedStorageSetMethodOptions) New() js.Ref {
 	return bindings.SharedStorageSetMethodOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2066,14 +2088,20 @@ type SpeechRecognitionErrorEventInit struct {
 	// Bubbles is "SpeechRecognitionErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SpeechRecognitionErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SpeechRecognitionErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2089,7 +2117,7 @@ func (p SpeechRecognitionErrorEventInit) FromRef(ref js.Ref) SpeechRecognitionEr
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SpeechRecognitionErrorEventInit SpeechRecognitionErrorEventInit [// SpeechRecognitionErrorEventInit] [0x14000a51c20 0x14000a51cc0 0x14000a51d60 0x14000a51ea0 0x14000a64000 0x14000a51e00 0x14000a51f40 0x14000a640a0] 0x14000a025b8 {0 0}} in the application heap.
+// New creates a new SpeechRecognitionErrorEventInit in the application heap.
 func (p SpeechRecognitionErrorEventInit) New() js.Ref {
 	return bindings.SpeechRecognitionErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2291,6 +2319,8 @@ type SpeechRecognitionEventInit struct {
 	// ResultIndex is "SpeechRecognitionEventInit.resultIndex"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ResultIndex MUST be set to true to make this field effective.
 	ResultIndex uint32
 	// Results is "SpeechRecognitionEventInit.results"
 	//
@@ -2299,14 +2329,20 @@ type SpeechRecognitionEventInit struct {
 	// Bubbles is "SpeechRecognitionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SpeechRecognitionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SpeechRecognitionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_ResultIndex bool // for ResultIndex.
@@ -2323,7 +2359,7 @@ func (p SpeechRecognitionEventInit) FromRef(ref js.Ref) SpeechRecognitionEventIn
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SpeechRecognitionEventInit SpeechRecognitionEventInit [// SpeechRecognitionEventInit] [0x14000a641e0 0x14000a643c0 0x14000a64460 0x14000a645a0 0x14000a646e0 0x14000a64280 0x14000a64500 0x14000a64640 0x14000a64780] 0x14000a025e8 {0 0}} in the application heap.
+// New creates a new SpeechRecognitionEventInit in the application heap.
 func (p SpeechRecognitionEventInit) New() js.Ref {
 	return bindings.SpeechRecognitionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2462,14 +2498,20 @@ type SpeechSynthesisErrorEventInit struct {
 	// CharIndex is "SpeechSynthesisErrorEventInit.charIndex"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_CharIndex MUST be set to true to make this field effective.
 	CharIndex uint32
 	// CharLength is "SpeechSynthesisErrorEventInit.charLength"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_CharLength MUST be set to true to make this field effective.
 	CharLength uint32
 	// ElapsedTime is "SpeechSynthesisErrorEventInit.elapsedTime"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ElapsedTime MUST be set to true to make this field effective.
 	ElapsedTime float32
 	// Name is "SpeechSynthesisErrorEventInit.name"
 	//
@@ -2478,14 +2520,20 @@ type SpeechSynthesisErrorEventInit struct {
 	// Bubbles is "SpeechSynthesisErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SpeechSynthesisErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SpeechSynthesisErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_CharIndex   bool // for CharIndex.
@@ -2504,7 +2552,7 @@ func (p SpeechSynthesisErrorEventInit) FromRef(ref js.Ref) SpeechSynthesisErrorE
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SpeechSynthesisErrorEventInit SpeechSynthesisErrorEventInit [// SpeechSynthesisErrorEventInit] [0x14000a648c0 0x14000a64960 0x14000a64a00 0x14000a64b40 0x14000a64c80 0x14000a64dc0 0x14000a64e60 0x14000a64fa0 0x14000a650e0 0x14000a64aa0 0x14000a64be0 0x14000a64d20 0x14000a64f00 0x14000a65040 0x14000a65180] 0x14000a02828 {0 0}} in the application heap.
+// New creates a new SpeechSynthesisErrorEventInit in the application heap.
 func (p SpeechSynthesisErrorEventInit) New() js.Ref {
 	return bindings.SpeechSynthesisErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2574,14 +2622,20 @@ type SpeechSynthesisEventInit struct {
 	// CharIndex is "SpeechSynthesisEventInit.charIndex"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_CharIndex MUST be set to true to make this field effective.
 	CharIndex uint32
 	// CharLength is "SpeechSynthesisEventInit.charLength"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_CharLength MUST be set to true to make this field effective.
 	CharLength uint32
 	// ElapsedTime is "SpeechSynthesisEventInit.elapsedTime"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ElapsedTime MUST be set to true to make this field effective.
 	ElapsedTime float32
 	// Name is "SpeechSynthesisEventInit.name"
 	//
@@ -2590,14 +2644,20 @@ type SpeechSynthesisEventInit struct {
 	// Bubbles is "SpeechSynthesisEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SpeechSynthesisEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SpeechSynthesisEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_CharIndex   bool // for CharIndex.
@@ -2616,7 +2676,7 @@ func (p SpeechSynthesisEventInit) FromRef(ref js.Ref) SpeechSynthesisEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SpeechSynthesisEventInit SpeechSynthesisEventInit [// SpeechSynthesisEventInit] [0x14000a65220 0x14000a652c0 0x14000a65400 0x14000a65540 0x14000a65680 0x14000a65720 0x14000a65860 0x14000a659a0 0x14000a65360 0x14000a654a0 0x14000a655e0 0x14000a657c0 0x14000a65900 0x14000a65a40] 0x14000a028b8 {0 0}} in the application heap.
+// New creates a new SpeechSynthesisEventInit in the application heap.
 func (p SpeechSynthesisEventInit) New() js.Ref {
 	return bindings.SpeechSynthesisEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2746,14 +2806,20 @@ type StorageEventInit struct {
 	// Bubbles is "StorageEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "StorageEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "StorageEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2769,7 +2835,7 @@ func (p StorageEventInit) FromRef(ref js.Ref) StorageEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 StorageEventInit StorageEventInit [// StorageEventInit] [0x14000a65b80 0x14000a65c20 0x14000a65cc0 0x14000a65d60 0x14000a65e00 0x14000a65ea0 0x14000a6a000 0x14000a6a140 0x14000a65f40 0x14000a6a0a0 0x14000a6a1e0] 0x14000a02978 {0 0}} in the application heap.
+// New creates a new StorageEventInit in the application heap.
 func (p StorageEventInit) New() js.Ref {
 	return bindings.StorageEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3253,14 +3319,20 @@ type SubmitEventInit struct {
 	// Bubbles is "SubmitEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SubmitEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SubmitEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -3276,7 +3348,7 @@ func (p SubmitEventInit) FromRef(ref js.Ref) SubmitEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SubmitEventInit SubmitEventInit [// SubmitEventInit] [0x14000a6a3c0 0x14000a6a460 0x14000a6a5a0 0x14000a6a6e0 0x14000a6a500 0x14000a6a640 0x14000a6a780] 0x14000a02d20 {0 0}} in the application heap.
+// New creates a new SubmitEventInit in the application heap.
 func (p SubmitEventInit) New() js.Ref {
 	return bindings.SubmitEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

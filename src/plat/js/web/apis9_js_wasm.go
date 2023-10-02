@@ -2129,7 +2129,7 @@ func (p MediaElementAudioSourceOptions) FromRef(ref js.Ref) MediaElementAudioSou
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaElementAudioSourceOptions MediaElementAudioSourceOptions [// MediaElementAudioSourceOptions] [0x1400023ec80] 0x14000aa3920 {0 0}} in the application heap.
+// New creates a new MediaElementAudioSourceOptions in the application heap.
 func (p MediaElementAudioSourceOptions) New() js.Ref {
 	return bindings.MediaElementAudioSourceOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2206,7 +2206,7 @@ func (p MediaStreamAudioSourceOptions) FromRef(ref js.Ref) MediaStreamAudioSourc
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaStreamAudioSourceOptions MediaStreamAudioSourceOptions [// MediaStreamAudioSourceOptions] [0x1400023ed20] 0x14001c3aea0 {0 0}} in the application heap.
+// New creates a new MediaStreamAudioSourceOptions in the application heap.
 func (p MediaStreamAudioSourceOptions) New() js.Ref {
 	return bindings.MediaStreamAudioSourceOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2283,7 +2283,7 @@ func (p MediaStreamTrackAudioSourceOptions) FromRef(ref js.Ref) MediaStreamTrack
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaStreamTrackAudioSourceOptions MediaStreamTrackAudioSourceOptions [// MediaStreamTrackAudioSourceOptions] [0x1400023edc0] 0x14001c3aeb8 {0 0}} in the application heap.
+// New creates a new MediaStreamTrackAudioSourceOptions in the application heap.
 func (p MediaStreamTrackAudioSourceOptions) New() js.Ref {
 	return bindings.MediaStreamTrackAudioSourceOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2338,6 +2338,8 @@ type AudioNodeOptions struct {
 	// ChannelCount is "AudioNodeOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "AudioNodeOptions.channelCountMode"
 	//
@@ -2359,7 +2361,7 @@ func (p AudioNodeOptions) FromRef(ref js.Ref) AudioNodeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioNodeOptions AudioNodeOptions [// AudioNodeOptions] [0x1400023ee60 0x1400023efa0 0x1400023f040 0x1400023ef00] 0x14001c3af18 {0 0}} in the application heap.
+// New creates a new AudioNodeOptions in the application heap.
 func (p AudioNodeOptions) New() js.Ref {
 	return bindings.AudioNodeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2491,6 +2493,8 @@ type AudioRenderCapacityOptions struct {
 	// UpdateInterval is "AudioRenderCapacityOptions.updateInterval"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_UpdateInterval MUST be set to true to make this field effective.
 	UpdateInterval float64
 
 	FFI_USE_UpdateInterval bool // for UpdateInterval.
@@ -2504,7 +2508,7 @@ func (p AudioRenderCapacityOptions) FromRef(ref js.Ref) AudioRenderCapacityOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioRenderCapacityOptions AudioRenderCapacityOptions [// AudioRenderCapacityOptions] [0x1400023f180 0x1400023f220] 0x14001c3af60 {0 0}} in the application heap.
+// New creates a new AudioRenderCapacityOptions in the application heap.
 func (p AudioRenderCapacityOptions) New() js.Ref {
 	return bindings.AudioRenderCapacityOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2991,7 +2995,7 @@ func (p AudioDataInit) FromRef(ref js.Ref) AudioDataInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioDataInit AudioDataInit [// AudioDataInit] [0x1400023f2c0 0x1400023f360 0x1400023f400 0x1400023f4a0 0x1400023f540 0x1400023f5e0 0x1400023f680] 0x14001c3afa8 {0 0}} in the application heap.
+// New creates a new AudioDataInit in the application heap.
 func (p AudioDataInit) New() js.Ref {
 	return bindings.AudioDataInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3020,10 +3024,14 @@ type AudioDataCopyToOptions struct {
 	// FrameOffset is "AudioDataCopyToOptions.frameOffset"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_FrameOffset MUST be set to true to make this field effective.
 	FrameOffset uint32
 	// FrameCount is "AudioDataCopyToOptions.frameCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FrameCount MUST be set to true to make this field effective.
 	FrameCount uint32
 	// Format is "AudioDataCopyToOptions.format"
 	//
@@ -3042,7 +3050,7 @@ func (p AudioDataCopyToOptions) FromRef(ref js.Ref) AudioDataCopyToOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioDataCopyToOptions AudioDataCopyToOptions [// AudioDataCopyToOptions] [0x1400023f720 0x1400023f7c0 0x1400023f900 0x1400023fa40 0x1400023f860 0x1400023f9a0] 0x14001c3afd8 {0 0}} in the application heap.
+// New creates a new AudioDataCopyToOptions in the application heap.
 func (p AudioDataCopyToOptions) New() js.Ref {
 	return bindings.AudioDataCopyToOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3394,7 +3402,7 @@ func (p AudioDecoderInit) FromRef(ref js.Ref) AudioDecoderInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioDecoderInit AudioDecoderInit [// AudioDecoderInit] [0x1400023fb80 0x1400023fc20] 0x14001c3b050 {0 0}} in the application heap.
+// New creates a new AudioDecoderInit in the application heap.
 func (p AudioDecoderInit) New() js.Ref {
 	return bindings.AudioDecoderInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3442,7 +3450,7 @@ func (p AudioDecoderConfig) FromRef(ref js.Ref) AudioDecoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioDecoderConfig AudioDecoderConfig [// AudioDecoderConfig] [0x1400023fcc0 0x1400023fd60 0x1400023fe00 0x1400023fea0] 0x14001c3b098 {0 0}} in the application heap.
+// New creates a new AudioDecoderConfig in the application heap.
 func (p AudioDecoderConfig) New() js.Ref {
 	return bindings.AudioDecoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3499,6 +3507,8 @@ type EncodedAudioChunkInit struct {
 	// Duration is "EncodedAudioChunkInit.duration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Duration MUST be set to true to make this field effective.
 	Duration uint64
 	// Data is "EncodedAudioChunkInit.data"
 	//
@@ -3516,7 +3526,7 @@ func (p EncodedAudioChunkInit) FromRef(ref js.Ref) EncodedAudioChunkInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EncodedAudioChunkInit EncodedAudioChunkInit [// EncodedAudioChunkInit] [0x1400023ff40 0x14000252000 0x140002520a0 0x140002521e0 0x14000252140] 0x14001c3b0c8 {0 0}} in the application heap.
+// New creates a new EncodedAudioChunkInit in the application heap.
 func (p EncodedAudioChunkInit) New() js.Ref {
 	return bindings.EncodedAudioChunkInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3639,6 +3649,8 @@ type AudioDecoderSupport struct {
 	// Supported is "AudioDecoderSupport.supported"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Supported MUST be set to true to make this field effective.
 	Supported bool
 	// Config is "AudioDecoderSupport.config"
 	//
@@ -3656,7 +3668,7 @@ func (p AudioDecoderSupport) FromRef(ref js.Ref) AudioDecoderSupport {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioDecoderSupport AudioDecoderSupport [// AudioDecoderSupport] [0x14000252320 0x14000252460 0x140002523c0] 0x14001c3b128 {0 0}} in the application heap.
+// New creates a new AudioDecoderSupport in the application heap.
 func (p AudioDecoderSupport) New() js.Ref {
 	return bindings.AudioDecoderSupportJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3977,7 +3989,7 @@ func (p EncodedAudioChunkMetadata) FromRef(ref js.Ref) EncodedAudioChunkMetadata
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EncodedAudioChunkMetadata EncodedAudioChunkMetadata [// EncodedAudioChunkMetadata] [0x140002525a0] 0x14001c3b1e8 {0 0}} in the application heap.
+// New creates a new EncodedAudioChunkMetadata in the application heap.
 func (p EncodedAudioChunkMetadata) New() js.Ref {
 	return bindings.EncodedAudioChunkMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,

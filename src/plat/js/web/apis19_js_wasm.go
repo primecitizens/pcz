@@ -40,7 +40,7 @@ func (p BluetoothServiceDataFilterInit) FromRef(ref js.Ref) BluetoothServiceData
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BluetoothServiceDataFilterInit BluetoothServiceDataFilterInit [// BluetoothServiceDataFilterInit] [0x140004e7b80 0x140004e7c20 0x140004e7cc0] 0x1400043f398 {0 0}} in the application heap.
+// New creates a new BluetoothServiceDataFilterInit in the application heap.
 func (p BluetoothServiceDataFilterInit) New() js.Ref {
 	return bindings.BluetoothServiceDataFilterInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -92,7 +92,7 @@ func (p BluetoothLEScanFilterInit) FromRef(ref js.Ref) BluetoothLEScanFilterInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BluetoothLEScanFilterInit BluetoothLEScanFilterInit [// BluetoothLEScanFilterInit] [0x140004e7720 0x140004e77c0 0x140004e7860 0x140004e7ae0 0x140004e7d60] 0x1400043f338 {0 0}} in the application heap.
+// New creates a new BluetoothLEScanFilterInit in the application heap.
 func (p BluetoothLEScanFilterInit) New() js.Ref {
 	return bindings.BluetoothLEScanFilterInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -133,6 +133,8 @@ type RequestDeviceOptions struct {
 	// AcceptAllDevices is "RequestDeviceOptions.acceptAllDevices"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AcceptAllDevices MUST be set to true to make this field effective.
 	AcceptAllDevices bool
 
 	FFI_USE_AcceptAllDevices bool // for AcceptAllDevices.
@@ -146,7 +148,7 @@ func (p RequestDeviceOptions) FromRef(ref js.Ref) RequestDeviceOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RequestDeviceOptions RequestDeviceOptions [// RequestDeviceOptions] [0x140004e7e00 0x140004e7ea0 0x140004e7f40 0x140004fa000 0x140004fa0a0 0x140004fa140] 0x1400043f320 {0 0}} in the application heap.
+// New creates a new RequestDeviceOptions in the application heap.
 func (p RequestDeviceOptions) New() js.Ref {
 	return bindings.RequestDeviceOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -353,14 +355,20 @@ type BluetoothAdvertisingEventInit struct {
 	// Appearance is "BluetoothAdvertisingEventInit.appearance"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Appearance MUST be set to true to make this field effective.
 	Appearance uint16
 	// TxPower is "BluetoothAdvertisingEventInit.txPower"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TxPower MUST be set to true to make this field effective.
 	TxPower int8
 	// Rssi is "BluetoothAdvertisingEventInit.rssi"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Rssi MUST be set to true to make this field effective.
 	Rssi int8
 	// ManufacturerData is "BluetoothAdvertisingEventInit.manufacturerData"
 	//
@@ -373,14 +381,20 @@ type BluetoothAdvertisingEventInit struct {
 	// Bubbles is "BluetoothAdvertisingEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "BluetoothAdvertisingEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "BluetoothAdvertisingEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Appearance bool // for Appearance.
@@ -399,7 +413,7 @@ func (p BluetoothAdvertisingEventInit) FromRef(ref js.Ref) BluetoothAdvertisingE
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BluetoothAdvertisingEventInit BluetoothAdvertisingEventInit [// BluetoothAdvertisingEventInit] [0x140004fa1e0 0x140004fa280 0x140004fa320 0x140004fa3c0 0x140004fa500 0x140004fa640 0x140004fa780 0x140004fa820 0x140004fa8c0 0x140004faa00 0x140004fab40 0x140004fa460 0x140004fa5a0 0x140004fa6e0 0x140004fa960 0x140004faaa0 0x140004fabe0] 0x1400043f3e0 {0 0}} in the application heap.
+// New creates a new BluetoothAdvertisingEventInit in the application heap.
 func (p BluetoothAdvertisingEventInit) New() js.Ref {
 	return bindings.BluetoothAdvertisingEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -557,7 +571,7 @@ func (p BluetoothDataFilterInit) FromRef(ref js.Ref) BluetoothDataFilterInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BluetoothDataFilterInit BluetoothDataFilterInit [// BluetoothDataFilterInit] [0x140004fad20 0x140004fadc0] 0x1400043f458 {0 0}} in the application heap.
+// New creates a new BluetoothDataFilterInit in the application heap.
 func (p BluetoothDataFilterInit) New() js.Ref {
 	return bindings.BluetoothDataFilterInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -598,6 +612,8 @@ type BluetoothPermissionDescriptor struct {
 	// AcceptAllDevices is "BluetoothPermissionDescriptor.acceptAllDevices"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AcceptAllDevices MUST be set to true to make this field effective.
 	AcceptAllDevices bool
 	// Name is "BluetoothPermissionDescriptor.name"
 	//
@@ -615,7 +631,7 @@ func (p BluetoothPermissionDescriptor) FromRef(ref js.Ref) BluetoothPermissionDe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BluetoothPermissionDescriptor BluetoothPermissionDescriptor [// BluetoothPermissionDescriptor] [0x140004fae60 0x140004faf00 0x140004fafa0 0x140004fb040 0x140004fb0e0 0x140004fb220 0x140004fb180] 0x1400043f488 {0 0}} in the application heap.
+// New creates a new BluetoothPermissionDescriptor in the application heap.
 func (p BluetoothPermissionDescriptor) New() js.Ref {
 	return bindings.BluetoothPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -694,7 +710,7 @@ func (p BluetoothPermissionStorage) FromRef(ref js.Ref) BluetoothPermissionStora
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BluetoothPermissionStorage BluetoothPermissionStorage [// BluetoothPermissionStorage] [0x140004fb2c0] 0x1400043f4d0 {0 0}} in the application heap.
+// New creates a new BluetoothPermissionStorage in the application heap.
 func (p BluetoothPermissionStorage) New() js.Ref {
 	return bindings.BluetoothPermissionStorageJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1022,30 +1038,44 @@ type LayoutConstraintsOptions struct {
 	// AvailableInlineSize is "LayoutConstraintsOptions.availableInlineSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AvailableInlineSize MUST be set to true to make this field effective.
 	AvailableInlineSize float64
 	// AvailableBlockSize is "LayoutConstraintsOptions.availableBlockSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AvailableBlockSize MUST be set to true to make this field effective.
 	AvailableBlockSize float64
 	// FixedInlineSize is "LayoutConstraintsOptions.fixedInlineSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FixedInlineSize MUST be set to true to make this field effective.
 	FixedInlineSize float64
 	// FixedBlockSize is "LayoutConstraintsOptions.fixedBlockSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FixedBlockSize MUST be set to true to make this field effective.
 	FixedBlockSize float64
 	// PercentageInlineSize is "LayoutConstraintsOptions.percentageInlineSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PercentageInlineSize MUST be set to true to make this field effective.
 	PercentageInlineSize float64
 	// PercentageBlockSize is "LayoutConstraintsOptions.percentageBlockSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PercentageBlockSize MUST be set to true to make this field effective.
 	PercentageBlockSize float64
 	// BlockFragmentationOffset is "LayoutConstraintsOptions.blockFragmentationOffset"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BlockFragmentationOffset MUST be set to true to make this field effective.
 	BlockFragmentationOffset float64
 	// BlockFragmentationType is "LayoutConstraintsOptions.blockFragmentationType"
 	//
@@ -1073,7 +1103,7 @@ func (p LayoutConstraintsOptions) FromRef(ref js.Ref) LayoutConstraintsOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 LayoutConstraintsOptions LayoutConstraintsOptions [// LayoutConstraintsOptions] [0x140004fb4a0 0x140004fb5e0 0x140004fb720 0x140004fb860 0x140004fb9a0 0x140004fbae0 0x140004fbc20 0x140004fbd60 0x140004fbe00 0x140004fb540 0x140004fb680 0x140004fb7c0 0x140004fb900 0x140004fba40 0x140004fbb80 0x140004fbcc0] 0x1400043f500 {0 0}} in the application heap.
+// New creates a new LayoutConstraintsOptions in the application heap.
 func (p LayoutConstraintsOptions) New() js.Ref {
 	return bindings.LayoutConstraintsOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1282,7 +1312,7 @@ func (p BreakTokenOptions) FromRef(ref js.Ref) BreakTokenOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BreakTokenOptions BreakTokenOptions [// BreakTokenOptions] [0x14000542000 0x140005420a0] 0x1400043f578 {0 0}} in the application heap.
+// New creates a new BreakTokenOptions in the application heap.
 func (p BreakTokenOptions) New() js.Ref {
 	return bindings.BreakTokenOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1592,7 +1622,7 @@ func (p QueuingStrategyInit) FromRef(ref js.Ref) QueuingStrategyInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 QueuingStrategyInit QueuingStrategyInit [// QueuingStrategyInit] [0x14000542140] 0x1400043f5c0 {0 0}} in the application heap.
+// New creates a new QueuingStrategyInit in the application heap.
 func (p QueuingStrategyInit) New() js.Ref {
 	return bindings.QueuingStrategyInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1941,7 +1971,7 @@ func (p PropertyDefinition) FromRef(ref js.Ref) PropertyDefinition {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PropertyDefinition PropertyDefinition [// PropertyDefinition] [0x14000542320 0x140005423c0 0x14000542460 0x14000542500] 0x1400043f5f0 {0 0}} in the application heap.
+// New creates a new PropertyDefinition in the application heap.
 func (p PropertyDefinition) New() js.Ref {
 	return bindings.PropertyDefinitionJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2027,7 +2057,7 @@ func (p CSSParserOptions) FromRef(ref js.Ref) CSSParserOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CSSParserOptions CSSParserOptions [// CSSParserOptions] [0x140005425a0] 0x1400043fb60 {0 0}} in the application heap.
+// New creates a new CSSParserOptions in the application heap.
 func (p CSSParserOptions) New() js.Ref {
 	return bindings.CSSParserOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2199,7 +2229,7 @@ func (p WorkletOptions) FromRef(ref js.Ref) WorkletOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WorkletOptions WorkletOptions [// WorkletOptions] [0x140005426e0] 0x1400043fc50 {0 0}} in the application heap.
+// New creates a new WorkletOptions in the application heap.
 func (p WorkletOptions) New() js.Ref {
 	return bindings.WorkletOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

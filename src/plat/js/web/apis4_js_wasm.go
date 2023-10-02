@@ -608,7 +608,7 @@ func (p BlobPropertyBag) FromRef(ref js.Ref) BlobPropertyBag {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BlobPropertyBag BlobPropertyBag [// BlobPropertyBag] [0x14000e057c0 0x14000e05860] 0x14001af2228 {0 0}} in the application heap.
+// New creates a new BlobPropertyBag in the application heap.
 func (p BlobPropertyBag) New() js.Ref {
 	return bindings.BlobPropertyBagJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -693,6 +693,8 @@ type QueuingStrategy struct {
 	// HighWaterMark is "QueuingStrategy.highWaterMark"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HighWaterMark MUST be set to true to make this field effective.
 	HighWaterMark float64
 	// Size is "QueuingStrategy.size"
 	//
@@ -710,7 +712,7 @@ func (p QueuingStrategy) FromRef(ref js.Ref) QueuingStrategy {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 QueuingStrategy QueuingStrategy [// QueuingStrategy] [0x14000e05900 0x14000e05a40 0x14000e059a0] 0x14001af2288 {0 0}} in the application heap.
+// New creates a new QueuingStrategy in the application heap.
 func (p QueuingStrategy) New() js.Ref {
 	return bindings.QueuingStrategyJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -739,6 +741,8 @@ type ReadableStreamReadResult struct {
 	// Done is "ReadableStreamReadResult.done"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Done MUST be set to true to make this field effective.
 	Done bool
 
 	FFI_USE_Done bool // for Done.
@@ -752,7 +756,7 @@ func (p ReadableStreamReadResult) FromRef(ref js.Ref) ReadableStreamReadResult {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReadableStreamReadResult ReadableStreamReadResult [// ReadableStreamReadResult] [0x14000e05ae0 0x14000e05b80 0x14000e05c20] 0x14001af2318 {0 0}} in the application heap.
+// New creates a new ReadableStreamReadResult in the application heap.
 func (p ReadableStreamReadResult) New() js.Ref {
 	return bindings.ReadableStreamReadResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1170,7 +1174,7 @@ func (p ReadableStreamGetReaderOptions) FromRef(ref js.Ref) ReadableStreamGetRea
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReadableStreamGetReaderOptions ReadableStreamGetReaderOptions [// ReadableStreamGetReaderOptions] [0x14000e05cc0] 0x14001af2408 {0 0}} in the application heap.
+// New creates a new ReadableStreamGetReaderOptions in the application heap.
 func (p ReadableStreamGetReaderOptions) New() js.Ref {
 	return bindings.ReadableStreamGetReaderOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1560,7 +1564,7 @@ func (p ReadableWritablePair) FromRef(ref js.Ref) ReadableWritablePair {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReadableWritablePair ReadableWritablePair [// ReadableWritablePair] [0x14000e05d60 0x14000e05ea0] 0x14001af2450 {0 0}} in the application heap.
+// New creates a new ReadableWritablePair in the application heap.
 func (p ReadableWritablePair) New() js.Ref {
 	return bindings.ReadableWritablePairJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1585,14 +1589,20 @@ type StreamPipeOptions struct {
 	// PreventClose is "StreamPipeOptions.preventClose"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PreventClose MUST be set to true to make this field effective.
 	PreventClose bool
 	// PreventAbort is "StreamPipeOptions.preventAbort"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PreventAbort MUST be set to true to make this field effective.
 	PreventAbort bool
 	// PreventCancel is "StreamPipeOptions.preventCancel"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PreventCancel MUST be set to true to make this field effective.
 	PreventCancel bool
 	// Signal is "StreamPipeOptions.signal"
 	//
@@ -1612,7 +1622,7 @@ func (p StreamPipeOptions) FromRef(ref js.Ref) StreamPipeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 StreamPipeOptions StreamPipeOptions [// StreamPipeOptions] [0x14000e05f40 0x140001fcd20 0x140001fcf00 0x140001fd040 0x140001fcbe0 0x140001fce60 0x140001fcfa0] 0x14001af24b0 {0 0}} in the application heap.
+// New creates a new StreamPipeOptions in the application heap.
 func (p StreamPipeOptions) New() js.Ref {
 	return bindings.StreamPipeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2238,6 +2248,8 @@ type FilePropertyBag struct {
 	// LastModified is "FilePropertyBag.lastModified"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LastModified MUST be set to true to make this field effective.
 	LastModified int64
 	// Type is "FilePropertyBag.type"
 	//
@@ -2259,7 +2271,7 @@ func (p FilePropertyBag) FromRef(ref js.Ref) FilePropertyBag {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FilePropertyBag FilePropertyBag [// FilePropertyBag] [0x140001fd180 0x140001fd2c0 0x140001fd360 0x140001fd220] 0x14001af2588 {0 0}} in the application heap.
+// New creates a new FilePropertyBag in the application heap.
 func (p FilePropertyBag) New() js.Ref {
 	return bindings.FilePropertyBagJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3289,42 +3301,62 @@ type ValidityStateFlags struct {
 	// ValueMissing is "ValidityStateFlags.valueMissing"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ValueMissing MUST be set to true to make this field effective.
 	ValueMissing bool
 	// TypeMismatch is "ValidityStateFlags.typeMismatch"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_TypeMismatch MUST be set to true to make this field effective.
 	TypeMismatch bool
 	// PatternMismatch is "ValidityStateFlags.patternMismatch"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PatternMismatch MUST be set to true to make this field effective.
 	PatternMismatch bool
 	// TooLong is "ValidityStateFlags.tooLong"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_TooLong MUST be set to true to make this field effective.
 	TooLong bool
 	// TooShort is "ValidityStateFlags.tooShort"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_TooShort MUST be set to true to make this field effective.
 	TooShort bool
 	// RangeUnderflow is "ValidityStateFlags.rangeUnderflow"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RangeUnderflow MUST be set to true to make this field effective.
 	RangeUnderflow bool
 	// RangeOverflow is "ValidityStateFlags.rangeOverflow"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RangeOverflow MUST be set to true to make this field effective.
 	RangeOverflow bool
 	// StepMismatch is "ValidityStateFlags.stepMismatch"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_StepMismatch MUST be set to true to make this field effective.
 	StepMismatch bool
 	// BadInput is "ValidityStateFlags.badInput"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_BadInput MUST be set to true to make this field effective.
 	BadInput bool
 	// CustomError is "ValidityStateFlags.customError"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CustomError MUST be set to true to make this field effective.
 	CustomError bool
 
 	FFI_USE_ValueMissing    bool // for ValueMissing.
@@ -3347,7 +3379,7 @@ func (p ValidityStateFlags) FromRef(ref js.Ref) ValidityStateFlags {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ValidityStateFlags ValidityStateFlags [// ValidityStateFlags] [0x140001fd540 0x140001fd720 0x140001fd860 0x140001fd9a0 0x140001fdae0 0x140001fdc20 0x140001fdd60 0x140001fdea0 0x1400033e000 0x1400033e140 0x140001fd5e0 0x140001fd7c0 0x140001fd900 0x140001fda40 0x140001fdb80 0x140001fdcc0 0x140001fde00 0x140001fdf40 0x1400033e0a0 0x1400033e1e0] 0x14001af26d8 {0 0}} in the application heap.
+// New creates a new ValidityStateFlags in the application heap.
 func (p ValidityStateFlags) New() js.Ref {
 	return bindings.ValidityStateFlagsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4923,10 +4955,14 @@ type EditContextInit struct {
 	// SelectionStart is "EditContextInit.selectionStart"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SelectionStart MUST be set to true to make this field effective.
 	SelectionStart uint32
 	// SelectionEnd is "EditContextInit.selectionEnd"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SelectionEnd MUST be set to true to make this field effective.
 	SelectionEnd uint32
 
 	FFI_USE_SelectionStart bool // for SelectionStart.
@@ -4941,7 +4977,7 @@ func (p EditContextInit) FromRef(ref js.Ref) EditContextInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EditContextInit EditContextInit [// EditContextInit] [0x1400033e460 0x1400033e500 0x1400033e640 0x1400033e5a0 0x1400033e6e0] 0x14001af2a50 {0 0}} in the application heap.
+// New creates a new EditContextInit in the application heap.
 func (p EditContextInit) New() js.Ref {
 	return bindings.EditContextInitJSLoad(
 		js.Pointer(&p), js.True, 0,

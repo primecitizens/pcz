@@ -67,7 +67,7 @@ func (p NavigationNavigateOptions) FromRef(ref js.Ref) NavigationNavigateOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationNavigateOptions NavigationNavigateOptions [// NavigationNavigateOptions] [0x1400069cc80 0x1400069cd20 0x1400069cdc0] 0x14000575470 {0 0}} in the application heap.
+// New creates a new NavigationNavigateOptions in the application heap.
 func (p NavigationNavigateOptions) New() js.Ref {
 	return bindings.NavigationNavigateOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -107,7 +107,7 @@ func (p NavigationReloadOptions) FromRef(ref js.Ref) NavigationReloadOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationReloadOptions NavigationReloadOptions [// NavigationReloadOptions] [0x1400069ce60 0x1400069cf00] 0x140005754b8 {0 0}} in the application heap.
+// New creates a new NavigationReloadOptions in the application heap.
 func (p NavigationReloadOptions) New() js.Ref {
 	return bindings.NavigationReloadOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -143,7 +143,7 @@ func (p NavigationOptions) FromRef(ref js.Ref) NavigationOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationOptions NavigationOptions [// NavigationOptions] [0x1400069cfa0] 0x14000575518 {0 0}} in the application heap.
+// New creates a new NavigationOptions in the application heap.
 func (p NavigationOptions) New() js.Ref {
 	return bindings.NavigationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -673,7 +673,7 @@ func (p ElementDefinitionOptions) FromRef(ref js.Ref) ElementDefinitionOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ElementDefinitionOptions ElementDefinitionOptions [// ElementDefinitionOptions] [0x1400069d180] 0x140005755a8 {0 0}} in the application heap.
+// New creates a new ElementDefinitionOptions in the application heap.
 func (p ElementDefinitionOptions) New() js.Ref {
 	return bindings.ElementDefinitionOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1052,18 +1052,26 @@ type GamepadEffectParameters struct {
 	// Duration is "GamepadEffectParameters.duration"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_Duration MUST be set to true to make this field effective.
 	Duration float64
 	// StartDelay is "GamepadEffectParameters.startDelay"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_StartDelay MUST be set to true to make this field effective.
 	StartDelay float64
 	// StrongMagnitude is "GamepadEffectParameters.strongMagnitude"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_StrongMagnitude MUST be set to true to make this field effective.
 	StrongMagnitude float64
 	// WeakMagnitude is "GamepadEffectParameters.weakMagnitude"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_WeakMagnitude MUST be set to true to make this field effective.
 	WeakMagnitude float64
 
 	FFI_USE_Duration        bool // for Duration.
@@ -1080,7 +1088,7 @@ func (p GamepadEffectParameters) FromRef(ref js.Ref) GamepadEffectParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GamepadEffectParameters GamepadEffectParameters [// GamepadEffectParameters] [0x1400069d360 0x1400069d4a0 0x1400069d5e0 0x1400069d720 0x1400069d400 0x1400069d540 0x1400069d680 0x1400069d7c0] 0x14000575620 {0 0}} in the application heap.
+// New creates a new GamepadEffectParameters in the application heap.
 func (p GamepadEffectParameters) New() js.Ref {
 	return bindings.GamepadEffectParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1636,7 +1644,7 @@ func (p RelatedApplication) FromRef(ref js.Ref) RelatedApplication {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RelatedApplication RelatedApplication [// RelatedApplication] [0x1400069d9a0 0x1400069da40 0x1400069dae0 0x1400069db80] 0x14000575698 {0 0}} in the application heap.
+// New creates a new RelatedApplication in the application heap.
 func (p RelatedApplication) New() js.Ref {
 	return bindings.RelatedApplicationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1680,7 +1688,7 @@ func (p MediaKeySystemMediaCapability) FromRef(ref js.Ref) MediaKeySystemMediaCa
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaKeySystemMediaCapability MediaKeySystemMediaCapability [// MediaKeySystemMediaCapability] [0x1400069dd60 0x1400069de00 0x1400069dea0] 0x140005756f8 {0 0}} in the application heap.
+// New creates a new MediaKeySystemMediaCapability in the application heap.
 func (p MediaKeySystemMediaCapability) New() js.Ref {
 	return bindings.MediaKeySystemMediaCapabilityJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1767,7 +1775,7 @@ func (p MediaKeySystemConfiguration) FromRef(ref js.Ref) MediaKeySystemConfigura
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaKeySystemConfiguration MediaKeySystemConfiguration [// MediaKeySystemConfiguration] [0x1400069dc20 0x1400069dcc0 0x1400069df40 0x140006ce000 0x140006ce0a0 0x140006ce140 0x140006ce1e0] 0x140005756e0 {0 0}} in the application heap.
+// New creates a new MediaKeySystemConfiguration in the application heap.
 func (p MediaKeySystemConfiguration) New() js.Ref {
 	return bindings.MediaKeySystemConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1911,6 +1919,8 @@ type MediaStreamConstraints struct {
 	// PreferCurrentTab is "MediaStreamConstraints.preferCurrentTab"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PreferCurrentTab MUST be set to true to make this field effective.
 	PreferCurrentTab bool
 
 	FFI_USE_PreferCurrentTab bool // for PreferCurrentTab.
@@ -1924,7 +1934,7 @@ func (p MediaStreamConstraints) FromRef(ref js.Ref) MediaStreamConstraints {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaStreamConstraints MediaStreamConstraints [// MediaStreamConstraints] [0x140006ce280 0x140006ce320 0x140006ce3c0 0x140006ce460 0x140006ce500] 0x14000575710 {0 0}} in the application heap.
+// New creates a new MediaStreamConstraints in the application heap.
 func (p MediaStreamConstraints) New() js.Ref {
 	return bindings.MediaStreamConstraintsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2258,7 +2268,7 @@ func (p ShareData) FromRef(ref js.Ref) ShareData {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ShareData ShareData [// ShareData] [0x140006ce640 0x140006ce6e0 0x140006ce780 0x140006ce820] 0x140005757a0 {0 0}} in the application heap.
+// New creates a new ShareData in the application heap.
 func (p ShareData) New() js.Ref {
 	return bindings.ShareDataJSLoad(
 		js.Pointer(&p), js.True, 0,

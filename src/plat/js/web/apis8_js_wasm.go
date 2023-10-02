@@ -1584,10 +1584,14 @@ type ULongRange struct {
 	// Max is "ULongRange.max"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Max MUST be set to true to make this field effective.
 	Max uint32
 	// Min is "ULongRange.min"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Min MUST be set to true to make this field effective.
 	Min uint32
 
 	FFI_USE_Max bool // for Max.
@@ -1602,7 +1606,7 @@ func (p ULongRange) FromRef(ref js.Ref) ULongRange {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ULongRange ULongRange [// ULongRange] [0x1400020cc80 0x1400020cdc0 0x1400020cd20 0x1400020ce60] 0x14001c3a660 {0 0}} in the application heap.
+// New creates a new ULongRange in the application heap.
 func (p ULongRange) New() js.Ref {
 	return bindings.ULongRangeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1627,10 +1631,14 @@ type DoubleRange struct {
 	// Max is "DoubleRange.max"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Max MUST be set to true to make this field effective.
 	Max float64
 	// Min is "DoubleRange.min"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Min MUST be set to true to make this field effective.
 	Min float64
 
 	FFI_USE_Max bool // for Max.
@@ -1645,7 +1653,7 @@ func (p DoubleRange) FromRef(ref js.Ref) DoubleRange {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DoubleRange DoubleRange [// DoubleRange] [0x1400020d040 0x1400020d180 0x1400020d0e0 0x1400020d220] 0x14001c3a6a8 {0 0}} in the application heap.
+// New creates a new DoubleRange in the application heap.
 func (p DoubleRange) New() js.Ref {
 	return bindings.DoubleRangeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1670,14 +1678,20 @@ type MediaSettingsRange struct {
 	// Max is "MediaSettingsRange.max"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Max MUST be set to true to make this field effective.
 	Max float64
 	// Min is "MediaSettingsRange.min"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Min MUST be set to true to make this field effective.
 	Min float64
 	// Step is "MediaSettingsRange.step"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Step MUST be set to true to make this field effective.
 	Step float64
 
 	FFI_USE_Max  bool // for Max.
@@ -1693,7 +1707,7 @@ func (p MediaSettingsRange) FromRef(ref js.Ref) MediaSettingsRange {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaSettingsRange MediaSettingsRange [// MediaSettingsRange] [0x1400020dcc0 0x1400020de00 0x1400020df40 0x1400020dd60 0x1400020dea0 0x1400021c000] 0x14001c3a708 {0 0}} in the application heap.
+// New creates a new MediaSettingsRange in the application heap.
 func (p MediaSettingsRange) New() js.Ref {
 	return bindings.MediaSettingsRangeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1838,6 +1852,8 @@ type MediaTrackCapabilities struct {
 	// Torch is "MediaTrackCapabilities.torch"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Torch MUST be set to true to make this field effective.
 	Torch bool
 	// DisplaySurface is "MediaTrackCapabilities.displaySurface"
 	//
@@ -1846,6 +1862,8 @@ type MediaTrackCapabilities struct {
 	// LogicalSurface is "MediaTrackCapabilities.logicalSurface"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LogicalSurface MUST be set to true to make this field effective.
 	LogicalSurface bool
 	// Cursor is "MediaTrackCapabilities.cursor"
 	//
@@ -1864,7 +1882,7 @@ func (p MediaTrackCapabilities) FromRef(ref js.Ref) MediaTrackCapabilities {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaTrackCapabilities MediaTrackCapabilities [// MediaTrackCapabilities] [0x1400020cf00 0x1400020cfa0 0x1400020d2c0 0x1400020d360 0x1400020d400 0x1400020d4a0 0x1400020d540 0x1400020d5e0 0x1400020d680 0x1400020d720 0x1400020d7c0 0x1400020d860 0x1400020d900 0x1400020d9a0 0x1400020da40 0x1400020dae0 0x1400020db80 0x1400020dc20 0x1400021c0a0 0x1400021c140 0x1400021c1e0 0x1400021c280 0x1400021c320 0x1400021c3c0 0x1400021c460 0x1400021c500 0x1400021c5a0 0x1400021c640 0x1400021c6e0 0x1400021c780 0x1400021c820 0x1400021c960 0x1400021ca00 0x1400021cb40 0x1400021c8c0 0x1400021caa0] 0x14001c3a648 {0 0}} in the application heap.
+// New creates a new MediaTrackCapabilities in the application heap.
 func (p MediaTrackCapabilities) New() js.Ref {
 	return bindings.MediaTrackCapabilitiesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1889,18 +1907,26 @@ type ConstrainULongRange struct {
 	// Exact is "ConstrainULongRange.exact"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Exact MUST be set to true to make this field effective.
 	Exact uint32
 	// Ideal is "ConstrainULongRange.ideal"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Ideal MUST be set to true to make this field effective.
 	Ideal uint32
 	// Max is "ConstrainULongRange.max"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Max MUST be set to true to make this field effective.
 	Max uint32
 	// Min is "ConstrainULongRange.min"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Min MUST be set to true to make this field effective.
 	Min uint32
 
 	FFI_USE_Exact bool // for Exact.
@@ -1917,7 +1943,7 @@ func (p ConstrainULongRange) FromRef(ref js.Ref) ConstrainULongRange {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConstrainULongRange ConstrainULongRange [// ConstrainULongRange] [0x1400021cbe0 0x1400021cd20 0x1400021ce60 0x1400021cfa0 0x1400021cc80 0x1400021cdc0 0x1400021cf00 0x1400021d040] 0x14001c3a870 {0 0}} in the application heap.
+// New creates a new ConstrainULongRange in the application heap.
 func (p ConstrainULongRange) New() js.Ref {
 	return bindings.ConstrainULongRangeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1972,18 +1998,26 @@ type ConstrainDoubleRange struct {
 	// Exact is "ConstrainDoubleRange.exact"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Exact MUST be set to true to make this field effective.
 	Exact float64
 	// Ideal is "ConstrainDoubleRange.ideal"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Ideal MUST be set to true to make this field effective.
 	Ideal float64
 	// Max is "ConstrainDoubleRange.max"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Max MUST be set to true to make this field effective.
 	Max float64
 	// Min is "ConstrainDoubleRange.min"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Min MUST be set to true to make this field effective.
 	Min float64
 
 	FFI_USE_Exact bool // for Exact.
@@ -2000,7 +2034,7 @@ func (p ConstrainDoubleRange) FromRef(ref js.Ref) ConstrainDoubleRange {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConstrainDoubleRange ConstrainDoubleRange [// ConstrainDoubleRange] [0x1400021d220 0x1400021d360 0x1400021d4a0 0x1400021d5e0 0x1400021d2c0 0x1400021d400 0x1400021d540 0x1400021d680] 0x14001c3a8e8 {0 0}} in the application heap.
+// New creates a new ConstrainDoubleRange in the application heap.
 func (p ConstrainDoubleRange) New() js.Ref {
 	return bindings.ConstrainDoubleRangeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2096,7 +2130,7 @@ func (p ConstrainDOMStringParameters) FromRef(ref js.Ref) ConstrainDOMStringPara
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConstrainDOMStringParameters ConstrainDOMStringParameters [// ConstrainDOMStringParameters] [0x1400021d860 0x1400021d900] 0x14001c3a948 {0 0}} in the application heap.
+// New creates a new ConstrainDOMStringParameters in the application heap.
 func (p ConstrainDOMStringParameters) New() js.Ref {
 	return bindings.ConstrainDOMStringParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2155,10 +2189,14 @@ type ConstrainBooleanParameters struct {
 	// Exact is "ConstrainBooleanParameters.exact"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Exact MUST be set to true to make this field effective.
 	Exact bool
 	// Ideal is "ConstrainBooleanParameters.ideal"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Ideal MUST be set to true to make this field effective.
 	Ideal bool
 
 	FFI_USE_Exact bool // for Exact.
@@ -2173,7 +2211,7 @@ func (p ConstrainBooleanParameters) FromRef(ref js.Ref) ConstrainBooleanParamete
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConstrainBooleanParameters ConstrainBooleanParameters [// ConstrainBooleanParameters] [0x1400021dc20 0x1400021dd60 0x1400021dcc0 0x1400021de00] 0x14001c3a978 {0 0}} in the application heap.
+// New creates a new ConstrainBooleanParameters in the application heap.
 func (p ConstrainBooleanParameters) New() js.Ref {
 	return bindings.ConstrainBooleanParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2228,10 +2266,14 @@ type Point2D struct {
 	// X is "Point2D.x"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_X MUST be set to true to make this field effective.
 	X float64
 	// Y is "Point2D.y"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_Y MUST be set to true to make this field effective.
 	Y float64
 
 	FFI_USE_X bool // for X.
@@ -2246,7 +2288,7 @@ func (p Point2D) FromRef(ref js.Ref) Point2D {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 Point2D Point2D [// Point2D] [0x14000222500 0x14000222640 0x140002225a0 0x140002226e0] 0x14001c3a9a8 {0 0}} in the application heap.
+// New creates a new Point2D in the application heap.
 func (p Point2D) New() js.Ref {
 	return bindings.Point2DJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2286,7 +2328,7 @@ func (p ConstrainPoint2DParameters) FromRef(ref js.Ref) ConstrainPoint2DParamete
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConstrainPoint2DParameters ConstrainPoint2DParameters [// ConstrainPoint2DParameters] [0x14000222780 0x14000222820] 0x14001c3aa08 {0 0}} in the application heap.
+// New creates a new ConstrainPoint2DParameters in the application heap.
 func (p ConstrainPoint2DParameters) New() js.Ref {
 	return bindings.ConstrainPoint2DParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2528,7 +2570,7 @@ func (p MediaTrackConstraintSet) FromRef(ref js.Ref) MediaTrackConstraintSet {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaTrackConstraintSet MediaTrackConstraintSet [// MediaTrackConstraintSet] [0x1400021d0e0 0x1400021d180 0x1400021d720 0x1400021d7c0 0x1400021d9a0 0x1400021da40 0x1400021dae0 0x1400021db80 0x1400021dea0 0x1400021df40 0x14000222000 0x140002220a0 0x14000222140 0x140002221e0 0x14000222280 0x14000222320 0x140002223c0 0x14000222460 0x140002228c0 0x14000222960 0x14000222a00 0x14000222aa0 0x14000222b40 0x14000222be0 0x14000222c80 0x14000222d20 0x14000222dc0 0x14000222e60 0x14000222f00 0x14000222fa0 0x14000223040 0x140002230e0 0x14000223180 0x14000223220 0x140002232c0 0x14000223360 0x14000223400] 0x14001c3a810 {0 0}} in the application heap.
+// New creates a new MediaTrackConstraintSet in the application heap.
 func (p MediaTrackConstraintSet) New() js.Ref {
 	return bindings.MediaTrackConstraintSetJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2632,7 +2674,7 @@ func (p MediaTrackConstraints) FromRef(ref js.Ref) MediaTrackConstraints {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaTrackConstraints MediaTrackConstraints [// MediaTrackConstraints] [0x140002234a0 0x14000223540 0x140002235e0 0x14000223680 0x14000223720 0x140002237c0 0x14000223860 0x14000223900 0x140002239a0 0x14000223a40 0x14000223ae0 0x14000223b80 0x14000223c20 0x14000223cc0 0x14000223d60 0x14000223e00 0x14000223ea0 0x14000223f40] 0x14001c3a7f8 {0 0}} in the application heap.
+// New creates a new MediaTrackConstraints in the application heap.
 func (p MediaTrackConstraints) New() js.Ref {
 	return bindings.MediaTrackConstraintsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2657,18 +2699,26 @@ type MediaTrackSettings struct {
 	// Width is "MediaTrackSettings.width"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width uint32
 	// Height is "MediaTrackSettings.height"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height uint32
 	// AspectRatio is "MediaTrackSettings.aspectRatio"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AspectRatio MUST be set to true to make this field effective.
 	AspectRatio float64
 	// FrameRate is "MediaTrackSettings.frameRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FrameRate MUST be set to true to make this field effective.
 	FrameRate float64
 	// FacingMode is "MediaTrackSettings.facingMode"
 	//
@@ -2681,30 +2731,44 @@ type MediaTrackSettings struct {
 	// SampleRate is "MediaTrackSettings.sampleRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SampleRate MUST be set to true to make this field effective.
 	SampleRate uint32
 	// SampleSize is "MediaTrackSettings.sampleSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SampleSize MUST be set to true to make this field effective.
 	SampleSize uint32
 	// EchoCancellation is "MediaTrackSettings.echoCancellation"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EchoCancellation MUST be set to true to make this field effective.
 	EchoCancellation bool
 	// AutoGainControl is "MediaTrackSettings.autoGainControl"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AutoGainControl MUST be set to true to make this field effective.
 	AutoGainControl bool
 	// NoiseSuppression is "MediaTrackSettings.noiseSuppression"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_NoiseSuppression MUST be set to true to make this field effective.
 	NoiseSuppression bool
 	// Latency is "MediaTrackSettings.latency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Latency MUST be set to true to make this field effective.
 	Latency float64
 	// ChannelCount is "MediaTrackSettings.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// DeviceId is "MediaTrackSettings.deviceId"
 	//
@@ -2733,54 +2797,80 @@ type MediaTrackSettings struct {
 	// ExposureCompensation is "MediaTrackSettings.exposureCompensation"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ExposureCompensation MUST be set to true to make this field effective.
 	ExposureCompensation float64
 	// ExposureTime is "MediaTrackSettings.exposureTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ExposureTime MUST be set to true to make this field effective.
 	ExposureTime float64
 	// ColorTemperature is "MediaTrackSettings.colorTemperature"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ColorTemperature MUST be set to true to make this field effective.
 	ColorTemperature float64
 	// Iso is "MediaTrackSettings.iso"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Iso MUST be set to true to make this field effective.
 	Iso float64
 	// Brightness is "MediaTrackSettings.brightness"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Brightness MUST be set to true to make this field effective.
 	Brightness float64
 	// Contrast is "MediaTrackSettings.contrast"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Contrast MUST be set to true to make this field effective.
 	Contrast float64
 	// Saturation is "MediaTrackSettings.saturation"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Saturation MUST be set to true to make this field effective.
 	Saturation float64
 	// Sharpness is "MediaTrackSettings.sharpness"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Sharpness MUST be set to true to make this field effective.
 	Sharpness float64
 	// FocusDistance is "MediaTrackSettings.focusDistance"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FocusDistance MUST be set to true to make this field effective.
 	FocusDistance float64
 	// Pan is "MediaTrackSettings.pan"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Pan MUST be set to true to make this field effective.
 	Pan float64
 	// Tilt is "MediaTrackSettings.tilt"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Tilt MUST be set to true to make this field effective.
 	Tilt float64
 	// Zoom is "MediaTrackSettings.zoom"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Zoom MUST be set to true to make this field effective.
 	Zoom float64
 	// Torch is "MediaTrackSettings.torch"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Torch MUST be set to true to make this field effective.
 	Torch bool
 	// DisplaySurface is "MediaTrackSettings.displaySurface"
 	//
@@ -2789,6 +2879,8 @@ type MediaTrackSettings struct {
 	// LogicalSurface is "MediaTrackSettings.logicalSurface"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LogicalSurface MUST be set to true to make this field effective.
 	LogicalSurface bool
 	// Cursor is "MediaTrackSettings.cursor"
 	//
@@ -2797,10 +2889,14 @@ type MediaTrackSettings struct {
 	// RestrictOwnAudio is "MediaTrackSettings.restrictOwnAudio"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RestrictOwnAudio MUST be set to true to make this field effective.
 	RestrictOwnAudio bool
 	// SuppressLocalAudioPlayback is "MediaTrackSettings.suppressLocalAudioPlayback"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SuppressLocalAudioPlayback MUST be set to true to make this field effective.
 	SuppressLocalAudioPlayback bool
 
 	FFI_USE_Width                      bool // for Width.
@@ -2840,7 +2936,7 @@ func (p MediaTrackSettings) FromRef(ref js.Ref) MediaTrackSettings {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaTrackSettings MediaTrackSettings [// MediaTrackSettings] [0x1400023a000 0x1400023a140 0x1400023a280 0x1400023a3c0 0x1400023a500 0x1400023a5a0 0x1400023a640 0x1400023a780 0x1400023a8c0 0x1400023aa00 0x1400023ab40 0x1400023ac80 0x1400023adc0 0x1400023af00 0x1400023afa0 0x1400023b040 0x1400023b0e0 0x1400023b180 0x1400023b220 0x1400023b2c0 0x1400023b400 0x1400023b540 0x1400023b680 0x1400023b7c0 0x1400023b900 0x1400023ba40 0x1400023bb80 0x1400023bcc0 0x1400023be00 0x1400023bf40 0x1400023e0a0 0x1400023e1e0 0x1400023e320 0x1400023e3c0 0x1400023e500 0x1400023e5a0 0x1400023e6e0 0x1400023a0a0 0x1400023a1e0 0x1400023a320 0x1400023a460 0x1400023a6e0 0x1400023a820 0x1400023a960 0x1400023aaa0 0x1400023abe0 0x1400023ad20 0x1400023ae60 0x1400023b360 0x1400023b4a0 0x1400023b5e0 0x1400023b720 0x1400023b860 0x1400023b9a0 0x1400023bae0 0x1400023bc20 0x1400023bd60 0x1400023bea0 0x1400023e000 0x1400023e140 0x1400023e280 0x1400023e460 0x1400023e640 0x1400023e780] 0x14001c3aaf8 {0 0}} in the application heap.
+// New creates a new MediaTrackSettings in the application heap.
 func (p MediaTrackSettings) New() js.Ref {
 	return bindings.MediaTrackSettingsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2910,7 +3006,7 @@ func (p CaptureHandle) FromRef(ref js.Ref) CaptureHandle {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CaptureHandle CaptureHandle [// CaptureHandle] [0x1400023e820 0x1400023e8c0] 0x14001c3ae10 {0 0}} in the application heap.
+// New creates a new CaptureHandle in the application heap.
 func (p CaptureHandle) New() js.Ref {
 	return bindings.CaptureHandleJSLoad(
 		js.Pointer(&p), js.True, 0,

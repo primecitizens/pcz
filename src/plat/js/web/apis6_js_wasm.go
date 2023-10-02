@@ -164,22 +164,32 @@ type BiquadFilterOptions struct {
 	// Q is "BiquadFilterOptions.Q"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Q MUST be set to true to make this field effective.
 	Q float32
 	// Detune is "BiquadFilterOptions.detune"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detune MUST be set to true to make this field effective.
 	Detune float32
 	// Frequency is "BiquadFilterOptions.frequency"
 	//
 	// Optional, defaults to 350.
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float32
 	// Gain is "BiquadFilterOptions.gain"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Gain MUST be set to true to make this field effective.
 	Gain float32
 	// ChannelCount is "BiquadFilterOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "BiquadFilterOptions.channelCountMode"
 	//
@@ -205,7 +215,7 @@ func (p BiquadFilterOptions) FromRef(ref js.Ref) BiquadFilterOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BiquadFilterOptions BiquadFilterOptions [// BiquadFilterOptions] [0x14000a368c0 0x14000a36960 0x14000a36aa0 0x14000a36be0 0x14000a36d20 0x14000a36e60 0x14000a36fa0 0x14000a37040 0x14000a36a00 0x14000a36b40 0x14000a36c80 0x14000a36dc0 0x14000a36f00] 0x14001af31e8 {0 0}} in the application heap.
+// New creates a new BiquadFilterOptions in the application heap.
 func (p BiquadFilterOptions) New() js.Ref {
 	return bindings.BiquadFilterOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -655,6 +665,8 @@ type AudioBufferOptions struct {
 	// NumberOfChannels is "AudioBufferOptions.numberOfChannels"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_NumberOfChannels MUST be set to true to make this field effective.
 	NumberOfChannels uint32
 	// Length is "AudioBufferOptions.length"
 	//
@@ -676,7 +688,7 @@ func (p AudioBufferOptions) FromRef(ref js.Ref) AudioBufferOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioBufferOptions AudioBufferOptions [// AudioBufferOptions] [0x14000a37220 0x14000a37360 0x14000a37400 0x14000a372c0] 0x14001af32c0 {0 0}} in the application heap.
+// New creates a new AudioBufferOptions in the application heap.
 func (p AudioBufferOptions) New() js.Ref {
 	return bindings.AudioBufferOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -908,22 +920,32 @@ type AudioBufferSourceOptions struct {
 	// Detune is "AudioBufferSourceOptions.detune"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detune MUST be set to true to make this field effective.
 	Detune float32
 	// Loop is "AudioBufferSourceOptions.loop"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Loop MUST be set to true to make this field effective.
 	Loop bool
 	// LoopEnd is "AudioBufferSourceOptions.loopEnd"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_LoopEnd MUST be set to true to make this field effective.
 	LoopEnd float64
 	// LoopStart is "AudioBufferSourceOptions.loopStart"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_LoopStart MUST be set to true to make this field effective.
 	LoopStart float64
 	// PlaybackRate is "AudioBufferSourceOptions.playbackRate"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_PlaybackRate MUST be set to true to make this field effective.
 	PlaybackRate float32
 
 	FFI_USE_Detune       bool // for Detune.
@@ -941,7 +963,7 @@ func (p AudioBufferSourceOptions) FromRef(ref js.Ref) AudioBufferSourceOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioBufferSourceOptions AudioBufferSourceOptions [// AudioBufferSourceOptions] [0x14000a375e0 0x14000a37680 0x14000a377c0 0x14000a37900 0x14000a37a40 0x14000a37b80 0x14000a37720 0x14000a37860 0x14000a379a0 0x14000a37ae0 0x14000a37c20] 0x140010ae0d8 {0 0}} in the application heap.
+// New creates a new AudioBufferSourceOptions in the application heap.
 func (p AudioBufferSourceOptions) New() js.Ref {
 	return bindings.AudioBufferSourceOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1211,10 +1233,14 @@ type ChannelMergerOptions struct {
 	// NumberOfInputs is "ChannelMergerOptions.numberOfInputs"
 	//
 	// Optional, defaults to 6.
+	//
+	// NOTE: FFI_USE_NumberOfInputs MUST be set to true to make this field effective.
 	NumberOfInputs uint32
 	// ChannelCount is "ChannelMergerOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "ChannelMergerOptions.channelCountMode"
 	//
@@ -1237,7 +1263,7 @@ func (p ChannelMergerOptions) FromRef(ref js.Ref) ChannelMergerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ChannelMergerOptions ChannelMergerOptions [// ChannelMergerOptions] [0x14000a37d60 0x14000a37ea0 0x140014ba000 0x140014ba0a0 0x14000a37e00 0x14000a37f40] 0x140010ae1f8 {0 0}} in the application heap.
+// New creates a new ChannelMergerOptions in the application heap.
 func (p ChannelMergerOptions) New() js.Ref {
 	return bindings.ChannelMergerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1299,10 +1325,14 @@ type ChannelSplitterOptions struct {
 	// NumberOfOutputs is "ChannelSplitterOptions.numberOfOutputs"
 	//
 	// Optional, defaults to 6.
+	//
+	// NOTE: FFI_USE_NumberOfOutputs MUST be set to true to make this field effective.
 	NumberOfOutputs uint32
 	// ChannelCount is "ChannelSplitterOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "ChannelSplitterOptions.channelCountMode"
 	//
@@ -1325,7 +1355,7 @@ func (p ChannelSplitterOptions) FromRef(ref js.Ref) ChannelSplitterOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ChannelSplitterOptions ChannelSplitterOptions [// ChannelSplitterOptions] [0x140014ba140 0x140014ba280 0x140014ba3c0 0x140014ba460 0x140014ba1e0 0x140014ba320] 0x140010aeb28 {0 0}} in the application heap.
+// New creates a new ChannelSplitterOptions in the application heap.
 func (p ChannelSplitterOptions) New() js.Ref {
 	return bindings.ChannelSplitterOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1387,6 +1417,8 @@ type ConstantSourceOptions struct {
 	// Offset is "ConstantSourceOptions.offset"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Offset MUST be set to true to make this field effective.
 	Offset float32
 
 	FFI_USE_Offset bool // for Offset.
@@ -1400,7 +1432,7 @@ func (p ConstantSourceOptions) FromRef(ref js.Ref) ConstantSourceOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConstantSourceOptions ConstantSourceOptions [// ConstantSourceOptions] [0x140014ba500 0x140014ba5a0] 0x140010af0b0 {0 0}} in the application heap.
+// New creates a new ConstantSourceOptions in the application heap.
 func (p ConstantSourceOptions) New() js.Ref {
 	return bindings.ConstantSourceOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1477,10 +1509,14 @@ type ConvolverOptions struct {
 	// DisableNormalization is "ConvolverOptions.disableNormalization"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_DisableNormalization MUST be set to true to make this field effective.
 	DisableNormalization bool
 	// ChannelCount is "ConvolverOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "ConvolverOptions.channelCountMode"
 	//
@@ -1503,7 +1539,7 @@ func (p ConvolverOptions) FromRef(ref js.Ref) ConvolverOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConvolverOptions ConvolverOptions [// ConvolverOptions] [0x140014ba640 0x140014ba6e0 0x140014ba820 0x140014ba960 0x140014baa00 0x140014ba780 0x140014ba8c0] 0x140010af110 {0 0}} in the application heap.
+// New creates a new ConvolverOptions in the application heap.
 func (p ConvolverOptions) New() js.Ref {
 	return bindings.ConvolverOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1607,14 +1643,20 @@ type DelayOptions struct {
 	// MaxDelayTime is "DelayOptions.maxDelayTime"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MaxDelayTime MUST be set to true to make this field effective.
 	MaxDelayTime float64
 	// DelayTime is "DelayOptions.delayTime"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_DelayTime MUST be set to true to make this field effective.
 	DelayTime float64
 	// ChannelCount is "DelayOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "DelayOptions.channelCountMode"
 	//
@@ -1638,7 +1680,7 @@ func (p DelayOptions) FromRef(ref js.Ref) DelayOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DelayOptions DelayOptions [// DelayOptions] [0x140014bab40 0x140014bac80 0x140014badc0 0x140014baf00 0x140014bafa0 0x140014babe0 0x140014bad20 0x140014bae60] 0x140010af170 {0 0}} in the application heap.
+// New creates a new DelayOptions in the application heap.
 func (p DelayOptions) New() js.Ref {
 	return bindings.DelayOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1711,26 +1753,38 @@ type DynamicsCompressorOptions struct {
 	// Attack is "DynamicsCompressorOptions.attack"
 	//
 	// Optional, defaults to 0.003.
+	//
+	// NOTE: FFI_USE_Attack MUST be set to true to make this field effective.
 	Attack float32
 	// Knee is "DynamicsCompressorOptions.knee"
 	//
 	// Optional, defaults to 30.
+	//
+	// NOTE: FFI_USE_Knee MUST be set to true to make this field effective.
 	Knee float32
 	// Ratio is "DynamicsCompressorOptions.ratio"
 	//
 	// Optional, defaults to 12.
+	//
+	// NOTE: FFI_USE_Ratio MUST be set to true to make this field effective.
 	Ratio float32
 	// Release is "DynamicsCompressorOptions.release"
 	//
 	// Optional, defaults to 0.25.
+	//
+	// NOTE: FFI_USE_Release MUST be set to true to make this field effective.
 	Release float32
 	// Threshold is "DynamicsCompressorOptions.threshold"
 	//
 	// Optional, defaults to -24.
+	//
+	// NOTE: FFI_USE_Threshold MUST be set to true to make this field effective.
 	Threshold float32
 	// ChannelCount is "DynamicsCompressorOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "DynamicsCompressorOptions.channelCountMode"
 	//
@@ -1757,7 +1811,7 @@ func (p DynamicsCompressorOptions) FromRef(ref js.Ref) DynamicsCompressorOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DynamicsCompressorOptions DynamicsCompressorOptions [// DynamicsCompressorOptions] [0x140014bb040 0x140014bb180 0x140014bb2c0 0x140014bb400 0x140014bb540 0x140014bb680 0x140014bb7c0 0x140014bb860 0x140014bb0e0 0x140014bb220 0x140014bb360 0x140014bb4a0 0x140014bb5e0 0x140014bb720] 0x140010af2f0 {0 0}} in the application heap.
+// New creates a new DynamicsCompressorOptions in the application heap.
 func (p DynamicsCompressorOptions) New() js.Ref {
 	return bindings.DynamicsCompressorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1885,10 +1939,14 @@ type GainOptions struct {
 	// Gain is "GainOptions.gain"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Gain MUST be set to true to make this field effective.
 	Gain float32
 	// ChannelCount is "GainOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "GainOptions.channelCountMode"
 	//
@@ -1911,7 +1969,7 @@ func (p GainOptions) FromRef(ref js.Ref) GainOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GainOptions GainOptions [// GainOptions] [0x140014bb9a0 0x140014bbae0 0x140014bbc20 0x140014bbd60 0x140014bba40 0x140014bbb80] 0x140010af380 {0 0}} in the application heap.
+// New creates a new GainOptions in the application heap.
 func (p GainOptions) New() js.Ref {
 	return bindings.GainOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1992,6 +2050,8 @@ type IIRFilterOptions struct {
 	// ChannelCount is "IIRFilterOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "IIRFilterOptions.channelCountMode"
 	//
@@ -2013,7 +2073,7 @@ func (p IIRFilterOptions) FromRef(ref js.Ref) IIRFilterOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IIRFilterOptions IIRFilterOptions [// IIRFilterOptions] [0x140014bbe00 0x140014bbea0 0x140014bbf40 0x140000fc0a0 0x140000fc140 0x140000fc000] 0x140010af3e0 {0 0}} in the application heap.
+// New creates a new IIRFilterOptions in the application heap.
 func (p IIRFilterOptions) New() js.Ref {
 	return bindings.IIRFilterOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2136,6 +2196,8 @@ type PeriodicWaveOptions struct {
 	// DisableNormalization is "PeriodicWaveOptions.disableNormalization"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_DisableNormalization MUST be set to true to make this field effective.
 	DisableNormalization bool
 
 	FFI_USE_DisableNormalization bool // for DisableNormalization.
@@ -2149,7 +2211,7 @@ func (p PeriodicWaveOptions) FromRef(ref js.Ref) PeriodicWaveOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PeriodicWaveOptions PeriodicWaveOptions [// PeriodicWaveOptions] [0x140000fc500 0x140000fc5a0 0x140000fc640 0x140000fc6e0] 0x140010af4b8 {0 0}} in the application heap.
+// New creates a new PeriodicWaveOptions in the application heap.
 func (p PeriodicWaveOptions) New() js.Ref {
 	return bindings.PeriodicWaveOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2215,10 +2277,14 @@ type OscillatorOptions struct {
 	// Frequency is "OscillatorOptions.frequency"
 	//
 	// Optional, defaults to 440.
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float32
 	// Detune is "OscillatorOptions.detune"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detune MUST be set to true to make this field effective.
 	Detune float32
 	// PeriodicWave is "OscillatorOptions.periodicWave"
 	//
@@ -2227,6 +2293,8 @@ type OscillatorOptions struct {
 	// ChannelCount is "OscillatorOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "OscillatorOptions.channelCountMode"
 	//
@@ -2250,7 +2318,7 @@ func (p OscillatorOptions) FromRef(ref js.Ref) OscillatorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OscillatorOptions OscillatorOptions [// OscillatorOptions] [0x140000fc1e0 0x140000fc280 0x140000fc3c0 0x140000fc780 0x140000fc820 0x140000fc960 0x140000fca00 0x140000fc320 0x140000fc460 0x140000fc8c0] 0x140010af440 {0 0}} in the application heap.
+// New creates a new OscillatorOptions in the application heap.
 func (p OscillatorOptions) New() js.Ref {
 	return bindings.OscillatorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2439,54 +2507,80 @@ type PannerOptions struct {
 	// PositionX is "PannerOptions.positionX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_PositionX MUST be set to true to make this field effective.
 	PositionX float32
 	// PositionY is "PannerOptions.positionY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_PositionY MUST be set to true to make this field effective.
 	PositionY float32
 	// PositionZ is "PannerOptions.positionZ"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_PositionZ MUST be set to true to make this field effective.
 	PositionZ float32
 	// OrientationX is "PannerOptions.orientationX"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_OrientationX MUST be set to true to make this field effective.
 	OrientationX float32
 	// OrientationY is "PannerOptions.orientationY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_OrientationY MUST be set to true to make this field effective.
 	OrientationY float32
 	// OrientationZ is "PannerOptions.orientationZ"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_OrientationZ MUST be set to true to make this field effective.
 	OrientationZ float32
 	// RefDistance is "PannerOptions.refDistance"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_RefDistance MUST be set to true to make this field effective.
 	RefDistance float64
 	// MaxDistance is "PannerOptions.maxDistance"
 	//
 	// Optional, defaults to 10000.
+	//
+	// NOTE: FFI_USE_MaxDistance MUST be set to true to make this field effective.
 	MaxDistance float64
 	// RolloffFactor is "PannerOptions.rolloffFactor"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_RolloffFactor MUST be set to true to make this field effective.
 	RolloffFactor float64
 	// ConeInnerAngle is "PannerOptions.coneInnerAngle"
 	//
 	// Optional, defaults to 360.
+	//
+	// NOTE: FFI_USE_ConeInnerAngle MUST be set to true to make this field effective.
 	ConeInnerAngle float64
 	// ConeOuterAngle is "PannerOptions.coneOuterAngle"
 	//
 	// Optional, defaults to 360.
+	//
+	// NOTE: FFI_USE_ConeOuterAngle MUST be set to true to make this field effective.
 	ConeOuterAngle float64
 	// ConeOuterGain is "PannerOptions.coneOuterGain"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ConeOuterGain MUST be set to true to make this field effective.
 	ConeOuterGain float64
 	// ChannelCount is "PannerOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "PannerOptions.channelCountMode"
 	//
@@ -2520,7 +2614,7 @@ func (p PannerOptions) FromRef(ref js.Ref) PannerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PannerOptions PannerOptions [// PannerOptions] [0x140000fcb40 0x140000fcbe0 0x140000fcc80 0x140000fcdc0 0x140000fcf00 0x140000fd040 0x140000fd180 0x140000fd2c0 0x140000fd400 0x140000fd540 0x140000fd680 0x140000fd7c0 0x140000fd900 0x140000fda40 0x140000fdb80 0x140000fdcc0 0x140000fdd60 0x140000fcd20 0x140000fce60 0x140000fcfa0 0x140000fd0e0 0x140000fd220 0x140000fd360 0x140000fd4a0 0x140000fd5e0 0x140000fd720 0x140000fd860 0x140000fd9a0 0x140000fdae0 0x140000fdc20] 0x140010af530 {0 0}} in the application heap.
+// New creates a new PannerOptions in the application heap.
 func (p PannerOptions) New() js.Ref {
 	return bindings.PannerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2870,6 +2964,8 @@ type PeriodicWaveConstraints struct {
 	// DisableNormalization is "PeriodicWaveConstraints.disableNormalization"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_DisableNormalization MUST be set to true to make this field effective.
 	DisableNormalization bool
 
 	FFI_USE_DisableNormalization bool // for DisableNormalization.
@@ -2883,7 +2979,7 @@ func (p PeriodicWaveConstraints) FromRef(ref js.Ref) PeriodicWaveConstraints {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PeriodicWaveConstraints PeriodicWaveConstraints [// PeriodicWaveConstraints] [0x140000fdea0 0x140000fdf40] 0x14000aa3020 {0 0}} in the application heap.
+// New creates a new PeriodicWaveConstraints in the application heap.
 func (p PeriodicWaveConstraints) New() js.Ref {
 	return bindings.PeriodicWaveConstraintsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2941,10 +3037,14 @@ type StereoPannerOptions struct {
 	// Pan is "StereoPannerOptions.pan"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Pan MUST be set to true to make this field effective.
 	Pan float32
 	// ChannelCount is "StereoPannerOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "StereoPannerOptions.channelCountMode"
 	//
@@ -2967,7 +3067,7 @@ func (p StereoPannerOptions) FromRef(ref js.Ref) StereoPannerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 StereoPannerOptions StereoPannerOptions [// StereoPannerOptions] [0x14000182000 0x14000182140 0x14000182280 0x14000182320 0x140001820a0 0x140001821e0] 0x14000aa3200 {0 0}} in the application heap.
+// New creates a new StereoPannerOptions in the application heap.
 func (p StereoPannerOptions) New() js.Ref {
 	return bindings.StereoPannerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

@@ -25,18 +25,26 @@ type SyncEventInit struct {
 	// LastChance is "SyncEventInit.lastChance"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_LastChance MUST be set to true to make this field effective.
 	LastChance bool
 	// Bubbles is "SyncEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SyncEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SyncEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_LastChance bool // for LastChance.
@@ -53,7 +61,7 @@ func (p SyncEventInit) FromRef(ref js.Ref) SyncEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SyncEventInit SyncEventInit [// SyncEventInit] [0x14000a6a820 0x14000a6a8c0 0x14000a6aa00 0x14000a6ab40 0x14000a6ac80 0x14000a6a960 0x14000a6aaa0 0x14000a6abe0 0x14000a6ad20] 0x14000a02d50 {0 0}} in the application heap.
+// New creates a new SyncEventInit in the application heap.
 func (p SyncEventInit) New() js.Ref {
 	return bindings.SyncEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -162,6 +170,8 @@ type TableDescriptor struct {
 	// Maximum is "TableDescriptor.maximum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Maximum MUST be set to true to make this field effective.
 	Maximum uint32
 
 	FFI_USE_Maximum bool // for Maximum.
@@ -175,7 +185,7 @@ func (p TableDescriptor) FromRef(ref js.Ref) TableDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TableDescriptor TableDescriptor [// TableDescriptor] [0x14000a6ae60 0x14000a6af00 0x14000a6afa0 0x14000a6b040] 0x14000a02dc8 {0 0}} in the application heap.
+// New creates a new TableDescriptor in the application heap.
 func (p TableDescriptor) New() js.Ref {
 	return bindings.TableDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -383,7 +393,7 @@ func (p TaskControllerInit) FromRef(ref js.Ref) TaskControllerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TaskControllerInit TaskControllerInit [// TaskControllerInit] [0x14000a6b0e0] 0x14000a02ea0 {0 0}} in the application heap.
+// New creates a new TaskControllerInit in the application heap.
 func (p TaskControllerInit) New() js.Ref {
 	return bindings.TaskControllerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -472,14 +482,20 @@ type TaskPriorityChangeEventInit struct {
 	// Bubbles is "TaskPriorityChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "TaskPriorityChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "TaskPriorityChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -495,7 +511,7 @@ func (p TaskPriorityChangeEventInit) FromRef(ref js.Ref) TaskPriorityChangeEvent
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TaskPriorityChangeEventInit TaskPriorityChangeEventInit [// TaskPriorityChangeEventInit] [0x14000a6b180 0x14000a6b220 0x14000a6b360 0x14000a6b4a0 0x14000a6b2c0 0x14000a6b400 0x14000a6b540] 0x14000a02eb8 {0 0}} in the application heap.
+// New creates a new TaskPriorityChangeEventInit in the application heap.
 func (p TaskPriorityChangeEventInit) New() js.Ref {
 	return bindings.TaskPriorityChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -598,7 +614,7 @@ func (p TaskSignalAnyInit) FromRef(ref js.Ref) TaskSignalAnyInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TaskSignalAnyInit TaskSignalAnyInit [// TaskSignalAnyInit] [0x14000a6b5e0] 0x14000a02f30 {0 0}} in the application heap.
+// New creates a new TaskSignalAnyInit in the application heap.
 func (p TaskSignalAnyInit) New() js.Ref {
 	return bindings.TaskSignalAnyInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -728,6 +744,8 @@ type TextDecodeOptions struct {
 	// Stream is "TextDecodeOptions.stream"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Stream MUST be set to true to make this field effective.
 	Stream bool
 
 	FFI_USE_Stream bool // for Stream.
@@ -741,7 +759,7 @@ func (p TextDecodeOptions) FromRef(ref js.Ref) TextDecodeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TextDecodeOptions TextDecodeOptions [// TextDecodeOptions] [0x14000a6b680 0x14000a6b720] 0x14000a02f90 {0 0}} in the application heap.
+// New creates a new TextDecodeOptions in the application heap.
 func (p TextDecodeOptions) New() js.Ref {
 	return bindings.TextDecodeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -766,10 +784,14 @@ type TextDecoderOptions struct {
 	// Fatal is "TextDecoderOptions.fatal"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Fatal MUST be set to true to make this field effective.
 	Fatal bool
 	// IgnoreBOM is "TextDecoderOptions.ignoreBOM"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreBOM MUST be set to true to make this field effective.
 	IgnoreBOM bool
 
 	FFI_USE_Fatal     bool // for Fatal.
@@ -784,7 +806,7 @@ func (p TextDecoderOptions) FromRef(ref js.Ref) TextDecoderOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TextDecoderOptions TextDecoderOptions [// TextDecoderOptions] [0x14000a6b7c0 0x14000a6b900 0x14000a6b860 0x14000a6b9a0] 0x14000a02fd8 {0 0}} in the application heap.
+// New creates a new TextDecoderOptions in the application heap.
 func (p TextDecoderOptions) New() js.Ref {
 	return bindings.TextDecoderOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1101,10 +1123,14 @@ type TextEncoderEncodeIntoResult struct {
 	// Read is "TextEncoderEncodeIntoResult.read"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Read MUST be set to true to make this field effective.
 	Read uint64
 	// Written is "TextEncoderEncodeIntoResult.written"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Written MUST be set to true to make this field effective.
 	Written uint64
 
 	FFI_USE_Read    bool // for Read.
@@ -1119,7 +1145,7 @@ func (p TextEncoderEncodeIntoResult) FromRef(ref js.Ref) TextEncoderEncodeIntoRe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TextEncoderEncodeIntoResult TextEncoderEncodeIntoResult [// TextEncoderEncodeIntoResult] [0x14000a6bb80 0x14000a6bcc0 0x14000a6bc20 0x14000a6bd60] 0x14000a03098 {0 0}} in the application heap.
+// New creates a new TextEncoderEncodeIntoResult in the application heap.
 func (p TextEncoderEncodeIntoResult) New() js.Ref {
 	return bindings.TextEncoderEncodeIntoResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1304,10 +1330,14 @@ type TextFormatInit struct {
 	// RangeStart is "TextFormatInit.rangeStart"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RangeStart MUST be set to true to make this field effective.
 	RangeStart uint32
 	// RangeEnd is "TextFormatInit.rangeEnd"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RangeEnd MUST be set to true to make this field effective.
 	RangeEnd uint32
 	// UnderlineStyle is "TextFormatInit.underlineStyle"
 	//
@@ -1330,7 +1360,7 @@ func (p TextFormatInit) FromRef(ref js.Ref) TextFormatInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TextFormatInit TextFormatInit [// TextFormatInit] [0x14000a6bea0 0x14000a7a000 0x14000a7a140 0x14000a7a1e0 0x14000a6bf40 0x14000a7a0a0] 0x14000a03110 {0 0}} in the application heap.
+// New creates a new TextFormatInit in the application heap.
 func (p TextFormatInit) New() js.Ref {
 	return bindings.TextFormatInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1438,14 +1468,20 @@ type TextFormatUpdateEventInit struct {
 	// Bubbles is "TextFormatUpdateEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "TextFormatUpdateEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "TextFormatUpdateEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1461,7 +1497,7 @@ func (p TextFormatUpdateEventInit) FromRef(ref js.Ref) TextFormatUpdateEventInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TextFormatUpdateEventInit TextFormatUpdateEventInit [// TextFormatUpdateEventInit] [0x14000a7a320 0x14000a7a3c0 0x14000a7a500 0x14000a7a640 0x14000a7a460 0x14000a7a5a0 0x14000a7a6e0] 0x14000a03158 {0 0}} in the application heap.
+// New creates a new TextFormatUpdateEventInit in the application heap.
 func (p TextFormatUpdateEventInit) New() js.Ref {
 	return bindings.TextFormatUpdateEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1546,10 +1582,14 @@ type TextUpdateEventInit struct {
 	// UpdateRangeStart is "TextUpdateEventInit.updateRangeStart"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UpdateRangeStart MUST be set to true to make this field effective.
 	UpdateRangeStart uint32
 	// UpdateRangeEnd is "TextUpdateEventInit.updateRangeEnd"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UpdateRangeEnd MUST be set to true to make this field effective.
 	UpdateRangeEnd uint32
 	// Text is "TextUpdateEventInit.text"
 	//
@@ -1558,30 +1598,44 @@ type TextUpdateEventInit struct {
 	// SelectionStart is "TextUpdateEventInit.selectionStart"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SelectionStart MUST be set to true to make this field effective.
 	SelectionStart uint32
 	// SelectionEnd is "TextUpdateEventInit.selectionEnd"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SelectionEnd MUST be set to true to make this field effective.
 	SelectionEnd uint32
 	// CompositionStart is "TextUpdateEventInit.compositionStart"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CompositionStart MUST be set to true to make this field effective.
 	CompositionStart uint32
 	// CompositionEnd is "TextUpdateEventInit.compositionEnd"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CompositionEnd MUST be set to true to make this field effective.
 	CompositionEnd uint32
 	// Bubbles is "TextUpdateEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "TextUpdateEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "TextUpdateEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_UpdateRangeStart bool // for UpdateRangeStart.
@@ -1603,7 +1657,7 @@ func (p TextUpdateEventInit) FromRef(ref js.Ref) TextUpdateEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TextUpdateEventInit TextUpdateEventInit [// TextUpdateEventInit] [0x14000a7a780 0x14000a7a960 0x14000a7aaa0 0x14000a7ab40 0x14000a7ac80 0x14000a7adc0 0x14000a7af00 0x14000a7b040 0x14000a7b180 0x14000a7b2c0 0x14000a7a820 0x14000a7aa00 0x14000a7abe0 0x14000a7ad20 0x14000a7ae60 0x14000a7afa0 0x14000a7b0e0 0x14000a7b220 0x14000a7b360] 0x14000a031d0 {0 0}} in the application heap.
+// New creates a new TextUpdateEventInit in the application heap.
 func (p TextUpdateEventInit) New() js.Ref {
 	return bindings.TextUpdateEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1836,14 +1890,20 @@ type ToggleEventInit struct {
 	// Bubbles is "ToggleEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ToggleEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ToggleEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1859,7 +1919,7 @@ func (p ToggleEventInit) FromRef(ref js.Ref) ToggleEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ToggleEventInit ToggleEventInit [// ToggleEventInit] [0x14000a7b540 0x14000a7b5e0 0x14000a7b680 0x14000a7b7c0 0x14000a7b900 0x14000a7b720 0x14000a7b860 0x14000a7b9a0] 0x14000a032f0 {0 0}} in the application heap.
+// New creates a new ToggleEventInit in the application heap.
 func (p ToggleEventInit) New() js.Ref {
 	return bindings.ToggleEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1958,7 +2018,7 @@ func (p TokenBinding) FromRef(ref js.Ref) TokenBinding {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TokenBinding TokenBinding [// TokenBinding] [0x14000a7bae0 0x14000a7bb80] 0x14000a03320 {0 0}} in the application heap.
+// New creates a new TokenBinding in the application heap.
 func (p TokenBinding) New() js.Ref {
 	return bindings.TokenBindingJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2022,7 +2082,7 @@ func (p TopLevelStorageAccessPermissionDescriptor) FromRef(ref js.Ref) TopLevelS
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TopLevelStorageAccessPermissionDescriptor TopLevelStorageAccessPermissionDescriptor [// TopLevelStorageAccessPermissionDescriptor] [0x14000a7bc20 0x14000a7bcc0] 0x14000a03350 {0 0}} in the application heap.
+// New creates a new TopLevelStorageAccessPermissionDescriptor in the application heap.
 func (p TopLevelStorageAccessPermissionDescriptor) New() js.Ref {
 	return bindings.TopLevelStorageAccessPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2079,50 +2139,74 @@ type TouchInit struct {
 	// ClientX is "TouchInit.clientX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ClientX MUST be set to true to make this field effective.
 	ClientX float64
 	// ClientY is "TouchInit.clientY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ClientY MUST be set to true to make this field effective.
 	ClientY float64
 	// ScreenX is "TouchInit.screenX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ScreenX MUST be set to true to make this field effective.
 	ScreenX float64
 	// ScreenY is "TouchInit.screenY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ScreenY MUST be set to true to make this field effective.
 	ScreenY float64
 	// PageX is "TouchInit.pageX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_PageX MUST be set to true to make this field effective.
 	PageX float64
 	// PageY is "TouchInit.pageY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_PageY MUST be set to true to make this field effective.
 	PageY float64
 	// RadiusX is "TouchInit.radiusX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_RadiusX MUST be set to true to make this field effective.
 	RadiusX float32
 	// RadiusY is "TouchInit.radiusY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_RadiusY MUST be set to true to make this field effective.
 	RadiusY float32
 	// RotationAngle is "TouchInit.rotationAngle"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_RotationAngle MUST be set to true to make this field effective.
 	RotationAngle float32
 	// Force is "TouchInit.force"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Force MUST be set to true to make this field effective.
 	Force float32
 	// AltitudeAngle is "TouchInit.altitudeAngle"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_AltitudeAngle MUST be set to true to make this field effective.
 	AltitudeAngle float64
 	// AzimuthAngle is "TouchInit.azimuthAngle"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_AzimuthAngle MUST be set to true to make this field effective.
 	AzimuthAngle float64
 	// TouchType is "TouchInit.touchType"
 	//
@@ -2151,7 +2235,7 @@ func (p TouchInit) FromRef(ref js.Ref) TouchInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TouchInit TouchInit [// TouchInit] [0x14000a7bd60 0x14000a7be00 0x14000a7bea0 0x14000a94000 0x14000a94140 0x14000a94280 0x14000a943c0 0x14000a94500 0x14000a94640 0x14000a94780 0x14000a948c0 0x14000a94a00 0x14000a94b40 0x14000a94c80 0x14000a94dc0 0x14000a7bf40 0x14000a940a0 0x14000a941e0 0x14000a94320 0x14000a94460 0x14000a945a0 0x14000a946e0 0x14000a94820 0x14000a94960 0x14000a94aa0 0x14000a94be0 0x14000a94d20] 0x14000a03380 {0 0}} in the application heap.
+// New creates a new TouchInit in the application heap.
 func (p TouchInit) New() js.Ref {
 	return bindings.TouchInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2382,58 +2466,86 @@ type TouchEventInit struct {
 	// CtrlKey is "TouchEventInit.ctrlKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CtrlKey MUST be set to true to make this field effective.
 	CtrlKey bool
 	// ShiftKey is "TouchEventInit.shiftKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ShiftKey MUST be set to true to make this field effective.
 	ShiftKey bool
 	// AltKey is "TouchEventInit.altKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AltKey MUST be set to true to make this field effective.
 	AltKey bool
 	// MetaKey is "TouchEventInit.metaKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_MetaKey MUST be set to true to make this field effective.
 	MetaKey bool
 	// ModifierAltGraph is "TouchEventInit.modifierAltGraph"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierAltGraph MUST be set to true to make this field effective.
 	ModifierAltGraph bool
 	// ModifierCapsLock is "TouchEventInit.modifierCapsLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierCapsLock MUST be set to true to make this field effective.
 	ModifierCapsLock bool
 	// ModifierFn is "TouchEventInit.modifierFn"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFn MUST be set to true to make this field effective.
 	ModifierFn bool
 	// ModifierFnLock is "TouchEventInit.modifierFnLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFnLock MUST be set to true to make this field effective.
 	ModifierFnLock bool
 	// ModifierHyper is "TouchEventInit.modifierHyper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierHyper MUST be set to true to make this field effective.
 	ModifierHyper bool
 	// ModifierNumLock is "TouchEventInit.modifierNumLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierNumLock MUST be set to true to make this field effective.
 	ModifierNumLock bool
 	// ModifierScrollLock is "TouchEventInit.modifierScrollLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierScrollLock MUST be set to true to make this field effective.
 	ModifierScrollLock bool
 	// ModifierSuper is "TouchEventInit.modifierSuper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSuper MUST be set to true to make this field effective.
 	ModifierSuper bool
 	// ModifierSymbol is "TouchEventInit.modifierSymbol"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbol MUST be set to true to make this field effective.
 	ModifierSymbol bool
 	// ModifierSymbolLock is "TouchEventInit.modifierSymbolLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbolLock MUST be set to true to make this field effective.
 	ModifierSymbolLock bool
 	// View is "TouchEventInit.view"
 	//
@@ -2442,18 +2554,26 @@ type TouchEventInit struct {
 	// Detail is "TouchEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "TouchEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "TouchEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "TouchEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_CtrlKey            bool // for CtrlKey.
@@ -2484,7 +2604,7 @@ func (p TouchEventInit) FromRef(ref js.Ref) TouchEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TouchEventInit TouchEventInit [// TouchEventInit] [0x14000a94f00 0x14000a94fa0 0x14000a95040 0x14000a950e0 0x14000a95220 0x14000a95360 0x14000a954a0 0x14000a955e0 0x14000a95720 0x14000a95860 0x14000a959a0 0x14000a95ae0 0x14000a95c20 0x14000a95d60 0x14000a95ea0 0x14000a9a000 0x14000a9a140 0x14000a9a280 0x14000a9a320 0x14000a9a460 0x14000a9a5a0 0x14000a9a6e0 0x14000a95180 0x14000a952c0 0x14000a95400 0x14000a95540 0x14000a95680 0x14000a957c0 0x14000a95900 0x14000a95a40 0x14000a95b80 0x14000a95cc0 0x14000a95e00 0x14000a95f40 0x14000a9a0a0 0x14000a9a1e0 0x14000a9a3c0 0x14000a9a500 0x14000a9a640 0x14000a9a780] 0x14000a03410 {0 0}} in the application heap.
+// New creates a new TouchEventInit in the application heap.
 func (p TouchEventInit) New() js.Ref {
 	return bindings.TouchEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2738,14 +2858,20 @@ type TrackEventInit struct {
 	// Bubbles is "TrackEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "TrackEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "TrackEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2761,7 +2887,7 @@ func (p TrackEventInit) FromRef(ref js.Ref) TrackEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TrackEventInit TrackEventInit [// TrackEventInit] [0x14000a9a8c0 0x14000a9a960 0x14000a9aaa0 0x14000a9abe0 0x14000a9aa00 0x14000a9ab40 0x14000a9ac80] 0x14000a03560 {0 0}} in the application heap.
+// New creates a new TrackEventInit in the application heap.
 func (p TrackEventInit) New() js.Ref {
 	return bindings.TrackEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

@@ -2799,6 +2799,8 @@ type ScoreAdOutput struct {
 	// Bid is "ScoreAdOutput.bid"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Bid MUST be set to true to make this field effective.
 	Bid float64
 	// BidCurrency is "ScoreAdOutput.bidCurrency"
 	//
@@ -2807,10 +2809,14 @@ type ScoreAdOutput struct {
 	// IncomingBidInSellerCurrency is "ScoreAdOutput.incomingBidInSellerCurrency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IncomingBidInSellerCurrency MUST be set to true to make this field effective.
 	IncomingBidInSellerCurrency float64
 	// AllowComponentAuction is "ScoreAdOutput.allowComponentAuction"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AllowComponentAuction MUST be set to true to make this field effective.
 	AllowComponentAuction bool
 
 	FFI_USE_Bid                         bool // for Bid.
@@ -2826,7 +2832,7 @@ func (p ScoreAdOutput) FromRef(ref js.Ref) ScoreAdOutput {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ScoreAdOutput ScoreAdOutput [// ScoreAdOutput] [0x14000a430e0 0x14000a43180 0x14000a432c0 0x14000a43360 0x14000a434a0 0x14000a43220 0x14000a43400 0x14000a43540] 0x14000a02120 {0 0}} in the application heap.
+// New creates a new ScoreAdOutput in the application heap.
 func (p ScoreAdOutput) New() js.Ref {
 	return bindings.ScoreAdOutputJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2871,6 +2877,8 @@ type ScoringBrowserSignals struct {
 	// DataVersion is "ScoringBrowserSignals.dataVersion"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataVersion MUST be set to true to make this field effective.
 	DataVersion uint32
 	// AdComponents is "ScoringBrowserSignals.adComponents"
 	//
@@ -2888,7 +2896,7 @@ func (p ScoringBrowserSignals) FromRef(ref js.Ref) ScoringBrowserSignals {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ScoringBrowserSignals ScoringBrowserSignals [// ScoringBrowserSignals] [0x14000a435e0 0x14000a43680 0x14000a43720 0x14000a437c0 0x14000a43860 0x14000a43900 0x14000a43a40 0x14000a439a0] 0x14000a02168 {0 0}} in the application heap.
+// New creates a new ScoringBrowserSignals in the application heap.
 func (p ScoringBrowserSignals) New() js.Ref {
 	return bindings.ScoringBrowserSignalsJSLoad(
 		js.Pointer(&p), js.True, 0,

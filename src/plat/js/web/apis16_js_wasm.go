@@ -79,7 +79,7 @@ func (p GPUShaderModuleCompilationHint) FromRef(ref js.Ref) GPUShaderModuleCompi
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUShaderModuleCompilationHint GPUShaderModuleCompilationHint [// GPUShaderModuleCompilationHint] [0x140003d8be0] 0x1400037dcf8 {0 0}} in the application heap.
+// New creates a new GPUShaderModuleCompilationHint in the application heap.
 func (p GPUShaderModuleCompilationHint) New() js.Ref {
 	return bindings.GPUShaderModuleCompilationHintJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -127,7 +127,7 @@ func (p GPUShaderModuleDescriptor) FromRef(ref js.Ref) GPUShaderModuleDescriptor
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUShaderModuleDescriptor GPUShaderModuleDescriptor [// GPUShaderModuleDescriptor] [0x140003d8aa0 0x140003d8b40 0x140003d8c80 0x140003d8d20] 0x1400037dcc8 {0 0}} in the application heap.
+// New creates a new GPUShaderModuleDescriptor in the application heap.
 func (p GPUShaderModuleDescriptor) New() js.Ref {
 	return bindings.GPUShaderModuleDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -240,7 +240,7 @@ func (p GPUProgrammableStage) FromRef(ref js.Ref) GPUProgrammableStage {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUProgrammableStage GPUProgrammableStage [// GPUProgrammableStage] [0x140003d8dc0 0x140003d8e60 0x140003d8f00] 0x1400037dd58 {0 0}} in the application heap.
+// New creates a new GPUProgrammableStage in the application heap.
 func (p GPUProgrammableStage) New() js.Ref {
 	return bindings.GPUProgrammableStageJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -284,7 +284,7 @@ func (p GPUComputePipelineDescriptor) FromRef(ref js.Ref) GPUComputePipelineDesc
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUComputePipelineDescriptor GPUComputePipelineDescriptor [// GPUComputePipelineDescriptor] [0x140003d8fa0 0x140003d9040 0x140003d90e0] 0x1400037dd28 {0 0}} in the application heap.
+// New creates a new GPUComputePipelineDescriptor in the application heap.
 func (p GPUComputePipelineDescriptor) New() js.Ref {
 	return bindings.GPUComputePipelineDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -527,7 +527,7 @@ func (p GPUVertexAttribute) FromRef(ref js.Ref) GPUVertexAttribute {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUVertexAttribute GPUVertexAttribute [// GPUVertexAttribute] [0x140003d92c0 0x140003d9360 0x140003d9400] 0x1400037de18 {0 0}} in the application heap.
+// New creates a new GPUVertexAttribute in the application heap.
 func (p GPUVertexAttribute) New() js.Ref {
 	return bindings.GPUVertexAttributeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -571,7 +571,7 @@ func (p GPUVertexBufferLayout) FromRef(ref js.Ref) GPUVertexBufferLayout {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUVertexBufferLayout GPUVertexBufferLayout [// GPUVertexBufferLayout] [0x140003d9180 0x140003d9220 0x140003d94a0] 0x1400037dde8 {0 0}} in the application heap.
+// New creates a new GPUVertexBufferLayout in the application heap.
 func (p GPUVertexBufferLayout) New() js.Ref {
 	return bindings.GPUVertexBufferLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -619,7 +619,7 @@ func (p GPUVertexState) FromRef(ref js.Ref) GPUVertexState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUVertexState GPUVertexState [// GPUVertexState] [0x140003d9540 0x140003d95e0 0x140003d9680 0x140003d9720] 0x1400037ddb8 {0 0}} in the application heap.
+// New creates a new GPUVertexState in the application heap.
 func (p GPUVertexState) New() js.Ref {
 	return bindings.GPUVertexStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -768,6 +768,8 @@ type GPUPrimitiveState struct {
 	// UnclippedDepth is "GPUPrimitiveState.unclippedDepth"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_UnclippedDepth MUST be set to true to make this field effective.
 	UnclippedDepth bool
 
 	FFI_USE_UnclippedDepth bool // for UnclippedDepth.
@@ -781,7 +783,7 @@ func (p GPUPrimitiveState) FromRef(ref js.Ref) GPUPrimitiveState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUPrimitiveState GPUPrimitiveState [// GPUPrimitiveState] [0x140003d9860 0x140003d9900 0x140003d99a0 0x140003d9a40 0x140003d9ae0 0x140003d9b80] 0x1400037dfb0 {0 0}} in the application heap.
+// New creates a new GPUPrimitiveState in the application heap.
 func (p GPUPrimitiveState) New() js.Ref {
 	return bindings.GPUPrimitiveStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -871,7 +873,7 @@ func (p GPUStencilFaceState) FromRef(ref js.Ref) GPUStencilFaceState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUStencilFaceState GPUStencilFaceState [// GPUStencilFaceState] [0x140003d9ea0 0x140003d9f40 0x14000444000 0x140004440a0] 0x1400043e078 {0 0}} in the application heap.
+// New creates a new GPUStencilFaceState in the application heap.
 func (p GPUStencilFaceState) New() js.Ref {
 	return bindings.GPUStencilFaceStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -920,22 +922,32 @@ type GPUDepthStencilState struct {
 	// StencilReadMask is "GPUDepthStencilState.stencilReadMask"
 	//
 	// Optional, defaults to 0xFFFFFFFF.
+	//
+	// NOTE: FFI_USE_StencilReadMask MUST be set to true to make this field effective.
 	StencilReadMask GPUStencilValue
 	// StencilWriteMask is "GPUDepthStencilState.stencilWriteMask"
 	//
 	// Optional, defaults to 0xFFFFFFFF.
+	//
+	// NOTE: FFI_USE_StencilWriteMask MUST be set to true to make this field effective.
 	StencilWriteMask GPUStencilValue
 	// DepthBias is "GPUDepthStencilState.depthBias"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_DepthBias MUST be set to true to make this field effective.
 	DepthBias GPUDepthBias
 	// DepthBiasSlopeScale is "GPUDepthStencilState.depthBiasSlopeScale"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_DepthBiasSlopeScale MUST be set to true to make this field effective.
 	DepthBiasSlopeScale float32
 	// DepthBiasClamp is "GPUDepthStencilState.depthBiasClamp"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_DepthBiasClamp MUST be set to true to make this field effective.
 	DepthBiasClamp float32
 
 	FFI_USE_StencilReadMask     bool // for StencilReadMask.
@@ -953,7 +965,7 @@ func (p GPUDepthStencilState) FromRef(ref js.Ref) GPUDepthStencilState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUDepthStencilState GPUDepthStencilState [// GPUDepthStencilState] [0x140003d9cc0 0x140003d9d60 0x140003d9e00 0x14000444140 0x140004441e0 0x14000444280 0x14000444460 0x140004445a0 0x140004446e0 0x14000444820 0x14000444320 0x14000444500 0x14000444640 0x14000444780 0x140004448c0] 0x1400043e048 {0 0}} in the application heap.
+// New creates a new GPUDepthStencilState in the application heap.
 func (p GPUDepthStencilState) New() js.Ref {
 	return bindings.GPUDepthStencilStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -980,14 +992,20 @@ type GPUMultisampleState struct {
 	// Count is "GPUMultisampleState.count"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Count MUST be set to true to make this field effective.
 	Count GPUSize32
 	// Mask is "GPUMultisampleState.mask"
 	//
 	// Optional, defaults to 0xFFFFFFFF.
+	//
+	// NOTE: FFI_USE_Mask MUST be set to true to make this field effective.
 	Mask GPUSampleMask
 	// AlphaToCoverageEnabled is "GPUMultisampleState.alphaToCoverageEnabled"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AlphaToCoverageEnabled MUST be set to true to make this field effective.
 	AlphaToCoverageEnabled bool
 
 	FFI_USE_Count                  bool // for Count.
@@ -1003,7 +1021,7 @@ func (p GPUMultisampleState) FromRef(ref js.Ref) GPUMultisampleState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUMultisampleState GPUMultisampleState [// GPUMultisampleState] [0x14000444a00 0x14000444b40 0x14000444c80 0x14000444aa0 0x14000444be0 0x14000444d20] 0x1400043e1f8 {0 0}} in the application heap.
+// New creates a new GPUMultisampleState in the application heap.
 func (p GPUMultisampleState) New() js.Ref {
 	return bindings.GPUMultisampleStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1137,7 +1155,7 @@ func (p GPUBlendComponent) FromRef(ref js.Ref) GPUBlendComponent {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBlendComponent GPUBlendComponent [// GPUBlendComponent] [0x14000444f00 0x14000444fa0 0x14000445040] 0x1400043e2b8 {0 0}} in the application heap.
+// New creates a new GPUBlendComponent in the application heap.
 func (p GPUBlendComponent) New() js.Ref {
 	return bindings.GPUBlendComponentJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1177,7 +1195,7 @@ func (p GPUBlendState) FromRef(ref js.Ref) GPUBlendState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBlendState GPUBlendState [// GPUBlendState] [0x140004450e0 0x14000445180] 0x1400043e288 {0 0}} in the application heap.
+// New creates a new GPUBlendState in the application heap.
 func (p GPUBlendState) New() js.Ref {
 	return bindings.GPUBlendStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1212,6 +1230,8 @@ type GPUColorTargetState struct {
 	// WriteMask is "GPUColorTargetState.writeMask"
 	//
 	// Optional, defaults to 0xF.
+	//
+	// NOTE: FFI_USE_WriteMask MUST be set to true to make this field effective.
 	WriteMask GPUColorWriteFlags
 
 	FFI_USE_WriteMask bool // for WriteMask.
@@ -1225,7 +1245,7 @@ func (p GPUColorTargetState) FromRef(ref js.Ref) GPUColorTargetState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUColorTargetState GPUColorTargetState [// GPUColorTargetState] [0x14000444e60 0x14000445220 0x140004452c0 0x14000445360] 0x1400043e270 {0 0}} in the application heap.
+// New creates a new GPUColorTargetState in the application heap.
 func (p GPUColorTargetState) New() js.Ref {
 	return bindings.GPUColorTargetStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1273,7 +1293,7 @@ func (p GPUFragmentState) FromRef(ref js.Ref) GPUFragmentState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUFragmentState GPUFragmentState [// GPUFragmentState] [0x14000445400 0x140004454a0 0x14000445540 0x140004455e0] 0x1400043e240 {0 0}} in the application heap.
+// New creates a new GPUFragmentState in the application heap.
 func (p GPUFragmentState) New() js.Ref {
 	return bindings.GPUFragmentStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1333,7 +1353,7 @@ func (p GPURenderPipelineDescriptor) FromRef(ref js.Ref) GPURenderPipelineDescri
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderPipelineDescriptor GPURenderPipelineDescriptor [// GPURenderPipelineDescriptor] [0x140003d97c0 0x140003d9c20 0x14000444960 0x14000444dc0 0x14000445680 0x14000445720 0x140004457c0] 0x1400037dd88 {0 0}} in the application heap.
+// New creates a new GPURenderPipelineDescriptor in the application heap.
 func (p GPURenderPipelineDescriptor) New() js.Ref {
 	return bindings.GPURenderPipelineDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1381,7 +1401,7 @@ func (p GPUColorDict) FromRef(ref js.Ref) GPUColorDict {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUColorDict GPUColorDict [// GPUColorDict] [0x14000445860 0x14000445900 0x140004459a0 0x14000445a40] 0x1400043e4c8 {0 0}} in the application heap.
+// New creates a new GPUColorDict in the application heap.
 func (p GPUColorDict) New() js.Ref {
 	return bindings.GPUColorDictJSLoad(
 		js.Pointer(&p), js.True, 0,

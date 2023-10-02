@@ -526,10 +526,14 @@ type RTCEncodedAudioFrameMetadata struct {
 	// SynchronizationSource is "RTCEncodedAudioFrameMetadata.synchronizationSource"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SynchronizationSource MUST be set to true to make this field effective.
 	SynchronizationSource uint32
 	// PayloadType is "RTCEncodedAudioFrameMetadata.payloadType"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PayloadType MUST be set to true to make this field effective.
 	PayloadType uint8
 	// ContributingSources is "RTCEncodedAudioFrameMetadata.contributingSources"
 	//
@@ -538,6 +542,8 @@ type RTCEncodedAudioFrameMetadata struct {
 	// SequenceNumber is "RTCEncodedAudioFrameMetadata.sequenceNumber"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SequenceNumber MUST be set to true to make this field effective.
 	SequenceNumber int16
 
 	FFI_USE_SynchronizationSource bool // for SynchronizationSource.
@@ -553,7 +559,7 @@ func (p RTCEncodedAudioFrameMetadata) FromRef(ref js.Ref) RTCEncodedAudioFrameMe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCEncodedAudioFrameMetadata RTCEncodedAudioFrameMetadata [// RTCEncodedAudioFrameMetadata] [0x1400098de00 0x1400098df40 0x1400099a0a0 0x1400099a140 0x1400098dea0 0x1400099a000 0x1400099a1e0] 0x14000921fb0 {0 0}} in the application heap.
+// New creates a new RTCEncodedAudioFrameMetadata in the application heap.
 func (p RTCEncodedAudioFrameMetadata) New() js.Ref {
 	return bindings.RTCEncodedAudioFrameMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -655,6 +661,8 @@ type RTCEncodedVideoFrameMetadata struct {
 	// FrameId is "RTCEncodedVideoFrameMetadata.frameId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FrameId MUST be set to true to make this field effective.
 	FrameId uint64
 	// Dependencies is "RTCEncodedVideoFrameMetadata.dependencies"
 	//
@@ -663,26 +671,38 @@ type RTCEncodedVideoFrameMetadata struct {
 	// Width is "RTCEncodedVideoFrameMetadata.width"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width uint16
 	// Height is "RTCEncodedVideoFrameMetadata.height"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height uint16
 	// SpatialIndex is "RTCEncodedVideoFrameMetadata.spatialIndex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SpatialIndex MUST be set to true to make this field effective.
 	SpatialIndex uint32
 	// TemporalIndex is "RTCEncodedVideoFrameMetadata.temporalIndex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TemporalIndex MUST be set to true to make this field effective.
 	TemporalIndex uint32
 	// SynchronizationSource is "RTCEncodedVideoFrameMetadata.synchronizationSource"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SynchronizationSource MUST be set to true to make this field effective.
 	SynchronizationSource uint32
 	// PayloadType is "RTCEncodedVideoFrameMetadata.payloadType"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PayloadType MUST be set to true to make this field effective.
 	PayloadType uint8
 	// ContributingSources is "RTCEncodedVideoFrameMetadata.contributingSources"
 	//
@@ -691,6 +711,8 @@ type RTCEncodedVideoFrameMetadata struct {
 	// Timestamp is "RTCEncodedVideoFrameMetadata.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp int64
 
 	FFI_USE_FrameId               bool // for FrameId.
@@ -711,7 +733,7 @@ func (p RTCEncodedVideoFrameMetadata) FromRef(ref js.Ref) RTCEncodedVideoFrameMe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCEncodedVideoFrameMetadata RTCEncodedVideoFrameMetadata [// RTCEncodedVideoFrameMetadata] [0x1400099a320 0x1400099a500 0x1400099a5a0 0x1400099a6e0 0x1400099a820 0x1400099a960 0x1400099aaa0 0x1400099abe0 0x1400099ad20 0x1400099adc0 0x1400099a3c0 0x1400099a640 0x1400099a780 0x1400099a8c0 0x1400099aa00 0x1400099ab40 0x1400099ac80 0x1400099ae60] 0x1400099c000 {0 0}} in the application heap.
+// New creates a new RTCEncodedVideoFrameMetadata in the application heap.
 func (p RTCEncodedVideoFrameMetadata) New() js.Ref {
 	return bindings.RTCEncodedVideoFrameMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -894,22 +916,32 @@ type RTCErrorInit struct {
 	// SdpLineNumber is "RTCErrorInit.sdpLineNumber"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SdpLineNumber MUST be set to true to make this field effective.
 	SdpLineNumber int32
 	// SctpCauseCode is "RTCErrorInit.sctpCauseCode"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SctpCauseCode MUST be set to true to make this field effective.
 	SctpCauseCode int32
 	// ReceivedAlert is "RTCErrorInit.receivedAlert"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ReceivedAlert MUST be set to true to make this field effective.
 	ReceivedAlert uint32
 	// SentAlert is "RTCErrorInit.sentAlert"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SentAlert MUST be set to true to make this field effective.
 	SentAlert uint32
 	// HttpRequestStatusCode is "RTCErrorInit.httpRequestStatusCode"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HttpRequestStatusCode MUST be set to true to make this field effective.
 	HttpRequestStatusCode int32
 
 	FFI_USE_SdpLineNumber         bool // for SdpLineNumber.
@@ -927,7 +959,7 @@ func (p RTCErrorInit) FromRef(ref js.Ref) RTCErrorInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCErrorInit RTCErrorInit [// RTCErrorInit] [0x1400099afa0 0x1400099b040 0x1400099b180 0x1400099b2c0 0x1400099b400 0x1400099b540 0x1400099b0e0 0x1400099b220 0x1400099b360 0x1400099b4a0 0x1400099b5e0] 0x1400099c078 {0 0}} in the application heap.
+// New creates a new RTCErrorInit in the application heap.
 func (p RTCErrorInit) New() js.Ref {
 	return bindings.RTCErrorInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1101,14 +1133,20 @@ type RTCErrorEventInit struct {
 	// Bubbles is "RTCErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "RTCErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "RTCErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1124,7 +1162,7 @@ func (p RTCErrorEventInit) FromRef(ref js.Ref) RTCErrorEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCErrorEventInit RTCErrorEventInit [// RTCErrorEventInit] [0x1400099b720 0x1400099b7c0 0x1400099b900 0x1400099ba40 0x1400099b860 0x1400099b9a0 0x1400099bae0] 0x1400099c420 {0 0}} in the application heap.
+// New creates a new RTCErrorEventInit in the application heap.
 func (p RTCErrorEventInit) New() js.Ref {
 	return bindings.RTCErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1239,74 +1277,110 @@ type RTCIceCandidatePairStats struct {
 	// Nominated is "RTCIceCandidatePairStats.nominated"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Nominated MUST be set to true to make this field effective.
 	Nominated bool
 	// PacketsSent is "RTCIceCandidatePairStats.packetsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsSent MUST be set to true to make this field effective.
 	PacketsSent uint64
 	// PacketsReceived is "RTCIceCandidatePairStats.packetsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsReceived MUST be set to true to make this field effective.
 	PacketsReceived uint64
 	// BytesSent is "RTCIceCandidatePairStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// BytesReceived is "RTCIceCandidatePairStats.bytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesReceived MUST be set to true to make this field effective.
 	BytesReceived uint64
 	// LastPacketSentTimestamp is "RTCIceCandidatePairStats.lastPacketSentTimestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LastPacketSentTimestamp MUST be set to true to make this field effective.
 	LastPacketSentTimestamp DOMHighResTimeStamp
 	// LastPacketReceivedTimestamp is "RTCIceCandidatePairStats.lastPacketReceivedTimestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LastPacketReceivedTimestamp MUST be set to true to make this field effective.
 	LastPacketReceivedTimestamp DOMHighResTimeStamp
 	// TotalRoundTripTime is "RTCIceCandidatePairStats.totalRoundTripTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalRoundTripTime MUST be set to true to make this field effective.
 	TotalRoundTripTime float64
 	// CurrentRoundTripTime is "RTCIceCandidatePairStats.currentRoundTripTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CurrentRoundTripTime MUST be set to true to make this field effective.
 	CurrentRoundTripTime float64
 	// AvailableOutgoingBitrate is "RTCIceCandidatePairStats.availableOutgoingBitrate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AvailableOutgoingBitrate MUST be set to true to make this field effective.
 	AvailableOutgoingBitrate float64
 	// AvailableIncomingBitrate is "RTCIceCandidatePairStats.availableIncomingBitrate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AvailableIncomingBitrate MUST be set to true to make this field effective.
 	AvailableIncomingBitrate float64
 	// RequestsReceived is "RTCIceCandidatePairStats.requestsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RequestsReceived MUST be set to true to make this field effective.
 	RequestsReceived uint64
 	// RequestsSent is "RTCIceCandidatePairStats.requestsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RequestsSent MUST be set to true to make this field effective.
 	RequestsSent uint64
 	// ResponsesReceived is "RTCIceCandidatePairStats.responsesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ResponsesReceived MUST be set to true to make this field effective.
 	ResponsesReceived uint64
 	// ResponsesSent is "RTCIceCandidatePairStats.responsesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ResponsesSent MUST be set to true to make this field effective.
 	ResponsesSent uint64
 	// ConsentRequestsSent is "RTCIceCandidatePairStats.consentRequestsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ConsentRequestsSent MUST be set to true to make this field effective.
 	ConsentRequestsSent uint64
 	// PacketsDiscardedOnSend is "RTCIceCandidatePairStats.packetsDiscardedOnSend"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsDiscardedOnSend MUST be set to true to make this field effective.
 	PacketsDiscardedOnSend uint32
 	// BytesDiscardedOnSend is "RTCIceCandidatePairStats.bytesDiscardedOnSend"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesDiscardedOnSend MUST be set to true to make this field effective.
 	BytesDiscardedOnSend uint64
 	// Timestamp is "RTCIceCandidatePairStats.timestamp"
 	//
@@ -1349,7 +1423,7 @@ func (p RTCIceCandidatePairStats) FromRef(ref js.Ref) RTCIceCandidatePairStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIceCandidatePairStats RTCIceCandidatePairStats [// RTCIceCandidatePairStats] [0x1400099bb80 0x1400099bc20 0x1400099bcc0 0x1400099bd60 0x1400099be00 0x1400099bf40 0x140009a00a0 0x140009a01e0 0x140009a0320 0x140009a0460 0x140009a05a0 0x140009a06e0 0x140009a0820 0x140009a0960 0x140009a0aa0 0x140009a0be0 0x140009a0d20 0x140009a0e60 0x140009a0fa0 0x140009a10e0 0x140009a1220 0x140009a1360 0x140009a14a0 0x140009a1540 0x140009a15e0 0x1400099bea0 0x140009a0000 0x140009a0140 0x140009a0280 0x140009a03c0 0x140009a0500 0x140009a0640 0x140009a0780 0x140009a08c0 0x140009a0a00 0x140009a0b40 0x140009a0c80 0x140009a0dc0 0x140009a0f00 0x140009a1040 0x140009a1180 0x140009a12c0 0x140009a1400] 0x1400099c450 {0 0}} in the application heap.
+// New creates a new RTCIceCandidatePairStats in the application heap.
 func (p RTCIceCandidatePairStats) New() js.Ref {
 	return bindings.RTCIceCandidatePairStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1382,6 +1456,8 @@ type RTCIceCandidateStats struct {
 	// Port is "RTCIceCandidateStats.port"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Port MUST be set to true to make this field effective.
 	Port int32
 	// Protocol is "RTCIceCandidateStats.protocol"
 	//
@@ -1394,6 +1470,8 @@ type RTCIceCandidateStats struct {
 	// Priority is "RTCIceCandidateStats.priority"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Priority MUST be set to true to make this field effective.
 	Priority int32
 	// Url is "RTCIceCandidateStats.url"
 	//
@@ -1414,6 +1492,8 @@ type RTCIceCandidateStats struct {
 	// RelatedPort is "RTCIceCandidateStats.relatedPort"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RelatedPort MUST be set to true to make this field effective.
 	RelatedPort int32
 	// UsernameFragment is "RTCIceCandidateStats.usernameFragment"
 	//
@@ -1449,7 +1529,7 @@ func (p RTCIceCandidateStats) FromRef(ref js.Ref) RTCIceCandidateStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIceCandidateStats RTCIceCandidateStats [// RTCIceCandidateStats] [0x140009a1680 0x140009a1720 0x140009a17c0 0x140009a1900 0x140009a19a0 0x140009a1a40 0x140009a1b80 0x140009a1c20 0x140009a1cc0 0x140009a1d60 0x140009a1e00 0x140009a1f40 0x140009a8000 0x140009a80a0 0x140009a8140 0x140009a81e0 0x140009a1860 0x140009a1ae0 0x140009a1ea0] 0x1400099c570 {0 0}} in the application heap.
+// New creates a new RTCIceCandidateStats in the application heap.
 func (p RTCIceCandidateStats) New() js.Ref {
 	return bindings.RTCIceCandidateStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1689,7 +1769,7 @@ func (p RTCIdentityValidationResult) FromRef(ref js.Ref) RTCIdentityValidationRe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIdentityValidationResult RTCIdentityValidationResult [// RTCIdentityValidationResult] [0x140009a83c0 0x140009a8460] 0x1400099c648 {0 0}} in the application heap.
+// New creates a new RTCIdentityValidationResult in the application heap.
 func (p RTCIdentityValidationResult) New() js.Ref {
 	return bindings.RTCIdentityValidationResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1729,7 +1809,7 @@ func (p RTCIdentityProvider) FromRef(ref js.Ref) RTCIdentityProvider {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIdentityProvider RTCIdentityProvider [// RTCIdentityProvider] [0x140009a8320 0x140009a8500] 0x1400099c630 {0 0}} in the application heap.
+// New creates a new RTCIdentityProvider in the application heap.
 func (p RTCIdentityProvider) New() js.Ref {
 	return bindings.RTCIdentityProviderJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1846,166 +1926,248 @@ type RTCInboundRtpStreamStats struct {
 	// FramesDecoded is "RTCInboundRtpStreamStats.framesDecoded"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesDecoded MUST be set to true to make this field effective.
 	FramesDecoded uint32
 	// KeyFramesDecoded is "RTCInboundRtpStreamStats.keyFramesDecoded"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_KeyFramesDecoded MUST be set to true to make this field effective.
 	KeyFramesDecoded uint32
 	// FramesRendered is "RTCInboundRtpStreamStats.framesRendered"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesRendered MUST be set to true to make this field effective.
 	FramesRendered uint32
 	// FramesDropped is "RTCInboundRtpStreamStats.framesDropped"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesDropped MUST be set to true to make this field effective.
 	FramesDropped uint32
 	// FrameWidth is "RTCInboundRtpStreamStats.frameWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FrameWidth MUST be set to true to make this field effective.
 	FrameWidth uint32
 	// FrameHeight is "RTCInboundRtpStreamStats.frameHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FrameHeight MUST be set to true to make this field effective.
 	FrameHeight uint32
 	// FramesPerSecond is "RTCInboundRtpStreamStats.framesPerSecond"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesPerSecond MUST be set to true to make this field effective.
 	FramesPerSecond float64
 	// QpSum is "RTCInboundRtpStreamStats.qpSum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_QpSum MUST be set to true to make this field effective.
 	QpSum uint64
 	// TotalDecodeTime is "RTCInboundRtpStreamStats.totalDecodeTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalDecodeTime MUST be set to true to make this field effective.
 	TotalDecodeTime float64
 	// TotalInterFrameDelay is "RTCInboundRtpStreamStats.totalInterFrameDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalInterFrameDelay MUST be set to true to make this field effective.
 	TotalInterFrameDelay float64
 	// TotalSquaredInterFrameDelay is "RTCInboundRtpStreamStats.totalSquaredInterFrameDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalSquaredInterFrameDelay MUST be set to true to make this field effective.
 	TotalSquaredInterFrameDelay float64
 	// PauseCount is "RTCInboundRtpStreamStats.pauseCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PauseCount MUST be set to true to make this field effective.
 	PauseCount uint32
 	// TotalPausesDuration is "RTCInboundRtpStreamStats.totalPausesDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalPausesDuration MUST be set to true to make this field effective.
 	TotalPausesDuration float64
 	// FreezeCount is "RTCInboundRtpStreamStats.freezeCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FreezeCount MUST be set to true to make this field effective.
 	FreezeCount uint32
 	// TotalFreezesDuration is "RTCInboundRtpStreamStats.totalFreezesDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalFreezesDuration MUST be set to true to make this field effective.
 	TotalFreezesDuration float64
 	// LastPacketReceivedTimestamp is "RTCInboundRtpStreamStats.lastPacketReceivedTimestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LastPacketReceivedTimestamp MUST be set to true to make this field effective.
 	LastPacketReceivedTimestamp DOMHighResTimeStamp
 	// HeaderBytesReceived is "RTCInboundRtpStreamStats.headerBytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HeaderBytesReceived MUST be set to true to make this field effective.
 	HeaderBytesReceived uint64
 	// PacketsDiscarded is "RTCInboundRtpStreamStats.packetsDiscarded"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsDiscarded MUST be set to true to make this field effective.
 	PacketsDiscarded uint64
 	// FecBytesReceived is "RTCInboundRtpStreamStats.fecBytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FecBytesReceived MUST be set to true to make this field effective.
 	FecBytesReceived uint64
 	// FecPacketsReceived is "RTCInboundRtpStreamStats.fecPacketsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FecPacketsReceived MUST be set to true to make this field effective.
 	FecPacketsReceived uint64
 	// FecPacketsDiscarded is "RTCInboundRtpStreamStats.fecPacketsDiscarded"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FecPacketsDiscarded MUST be set to true to make this field effective.
 	FecPacketsDiscarded uint64
 	// BytesReceived is "RTCInboundRtpStreamStats.bytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesReceived MUST be set to true to make this field effective.
 	BytesReceived uint64
 	// NackCount is "RTCInboundRtpStreamStats.nackCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_NackCount MUST be set to true to make this field effective.
 	NackCount uint32
 	// FirCount is "RTCInboundRtpStreamStats.firCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FirCount MUST be set to true to make this field effective.
 	FirCount uint32
 	// PliCount is "RTCInboundRtpStreamStats.pliCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PliCount MUST be set to true to make this field effective.
 	PliCount uint32
 	// TotalProcessingDelay is "RTCInboundRtpStreamStats.totalProcessingDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalProcessingDelay MUST be set to true to make this field effective.
 	TotalProcessingDelay float64
 	// EstimatedPlayoutTimestamp is "RTCInboundRtpStreamStats.estimatedPlayoutTimestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EstimatedPlayoutTimestamp MUST be set to true to make this field effective.
 	EstimatedPlayoutTimestamp DOMHighResTimeStamp
 	// JitterBufferDelay is "RTCInboundRtpStreamStats.jitterBufferDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_JitterBufferDelay MUST be set to true to make this field effective.
 	JitterBufferDelay float64
 	// JitterBufferTargetDelay is "RTCInboundRtpStreamStats.jitterBufferTargetDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_JitterBufferTargetDelay MUST be set to true to make this field effective.
 	JitterBufferTargetDelay float64
 	// JitterBufferEmittedCount is "RTCInboundRtpStreamStats.jitterBufferEmittedCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_JitterBufferEmittedCount MUST be set to true to make this field effective.
 	JitterBufferEmittedCount uint64
 	// JitterBufferMinimumDelay is "RTCInboundRtpStreamStats.jitterBufferMinimumDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_JitterBufferMinimumDelay MUST be set to true to make this field effective.
 	JitterBufferMinimumDelay float64
 	// TotalSamplesReceived is "RTCInboundRtpStreamStats.totalSamplesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalSamplesReceived MUST be set to true to make this field effective.
 	TotalSamplesReceived uint64
 	// ConcealedSamples is "RTCInboundRtpStreamStats.concealedSamples"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ConcealedSamples MUST be set to true to make this field effective.
 	ConcealedSamples uint64
 	// SilentConcealedSamples is "RTCInboundRtpStreamStats.silentConcealedSamples"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SilentConcealedSamples MUST be set to true to make this field effective.
 	SilentConcealedSamples uint64
 	// ConcealmentEvents is "RTCInboundRtpStreamStats.concealmentEvents"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ConcealmentEvents MUST be set to true to make this field effective.
 	ConcealmentEvents uint64
 	// InsertedSamplesForDeceleration is "RTCInboundRtpStreamStats.insertedSamplesForDeceleration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_InsertedSamplesForDeceleration MUST be set to true to make this field effective.
 	InsertedSamplesForDeceleration uint64
 	// RemovedSamplesForAcceleration is "RTCInboundRtpStreamStats.removedSamplesForAcceleration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RemovedSamplesForAcceleration MUST be set to true to make this field effective.
 	RemovedSamplesForAcceleration uint64
 	// AudioLevel is "RTCInboundRtpStreamStats.audioLevel"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AudioLevel MUST be set to true to make this field effective.
 	AudioLevel float64
 	// TotalAudioEnergy is "RTCInboundRtpStreamStats.totalAudioEnergy"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalAudioEnergy MUST be set to true to make this field effective.
 	TotalAudioEnergy float64
 	// TotalSamplesDuration is "RTCInboundRtpStreamStats.totalSamplesDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalSamplesDuration MUST be set to true to make this field effective.
 	TotalSamplesDuration float64
 	// FramesReceived is "RTCInboundRtpStreamStats.framesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesReceived MUST be set to true to make this field effective.
 	FramesReceived uint32
 	// DecoderImplementation is "RTCInboundRtpStreamStats.decoderImplementation"
 	//
@@ -2018,42 +2180,62 @@ type RTCInboundRtpStreamStats struct {
 	// PowerEfficientDecoder is "RTCInboundRtpStreamStats.powerEfficientDecoder"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PowerEfficientDecoder MUST be set to true to make this field effective.
 	PowerEfficientDecoder bool
 	// FramesAssembledFromMultiplePackets is "RTCInboundRtpStreamStats.framesAssembledFromMultiplePackets"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesAssembledFromMultiplePackets MUST be set to true to make this field effective.
 	FramesAssembledFromMultiplePackets uint32
 	// TotalAssemblyTime is "RTCInboundRtpStreamStats.totalAssemblyTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalAssemblyTime MUST be set to true to make this field effective.
 	TotalAssemblyTime float64
 	// RetransmittedPacketsReceived is "RTCInboundRtpStreamStats.retransmittedPacketsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RetransmittedPacketsReceived MUST be set to true to make this field effective.
 	RetransmittedPacketsReceived uint64
 	// RetransmittedBytesReceived is "RTCInboundRtpStreamStats.retransmittedBytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RetransmittedBytesReceived MUST be set to true to make this field effective.
 	RetransmittedBytesReceived uint64
 	// RtxSsrc is "RTCInboundRtpStreamStats.rtxSsrc"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RtxSsrc MUST be set to true to make this field effective.
 	RtxSsrc uint32
 	// FecSsrc is "RTCInboundRtpStreamStats.fecSsrc"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FecSsrc MUST be set to true to make this field effective.
 	FecSsrc uint32
 	// PacketsReceived is "RTCInboundRtpStreamStats.packetsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsReceived MUST be set to true to make this field effective.
 	PacketsReceived uint64
 	// PacketsLost is "RTCInboundRtpStreamStats.packetsLost"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsLost MUST be set to true to make this field effective.
 	PacketsLost int64
 	// Jitter is "RTCInboundRtpStreamStats.jitter"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Jitter MUST be set to true to make this field effective.
 	Jitter float64
 	// Ssrc is "RTCInboundRtpStreamStats.ssrc"
 	//
@@ -2145,7 +2327,7 @@ func (p RTCInboundRtpStreamStats) FromRef(ref js.Ref) RTCInboundRtpStreamStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCInboundRtpStreamStats RTCInboundRtpStreamStats [// RTCInboundRtpStreamStats] [0x140009a85a0 0x140009a8640 0x140009a86e0 0x140009a8780 0x140009a88c0 0x140009a8a00 0x140009a8b40 0x140009a8c80 0x140009a8dc0 0x140009a8f00 0x140009a9040 0x140009a9180 0x140009a92c0 0x140009a9400 0x140009a9540 0x140009a9680 0x140009a97c0 0x140009a9900 0x140009a9a40 0x140009a9b80 0x140009a9cc0 0x140009a9e00 0x140009a9f40 0x140009aa0a0 0x140009aa1e0 0x140009aa320 0x140009aa460 0x140009aa5a0 0x140009aa6e0 0x140009aa820 0x140009aa960 0x140009aaaa0 0x140009aabe0 0x140009aad20 0x140009aae60 0x140009aafa0 0x140009ab0e0 0x140009ab220 0x140009ab360 0x140009ab4a0 0x140009ab5e0 0x140009ab720 0x140009ab860 0x140009ab9a0 0x140009abae0 0x140009abb80 0x140009abc20 0x140009abd60 0x140009abea0 0x140009ac000 0x140009ac140 0x140009ac280 0x140009ac3c0 0x140009ac500 0x140009ac640 0x140009ac780 0x140009ac8c0 0x140009ac960 0x140009aca00 0x140009acaa0 0x140009acb40 0x140009acbe0 0x140009acc80 0x140009a8820 0x140009a8960 0x140009a8aa0 0x140009a8be0 0x140009a8d20 0x140009a8e60 0x140009a8fa0 0x140009a90e0 0x140009a9220 0x140009a9360 0x140009a94a0 0x140009a95e0 0x140009a9720 0x140009a9860 0x140009a99a0 0x140009a9ae0 0x140009a9c20 0x140009a9d60 0x140009a9ea0 0x140009aa000 0x140009aa140 0x140009aa280 0x140009aa3c0 0x140009aa500 0x140009aa640 0x140009aa780 0x140009aa8c0 0x140009aaa00 0x140009aab40 0x140009aac80 0x140009aadc0 0x140009aaf00 0x140009ab040 0x140009ab180 0x140009ab2c0 0x140009ab400 0x140009ab540 0x140009ab680 0x140009ab7c0 0x140009ab900 0x140009aba40 0x140009abcc0 0x140009abe00 0x140009abf40 0x140009ac0a0 0x140009ac1e0 0x140009ac320 0x140009ac460 0x140009ac5a0 0x140009ac6e0 0x140009ac820] 0x1400099c660 {0 0}} in the application heap.
+// New creates a new RTCInboundRtpStreamStats in the application heap.
 func (p RTCInboundRtpStreamStats) New() js.Ref {
 	return bindings.RTCInboundRtpStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2215,7 +2397,7 @@ func (p RTCLocalSessionDescriptionInit) FromRef(ref js.Ref) RTCLocalSessionDescr
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCLocalSessionDescriptionInit RTCLocalSessionDescriptionInit [// RTCLocalSessionDescriptionInit] [0x140009acd20 0x140009acdc0] 0x1400099c8d0 {0 0}} in the application heap.
+// New creates a new RTCLocalSessionDescriptionInit in the application heap.
 func (p RTCLocalSessionDescriptionInit) New() js.Ref {
 	return bindings.RTCLocalSessionDescriptionInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2267,7 +2449,7 @@ func (p RTCMediaSourceStats) FromRef(ref js.Ref) RTCMediaSourceStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCMediaSourceStats RTCMediaSourceStats [// RTCMediaSourceStats] [0x140009ace60 0x140009acf00 0x140009acfa0 0x140009ad040 0x140009ad0e0] 0x1400099c930 {0 0}} in the application heap.
+// New creates a new RTCMediaSourceStats in the application heap.
 func (p RTCMediaSourceStats) New() js.Ref {
 	return bindings.RTCMediaSourceStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2298,7 +2480,7 @@ func (p RTCOfferAnswerOptions) FromRef(ref js.Ref) RTCOfferAnswerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCOfferAnswerOptions RTCOfferAnswerOptions [// RTCOfferAnswerOptions] [] 0x1400099c9a8 {0 0}} in the application heap.
+// New creates a new RTCOfferAnswerOptions in the application heap.
 func (p RTCOfferAnswerOptions) New() js.Ref {
 	return bindings.RTCOfferAnswerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2323,14 +2505,20 @@ type RTCOfferOptions struct {
 	// IceRestart is "RTCOfferOptions.iceRestart"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IceRestart MUST be set to true to make this field effective.
 	IceRestart bool
 	// OfferToReceiveAudio is "RTCOfferOptions.offerToReceiveAudio"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_OfferToReceiveAudio MUST be set to true to make this field effective.
 	OfferToReceiveAudio bool
 	// OfferToReceiveVideo is "RTCOfferOptions.offerToReceiveVideo"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_OfferToReceiveVideo MUST be set to true to make this field effective.
 	OfferToReceiveVideo bool
 
 	FFI_USE_IceRestart          bool // for IceRestart.
@@ -2346,7 +2534,7 @@ func (p RTCOfferOptions) FromRef(ref js.Ref) RTCOfferOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCOfferOptions RTCOfferOptions [// RTCOfferOptions] [0x140009ad180 0x140009ad2c0 0x140009ad400 0x140009ad220 0x140009ad360 0x140009ad4a0] 0x1400099c9d8 {0 0}} in the application heap.
+// New creates a new RTCOfferOptions in the application heap.
 func (p RTCOfferOptions) New() js.Ref {
 	return bindings.RTCOfferOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2417,66 +2605,98 @@ type RTCOutboundRtpStreamStats struct {
 	// HeaderBytesSent is "RTCOutboundRtpStreamStats.headerBytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HeaderBytesSent MUST be set to true to make this field effective.
 	HeaderBytesSent uint64
 	// RetransmittedPacketsSent is "RTCOutboundRtpStreamStats.retransmittedPacketsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RetransmittedPacketsSent MUST be set to true to make this field effective.
 	RetransmittedPacketsSent uint64
 	// RetransmittedBytesSent is "RTCOutboundRtpStreamStats.retransmittedBytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RetransmittedBytesSent MUST be set to true to make this field effective.
 	RetransmittedBytesSent uint64
 	// RtxSsrc is "RTCOutboundRtpStreamStats.rtxSsrc"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RtxSsrc MUST be set to true to make this field effective.
 	RtxSsrc uint32
 	// TargetBitrate is "RTCOutboundRtpStreamStats.targetBitrate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TargetBitrate MUST be set to true to make this field effective.
 	TargetBitrate float64
 	// TotalEncodedBytesTarget is "RTCOutboundRtpStreamStats.totalEncodedBytesTarget"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalEncodedBytesTarget MUST be set to true to make this field effective.
 	TotalEncodedBytesTarget uint64
 	// FrameWidth is "RTCOutboundRtpStreamStats.frameWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FrameWidth MUST be set to true to make this field effective.
 	FrameWidth uint32
 	// FrameHeight is "RTCOutboundRtpStreamStats.frameHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FrameHeight MUST be set to true to make this field effective.
 	FrameHeight uint32
 	// FramesPerSecond is "RTCOutboundRtpStreamStats.framesPerSecond"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesPerSecond MUST be set to true to make this field effective.
 	FramesPerSecond float64
 	// FramesSent is "RTCOutboundRtpStreamStats.framesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesSent MUST be set to true to make this field effective.
 	FramesSent uint32
 	// HugeFramesSent is "RTCOutboundRtpStreamStats.hugeFramesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HugeFramesSent MUST be set to true to make this field effective.
 	HugeFramesSent uint32
 	// FramesEncoded is "RTCOutboundRtpStreamStats.framesEncoded"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesEncoded MUST be set to true to make this field effective.
 	FramesEncoded uint32
 	// KeyFramesEncoded is "RTCOutboundRtpStreamStats.keyFramesEncoded"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_KeyFramesEncoded MUST be set to true to make this field effective.
 	KeyFramesEncoded uint32
 	// QpSum is "RTCOutboundRtpStreamStats.qpSum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_QpSum MUST be set to true to make this field effective.
 	QpSum uint64
 	// TotalEncodeTime is "RTCOutboundRtpStreamStats.totalEncodeTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalEncodeTime MUST be set to true to make this field effective.
 	TotalEncodeTime float64
 	// TotalPacketSendDelay is "RTCOutboundRtpStreamStats.totalPacketSendDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalPacketSendDelay MUST be set to true to make this field effective.
 	TotalPacketSendDelay float64
 	// QualityLimitationReason is "RTCOutboundRtpStreamStats.qualityLimitationReason"
 	//
@@ -2489,18 +2709,26 @@ type RTCOutboundRtpStreamStats struct {
 	// QualityLimitationResolutionChanges is "RTCOutboundRtpStreamStats.qualityLimitationResolutionChanges"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_QualityLimitationResolutionChanges MUST be set to true to make this field effective.
 	QualityLimitationResolutionChanges uint32
 	// NackCount is "RTCOutboundRtpStreamStats.nackCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_NackCount MUST be set to true to make this field effective.
 	NackCount uint32
 	// FirCount is "RTCOutboundRtpStreamStats.firCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FirCount MUST be set to true to make this field effective.
 	FirCount uint32
 	// PliCount is "RTCOutboundRtpStreamStats.pliCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PliCount MUST be set to true to make this field effective.
 	PliCount uint32
 	// EncoderImplementation is "RTCOutboundRtpStreamStats.encoderImplementation"
 	//
@@ -2509,10 +2737,14 @@ type RTCOutboundRtpStreamStats struct {
 	// PowerEfficientEncoder is "RTCOutboundRtpStreamStats.powerEfficientEncoder"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PowerEfficientEncoder MUST be set to true to make this field effective.
 	PowerEfficientEncoder bool
 	// Active is "RTCOutboundRtpStreamStats.active"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Active MUST be set to true to make this field effective.
 	Active bool
 	// ScalabilityMode is "RTCOutboundRtpStreamStats.scalabilityMode"
 	//
@@ -2521,10 +2753,14 @@ type RTCOutboundRtpStreamStats struct {
 	// PacketsSent is "RTCOutboundRtpStreamStats.packetsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsSent MUST be set to true to make this field effective.
 	PacketsSent uint64
 	// BytesSent is "RTCOutboundRtpStreamStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// Ssrc is "RTCOutboundRtpStreamStats.ssrc"
 	//
@@ -2589,7 +2825,7 @@ func (p RTCOutboundRtpStreamStats) FromRef(ref js.Ref) RTCOutboundRtpStreamStats
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCOutboundRtpStreamStats RTCOutboundRtpStreamStats [// RTCOutboundRtpStreamStats] [0x140009ad540 0x140009ad5e0 0x140009ad680 0x140009ad720 0x140009ad7c0 0x140009ad900 0x140009ada40 0x140009adb80 0x140009adcc0 0x140009ade00 0x140009adf40 0x140009b00a0 0x140009b01e0 0x140009b0320 0x140009b0460 0x140009b05a0 0x140009b06e0 0x140009b0820 0x140009b0960 0x140009b0aa0 0x140009b0be0 0x140009b0c80 0x140009b0d20 0x140009b0e60 0x140009b0fa0 0x140009b10e0 0x140009b1220 0x140009b12c0 0x140009b1400 0x140009b1540 0x140009b15e0 0x140009b1720 0x140009b1860 0x140009b1900 0x140009b19a0 0x140009b1a40 0x140009b1ae0 0x140009b1b80 0x140009b1c20 0x140009ad860 0x140009ad9a0 0x140009adae0 0x140009adc20 0x140009add60 0x140009adea0 0x140009b0000 0x140009b0140 0x140009b0280 0x140009b03c0 0x140009b0500 0x140009b0640 0x140009b0780 0x140009b08c0 0x140009b0a00 0x140009b0b40 0x140009b0dc0 0x140009b0f00 0x140009b1040 0x140009b1180 0x140009b1360 0x140009b14a0 0x140009b1680 0x140009b17c0] 0x1400099ca08 {0 0}} in the application heap.
+// New creates a new RTCOutboundRtpStreamStats in the application heap.
 func (p RTCOutboundRtpStreamStats) New() js.Ref {
 	return bindings.RTCOutboundRtpStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2629,7 +2865,7 @@ func (p RTCSessionDescriptionInit) FromRef(ref js.Ref) RTCSessionDescriptionInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCSessionDescriptionInit RTCSessionDescriptionInit [// RTCSessionDescriptionInit] [0x140009b1cc0 0x140009b1d60] 0x1400099cc18 {0 0}} in the application heap.
+// New creates a new RTCSessionDescriptionInit in the application heap.
 func (p RTCSessionDescriptionInit) New() js.Ref {
 	return bindings.RTCSessionDescriptionInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2782,6 +3018,8 @@ type RTCRtpCodecCapability struct {
 	// Channels is "RTCRtpCodecCapability.channels"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Channels MUST be set to true to make this field effective.
 	Channels uint16
 	// SdpFmtpLine is "RTCRtpCodecCapability.sdpFmtpLine"
 	//
@@ -2799,7 +3037,7 @@ func (p RTCRtpCodecCapability) FromRef(ref js.Ref) RTCRtpCodecCapability {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpCodecCapability RTCRtpCodecCapability [// RTCRtpCodecCapability] [0x140009b1e00 0x140009b1ea0 0x140009b1f40 0x140009d40a0 0x140009d4000] 0x1400099cde0 {0 0}} in the application heap.
+// New creates a new RTCRtpCodecCapability in the application heap.
 func (p RTCRtpCodecCapability) New() js.Ref {
 	return bindings.RTCRtpCodecCapabilityJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2835,7 +3073,7 @@ func (p RTCRtpHeaderExtensionCapability) FromRef(ref js.Ref) RTCRtpHeaderExtensi
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpHeaderExtensionCapability RTCRtpHeaderExtensionCapability [// RTCRtpHeaderExtensionCapability] [0x140009d41e0] 0x1400099cdf8 {0 0}} in the application heap.
+// New creates a new RTCRtpHeaderExtensionCapability in the application heap.
 func (p RTCRtpHeaderExtensionCapability) New() js.Ref {
 	return bindings.RTCRtpHeaderExtensionCapabilityJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2875,7 +3113,7 @@ func (p RTCRtpCapabilities) FromRef(ref js.Ref) RTCRtpCapabilities {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpCapabilities RTCRtpCapabilities [// RTCRtpCapabilities] [0x140009d4140 0x140009d4280] 0x1400099cdb0 {0 0}} in the application heap.
+// New creates a new RTCRtpCapabilities in the application heap.
 func (p RTCRtpCapabilities) New() js.Ref {
 	return bindings.RTCRtpCapabilitiesJSLoad(
 		js.Pointer(&p), js.True, 0,

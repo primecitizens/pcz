@@ -308,7 +308,7 @@ func (p StaticRangeInit) FromRef(ref js.Ref) StaticRangeInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 StaticRangeInit StaticRangeInit [// StaticRangeInit] [0x14000ca2820 0x14000ca28c0 0x14000ca2960 0x14000ca2a00] 0x14001b75008 {0 0}} in the application heap.
+// New creates a new StaticRangeInit in the application heap.
 func (p StaticRangeInit) New() js.Ref {
 	return bindings.StaticRangeInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1965,6 +1965,8 @@ type DocumentTimelineOptions struct {
 	// OriginTime is "DocumentTimelineOptions.originTime"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_OriginTime MUST be set to true to make this field effective.
 	OriginTime DOMHighResTimeStamp
 
 	FFI_USE_OriginTime bool // for OriginTime.
@@ -1978,7 +1980,7 @@ func (p DocumentTimelineOptions) FromRef(ref js.Ref) DocumentTimelineOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DocumentTimelineOptions DocumentTimelineOptions [// DocumentTimelineOptions] [0x14000ca2dc0 0x14000ca2e60] 0x14001b752a8 {0 0}} in the application heap.
+// New creates a new DocumentTimelineOptions in the application heap.
 func (p DocumentTimelineOptions) New() js.Ref {
 	return bindings.DocumentTimelineOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2060,10 +2062,14 @@ type FocusOptions struct {
 	// PreventScroll is "FocusOptions.preventScroll"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PreventScroll MUST be set to true to make this field effective.
 	PreventScroll bool
 	// FocusVisible is "FocusOptions.focusVisible"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FocusVisible MUST be set to true to make this field effective.
 	FocusVisible bool
 
 	FFI_USE_PreventScroll bool // for PreventScroll.
@@ -2078,7 +2084,7 @@ func (p FocusOptions) FromRef(ref js.Ref) FocusOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FocusOptions FocusOptions [// FocusOptions] [0x14000ca2f00 0x14000ca3040 0x14000ca2fa0 0x14000ca30e0] 0x14001b75308 {0 0}} in the application heap.
+// New creates a new FocusOptions in the application heap.
 func (p FocusOptions) New() js.Ref {
 	return bindings.FocusOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3510,94 +3516,140 @@ type DOMMatrixInit struct {
 	// M13 is "DOMMatrixInit.m13"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M13 MUST be set to true to make this field effective.
 	M13 float64
 	// M14 is "DOMMatrixInit.m14"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M14 MUST be set to true to make this field effective.
 	M14 float64
 	// M23 is "DOMMatrixInit.m23"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M23 MUST be set to true to make this field effective.
 	M23 float64
 	// M24 is "DOMMatrixInit.m24"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M24 MUST be set to true to make this field effective.
 	M24 float64
 	// M31 is "DOMMatrixInit.m31"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M31 MUST be set to true to make this field effective.
 	M31 float64
 	// M32 is "DOMMatrixInit.m32"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M32 MUST be set to true to make this field effective.
 	M32 float64
 	// M33 is "DOMMatrixInit.m33"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_M33 MUST be set to true to make this field effective.
 	M33 float64
 	// M34 is "DOMMatrixInit.m34"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M34 MUST be set to true to make this field effective.
 	M34 float64
 	// M43 is "DOMMatrixInit.m43"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_M43 MUST be set to true to make this field effective.
 	M43 float64
 	// M44 is "DOMMatrixInit.m44"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_M44 MUST be set to true to make this field effective.
 	M44 float64
 	// Is2D is "DOMMatrixInit.is2D"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Is2D MUST be set to true to make this field effective.
 	Is2D bool
 	// A is "DOMMatrixInit.a"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_A MUST be set to true to make this field effective.
 	A float64
 	// B is "DOMMatrixInit.b"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_B MUST be set to true to make this field effective.
 	B float64
 	// C is "DOMMatrixInit.c"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_C MUST be set to true to make this field effective.
 	C float64
 	// D is "DOMMatrixInit.d"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_D MUST be set to true to make this field effective.
 	D float64
 	// E is "DOMMatrixInit.e"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_E MUST be set to true to make this field effective.
 	E float64
 	// F is "DOMMatrixInit.f"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_F MUST be set to true to make this field effective.
 	F float64
 	// M11 is "DOMMatrixInit.m11"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M11 MUST be set to true to make this field effective.
 	M11 float64
 	// M12 is "DOMMatrixInit.m12"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M12 MUST be set to true to make this field effective.
 	M12 float64
 	// M21 is "DOMMatrixInit.m21"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M21 MUST be set to true to make this field effective.
 	M21 float64
 	// M22 is "DOMMatrixInit.m22"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M22 MUST be set to true to make this field effective.
 	M22 float64
 	// M41 is "DOMMatrixInit.m41"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M41 MUST be set to true to make this field effective.
 	M41 float64
 	// M42 is "DOMMatrixInit.m42"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M42 MUST be set to true to make this field effective.
 	M42 float64
 
 	FFI_USE_M13  bool // for M13.
@@ -3633,7 +3685,7 @@ func (p DOMMatrixInit) FromRef(ref js.Ref) DOMMatrixInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DOMMatrixInit DOMMatrixInit [// DOMMatrixInit] [0x14000ca35e0 0x14000ca3720 0x14000ca3860 0x14000ca39a0 0x14000ca3ae0 0x14000ca3c20 0x14000ca3d60 0x14000ca3ea0 0x14000d18500 0x14000d18640 0x14000d18780 0x14000d188c0 0x14000d18a00 0x14000d18b40 0x14000d18c80 0x14000d18dc0 0x14000d18f00 0x14000d19040 0x14000d19180 0x14000d192c0 0x14000d19400 0x14000d19540 0x14000d19680 0x14000ca3680 0x14000ca37c0 0x14000ca3900 0x14000ca3a40 0x14000ca3b80 0x14000ca3cc0 0x14000ca3e00 0x14000ca3f40 0x14000d185a0 0x14000d186e0 0x14000d18820 0x14000d18960 0x14000d18aa0 0x14000d18be0 0x14000d18d20 0x14000d18e60 0x14000d18fa0 0x14000d190e0 0x14000d19220 0x14000d19360 0x14000d194a0 0x14000d195e0 0x14000d19720] 0x14001b753f8 {0 0}} in the application heap.
+// New creates a new DOMMatrixInit in the application heap.
 func (p DOMMatrixInit) New() js.Ref {
 	return bindings.DOMMatrixInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5195,50 +5247,74 @@ type DOMMatrix2DInit struct {
 	// A is "DOMMatrix2DInit.a"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_A MUST be set to true to make this field effective.
 	A float64
 	// B is "DOMMatrix2DInit.b"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_B MUST be set to true to make this field effective.
 	B float64
 	// C is "DOMMatrix2DInit.c"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_C MUST be set to true to make this field effective.
 	C float64
 	// D is "DOMMatrix2DInit.d"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_D MUST be set to true to make this field effective.
 	D float64
 	// E is "DOMMatrix2DInit.e"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_E MUST be set to true to make this field effective.
 	E float64
 	// F is "DOMMatrix2DInit.f"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_F MUST be set to true to make this field effective.
 	F float64
 	// M11 is "DOMMatrix2DInit.m11"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M11 MUST be set to true to make this field effective.
 	M11 float64
 	// M12 is "DOMMatrix2DInit.m12"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M12 MUST be set to true to make this field effective.
 	M12 float64
 	// M21 is "DOMMatrix2DInit.m21"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M21 MUST be set to true to make this field effective.
 	M21 float64
 	// M22 is "DOMMatrix2DInit.m22"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M22 MUST be set to true to make this field effective.
 	M22 float64
 	// M41 is "DOMMatrix2DInit.m41"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M41 MUST be set to true to make this field effective.
 	M41 float64
 	// M42 is "DOMMatrix2DInit.m42"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_M42 MUST be set to true to make this field effective.
 	M42 float64
 
 	FFI_USE_A   bool // for A.
@@ -5263,7 +5339,7 @@ func (p DOMMatrix2DInit) FromRef(ref js.Ref) DOMMatrix2DInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DOMMatrix2DInit DOMMatrix2DInit [// DOMMatrix2DInit] [0x14000d19860 0x14000d199a0 0x14000d19ae0 0x14000d19c20 0x14000d19d60 0x14000d19ea0 0x14000e04be0 0x14000e04d20 0x14000e04e60 0x14000e04fa0 0x14000e050e0 0x14000e05220 0x14000d19900 0x14000d19a40 0x14000d19b80 0x14000d19cc0 0x14000d19e00 0x14000d19f40 0x14000e04c80 0x14000e04dc0 0x14000e04f00 0x14000e05040 0x14000e05180 0x14000e052c0] 0x14000039d10 {0 0}} in the application heap.
+// New creates a new DOMMatrix2DInit in the application heap.
 func (p DOMMatrix2DInit) New() js.Ref {
 	return bindings.DOMMatrix2DInitJSLoad(
 		js.Pointer(&p), js.True, 0,

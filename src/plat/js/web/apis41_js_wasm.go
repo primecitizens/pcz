@@ -404,7 +404,7 @@ func (p LayoutOptions) FromRef(ref js.Ref) LayoutOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 LayoutOptions LayoutOptions [// LayoutOptions] [0x1400088dea0 0x1400088df40] 0x140008be060 {0 0}} in the application heap.
+// New creates a new LayoutOptions in the application heap.
 func (p LayoutOptions) New() js.Ref {
 	return bindings.LayoutOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -695,7 +695,7 @@ func (p LinearAccelerationReadingValues) FromRef(ref js.Ref) LinearAccelerationR
 	return p
 }
 
-// New creates a new {0x140004cc0e0 LinearAccelerationReadingValues LinearAccelerationReadingValues [// LinearAccelerationReadingValues] [0x140008c2140 0x140008c21e0 0x140008c2280] 0x140008be078 {0 0}} in the application heap.
+// New creates a new LinearAccelerationReadingValues in the application heap.
 func (p LinearAccelerationReadingValues) New() js.Ref {
 	return bindings.LinearAccelerationReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -979,14 +979,20 @@ type MIDIConnectionEventInit struct {
 	// Bubbles is "MIDIConnectionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MIDIConnectionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MIDIConnectionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1002,7 +1008,7 @@ func (p MIDIConnectionEventInit) FromRef(ref js.Ref) MIDIConnectionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MIDIConnectionEventInit MIDIConnectionEventInit [// MIDIConnectionEventInit] [0x140008c23c0 0x140008c2460 0x140008c25a0 0x140008c26e0 0x140008c2500 0x140008c2640 0x140008c2780] 0x140008be108 {0 0}} in the application heap.
+// New creates a new MIDIConnectionEventInit in the application heap.
 func (p MIDIConnectionEventInit) New() js.Ref {
 	return bindings.MIDIConnectionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1101,14 +1107,20 @@ type MIDIMessageEventInit struct {
 	// Bubbles is "MIDIMessageEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "MIDIMessageEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "MIDIMessageEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1124,7 +1136,7 @@ func (p MIDIMessageEventInit) FromRef(ref js.Ref) MIDIMessageEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MIDIMessageEventInit MIDIMessageEventInit [// MIDIMessageEventInit] [0x140008c2820 0x140008c28c0 0x140008c2a00 0x140008c2b40 0x140008c2960 0x140008c2aa0 0x140008c2be0] 0x140008be1c8 {0 0}} in the application heap.
+// New creates a new MIDIMessageEventInit in the application heap.
 func (p MIDIMessageEventInit) New() js.Ref {
 	return bindings.MIDIMessageEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1373,10 +1385,14 @@ type MLBatchNormalizationOptions struct {
 	// Axis is "MLBatchNormalizationOptions.axis"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Axis MUST be set to true to make this field effective.
 	Axis uint32
 	// Epsilon is "MLBatchNormalizationOptions.epsilon"
 	//
 	// Optional, defaults to 1e-5.
+	//
+	// NOTE: FFI_USE_Epsilon MUST be set to true to make this field effective.
 	Epsilon float32
 	// Activation is "MLBatchNormalizationOptions.activation"
 	//
@@ -1395,7 +1411,7 @@ func (p MLBatchNormalizationOptions) FromRef(ref js.Ref) MLBatchNormalizationOpt
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLBatchNormalizationOptions MLBatchNormalizationOptions [// MLBatchNormalizationOptions] [0x140008c2c80 0x140008c2d20 0x140008c2dc0 0x140008c2f00 0x140008c3040 0x140008c2e60 0x140008c2fa0] 0x140008be258 {0 0}} in the application heap.
+// New creates a new MLBatchNormalizationOptions in the application heap.
 func (p MLBatchNormalizationOptions) New() js.Ref {
 	return bindings.MLBatchNormalizationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1424,10 +1440,14 @@ type MLBufferResourceView struct {
 	// Offset is "MLBufferResourceView.offset"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Offset MUST be set to true to make this field effective.
 	Offset uint64
 	// Size is "MLBufferResourceView.size"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Size MUST be set to true to make this field effective.
 	Size uint64
 
 	FFI_USE_Offset bool // for Offset.
@@ -1442,7 +1462,7 @@ func (p MLBufferResourceView) FromRef(ref js.Ref) MLBufferResourceView {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLBufferResourceView MLBufferResourceView [// MLBufferResourceView] [0x140008c30e0 0x140008c3180 0x140008c32c0 0x140008c3220 0x140008c3360] 0x140008be2b8 {0 0}} in the application heap.
+// New creates a new MLBufferResourceView in the application heap.
 func (p MLBufferResourceView) New() js.Ref {
 	return bindings.MLBufferResourceViewJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1537,10 +1557,14 @@ type MLClampOptions struct {
 	// MinValue is "MLClampOptions.minValue"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MinValue MUST be set to true to make this field effective.
 	MinValue float32
 	// MaxValue is "MLClampOptions.maxValue"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxValue MUST be set to true to make this field effective.
 	MaxValue float32
 
 	FFI_USE_MinValue bool // for MinValue.
@@ -1555,7 +1579,7 @@ func (p MLClampOptions) FromRef(ref js.Ref) MLClampOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLClampOptions MLClampOptions [// MLClampOptions] [0x140008c3400 0x140008c3540 0x140008c34a0 0x140008c35e0] 0x140008be378 {0 0}} in the application heap.
+// New creates a new MLClampOptions in the application heap.
 func (p MLClampOptions) New() js.Ref {
 	return bindings.MLClampOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1650,6 +1674,8 @@ type MLConv2dOptions struct {
 	// Groups is "MLConv2dOptions.groups"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Groups MUST be set to true to make this field effective.
 	Groups uint32
 	// InputLayout is "MLConv2dOptions.inputLayout"
 	//
@@ -1679,7 +1705,7 @@ func (p MLConv2dOptions) FromRef(ref js.Ref) MLConv2dOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLConv2dOptions MLConv2dOptions [// MLConv2dOptions] [0x140008c3680 0x140008c3720 0x140008c37c0 0x140008c3860 0x140008c3900 0x140008c3a40 0x140008c3ae0 0x140008c3b80 0x140008c3c20 0x140008c39a0] 0x140008be3a8 {0 0}} in the application heap.
+// New creates a new MLConv2dOptions in the application heap.
 func (p MLConv2dOptions) New() js.Ref {
 	return bindings.MLConv2dOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1755,6 +1781,8 @@ type MLConvTranspose2dOptions struct {
 	// Groups is "MLConvTranspose2dOptions.groups"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Groups MUST be set to true to make this field effective.
 	Groups uint32
 	// InputLayout is "MLConvTranspose2dOptions.inputLayout"
 	//
@@ -1784,7 +1812,7 @@ func (p MLConvTranspose2dOptions) FromRef(ref js.Ref) MLConvTranspose2dOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLConvTranspose2dOptions MLConvTranspose2dOptions [// MLConvTranspose2dOptions] [0x140008c3cc0 0x140008c3d60 0x140008c3e00 0x140008c3ea0 0x140008c3f40 0x140008d0000 0x140008d00a0 0x140008d01e0 0x140008d0280 0x140008d0320 0x140008d03c0 0x140008d0140] 0x140008be3d8 {0 0}} in the application heap.
+// New creates a new MLConvTranspose2dOptions in the application heap.
 func (p MLConvTranspose2dOptions) New() js.Ref {
 	return bindings.MLConvTranspose2dOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1809,6 +1837,8 @@ type MLEluOptions struct {
 	// Alpha is "MLEluOptions.alpha"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha float32
 
 	FFI_USE_Alpha bool // for Alpha.
@@ -1822,7 +1852,7 @@ func (p MLEluOptions) FromRef(ref js.Ref) MLEluOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLEluOptions MLEluOptions [// MLEluOptions] [0x140008d0460 0x140008d0500] 0x140008be408 {0 0}} in the application heap.
+// New creates a new MLEluOptions in the application heap.
 func (p MLEluOptions) New() js.Ref {
 	return bindings.MLEluOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1851,18 +1881,26 @@ type MLGemmOptions struct {
 	// Alpha is "MLGemmOptions.alpha"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha float32
 	// Beta is "MLGemmOptions.beta"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Beta MUST be set to true to make this field effective.
 	Beta float32
 	// ATranspose is "MLGemmOptions.aTranspose"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ATranspose MUST be set to true to make this field effective.
 	ATranspose bool
 	// BTranspose is "MLGemmOptions.bTranspose"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_BTranspose MUST be set to true to make this field effective.
 	BTranspose bool
 
 	FFI_USE_Alpha      bool // for Alpha.
@@ -1879,7 +1917,7 @@ func (p MLGemmOptions) FromRef(ref js.Ref) MLGemmOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLGemmOptions MLGemmOptions [// MLGemmOptions] [0x140008d05a0 0x140008d0640 0x140008d0780 0x140008d08c0 0x140008d0a00 0x140008d06e0 0x140008d0820 0x140008d0960 0x140008d0aa0] 0x140008be420 {0 0}} in the application heap.
+// New creates a new MLGemmOptions in the application heap.
 func (p MLGemmOptions) New() js.Ref {
 	return bindings.MLGemmOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

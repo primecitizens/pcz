@@ -98,6 +98,8 @@ type ImageEncodeOptions struct {
 	// Quality is "ImageEncodeOptions.quality"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Quality MUST be set to true to make this field effective.
 	Quality float64
 
 	FFI_USE_Quality bool // for Quality.
@@ -111,7 +113,7 @@ func (p ImageEncodeOptions) FromRef(ref js.Ref) ImageEncodeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageEncodeOptions ImageEncodeOptions [// ImageEncodeOptions] [0x140004adb80 0x140004adc20 0x140004adcc0] 0x1400043edb0 {0 0}} in the application heap.
+// New creates a new ImageEncodeOptions in the application heap.
 func (p ImageEncodeOptions) New() js.Ref {
 	return bindings.ImageEncodeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3460,10 +3462,14 @@ type BaseComputedKeyframe struct {
 	// Offset is "BaseComputedKeyframe.offset"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Offset MUST be set to true to make this field effective.
 	Offset float64
 	// ComputedOffset is "BaseComputedKeyframe.computedOffset"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ComputedOffset MUST be set to true to make this field effective.
 	ComputedOffset float64
 	// Easing is "BaseComputedKeyframe.easing"
 	//
@@ -3486,7 +3492,7 @@ func (p BaseComputedKeyframe) FromRef(ref js.Ref) BaseComputedKeyframe {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BaseComputedKeyframe BaseComputedKeyframe [// BaseComputedKeyframe] [0x140004adf40 0x140004e60a0 0x140004e61e0 0x140004e6280 0x140004e6000 0x140004e6140] 0x1400043f068 {0 0}} in the application heap.
+// New creates a new BaseComputedKeyframe in the application heap.
 func (p BaseComputedKeyframe) New() js.Ref {
 	return bindings.BaseComputedKeyframeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3511,6 +3517,8 @@ type BaseKeyframe struct {
 	// Offset is "BaseKeyframe.offset"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Offset MUST be set to true to make this field effective.
 	Offset float64
 	// Easing is "BaseKeyframe.easing"
 	//
@@ -3532,7 +3540,7 @@ func (p BaseKeyframe) FromRef(ref js.Ref) BaseKeyframe {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BaseKeyframe BaseKeyframe [// BaseKeyframe] [0x140004e6320 0x140004e6460 0x140004e6500 0x140004e63c0] 0x1400043f098 {0 0}} in the application heap.
+// New creates a new BaseKeyframe in the application heap.
 func (p BaseKeyframe) New() js.Ref {
 	return bindings.BaseKeyframeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3632,7 +3640,7 @@ func (p BasePropertyIndexedKeyframe) FromRef(ref js.Ref) BasePropertyIndexedKeyf
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BasePropertyIndexedKeyframe BasePropertyIndexedKeyframe [// BasePropertyIndexedKeyframe] [0x140004e65a0 0x140004e6640 0x140004e66e0] 0x1400043f0b0 {0 0}} in the application heap.
+// New creates a new BasePropertyIndexedKeyframe in the application heap.
 func (p BasePropertyIndexedKeyframe) New() js.Ref {
 	return bindings.BasePropertyIndexedKeyframeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3734,7 +3742,7 @@ func (p PromptResponseObject) FromRef(ref js.Ref) PromptResponseObject {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PromptResponseObject PromptResponseObject [// PromptResponseObject] [0x140004e6820] 0x1400043f0f8 {0 0}} in the application heap.
+// New creates a new PromptResponseObject in the application heap.
 func (p PromptResponseObject) New() js.Ref {
 	return bindings.PromptResponseObjectJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3892,7 +3900,7 @@ func (p PreviousWin) FromRef(ref js.Ref) PreviousWin {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PreviousWin PreviousWin [// PreviousWin] [0x140004e6c80 0x140004e6d20] 0x1400043f170 {0 0}} in the application heap.
+// New creates a new PreviousWin in the application heap.
 func (p PreviousWin) New() js.Ref {
 	return bindings.PreviousWinJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3949,6 +3957,8 @@ type BiddingBrowserSignals struct {
 	// DataVersion is "BiddingBrowserSignals.dataVersion"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataVersion MUST be set to true to make this field effective.
 	DataVersion uint32
 
 	FFI_USE_DataVersion bool // for DataVersion.
@@ -3962,7 +3972,7 @@ func (p BiddingBrowserSignals) FromRef(ref js.Ref) BiddingBrowserSignals {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BiddingBrowserSignals BiddingBrowserSignals [// BiddingBrowserSignals] [0x140004e68c0 0x140004e6960 0x140004e6a00 0x140004e6aa0 0x140004e6b40 0x140004e6be0 0x140004e6dc0 0x140004e6e60 0x140004e6f00 0x140004e6fa0] 0x1400043f158 {0 0}} in the application heap.
+// New creates a new BiddingBrowserSignals in the application heap.
 func (p BiddingBrowserSignals) New() js.Ref {
 	return bindings.BiddingBrowserSignalsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4085,6 +4095,8 @@ type BlobEventInit struct {
 	// Timecode is "BlobEventInit.timecode"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timecode MUST be set to true to make this field effective.
 	Timecode DOMHighResTimeStamp
 
 	FFI_USE_Timecode bool // for Timecode.
@@ -4098,7 +4110,7 @@ func (p BlobEventInit) FromRef(ref js.Ref) BlobEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BlobEventInit BlobEventInit [// BlobEventInit] [0x140004e7040 0x140004e70e0 0x140004e7180] 0x1400043f218 {0 0}} in the application heap.
+// New creates a new BlobEventInit in the application heap.
 func (p BlobEventInit) New() js.Ref {
 	return bindings.BlobEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4216,7 +4228,7 @@ func (p WatchAdvertisementsOptions) FromRef(ref js.Ref) WatchAdvertisementsOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WatchAdvertisementsOptions WatchAdvertisementsOptions [// WatchAdvertisementsOptions] [0x140004e72c0] 0x1400043f260 {0 0}} in the application heap.
+// New creates a new WatchAdvertisementsOptions in the application heap.
 func (p WatchAdvertisementsOptions) New() js.Ref {
 	return bindings.WatchAdvertisementsOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5288,7 +5300,7 @@ func (p BluetoothManufacturerDataFilterInit) FromRef(ref js.Ref) BluetoothManufa
 	return p
 }
 
-// New creates a new {0x140004cc0e0 BluetoothManufacturerDataFilterInit BluetoothManufacturerDataFilterInit [// BluetoothManufacturerDataFilterInit] [0x140004e7900 0x140004e79a0 0x140004e7a40] 0x1400043f368 {0 0}} in the application heap.
+// New creates a new BluetoothManufacturerDataFilterInit in the application heap.
 func (p BluetoothManufacturerDataFilterInit) New() js.Ref {
 	return bindings.BluetoothManufacturerDataFilterInitJSLoad(
 		js.Pointer(&p), js.True, 0,

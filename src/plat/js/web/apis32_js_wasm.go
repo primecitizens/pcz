@@ -245,10 +245,14 @@ type CookieListItem struct {
 	// Expires is "CookieListItem.expires"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Expires MUST be set to true to make this field effective.
 	Expires DOMHighResTimeStamp
 	// Secure is "CookieListItem.secure"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Secure MUST be set to true to make this field effective.
 	Secure bool
 	// SameSite is "CookieListItem.sameSite"
 	//
@@ -257,6 +261,8 @@ type CookieListItem struct {
 	// Partitioned is "CookieListItem.partitioned"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Partitioned MUST be set to true to make this field effective.
 	Partitioned bool
 
 	FFI_USE_Expires     bool // for Expires.
@@ -272,7 +278,7 @@ func (p CookieListItem) FromRef(ref js.Ref) CookieListItem {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CookieListItem CookieListItem [// CookieListItem] [0x140007da3c0 0x140007da460 0x140007da500 0x140007da5a0 0x140007da640 0x140007da780 0x140007da8c0 0x140007da960 0x140007da6e0 0x140007da820 0x140007daa00] 0x1400081fad0 {0 0}} in the application heap.
+// New creates a new CookieListItem in the application heap.
 func (p CookieListItem) New() js.Ref {
 	return bindings.CookieListItemJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -307,6 +313,8 @@ type CookieInit struct {
 	// Expires is "CookieInit.expires"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Expires MUST be set to true to make this field effective.
 	Expires DOMHighResTimeStamp
 	// Domain is "CookieInit.domain"
 	//
@@ -323,6 +331,8 @@ type CookieInit struct {
 	// Partitioned is "CookieInit.partitioned"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Partitioned MUST be set to true to make this field effective.
 	Partitioned bool
 
 	FFI_USE_Expires     bool // for Expires.
@@ -337,7 +347,7 @@ func (p CookieInit) FromRef(ref js.Ref) CookieInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CookieInit CookieInit [// CookieInit] [0x140007daaa0 0x140007dab40 0x140007dabe0 0x140007dad20 0x140007dadc0 0x140007dae60 0x140007daf00 0x140007dac80 0x140007dafa0] 0x1400081fba8 {0 0}} in the application heap.
+// New creates a new CookieInit in the application heap.
 func (p CookieInit) New() js.Ref {
 	return bindings.CookieInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -374,6 +384,8 @@ type CookieStoreDeleteOptions struct {
 	// Partitioned is "CookieStoreDeleteOptions.partitioned"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Partitioned MUST be set to true to make this field effective.
 	Partitioned bool
 
 	FFI_USE_Partitioned bool // for Partitioned.
@@ -387,7 +399,7 @@ func (p CookieStoreDeleteOptions) FromRef(ref js.Ref) CookieStoreDeleteOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CookieStoreDeleteOptions CookieStoreDeleteOptions [// CookieStoreDeleteOptions] [0x140007db040 0x140007db0e0 0x140007db180 0x140007db220 0x140007db2c0] 0x1400081fc08 {0 0}} in the application heap.
+// New creates a new CookieStoreDeleteOptions in the application heap.
 func (p CookieStoreDeleteOptions) New() js.Ref {
 	return bindings.CookieStoreDeleteOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -673,10 +685,14 @@ type DocumentPictureInPictureOptions struct {
 	// Width is "DocumentPictureInPictureOptions.width"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width uint64
 	// Height is "DocumentPictureInPictureOptions.height"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height uint64
 
 	FFI_USE_Width  bool // for Width.
@@ -691,7 +707,7 @@ func (p DocumentPictureInPictureOptions) FromRef(ref js.Ref) DocumentPictureInPi
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DocumentPictureInPictureOptions DocumentPictureInPictureOptions [// DocumentPictureInPictureOptions] [0x140007db360 0x140007db4a0 0x140007db400 0x140007db540] 0x1400081fc80 {0 0}} in the application heap.
+// New creates a new DocumentPictureInPictureOptions in the application heap.
 func (p DocumentPictureInPictureOptions) New() js.Ref {
 	return bindings.DocumentPictureInPictureOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1370,6 +1386,8 @@ type SchedulerPostTaskOptions struct {
 	// Delay is "SchedulerPostTaskOptions.delay"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Delay MUST be set to true to make this field effective.
 	Delay uint64
 
 	FFI_USE_Delay bool // for Delay.
@@ -1383,7 +1401,7 @@ func (p SchedulerPostTaskOptions) FromRef(ref js.Ref) SchedulerPostTaskOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SchedulerPostTaskOptions SchedulerPostTaskOptions [// SchedulerPostTaskOptions] [0x140007db7c0 0x140007db860 0x140007db900 0x140007db9a0] 0x1400081fcb0 {0 0}} in the application heap.
+// New creates a new SchedulerPostTaskOptions in the application heap.
 func (p SchedulerPostTaskOptions) New() js.Ref {
 	return bindings.SchedulerPostTaskOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2071,7 +2089,7 @@ func (p TrustedTypePolicyOptions) FromRef(ref js.Ref) TrustedTypePolicyOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 TrustedTypePolicyOptions TrustedTypePolicyOptions [// TrustedTypePolicyOptions] [0x140007dba40 0x140007dbae0 0x140007dbb80] 0x1400081fd10 {0 0}} in the application heap.
+// New creates a new TrustedTypePolicyOptions in the application heap.
 func (p TrustedTypePolicyOptions) New() js.Ref {
 	return bindings.TrustedTypePolicyOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2585,7 +2603,7 @@ func (p RsaOtherPrimesInfo) FromRef(ref js.Ref) RsaOtherPrimesInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaOtherPrimesInfo RsaOtherPrimesInfo [// RsaOtherPrimesInfo] [0x140007ee820 0x140007ee8c0 0x140007ee960] 0x14000780c78 {0 0}} in the application heap.
+// New creates a new RsaOtherPrimesInfo in the application heap.
 func (p RsaOtherPrimesInfo) New() js.Ref {
 	return bindings.RsaOtherPrimesInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2626,6 +2644,8 @@ type JsonWebKey struct {
 	// Ext is "JsonWebKey.ext"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Ext MUST be set to true to make this field effective.
 	Ext bool
 	// Crv is "JsonWebKey.crv"
 	//
@@ -2691,7 +2711,7 @@ func (p JsonWebKey) FromRef(ref js.Ref) JsonWebKey {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 JsonWebKey JsonWebKey [// JsonWebKey] [0x140007dbd60 0x140007dbe00 0x140007dbea0 0x140007dbf40 0x140007ee000 0x140007ee140 0x140007ee1e0 0x140007ee280 0x140007ee320 0x140007ee3c0 0x140007ee460 0x140007ee500 0x140007ee5a0 0x140007ee640 0x140007ee6e0 0x140007ee780 0x140007eea00 0x140007eeaa0 0x140007ee0a0] 0x1400081fe60 {0 0}} in the application heap.
+// New creates a new JsonWebKey in the application heap.
 func (p JsonWebKey) New() js.Ref {
 	return bindings.JsonWebKeyJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3225,7 +3245,7 @@ func (p MemoryAttributionContainer) FromRef(ref js.Ref) MemoryAttributionContain
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MemoryAttributionContainer MemoryAttributionContainer [// MemoryAttributionContainer] [0x140007eee60 0x140007eef00] 0x14000780db0 {0 0}} in the application heap.
+// New creates a new MemoryAttributionContainer in the application heap.
 func (p MemoryAttributionContainer) New() js.Ref {
 	return bindings.MemoryAttributionContainerJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3269,7 +3289,7 @@ func (p MemoryAttribution) FromRef(ref js.Ref) MemoryAttribution {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MemoryAttribution MemoryAttribution [// MemoryAttribution] [0x140007eedc0 0x140007eefa0 0x140007ef040] 0x14000780d80 {0 0}} in the application heap.
+// New creates a new MemoryAttribution in the application heap.
 func (p MemoryAttribution) New() js.Ref {
 	return bindings.MemoryAttributionJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3294,6 +3314,8 @@ type MemoryBreakdownEntry struct {
 	// Bytes is "MemoryBreakdownEntry.bytes"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Bytes MUST be set to true to make this field effective.
 	Bytes uint64
 	// Attribution is "MemoryBreakdownEntry.attribution"
 	//
@@ -3315,7 +3337,7 @@ func (p MemoryBreakdownEntry) FromRef(ref js.Ref) MemoryBreakdownEntry {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MemoryBreakdownEntry MemoryBreakdownEntry [// MemoryBreakdownEntry] [0x140007eec80 0x140007ef0e0 0x140007ef180 0x140007eed20] 0x14000780d50 {0 0}} in the application heap.
+// New creates a new MemoryBreakdownEntry in the application heap.
 func (p MemoryBreakdownEntry) New() js.Ref {
 	return bindings.MemoryBreakdownEntryJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3340,6 +3362,8 @@ type MemoryMeasurement struct {
 	// Bytes is "MemoryMeasurement.bytes"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Bytes MUST be set to true to make this field effective.
 	Bytes uint64
 	// Breakdown is "MemoryMeasurement.breakdown"
 	//
@@ -3357,7 +3381,7 @@ func (p MemoryMeasurement) FromRef(ref js.Ref) MemoryMeasurement {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MemoryMeasurement MemoryMeasurement [// MemoryMeasurement] [0x140007eeb40 0x140007ef220 0x140007eebe0] 0x14000780d20 {0 0}} in the application heap.
+// New creates a new MemoryMeasurement in the application heap.
 func (p MemoryMeasurement) New() js.Ref {
 	return bindings.MemoryMeasurementJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3386,6 +3410,8 @@ type PerformanceMarkOptions struct {
 	// StartTime is "PerformanceMarkOptions.startTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_StartTime MUST be set to true to make this field effective.
 	StartTime DOMHighResTimeStamp
 
 	FFI_USE_StartTime bool // for StartTime.
@@ -3399,7 +3425,7 @@ func (p PerformanceMarkOptions) FromRef(ref js.Ref) PerformanceMarkOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PerformanceMarkOptions PerformanceMarkOptions [// PerformanceMarkOptions] [0x140007ef2c0 0x140007ef360 0x140007ef400] 0x14000780e28 {0 0}} in the application heap.
+// New creates a new PerformanceMarkOptions in the application heap.
 func (p PerformanceMarkOptions) New() js.Ref {
 	return bindings.PerformanceMarkOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

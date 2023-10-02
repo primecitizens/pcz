@@ -3843,14 +3843,20 @@ type HashChangeEventInit struct {
 	// Bubbles is "HashChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "HashChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "HashChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -3866,7 +3872,7 @@ func (p HashChangeEventInit) FromRef(ref js.Ref) HashChangeEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HashChangeEventInit HashChangeEventInit [// HashChangeEventInit] [0x1400073f680 0x1400073f720 0x1400073f7c0 0x1400073f900 0x1400073fa40 0x1400073f860 0x1400073f9a0 0x1400073fae0] 0x14001af2ab0 {0 0}} in the application heap.
+// New creates a new HashChangeEventInit in the application heap.
 func (p HashChangeEventInit) New() js.Ref {
 	return bindings.HashChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3985,7 +3991,7 @@ func (p HevcEncoderConfig) FromRef(ref js.Ref) HevcEncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HevcEncoderConfig HevcEncoderConfig [// HevcEncoderConfig] [0x1400073fc20] 0x14001af2b10 {0 0}} in the application heap.
+// New creates a new HevcEncoderConfig in the application heap.
 func (p HevcEncoderConfig) New() js.Ref {
 	return bindings.HevcEncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4132,7 +4138,7 @@ func (p HkdfParams) FromRef(ref js.Ref) HkdfParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HkdfParams HkdfParams [// HkdfParams] [0x1400073fd60 0x1400073fe00 0x1400073fea0 0x1400073ff40] 0x14001af2e88 {0 0}} in the application heap.
+// New creates a new HkdfParams in the application heap.
 func (p HkdfParams) New() js.Ref {
 	return bindings.HkdfParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4161,6 +4167,8 @@ type HmacImportParams struct {
 	// Length is "HmacImportParams.length"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Length MUST be set to true to make this field effective.
 	Length uint32
 	// Name is "HmacImportParams.name"
 	//
@@ -4178,7 +4186,7 @@ func (p HmacImportParams) FromRef(ref js.Ref) HmacImportParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HmacImportParams HmacImportParams [// HmacImportParams] [0x1400084e000 0x1400084e0a0 0x1400084e1e0 0x1400084e140] 0x14001af30e0 {0 0}} in the application heap.
+// New creates a new HmacImportParams in the application heap.
 func (p HmacImportParams) New() js.Ref {
 	return bindings.HmacImportParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4214,7 +4222,7 @@ func (p KeyAlgorithm) FromRef(ref js.Ref) KeyAlgorithm {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 KeyAlgorithm KeyAlgorithm [// KeyAlgorithm] [0x1400084e280] 0x140010aebe8 {0 0}} in the application heap.
+// New creates a new KeyAlgorithm in the application heap.
 func (p KeyAlgorithm) New() js.Ref {
 	return bindings.KeyAlgorithmJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4258,7 +4266,7 @@ func (p HmacKeyAlgorithm) FromRef(ref js.Ref) HmacKeyAlgorithm {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HmacKeyAlgorithm HmacKeyAlgorithm [// HmacKeyAlgorithm] [0x1400084e320 0x1400084e3c0 0x1400084e460] 0x140010aebb8 {0 0}} in the application heap.
+// New creates a new HmacKeyAlgorithm in the application heap.
 func (p HmacKeyAlgorithm) New() js.Ref {
 	return bindings.HmacKeyAlgorithmJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4287,6 +4295,8 @@ type HmacKeyGenParams struct {
 	// Length is "HmacKeyGenParams.length"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Length MUST be set to true to make this field effective.
 	Length uint32
 	// Name is "HmacKeyGenParams.name"
 	//
@@ -4304,7 +4314,7 @@ func (p HmacKeyGenParams) FromRef(ref js.Ref) HmacKeyGenParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HmacKeyGenParams HmacKeyGenParams [// HmacKeyGenParams] [0x1400084e500 0x1400084e5a0 0x1400084e6e0 0x1400084e640] 0x140010aec48 {0 0}} in the application heap.
+// New creates a new HmacKeyGenParams in the application heap.
 func (p HmacKeyGenParams) New() js.Ref {
 	return bindings.HmacKeyGenParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4829,10 +4839,14 @@ type IDBIndexParameters struct {
 	// Unique is "IDBIndexParameters.unique"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Unique MUST be set to true to make this field effective.
 	Unique bool
 	// MultiEntry is "IDBIndexParameters.multiEntry"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_MultiEntry MUST be set to true to make this field effective.
 	MultiEntry bool
 
 	FFI_USE_Unique     bool // for Unique.
@@ -4847,7 +4861,7 @@ func (p IDBIndexParameters) FromRef(ref js.Ref) IDBIndexParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IDBIndexParameters IDBIndexParameters [// IDBIndexParameters] [0x1400084e8c0 0x1400084ea00 0x1400084e960 0x1400084eaa0] 0x140010af728 {0 0}} in the application heap.
+// New creates a new IDBIndexParameters in the application heap.
 func (p IDBIndexParameters) New() js.Ref {
 	return bindings.IDBIndexParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4937,7 +4951,7 @@ func (p IDBTransactionOptions) FromRef(ref js.Ref) IDBTransactionOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IDBTransactionOptions IDBTransactionOptions [// IDBTransactionOptions] [0x1400084ec80] 0x140010afd58 {0 0}} in the application heap.
+// New creates a new IDBTransactionOptions in the application heap.
 func (p IDBTransactionOptions) New() js.Ref {
 	return bindings.IDBTransactionOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4966,6 +4980,8 @@ type IDBObjectStoreParameters struct {
 	// AutoIncrement is "IDBObjectStoreParameters.autoIncrement"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AutoIncrement MUST be set to true to make this field effective.
 	AutoIncrement bool
 
 	FFI_USE_AutoIncrement bool // for AutoIncrement.
@@ -4979,7 +4995,7 @@ func (p IDBObjectStoreParameters) FromRef(ref js.Ref) IDBObjectStoreParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IDBObjectStoreParameters IDBObjectStoreParameters [// IDBObjectStoreParameters] [0x1400084ed20 0x1400084edc0 0x1400084ee60] 0x140010afe48 {0 0}} in the application heap.
+// New creates a new IDBObjectStoreParameters in the application heap.
 func (p IDBObjectStoreParameters) New() js.Ref {
 	return bindings.IDBObjectStoreParametersJSLoad(
 		js.Pointer(&p), js.True, 0,

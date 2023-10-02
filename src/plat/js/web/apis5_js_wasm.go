@@ -194,7 +194,7 @@ func (p FontFaceDescriptors) FromRef(ref js.Ref) FontFaceDescriptors {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FontFaceDescriptors FontFaceDescriptors [// FontFaceDescriptors] [0x1400033e960 0x1400033ea00 0x1400033eb40 0x1400033ebe0 0x1400033ec80 0x1400033ed20 0x1400033edc0 0x1400033ee60 0x1400033ef00 0x1400033efa0 0x1400033f040] 0x14001af2bd0 {0 0}} in the application heap.
+// New creates a new FontFaceDescriptors in the application heap.
 func (p FontFaceDescriptors) New() js.Ref {
 	return bindings.FontFaceDescriptorsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4622,6 +4622,8 @@ type AccelerometerSensorOptions struct {
 	// Frequency is "AccelerometerSensorOptions.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float64
 
 	FFI_USE_Frequency bool // for Frequency.
@@ -4635,7 +4637,7 @@ func (p AccelerometerSensorOptions) FromRef(ref js.Ref) AccelerometerSensorOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AccelerometerSensorOptions AccelerometerSensorOptions [// AccelerometerSensorOptions] [0x1400033f360 0x1400033f400 0x1400033f4a0] 0x14001af2ca8 {0 0}} in the application heap.
+// New creates a new AccelerometerSensorOptions in the application heap.
 func (p AccelerometerSensorOptions) New() js.Ref {
 	return bindings.AccelerometerSensorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4747,7 +4749,7 @@ func (p AccelerometerReadingValues) FromRef(ref js.Ref) AccelerometerReadingValu
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AccelerometerReadingValues AccelerometerReadingValues [// AccelerometerReadingValues] [0x1400033f5e0 0x1400033f680 0x1400033f720] 0x14001af2d08 {0 0}} in the application heap.
+// New creates a new AccelerometerReadingValues in the application heap.
 func (p AccelerometerReadingValues) New() js.Ref {
 	return bindings.AccelerometerReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4791,7 +4793,7 @@ func (p AdRender) FromRef(ref js.Ref) AdRender {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AdRender AdRender [// AdRender] [0x1400033f7c0 0x1400033f860 0x1400033f900] 0x14001af2d80 {0 0}} in the application heap.
+// New creates a new AdRender in the application heap.
 func (p AdRender) New() js.Ref {
 	return bindings.AdRenderJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4863,7 +4865,7 @@ func (p AddressErrors) FromRef(ref js.Ref) AddressErrors {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AddressErrors AddressErrors [// AddressErrors] [0x1400033f9a0 0x1400033fa40 0x1400033fae0 0x1400033fb80 0x1400033fc20 0x1400033fcc0 0x1400033fd60 0x1400033fe00 0x1400033fea0 0x1400033ff40] 0x14001af2db0 {0 0}} in the application heap.
+// New creates a new AddressErrors in the application heap.
 func (p AddressErrors) New() js.Ref {
 	return bindings.AddressErrorsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4935,7 +4937,7 @@ func (p AddressInit) FromRef(ref js.Ref) AddressInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AddressInit AddressInit [// AddressInit] [0x14000126140 0x14000126280 0x140001263c0 0x14000126500 0x14000126640 0x14000126780 0x140001268c0 0x14000126a00 0x14000126b40 0x14000126c80] 0x14001af2de0 {0 0}} in the application heap.
+// New creates a new AddressInit in the application heap.
 func (p AddressInit) New() js.Ref {
 	return bindings.AddressInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5043,7 +5045,7 @@ func (p AesCbcParams) FromRef(ref js.Ref) AesCbcParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AesCbcParams AesCbcParams [// AesCbcParams] [0x14000126dc0 0x14000126f00] 0x14001af2e10 {0 0}} in the application heap.
+// New creates a new AesCbcParams in the application heap.
 func (p AesCbcParams) New() js.Ref {
 	return bindings.AesCbcParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5087,7 +5089,7 @@ func (p AesCtrParams) FromRef(ref js.Ref) AesCtrParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AesCtrParams AesCtrParams [// AesCtrParams] [0x14000127040 0x14000127180 0x140001272c0] 0x14001af2ed0 {0 0}} in the application heap.
+// New creates a new AesCtrParams in the application heap.
 func (p AesCtrParams) New() js.Ref {
 	return bindings.AesCtrParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5127,7 +5129,7 @@ func (p AesDerivedKeyParams) FromRef(ref js.Ref) AesDerivedKeyParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AesDerivedKeyParams AesDerivedKeyParams [// AesDerivedKeyParams] [0x14000127400 0x14000127540] 0x14001af2f18 {0 0}} in the application heap.
+// New creates a new AesDerivedKeyParams in the application heap.
 func (p AesDerivedKeyParams) New() js.Ref {
 	return bindings.AesDerivedKeyParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5160,6 +5162,8 @@ type AesGcmParams struct {
 	// TagLength is "AesGcmParams.tagLength"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TagLength MUST be set to true to make this field effective.
 	TagLength uint8
 	// Name is "AesGcmParams.name"
 	//
@@ -5177,7 +5181,7 @@ func (p AesGcmParams) FromRef(ref js.Ref) AesGcmParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AesGcmParams AesGcmParams [// AesGcmParams] [0x14000127680 0x140001277c0 0x14000127900 0x14000127b80 0x14000127a40] 0x14001af2f48 {0 0}} in the application heap.
+// New creates a new AesGcmParams in the application heap.
 func (p AesGcmParams) New() js.Ref {
 	return bindings.AesGcmParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5217,7 +5221,7 @@ func (p AesKeyAlgorithm) FromRef(ref js.Ref) AesKeyAlgorithm {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AesKeyAlgorithm AesKeyAlgorithm [// AesKeyAlgorithm] [0x14000127cc0 0x14000a36000] 0x14001af2fc0 {0 0}} in the application heap.
+// New creates a new AesKeyAlgorithm in the application heap.
 func (p AesKeyAlgorithm) New() js.Ref {
 	return bindings.AesKeyAlgorithmJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5257,7 +5261,7 @@ func (p AesKeyGenParams) FromRef(ref js.Ref) AesKeyGenParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AesKeyGenParams AesKeyGenParams [// AesKeyGenParams] [0x14000a360a0 0x14000a36140] 0x14001af3008 {0 0}} in the application heap.
+// New creates a new AesKeyGenParams in the application heap.
 func (p AesKeyGenParams) New() js.Ref {
 	return bindings.AesKeyGenParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5293,7 +5297,7 @@ func (p Algorithm) FromRef(ref js.Ref) Algorithm {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 Algorithm Algorithm [// Algorithm] [0x14000a361e0] 0x14001af3038 {0 0}} in the application heap.
+// New creates a new Algorithm in the application heap.
 func (p Algorithm) New() js.Ref {
 	return bindings.AlgorithmJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5502,7 +5506,7 @@ func (p AllowedBluetoothDevice) FromRef(ref js.Ref) AllowedBluetoothDevice {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AllowedBluetoothDevice AllowedBluetoothDevice [// AllowedBluetoothDevice] [0x14000a36280 0x14000a36320 0x14000a363c0 0x14000a36460] 0x14001af30f8 {0 0}} in the application heap.
+// New creates a new AllowedBluetoothDevice in the application heap.
 func (p AllowedBluetoothDevice) New() js.Ref {
 	return bindings.AllowedBluetoothDeviceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5546,7 +5550,7 @@ func (p AllowedUSBDevice) FromRef(ref js.Ref) AllowedUSBDevice {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AllowedUSBDevice AllowedUSBDevice [// AllowedUSBDevice] [0x14000a36500 0x14000a365a0 0x14000a36640] 0x14001af3128 {0 0}} in the application heap.
+// New creates a new AllowedUSBDevice in the application heap.
 func (p AllowedUSBDevice) New() js.Ref {
 	return bindings.AllowedUSBDeviceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5606,7 +5610,7 @@ func (p AmbientLightReadingValues) FromRef(ref js.Ref) AmbientLightReadingValues
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AmbientLightReadingValues AmbientLightReadingValues [// AmbientLightReadingValues] [0x14000a366e0] 0x14001af3140 {0 0}} in the application heap.
+// New creates a new AmbientLightReadingValues in the application heap.
 func (p AmbientLightReadingValues) New() js.Ref {
 	return bindings.AmbientLightReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5631,6 +5635,8 @@ type SensorOptions struct {
 	// Frequency is "SensorOptions.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float64
 
 	FFI_USE_Frequency bool // for Frequency.
@@ -5644,7 +5650,7 @@ func (p SensorOptions) FromRef(ref js.Ref) SensorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SensorOptions SensorOptions [// SensorOptions] [0x14000a36780 0x14000a36820] 0x14001af3170 {0 0}} in the application heap.
+// New creates a new SensorOptions in the application heap.
 func (p SensorOptions) New() js.Ref {
 	return bindings.SensorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

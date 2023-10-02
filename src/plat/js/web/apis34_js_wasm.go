@@ -21,30 +21,44 @@ type DeviceOrientationEventInit struct {
 	// Alpha is "DeviceOrientationEventInit.alpha"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha float64
 	// Beta is "DeviceOrientationEventInit.beta"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Beta MUST be set to true to make this field effective.
 	Beta float64
 	// Gamma is "DeviceOrientationEventInit.gamma"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Gamma MUST be set to true to make this field effective.
 	Gamma float64
 	// Absolute is "DeviceOrientationEventInit.absolute"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Absolute MUST be set to true to make this field effective.
 	Absolute bool
 	// Bubbles is "DeviceOrientationEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "DeviceOrientationEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "DeviceOrientationEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Alpha      bool // for Alpha.
@@ -64,7 +78,7 @@ func (p DeviceOrientationEventInit) FromRef(ref js.Ref) DeviceOrientationEventIn
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DeviceOrientationEventInit DeviceOrientationEventInit [// DeviceOrientationEventInit] [0x140007fad20 0x140007fae60 0x140007fafa0 0x140007fb0e0 0x140007fb220 0x140007fb360 0x140007fb4a0 0x140007fadc0 0x140007faf00 0x140007fb040 0x140007fb180 0x140007fb2c0 0x140007fb400 0x140007fb540] 0x140007814b8 {0 0}} in the application heap.
+// New creates a new DeviceOrientationEventInit in the application heap.
 func (p DeviceOrientationEventInit) New() js.Ref {
 	return bindings.DeviceOrientationEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -251,14 +265,20 @@ type DocumentPictureInPictureEventInit struct {
 	// Bubbles is "DocumentPictureInPictureEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "DocumentPictureInPictureEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "DocumentPictureInPictureEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -274,7 +294,7 @@ func (p DocumentPictureInPictureEventInit) FromRef(ref js.Ref) DocumentPictureIn
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DocumentPictureInPictureEventInit DocumentPictureInPictureEventInit [// DocumentPictureInPictureEventInit] [0x140007fb680 0x140007fb720 0x140007fb860 0x140007fb9a0 0x140007fb7c0 0x140007fb900 0x140007fba40] 0x14000781518 {0 0}} in the application heap.
+// New creates a new DocumentPictureInPictureEventInit in the application heap.
 func (p DocumentPictureInPictureEventInit) New() js.Ref {
 	return bindings.DocumentPictureInPictureEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -344,10 +364,14 @@ type DragEventInit struct {
 	// MovementX is "DragEventInit.movementX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MovementX MUST be set to true to make this field effective.
 	MovementX float64
 	// MovementY is "DragEventInit.movementY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MovementY MUST be set to true to make this field effective.
 	MovementY float64
 
 	FFI_USE_MovementX bool // for MovementX.
@@ -362,7 +386,7 @@ func (p DragEventInit) FromRef(ref js.Ref) DragEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DragEventInit DragEventInit [// DragEventInit] [0x140007fbae0 0x140007fbb80 0x140007fbcc0 0x140007fbc20 0x140007fbd60] 0x14000781560 {0 0}} in the application heap.
+// New creates a new DragEventInit in the application heap.
 func (p DragEventInit) New() js.Ref {
 	return bindings.DragEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1051,7 +1075,7 @@ func (p EcKeyAlgorithm) FromRef(ref js.Ref) EcKeyAlgorithm {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EcKeyAlgorithm EcKeyAlgorithm [// EcKeyAlgorithm] [0x140007fbe00 0x140007fbea0] 0x14000781620 {0 0}} in the application heap.
+// New creates a new EcKeyAlgorithm in the application heap.
 func (p EcKeyAlgorithm) New() js.Ref {
 	return bindings.EcKeyAlgorithmJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1091,7 +1115,7 @@ func (p EcKeyGenParams) FromRef(ref js.Ref) EcKeyGenParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EcKeyGenParams EcKeyGenParams [// EcKeyGenParams] [0x140007fbf40 0x140000d0000] 0x14000781668 {0 0}} in the application heap.
+// New creates a new EcKeyGenParams in the application heap.
 func (p EcKeyGenParams) New() js.Ref {
 	return bindings.EcKeyGenParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1131,7 +1155,7 @@ func (p EcKeyImportParams) FromRef(ref js.Ref) EcKeyImportParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EcKeyImportParams EcKeyImportParams [// EcKeyImportParams] [0x140000d00a0 0x140000d0140] 0x140007816b0 {0 0}} in the application heap.
+// New creates a new EcKeyImportParams in the application heap.
 func (p EcKeyImportParams) New() js.Ref {
 	return bindings.EcKeyImportParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1171,7 +1195,7 @@ func (p EcdhKeyDeriveParams) FromRef(ref js.Ref) EcdhKeyDeriveParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EcdhKeyDeriveParams EcdhKeyDeriveParams [// EcdhKeyDeriveParams] [0x140000d01e0 0x140000d0280] 0x140007816f8 {0 0}} in the application heap.
+// New creates a new EcdhKeyDeriveParams in the application heap.
 func (p EcdhKeyDeriveParams) New() js.Ref {
 	return bindings.EcdhKeyDeriveParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1213,7 +1237,7 @@ func (p EcdsaParams) FromRef(ref js.Ref) EcdsaParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EcdsaParams EcdsaParams [// EcdsaParams] [0x140000d0320 0x140000d03c0] 0x14000781728 {0 0}} in the application heap.
+// New creates a new EcdsaParams in the application heap.
 func (p EcdsaParams) New() js.Ref {
 	return bindings.EcdsaParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1253,7 +1277,7 @@ func (p Ed448Params) FromRef(ref js.Ref) Ed448Params {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 Ed448Params Ed448Params [// Ed448Params] [0x140000d0460 0x140000d0500] 0x14000781770 {0 0}} in the application heap.
+// New creates a new Ed448Params in the application heap.
 func (p Ed448Params) New() js.Ref {
 	return bindings.Ed448ParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1374,6 +1398,8 @@ type EncodedVideoChunkInit struct {
 	// Duration is "EncodedVideoChunkInit.duration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Duration MUST be set to true to make this field effective.
 	Duration uint64
 	// Data is "EncodedVideoChunkInit.data"
 	//
@@ -1391,7 +1417,7 @@ func (p EncodedVideoChunkInit) FromRef(ref js.Ref) EncodedVideoChunkInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EncodedVideoChunkInit EncodedVideoChunkInit [// EncodedVideoChunkInit] [0x140000d05a0 0x140000d0640 0x140000d06e0 0x140000d0820 0x140000d0780] 0x140007817b8 {0 0}} in the application heap.
+// New creates a new EncodedVideoChunkInit in the application heap.
 func (p EncodedVideoChunkInit) New() js.Ref {
 	return bindings.EncodedVideoChunkInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1549,18 +1575,26 @@ type VideoDecoderConfig struct {
 	// CodedWidth is "VideoDecoderConfig.codedWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CodedWidth MUST be set to true to make this field effective.
 	CodedWidth uint32
 	// CodedHeight is "VideoDecoderConfig.codedHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CodedHeight MUST be set to true to make this field effective.
 	CodedHeight uint32
 	// DisplayAspectWidth is "VideoDecoderConfig.displayAspectWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayAspectWidth MUST be set to true to make this field effective.
 	DisplayAspectWidth uint32
 	// DisplayAspectHeight is "VideoDecoderConfig.displayAspectHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayAspectHeight MUST be set to true to make this field effective.
 	DisplayAspectHeight uint32
 	// ColorSpace is "VideoDecoderConfig.colorSpace"
 	//
@@ -1573,6 +1607,8 @@ type VideoDecoderConfig struct {
 	// OptimizeForLatency is "VideoDecoderConfig.optimizeForLatency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_OptimizeForLatency MUST be set to true to make this field effective.
 	OptimizeForLatency bool
 
 	FFI_USE_CodedWidth          bool // for CodedWidth.
@@ -1590,7 +1626,7 @@ func (p VideoDecoderConfig) FromRef(ref js.Ref) VideoDecoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoDecoderConfig VideoDecoderConfig [// VideoDecoderConfig] [0x140000d0960 0x140000d0a00 0x140000d0aa0 0x140000d0be0 0x140000d0d20 0x140000d0e60 0x140000d0fa0 0x140000d1040 0x140000d10e0 0x140000d0b40 0x140000d0c80 0x140000d0dc0 0x140000d0f00 0x140000d1180] 0x14000781830 {0 0}} in the application heap.
+// New creates a new VideoDecoderConfig in the application heap.
 func (p VideoDecoderConfig) New() js.Ref {
 	return bindings.VideoDecoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1615,6 +1651,8 @@ type SvcOutputMetadata struct {
 	// TemporalLayerId is "SvcOutputMetadata.temporalLayerId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TemporalLayerId MUST be set to true to make this field effective.
 	TemporalLayerId uint32
 
 	FFI_USE_TemporalLayerId bool // for TemporalLayerId.
@@ -1628,7 +1666,7 @@ func (p SvcOutputMetadata) FromRef(ref js.Ref) SvcOutputMetadata {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SvcOutputMetadata SvcOutputMetadata [// SvcOutputMetadata] [0x140000d12c0 0x140000d1360] 0x14000781980 {0 0}} in the application heap.
+// New creates a new SvcOutputMetadata in the application heap.
 func (p SvcOutputMetadata) New() js.Ref {
 	return bindings.SvcOutputMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,

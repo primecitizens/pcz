@@ -44,7 +44,7 @@ func (p PaymentDetailsModifier) FromRef(ref js.Ref) PaymentDetailsModifier {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentDetailsModifier PaymentDetailsModifier [// PaymentDetailsModifier] [0x1400093ee60 0x1400093ef00 0x1400093efa0 0x1400093f040] 0x14000920900 {0 0}} in the application heap.
+// New creates a new PaymentDetailsModifier in the application heap.
 func (p PaymentDetailsModifier) New() js.Ref {
 	return bindings.PaymentDetailsModifierJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -84,7 +84,7 @@ func (p PaymentDetailsBase) FromRef(ref js.Ref) PaymentDetailsBase {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentDetailsBase PaymentDetailsBase [// PaymentDetailsBase] [0x1400093edc0 0x1400093f0e0] 0x140009208d0 {0 0}} in the application heap.
+// New creates a new PaymentDetailsBase in the application heap.
 func (p PaymentDetailsBase) New() js.Ref {
 	return bindings.PaymentDetailsBaseJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -132,7 +132,7 @@ func (p PaymentDetailsInit) FromRef(ref js.Ref) PaymentDetailsInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentDetailsInit PaymentDetailsInit [// PaymentDetailsInit] [0x1400093f180 0x1400093f220 0x1400093f2c0 0x1400093f360] 0x14000920948 {0 0}} in the application heap.
+// New creates a new PaymentDetailsInit in the application heap.
 func (p PaymentDetailsInit) New() js.Ref {
 	return bindings.PaymentDetailsInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -180,7 +180,7 @@ func (p PaymentDetailsUpdate) FromRef(ref js.Ref) PaymentDetailsUpdate {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentDetailsUpdate PaymentDetailsUpdate [// PaymentDetailsUpdate] [0x1400093f400 0x1400093f4a0 0x1400093f540 0x1400093f5e0] 0x14000920990 {0 0}} in the application heap.
+// New creates a new PaymentDetailsUpdate in the application heap.
 func (p PaymentDetailsUpdate) New() js.Ref {
 	return bindings.PaymentDetailsUpdateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -240,7 +240,7 @@ func (p PaymentHandlerResponse) FromRef(ref js.Ref) PaymentHandlerResponse {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentHandlerResponse PaymentHandlerResponse [// PaymentHandlerResponse] [0x1400093f680 0x1400093f720 0x1400093f7c0 0x1400093f860 0x1400093f900 0x1400093f9a0 0x1400093fa40] 0x140009209a8 {0 0}} in the application heap.
+// New creates a new PaymentHandlerResponse in the application heap.
 func (p PaymentHandlerResponse) New() js.Ref {
 	return bindings.PaymentHandlerResponseJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -273,14 +273,20 @@ type PaymentMethodChangeEventInit struct {
 	// Bubbles is "PaymentMethodChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PaymentMethodChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PaymentMethodChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -296,7 +302,7 @@ func (p PaymentMethodChangeEventInit) FromRef(ref js.Ref) PaymentMethodChangeEve
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentMethodChangeEventInit PaymentMethodChangeEventInit [// PaymentMethodChangeEventInit] [0x1400093fae0 0x1400093fb80 0x1400093fc20 0x1400093fd60 0x1400093fea0 0x1400093fcc0 0x1400093fe00 0x1400093ff40] 0x140009209d8 {0 0}} in the application heap.
+// New creates a new PaymentMethodChangeEventInit in the application heap.
 func (p PaymentMethodChangeEventInit) New() js.Ref {
 	return bindings.PaymentMethodChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -395,7 +401,7 @@ func (p PaymentMethodData) FromRef(ref js.Ref) PaymentMethodData {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentMethodData PaymentMethodData [// PaymentMethodData] [0x140009520a0 0x14000952140] 0x14000920a20 {0 0}} in the application heap.
+// New creates a new PaymentMethodData in the application heap.
 func (p PaymentMethodData) New() js.Ref {
 	return bindings.PaymentMethodDataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -447,22 +453,32 @@ type PaymentOptions struct {
 	// RequestPayerName is "PaymentOptions.requestPayerName"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequestPayerName MUST be set to true to make this field effective.
 	RequestPayerName bool
 	// RequestBillingAddress is "PaymentOptions.requestBillingAddress"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequestBillingAddress MUST be set to true to make this field effective.
 	RequestBillingAddress bool
 	// RequestPayerEmail is "PaymentOptions.requestPayerEmail"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequestPayerEmail MUST be set to true to make this field effective.
 	RequestPayerEmail bool
 	// RequestPayerPhone is "PaymentOptions.requestPayerPhone"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequestPayerPhone MUST be set to true to make this field effective.
 	RequestPayerPhone bool
 	// RequestShipping is "PaymentOptions.requestShipping"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequestShipping MUST be set to true to make this field effective.
 	RequestShipping bool
 	// ShippingType is "PaymentOptions.shippingType"
 	//
@@ -484,7 +500,7 @@ func (p PaymentOptions) FromRef(ref js.Ref) PaymentOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentOptions PaymentOptions [// PaymentOptions] [0x140009521e0 0x14000952320 0x14000952460 0x140009525a0 0x140009526e0 0x14000952820 0x14000952280 0x140009523c0 0x14000952500 0x14000952640 0x14000952780] 0x14000920a68 {0 0}} in the application heap.
+// New creates a new PaymentOptions in the application heap.
 func (p PaymentOptions) New() js.Ref {
 	return bindings.PaymentOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -524,7 +540,7 @@ func (p PaymentValidationErrors) FromRef(ref js.Ref) PaymentValidationErrors {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentValidationErrors PaymentValidationErrors [// PaymentValidationErrors] [0x140009528c0 0x14000952960] 0x14000920af8 {0 0}} in the application heap.
+// New creates a new PaymentValidationErrors in the application heap.
 func (p PaymentValidationErrors) New() js.Ref {
 	return bindings.PaymentValidationErrorsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -915,6 +931,8 @@ type PaymentShippingOption struct {
 	// Selected is "PaymentShippingOption.selected"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Selected MUST be set to true to make this field effective.
 	Selected bool
 
 	FFI_USE_Selected bool // for Selected.
@@ -928,7 +946,7 @@ func (p PaymentShippingOption) FromRef(ref js.Ref) PaymentShippingOption {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentShippingOption PaymentShippingOption [// PaymentShippingOption] [0x14000952c80 0x14000952d20 0x14000952dc0 0x14000952e60 0x14000952f00] 0x14000920b40 {0 0}} in the application heap.
+// New creates a new PaymentShippingOption in the application heap.
 func (p PaymentShippingOption) New() js.Ref {
 	return bindings.PaymentShippingOptionJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -984,7 +1002,7 @@ func (p PaymentRequestDetailsUpdate) FromRef(ref js.Ref) PaymentRequestDetailsUp
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentRequestDetailsUpdate PaymentRequestDetailsUpdate [// PaymentRequestDetailsUpdate] [0x14000952aa0 0x14000952b40 0x14000952be0 0x14000952fa0 0x14000953040 0x140009530e0] 0x14000920b10 {0 0}} in the application heap.
+// New creates a new PaymentRequestDetailsUpdate in the application heap.
 func (p PaymentRequestDetailsUpdate) New() js.Ref {
 	return bindings.PaymentRequestDetailsUpdateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1041,14 +1059,20 @@ type PaymentRequestEventInit struct {
 	// Bubbles is "PaymentRequestEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PaymentRequestEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PaymentRequestEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1064,7 +1088,7 @@ func (p PaymentRequestEventInit) FromRef(ref js.Ref) PaymentRequestEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentRequestEventInit PaymentRequestEventInit [// PaymentRequestEventInit] [0x14000953180 0x14000953220 0x140009532c0 0x14000953360 0x14000953400 0x140009534a0 0x14000953540 0x140009535e0 0x14000953680 0x140009537c0 0x14000953900 0x14000953720 0x14000953860 0x140009539a0] 0x14000920b88 {0 0}} in the application heap.
+// New creates a new PaymentRequestEventInit in the application heap.
 func (p PaymentRequestEventInit) New() js.Ref {
 	return bindings.PaymentRequestEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1383,14 +1407,20 @@ type PaymentRequestUpdateEventInit struct {
 	// Bubbles is "PaymentRequestUpdateEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PaymentRequestUpdateEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PaymentRequestUpdateEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1406,7 +1436,7 @@ func (p PaymentRequestUpdateEventInit) FromRef(ref js.Ref) PaymentRequestUpdateE
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentRequestUpdateEventInit PaymentRequestUpdateEventInit [// PaymentRequestUpdateEventInit] [0x14000953ae0 0x14000953c20 0x14000953d60 0x14000953b80 0x14000953cc0 0x14000953e00] 0x14000920c48 {0 0}} in the application heap.
+// New creates a new PaymentRequestUpdateEventInit in the application heap.
 func (p PaymentRequestUpdateEventInit) New() js.Ref {
 	return bindings.PaymentRequestUpdateEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1516,7 +1546,7 @@ func (p Pbkdf2Params) FromRef(ref js.Ref) Pbkdf2Params {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 Pbkdf2Params Pbkdf2Params [// Pbkdf2Params] [0x14000953ea0 0x14000953f40 0x1400095a000 0x1400095a0a0] 0x14000920c78 {0 0}} in the application heap.
+// New creates a new Pbkdf2Params in the application heap.
 func (p Pbkdf2Params) New() js.Ref {
 	return bindings.Pbkdf2ParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2289,6 +2319,8 @@ type PerformanceObserverCallbackOptions struct {
 	// DroppedEntriesCount is "PerformanceObserverCallbackOptions.droppedEntriesCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DroppedEntriesCount MUST be set to true to make this field effective.
 	DroppedEntriesCount uint64
 
 	FFI_USE_DroppedEntriesCount bool // for DroppedEntriesCount.
@@ -2302,7 +2334,7 @@ func (p PerformanceObserverCallbackOptions) FromRef(ref js.Ref) PerformanceObser
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PerformanceObserverCallbackOptions PerformanceObserverCallbackOptions [// PerformanceObserverCallbackOptions] [0x1400095a3c0 0x1400095a460] 0x14000920d08 {0 0}} in the application heap.
+// New creates a new PerformanceObserverCallbackOptions in the application heap.
 func (p PerformanceObserverCallbackOptions) New() js.Ref {
 	return bindings.PerformanceObserverCallbackOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2335,10 +2367,14 @@ type PerformanceObserverInit struct {
 	// Buffered is "PerformanceObserverInit.buffered"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Buffered MUST be set to true to make this field effective.
 	Buffered bool
 	// DurationThreshold is "PerformanceObserverInit.durationThreshold"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DurationThreshold MUST be set to true to make this field effective.
 	DurationThreshold DOMHighResTimeStamp
 
 	FFI_USE_Buffered          bool // for Buffered.
@@ -2353,7 +2389,7 @@ func (p PerformanceObserverInit) FromRef(ref js.Ref) PerformanceObserverInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PerformanceObserverInit PerformanceObserverInit [// PerformanceObserverInit] [0x1400095a500 0x1400095a5a0 0x1400095a640 0x1400095a780 0x1400095a6e0 0x1400095a820] 0x14000920d38 {0 0}} in the application heap.
+// New creates a new PerformanceObserverInit in the application heap.
 func (p PerformanceObserverInit) New() js.Ref {
 	return bindings.PerformanceObserverInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2940,14 +2976,20 @@ type PeriodicSyncEventInit struct {
 	// Bubbles is "PeriodicSyncEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PeriodicSyncEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PeriodicSyncEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2963,7 +3005,7 @@ func (p PeriodicSyncEventInit) FromRef(ref js.Ref) PeriodicSyncEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PeriodicSyncEventInit PeriodicSyncEventInit [// PeriodicSyncEventInit] [0x1400095aa00 0x1400095aaa0 0x1400095abe0 0x1400095ad20 0x1400095ab40 0x1400095ac80 0x1400095adc0] 0x14000920d98 {0 0}} in the application heap.
+// New creates a new PeriodicSyncEventInit in the application heap.
 func (p PeriodicSyncEventInit) New() js.Ref {
 	return bindings.PeriodicSyncEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3040,7 +3082,7 @@ func (p PermissionDescriptor) FromRef(ref js.Ref) PermissionDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PermissionDescriptor PermissionDescriptor [// PermissionDescriptor] [0x1400095ae60] 0x14000920df8 {0 0}} in the application heap.
+// New creates a new PermissionDescriptor in the application heap.
 func (p PermissionDescriptor) New() js.Ref {
 	return bindings.PermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3080,7 +3122,7 @@ func (p PermissionSetParameters) FromRef(ref js.Ref) PermissionSetParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PermissionSetParameters PermissionSetParameters [// PermissionSetParameters] [0x1400095af00 0x1400095afa0] 0x14000920e28 {0 0}} in the application heap.
+// New creates a new PermissionSetParameters in the application heap.
 func (p PermissionSetParameters) New() js.Ref {
 	return bindings.PermissionSetParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3186,14 +3228,20 @@ type PictureInPictureEventInit struct {
 	// Bubbles is "PictureInPictureEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PictureInPictureEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PictureInPictureEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -3209,7 +3257,7 @@ func (p PictureInPictureEventInit) FromRef(ref js.Ref) PictureInPictureEventInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PictureInPictureEventInit PictureInPictureEventInit [// PictureInPictureEventInit] [0x1400095b0e0 0x1400095b180 0x1400095b2c0 0x1400095b400 0x1400095b220 0x1400095b360 0x1400095b4a0] 0x14000920e40 {0 0}} in the application heap.
+// New creates a new PictureInPictureEventInit in the application heap.
 func (p PictureInPictureEventInit) New() js.Ref {
 	return bindings.PictureInPictureEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3279,18 +3327,26 @@ type PopStateEventInit struct {
 	// HasUAVisualTransition is "PopStateEventInit.hasUAVisualTransition"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_HasUAVisualTransition MUST be set to true to make this field effective.
 	HasUAVisualTransition bool
 	// Bubbles is "PopStateEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PopStateEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PopStateEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_HasUAVisualTransition bool // for HasUAVisualTransition.
@@ -3307,7 +3363,7 @@ func (p PopStateEventInit) FromRef(ref js.Ref) PopStateEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PopStateEventInit PopStateEventInit [// PopStateEventInit] [0x1400095b540 0x1400095b5e0 0x1400095b720 0x1400095b860 0x1400095b9a0 0x1400095b680 0x1400095b7c0 0x1400095b900 0x1400095ba40] 0x14000920ea0 {0 0}} in the application heap.
+// New creates a new PopStateEventInit in the application heap.
 func (p PopStateEventInit) New() js.Ref {
 	return bindings.PopStateEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3395,14 +3451,20 @@ type PortalActivateEventInit struct {
 	// Bubbles is "PortalActivateEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PortalActivateEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PortalActivateEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -3418,7 +3480,7 @@ func (p PortalActivateEventInit) FromRef(ref js.Ref) PortalActivateEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PortalActivateEventInit PortalActivateEventInit [// PortalActivateEventInit] [0x1400095bb80 0x1400095bc20 0x1400095bd60 0x1400095bea0 0x1400095bcc0 0x1400095be00 0x1400095bf40] 0x14000920ee8 {0 0}} in the application heap.
+// New creates a new PortalActivateEventInit in the application heap.
 func (p PortalActivateEventInit) New() js.Ref {
 	return bindings.PortalActivateEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3548,14 +3610,20 @@ type PresentationConnectionAvailableEventInit struct {
 	// Bubbles is "PresentationConnectionAvailableEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PresentationConnectionAvailableEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PresentationConnectionAvailableEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -3571,7 +3639,7 @@ func (p PresentationConnectionAvailableEventInit) FromRef(ref js.Ref) Presentati
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PresentationConnectionAvailableEventInit PresentationConnectionAvailableEventInit [// PresentationConnectionAvailableEventInit] [0x14000960000 0x140009600a0 0x140009601e0 0x14000960320 0x14000960140 0x14000960280 0x140009603c0] 0x14000920f48 {0 0}} in the application heap.
+// New creates a new PresentationConnectionAvailableEventInit in the application heap.
 func (p PresentationConnectionAvailableEventInit) New() js.Ref {
 	return bindings.PresentationConnectionAvailableEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

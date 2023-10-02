@@ -21,10 +21,14 @@ type MIDIOptions struct {
 	// Sysex is "MIDIOptions.sysex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Sysex MUST be set to true to make this field effective.
 	Sysex bool
 	// Software is "MIDIOptions.software"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Software MUST be set to true to make this field effective.
 	Software bool
 
 	FFI_USE_Sysex    bool // for Sysex.
@@ -39,7 +43,7 @@ func (p MIDIOptions) FromRef(ref js.Ref) MIDIOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MIDIOptions MIDIOptions [// MIDIOptions] [0x140006ce960 0x140006ceaa0 0x140006cea00 0x140006ceb40] 0x14000575818 {0 0}} in the application heap.
+// New creates a new MIDIOptions in the application heap.
 func (p MIDIOptions) New() js.Ref {
 	return bindings.MIDIOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -103,42 +107,62 @@ type HIDReportItem struct {
 	// IsAbsolute is "HIDReportItem.isAbsolute"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsAbsolute MUST be set to true to make this field effective.
 	IsAbsolute bool
 	// IsArray is "HIDReportItem.isArray"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsArray MUST be set to true to make this field effective.
 	IsArray bool
 	// IsBufferedBytes is "HIDReportItem.isBufferedBytes"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsBufferedBytes MUST be set to true to make this field effective.
 	IsBufferedBytes bool
 	// IsConstant is "HIDReportItem.isConstant"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsConstant MUST be set to true to make this field effective.
 	IsConstant bool
 	// IsLinear is "HIDReportItem.isLinear"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsLinear MUST be set to true to make this field effective.
 	IsLinear bool
 	// IsRange is "HIDReportItem.isRange"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsRange MUST be set to true to make this field effective.
 	IsRange bool
 	// IsVolatile is "HIDReportItem.isVolatile"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsVolatile MUST be set to true to make this field effective.
 	IsVolatile bool
 	// HasNull is "HIDReportItem.hasNull"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HasNull MUST be set to true to make this field effective.
 	HasNull bool
 	// HasPreferredState is "HIDReportItem.hasPreferredState"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HasPreferredState MUST be set to true to make this field effective.
 	HasPreferredState bool
 	// Wrap is "HIDReportItem.wrap"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Wrap MUST be set to true to make this field effective.
 	Wrap bool
 	// Usages is "HIDReportItem.usages"
 	//
@@ -147,22 +171,32 @@ type HIDReportItem struct {
 	// UsageMinimum is "HIDReportItem.usageMinimum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsageMinimum MUST be set to true to make this field effective.
 	UsageMinimum uint32
 	// UsageMaximum is "HIDReportItem.usageMaximum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsageMaximum MUST be set to true to make this field effective.
 	UsageMaximum uint32
 	// ReportSize is "HIDReportItem.reportSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ReportSize MUST be set to true to make this field effective.
 	ReportSize uint16
 	// ReportCount is "HIDReportItem.reportCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ReportCount MUST be set to true to make this field effective.
 	ReportCount uint16
 	// UnitExponent is "HIDReportItem.unitExponent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UnitExponent MUST be set to true to make this field effective.
 	UnitExponent int8
 	// UnitSystem is "HIDReportItem.unitSystem"
 	//
@@ -171,42 +205,62 @@ type HIDReportItem struct {
 	// UnitFactorLengthExponent is "HIDReportItem.unitFactorLengthExponent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UnitFactorLengthExponent MUST be set to true to make this field effective.
 	UnitFactorLengthExponent int8
 	// UnitFactorMassExponent is "HIDReportItem.unitFactorMassExponent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UnitFactorMassExponent MUST be set to true to make this field effective.
 	UnitFactorMassExponent int8
 	// UnitFactorTimeExponent is "HIDReportItem.unitFactorTimeExponent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UnitFactorTimeExponent MUST be set to true to make this field effective.
 	UnitFactorTimeExponent int8
 	// UnitFactorTemperatureExponent is "HIDReportItem.unitFactorTemperatureExponent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UnitFactorTemperatureExponent MUST be set to true to make this field effective.
 	UnitFactorTemperatureExponent int8
 	// UnitFactorCurrentExponent is "HIDReportItem.unitFactorCurrentExponent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UnitFactorCurrentExponent MUST be set to true to make this field effective.
 	UnitFactorCurrentExponent int8
 	// UnitFactorLuminousIntensityExponent is "HIDReportItem.unitFactorLuminousIntensityExponent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UnitFactorLuminousIntensityExponent MUST be set to true to make this field effective.
 	UnitFactorLuminousIntensityExponent int8
 	// LogicalMinimum is "HIDReportItem.logicalMinimum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LogicalMinimum MUST be set to true to make this field effective.
 	LogicalMinimum int32
 	// LogicalMaximum is "HIDReportItem.logicalMaximum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LogicalMaximum MUST be set to true to make this field effective.
 	LogicalMaximum int32
 	// PhysicalMinimum is "HIDReportItem.physicalMinimum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PhysicalMinimum MUST be set to true to make this field effective.
 	PhysicalMinimum int32
 	// PhysicalMaximum is "HIDReportItem.physicalMaximum"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PhysicalMaximum MUST be set to true to make this field effective.
 	PhysicalMaximum int32
 	// Strings is "HIDReportItem.strings"
 	//
@@ -248,7 +302,7 @@ func (p HIDReportItem) FromRef(ref js.Ref) HIDReportItem {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HIDReportItem HIDReportItem [// HIDReportItem] [0x140006cf220 0x140006cf360 0x140006cf4a0 0x140006cf5e0 0x140006cf720 0x140006cf860 0x140006cf9a0 0x140006cfae0 0x140006cfc20 0x140006cfd60 0x140006cfea0 0x140006cff40 0x140006f40a0 0x140006f41e0 0x140006f4320 0x140006f4460 0x140006f45a0 0x140006f4640 0x140006f4780 0x140006f48c0 0x140006f4a00 0x140006f4b40 0x140006f4c80 0x140006f4dc0 0x140006f4f00 0x140006f5040 0x140006f5180 0x140006f52c0 0x140006cf2c0 0x140006cf400 0x140006cf540 0x140006cf680 0x140006cf7c0 0x140006cf900 0x140006cfa40 0x140006cfb80 0x140006cfcc0 0x140006cfe00 0x140006f4000 0x140006f4140 0x140006f4280 0x140006f43c0 0x140006f4500 0x140006f46e0 0x140006f4820 0x140006f4960 0x140006f4aa0 0x140006f4be0 0x140006f4d20 0x140006f4e60 0x140006f4fa0 0x140006f50e0 0x140006f5220] 0x14000575968 {0 0}} in the application heap.
+// New creates a new HIDReportItem in the application heap.
 func (p HIDReportItem) New() js.Ref {
 	return bindings.HIDReportItemJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -273,6 +327,8 @@ type HIDReportInfo struct {
 	// ReportId is "HIDReportInfo.reportId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ReportId MUST be set to true to make this field effective.
 	ReportId uint8
 	// Items is "HIDReportInfo.items"
 	//
@@ -290,7 +346,7 @@ func (p HIDReportInfo) FromRef(ref js.Ref) HIDReportInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HIDReportInfo HIDReportInfo [// HIDReportInfo] [0x140006cf0e0 0x140006f5360 0x140006cf180] 0x14000575950 {0 0}} in the application heap.
+// New creates a new HIDReportInfo in the application heap.
 func (p HIDReportInfo) New() js.Ref {
 	return bindings.HIDReportInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -315,14 +371,20 @@ type HIDCollectionInfo struct {
 	// UsagePage is "HIDCollectionInfo.usagePage"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsagePage MUST be set to true to make this field effective.
 	UsagePage uint16
 	// Usage is "HIDCollectionInfo.usage"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Usage MUST be set to true to make this field effective.
 	Usage uint16
 	// Type is "HIDCollectionInfo.type"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Type MUST be set to true to make this field effective.
 	Type uint8
 	// Children is "HIDCollectionInfo.children"
 	//
@@ -354,7 +416,7 @@ func (p HIDCollectionInfo) FromRef(ref js.Ref) HIDCollectionInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HIDCollectionInfo HIDCollectionInfo [// HIDCollectionInfo] [0x140006cec80 0x140006cedc0 0x140006cef00 0x140006cf040 0x140006f5400 0x140006f54a0 0x140006f5540 0x140006ced20 0x140006cee60 0x140006cefa0] 0x14000575908 {0 0}} in the application heap.
+// New creates a new HIDCollectionInfo in the application heap.
 func (p HIDCollectionInfo) New() js.Ref {
 	return bindings.HIDCollectionInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -599,18 +661,26 @@ type HIDDeviceFilter struct {
 	// VendorId is "HIDDeviceFilter.vendorId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_VendorId MUST be set to true to make this field effective.
 	VendorId uint32
 	// ProductId is "HIDDeviceFilter.productId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ProductId MUST be set to true to make this field effective.
 	ProductId uint16
 	// UsagePage is "HIDDeviceFilter.usagePage"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsagePage MUST be set to true to make this field effective.
 	UsagePage uint16
 	// Usage is "HIDDeviceFilter.usage"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Usage MUST be set to true to make this field effective.
 	Usage uint16
 
 	FFI_USE_VendorId  bool // for VendorId.
@@ -627,7 +697,7 @@ func (p HIDDeviceFilter) FromRef(ref js.Ref) HIDDeviceFilter {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HIDDeviceFilter HIDDeviceFilter [// HIDDeviceFilter] [0x140006f55e0 0x140006f5720 0x140006f5860 0x140006f59a0 0x140006f5680 0x140006f57c0 0x140006f5900 0x140006f5a40] 0x14000575c08 {0 0}} in the application heap.
+// New creates a new HIDDeviceFilter in the application heap.
 func (p HIDDeviceFilter) New() js.Ref {
 	return bindings.HIDDeviceFilterJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -667,7 +737,7 @@ func (p HIDDeviceRequestOptions) FromRef(ref js.Ref) HIDDeviceRequestOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HIDDeviceRequestOptions HIDDeviceRequestOptions [// HIDDeviceRequestOptions] [0x140006f5ae0 0x140006f5b80] 0x14000575bd8 {0 0}} in the application heap.
+// New creates a new HIDDeviceRequestOptions in the application heap.
 func (p HIDDeviceRequestOptions) New() js.Ref {
 	return bindings.HIDDeviceRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -946,7 +1016,7 @@ func (p OTPCredentialRequestOptions) FromRef(ref js.Ref) OTPCredentialRequestOpt
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OTPCredentialRequestOptions OTPCredentialRequestOptions [// OTPCredentialRequestOptions] [0x140006f5ea0] 0x14000575cb0 {0 0}} in the application heap.
+// New creates a new OTPCredentialRequestOptions in the application heap.
 func (p OTPCredentialRequestOptions) New() js.Ref {
 	return bindings.OTPCredentialRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -990,7 +1060,7 @@ func (p PublicKeyCredentialDescriptor) FromRef(ref js.Ref) PublicKeyCredentialDe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialDescriptor PublicKeyCredentialDescriptor [// PublicKeyCredentialDescriptor] [0x140006f8280 0x140006f8320 0x140006f83c0] 0x14000575cf8 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialDescriptor in the application heap.
 func (p PublicKeyCredentialDescriptor) New() js.Ref {
 	return bindings.PublicKeyCredentialDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1019,6 +1089,8 @@ type PublicKeyCredentialRequestOptions struct {
 	// Timeout is "PublicKeyCredentialRequestOptions.timeout"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timeout MUST be set to true to make this field effective.
 	Timeout uint32
 	// RpId is "PublicKeyCredentialRequestOptions.rpId"
 	//
@@ -1060,7 +1132,7 @@ func (p PublicKeyCredentialRequestOptions) FromRef(ref js.Ref) PublicKeyCredenti
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialRequestOptions PublicKeyCredentialRequestOptions [// PublicKeyCredentialRequestOptions] [0x140006f8000 0x140006f80a0 0x140006f81e0 0x140006f8460 0x140006f8500 0x140006f85a0 0x140006f8640 0x140006f86e0 0x140006f8780 0x140006f8140] 0x14000575cc8 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialRequestOptions in the application heap.
 func (p PublicKeyCredentialRequestOptions) New() js.Ref {
 	return bindings.PublicKeyCredentialRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1108,7 +1180,7 @@ func (p IdentityProviderConfig) FromRef(ref js.Ref) IdentityProviderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityProviderConfig IdentityProviderConfig [// IdentityProviderConfig] [0x140006f8a00 0x140006f8aa0 0x140006f8b40 0x140006f8be0] 0x14000575d58 {0 0}} in the application heap.
+// New creates a new IdentityProviderConfig in the application heap.
 func (p IdentityProviderConfig) New() js.Ref {
 	return bindings.IdentityProviderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1178,7 +1250,7 @@ func (p IdentityCredentialRequestOptions) FromRef(ref js.Ref) IdentityCredential
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdentityCredentialRequestOptions IdentityCredentialRequestOptions [// IdentityCredentialRequestOptions] [0x140006f8c80 0x140006f8d20] 0x14000575d40 {0 0}} in the application heap.
+// New creates a new IdentityCredentialRequestOptions in the application heap.
 func (p IdentityCredentialRequestOptions) New() js.Ref {
 	return bindings.IdentityCredentialRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1218,7 +1290,7 @@ func (p FederatedCredentialRequestOptions) FromRef(ref js.Ref) FederatedCredenti
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FederatedCredentialRequestOptions FederatedCredentialRequestOptions [// FederatedCredentialRequestOptions] [0x140006f8e60 0x140006f8f00] 0x14000575d70 {0 0}} in the application heap.
+// New creates a new FederatedCredentialRequestOptions in the application heap.
 func (p FederatedCredentialRequestOptions) New() js.Ref {
 	return bindings.FederatedCredentialRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1259,6 +1331,8 @@ type CredentialRequestOptions struct {
 	// Password is "CredentialRequestOptions.password"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Password MUST be set to true to make this field effective.
 	Password bool
 	// Identity is "CredentialRequestOptions.identity"
 	//
@@ -1280,7 +1354,7 @@ func (p CredentialRequestOptions) FromRef(ref js.Ref) CredentialRequestOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CredentialRequestOptions CredentialRequestOptions [// CredentialRequestOptions] [0x140006f5d60 0x140006f5e00 0x140006f5f40 0x140006f8820 0x140006f88c0 0x140006f8dc0 0x140006f8fa0 0x140006f8960] 0x14000575c80 {0 0}} in the application heap.
+// New creates a new CredentialRequestOptions in the application heap.
 func (p CredentialRequestOptions) New() js.Ref {
 	return bindings.CredentialRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1320,7 +1394,7 @@ func (p PublicKeyCredentialRpEntity) FromRef(ref js.Ref) PublicKeyCredentialRpEn
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialRpEntity PublicKeyCredentialRpEntity [// PublicKeyCredentialRpEntity] [0x140006f90e0 0x140006f9180] 0x14000575de8 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialRpEntity in the application heap.
 func (p PublicKeyCredentialRpEntity) New() js.Ref {
 	return bindings.PublicKeyCredentialRpEntityJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1364,7 +1438,7 @@ func (p PublicKeyCredentialUserEntity) FromRef(ref js.Ref) PublicKeyCredentialUs
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialUserEntity PublicKeyCredentialUserEntity [// PublicKeyCredentialUserEntity] [0x140006f92c0 0x140006f9360 0x140006f9400] 0x14000575e48 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialUserEntity in the application heap.
 func (p PublicKeyCredentialUserEntity) New() js.Ref {
 	return bindings.PublicKeyCredentialUserEntityJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1404,7 +1478,7 @@ func (p PublicKeyCredentialParameters) FromRef(ref js.Ref) PublicKeyCredentialPa
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialParameters PublicKeyCredentialParameters [// PublicKeyCredentialParameters] [0x140006f95e0 0x140006f9680] 0x14000575e90 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialParameters in the application heap.
 func (p PublicKeyCredentialParameters) New() js.Ref {
 	return bindings.PublicKeyCredentialParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1445,6 +1519,8 @@ type PublicKeyCredentialCreationOptions struct {
 	// Timeout is "PublicKeyCredentialCreationOptions.timeout"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timeout MUST be set to true to make this field effective.
 	Timeout uint32
 	// ExcludeCredentials is "PublicKeyCredentialCreationOptions.excludeCredentials"
 	//
@@ -1482,7 +1558,7 @@ func (p PublicKeyCredentialCreationOptions) FromRef(ref js.Ref) PublicKeyCredent
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialCreationOptions PublicKeyCredentialCreationOptions [// PublicKeyCredentialCreationOptions] [0x140006f9220 0x140006f94a0 0x140006f9540 0x140006f9720 0x140006f97c0 0x140006f9900 0x140006f99a0 0x140006f9a40 0x140006f9ae0 0x140006f9b80 0x140006f9c20 0x140006f9860] 0x14000575db8 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialCreationOptions in the application heap.
 func (p PublicKeyCredentialCreationOptions) New() js.Ref {
 	return bindings.PublicKeyCredentialCreationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1534,7 +1610,7 @@ func (p PasswordCredentialData) FromRef(ref js.Ref) PasswordCredentialData {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PasswordCredentialData PasswordCredentialData [// PasswordCredentialData] [0x140006f9d60 0x140006f9e00 0x140006f9ea0 0x140006f9f40 0x140006fe000] 0x14000575ed8 {0 0}} in the application heap.
+// New creates a new PasswordCredentialData in the application heap.
 func (p PasswordCredentialData) New() js.Ref {
 	return bindings.PasswordCredentialDataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1620,7 +1696,7 @@ func (p FederatedCredentialInit) FromRef(ref js.Ref) FederatedCredentialInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FederatedCredentialInit FederatedCredentialInit [// FederatedCredentialInit] [0x140006fe140 0x140006fe1e0 0x140006fe280 0x140006fe320 0x140006fe3c0 0x140006fe460] 0x14000575f20 {0 0}} in the application heap.
+// New creates a new FederatedCredentialInit in the application heap.
 func (p FederatedCredentialInit) New() js.Ref {
 	return bindings.FederatedCredentialInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1668,7 +1744,7 @@ func (p CredentialCreationOptions) FromRef(ref js.Ref) CredentialCreationOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CredentialCreationOptions CredentialCreationOptions [// CredentialCreationOptions] [0x140006f9040 0x140006f9cc0 0x140006fe0a0 0x140006fe500] 0x14000575da0 {0 0}} in the application heap.
+// New creates a new CredentialCreationOptions in the application heap.
 func (p CredentialCreationOptions) New() js.Ref {
 	return bindings.CredentialCreationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2171,14 +2247,20 @@ type PositionOptions struct {
 	// EnableHighAccuracy is "PositionOptions.enableHighAccuracy"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_EnableHighAccuracy MUST be set to true to make this field effective.
 	EnableHighAccuracy bool
 	// Timeout is "PositionOptions.timeout"
 	//
 	// Optional, defaults to 0xFFFFFFFF.
+	//
+	// NOTE: FFI_USE_Timeout MUST be set to true to make this field effective.
 	Timeout uint32
 	// MaximumAge is "PositionOptions.maximumAge"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MaximumAge MUST be set to true to make this field effective.
 	MaximumAge uint32
 
 	FFI_USE_EnableHighAccuracy bool // for EnableHighAccuracy.
@@ -2194,7 +2276,7 @@ func (p PositionOptions) FromRef(ref js.Ref) PositionOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PositionOptions PositionOptions [// PositionOptions] [0x140006fe780 0x140006fe8c0 0x140006fea00 0x140006fe820 0x140006fe960 0x140006feaa0] 0x14000575fb0 {0 0}} in the application heap.
+// New creates a new PositionOptions in the application heap.
 func (p PositionOptions) New() js.Ref {
 	return bindings.PositionOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

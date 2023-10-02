@@ -21,18 +21,26 @@ type RTCRtpEncodingParameters struct {
 	// Active is "RTCRtpEncodingParameters.active"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Active MUST be set to true to make this field effective.
 	Active bool
 	// MaxBitrate is "RTCRtpEncodingParameters.maxBitrate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxBitrate MUST be set to true to make this field effective.
 	MaxBitrate uint32
 	// MaxFramerate is "RTCRtpEncodingParameters.maxFramerate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxFramerate MUST be set to true to make this field effective.
 	MaxFramerate float64
 	// ScaleResolutionDownBy is "RTCRtpEncodingParameters.scaleResolutionDownBy"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ScaleResolutionDownBy MUST be set to true to make this field effective.
 	ScaleResolutionDownBy float64
 	// Rid is "RTCRtpEncodingParameters.rid"
 	//
@@ -65,7 +73,7 @@ func (p RTCRtpEncodingParameters) FromRef(ref js.Ref) RTCRtpEncodingParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpEncodingParameters RTCRtpEncodingParameters [// RTCRtpEncodingParameters] [0x140009d43c0 0x140009d4500 0x140009d4640 0x140009d4780 0x140009d48c0 0x140009d4960 0x140009d4a00 0x140009d4aa0 0x140009d4460 0x140009d45a0 0x140009d46e0 0x140009d4820] 0x1400099ce58 {0 0}} in the application heap.
+// New creates a new RTCRtpEncodingParameters in the application heap.
 func (p RTCRtpEncodingParameters) New() js.Ref {
 	return bindings.RTCRtpEncodingParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -98,6 +106,8 @@ type RTCRtpHeaderExtensionParameters struct {
 	// Encrypted is "RTCRtpHeaderExtensionParameters.encrypted"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Encrypted MUST be set to true to make this field effective.
 	Encrypted bool
 
 	FFI_USE_Encrypted bool // for Encrypted.
@@ -111,7 +121,7 @@ func (p RTCRtpHeaderExtensionParameters) FromRef(ref js.Ref) RTCRtpHeaderExtensi
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpHeaderExtensionParameters RTCRtpHeaderExtensionParameters [// RTCRtpHeaderExtensionParameters] [0x140009d4be0 0x140009d4c80 0x140009d4d20 0x140009d4dc0] 0x1400099ceb8 {0 0}} in the application heap.
+// New creates a new RTCRtpHeaderExtensionParameters in the application heap.
 func (p RTCRtpHeaderExtensionParameters) New() js.Ref {
 	return bindings.RTCRtpHeaderExtensionParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -140,6 +150,8 @@ type RTCRtcpParameters struct {
 	// ReducedSize is "RTCRtcpParameters.reducedSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ReducedSize MUST be set to true to make this field effective.
 	ReducedSize bool
 
 	FFI_USE_ReducedSize bool // for ReducedSize.
@@ -153,7 +165,7 @@ func (p RTCRtcpParameters) FromRef(ref js.Ref) RTCRtcpParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtcpParameters RTCRtcpParameters [// RTCRtcpParameters] [0x140009d4f00 0x140009d4fa0 0x140009d5040] 0x1400099cf48 {0 0}} in the application heap.
+// New creates a new RTCRtcpParameters in the application heap.
 func (p RTCRtcpParameters) New() js.Ref {
 	return bindings.RTCRtcpParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -190,6 +202,8 @@ type RTCRtpCodecParameters struct {
 	// Channels is "RTCRtpCodecParameters.channels"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Channels MUST be set to true to make this field effective.
 	Channels uint16
 	// SdpFmtpLine is "RTCRtpCodecParameters.sdpFmtpLine"
 	//
@@ -207,7 +221,7 @@ func (p RTCRtpCodecParameters) FromRef(ref js.Ref) RTCRtpCodecParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpCodecParameters RTCRtpCodecParameters [// RTCRtpCodecParameters] [0x140009d5180 0x140009d5220 0x140009d52c0 0x140009d5360 0x140009d54a0 0x140009d5400] 0x1400099cf90 {0 0}} in the application heap.
+// New creates a new RTCRtpCodecParameters in the application heap.
 func (p RTCRtpCodecParameters) New() js.Ref {
 	return bindings.RTCRtpCodecParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -263,7 +277,7 @@ func (p RTCRtpSendParameters) FromRef(ref js.Ref) RTCRtpSendParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpSendParameters RTCRtpSendParameters [// RTCRtpSendParameters] [0x140009d4320 0x140009d4b40 0x140009d4e60 0x140009d50e0 0x140009d5540 0x140009d55e0] 0x1400099ce40 {0 0}} in the application heap.
+// New creates a new RTCRtpSendParameters in the application heap.
 func (p RTCRtpSendParameters) New() js.Ref {
 	return bindings.RTCRtpSendParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -294,7 +308,7 @@ func (p RTCSetParameterOptions) FromRef(ref js.Ref) RTCSetParameterOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCSetParameterOptions RTCSetParameterOptions [// RTCSetParameterOptions] [] 0x1400099cfc0 {0 0}} in the application heap.
+// New creates a new RTCSetParameterOptions in the application heap.
 func (p RTCSetParameterOptions) New() js.Ref {
 	return bindings.RTCSetParameterOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -376,7 +390,7 @@ func (p SFrameTransformOptions) FromRef(ref js.Ref) SFrameTransformOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SFrameTransformOptions SFrameTransformOptions [// SFrameTransformOptions] [0x140009d5720] 0x1400099d020 {0 0}} in the application heap.
+// New creates a new SFrameTransformOptions in the application heap.
 func (p SFrameTransformOptions) New() js.Ref {
 	return bindings.SFrameTransformOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -526,7 +540,7 @@ func (p WorkerOptions) FromRef(ref js.Ref) WorkerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WorkerOptions WorkerOptions [// WorkerOptions] [0x140009d5860 0x140009d5900 0x140009d59a0] 0x1400099d098 {0 0}} in the application heap.
+// New creates a new WorkerOptions in the application heap.
 func (p WorkerOptions) New() js.Ref {
 	return bindings.WorkerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1074,7 +1088,7 @@ func (p RTCRtpReceiveParameters) FromRef(ref js.Ref) RTCRtpReceiveParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpReceiveParameters RTCRtpReceiveParameters [// RTCRtpReceiveParameters] [0x140009d5a40 0x140009d5ae0 0x140009d5b80] 0x1400099d140 {0 0}} in the application heap.
+// New creates a new RTCRtpReceiveParameters in the application heap.
 func (p RTCRtpReceiveParameters) New() js.Ref {
 	return bindings.RTCRtpReceiveParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1107,6 +1121,8 @@ type RTCRtpContributingSource struct {
 	// AudioLevel is "RTCRtpContributingSource.audioLevel"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AudioLevel MUST be set to true to make this field effective.
 	AudioLevel float64
 	// RtpTimestamp is "RTCRtpContributingSource.rtpTimestamp"
 	//
@@ -1124,7 +1140,7 @@ func (p RTCRtpContributingSource) FromRef(ref js.Ref) RTCRtpContributingSource {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpContributingSource RTCRtpContributingSource [// RTCRtpContributingSource] [0x140009d5c20 0x140009d5cc0 0x140009d5d60 0x140009d5ea0 0x140009d5e00] 0x1400099d170 {0 0}} in the application heap.
+// New creates a new RTCRtpContributingSource in the application heap.
 func (p RTCRtpContributingSource) New() js.Ref {
 	return bindings.RTCRtpContributingSourceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1157,6 +1173,8 @@ type RTCRtpSynchronizationSource struct {
 	// AudioLevel is "RTCRtpSynchronizationSource.audioLevel"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AudioLevel MUST be set to true to make this field effective.
 	AudioLevel float64
 	// RtpTimestamp is "RTCRtpSynchronizationSource.rtpTimestamp"
 	//
@@ -1174,7 +1192,7 @@ func (p RTCRtpSynchronizationSource) FromRef(ref js.Ref) RTCRtpSynchronizationSo
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpSynchronizationSource RTCRtpSynchronizationSource [// RTCRtpSynchronizationSource] [0x140009d5f40 0x140009da000 0x140009da0a0 0x140009da1e0 0x140009da140] 0x1400099d1a0 {0 0}} in the application heap.
+// New creates a new RTCRtpSynchronizationSource in the application heap.
 func (p RTCRtpSynchronizationSource) New() js.Ref {
 	return bindings.RTCRtpSynchronizationSourceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1594,7 +1612,7 @@ func (p RTCRtpTransceiverInit) FromRef(ref js.Ref) RTCRtpTransceiverInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpTransceiverInit RTCRtpTransceiverInit [// RTCRtpTransceiverInit] [0x140009da3c0 0x140009da460 0x140009da500] 0x1400099d230 {0 0}} in the application heap.
+// New creates a new RTCRtpTransceiverInit in the application heap.
 func (p RTCRtpTransceiverInit) New() js.Ref {
 	return bindings.RTCRtpTransceiverInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2911,6 +2929,8 @@ type RTCPeerConnectionIceErrorEventInit struct {
 	// Port is "RTCPeerConnectionIceErrorEventInit.port"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Port MUST be set to true to make this field effective.
 	Port uint16
 	// Url is "RTCPeerConnectionIceErrorEventInit.url"
 	//
@@ -2927,14 +2947,20 @@ type RTCPeerConnectionIceErrorEventInit struct {
 	// Bubbles is "RTCPeerConnectionIceErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "RTCPeerConnectionIceErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "RTCPeerConnectionIceErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Port       bool // for Port.
@@ -2951,7 +2977,7 @@ func (p RTCPeerConnectionIceErrorEventInit) FromRef(ref js.Ref) RTCPeerConnectio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCPeerConnectionIceErrorEventInit RTCPeerConnectionIceErrorEventInit [// RTCPeerConnectionIceErrorEventInit] [0x140009da780 0x140009da820 0x140009da960 0x140009daa00 0x140009daaa0 0x140009dab40 0x140009dac80 0x140009dadc0 0x140009da8c0 0x140009dabe0 0x140009dad20 0x140009dae60] 0x1400099d3c8 {0 0}} in the application heap.
+// New creates a new RTCPeerConnectionIceErrorEventInit in the application heap.
 func (p RTCPeerConnectionIceErrorEventInit) New() js.Ref {
 	return bindings.RTCPeerConnectionIceErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3069,14 +3095,20 @@ type RTCPeerConnectionIceEventInit struct {
 	// Bubbles is "RTCPeerConnectionIceEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "RTCPeerConnectionIceEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "RTCPeerConnectionIceEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -3092,7 +3124,7 @@ func (p RTCPeerConnectionIceEventInit) FromRef(ref js.Ref) RTCPeerConnectionIceE
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCPeerConnectionIceEventInit RTCPeerConnectionIceEventInit [// RTCPeerConnectionIceEventInit] [0x140009dafa0 0x140009db040 0x140009db0e0 0x140009db220 0x140009db360 0x140009db180 0x140009db2c0 0x140009db400] 0x1400099d440 {0 0}} in the application heap.
+// New creates a new RTCPeerConnectionIceEventInit in the application heap.
 func (p RTCPeerConnectionIceEventInit) New() js.Ref {
 	return bindings.RTCPeerConnectionIceEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3176,10 +3208,14 @@ type RTCPeerConnectionStats struct {
 	// DataChannelsOpened is "RTCPeerConnectionStats.dataChannelsOpened"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataChannelsOpened MUST be set to true to make this field effective.
 	DataChannelsOpened uint32
 	// DataChannelsClosed is "RTCPeerConnectionStats.dataChannelsClosed"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataChannelsClosed MUST be set to true to make this field effective.
 	DataChannelsClosed uint32
 	// Timestamp is "RTCPeerConnectionStats.timestamp"
 	//
@@ -3206,7 +3242,7 @@ func (p RTCPeerConnectionStats) FromRef(ref js.Ref) RTCPeerConnectionStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCPeerConnectionStats RTCPeerConnectionStats [// RTCPeerConnectionStats] [0x140009db540 0x140009db680 0x140009db7c0 0x140009db860 0x140009db900 0x140009db5e0 0x140009db720] 0x1400099d488 {0 0}} in the application heap.
+// New creates a new RTCPeerConnectionStats in the application heap.
 func (p RTCPeerConnectionStats) New() js.Ref {
 	return bindings.RTCPeerConnectionStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3231,14 +3267,20 @@ type RTCReceivedRtpStreamStats struct {
 	// PacketsReceived is "RTCReceivedRtpStreamStats.packetsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsReceived MUST be set to true to make this field effective.
 	PacketsReceived uint64
 	// PacketsLost is "RTCReceivedRtpStreamStats.packetsLost"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsLost MUST be set to true to make this field effective.
 	PacketsLost int64
 	// Jitter is "RTCReceivedRtpStreamStats.jitter"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Jitter MUST be set to true to make this field effective.
 	Jitter float64
 	// Ssrc is "RTCReceivedRtpStreamStats.ssrc"
 	//
@@ -3282,7 +3324,7 @@ func (p RTCReceivedRtpStreamStats) FromRef(ref js.Ref) RTCReceivedRtpStreamStats
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCReceivedRtpStreamStats RTCReceivedRtpStreamStats [// RTCReceivedRtpStreamStats] [0x140009db9a0 0x140009dbb80 0x140009dbcc0 0x140009dbe00 0x140009dbea0 0x140009dbf40 0x140009e8000 0x140009e80a0 0x140009e8140 0x140009e81e0 0x140009dba40 0x140009dbc20 0x140009dbd60] 0x1400099d4d0 {0 0}} in the application heap.
+// New creates a new RTCReceivedRtpStreamStats in the application heap.
 func (p RTCReceivedRtpStreamStats) New() js.Ref {
 	return bindings.RTCReceivedRtpStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3311,30 +3353,44 @@ type RTCRemoteInboundRtpStreamStats struct {
 	// RoundTripTime is "RTCRemoteInboundRtpStreamStats.roundTripTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RoundTripTime MUST be set to true to make this field effective.
 	RoundTripTime float64
 	// TotalRoundTripTime is "RTCRemoteInboundRtpStreamStats.totalRoundTripTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalRoundTripTime MUST be set to true to make this field effective.
 	TotalRoundTripTime float64
 	// FractionLost is "RTCRemoteInboundRtpStreamStats.fractionLost"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FractionLost MUST be set to true to make this field effective.
 	FractionLost float64
 	// RoundTripTimeMeasurements is "RTCRemoteInboundRtpStreamStats.roundTripTimeMeasurements"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RoundTripTimeMeasurements MUST be set to true to make this field effective.
 	RoundTripTimeMeasurements uint64
 	// PacketsReceived is "RTCRemoteInboundRtpStreamStats.packetsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsReceived MUST be set to true to make this field effective.
 	PacketsReceived uint64
 	// PacketsLost is "RTCRemoteInboundRtpStreamStats.packetsLost"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsLost MUST be set to true to make this field effective.
 	PacketsLost int64
 	// Jitter is "RTCRemoteInboundRtpStreamStats.jitter"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Jitter MUST be set to true to make this field effective.
 	Jitter float64
 	// Ssrc is "RTCRemoteInboundRtpStreamStats.ssrc"
 	//
@@ -3382,7 +3438,7 @@ func (p RTCRemoteInboundRtpStreamStats) FromRef(ref js.Ref) RTCRemoteInboundRtpS
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRemoteInboundRtpStreamStats RTCRemoteInboundRtpStreamStats [// RTCRemoteInboundRtpStreamStats] [0x140009e8280 0x140009e8320 0x140009e8460 0x140009e85a0 0x140009e86e0 0x140009e8820 0x140009e8960 0x140009e8aa0 0x140009e8be0 0x140009e8c80 0x140009e8d20 0x140009e8dc0 0x140009e8e60 0x140009e8f00 0x140009e8fa0 0x140009e83c0 0x140009e8500 0x140009e8640 0x140009e8780 0x140009e88c0 0x140009e8a00 0x140009e8b40] 0x1400099d578 {0 0}} in the application heap.
+// New creates a new RTCRemoteInboundRtpStreamStats in the application heap.
 func (p RTCRemoteInboundRtpStreamStats) New() js.Ref {
 	return bindings.RTCRemoteInboundRtpStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3411,30 +3467,44 @@ type RTCRemoteOutboundRtpStreamStats struct {
 	// RemoteTimestamp is "RTCRemoteOutboundRtpStreamStats.remoteTimestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RemoteTimestamp MUST be set to true to make this field effective.
 	RemoteTimestamp DOMHighResTimeStamp
 	// ReportsSent is "RTCRemoteOutboundRtpStreamStats.reportsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ReportsSent MUST be set to true to make this field effective.
 	ReportsSent uint64
 	// RoundTripTime is "RTCRemoteOutboundRtpStreamStats.roundTripTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RoundTripTime MUST be set to true to make this field effective.
 	RoundTripTime float64
 	// TotalRoundTripTime is "RTCRemoteOutboundRtpStreamStats.totalRoundTripTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalRoundTripTime MUST be set to true to make this field effective.
 	TotalRoundTripTime float64
 	// RoundTripTimeMeasurements is "RTCRemoteOutboundRtpStreamStats.roundTripTimeMeasurements"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RoundTripTimeMeasurements MUST be set to true to make this field effective.
 	RoundTripTimeMeasurements uint64
 	// PacketsSent is "RTCRemoteOutboundRtpStreamStats.packetsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsSent MUST be set to true to make this field effective.
 	PacketsSent uint64
 	// BytesSent is "RTCRemoteOutboundRtpStreamStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// Ssrc is "RTCRemoteOutboundRtpStreamStats.ssrc"
 	//
@@ -3482,7 +3552,7 @@ func (p RTCRemoteOutboundRtpStreamStats) FromRef(ref js.Ref) RTCRemoteOutboundRt
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRemoteOutboundRtpStreamStats RTCRemoteOutboundRtpStreamStats [// RTCRemoteOutboundRtpStreamStats] [0x140009e9040 0x140009e90e0 0x140009e9220 0x140009e9360 0x140009e94a0 0x140009e95e0 0x140009e9720 0x140009e9860 0x140009e99a0 0x140009e9a40 0x140009e9ae0 0x140009e9b80 0x140009e9c20 0x140009e9cc0 0x140009e9d60 0x140009e9180 0x140009e92c0 0x140009e9400 0x140009e9540 0x140009e9680 0x140009e97c0 0x140009e9900] 0x1400099d650 {0 0}} in the application heap.
+// New creates a new RTCRemoteOutboundRtpStreamStats in the application heap.
 func (p RTCRemoteOutboundRtpStreamStats) New() js.Ref {
 	return bindings.RTCRemoteOutboundRtpStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3515,6 +3585,8 @@ type RTCRtpCodec struct {
 	// Channels is "RTCRtpCodec.channels"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Channels MUST be set to true to make this field effective.
 	Channels uint16
 	// SdpFmtpLine is "RTCRtpCodec.sdpFmtpLine"
 	//
@@ -3532,7 +3604,7 @@ func (p RTCRtpCodec) FromRef(ref js.Ref) RTCRtpCodec {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpCodec RTCRtpCodec [// RTCRtpCodec] [0x140009e9e00 0x140009e9ea0 0x140009e9f40 0x140009ea0a0 0x140009ea000] 0x1400099d740 {0 0}} in the application heap.
+// New creates a new RTCRtpCodec in the application heap.
 func (p RTCRtpCodec) New() js.Ref {
 	return bindings.RTCRtpCodecJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3568,7 +3640,7 @@ func (p RTCRtpCodingParameters) FromRef(ref js.Ref) RTCRtpCodingParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpCodingParameters RTCRtpCodingParameters [// RTCRtpCodingParameters] [0x140009ea140] 0x1400099d758 {0 0}} in the application heap.
+// New creates a new RTCRtpCodingParameters in the application heap.
 func (p RTCRtpCodingParameters) New() js.Ref {
 	return bindings.RTCRtpCodingParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3612,7 +3684,7 @@ func (p RTCRtpParameters) FromRef(ref js.Ref) RTCRtpParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpParameters RTCRtpParameters [// RTCRtpParameters] [0x140009ea1e0 0x140009ea280 0x140009ea320] 0x1400099d7a0 {0 0}} in the application heap.
+// New creates a new RTCRtpParameters in the application heap.
 func (p RTCRtpParameters) New() js.Ref {
 	return bindings.RTCRtpParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3797,7 +3869,7 @@ func (p RTCRtpStreamStats) FromRef(ref js.Ref) RTCRtpStreamStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCRtpStreamStats RTCRtpStreamStats [// RTCRtpStreamStats] [0x140009ea460 0x140009ea500 0x140009ea5a0 0x140009ea640 0x140009ea6e0 0x140009ea780 0x140009ea820] 0x1400099d800 {0 0}} in the application heap.
+// New creates a new RTCRtpStreamStats in the application heap.
 func (p RTCRtpStreamStats) New() js.Ref {
 	return bindings.RTCRtpStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3822,10 +3894,14 @@ type RTCSentRtpStreamStats struct {
 	// PacketsSent is "RTCSentRtpStreamStats.packetsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsSent MUST be set to true to make this field effective.
 	PacketsSent uint64
 	// BytesSent is "RTCSentRtpStreamStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// Ssrc is "RTCSentRtpStreamStats.ssrc"
 	//
@@ -3868,7 +3944,7 @@ func (p RTCSentRtpStreamStats) FromRef(ref js.Ref) RTCSentRtpStreamStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCSentRtpStreamStats RTCSentRtpStreamStats [// RTCSentRtpStreamStats] [0x140009ea8c0 0x140009eaa00 0x140009eab40 0x140009eabe0 0x140009eac80 0x140009ead20 0x140009eadc0 0x140009eae60 0x140009eaf00 0x140009ea960 0x140009eaaa0] 0x1400099d890 {0 0}} in the application heap.
+// New creates a new RTCSentRtpStreamStats in the application heap.
 func (p RTCSentRtpStreamStats) New() js.Ref {
 	return bindings.RTCSentRtpStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3912,7 +3988,7 @@ func (p RTCStats) FromRef(ref js.Ref) RTCStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCStats RTCStats [// RTCStats] [0x140009eafa0 0x140009eb040 0x140009eb0e0] 0x1400099d938 {0 0}} in the application heap.
+// New creates a new RTCStats in the application heap.
 func (p RTCStats) New() js.Ref {
 	return bindings.RTCStatsJSLoad(
 		js.Pointer(&p), js.True, 0,

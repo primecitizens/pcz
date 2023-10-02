@@ -427,7 +427,7 @@ func (p IntersectionObserverEntryInit) FromRef(ref js.Ref) IntersectionObserverE
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IntersectionObserverEntryInit IntersectionObserverEntryInit [// IntersectionObserverEntryInit] [0x1400086b040 0x1400086b0e0 0x1400086b180 0x1400086b220 0x1400086b2c0 0x1400086b360 0x1400086b400] 0x1400107e738 {0 0}} in the application heap.
+// New creates a new IntersectionObserverEntryInit in the application heap.
 func (p IntersectionObserverEntryInit) New() js.Ref {
 	return bindings.IntersectionObserverEntryInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -629,7 +629,7 @@ func (p IntersectionObserverInit) FromRef(ref js.Ref) IntersectionObserverInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IntersectionObserverInit IntersectionObserverInit [// IntersectionObserverInit] [0x1400086b540 0x1400086b5e0 0x1400086b680] 0x1400107ea08 {0 0}} in the application heap.
+// New creates a new IntersectionObserverInit in the application heap.
 func (p IntersectionObserverInit) New() js.Ref {
 	return bindings.IntersectionObserverInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -921,10 +921,14 @@ type IntrinsicSizesResultOptions struct {
 	// MaxContentSize is "IntrinsicSizesResultOptions.maxContentSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxContentSize MUST be set to true to make this field effective.
 	MaxContentSize float64
 	// MinContentSize is "IntrinsicSizesResultOptions.minContentSize"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MinContentSize MUST be set to true to make this field effective.
 	MinContentSize float64
 
 	FFI_USE_MaxContentSize bool // for MaxContentSize.
@@ -939,7 +943,7 @@ func (p IntrinsicSizesResultOptions) FromRef(ref js.Ref) IntrinsicSizesResultOpt
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IntrinsicSizesResultOptions IntrinsicSizesResultOptions [// IntrinsicSizesResultOptions] [0x1400086b860 0x1400086b9a0 0x1400086b900 0x1400086ba40] 0x1400107f698 {0 0}} in the application heap.
+// New creates a new IntrinsicSizesResultOptions in the application heap.
 func (p IntrinsicSizesResultOptions) New() js.Ref {
 	return bindings.IntrinsicSizesResultOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1251,7 +1255,7 @@ func (p JsonLdError) FromRef(ref js.Ref) JsonLdError {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 JsonLdError JsonLdError [// JsonLdError] [0x1400086bae0 0x1400086bb80] 0x1400107f728 {0 0}} in the application heap.
+// New creates a new JsonLdError in the application heap.
 func (p JsonLdError) New() js.Ref {
 	return bindings.JsonLdErrorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1315,7 +1319,7 @@ func (p JsonLdFramingError) FromRef(ref js.Ref) JsonLdFramingError {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 JsonLdFramingError JsonLdFramingError [// JsonLdFramingError] [0x1400086bc20 0x1400086bcc0] 0x1400037cd08 {0 0}} in the application heap.
+// New creates a new JsonLdFramingError in the application heap.
 func (p JsonLdFramingError) New() js.Ref {
 	return bindings.JsonLdFramingErrorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1527,6 +1531,8 @@ type LoadDocumentOptions struct {
 	// ExtractAllScripts is "LoadDocumentOptions.extractAllScripts"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ExtractAllScripts MUST be set to true to make this field effective.
 	ExtractAllScripts bool
 	// Profile is "LoadDocumentOptions.profile"
 	//
@@ -1548,7 +1554,7 @@ func (p LoadDocumentOptions) FromRef(ref js.Ref) LoadDocumentOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 LoadDocumentOptions LoadDocumentOptions [// LoadDocumentOptions] [0x1400087a1e0 0x1400087a320 0x1400087a3c0 0x1400087a280] 0x1400037d0b0 {0 0}} in the application heap.
+// New creates a new LoadDocumentOptions in the application heap.
 func (p LoadDocumentOptions) New() js.Ref {
 	return bindings.LoadDocumentOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1603,10 +1609,14 @@ type JsonLdOptions struct {
 	// CompactArrays is "JsonLdOptions.compactArrays"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_CompactArrays MUST be set to true to make this field effective.
 	CompactArrays bool
 	// CompactToRelative is "JsonLdOptions.compactToRelative"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_CompactToRelative MUST be set to true to make this field effective.
 	CompactToRelative bool
 	// DocumentLoader is "JsonLdOptions.documentLoader"
 	//
@@ -1619,14 +1629,20 @@ type JsonLdOptions struct {
 	// ExtractAllScripts is "JsonLdOptions.extractAllScripts"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ExtractAllScripts MUST be set to true to make this field effective.
 	ExtractAllScripts bool
 	// FrameExpansion is "JsonLdOptions.frameExpansion"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_FrameExpansion MUST be set to true to make this field effective.
 	FrameExpansion bool
 	// Ordered is "JsonLdOptions.ordered"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Ordered MUST be set to true to make this field effective.
 	Ordered bool
 	// ProcessingMode is "JsonLdOptions.processingMode"
 	//
@@ -1635,6 +1651,8 @@ type JsonLdOptions struct {
 	// ProduceGeneralizedRdf is "JsonLdOptions.produceGeneralizedRdf"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ProduceGeneralizedRdf MUST be set to true to make this field effective.
 	ProduceGeneralizedRdf bool
 	// RdfDirection is "JsonLdOptions.rdfDirection"
 	//
@@ -1643,10 +1661,14 @@ type JsonLdOptions struct {
 	// UseNativeTypes is "JsonLdOptions.useNativeTypes"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_UseNativeTypes MUST be set to true to make this field effective.
 	UseNativeTypes bool
 	// UseRdfType is "JsonLdOptions.useRdfType"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_UseRdfType MUST be set to true to make this field effective.
 	UseRdfType bool
 	// Embed is "JsonLdOptions.embed"
 	//
@@ -1655,22 +1677,32 @@ type JsonLdOptions struct {
 	// Explicit is "JsonLdOptions.explicit"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Explicit MUST be set to true to make this field effective.
 	Explicit bool
 	// OmitDefault is "JsonLdOptions.omitDefault"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_OmitDefault MUST be set to true to make this field effective.
 	OmitDefault bool
 	// OmitGraph is "JsonLdOptions.omitGraph"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_OmitGraph MUST be set to true to make this field effective.
 	OmitGraph bool
 	// RequireAll is "JsonLdOptions.requireAll"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequireAll MUST be set to true to make this field effective.
 	RequireAll bool
 	// FrameDefault is "JsonLdOptions.frameDefault"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_FrameDefault MUST be set to true to make this field effective.
 	FrameDefault bool
 
 	FFI_USE_CompactArrays         bool // for CompactArrays.
@@ -1696,7 +1728,7 @@ func (p JsonLdOptions) FromRef(ref js.Ref) JsonLdOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 JsonLdOptions JsonLdOptions [// JsonLdOptions] [0x1400086bea0 0x1400086bf40 0x1400087a0a0 0x1400087a460 0x1400087a500 0x1400087a5a0 0x1400087a6e0 0x1400087a820 0x1400087a960 0x1400087aa00 0x1400087ab40 0x1400087abe0 0x1400087ad20 0x1400087ae60 0x1400087af00 0x1400087b040 0x1400087b180 0x1400087b2c0 0x1400087b400 0x1400087a000 0x1400087a140 0x1400087a640 0x1400087a780 0x1400087a8c0 0x1400087aaa0 0x1400087ac80 0x1400087adc0 0x1400087afa0 0x1400087b0e0 0x1400087b220 0x1400087b360 0x1400087b4a0] 0x1400037d050 {0 0}} in the application heap.
+// New creates a new JsonLdOptions in the application heap.
 func (p JsonLdOptions) New() js.Ref {
 	return bindings.JsonLdOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2374,70 +2406,104 @@ type KeyboardEventInit struct {
 	// Location is "KeyboardEventInit.location"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Location MUST be set to true to make this field effective.
 	Location uint32
 	// Repeat is "KeyboardEventInit.repeat"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Repeat MUST be set to true to make this field effective.
 	Repeat bool
 	// IsComposing is "KeyboardEventInit.isComposing"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsComposing MUST be set to true to make this field effective.
 	IsComposing bool
 	// CtrlKey is "KeyboardEventInit.ctrlKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CtrlKey MUST be set to true to make this field effective.
 	CtrlKey bool
 	// ShiftKey is "KeyboardEventInit.shiftKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ShiftKey MUST be set to true to make this field effective.
 	ShiftKey bool
 	// AltKey is "KeyboardEventInit.altKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AltKey MUST be set to true to make this field effective.
 	AltKey bool
 	// MetaKey is "KeyboardEventInit.metaKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_MetaKey MUST be set to true to make this field effective.
 	MetaKey bool
 	// ModifierAltGraph is "KeyboardEventInit.modifierAltGraph"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierAltGraph MUST be set to true to make this field effective.
 	ModifierAltGraph bool
 	// ModifierCapsLock is "KeyboardEventInit.modifierCapsLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierCapsLock MUST be set to true to make this field effective.
 	ModifierCapsLock bool
 	// ModifierFn is "KeyboardEventInit.modifierFn"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFn MUST be set to true to make this field effective.
 	ModifierFn bool
 	// ModifierFnLock is "KeyboardEventInit.modifierFnLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFnLock MUST be set to true to make this field effective.
 	ModifierFnLock bool
 	// ModifierHyper is "KeyboardEventInit.modifierHyper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierHyper MUST be set to true to make this field effective.
 	ModifierHyper bool
 	// ModifierNumLock is "KeyboardEventInit.modifierNumLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierNumLock MUST be set to true to make this field effective.
 	ModifierNumLock bool
 	// ModifierScrollLock is "KeyboardEventInit.modifierScrollLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierScrollLock MUST be set to true to make this field effective.
 	ModifierScrollLock bool
 	// ModifierSuper is "KeyboardEventInit.modifierSuper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSuper MUST be set to true to make this field effective.
 	ModifierSuper bool
 	// ModifierSymbol is "KeyboardEventInit.modifierSymbol"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbol MUST be set to true to make this field effective.
 	ModifierSymbol bool
 	// ModifierSymbolLock is "KeyboardEventInit.modifierSymbolLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbolLock MUST be set to true to make this field effective.
 	ModifierSymbolLock bool
 	// View is "KeyboardEventInit.view"
 	//
@@ -2446,26 +2512,38 @@ type KeyboardEventInit struct {
 	// Detail is "KeyboardEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "KeyboardEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "KeyboardEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "KeyboardEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 	// CharCode is "KeyboardEventInit.charCode"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_CharCode MUST be set to true to make this field effective.
 	CharCode uint32
 	// KeyCode is "KeyboardEventInit.keyCode"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_KeyCode MUST be set to true to make this field effective.
 	KeyCode uint32
 
 	FFI_USE_Location           bool // for Location.
@@ -2501,7 +2579,7 @@ func (p KeyboardEventInit) FromRef(ref js.Ref) KeyboardEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 KeyboardEventInit KeyboardEventInit [// KeyboardEventInit] [0x1400087b680 0x1400087b720 0x1400087b7c0 0x1400087b900 0x1400087ba40 0x1400087bb80 0x1400087bcc0 0x1400087be00 0x1400087bf40 0x1400088c0a0 0x1400088c1e0 0x1400088c320 0x1400088c460 0x1400088c5a0 0x1400088c6e0 0x1400088c820 0x1400088c960 0x1400088caa0 0x1400088cbe0 0x1400088cd20 0x1400088cdc0 0x1400088cf00 0x1400088d040 0x1400088d180 0x1400088d2c0 0x1400088d400 0x1400087b860 0x1400087b9a0 0x1400087bae0 0x1400087bc20 0x1400087bd60 0x1400087bea0 0x1400088c000 0x1400088c140 0x1400088c280 0x1400088c3c0 0x1400088c500 0x1400088c640 0x1400088c780 0x1400088c8c0 0x1400088ca00 0x1400088cb40 0x1400088cc80 0x1400088ce60 0x1400088cfa0 0x1400088d0e0 0x1400088d220 0x1400088d360 0x1400088d4a0] 0x1400037da28 {0 0}} in the application heap.
+// New creates a new KeyboardEventInit in the application heap.
 func (p KeyboardEventInit) New() js.Ref {
 	return bindings.KeyboardEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3015,10 +3093,14 @@ type KeyframeEffectOptions struct {
 	// IterationStart is "KeyframeEffectOptions.iterationStart"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_IterationStart MUST be set to true to make this field effective.
 	IterationStart float64
 	// Iterations is "KeyframeEffectOptions.iterations"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Iterations MUST be set to true to make this field effective.
 	Iterations float64
 	// Direction is "KeyframeEffectOptions.direction"
 	//
@@ -3045,7 +3127,7 @@ func (p KeyframeEffectOptions) FromRef(ref js.Ref) KeyframeEffectOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 KeyframeEffectOptions KeyframeEffectOptions [// KeyframeEffectOptions] [0x1400088d5e0 0x1400088d680 0x1400088d720 0x1400088d7c0 0x1400088d900 0x1400088da40 0x1400088dae0 0x1400088db80 0x1400088d860 0x1400088d9a0] 0x140008be000 {0 0}} in the application heap.
+// New creates a new KeyframeEffectOptions in the application heap.
 func (p KeyframeEffectOptions) New() js.Ref {
 	return bindings.KeyframeEffectOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

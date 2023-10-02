@@ -102,6 +102,8 @@ type VideoColorSpaceInit struct {
 	// FullRange is "VideoColorSpaceInit.fullRange"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_FullRange MUST be set to true to make this field effective.
 	FullRange bool
 
 	FFI_USE_FullRange bool // for FullRange.
@@ -115,7 +117,7 @@ func (p VideoColorSpaceInit) FromRef(ref js.Ref) VideoColorSpaceInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoColorSpaceInit VideoColorSpaceInit [// VideoColorSpaceInit] [0x14000312c80 0x14000312d20 0x14000312dc0 0x14000312e60 0x14000312f00] 0x14000baa630 {0 0}} in the application heap.
+// New creates a new VideoColorSpaceInit in the application heap.
 func (p VideoColorSpaceInit) New() js.Ref {
 	return bindings.VideoColorSpaceInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -156,6 +158,8 @@ type VideoFrameBufferInit struct {
 	// Duration is "VideoFrameBufferInit.duration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Duration MUST be set to true to make this field effective.
 	Duration uint64
 	// Layout is "VideoFrameBufferInit.layout"
 	//
@@ -168,10 +172,14 @@ type VideoFrameBufferInit struct {
 	// DisplayWidth is "VideoFrameBufferInit.displayWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayWidth MUST be set to true to make this field effective.
 	DisplayWidth uint32
 	// DisplayHeight is "VideoFrameBufferInit.displayHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayHeight MUST be set to true to make this field effective.
 	DisplayHeight uint32
 	// ColorSpace is "VideoFrameBufferInit.colorSpace"
 	//
@@ -195,7 +203,7 @@ func (p VideoFrameBufferInit) FromRef(ref js.Ref) VideoFrameBufferInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoFrameBufferInit VideoFrameBufferInit [// VideoFrameBufferInit] [0x140003123c0 0x14000312460 0x14000312500 0x140003125a0 0x14000312640 0x140003128c0 0x14000312960 0x14000312a00 0x14000312b40 0x14000312fa0 0x14000313040 0x140003126e0 0x14000312aa0 0x14000312be0] 0x14000baa108 {0 0}} in the application heap.
+// New creates a new VideoFrameBufferInit in the application heap.
 func (p VideoFrameBufferInit) New() js.Ref {
 	return bindings.VideoFrameBufferInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -235,7 +243,7 @@ func (p VideoFrameCopyToOptions) FromRef(ref js.Ref) VideoFrameCopyToOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoFrameCopyToOptions VideoFrameCopyToOptions [// VideoFrameCopyToOptions] [0x140003130e0 0x14000313180] 0x14000baa738 {0 0}} in the application heap.
+// New creates a new VideoFrameCopyToOptions in the application heap.
 func (p VideoFrameCopyToOptions) New() js.Ref {
 	return bindings.VideoFrameCopyToOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -13630,6 +13638,8 @@ type GPUBufferDescriptor struct {
 	// MappedAtCreation is "GPUBufferDescriptor.mappedAtCreation"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_MappedAtCreation MUST be set to true to make this field effective.
 	MappedAtCreation bool
 	// Label is "GPUBufferDescriptor.label"
 	//
@@ -13647,7 +13657,7 @@ func (p GPUBufferDescriptor) FromRef(ref js.Ref) GPUBufferDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBufferDescriptor GPUBufferDescriptor [// GPUBufferDescriptor] [0x14000313540 0x140003135e0 0x14000313680 0x140003137c0 0x14000313720] 0x1400037c618 {0 0}} in the application heap.
+// New creates a new GPUBufferDescriptor in the application heap.
 func (p GPUBufferDescriptor) New() js.Ref {
 	return bindings.GPUBufferDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -14095,18 +14105,26 @@ type GPUTextureViewDescriptor struct {
 	// BaseMipLevel is "GPUTextureViewDescriptor.baseMipLevel"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_BaseMipLevel MUST be set to true to make this field effective.
 	BaseMipLevel GPUIntegerCoordinate
 	// MipLevelCount is "GPUTextureViewDescriptor.mipLevelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MipLevelCount MUST be set to true to make this field effective.
 	MipLevelCount GPUIntegerCoordinate
 	// BaseArrayLayer is "GPUTextureViewDescriptor.baseArrayLayer"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_BaseArrayLayer MUST be set to true to make this field effective.
 	BaseArrayLayer GPUIntegerCoordinate
 	// ArrayLayerCount is "GPUTextureViewDescriptor.arrayLayerCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ArrayLayerCount MUST be set to true to make this field effective.
 	ArrayLayerCount GPUIntegerCoordinate
 	// Label is "GPUTextureViewDescriptor.label"
 	//
@@ -14127,7 +14145,7 @@ func (p GPUTextureViewDescriptor) FromRef(ref js.Ref) GPUTextureViewDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUTextureViewDescriptor GPUTextureViewDescriptor [// GPUTextureViewDescriptor] [0x14000313860 0x14000313900 0x140003139a0 0x14000313a40 0x14000313b80 0x14000313cc0 0x14000313e00 0x14000313f40 0x14000313ae0 0x14000313c20 0x14000313d60 0x14000313ea0] 0x1400037c678 {0 0}} in the application heap.
+// New creates a new GPUTextureViewDescriptor in the application heap.
 func (p GPUTextureViewDescriptor) New() js.Ref {
 	return bindings.GPUTextureViewDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,

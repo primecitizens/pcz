@@ -76,7 +76,7 @@ func (p USBControlTransferParameters) FromRef(ref js.Ref) USBControlTransferPara
 	return p
 }
 
-// New creates a new {0x140004cc0e0 USBControlTransferParameters USBControlTransferParameters [// USBControlTransferParameters] [0x140006febe0 0x140006fec80 0x140006fed20 0x140006fedc0 0x140006fee60] 0x14000780090 {0 0}} in the application heap.
+// New creates a new USBControlTransferParameters in the application heap.
 func (p USBControlTransferParameters) New() js.Ref {
 	return bindings.USBControlTransferParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1334,22 +1334,32 @@ type USBDeviceFilter struct {
 	// VendorId is "USBDeviceFilter.vendorId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_VendorId MUST be set to true to make this field effective.
 	VendorId uint16
 	// ProductId is "USBDeviceFilter.productId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ProductId MUST be set to true to make this field effective.
 	ProductId uint16
 	// ClassCode is "USBDeviceFilter.classCode"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ClassCode MUST be set to true to make this field effective.
 	ClassCode uint8
 	// SubclassCode is "USBDeviceFilter.subclassCode"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SubclassCode MUST be set to true to make this field effective.
 	SubclassCode uint8
 	// ProtocolCode is "USBDeviceFilter.protocolCode"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ProtocolCode MUST be set to true to make this field effective.
 	ProtocolCode uint8
 	// SerialNumber is "USBDeviceFilter.serialNumber"
 	//
@@ -1371,7 +1381,7 @@ func (p USBDeviceFilter) FromRef(ref js.Ref) USBDeviceFilter {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 USBDeviceFilter USBDeviceFilter [// USBDeviceFilter] [0x140006ff4a0 0x140006ff5e0 0x140006ff720 0x140006ff860 0x140006ff9a0 0x140006ffae0 0x140006ff540 0x140006ff680 0x140006ff7c0 0x140006ff900 0x140006ffa40] 0x14000780138 {0 0}} in the application heap.
+// New creates a new USBDeviceFilter in the application heap.
 func (p USBDeviceFilter) New() js.Ref {
 	return bindings.USBDeviceFilterJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1411,7 +1421,7 @@ func (p USBDeviceRequestOptions) FromRef(ref js.Ref) USBDeviceRequestOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 USBDeviceRequestOptions USBDeviceRequestOptions [// USBDeviceRequestOptions] [0x140006ffb80 0x140006ffc20] 0x14000780108 {0 0}} in the application heap.
+// New creates a new USBDeviceRequestOptions in the application heap.
 func (p USBDeviceRequestOptions) New() js.Ref {
 	return bindings.USBDeviceRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1631,26 +1641,38 @@ type XRWebGLLayerInit struct {
 	// Antialias is "XRWebGLLayerInit.antialias"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Antialias MUST be set to true to make this field effective.
 	Antialias bool
 	// Depth is "XRWebGLLayerInit.depth"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Depth MUST be set to true to make this field effective.
 	Depth bool
 	// Stencil is "XRWebGLLayerInit.stencil"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Stencil MUST be set to true to make this field effective.
 	Stencil bool
 	// Alpha is "XRWebGLLayerInit.alpha"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha bool
 	// IgnoreDepthValues is "XRWebGLLayerInit.ignoreDepthValues"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreDepthValues MUST be set to true to make this field effective.
 	IgnoreDepthValues bool
 	// FramebufferScaleFactor is "XRWebGLLayerInit.framebufferScaleFactor"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_FramebufferScaleFactor MUST be set to true to make this field effective.
 	FramebufferScaleFactor float64
 
 	FFI_USE_Antialias              bool // for Antialias.
@@ -1669,7 +1691,7 @@ func (p XRWebGLLayerInit) FromRef(ref js.Ref) XRWebGLLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRWebGLLayerInit XRWebGLLayerInit [// XRWebGLLayerInit] [0x140007a40a0 0x140007a41e0 0x140007a4320 0x140007a4460 0x140007a45a0 0x140007a46e0 0x140007a4140 0x140007a4280 0x140007a43c0 0x140007a4500 0x140007a4640 0x140007a4780] 0x14000780270 {0 0}} in the application heap.
+// New creates a new XRWebGLLayerInit in the application heap.
 func (p XRWebGLLayerInit) New() js.Ref {
 	return bindings.XRWebGLLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2216,14 +2238,20 @@ type XRRenderStateInit struct {
 	// DepthNear is "XRRenderStateInit.depthNear"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthNear MUST be set to true to make this field effective.
 	DepthNear float64
 	// DepthFar is "XRRenderStateInit.depthFar"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthFar MUST be set to true to make this field effective.
 	DepthFar float64
 	// InlineVerticalFieldOfView is "XRRenderStateInit.inlineVerticalFieldOfView"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_InlineVerticalFieldOfView MUST be set to true to make this field effective.
 	InlineVerticalFieldOfView float64
 	// BaseLayer is "XRRenderStateInit.baseLayer"
 	//
@@ -2247,7 +2275,7 @@ func (p XRRenderStateInit) FromRef(ref js.Ref) XRRenderStateInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRRenderStateInit XRRenderStateInit [// XRRenderStateInit] [0x140006ffcc0 0x140006ffe00 0x140006fff40 0x140007a4b40 0x140007a4be0 0x140006ffd60 0x140006ffea0 0x140007a4000] 0x14000780210 {0 0}} in the application heap.
+// New creates a new XRRenderStateInit in the application heap.
 func (p XRRenderStateInit) New() js.Ref {
 	return bindings.XRRenderStateInitJSLoad(
 		js.Pointer(&p), js.True, 0,

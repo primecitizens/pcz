@@ -3156,26 +3156,38 @@ type WebGLContextAttributes struct {
 	// Alpha is "WebGLContextAttributes.alpha"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha bool
 	// Depth is "WebGLContextAttributes.depth"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Depth MUST be set to true to make this field effective.
 	Depth bool
 	// Stencil is "WebGLContextAttributes.stencil"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Stencil MUST be set to true to make this field effective.
 	Stencil bool
 	// Antialias is "WebGLContextAttributes.antialias"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Antialias MUST be set to true to make this field effective.
 	Antialias bool
 	// PremultipliedAlpha is "WebGLContextAttributes.premultipliedAlpha"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_PremultipliedAlpha MUST be set to true to make this field effective.
 	PremultipliedAlpha bool
 	// PreserveDrawingBuffer is "WebGLContextAttributes.preserveDrawingBuffer"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PreserveDrawingBuffer MUST be set to true to make this field effective.
 	PreserveDrawingBuffer bool
 	// PowerPreference is "WebGLContextAttributes.powerPreference"
 	//
@@ -3184,14 +3196,20 @@ type WebGLContextAttributes struct {
 	// FailIfMajorPerformanceCaveat is "WebGLContextAttributes.failIfMajorPerformanceCaveat"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_FailIfMajorPerformanceCaveat MUST be set to true to make this field effective.
 	FailIfMajorPerformanceCaveat bool
 	// Desynchronized is "WebGLContextAttributes.desynchronized"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Desynchronized MUST be set to true to make this field effective.
 	Desynchronized bool
 	// XrCompatible is "WebGLContextAttributes.xrCompatible"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_XrCompatible MUST be set to true to make this field effective.
 	XrCompatible bool
 
 	FFI_USE_Alpha                        bool // for Alpha.
@@ -3213,7 +3231,7 @@ func (p WebGLContextAttributes) FromRef(ref js.Ref) WebGLContextAttributes {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebGLContextAttributes WebGLContextAttributes [// WebGLContextAttributes] [0x140002c2f00 0x140002c30e0 0x140002c3220 0x140002c3360 0x140002c34a0 0x140002c35e0 0x140002c3720 0x140002c37c0 0x140002c3900 0x140002c3a40 0x140002c2fa0 0x140002c3180 0x140002c32c0 0x140002c3400 0x140002c3540 0x140002c3680 0x140002c3860 0x140002c39a0 0x140002c3ae0] 0x1400107f938 {0 0}} in the application heap.
+// New creates a new WebGLContextAttributes in the application heap.
 func (p WebGLContextAttributes) New() js.Ref {
 	return bindings.WebGLContextAttributesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3546,7 +3564,7 @@ func (p VideoFrameMetadata) FromRef(ref js.Ref) VideoFrameMetadata {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoFrameMetadata VideoFrameMetadata [// VideoFrameMetadata] [] 0x140037e8450 {0 0}} in the application heap.
+// New creates a new VideoFrameMetadata in the application heap.
 func (p VideoFrameMetadata) New() js.Ref {
 	return bindings.VideoFrameMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3571,10 +3589,14 @@ type VideoFrameInit struct {
 	// Duration is "VideoFrameInit.duration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Duration MUST be set to true to make this field effective.
 	Duration uint64
 	// Timestamp is "VideoFrameInit.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp int64
 	// Alpha is "VideoFrameInit.alpha"
 	//
@@ -3587,10 +3609,14 @@ type VideoFrameInit struct {
 	// DisplayWidth is "VideoFrameInit.displayWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayWidth MUST be set to true to make this field effective.
 	DisplayWidth uint32
 	// DisplayHeight is "VideoFrameInit.displayHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DisplayHeight MUST be set to true to make this field effective.
 	DisplayHeight uint32
 	// Metadata is "VideoFrameInit.metadata"
 	//
@@ -3611,7 +3637,7 @@ func (p VideoFrameInit) FromRef(ref js.Ref) VideoFrameInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoFrameInit VideoFrameInit [// VideoFrameInit] [0x140002c3cc0 0x140002c3e00 0x140002c3f40 0x14000312000 0x140003120a0 0x140003121e0 0x14000312320 0x140002c3d60 0x140002c3ea0 0x14000312140 0x14000312280] 0x1400121b290 {0 0}} in the application heap.
+// New creates a new VideoFrameInit in the application heap.
 func (p VideoFrameInit) New() js.Ref {
 	return bindings.VideoFrameInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3696,7 +3722,7 @@ func (p PlaneLayout) FromRef(ref js.Ref) PlaneLayout {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PlaneLayout PlaneLayout [// PlaneLayout] [0x14000312780 0x14000312820] 0x14000baa360 {0 0}} in the application heap.
+// New creates a new PlaneLayout in the application heap.
 func (p PlaneLayout) New() js.Ref {
 	return bindings.PlaneLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,

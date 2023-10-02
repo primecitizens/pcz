@@ -40,7 +40,7 @@ func (p EncodedVideoChunkMetadata) FromRef(ref js.Ref) EncodedVideoChunkMetadata
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EncodedVideoChunkMetadata EncodedVideoChunkMetadata [// EncodedVideoChunkMetadata] [0x140000d1220 0x140000d1400 0x140000d14a0] 0x14000781800 {0 0}} in the application heap.
+// New creates a new EncodedVideoChunkMetadata in the application heap.
 func (p EncodedVideoChunkMetadata) New() js.Ref {
 	return bindings.EncodedVideoChunkMetadataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -135,10 +135,14 @@ type ErrorEventInit struct {
 	// Lineno is "ErrorEventInit.lineno"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Lineno MUST be set to true to make this field effective.
 	Lineno uint32
 	// Colno is "ErrorEventInit.colno"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Colno MUST be set to true to make this field effective.
 	Colno uint32
 	// Error is "ErrorEventInit.error"
 	//
@@ -147,14 +151,20 @@ type ErrorEventInit struct {
 	// Bubbles is "ErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Lineno     bool // for Lineno.
@@ -172,7 +182,7 @@ func (p ErrorEventInit) FromRef(ref js.Ref) ErrorEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ErrorEventInit ErrorEventInit [// ErrorEventInit] [0x140000d1540 0x140000d15e0 0x140000d1680 0x140000d17c0 0x140000d1900 0x140000d19a0 0x140000d1ae0 0x140000d1c20 0x140000d1720 0x140000d1860 0x140000d1a40 0x140000d1b80 0x140000d1cc0] 0x140007819f8 {0 0}} in the application heap.
+// New creates a new ErrorEventInit in the application heap.
 func (p ErrorEventInit) New() js.Ref {
 	return bindings.ErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -289,58 +299,86 @@ type EventModifierInit struct {
 	// CtrlKey is "EventModifierInit.ctrlKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CtrlKey MUST be set to true to make this field effective.
 	CtrlKey bool
 	// ShiftKey is "EventModifierInit.shiftKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ShiftKey MUST be set to true to make this field effective.
 	ShiftKey bool
 	// AltKey is "EventModifierInit.altKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AltKey MUST be set to true to make this field effective.
 	AltKey bool
 	// MetaKey is "EventModifierInit.metaKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_MetaKey MUST be set to true to make this field effective.
 	MetaKey bool
 	// ModifierAltGraph is "EventModifierInit.modifierAltGraph"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierAltGraph MUST be set to true to make this field effective.
 	ModifierAltGraph bool
 	// ModifierCapsLock is "EventModifierInit.modifierCapsLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierCapsLock MUST be set to true to make this field effective.
 	ModifierCapsLock bool
 	// ModifierFn is "EventModifierInit.modifierFn"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFn MUST be set to true to make this field effective.
 	ModifierFn bool
 	// ModifierFnLock is "EventModifierInit.modifierFnLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFnLock MUST be set to true to make this field effective.
 	ModifierFnLock bool
 	// ModifierHyper is "EventModifierInit.modifierHyper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierHyper MUST be set to true to make this field effective.
 	ModifierHyper bool
 	// ModifierNumLock is "EventModifierInit.modifierNumLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierNumLock MUST be set to true to make this field effective.
 	ModifierNumLock bool
 	// ModifierScrollLock is "EventModifierInit.modifierScrollLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierScrollLock MUST be set to true to make this field effective.
 	ModifierScrollLock bool
 	// ModifierSuper is "EventModifierInit.modifierSuper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSuper MUST be set to true to make this field effective.
 	ModifierSuper bool
 	// ModifierSymbol is "EventModifierInit.modifierSymbol"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbol MUST be set to true to make this field effective.
 	ModifierSymbol bool
 	// ModifierSymbolLock is "EventModifierInit.modifierSymbolLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbolLock MUST be set to true to make this field effective.
 	ModifierSymbolLock bool
 	// View is "EventModifierInit.view"
 	//
@@ -349,18 +387,26 @@ type EventModifierInit struct {
 	// Detail is "EventModifierInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "EventModifierInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "EventModifierInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "EventModifierInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_CtrlKey            bool // for CtrlKey.
@@ -391,7 +437,7 @@ func (p EventModifierInit) FromRef(ref js.Ref) EventModifierInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EventModifierInit EventModifierInit [// EventModifierInit] [0x140000d1ea0 0x14000474000 0x14000474140 0x14000474280 0x140004743c0 0x14000474500 0x14000474640 0x14000474780 0x140004748c0 0x14000474a00 0x14000474b40 0x14000474c80 0x14000474dc0 0x14000474f00 0x14000475040 0x140004750e0 0x14000475220 0x14000475360 0x140004754a0 0x140000d1f40 0x140004740a0 0x140004741e0 0x14000474320 0x14000474460 0x140004745a0 0x140004746e0 0x14000474820 0x14000474960 0x14000474aa0 0x14000474be0 0x14000474d20 0x14000474e60 0x14000474fa0 0x14000475180 0x140004752c0 0x14000475400 0x14000475540] 0x14000781a40 {0 0}} in the application heap.
+// New creates a new EventModifierInit in the application heap.
 func (p EventModifierInit) New() js.Ref {
 	return bindings.EventModifierInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -422,6 +468,8 @@ type EventSourceInit struct {
 	// WithCredentials is "EventSourceInit.withCredentials"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_WithCredentials MUST be set to true to make this field effective.
 	WithCredentials bool
 
 	FFI_USE_WithCredentials bool // for WithCredentials.
@@ -435,7 +483,7 @@ func (p EventSourceInit) FromRef(ref js.Ref) EventSourceInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EventSourceInit EventSourceInit [// EventSourceInit] [0x140004755e0 0x14000475680] 0x14000781ba8 {0 0}} in the application heap.
+// New creates a new EventSourceInit in the application heap.
 func (p EventSourceInit) New() js.Ref {
 	return bindings.EventSourceInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -562,14 +610,20 @@ type ExtendableCookieChangeEventInit struct {
 	// Bubbles is "ExtendableCookieChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ExtendableCookieChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ExtendableCookieChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -585,7 +639,7 @@ func (p ExtendableCookieChangeEventInit) FromRef(ref js.Ref) ExtendableCookieCha
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ExtendableCookieChangeEventInit ExtendableCookieChangeEventInit [// ExtendableCookieChangeEventInit] [0x140004757c0 0x14000475860 0x14000475900 0x14000475a40 0x14000475b80 0x140004759a0 0x14000475ae0 0x14000475c20] 0x14000781bf0 {0 0}} in the application heap.
+// New creates a new ExtendableCookieChangeEventInit in the application heap.
 func (p ExtendableCookieChangeEventInit) New() js.Ref {
 	return bindings.ExtendableCookieChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -669,14 +723,20 @@ type ExtendableEventInit struct {
 	// Bubbles is "ExtendableEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ExtendableEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ExtendableEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -692,7 +752,7 @@ func (p ExtendableEventInit) FromRef(ref js.Ref) ExtendableEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ExtendableEventInit ExtendableEventInit [// ExtendableEventInit] [0x14000475d60 0x14000475ea0 0x1400071e000 0x14000475e00 0x14000475f40 0x1400071e0a0] 0x14000781c50 {0 0}} in the application heap.
+// New creates a new ExtendableEventInit in the application heap.
 func (p ExtendableEventInit) New() js.Ref {
 	return bindings.ExtendableEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -829,14 +889,20 @@ type ExtendableMessageEventInit struct {
 	// Bubbles is "ExtendableMessageEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ExtendableMessageEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ExtendableMessageEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -852,7 +918,7 @@ func (p ExtendableMessageEventInit) FromRef(ref js.Ref) ExtendableMessageEventIn
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ExtendableMessageEventInit ExtendableMessageEventInit [// ExtendableMessageEventInit] [0x1400071e140 0x1400071e1e0 0x1400071e280 0x1400071e320 0x1400071e3c0 0x1400071e460 0x1400071e5a0 0x1400071e6e0 0x1400071e500 0x1400071e640 0x1400071e780] 0x14000781c98 {0 0}} in the application heap.
+// New creates a new ExtendableMessageEventInit in the application heap.
 func (p ExtendableMessageEventInit) New() js.Ref {
 	return bindings.ExtendableMessageEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1038,10 +1104,14 @@ type FaceDetectorOptions struct {
 	// MaxDetectedFaces is "FaceDetectorOptions.maxDetectedFaces"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxDetectedFaces MUST be set to true to make this field effective.
 	MaxDetectedFaces uint16
 	// FastMode is "FaceDetectorOptions.fastMode"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FastMode MUST be set to true to make this field effective.
 	FastMode bool
 
 	FFI_USE_MaxDetectedFaces bool // for MaxDetectedFaces.
@@ -1056,7 +1126,7 @@ func (p FaceDetectorOptions) FromRef(ref js.Ref) FaceDetectorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FaceDetectorOptions FaceDetectorOptions [// FaceDetectorOptions] [0x1400071e8c0 0x1400071ea00 0x1400071e960 0x1400071eaa0] 0x14000781d58 {0 0}} in the application heap.
+// New creates a new FaceDetectorOptions in the application heap.
 func (p FaceDetectorOptions) New() js.Ref {
 	return bindings.FaceDetectorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1239,14 +1309,20 @@ type FetchEventInit struct {
 	// Bubbles is "FetchEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "FetchEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "FetchEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1262,7 +1338,7 @@ func (p FetchEventInit) FromRef(ref js.Ref) FetchEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FetchEventInit FetchEventInit [// FetchEventInit] [0x1400071ebe0 0x1400071ec80 0x1400071ed20 0x1400071edc0 0x1400071ee60 0x1400071ef00 0x1400071efa0 0x1400071f0e0 0x1400071f220 0x1400071f040 0x1400071f180 0x1400071f2c0] 0x14000781da0 {0 0}} in the application heap.
+// New creates a new FetchEventInit in the application heap.
 func (p FetchEventInit) New() js.Ref {
 	return bindings.FetchEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1472,6 +1548,8 @@ type FilePickerOptions struct {
 	// ExcludeAcceptAllOption is "FilePickerOptions.excludeAcceptAllOption"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ExcludeAcceptAllOption MUST be set to true to make this field effective.
 	ExcludeAcceptAllOption bool
 	// Id is "FilePickerOptions.id"
 	//
@@ -1493,7 +1571,7 @@ func (p FilePickerOptions) FromRef(ref js.Ref) FilePickerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FilePickerOptions FilePickerOptions [// FilePickerOptions] [0x1400071f400 0x1400071f4a0 0x1400071f5e0 0x1400071f680 0x1400071f540] 0x14000781de8 {0 0}} in the application heap.
+// New creates a new FilePickerOptions in the application heap.
 func (p FilePickerOptions) New() js.Ref {
 	return bindings.FilePickerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1990,7 +2068,7 @@ func (p FileSystemPermissionDescriptor) FromRef(ref js.Ref) FileSystemPermission
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemPermissionDescriptor FileSystemPermissionDescriptor [// FileSystemPermissionDescriptor] [0x1400071f7c0 0x1400071f860 0x1400071f900] 0x14000781e48 {0 0}} in the application heap.
+// New creates a new FileSystemPermissionDescriptor in the application heap.
 func (p FileSystemPermissionDescriptor) New() js.Ref {
 	return bindings.FileSystemPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2050,18 +2128,26 @@ type FocusEventInit struct {
 	// Detail is "FocusEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "FocusEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "FocusEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "FocusEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Detail     bool // for Detail.
@@ -2078,7 +2164,7 @@ func (p FocusEventInit) FromRef(ref js.Ref) FocusEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FocusEventInit FocusEventInit [// FocusEventInit] [0x1400071f9a0 0x1400071fa40 0x1400071fae0 0x1400071fc20 0x1400071fd60 0x1400071fea0 0x1400071fb80 0x1400071fcc0 0x1400071fe00 0x1400071ff40] 0x14000781ec0 {0 0}} in the application heap.
+// New creates a new FocusEventInit in the application heap.
 func (p FocusEventInit) New() js.Ref {
 	return bindings.FocusEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2155,14 +2241,20 @@ type FontFaceSetLoadEventInit struct {
 	// Bubbles is "FontFaceSetLoadEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "FontFaceSetLoadEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "FontFaceSetLoadEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2178,7 +2270,7 @@ func (p FontFaceSetLoadEventInit) FromRef(ref js.Ref) FontFaceSetLoadEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FontFaceSetLoadEventInit FontFaceSetLoadEventInit [// FontFaceSetLoadEventInit] [0x14000726000 0x140007260a0 0x140007261e0 0x14000726320 0x14000726140 0x14000726280 0x140007263c0] 0x14000781f20 {0 0}} in the application heap.
+// New creates a new FontFaceSetLoadEventInit in the application heap.
 func (p FontFaceSetLoadEventInit) New() js.Ref {
 	return bindings.FontFaceSetLoadEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2332,14 +2424,20 @@ type FormDataEventInit struct {
 	// Bubbles is "FormDataEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "FormDataEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "FormDataEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2355,7 +2453,7 @@ func (p FormDataEventInit) FromRef(ref js.Ref) FormDataEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FormDataEventInit FormDataEventInit [// FormDataEventInit] [0x14000726500 0x140007265a0 0x140007266e0 0x14000726820 0x14000726640 0x14000726780 0x140007268c0] 0x14000781f80 {0 0}} in the application heap.
+// New creates a new FormDataEventInit in the application heap.
 func (p FormDataEventInit) New() js.Ref {
 	return bindings.FormDataEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2421,14 +2519,20 @@ type FragmentResultOptions struct {
 	// InlineSize is "FragmentResultOptions.inlineSize"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_InlineSize MUST be set to true to make this field effective.
 	InlineSize float64
 	// BlockSize is "FragmentResultOptions.blockSize"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_BlockSize MUST be set to true to make this field effective.
 	BlockSize float64
 	// AutoBlockSize is "FragmentResultOptions.autoBlockSize"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_AutoBlockSize MUST be set to true to make this field effective.
 	AutoBlockSize float64
 	// ChildFragments is "FragmentResultOptions.childFragments"
 	//
@@ -2456,7 +2560,7 @@ func (p FragmentResultOptions) FromRef(ref js.Ref) FragmentResultOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FragmentResultOptions FragmentResultOptions [// FragmentResultOptions] [0x14000726960 0x14000726aa0 0x14000726be0 0x14000726d20 0x14000726dc0 0x14000726e60 0x14000726a00 0x14000726b40 0x14000726c80] 0x14000781fe0 {0 0}} in the application heap.
+// New creates a new FragmentResultOptions in the application heap.
 func (p FragmentResultOptions) New() js.Ref {
 	return bindings.FragmentResultOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

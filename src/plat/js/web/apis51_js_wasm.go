@@ -1567,18 +1567,26 @@ type SVGBoundingBoxOptions struct {
 	// Fill is "SVGBoundingBoxOptions.fill"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Fill MUST be set to true to make this field effective.
 	Fill bool
 	// Stroke is "SVGBoundingBoxOptions.stroke"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Stroke MUST be set to true to make this field effective.
 	Stroke bool
 	// Markers is "SVGBoundingBoxOptions.markers"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Markers MUST be set to true to make this field effective.
 	Markers bool
 	// Clipped is "SVGBoundingBoxOptions.clipped"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Clipped MUST be set to true to make this field effective.
 	Clipped bool
 
 	FFI_USE_Fill    bool // for Fill.
@@ -1595,7 +1603,7 @@ func (p SVGBoundingBoxOptions) FromRef(ref js.Ref) SVGBoundingBoxOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SVGBoundingBoxOptions SVGBoundingBoxOptions [// SVGBoundingBoxOptions] [0x14000a01040 0x14000a01180 0x14000a012c0 0x14000a01400 0x14000a010e0 0x14000a01220 0x14000a01360 0x14000a014a0] 0x14000a02078 {0 0}} in the application heap.
+// New creates a new SVGBoundingBoxOptions in the application heap.
 func (p SVGBoundingBoxOptions) New() js.Ref {
 	return bindings.SVGBoundingBoxOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

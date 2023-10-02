@@ -68,7 +68,7 @@ func (p GPUObjectDescriptorBase) FromRef(ref js.Ref) GPUObjectDescriptorBase {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUObjectDescriptorBase GPUObjectDescriptorBase [// GPUObjectDescriptorBase] [0x14000726fa0] 0x14000d9cbb8 {0 0}} in the application heap.
+// New creates a new GPUObjectDescriptorBase in the application heap.
 func (p GPUObjectDescriptorBase) New() js.Ref {
 	return bindings.GPUObjectDescriptorBaseJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -137,7 +137,7 @@ func (p GPUPipelineDescriptorBase) FromRef(ref js.Ref) GPUPipelineDescriptorBase
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUPipelineDescriptorBase GPUPipelineDescriptorBase [// GPUPipelineDescriptorBase] [0x14000727040 0x140007270e0] 0x14000d9cbd0 {0 0}} in the application heap.
+// New creates a new GPUPipelineDescriptorBase in the application heap.
 func (p GPUPipelineDescriptorBase) New() js.Ref {
 	return bindings.GPUPipelineDescriptorBaseJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -197,7 +197,7 @@ func (p GPUPipelineErrorInit) FromRef(ref js.Ref) GPUPipelineErrorInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUPipelineErrorInit GPUPipelineErrorInit [// GPUPipelineErrorInit] [0x14000727180] 0x14003d941f8 {0 0}} in the application heap.
+// New creates a new GPUPipelineErrorInit in the application heap.
 func (p GPUPipelineErrorInit) New() js.Ref {
 	return bindings.GPUPipelineErrorInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -277,6 +277,8 @@ type GPURenderPassLayout struct {
 	// SampleCount is "GPURenderPassLayout.sampleCount"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_SampleCount MUST be set to true to make this field effective.
 	SampleCount GPUSize32
 	// Label is "GPURenderPassLayout.label"
 	//
@@ -294,7 +296,7 @@ func (p GPURenderPassLayout) FromRef(ref js.Ref) GPURenderPassLayout {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderPassLayout GPURenderPassLayout [// GPURenderPassLayout] [0x14000727220 0x140007272c0 0x14000727360 0x140007274a0 0x14000727400] 0x14003d949c0 {0 0}} in the application heap.
+// New creates a new GPURenderPassLayout in the application heap.
 func (p GPURenderPassLayout) New() js.Ref {
 	return bindings.GPURenderPassLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -341,14 +343,20 @@ type GPUUncapturedErrorEventInit struct {
 	// Bubbles is "GPUUncapturedErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "GPUUncapturedErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "GPUUncapturedErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -364,7 +372,7 @@ func (p GPUUncapturedErrorEventInit) FromRef(ref js.Ref) GPUUncapturedErrorEvent
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUUncapturedErrorEventInit GPUUncapturedErrorEventInit [// GPUUncapturedErrorEventInit] [0x14000727540 0x140007275e0 0x14000727720 0x14000727860 0x14000727680 0x140007277c0 0x14000727900] 0x14003d94bd0 {0 0}} in the application heap.
+// New creates a new GPUUncapturedErrorEventInit in the application heap.
 func (p GPUUncapturedErrorEventInit) New() js.Ref {
 	return bindings.GPUUncapturedErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -463,14 +471,20 @@ type GamepadEventInit struct {
 	// Bubbles is "GamepadEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "GamepadEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "GamepadEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -486,7 +500,7 @@ func (p GamepadEventInit) FromRef(ref js.Ref) GamepadEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GamepadEventInit GamepadEventInit [// GamepadEventInit] [0x140007279a0 0x14000727a40 0x14000727b80 0x14000727cc0 0x14000727ae0 0x14000727c20 0x14000727d60] 0x14003d94df8 {0 0}} in the application heap.
+// New creates a new GamepadEventInit in the application heap.
 func (p GamepadEventInit) New() js.Ref {
 	return bindings.GamepadEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -631,7 +645,7 @@ func (p RTCIdentityProviderDetails) FromRef(ref js.Ref) RTCIdentityProviderDetai
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIdentityProviderDetails RTCIdentityProviderDetails [// RTCIdentityProviderDetails] [0x14000727e00 0x14000727ea0] 0x14003d95bd8 {0 0}} in the application heap.
+// New creates a new RTCIdentityProviderDetails in the application heap.
 func (p RTCIdentityProviderDetails) New() js.Ref {
 	return bindings.RTCIdentityProviderDetailsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -671,7 +685,7 @@ func (p RTCIdentityAssertionResult) FromRef(ref js.Ref) RTCIdentityAssertionResu
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIdentityAssertionResult RTCIdentityAssertionResult [// RTCIdentityAssertionResult] [0x14000727f40 0x14000734000] 0x14003d94e58 {0 0}} in the application heap.
+// New creates a new RTCIdentityAssertionResult in the application heap.
 func (p RTCIdentityAssertionResult) New() js.Ref {
 	return bindings.RTCIdentityAssertionResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -715,7 +729,7 @@ func (p RTCIdentityProviderOptions) FromRef(ref js.Ref) RTCIdentityProviderOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIdentityProviderOptions RTCIdentityProviderOptions [// RTCIdentityProviderOptions] [0x140007340a0 0x14000734140 0x140007341e0] 0x14003d95c20 {0 0}} in the application heap.
+// New creates a new RTCIdentityProviderOptions in the application heap.
 func (p RTCIdentityProviderOptions) New() js.Ref {
 	return bindings.RTCIdentityProviderOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -752,6 +766,8 @@ type GenerateBidInterestGroup struct {
 	// EnableBiddingSignalsPrioritization is "GenerateBidInterestGroup.enableBiddingSignalsPrioritization"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_EnableBiddingSignalsPrioritization MUST be set to true to make this field effective.
 	EnableBiddingSignalsPrioritization bool
 	// PriorityVector is "GenerateBidInterestGroup.priorityVector"
 	//
@@ -805,7 +821,7 @@ func (p GenerateBidInterestGroup) FromRef(ref js.Ref) GenerateBidInterestGroup {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GenerateBidInterestGroup GenerateBidInterestGroup [// GenerateBidInterestGroup] [0x14000734280 0x14000734320 0x140007343c0 0x14000734460 0x140007345a0 0x14000734640 0x140007346e0 0x14000734780 0x14000734820 0x140007348c0 0x14000734960 0x14000734a00 0x14000734aa0 0x14000734b40 0x14000734500] 0x14003d95f98 {0 0}} in the application heap.
+// New creates a new GenerateBidInterestGroup in the application heap.
 func (p GenerateBidInterestGroup) New() js.Ref {
 	return bindings.GenerateBidInterestGroupJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -858,6 +874,8 @@ type GenerateBidOutput struct {
 	// Bid is "GenerateBidOutput.bid"
 	//
 	// Optional, defaults to -1.
+	//
+	// NOTE: FFI_USE_Bid MUST be set to true to make this field effective.
 	Bid float64
 	// BidCurrency is "GenerateBidOutput.bidCurrency"
 	//
@@ -878,14 +896,20 @@ type GenerateBidOutput struct {
 	// AdCost is "GenerateBidOutput.adCost"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AdCost MUST be set to true to make this field effective.
 	AdCost float64
 	// ModelingSignals is "GenerateBidOutput.modelingSignals"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ModelingSignals MUST be set to true to make this field effective.
 	ModelingSignals float64
 	// AllowComponentAuction is "GenerateBidOutput.allowComponentAuction"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AllowComponentAuction MUST be set to true to make this field effective.
 	AllowComponentAuction bool
 
 	FFI_USE_Bid                   bool // for Bid.
@@ -902,7 +926,7 @@ func (p GenerateBidOutput) FromRef(ref js.Ref) GenerateBidOutput {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GenerateBidOutput GenerateBidOutput [// GenerateBidOutput] [0x14000734be0 0x14000734d20 0x14000734dc0 0x14000734e60 0x14000734f00 0x14000734fa0 0x140007350e0 0x14000735220 0x14000734c80 0x14000735040 0x14000735180 0x140007352c0] 0x14000038468 {0 0}} in the application heap.
+// New creates a new GenerateBidOutput in the application heap.
 func (p GenerateBidOutput) New() js.Ref {
 	return bindings.GenerateBidOutputJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -942,7 +966,7 @@ func (p GenerateTestReportParameters) FromRef(ref js.Ref) GenerateTestReportPara
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GenerateTestReportParameters GenerateTestReportParameters [// GenerateTestReportParameters] [0x14000735360 0x14000735400] 0x14000039650 {0 0}} in the application heap.
+// New creates a new GenerateTestReportParameters in the application heap.
 func (p GenerateTestReportParameters) New() js.Ref {
 	return bindings.GenerateTestReportParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1002,7 +1026,7 @@ func (p GeolocationReadingValues) FromRef(ref js.Ref) GeolocationReadingValues {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GeolocationReadingValues GeolocationReadingValues [// GeolocationReadingValues] [0x140007354a0 0x14000735540 0x140007355e0 0x14000735680 0x14000735720 0x140007357c0 0x14000735860] 0x140000396b0 {0 0}} in the application heap.
+// New creates a new GeolocationReadingValues in the application heap.
 func (p GeolocationReadingValues) New() js.Ref {
 	return bindings.GeolocationReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1027,6 +1051,8 @@ type GeolocationSensorOptions struct {
 	// Frequency is "GeolocationSensorOptions.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float64
 
 	FFI_USE_Frequency bool // for Frequency.
@@ -1040,7 +1066,7 @@ func (p GeolocationSensorOptions) FromRef(ref js.Ref) GeolocationSensorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GeolocationSensorOptions GeolocationSensorOptions [// GeolocationSensorOptions] [0x14000735900 0x140007359a0] 0x14000039818 {0 0}} in the application heap.
+// New creates a new GeolocationSensorOptions in the application heap.
 func (p GeolocationSensorOptions) New() js.Ref {
 	return bindings.GeolocationSensorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1065,34 +1091,50 @@ type GeolocationSensorReading struct {
 	// Timestamp is "GeolocationSensorReading.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp DOMHighResTimeStamp
 	// Latitude is "GeolocationSensorReading.latitude"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Latitude MUST be set to true to make this field effective.
 	Latitude float64
 	// Longitude is "GeolocationSensorReading.longitude"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Longitude MUST be set to true to make this field effective.
 	Longitude float64
 	// Altitude is "GeolocationSensorReading.altitude"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Altitude MUST be set to true to make this field effective.
 	Altitude float64
 	// Accuracy is "GeolocationSensorReading.accuracy"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Accuracy MUST be set to true to make this field effective.
 	Accuracy float64
 	// AltitudeAccuracy is "GeolocationSensorReading.altitudeAccuracy"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AltitudeAccuracy MUST be set to true to make this field effective.
 	AltitudeAccuracy float64
 	// Heading is "GeolocationSensorReading.heading"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Heading MUST be set to true to make this field effective.
 	Heading float64
 	// Speed is "GeolocationSensorReading.speed"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Speed MUST be set to true to make this field effective.
 	Speed float64
 
 	FFI_USE_Timestamp        bool // for Timestamp.
@@ -1113,7 +1155,7 @@ func (p GeolocationSensorReading) FromRef(ref js.Ref) GeolocationSensorReading {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GeolocationSensorReading GeolocationSensorReading [// GeolocationSensorReading] [0x14000735a40 0x14000735b80 0x14000735cc0 0x14000735e00 0x14000735f40 0x140007380a0 0x140007381e0 0x14000738320 0x14000735ae0 0x14000735c20 0x14000735d60 0x14000735ea0 0x14000738000 0x14000738140 0x14000738280 0x140007383c0] 0x14000039b48 {0 0}} in the application heap.
+// New creates a new GeolocationSensorReading in the application heap.
 func (p GeolocationSensorReading) New() js.Ref {
 	return bindings.GeolocationSensorReadingJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1142,6 +1184,8 @@ type ReadOptions struct {
 	// Frequency is "ReadOptions.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float64
 
 	FFI_USE_Frequency bool // for Frequency.
@@ -1155,7 +1199,7 @@ func (p ReadOptions) FromRef(ref js.Ref) ReadOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReadOptions ReadOptions [// ReadOptions] [0x14000738460 0x14000738500 0x140007385a0] 0x14000039c08 {0 0}} in the application heap.
+// New creates a new ReadOptions in the application heap.
 func (p ReadOptions) New() js.Ref {
 	return bindings.ReadOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1382,6 +1426,8 @@ type GlobalDescriptor struct {
 	// Mutable is "GlobalDescriptor.mutable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Mutable MUST be set to true to make this field effective.
 	Mutable bool
 
 	FFI_USE_Mutable bool // for Mutable.
@@ -1395,7 +1441,7 @@ func (p GlobalDescriptor) FromRef(ref js.Ref) GlobalDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GlobalDescriptor GlobalDescriptor [// GlobalDescriptor] [0x140007386e0 0x14000738780 0x14000738820] 0x14000039c80 {0 0}} in the application heap.
+// New creates a new GlobalDescriptor in the application heap.
 func (p GlobalDescriptor) New() js.Ref {
 	return bindings.GlobalDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1520,7 +1566,7 @@ func (p GravityReadingValues) FromRef(ref js.Ref) GravityReadingValues {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GravityReadingValues GravityReadingValues [// GravityReadingValues] [0x140007388c0 0x14000738960 0x14000738a00] 0x1400070a4e0 {0 0}} in the application heap.
+// New creates a new GravityReadingValues in the application heap.
 func (p GravityReadingValues) New() js.Ref {
 	return bindings.GravityReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1608,6 +1654,8 @@ type GyroscopeSensorOptions struct {
 	// Frequency is "GyroscopeSensorOptions.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float64
 
 	FFI_USE_Frequency bool // for Frequency.
@@ -1621,7 +1669,7 @@ func (p GyroscopeSensorOptions) FromRef(ref js.Ref) GyroscopeSensorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GyroscopeSensorOptions GyroscopeSensorOptions [// GyroscopeSensorOptions] [0x14000738aa0 0x14000738b40 0x14000738be0] 0x1400070a8a0 {0 0}} in the application heap.
+// New creates a new GyroscopeSensorOptions in the application heap.
 func (p GyroscopeSensorOptions) New() js.Ref {
 	return bindings.GyroscopeSensorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1733,7 +1781,7 @@ func (p GyroscopeReadingValues) FromRef(ref js.Ref) GyroscopeReadingValues {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GyroscopeReadingValues GyroscopeReadingValues [// GyroscopeReadingValues] [0x14000738d20 0x14000738dc0 0x14000738e60] 0x1400070a900 {0 0}} in the application heap.
+// New creates a new GyroscopeReadingValues in the application heap.
 func (p GyroscopeReadingValues) New() js.Ref {
 	return bindings.GyroscopeReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1762,14 +1810,20 @@ type HIDConnectionEventInit struct {
 	// Bubbles is "HIDConnectionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "HIDConnectionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "HIDConnectionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1785,7 +1839,7 @@ func (p HIDConnectionEventInit) FromRef(ref js.Ref) HIDConnectionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HIDConnectionEventInit HIDConnectionEventInit [// HIDConnectionEventInit] [0x14000738f00 0x14000738fa0 0x140007390e0 0x14000739220 0x14000739040 0x14000739180 0x140007392c0] 0x1400070b200 {0 0}} in the application heap.
+// New creates a new HIDConnectionEventInit in the application heap.
 func (p HIDConnectionEventInit) New() js.Ref {
 	return bindings.HIDConnectionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1863,14 +1917,20 @@ type HIDInputReportEventInit struct {
 	// Bubbles is "HIDInputReportEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "HIDInputReportEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "HIDInputReportEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1886,7 +1946,7 @@ func (p HIDInputReportEventInit) FromRef(ref js.Ref) HIDInputReportEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HIDInputReportEventInit HIDInputReportEventInit [// HIDInputReportEventInit] [0x14000739360 0x14000739400 0x140007394a0 0x14000739540 0x14000739680 0x140007397c0 0x140007395e0 0x14000739720 0x14000739860] 0x1400070b230 {0 0}} in the application heap.
+// New creates a new HIDInputReportEventInit in the application heap.
 func (p HIDInputReportEventInit) New() js.Ref {
 	return bindings.HIDInputReportEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

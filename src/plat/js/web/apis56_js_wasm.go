@@ -21,6 +21,8 @@ type VideoEncoderEncodeOptionsForAv1 struct {
 	// Quantizer is "VideoEncoderEncodeOptionsForAv1.quantizer"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Quantizer MUST be set to true to make this field effective.
 	Quantizer uint16
 
 	FFI_USE_Quantizer bool // for Quantizer.
@@ -34,7 +36,7 @@ func (p VideoEncoderEncodeOptionsForAv1) FromRef(ref js.Ref) VideoEncoderEncodeO
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderEncodeOptionsForAv1 VideoEncoderEncodeOptionsForAv1 [// VideoEncoderEncodeOptionsForAv1] [0x14000ab5cc0 0x14000ab5d60] 0x14000a03d28 {0 0}} in the application heap.
+// New creates a new VideoEncoderEncodeOptionsForAv1 in the application heap.
 func (p VideoEncoderEncodeOptionsForAv1) New() js.Ref {
 	return bindings.VideoEncoderEncodeOptionsForAv1JSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -59,6 +61,8 @@ type VideoEncoderEncodeOptionsForAvc struct {
 	// Quantizer is "VideoEncoderEncodeOptionsForAvc.quantizer"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Quantizer MUST be set to true to make this field effective.
 	Quantizer uint16
 
 	FFI_USE_Quantizer bool // for Quantizer.
@@ -72,7 +76,7 @@ func (p VideoEncoderEncodeOptionsForAvc) FromRef(ref js.Ref) VideoEncoderEncodeO
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderEncodeOptionsForAvc VideoEncoderEncodeOptionsForAvc [// VideoEncoderEncodeOptionsForAvc] [0x14000ab5ea0 0x14000ab5f40] 0x14000a03d70 {0 0}} in the application heap.
+// New creates a new VideoEncoderEncodeOptionsForAvc in the application heap.
 func (p VideoEncoderEncodeOptionsForAvc) New() js.Ref {
 	return bindings.VideoEncoderEncodeOptionsForAvcJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -97,6 +101,8 @@ type VideoEncoderEncodeOptions struct {
 	// KeyFrame is "VideoEncoderEncodeOptions.keyFrame"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_KeyFrame MUST be set to true to make this field effective.
 	KeyFrame bool
 	// Hevc is "VideoEncoderEncodeOptions.hevc"
 	//
@@ -126,7 +132,7 @@ func (p VideoEncoderEncodeOptions) FromRef(ref js.Ref) VideoEncoderEncodeOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderEncodeOptions VideoEncoderEncodeOptions [// VideoEncoderEncodeOptions] [0x14000ab57c0 0x14000ab5a40 0x14000ab5c20 0x14000ab5e00 0x14000abe000 0x14000ab5860] 0x14000a03c68 {0 0}} in the application heap.
+// New creates a new VideoEncoderEncodeOptions in the application heap.
 func (p VideoEncoderEncodeOptions) New() js.Ref {
 	return bindings.VideoEncoderEncodeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -151,6 +157,8 @@ type VideoEncoderSupport struct {
 	// Supported is "VideoEncoderSupport.supported"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Supported MUST be set to true to make this field effective.
 	Supported bool
 	// Config is "VideoEncoderSupport.config"
 	//
@@ -168,7 +176,7 @@ func (p VideoEncoderSupport) FromRef(ref js.Ref) VideoEncoderSupport {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoEncoderSupport VideoEncoderSupport [// VideoEncoderSupport] [0x14000abe0a0 0x14000abe1e0 0x14000abe140] 0x14000a03db8 {0 0}} in the application heap.
+// New creates a new VideoEncoderSupport in the application heap.
 func (p VideoEncoderSupport) New() js.Ref {
 	return bindings.VideoEncoderSupportJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -605,7 +613,7 @@ func (p ViewTimelineOptions) FromRef(ref js.Ref) ViewTimelineOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ViewTimelineOptions ViewTimelineOptions [// ViewTimelineOptions] [0x14000abe3c0 0x14000abe460 0x14000abe500] 0x14000a03e48 {0 0}} in the application heap.
+// New creates a new ViewTimelineOptions in the application heap.
 func (p ViewTimelineOptions) New() js.Ref {
 	return bindings.ViewTimelineOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1762,7 +1770,7 @@ func (p WebAssemblyInstantiatedSource) FromRef(ref js.Ref) WebAssemblyInstantiat
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebAssemblyInstantiatedSource WebAssemblyInstantiatedSource [// WebAssemblyInstantiatedSource] [0x14000abe6e0 0x14000abe780] 0x14000ad4078 {0 0}} in the application heap.
+// New creates a new WebAssemblyInstantiatedSource in the application heap.
 func (p WebAssemblyInstantiatedSource) New() js.Ref {
 	return bindings.WebAssemblyInstantiatedSourceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1994,14 +2002,20 @@ type WebGLContextEventInit struct {
 	// Bubbles is "WebGLContextEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "WebGLContextEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "WebGLContextEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2017,7 +2031,7 @@ func (p WebGLContextEventInit) FromRef(ref js.Ref) WebGLContextEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebGLContextEventInit WebGLContextEventInit [// WebGLContextEventInit] [0x14000abe820 0x14000abe8c0 0x14000abea00 0x14000abeb40 0x14000abe960 0x14000abeaa0 0x14000abebe0] 0x14000ad40d8 {0 0}} in the application heap.
+// New creates a new WebGLContextEventInit in the application heap.
 func (p WebGLContextEventInit) New() js.Ref {
 	return bindings.WebGLContextEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

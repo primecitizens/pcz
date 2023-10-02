@@ -981,7 +981,7 @@ func (p GPURenderPassColorAttachment) FromRef(ref js.Ref) GPURenderPassColorAtta
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderPassColorAttachment GPURenderPassColorAttachment [// GPURenderPassColorAttachment] [0x14000445ae0 0x14000445b80 0x14000445c20 0x14000445cc0 0x14000445d60] 0x1400043e678 {0 0}} in the application heap.
+// New creates a new GPURenderPassColorAttachment in the application heap.
 func (p GPURenderPassColorAttachment) New() js.Ref {
 	return bindings.GPURenderPassColorAttachmentJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1010,6 +1010,8 @@ type GPURenderPassDepthStencilAttachment struct {
 	// DepthClearValue is "GPURenderPassDepthStencilAttachment.depthClearValue"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthClearValue MUST be set to true to make this field effective.
 	DepthClearValue float32
 	// DepthLoadOp is "GPURenderPassDepthStencilAttachment.depthLoadOp"
 	//
@@ -1022,10 +1024,14 @@ type GPURenderPassDepthStencilAttachment struct {
 	// DepthReadOnly is "GPURenderPassDepthStencilAttachment.depthReadOnly"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_DepthReadOnly MUST be set to true to make this field effective.
 	DepthReadOnly bool
 	// StencilClearValue is "GPURenderPassDepthStencilAttachment.stencilClearValue"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_StencilClearValue MUST be set to true to make this field effective.
 	StencilClearValue GPUStencilValue
 	// StencilLoadOp is "GPURenderPassDepthStencilAttachment.stencilLoadOp"
 	//
@@ -1038,6 +1044,8 @@ type GPURenderPassDepthStencilAttachment struct {
 	// StencilReadOnly is "GPURenderPassDepthStencilAttachment.stencilReadOnly"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_StencilReadOnly MUST be set to true to make this field effective.
 	StencilReadOnly bool
 
 	FFI_USE_DepthClearValue   bool // for DepthClearValue.
@@ -1054,7 +1062,7 @@ func (p GPURenderPassDepthStencilAttachment) FromRef(ref js.Ref) GPURenderPassDe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderPassDepthStencilAttachment GPURenderPassDepthStencilAttachment [// GPURenderPassDepthStencilAttachment] [0x14000445ea0 0x14000445f40 0x140004520a0 0x14000452140 0x140004521e0 0x14000452320 0x14000452460 0x14000452500 0x140004525a0 0x14000452000 0x14000452280 0x140004523c0 0x14000452640] 0x1400043e6a8 {0 0}} in the application heap.
+// New creates a new GPURenderPassDepthStencilAttachment in the application heap.
 func (p GPURenderPassDepthStencilAttachment) New() js.Ref {
 	return bindings.GPURenderPassDepthStencilAttachmentJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1196,10 +1204,14 @@ type GPURenderPassTimestampWrites struct {
 	// BeginningOfPassWriteIndex is "GPURenderPassTimestampWrites.beginningOfPassWriteIndex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BeginningOfPassWriteIndex MUST be set to true to make this field effective.
 	BeginningOfPassWriteIndex GPUSize32
 	// EndOfPassWriteIndex is "GPURenderPassTimestampWrites.endOfPassWriteIndex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EndOfPassWriteIndex MUST be set to true to make this field effective.
 	EndOfPassWriteIndex GPUSize32
 
 	FFI_USE_BeginningOfPassWriteIndex bool // for BeginningOfPassWriteIndex.
@@ -1214,7 +1226,7 @@ func (p GPURenderPassTimestampWrites) FromRef(ref js.Ref) GPURenderPassTimestamp
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderPassTimestampWrites GPURenderPassTimestampWrites [// GPURenderPassTimestampWrites] [0x140004528c0 0x14000452960 0x14000452aa0 0x14000452a00 0x14000452b40] 0x1400043e720 {0 0}} in the application heap.
+// New creates a new GPURenderPassTimestampWrites in the application heap.
 func (p GPURenderPassTimestampWrites) New() js.Ref {
 	return bindings.GPURenderPassTimestampWritesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1255,6 +1267,8 @@ type GPURenderPassDescriptor struct {
 	// MaxDrawCount is "GPURenderPassDescriptor.maxDrawCount"
 	//
 	// Optional, defaults to 50000000.
+	//
+	// NOTE: FFI_USE_MaxDrawCount MUST be set to true to make this field effective.
 	MaxDrawCount GPUSize64
 	// Label is "GPURenderPassDescriptor.label"
 	//
@@ -1272,7 +1286,7 @@ func (p GPURenderPassDescriptor) FromRef(ref js.Ref) GPURenderPassDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderPassDescriptor GPURenderPassDescriptor [// GPURenderPassDescriptor] [0x14000445e00 0x140004526e0 0x14000452820 0x14000452be0 0x14000452c80 0x14000452dc0 0x14000452d20] 0x1400043e660 {0 0}} in the application heap.
+// New creates a new GPURenderPassDescriptor in the application heap.
 func (p GPURenderPassDescriptor) New() js.Ref {
 	return bindings.GPURenderPassDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1653,10 +1667,14 @@ type GPUComputePassTimestampWrites struct {
 	// BeginningOfPassWriteIndex is "GPUComputePassTimestampWrites.beginningOfPassWriteIndex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BeginningOfPassWriteIndex MUST be set to true to make this field effective.
 	BeginningOfPassWriteIndex GPUSize32
 	// EndOfPassWriteIndex is "GPUComputePassTimestampWrites.endOfPassWriteIndex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EndOfPassWriteIndex MUST be set to true to make this field effective.
 	EndOfPassWriteIndex GPUSize32
 
 	FFI_USE_BeginningOfPassWriteIndex bool // for BeginningOfPassWriteIndex.
@@ -1671,7 +1689,7 @@ func (p GPUComputePassTimestampWrites) FromRef(ref js.Ref) GPUComputePassTimesta
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUComputePassTimestampWrites GPUComputePassTimestampWrites [// GPUComputePassTimestampWrites] [0x14000452e60 0x14000452f00 0x14000453040 0x14000452fa0 0x140004530e0] 0x1400043e828 {0 0}} in the application heap.
+// New creates a new GPUComputePassTimestampWrites in the application heap.
 func (p GPUComputePassTimestampWrites) New() js.Ref {
 	return bindings.GPUComputePassTimestampWritesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1711,7 +1729,7 @@ func (p GPUComputePassDescriptor) FromRef(ref js.Ref) GPUComputePassDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUComputePassDescriptor GPUComputePassDescriptor [// GPUComputePassDescriptor] [0x14000453180 0x14000453220] 0x1400043e810 {0 0}} in the application heap.
+// New creates a new GPUComputePassDescriptor in the application heap.
 func (p GPUComputePassDescriptor) New() js.Ref {
 	return bindings.GPUComputePassDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1740,14 +1758,20 @@ type GPUImageCopyBuffer struct {
 	// Offset is "GPUImageCopyBuffer.offset"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Offset MUST be set to true to make this field effective.
 	Offset GPUSize64
 	// BytesPerRow is "GPUImageCopyBuffer.bytesPerRow"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesPerRow MUST be set to true to make this field effective.
 	BytesPerRow GPUSize32
 	// RowsPerImage is "GPUImageCopyBuffer.rowsPerImage"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RowsPerImage MUST be set to true to make this field effective.
 	RowsPerImage GPUSize32
 
 	FFI_USE_Offset       bool // for Offset.
@@ -1763,7 +1787,7 @@ func (p GPUImageCopyBuffer) FromRef(ref js.Ref) GPUImageCopyBuffer {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUImageCopyBuffer GPUImageCopyBuffer [// GPUImageCopyBuffer] [0x140004532c0 0x14000453360 0x140004534a0 0x140004535e0 0x14000453400 0x14000453540 0x14000453680] 0x1400043e870 {0 0}} in the application heap.
+// New creates a new GPUImageCopyBuffer in the application heap.
 func (p GPUImageCopyBuffer) New() js.Ref {
 	return bindings.GPUImageCopyBufferJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1788,14 +1812,20 @@ type GPUOrigin3DDict struct {
 	// X is "GPUOrigin3DDict.x"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_X MUST be set to true to make this field effective.
 	X GPUIntegerCoordinate
 	// Y is "GPUOrigin3DDict.y"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Y MUST be set to true to make this field effective.
 	Y GPUIntegerCoordinate
 	// Z is "GPUOrigin3DDict.z"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Z MUST be set to true to make this field effective.
 	Z GPUIntegerCoordinate
 
 	FFI_USE_X bool // for X.
@@ -1811,7 +1841,7 @@ func (p GPUOrigin3DDict) FromRef(ref js.Ref) GPUOrigin3DDict {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUOrigin3DDict GPUOrigin3DDict [// GPUOrigin3DDict] [0x14000453900 0x14000453a40 0x14000453b80 0x140004539a0 0x14000453ae0 0x14000453c20] 0x1400043e900 {0 0}} in the application heap.
+// New creates a new GPUOrigin3DDict in the application heap.
 func (p GPUOrigin3DDict) New() js.Ref {
 	return bindings.GPUOrigin3DDictJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1870,6 +1900,8 @@ type GPUImageCopyTexture struct {
 	// MipLevel is "GPUImageCopyTexture.mipLevel"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MipLevel MUST be set to true to make this field effective.
 	MipLevel GPUIntegerCoordinate
 	// Origin is "GPUImageCopyTexture.origin"
 	//
@@ -1891,7 +1923,7 @@ func (p GPUImageCopyTexture) FromRef(ref js.Ref) GPUImageCopyTexture {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUImageCopyTexture GPUImageCopyTexture [// GPUImageCopyTexture] [0x14000453720 0x140004537c0 0x14000453cc0 0x14000453d60 0x14000453860] 0x1400043e8d0 {0 0}} in the application heap.
+// New creates a new GPUImageCopyTexture in the application heap.
 func (p GPUImageCopyTexture) New() js.Ref {
 	return bindings.GPUImageCopyTextureJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1970,7 +2002,7 @@ func (p GPUCommandBufferDescriptor) FromRef(ref js.Ref) GPUCommandBufferDescript
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUCommandBufferDescriptor GPUCommandBufferDescriptor [// GPUCommandBufferDescriptor] [0x14000453e00] 0x1400043e990 {0 0}} in the application heap.
+// New creates a new GPUCommandBufferDescriptor in the application heap.
 func (p GPUCommandBufferDescriptor) New() js.Ref {
 	return bindings.GPUCommandBufferDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2484,7 +2516,7 @@ func (p GPUCommandEncoderDescriptor) FromRef(ref js.Ref) GPUCommandEncoderDescri
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUCommandEncoderDescriptor GPUCommandEncoderDescriptor [// GPUCommandEncoderDescriptor] [0x14000453ea0] 0x1400043e9c0 {0 0}} in the application heap.
+// New creates a new GPUCommandEncoderDescriptor in the application heap.
 func (p GPUCommandEncoderDescriptor) New() js.Ref {
 	return bindings.GPUCommandEncoderDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2520,7 +2552,7 @@ func (p GPURenderBundleDescriptor) FromRef(ref js.Ref) GPURenderBundleDescriptor
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderBundleDescriptor GPURenderBundleDescriptor [// GPURenderBundleDescriptor] [0x14000453f40] 0x1400043ea08 {0 0}} in the application heap.
+// New creates a new GPURenderBundleDescriptor in the application heap.
 func (p GPURenderBundleDescriptor) New() js.Ref {
 	return bindings.GPURenderBundleDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3271,10 +3303,14 @@ type GPURenderBundleEncoderDescriptor struct {
 	// DepthReadOnly is "GPURenderBundleEncoderDescriptor.depthReadOnly"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_DepthReadOnly MUST be set to true to make this field effective.
 	DepthReadOnly bool
 	// StencilReadOnly is "GPURenderBundleEncoderDescriptor.stencilReadOnly"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_StencilReadOnly MUST be set to true to make this field effective.
 	StencilReadOnly bool
 	// ColorFormats is "GPURenderBundleEncoderDescriptor.colorFormats"
 	//
@@ -3287,6 +3323,8 @@ type GPURenderBundleEncoderDescriptor struct {
 	// SampleCount is "GPURenderBundleEncoderDescriptor.sampleCount"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_SampleCount MUST be set to true to make this field effective.
 	SampleCount GPUSize32
 	// Label is "GPURenderBundleEncoderDescriptor.label"
 	//
@@ -3306,7 +3344,7 @@ func (p GPURenderBundleEncoderDescriptor) FromRef(ref js.Ref) GPURenderBundleEnc
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPURenderBundleEncoderDescriptor GPURenderBundleEncoderDescriptor [// GPURenderBundleEncoderDescriptor] [0x140004ac000 0x140004ac140 0x140004ac280 0x140004ac320 0x140004ac3c0 0x140004ac500 0x140004ac0a0 0x140004ac1e0 0x140004ac460] 0x1400043eb28 {0 0}} in the application heap.
+// New creates a new GPURenderBundleEncoderDescriptor in the application heap.
 func (p GPURenderBundleEncoderDescriptor) New() js.Ref {
 	return bindings.GPURenderBundleEncoderDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3350,7 +3388,7 @@ func (p GPUQuerySetDescriptor) FromRef(ref js.Ref) GPUQuerySetDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUQuerySetDescriptor GPUQuerySetDescriptor [// GPUQuerySetDescriptor] [0x140004ac5a0 0x140004ac640 0x140004ac6e0] 0x1400043eba0 {0 0}} in the application heap.
+// New creates a new GPUQuerySetDescriptor in the application heap.
 func (p GPUQuerySetDescriptor) New() js.Ref {
 	return bindings.GPUQuerySetDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3831,14 +3869,20 @@ type GPUImageDataLayout struct {
 	// Offset is "GPUImageDataLayout.offset"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Offset MUST be set to true to make this field effective.
 	Offset GPUSize64
 	// BytesPerRow is "GPUImageDataLayout.bytesPerRow"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesPerRow MUST be set to true to make this field effective.
 	BytesPerRow GPUSize32
 	// RowsPerImage is "GPUImageDataLayout.rowsPerImage"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RowsPerImage MUST be set to true to make this field effective.
 	RowsPerImage GPUSize32
 
 	FFI_USE_Offset       bool // for Offset.
@@ -3854,7 +3898,7 @@ func (p GPUImageDataLayout) FromRef(ref js.Ref) GPUImageDataLayout {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUImageDataLayout GPUImageDataLayout [// GPUImageDataLayout] [0x140004ac8c0 0x140004aca00 0x140004acb40 0x140004ac960 0x140004acaa0 0x140004acbe0] 0x1400043ec18 {0 0}} in the application heap.
+// New creates a new GPUImageDataLayout in the application heap.
 func (p GPUImageDataLayout) New() js.Ref {
 	return bindings.GPUImageDataLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3927,10 +3971,14 @@ type GPUOrigin2DDict struct {
 	// X is "GPUOrigin2DDict.x"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_X MUST be set to true to make this field effective.
 	X GPUIntegerCoordinate
 	// Y is "GPUOrigin2DDict.y"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Y MUST be set to true to make this field effective.
 	Y GPUIntegerCoordinate
 
 	FFI_USE_X bool // for X.
@@ -3945,7 +3993,7 @@ func (p GPUOrigin2DDict) FromRef(ref js.Ref) GPUOrigin2DDict {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUOrigin2DDict GPUOrigin2DDict [// GPUOrigin2DDict] [0x140004acd20 0x140004ace60 0x140004acdc0 0x140004acf00] 0x1400043eca8 {0 0}} in the application heap.
+// New creates a new GPUOrigin2DDict in the application heap.
 func (p GPUOrigin2DDict) New() js.Ref {
 	return bindings.GPUOrigin2DDictJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4008,6 +4056,8 @@ type GPUImageCopyExternalImage struct {
 	// FlipY is "GPUImageCopyExternalImage.flipY"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_FlipY MUST be set to true to make this field effective.
 	FlipY bool
 
 	FFI_USE_FlipY bool // for FlipY.
@@ -4021,7 +4071,7 @@ func (p GPUImageCopyExternalImage) FromRef(ref js.Ref) GPUImageCopyExternalImage
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUImageCopyExternalImage GPUImageCopyExternalImage [// GPUImageCopyExternalImage] [0x140004acc80 0x140004acfa0 0x140004ad040 0x140004ad0e0] 0x1400043ec60 {0 0}} in the application heap.
+// New creates a new GPUImageCopyExternalImage in the application heap.
 func (p GPUImageCopyExternalImage) New() js.Ref {
 	return bindings.GPUImageCopyExternalImageJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -4050,6 +4100,8 @@ type GPUImageCopyTextureTagged struct {
 	// PremultipliedAlpha is "GPUImageCopyTextureTagged.premultipliedAlpha"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PremultipliedAlpha MUST be set to true to make this field effective.
 	PremultipliedAlpha bool
 	// Texture is "GPUImageCopyTextureTagged.texture"
 	//
@@ -4058,6 +4110,8 @@ type GPUImageCopyTextureTagged struct {
 	// MipLevel is "GPUImageCopyTextureTagged.mipLevel"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MipLevel MUST be set to true to make this field effective.
 	MipLevel GPUIntegerCoordinate
 	// Origin is "GPUImageCopyTextureTagged.origin"
 	//
@@ -4080,7 +4134,7 @@ func (p GPUImageCopyTextureTagged) FromRef(ref js.Ref) GPUImageCopyTextureTagged
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUImageCopyTextureTagged GPUImageCopyTextureTagged [// GPUImageCopyTextureTagged] [0x140004ad180 0x140004ad220 0x140004ad360 0x140004ad400 0x140004ad540 0x140004ad5e0 0x140004ad2c0 0x140004ad4a0] 0x1400043ecf0 {0 0}} in the application heap.
+// New creates a new GPUImageCopyTextureTagged in the application heap.
 func (p GPUImageCopyTextureTagged) New() js.Ref {
 	return bindings.GPUImageCopyTextureTaggedJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -5000,6 +5054,8 @@ type GPUCanvasConfiguration struct {
 	// Usage is "GPUCanvasConfiguration.usage"
 	//
 	// Optional, defaults to 0x10.
+	//
+	// NOTE: FFI_USE_Usage MUST be set to true to make this field effective.
 	Usage GPUTextureUsageFlags
 	// ViewFormats is "GPUCanvasConfiguration.viewFormats"
 	//
@@ -5025,7 +5081,7 @@ func (p GPUCanvasConfiguration) FromRef(ref js.Ref) GPUCanvasConfiguration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUCanvasConfiguration GPUCanvasConfiguration [// GPUCanvasConfiguration] [0x140004ad720 0x140004ad7c0 0x140004ad860 0x140004ad9a0 0x140004ada40 0x140004adae0 0x140004ad900] 0x1400037c5b8 {0 0}} in the application heap.
+// New creates a new GPUCanvasConfiguration in the application heap.
 func (p GPUCanvasConfiguration) New() js.Ref {
 	return bindings.GPUCanvasConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,

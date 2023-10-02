@@ -326,7 +326,7 @@ func (p WebTransportHash) FromRef(ref js.Ref) WebTransportHash {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportHash WebTransportHash [// WebTransportHash] [0x14000abefa0 0x14000abf040] 0x14000ad4270 {0 0}} in the application heap.
+// New creates a new WebTransportHash in the application heap.
 func (p WebTransportHash) New() js.Ref {
 	return bindings.WebTransportHashJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -378,10 +378,14 @@ type WebTransportOptions struct {
 	// AllowPooling is "WebTransportOptions.allowPooling"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AllowPooling MUST be set to true to make this field effective.
 	AllowPooling bool
 	// RequireUnreliable is "WebTransportOptions.requireUnreliable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequireUnreliable MUST be set to true to make this field effective.
 	RequireUnreliable bool
 	// ServerCertificateHashes is "WebTransportOptions.serverCertificateHashes"
 	//
@@ -404,7 +408,7 @@ func (p WebTransportOptions) FromRef(ref js.Ref) WebTransportOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportOptions WebTransportOptions [// WebTransportOptions] [0x14000abed20 0x14000abee60 0x14000abf0e0 0x14000abf180 0x14000abedc0 0x14000abef00] 0x14000ad4228 {0 0}} in the application heap.
+// New creates a new WebTransportOptions in the application heap.
 func (p WebTransportOptions) New() js.Ref {
 	return bindings.WebTransportOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -429,18 +433,26 @@ type WebTransportDatagramStats struct {
 	// Timestamp is "WebTransportDatagramStats.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp DOMHighResTimeStamp
 	// ExpiredOutgoing is "WebTransportDatagramStats.expiredOutgoing"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ExpiredOutgoing MUST be set to true to make this field effective.
 	ExpiredOutgoing uint64
 	// DroppedIncoming is "WebTransportDatagramStats.droppedIncoming"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DroppedIncoming MUST be set to true to make this field effective.
 	DroppedIncoming uint64
 	// LostOutgoing is "WebTransportDatagramStats.lostOutgoing"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_LostOutgoing MUST be set to true to make this field effective.
 	LostOutgoing uint64
 
 	FFI_USE_Timestamp       bool // for Timestamp.
@@ -457,7 +469,7 @@ func (p WebTransportDatagramStats) FromRef(ref js.Ref) WebTransportDatagramStats
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportDatagramStats WebTransportDatagramStats [// WebTransportDatagramStats] [0x14000ae2000 0x14000ae2140 0x14000ae2280 0x14000ae23c0 0x14000ae20a0 0x14000ae21e0 0x14000ae2320 0x14000ae2460] 0x14000ad4378 {0 0}} in the application heap.
+// New creates a new WebTransportDatagramStats in the application heap.
 func (p WebTransportDatagramStats) New() js.Ref {
 	return bindings.WebTransportDatagramStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -482,46 +494,68 @@ type WebTransportStats struct {
 	// Timestamp is "WebTransportStats.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp DOMHighResTimeStamp
 	// BytesSent is "WebTransportStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// PacketsSent is "WebTransportStats.packetsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsSent MUST be set to true to make this field effective.
 	PacketsSent uint64
 	// PacketsLost is "WebTransportStats.packetsLost"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsLost MUST be set to true to make this field effective.
 	PacketsLost uint64
 	// NumOutgoingStreamsCreated is "WebTransportStats.numOutgoingStreamsCreated"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_NumOutgoingStreamsCreated MUST be set to true to make this field effective.
 	NumOutgoingStreamsCreated uint32
 	// NumIncomingStreamsCreated is "WebTransportStats.numIncomingStreamsCreated"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_NumIncomingStreamsCreated MUST be set to true to make this field effective.
 	NumIncomingStreamsCreated uint32
 	// BytesReceived is "WebTransportStats.bytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesReceived MUST be set to true to make this field effective.
 	BytesReceived uint64
 	// PacketsReceived is "WebTransportStats.packetsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsReceived MUST be set to true to make this field effective.
 	PacketsReceived uint64
 	// SmoothedRtt is "WebTransportStats.smoothedRtt"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SmoothedRtt MUST be set to true to make this field effective.
 	SmoothedRtt DOMHighResTimeStamp
 	// RttVariation is "WebTransportStats.rttVariation"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RttVariation MUST be set to true to make this field effective.
 	RttVariation DOMHighResTimeStamp
 	// MinRtt is "WebTransportStats.minRtt"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MinRtt MUST be set to true to make this field effective.
 	MinRtt DOMHighResTimeStamp
 	// Datagrams is "WebTransportStats.datagrams"
 	//
@@ -530,6 +564,8 @@ type WebTransportStats struct {
 	// EstimatedSendRate is "WebTransportStats.estimatedSendRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EstimatedSendRate MUST be set to true to make this field effective.
 	EstimatedSendRate uint64
 
 	FFI_USE_Timestamp                 bool // for Timestamp.
@@ -554,7 +590,7 @@ func (p WebTransportStats) FromRef(ref js.Ref) WebTransportStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportStats WebTransportStats [// WebTransportStats] [0x14000abf220 0x14000abf360 0x14000abf4a0 0x14000abf5e0 0x14000abf720 0x14000abf860 0x14000abf9a0 0x14000abfae0 0x14000abfc20 0x14000abfd60 0x14000abfea0 0x14000ae2500 0x14000ae25a0 0x14000abf2c0 0x14000abf400 0x14000abf540 0x14000abf680 0x14000abf7c0 0x14000abf900 0x14000abfa40 0x14000abfb80 0x14000abfcc0 0x14000abfe00 0x14000abff40 0x14000ae2640] 0x14000ad42a0 {0 0}} in the application heap.
+// New creates a new WebTransportStats in the application heap.
 func (p WebTransportStats) New() js.Ref {
 	return bindings.WebTransportStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -579,6 +615,8 @@ type WebTransportCloseInfo struct {
 	// CloseCode is "WebTransportCloseInfo.closeCode"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_CloseCode MUST be set to true to make this field effective.
 	CloseCode uint32
 	// Reason is "WebTransportCloseInfo.reason"
 	//
@@ -596,7 +634,7 @@ func (p WebTransportCloseInfo) FromRef(ref js.Ref) WebTransportCloseInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportCloseInfo WebTransportCloseInfo [// WebTransportCloseInfo] [0x14000ae26e0 0x14000ae2820 0x14000ae2780] 0x14000ad4420 {0 0}} in the application heap.
+// New creates a new WebTransportCloseInfo in the application heap.
 func (p WebTransportCloseInfo) New() js.Ref {
 	return bindings.WebTransportCloseInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -621,14 +659,20 @@ type WebTransportReceiveStreamStats struct {
 	// Timestamp is "WebTransportReceiveStreamStats.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp DOMHighResTimeStamp
 	// BytesReceived is "WebTransportReceiveStreamStats.bytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesReceived MUST be set to true to make this field effective.
 	BytesReceived uint64
 	// BytesRead is "WebTransportReceiveStreamStats.bytesRead"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesRead MUST be set to true to make this field effective.
 	BytesRead uint64
 
 	FFI_USE_Timestamp     bool // for Timestamp.
@@ -644,7 +688,7 @@ func (p WebTransportReceiveStreamStats) FromRef(ref js.Ref) WebTransportReceiveS
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportReceiveStreamStats WebTransportReceiveStreamStats [// WebTransportReceiveStreamStats] [0x14000ae28c0 0x14000ae2a00 0x14000ae2b40 0x14000ae2960 0x14000ae2aa0 0x14000ae2be0] 0x14000ad4468 {0 0}} in the application heap.
+// New creates a new WebTransportReceiveStreamStats in the application heap.
 func (p WebTransportReceiveStreamStats) New() js.Ref {
 	return bindings.WebTransportReceiveStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -735,18 +779,26 @@ type WebTransportSendStreamStats struct {
 	// Timestamp is "WebTransportSendStreamStats.timestamp"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp DOMHighResTimeStamp
 	// BytesWritten is "WebTransportSendStreamStats.bytesWritten"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesWritten MUST be set to true to make this field effective.
 	BytesWritten uint64
 	// BytesSent is "WebTransportSendStreamStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// BytesAcknowledged is "WebTransportSendStreamStats.bytesAcknowledged"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesAcknowledged MUST be set to true to make this field effective.
 	BytesAcknowledged uint64
 
 	FFI_USE_Timestamp         bool // for Timestamp.
@@ -763,7 +815,7 @@ func (p WebTransportSendStreamStats) FromRef(ref js.Ref) WebTransportSendStreamS
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportSendStreamStats WebTransportSendStreamStats [// WebTransportSendStreamStats] [0x14000ae2c80 0x14000ae2dc0 0x14000ae2f00 0x14000ae3040 0x14000ae2d20 0x14000ae2e60 0x14000ae2fa0 0x14000ae30e0] 0x14000ad4528 {0 0}} in the application heap.
+// New creates a new WebTransportSendStreamStats in the application heap.
 func (p WebTransportSendStreamStats) New() js.Ref {
 	return bindings.WebTransportSendStreamStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -919,6 +971,8 @@ type WebTransportSendStreamOptions struct {
 	// SendOrder is "WebTransportSendStreamOptions.sendOrder"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_SendOrder MUST be set to true to make this field effective.
 	SendOrder int64
 
 	FFI_USE_SendOrder bool // for SendOrder.
@@ -932,7 +986,7 @@ func (p WebTransportSendStreamOptions) FromRef(ref js.Ref) WebTransportSendStrea
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportSendStreamOptions WebTransportSendStreamOptions [// WebTransportSendStreamOptions] [0x14000ae3220 0x14000ae32c0] 0x14000ad45a0 {0 0}} in the application heap.
+// New creates a new WebTransportSendStreamOptions in the application heap.
 func (p WebTransportSendStreamOptions) New() js.Ref {
 	return bindings.WebTransportSendStreamOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1442,6 +1496,8 @@ type WebTransportErrorOptions struct {
 	// StreamErrorCode is "WebTransportErrorOptions.streamErrorCode"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_StreamErrorCode MUST be set to true to make this field effective.
 	StreamErrorCode uint32
 
 	FFI_USE_StreamErrorCode bool // for StreamErrorCode.
@@ -1455,7 +1511,7 @@ func (p WebTransportErrorOptions) FromRef(ref js.Ref) WebTransportErrorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WebTransportErrorOptions WebTransportErrorOptions [// WebTransportErrorOptions] [0x14000ae34a0 0x14000ae3540 0x14000ae35e0] 0x14000ad4678 {0 0}} in the application heap.
+// New creates a new WebTransportErrorOptions in the application heap.
 func (p WebTransportErrorOptions) New() js.Ref {
 	return bindings.WebTransportErrorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1551,42 +1607,62 @@ type WheelEventInit struct {
 	// DeltaX is "WheelEventInit.deltaX"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_DeltaX MUST be set to true to make this field effective.
 	DeltaX float64
 	// DeltaY is "WheelEventInit.deltaY"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_DeltaY MUST be set to true to make this field effective.
 	DeltaY float64
 	// DeltaZ is "WheelEventInit.deltaZ"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_DeltaZ MUST be set to true to make this field effective.
 	DeltaZ float64
 	// DeltaMode is "WheelEventInit.deltaMode"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_DeltaMode MUST be set to true to make this field effective.
 	DeltaMode uint32
 	// ScreenX is "WheelEventInit.screenX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ScreenX MUST be set to true to make this field effective.
 	ScreenX int32
 	// ScreenY is "WheelEventInit.screenY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ScreenY MUST be set to true to make this field effective.
 	ScreenY int32
 	// ClientX is "WheelEventInit.clientX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ClientX MUST be set to true to make this field effective.
 	ClientX int32
 	// ClientY is "WheelEventInit.clientY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_ClientY MUST be set to true to make this field effective.
 	ClientY int32
 	// Button is "WheelEventInit.button"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Button MUST be set to true to make this field effective.
 	Button int16
 	// Buttons is "WheelEventInit.buttons"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Buttons MUST be set to true to make this field effective.
 	Buttons uint16
 	// RelatedTarget is "WheelEventInit.relatedTarget"
 	//
@@ -1595,58 +1671,86 @@ type WheelEventInit struct {
 	// CtrlKey is "WheelEventInit.ctrlKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_CtrlKey MUST be set to true to make this field effective.
 	CtrlKey bool
 	// ShiftKey is "WheelEventInit.shiftKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ShiftKey MUST be set to true to make this field effective.
 	ShiftKey bool
 	// AltKey is "WheelEventInit.altKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AltKey MUST be set to true to make this field effective.
 	AltKey bool
 	// MetaKey is "WheelEventInit.metaKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_MetaKey MUST be set to true to make this field effective.
 	MetaKey bool
 	// ModifierAltGraph is "WheelEventInit.modifierAltGraph"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierAltGraph MUST be set to true to make this field effective.
 	ModifierAltGraph bool
 	// ModifierCapsLock is "WheelEventInit.modifierCapsLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierCapsLock MUST be set to true to make this field effective.
 	ModifierCapsLock bool
 	// ModifierFn is "WheelEventInit.modifierFn"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFn MUST be set to true to make this field effective.
 	ModifierFn bool
 	// ModifierFnLock is "WheelEventInit.modifierFnLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierFnLock MUST be set to true to make this field effective.
 	ModifierFnLock bool
 	// ModifierHyper is "WheelEventInit.modifierHyper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierHyper MUST be set to true to make this field effective.
 	ModifierHyper bool
 	// ModifierNumLock is "WheelEventInit.modifierNumLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierNumLock MUST be set to true to make this field effective.
 	ModifierNumLock bool
 	// ModifierScrollLock is "WheelEventInit.modifierScrollLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierScrollLock MUST be set to true to make this field effective.
 	ModifierScrollLock bool
 	// ModifierSuper is "WheelEventInit.modifierSuper"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSuper MUST be set to true to make this field effective.
 	ModifierSuper bool
 	// ModifierSymbol is "WheelEventInit.modifierSymbol"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbol MUST be set to true to make this field effective.
 	ModifierSymbol bool
 	// ModifierSymbolLock is "WheelEventInit.modifierSymbolLock"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ModifierSymbolLock MUST be set to true to make this field effective.
 	ModifierSymbolLock bool
 	// View is "WheelEventInit.view"
 	//
@@ -1655,18 +1759,26 @@ type WheelEventInit struct {
 	// Detail is "WheelEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "WheelEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "WheelEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "WheelEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_DeltaX             bool // for DeltaX.
@@ -1707,7 +1819,7 @@ func (p WheelEventInit) FromRef(ref js.Ref) WheelEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WheelEventInit WheelEventInit [// WheelEventInit] [0x14000ae3720 0x14000ae3860 0x14000ae39a0 0x14000ae3ae0 0x14000ae3c20 0x14000ae3d60 0x14000ae3ea0 0x14000aec000 0x14000aec140 0x14000aec280 0x14000aec3c0 0x14000aec460 0x14000aec5a0 0x14000aec6e0 0x14000aec820 0x14000aec960 0x14000aecaa0 0x14000aecbe0 0x14000aecd20 0x14000aece60 0x14000aecfa0 0x14000aed0e0 0x14000aed220 0x14000aed360 0x14000aed4a0 0x14000aed5e0 0x14000aed680 0x14000aed7c0 0x14000aed900 0x14000aeda40 0x14000ae37c0 0x14000ae3900 0x14000ae3a40 0x14000ae3b80 0x14000ae3cc0 0x14000ae3e00 0x14000ae3f40 0x14000aec0a0 0x14000aec1e0 0x14000aec320 0x14000aec500 0x14000aec640 0x14000aec780 0x14000aec8c0 0x14000aeca00 0x14000aecb40 0x14000aecc80 0x14000aecdc0 0x14000aecf00 0x14000aed040 0x14000aed180 0x14000aed2c0 0x14000aed400 0x14000aed540 0x14000aed720 0x14000aed860 0x14000aed9a0 0x14000aedae0] 0x14000ad4720 {0 0}} in the application heap.
+// New creates a new WheelEventInit in the application heap.
 func (p WheelEventInit) New() js.Ref {
 	return bindings.WheelEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1817,18 +1929,26 @@ type WindowControlsOverlayGeometryChangeEventInit struct {
 	// Visible is "WindowControlsOverlayGeometryChangeEventInit.visible"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Visible MUST be set to true to make this field effective.
 	Visible bool
 	// Bubbles is "WindowControlsOverlayGeometryChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "WindowControlsOverlayGeometryChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "WindowControlsOverlayGeometryChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Visible    bool // for Visible.
@@ -1845,7 +1965,7 @@ func (p WindowControlsOverlayGeometryChangeEventInit) FromRef(ref js.Ref) Window
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WindowControlsOverlayGeometryChangeEventInit WindowControlsOverlayGeometryChangeEventInit [// WindowControlsOverlayGeometryChangeEventInit] [0x14000aedc20 0x14000aedcc0 0x14000aede00 0x14000aedf40 0x14000aee0a0 0x14000aedd60 0x14000aedea0 0x14000aee000 0x14000aee140] 0x14000ad4840 {0 0}} in the application heap.
+// New creates a new WindowControlsOverlayGeometryChangeEventInit in the application heap.
 func (p WindowControlsOverlayGeometryChangeEventInit) New() js.Ref {
 	return bindings.WindowControlsOverlayGeometryChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

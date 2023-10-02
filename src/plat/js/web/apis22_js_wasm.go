@@ -355,7 +355,7 @@ func (p ClipboardItemOptions) FromRef(ref js.Ref) ClipboardItemOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ClipboardItemOptions ClipboardItemOptions [// ClipboardItemOptions] [0x140005bfd60] 0x14000574630 {0 0}} in the application heap.
+// New creates a new ClipboardItemOptions in the application heap.
 func (p ClipboardItemOptions) New() js.Ref {
 	return bindings.ClipboardItemOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -703,7 +703,7 @@ func (p FileSystemHandlePermissionDescriptor) FromRef(ref js.Ref) FileSystemHand
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemHandlePermissionDescriptor FileSystemHandlePermissionDescriptor [// FileSystemHandlePermissionDescriptor] [0x140005bff40] 0x140005746a8 {0 0}} in the application heap.
+// New creates a new FileSystemHandlePermissionDescriptor in the application heap.
 func (p FileSystemHandlePermissionDescriptor) New() js.Ref {
 	return bindings.FileSystemHandlePermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1167,10 +1167,14 @@ type FileSystemFlags struct {
 	// Create is "FileSystemFlags.create"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Create MUST be set to true to make this field effective.
 	Create bool
 	// Exclusive is "FileSystemFlags.exclusive"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Exclusive MUST be set to true to make this field effective.
 	Exclusive bool
 
 	FFI_USE_Create    bool // for Create.
@@ -1185,7 +1189,7 @@ func (p FileSystemFlags) FromRef(ref js.Ref) FileSystemFlags {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemFlags FileSystemFlags [// FileSystemFlags] [0x140005e0140 0x140005e0280 0x140005e01e0 0x140005e0320] 0x14000574738 {0 0}} in the application heap.
+// New creates a new FileSystemFlags in the application heap.
 func (p FileSystemFlags) New() js.Ref {
 	return bindings.FileSystemFlagsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2288,14 +2292,20 @@ type ClipboardEventInit struct {
 	// Bubbles is "ClipboardEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ClipboardEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ClipboardEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2311,7 +2321,7 @@ func (p ClipboardEventInit) FromRef(ref js.Ref) ClipboardEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ClipboardEventInit ClipboardEventInit [// ClipboardEventInit] [0x140005e0500 0x140005e05a0 0x140005e06e0 0x140005e0820 0x140005e0640 0x140005e0780 0x140005e08c0] 0x14000574678 {0 0}} in the application heap.
+// New creates a new ClipboardEventInit in the application heap.
 func (p ClipboardEventInit) New() js.Ref {
 	return bindings.ClipboardEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2384,6 +2394,8 @@ type ClipboardPermissionDescriptor struct {
 	// AllowWithoutGesture is "ClipboardPermissionDescriptor.allowWithoutGesture"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_AllowWithoutGesture MUST be set to true to make this field effective.
 	AllowWithoutGesture bool
 	// Name is "ClipboardPermissionDescriptor.name"
 	//
@@ -2401,7 +2413,7 @@ func (p ClipboardPermissionDescriptor) FromRef(ref js.Ref) ClipboardPermissionDe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ClipboardPermissionDescriptor ClipboardPermissionDescriptor [// ClipboardPermissionDescriptor] [0x140005e0960 0x140005e0aa0 0x140005e0a00] 0x140005747e0 {0 0}} in the application heap.
+// New creates a new ClipboardPermissionDescriptor in the application heap.
 func (p ClipboardPermissionDescriptor) New() js.Ref {
 	return bindings.ClipboardPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2426,10 +2438,14 @@ type CloseEventInit struct {
 	// WasClean is "CloseEventInit.wasClean"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_WasClean MUST be set to true to make this field effective.
 	WasClean bool
 	// Code is "CloseEventInit.code"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Code MUST be set to true to make this field effective.
 	Code uint16
 	// Reason is "CloseEventInit.reason"
 	//
@@ -2438,14 +2454,20 @@ type CloseEventInit struct {
 	// Bubbles is "CloseEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "CloseEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "CloseEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_WasClean   bool // for WasClean.
@@ -2463,7 +2485,7 @@ func (p CloseEventInit) FromRef(ref js.Ref) CloseEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CloseEventInit CloseEventInit [// CloseEventInit] [0x140005e0b40 0x140005e0c80 0x140005e0dc0 0x140005e0e60 0x140005e0fa0 0x140005e10e0 0x140005e0be0 0x140005e0d20 0x140005e0f00 0x140005e1040 0x140005e1180] 0x14000574840 {0 0}} in the application heap.
+// New creates a new CloseEventInit in the application heap.
 func (p CloseEventInit) New() js.Ref {
 	return bindings.CloseEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2589,7 +2611,7 @@ func (p CollectedClientAdditionalPaymentData) FromRef(ref js.Ref) CollectedClien
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CollectedClientAdditionalPaymentData CollectedClientAdditionalPaymentData [// CollectedClientAdditionalPaymentData] [0x140005e12c0 0x140005e1360 0x140005e1400 0x140005e14a0 0x140005e1540 0x140005e15e0] 0x14000574888 {0 0}} in the application heap.
+// New creates a new CollectedClientAdditionalPaymentData in the application heap.
 func (p CollectedClientAdditionalPaymentData) New() js.Ref {
 	return bindings.CollectedClientAdditionalPaymentDataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2630,6 +2652,8 @@ type CollectedClientData struct {
 	// CrossOrigin is "CollectedClientData.crossOrigin"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CrossOrigin MUST be set to true to make this field effective.
 	CrossOrigin bool
 
 	FFI_USE_CrossOrigin bool // for CrossOrigin.
@@ -2643,7 +2667,7 @@ func (p CollectedClientData) FromRef(ref js.Ref) CollectedClientData {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CollectedClientData CollectedClientData [// CollectedClientData] [0x140005e1680 0x140005e1720 0x140005e17c0 0x140005e1860 0x140005e1900 0x140005e19a0] 0x140005748d0 {0 0}} in the application heap.
+// New creates a new CollectedClientData in the application heap.
 func (p CollectedClientData) New() js.Ref {
 	return bindings.CollectedClientDataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2688,6 +2712,8 @@ type CollectedClientPaymentData struct {
 	// CrossOrigin is "CollectedClientPaymentData.crossOrigin"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CrossOrigin MUST be set to true to make this field effective.
 	CrossOrigin bool
 
 	FFI_USE_CrossOrigin bool // for CrossOrigin.
@@ -2701,7 +2727,7 @@ func (p CollectedClientPaymentData) FromRef(ref js.Ref) CollectedClientPaymentDa
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CollectedClientPaymentData CollectedClientPaymentData [// CollectedClientPaymentData] [0x140005e1a40 0x140005e1ae0 0x140005e1b80 0x140005e1c20 0x140005e1cc0 0x140005e1d60 0x140005e1e00] 0x14000574918 {0 0}} in the application heap.
+// New creates a new CollectedClientPaymentData in the application heap.
 func (p CollectedClientPaymentData) New() js.Ref {
 	return bindings.CollectedClientPaymentDataJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2764,7 +2790,7 @@ func (p ColorSelectionOptions) FromRef(ref js.Ref) ColorSelectionOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ColorSelectionOptions ColorSelectionOptions [// ColorSelectionOptions] [0x140005e1ea0] 0x14000574978 {0 0}} in the application heap.
+// New creates a new ColorSelectionOptions in the application heap.
 func (p ColorSelectionOptions) New() js.Ref {
 	return bindings.ColorSelectionOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2800,7 +2826,7 @@ func (p ColorSelectionResult) FromRef(ref js.Ref) ColorSelectionResult {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ColorSelectionResult ColorSelectionResult [// ColorSelectionResult] [0x140005e1f40] 0x140005749a8 {0 0}} in the application heap.
+// New creates a new ColorSelectionResult in the application heap.
 func (p ColorSelectionResult) New() js.Ref {
 	return bindings.ColorSelectionResultJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2891,7 +2917,7 @@ func (p WindowPostMessageOptions) FromRef(ref js.Ref) WindowPostMessageOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WindowPostMessageOptions WindowPostMessageOptions [// WindowPostMessageOptions] [0x140005f00a0 0x140005f0140] 0x14000574b28 {0 0}} in the application heap.
+// New creates a new WindowPostMessageOptions in the application heap.
 func (p WindowPostMessageOptions) New() js.Ref {
 	return bindings.WindowPostMessageOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

@@ -97,14 +97,20 @@ type PresentationConnectionCloseEventInit struct {
 	// Bubbles is "PresentationConnectionCloseEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PresentationConnectionCloseEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PresentationConnectionCloseEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -120,7 +126,7 @@ func (p PresentationConnectionCloseEventInit) FromRef(ref js.Ref) PresentationCo
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PresentationConnectionCloseEventInit PresentationConnectionCloseEventInit [// PresentationConnectionCloseEventInit] [0x14000960460 0x14000960500 0x140009605a0 0x140009606e0 0x14000960820 0x14000960640 0x14000960780 0x140009608c0] 0x14000920f78 {0 0}} in the application heap.
+// New creates a new PresentationConnectionCloseEventInit in the application heap.
 func (p PresentationConnectionCloseEventInit) New() js.Ref {
 	return bindings.PresentationConnectionCloseEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -391,6 +397,8 @@ type PressureObserverOptions struct {
 	// SampleRate is "PressureObserverOptions.sampleRate"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_SampleRate MUST be set to true to make this field effective.
 	SampleRate float64
 
 	FFI_USE_SampleRate bool // for SampleRate.
@@ -404,7 +412,7 @@ func (p PressureObserverOptions) FromRef(ref js.Ref) PressureObserverOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PressureObserverOptions PressureObserverOptions [// PressureObserverOptions] [0x14000960aa0 0x14000960b40] 0x14000920fc0 {0 0}} in the application heap.
+// New creates a new PressureObserverOptions in the application heap.
 func (p PressureObserverOptions) New() js.Ref {
 	return bindings.PressureObserverOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -588,7 +596,7 @@ func (p PrivateNetworkAccessPermissionDescriptor) FromRef(ref js.Ref) PrivateNet
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PrivateNetworkAccessPermissionDescriptor PrivateNetworkAccessPermissionDescriptor [// PrivateNetworkAccessPermissionDescriptor] [0x14000960be0 0x14000960c80] 0x14000921008 {0 0}} in the application heap.
+// New creates a new PrivateNetworkAccessPermissionDescriptor in the application heap.
 func (p PrivateNetworkAccessPermissionDescriptor) New() js.Ref {
 	return bindings.PrivateNetworkAccessPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -628,7 +636,7 @@ func (p ProfilerInitOptions) FromRef(ref js.Ref) ProfilerInitOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ProfilerInitOptions ProfilerInitOptions [// ProfilerInitOptions] [0x14000960d20 0x14000960dc0] 0x14000921068 {0 0}} in the application heap.
+// New creates a new ProfilerInitOptions in the application heap.
 func (p ProfilerInitOptions) New() js.Ref {
 	return bindings.ProfilerInitOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -659,14 +667,20 @@ type ProfilerFrame struct {
 	// ResourceId is "ProfilerFrame.resourceId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ResourceId MUST be set to true to make this field effective.
 	ResourceId uint64
 	// Line is "ProfilerFrame.line"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Line MUST be set to true to make this field effective.
 	Line uint64
 	// Column is "ProfilerFrame.column"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Column MUST be set to true to make this field effective.
 	Column uint64
 
 	FFI_USE_ResourceId bool // for ResourceId.
@@ -682,7 +696,7 @@ func (p ProfilerFrame) FromRef(ref js.Ref) ProfilerFrame {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ProfilerFrame ProfilerFrame [// ProfilerFrame] [0x14000960f00 0x14000960fa0 0x140009610e0 0x14000961220 0x14000961040 0x14000961180 0x140009612c0] 0x140009210b0 {0 0}} in the application heap.
+// New creates a new ProfilerFrame in the application heap.
 func (p ProfilerFrame) New() js.Ref {
 	return bindings.ProfilerFrameJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -707,6 +721,8 @@ type ProfilerStack struct {
 	// ParentId is "ProfilerStack.parentId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ParentId MUST be set to true to make this field effective.
 	ParentId uint64
 	// FrameId is "ProfilerStack.frameId"
 	//
@@ -724,7 +740,7 @@ func (p ProfilerStack) FromRef(ref js.Ref) ProfilerStack {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ProfilerStack ProfilerStack [// ProfilerStack] [0x14000961400 0x14000961540 0x140009614a0] 0x14000921110 {0 0}} in the application heap.
+// New creates a new ProfilerStack in the application heap.
 func (p ProfilerStack) New() js.Ref {
 	return bindings.ProfilerStackJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -753,6 +769,8 @@ type ProfilerSample struct {
 	// StackId is "ProfilerSample.stackId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_StackId MUST be set to true to make this field effective.
 	StackId uint64
 
 	FFI_USE_StackId bool // for StackId.
@@ -766,7 +784,7 @@ func (p ProfilerSample) FromRef(ref js.Ref) ProfilerSample {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ProfilerSample ProfilerSample [// ProfilerSample] [0x14000961680 0x14000961720 0x140009617c0] 0x14000921140 {0 0}} in the application heap.
+// New creates a new ProfilerSample in the application heap.
 func (p ProfilerSample) New() js.Ref {
 	return bindings.ProfilerSampleJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -814,7 +832,7 @@ func (p ProfilerTrace) FromRef(ref js.Ref) ProfilerTrace {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ProfilerTrace ProfilerTrace [// ProfilerTrace] [0x14000960e60 0x14000961360 0x140009615e0 0x14000961860] 0x14000921098 {0 0}} in the application heap.
+// New creates a new ProfilerTrace in the application heap.
 func (p ProfilerTrace) New() js.Ref {
 	return bindings.ProfilerTraceJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -913,26 +931,38 @@ type ProgressEventInit struct {
 	// LengthComputable is "ProgressEventInit.lengthComputable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_LengthComputable MUST be set to true to make this field effective.
 	LengthComputable bool
 	// Loaded is "ProgressEventInit.loaded"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Loaded MUST be set to true to make this field effective.
 	Loaded uint64
 	// Total is "ProgressEventInit.total"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Total MUST be set to true to make this field effective.
 	Total uint64
 	// Bubbles is "ProgressEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "ProgressEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "ProgressEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_LengthComputable bool // for LengthComputable.
@@ -951,7 +981,7 @@ func (p ProgressEventInit) FromRef(ref js.Ref) ProgressEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ProgressEventInit ProgressEventInit [// ProgressEventInit] [0x140009619a0 0x14000961ae0 0x14000961c20 0x14000961d60 0x14000961ea0 0x14000966000 0x14000961a40 0x14000961b80 0x14000961cc0 0x14000961e00 0x14000961f40 0x140009660a0] 0x14000921188 {0 0}} in the application heap.
+// New creates a new ProgressEventInit in the application heap.
 func (p ProgressEventInit) New() js.Ref {
 	return bindings.ProgressEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1054,14 +1084,20 @@ type PromiseRejectionEventInit struct {
 	// Bubbles is "PromiseRejectionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PromiseRejectionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PromiseRejectionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1077,7 +1113,7 @@ func (p PromiseRejectionEventInit) FromRef(ref js.Ref) PromiseRejectionEventInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PromiseRejectionEventInit PromiseRejectionEventInit [// PromiseRejectionEventInit] [0x140009661e0 0x14000966280 0x14000966320 0x14000966460 0x140009665a0 0x140009663c0 0x14000966500 0x14000966640] 0x140009211d0 {0 0}} in the application heap.
+// New creates a new PromiseRejectionEventInit in the application heap.
 func (p PromiseRejectionEventInit) New() js.Ref {
 	return bindings.PromiseRejectionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1173,7 +1209,7 @@ func (p ProximityReadingValues) FromRef(ref js.Ref) ProximityReadingValues {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ProximityReadingValues ProximityReadingValues [// ProximityReadingValues] [0x14000966780 0x14000966820 0x140009668c0] 0x14000921200 {0 0}} in the application heap.
+// New creates a new ProximityReadingValues in the application heap.
 func (p ProximityReadingValues) New() js.Ref {
 	return bindings.ProximityReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1297,7 +1333,7 @@ func (p RegistrationResponseJSON) FromRef(ref js.Ref) RegistrationResponseJSON {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RegistrationResponseJSON RegistrationResponseJSON [// RegistrationResponseJSON] [0x14000966a00 0x14000966aa0 0x14000966b40 0x14000966be0 0x14000966c80 0x14000966d20] 0x14000921260 {0 0}} in the application heap.
+// New creates a new RegistrationResponseJSON in the application heap.
 func (p RegistrationResponseJSON) New() js.Ref {
 	return bindings.RegistrationResponseJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1373,7 +1409,7 @@ func (p PublicKeyCredentialDescriptorJSON) FromRef(ref js.Ref) PublicKeyCredenti
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialDescriptorJSON PublicKeyCredentialDescriptorJSON [// PublicKeyCredentialDescriptorJSON] [0x14000967040 0x140009670e0 0x14000967180] 0x140009212d8 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialDescriptorJSON in the application heap.
 func (p PublicKeyCredentialDescriptorJSON) New() js.Ref {
 	return bindings.PublicKeyCredentialDescriptorJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1402,6 +1438,8 @@ type PublicKeyCredentialRequestOptionsJSON struct {
 	// Timeout is "PublicKeyCredentialRequestOptionsJSON.timeout"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timeout MUST be set to true to make this field effective.
 	Timeout uint32
 	// RpId is "PublicKeyCredentialRequestOptionsJSON.rpId"
 	//
@@ -1443,7 +1481,7 @@ func (p PublicKeyCredentialRequestOptionsJSON) FromRef(ref js.Ref) PublicKeyCred
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialRequestOptionsJSON PublicKeyCredentialRequestOptionsJSON [// PublicKeyCredentialRequestOptionsJSON] [0x14000966dc0 0x14000966e60 0x14000966fa0 0x14000967220 0x140009672c0 0x14000967360 0x14000967400 0x140009674a0 0x14000967540 0x14000966f00] 0x140009212a8 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialRequestOptionsJSON in the application heap.
 func (p PublicKeyCredentialRequestOptionsJSON) New() js.Ref {
 	return bindings.PublicKeyCredentialRequestOptionsJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1487,7 +1525,7 @@ func (p PublicKeyCredentialUserEntityJSON) FromRef(ref js.Ref) PublicKeyCredenti
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialUserEntityJSON PublicKeyCredentialUserEntityJSON [// PublicKeyCredentialUserEntityJSON] [0x14000967680 0x14000967720 0x140009677c0] 0x14000921368 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialUserEntityJSON in the application heap.
 func (p PublicKeyCredentialUserEntityJSON) New() js.Ref {
 	return bindings.PublicKeyCredentialUserEntityJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1528,6 +1566,8 @@ type PublicKeyCredentialCreationOptionsJSON struct {
 	// Timeout is "PublicKeyCredentialCreationOptionsJSON.timeout"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timeout MUST be set to true to make this field effective.
 	Timeout uint32
 	// ExcludeCredentials is "PublicKeyCredentialCreationOptionsJSON.excludeCredentials"
 	//
@@ -1565,7 +1605,7 @@ func (p PublicKeyCredentialCreationOptionsJSON) FromRef(ref js.Ref) PublicKeyCre
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialCreationOptionsJSON PublicKeyCredentialCreationOptionsJSON [// PublicKeyCredentialCreationOptionsJSON] [0x140009675e0 0x14000967860 0x14000967900 0x140009679a0 0x14000967a40 0x14000967b80 0x14000967c20 0x14000967cc0 0x14000967d60 0x14000967e00 0x14000967ea0 0x14000967ae0] 0x14000921320 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialCreationOptionsJSON in the application heap.
 func (p PublicKeyCredentialCreationOptionsJSON) New() js.Ref {
 	return bindings.PublicKeyCredentialCreationOptionsJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1819,7 +1859,7 @@ func (p PublicKeyCredentialEntity) FromRef(ref js.Ref) PublicKeyCredentialEntity
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PublicKeyCredentialEntity PublicKeyCredentialEntity [// PublicKeyCredentialEntity] [0x14000972000] 0x140009213b0 {0 0}} in the application heap.
+// New creates a new PublicKeyCredentialEntity in the application heap.
 func (p PublicKeyCredentialEntity) New() js.Ref {
 	return bindings.PublicKeyCredentialEntityJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1898,14 +1938,20 @@ type PushEventInit struct {
 	// Bubbles is "PushEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PushEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PushEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1921,7 +1967,7 @@ func (p PushEventInit) FromRef(ref js.Ref) PushEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PushEventInit PushEventInit [// PushEventInit] [0x140009720a0 0x14000972140 0x14000972280 0x140009723c0 0x140009721e0 0x14000972320 0x14000972460] 0x14000921458 {0 0}} in the application heap.
+// New creates a new PushEventInit in the application heap.
 func (p PushEventInit) New() js.Ref {
 	return bindings.PushEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2108,6 +2154,8 @@ type PushPermissionDescriptor struct {
 	// UserVisibleOnly is "PushPermissionDescriptor.userVisibleOnly"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_UserVisibleOnly MUST be set to true to make this field effective.
 	UserVisibleOnly bool
 	// Name is "PushPermissionDescriptor.name"
 	//
@@ -2125,7 +2173,7 @@ func (p PushPermissionDescriptor) FromRef(ref js.Ref) PushPermissionDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PushPermissionDescriptor PushPermissionDescriptor [// PushPermissionDescriptor] [0x14000972500 0x14000972640 0x140009725a0] 0x14000921578 {0 0}} in the application heap.
+// New creates a new PushPermissionDescriptor in the application heap.
 func (p PushPermissionDescriptor) New() js.Ref {
 	return bindings.PushPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2158,14 +2206,20 @@ type PushSubscriptionChangeEventInit struct {
 	// Bubbles is "PushSubscriptionChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PushSubscriptionChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PushSubscriptionChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2181,7 +2235,7 @@ func (p PushSubscriptionChangeEventInit) FromRef(ref js.Ref) PushSubscriptionCha
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PushSubscriptionChangeEventInit PushSubscriptionChangeEventInit [// PushSubscriptionChangeEventInit] [0x140009726e0 0x14000972780 0x14000972820 0x14000972960 0x14000972aa0 0x140009728c0 0x14000972a00 0x14000972b40] 0x140009215d8 {0 0}} in the application heap.
+// New creates a new PushSubscriptionChangeEventInit in the application heap.
 func (p PushSubscriptionChangeEventInit) New() js.Ref {
 	return bindings.PushSubscriptionChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2271,7 +2325,7 @@ func (p RTCAnswerOptions) FromRef(ref js.Ref) RTCAnswerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCAnswerOptions RTCAnswerOptions [// RTCAnswerOptions] [] 0x14000921620 {0 0}} in the application heap.
+// New creates a new RTCAnswerOptions in the application heap.
 func (p RTCAnswerOptions) New() js.Ref {
 	return bindings.RTCAnswerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

@@ -178,6 +178,8 @@ type NavigationPreloadState struct {
 	// Enabled is "NavigationPreloadState.enabled"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Enabled MUST be set to true to make this field effective.
 	Enabled bool
 	// HeaderValue is "NavigationPreloadState.headerValue"
 	//
@@ -195,7 +197,7 @@ func (p NavigationPreloadState) FromRef(ref js.Ref) NavigationPreloadState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationPreloadState NavigationPreloadState [// NavigationPreloadState] [0x140007befa0 0x140007bf0e0 0x140007bf040] 0x14000780c48 {0 0}} in the application heap.
+// New creates a new NavigationPreloadState in the application heap.
 func (p NavigationPreloadState) New() js.Ref {
 	return bindings.NavigationPreloadStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -459,6 +461,8 @@ type PushSubscriptionJSON struct {
 	// ExpirationTime is "PushSubscriptionJSON.expirationTime"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_ExpirationTime MUST be set to true to make this field effective.
 	ExpirationTime EpochTimeStamp
 	// Keys is "PushSubscriptionJSON.keys"
 	//
@@ -476,7 +480,7 @@ func (p PushSubscriptionJSON) FromRef(ref js.Ref) PushSubscriptionJSON {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PushSubscriptionJSON PushSubscriptionJSON [// PushSubscriptionJSON] [0x1400083a000 0x1400083a0a0 0x1400083a1e0 0x1400083a140] 0x1400081e030 {0 0}} in the application heap.
+// New creates a new PushSubscriptionJSON in the application heap.
 func (p PushSubscriptionJSON) New() js.Ref {
 	return bindings.PushSubscriptionJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -740,6 +744,8 @@ type PushSubscriptionOptionsInit struct {
 	// UserVisibleOnly is "PushSubscriptionOptionsInit.userVisibleOnly"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_UserVisibleOnly MUST be set to true to make this field effective.
 	UserVisibleOnly bool
 	// ApplicationServerKey is "PushSubscriptionOptionsInit.applicationServerKey"
 	//
@@ -757,7 +763,7 @@ func (p PushSubscriptionOptionsInit) FromRef(ref js.Ref) PushSubscriptionOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PushSubscriptionOptionsInit PushSubscriptionOptionsInit [// PushSubscriptionOptionsInit] [0x1400083a3c0 0x1400083a500 0x1400083a460] 0x1400081e090 {0 0}} in the application heap.
+// New creates a new PushSubscriptionOptionsInit in the application heap.
 func (p PushSubscriptionOptionsInit) New() js.Ref {
 	return bindings.PushSubscriptionOptionsInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1162,7 +1168,7 @@ func (p CookieStoreGetOptions) FromRef(ref js.Ref) CookieStoreGetOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CookieStoreGetOptions CookieStoreGetOptions [// CookieStoreGetOptions] [0x1400083a5a0 0x1400083a640] 0x1400081e1c8 {0 0}} in the application heap.
+// New creates a new CookieStoreGetOptions in the application heap.
 func (p CookieStoreGetOptions) New() js.Ref {
 	return bindings.CookieStoreGetOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1344,7 +1350,7 @@ func (p ContentDescription) FromRef(ref js.Ref) ContentDescription {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ContentDescription ContentDescription [// ContentDescription] [0x1400083a6e0 0x1400083a780 0x1400083a820 0x1400083a8c0 0x1400083a960 0x1400083aa00] 0x1400081e240 {0 0}} in the application heap.
+// New creates a new ContentDescription in the application heap.
 func (p ContentDescription) New() js.Ref {
 	return bindings.ContentDescriptionJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1812,7 +1818,7 @@ func (p RegistrationOptions) FromRef(ref js.Ref) RegistrationOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RegistrationOptions RegistrationOptions [// RegistrationOptions] [0x1400083aaa0 0x1400083ab40 0x1400083abe0] 0x1400081e2b8 {0 0}} in the application heap.
+// New creates a new RegistrationOptions in the application heap.
 func (p RegistrationOptions) New() js.Ref {
 	return bindings.RegistrationOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2297,7 +2303,7 @@ func (p DisplayMediaStreamOptions) FromRef(ref js.Ref) DisplayMediaStreamOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DisplayMediaStreamOptions DisplayMediaStreamOptions [// DisplayMediaStreamOptions] [0x1400083adc0 0x1400083ae60 0x1400083af00 0x1400083afa0 0x1400083b040 0x1400083b0e0 0x1400083b180] 0x1400081e318 {0 0}} in the application heap.
+// New creates a new DisplayMediaStreamOptions in the application heap.
 func (p DisplayMediaStreamOptions) New() js.Ref {
 	return bindings.DisplayMediaStreamOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2337,7 +2343,7 @@ func (p ViewportMediaStreamConstraints) FromRef(ref js.Ref) ViewportMediaStreamC
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ViewportMediaStreamConstraints ViewportMediaStreamConstraints [// ViewportMediaStreamConstraints] [0x1400083b220 0x1400083b2c0] 0x1400081e3a8 {0 0}} in the application heap.
+// New creates a new ViewportMediaStreamConstraints in the application heap.
 func (p ViewportMediaStreamConstraints) New() js.Ref {
 	return bindings.ViewportMediaStreamConstraintsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2362,150 +2368,224 @@ type MediaTrackSupportedConstraints struct {
 	// Width is "MediaTrackSupportedConstraints.width"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width bool
 	// Height is "MediaTrackSupportedConstraints.height"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height bool
 	// AspectRatio is "MediaTrackSupportedConstraints.aspectRatio"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_AspectRatio MUST be set to true to make this field effective.
 	AspectRatio bool
 	// FrameRate is "MediaTrackSupportedConstraints.frameRate"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_FrameRate MUST be set to true to make this field effective.
 	FrameRate bool
 	// FacingMode is "MediaTrackSupportedConstraints.facingMode"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_FacingMode MUST be set to true to make this field effective.
 	FacingMode bool
 	// ResizeMode is "MediaTrackSupportedConstraints.resizeMode"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ResizeMode MUST be set to true to make this field effective.
 	ResizeMode bool
 	// SampleRate is "MediaTrackSupportedConstraints.sampleRate"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_SampleRate MUST be set to true to make this field effective.
 	SampleRate bool
 	// SampleSize is "MediaTrackSupportedConstraints.sampleSize"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_SampleSize MUST be set to true to make this field effective.
 	SampleSize bool
 	// EchoCancellation is "MediaTrackSupportedConstraints.echoCancellation"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_EchoCancellation MUST be set to true to make this field effective.
 	EchoCancellation bool
 	// AutoGainControl is "MediaTrackSupportedConstraints.autoGainControl"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_AutoGainControl MUST be set to true to make this field effective.
 	AutoGainControl bool
 	// NoiseSuppression is "MediaTrackSupportedConstraints.noiseSuppression"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_NoiseSuppression MUST be set to true to make this field effective.
 	NoiseSuppression bool
 	// Latency is "MediaTrackSupportedConstraints.latency"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Latency MUST be set to true to make this field effective.
 	Latency bool
 	// ChannelCount is "MediaTrackSupportedConstraints.channelCount"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount bool
 	// DeviceId is "MediaTrackSupportedConstraints.deviceId"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_DeviceId MUST be set to true to make this field effective.
 	DeviceId bool
 	// GroupId is "MediaTrackSupportedConstraints.groupId"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_GroupId MUST be set to true to make this field effective.
 	GroupId bool
 	// WhiteBalanceMode is "MediaTrackSupportedConstraints.whiteBalanceMode"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_WhiteBalanceMode MUST be set to true to make this field effective.
 	WhiteBalanceMode bool
 	// ExposureMode is "MediaTrackSupportedConstraints.exposureMode"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ExposureMode MUST be set to true to make this field effective.
 	ExposureMode bool
 	// FocusMode is "MediaTrackSupportedConstraints.focusMode"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_FocusMode MUST be set to true to make this field effective.
 	FocusMode bool
 	// PointsOfInterest is "MediaTrackSupportedConstraints.pointsOfInterest"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_PointsOfInterest MUST be set to true to make this field effective.
 	PointsOfInterest bool
 	// ExposureCompensation is "MediaTrackSupportedConstraints.exposureCompensation"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ExposureCompensation MUST be set to true to make this field effective.
 	ExposureCompensation bool
 	// ExposureTime is "MediaTrackSupportedConstraints.exposureTime"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ExposureTime MUST be set to true to make this field effective.
 	ExposureTime bool
 	// ColorTemperature is "MediaTrackSupportedConstraints.colorTemperature"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ColorTemperature MUST be set to true to make this field effective.
 	ColorTemperature bool
 	// Iso is "MediaTrackSupportedConstraints.iso"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Iso MUST be set to true to make this field effective.
 	Iso bool
 	// Brightness is "MediaTrackSupportedConstraints.brightness"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Brightness MUST be set to true to make this field effective.
 	Brightness bool
 	// Contrast is "MediaTrackSupportedConstraints.contrast"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Contrast MUST be set to true to make this field effective.
 	Contrast bool
 	// Pan is "MediaTrackSupportedConstraints.pan"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Pan MUST be set to true to make this field effective.
 	Pan bool
 	// Saturation is "MediaTrackSupportedConstraints.saturation"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Saturation MUST be set to true to make this field effective.
 	Saturation bool
 	// Sharpness is "MediaTrackSupportedConstraints.sharpness"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Sharpness MUST be set to true to make this field effective.
 	Sharpness bool
 	// FocusDistance is "MediaTrackSupportedConstraints.focusDistance"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_FocusDistance MUST be set to true to make this field effective.
 	FocusDistance bool
 	// Tilt is "MediaTrackSupportedConstraints.tilt"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Tilt MUST be set to true to make this field effective.
 	Tilt bool
 	// Zoom is "MediaTrackSupportedConstraints.zoom"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Zoom MUST be set to true to make this field effective.
 	Zoom bool
 	// Torch is "MediaTrackSupportedConstraints.torch"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Torch MUST be set to true to make this field effective.
 	Torch bool
 	// DisplaySurface is "MediaTrackSupportedConstraints.displaySurface"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_DisplaySurface MUST be set to true to make this field effective.
 	DisplaySurface bool
 	// LogicalSurface is "MediaTrackSupportedConstraints.logicalSurface"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_LogicalSurface MUST be set to true to make this field effective.
 	LogicalSurface bool
 	// Cursor is "MediaTrackSupportedConstraints.cursor"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Cursor MUST be set to true to make this field effective.
 	Cursor bool
 	// RestrictOwnAudio is "MediaTrackSupportedConstraints.restrictOwnAudio"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_RestrictOwnAudio MUST be set to true to make this field effective.
 	RestrictOwnAudio bool
 	// SuppressLocalAudioPlayback is "MediaTrackSupportedConstraints.suppressLocalAudioPlayback"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_SuppressLocalAudioPlayback MUST be set to true to make this field effective.
 	SuppressLocalAudioPlayback bool
 
 	FFI_USE_Width                      bool // for Width.
@@ -2555,7 +2635,7 @@ func (p MediaTrackSupportedConstraints) FromRef(ref js.Ref) MediaTrackSupportedC
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaTrackSupportedConstraints MediaTrackSupportedConstraints [// MediaTrackSupportedConstraints] [0x1400083b360 0x1400083b4a0 0x1400083b5e0 0x1400083b720 0x1400083b860 0x1400083b9a0 0x1400083bae0 0x1400083bc20 0x1400083bd60 0x1400083bea0 0x140007bf180 0x140007bf2c0 0x140007bf400 0x140007bf540 0x140007bf680 0x140007bf7c0 0x140007bf900 0x140007bfa40 0x140007bfb80 0x140007bfcc0 0x140007bfe00 0x140007bff40 0x14000d010e0 0x14000d13720 0x14000d13900 0x14000d13d60 0x14000be8000 0x14000be8140 0x14000be8b40 0x14000ca21e0 0x14000ca2500 0x14000ca2640 0x14000ca2be0 0x14000ca2d20 0x14000ca32c0 0x14000ca34a0 0x14000d181e0 0x1400083b400 0x1400083b540 0x1400083b680 0x1400083b7c0 0x1400083b900 0x1400083ba40 0x1400083bb80 0x1400083bcc0 0x1400083be00 0x1400083bf40 0x140007bf220 0x140007bf360 0x140007bf4a0 0x140007bf5e0 0x140007bf720 0x140007bf860 0x140007bf9a0 0x140007bfae0 0x140007bfc20 0x140007bfd60 0x140007bfea0 0x14000d00c80 0x14000d01180 0x14000d137c0 0x14000d139a0 0x14000d13e00 0x14000be80a0 0x14000be83c0 0x14000be92c0 0x14000ca2460 0x14000ca25a0 0x14000ca2aa0 0x14000ca2c80 0x14000ca3220 0x14000ca3360 0x14000ca3540 0x14000d197c0] 0x1400081e3d8 {0 0}} in the application heap.
+// New creates a new MediaTrackSupportedConstraints in the application heap.
 func (p MediaTrackSupportedConstraints) New() js.Ref {
 	return bindings.MediaTrackSupportedConstraintsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2910,10 +2990,14 @@ type SerialPortInfo struct {
 	// UsbVendorId is "SerialPortInfo.usbVendorId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsbVendorId MUST be set to true to make this field effective.
 	UsbVendorId uint16
 	// UsbProductId is "SerialPortInfo.usbProductId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsbProductId MUST be set to true to make this field effective.
 	UsbProductId uint16
 	// BluetoothServiceClassId is "SerialPortInfo.bluetoothServiceClassId"
 	//
@@ -2932,7 +3016,7 @@ func (p SerialPortInfo) FromRef(ref js.Ref) SerialPortInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SerialPortInfo SerialPortInfo [// SerialPortInfo] [0x14000e05360 0x14000e054a0 0x14000e05e00 0x14000e05400 0x14000e05720] 0x1400081e6a8 {0 0}} in the application heap.
+// New creates a new SerialPortInfo in the application heap.
 func (p SerialPortInfo) New() js.Ref {
 	return bindings.SerialPortInfoJSLoad(
 		js.Pointer(&p), js.True, 0,

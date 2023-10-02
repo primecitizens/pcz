@@ -25,10 +25,14 @@ type GPUExtent3DDict struct {
 	// Height is "GPUExtent3DDict.height"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height GPUIntegerCoordinate
 	// DepthOrArrayLayers is "GPUExtent3DDict.depthOrArrayLayers"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_DepthOrArrayLayers MUST be set to true to make this field effective.
 	DepthOrArrayLayers GPUIntegerCoordinate
 
 	FFI_USE_Height             bool // for Height.
@@ -43,7 +47,7 @@ func (p GPUExtent3DDict) FromRef(ref js.Ref) GPUExtent3DDict {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUExtent3DDict GPUExtent3DDict [// GPUExtent3DDict] [0x140003d00a0 0x140003d0140 0x140003d0280 0x140003d01e0 0x140003d0320] 0x1400037d8c0 {0 0}} in the application heap.
+// New creates a new GPUExtent3DDict in the application heap.
 func (p GPUExtent3DDict) New() js.Ref {
 	return bindings.GPUExtent3DDictJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -106,10 +110,14 @@ type GPUTextureDescriptor struct {
 	// MipLevelCount is "GPUTextureDescriptor.mipLevelCount"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MipLevelCount MUST be set to true to make this field effective.
 	MipLevelCount GPUIntegerCoordinate
 	// SampleCount is "GPUTextureDescriptor.sampleCount"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_SampleCount MUST be set to true to make this field effective.
 	SampleCount GPUSize32
 	// Dimension is "GPUTextureDescriptor.dimension"
 	//
@@ -144,7 +152,7 @@ func (p GPUTextureDescriptor) FromRef(ref js.Ref) GPUTextureDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUTextureDescriptor GPUTextureDescriptor [// GPUTextureDescriptor] [0x140003d03c0 0x140003d0460 0x140003d05a0 0x140003d06e0 0x140003d0780 0x140003d0820 0x140003d08c0 0x140003d0960 0x140003d0500 0x140003d0640] 0x1400037d878 {0 0}} in the application heap.
+// New creates a new GPUTextureDescriptor in the application heap.
 func (p GPUTextureDescriptor) New() js.Ref {
 	return bindings.GPUTextureDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -353,10 +361,14 @@ type GPUSamplerDescriptor struct {
 	// LodMinClamp is "GPUSamplerDescriptor.lodMinClamp"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_LodMinClamp MUST be set to true to make this field effective.
 	LodMinClamp float32
 	// LodMaxClamp is "GPUSamplerDescriptor.lodMaxClamp"
 	//
 	// Optional, defaults to 32.
+	//
+	// NOTE: FFI_USE_LodMaxClamp MUST be set to true to make this field effective.
 	LodMaxClamp float32
 	// Compare is "GPUSamplerDescriptor.compare"
 	//
@@ -365,6 +377,8 @@ type GPUSamplerDescriptor struct {
 	// MaxAnisotropy is "GPUSamplerDescriptor.maxAnisotropy"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MaxAnisotropy MUST be set to true to make this field effective.
 	MaxAnisotropy uint16
 	// Label is "GPUSamplerDescriptor.label"
 	//
@@ -384,7 +398,7 @@ func (p GPUSamplerDescriptor) FromRef(ref js.Ref) GPUSamplerDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUSamplerDescriptor GPUSamplerDescriptor [// GPUSamplerDescriptor] [0x140003d0a00 0x140003d0aa0 0x140003d0b40 0x140003d0be0 0x140003d0c80 0x140003d0d20 0x140003d0dc0 0x140003d0f00 0x140003d1040 0x140003d10e0 0x140003d1220 0x140003d0e60 0x140003d0fa0 0x140003d1180] 0x1400037d938 {0 0}} in the application heap.
+// New creates a new GPUSamplerDescriptor in the application heap.
 func (p GPUSamplerDescriptor) New() js.Ref {
 	return bindings.GPUSamplerDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -497,7 +511,7 @@ func (p GPUExternalTextureDescriptor) FromRef(ref js.Ref) GPUExternalTextureDesc
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUExternalTextureDescriptor GPUExternalTextureDescriptor [// GPUExternalTextureDescriptor] [0x140003d12c0 0x140003d1360 0x140003d1400] 0x1400037da10 {0 0}} in the application heap.
+// New creates a new GPUExternalTextureDescriptor in the application heap.
 func (p GPUExternalTextureDescriptor) New() js.Ref {
 	return bindings.GPUExternalTextureDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -600,10 +614,14 @@ type GPUBufferBindingLayout struct {
 	// HasDynamicOffset is "GPUBufferBindingLayout.hasDynamicOffset"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_HasDynamicOffset MUST be set to true to make this field effective.
 	HasDynamicOffset bool
 	// MinBindingSize is "GPUBufferBindingLayout.minBindingSize"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MinBindingSize MUST be set to true to make this field effective.
 	MinBindingSize GPUSize64
 
 	FFI_USE_HasDynamicOffset bool // for HasDynamicOffset.
@@ -618,7 +636,7 @@ func (p GPUBufferBindingLayout) FromRef(ref js.Ref) GPUBufferBindingLayout {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBufferBindingLayout GPUBufferBindingLayout [// GPUBufferBindingLayout] [0x140003d15e0 0x140003d1680 0x140003d17c0 0x140003d1720 0x140003d1860] 0x1400037da70 {0 0}} in the application heap.
+// New creates a new GPUBufferBindingLayout in the application heap.
 func (p GPUBufferBindingLayout) New() js.Ref {
 	return bindings.GPUBufferBindingLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -681,7 +699,7 @@ func (p GPUSamplerBindingLayout) FromRef(ref js.Ref) GPUSamplerBindingLayout {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUSamplerBindingLayout GPUSamplerBindingLayout [// GPUSamplerBindingLayout] [0x140003d19a0] 0x1400037db18 {0 0}} in the application heap.
+// New creates a new GPUSamplerBindingLayout in the application heap.
 func (p GPUSamplerBindingLayout) New() js.Ref {
 	return bindings.GPUSamplerBindingLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -747,6 +765,8 @@ type GPUTextureBindingLayout struct {
 	// Multisampled is "GPUTextureBindingLayout.multisampled"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Multisampled MUST be set to true to make this field effective.
 	Multisampled bool
 
 	FFI_USE_Multisampled bool // for Multisampled.
@@ -760,7 +780,7 @@ func (p GPUTextureBindingLayout) FromRef(ref js.Ref) GPUTextureBindingLayout {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUTextureBindingLayout GPUTextureBindingLayout [// GPUTextureBindingLayout] [0x140003d1ae0 0x140003d1b80 0x140003d1c20 0x140003d1cc0] 0x1400037db60 {0 0}} in the application heap.
+// New creates a new GPUTextureBindingLayout in the application heap.
 func (p GPUTextureBindingLayout) New() js.Ref {
 	return bindings.GPUTextureBindingLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -825,7 +845,7 @@ func (p GPUStorageTextureBindingLayout) FromRef(ref js.Ref) GPUStorageTextureBin
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUStorageTextureBindingLayout GPUStorageTextureBindingLayout [// GPUStorageTextureBindingLayout] [0x140003d1e00 0x140003d1ea0 0x140003d1f40] 0x1400037dbd8 {0 0}} in the application heap.
+// New creates a new GPUStorageTextureBindingLayout in the application heap.
 func (p GPUStorageTextureBindingLayout) New() js.Ref {
 	return bindings.GPUStorageTextureBindingLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -856,7 +876,7 @@ func (p GPUExternalTextureBindingLayout) FromRef(ref js.Ref) GPUExternalTextureB
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUExternalTextureBindingLayout GPUExternalTextureBindingLayout [// GPUExternalTextureBindingLayout] [] 0x1400037dbf0 {0 0}} in the application heap.
+// New creates a new GPUExternalTextureBindingLayout in the application heap.
 func (p GPUExternalTextureBindingLayout) New() js.Ref {
 	return bindings.GPUExternalTextureBindingLayoutJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -916,7 +936,7 @@ func (p GPUBindGroupLayoutEntry) FromRef(ref js.Ref) GPUBindGroupLayoutEntry {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBindGroupLayoutEntry GPUBindGroupLayoutEntry [// GPUBindGroupLayoutEntry] [0x140003d14a0 0x140003d1540 0x140003d1900 0x140003d1a40 0x140003d1d60 0x140003d8000 0x140003d80a0] 0x1400037da58 {0 0}} in the application heap.
+// New creates a new GPUBindGroupLayoutEntry in the application heap.
 func (p GPUBindGroupLayoutEntry) New() js.Ref {
 	return bindings.GPUBindGroupLayoutEntryJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -956,7 +976,7 @@ func (p GPUBindGroupLayoutDescriptor) FromRef(ref js.Ref) GPUBindGroupLayoutDesc
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBindGroupLayoutDescriptor GPUBindGroupLayoutDescriptor [// GPUBindGroupLayoutDescriptor] [0x140003d8140 0x140003d81e0] 0x1400037da40 {0 0}} in the application heap.
+// New creates a new GPUBindGroupLayoutDescriptor in the application heap.
 func (p GPUBindGroupLayoutDescriptor) New() js.Ref {
 	return bindings.GPUBindGroupLayoutDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1039,7 +1059,7 @@ func (p GPUPipelineLayoutDescriptor) FromRef(ref js.Ref) GPUPipelineLayoutDescri
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUPipelineLayoutDescriptor GPUPipelineLayoutDescriptor [// GPUPipelineLayoutDescriptor] [0x140003d8280 0x140003d8320] 0x1400037dc08 {0 0}} in the application heap.
+// New creates a new GPUPipelineLayoutDescriptor in the application heap.
 func (p GPUPipelineLayoutDescriptor) New() js.Ref {
 	return bindings.GPUPipelineLayoutDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1111,10 +1131,14 @@ type GPUBufferBinding struct {
 	// Offset is "GPUBufferBinding.offset"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Offset MUST be set to true to make this field effective.
 	Offset GPUSize64
 	// Size is "GPUBufferBinding.size"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Size MUST be set to true to make this field effective.
 	Size GPUSize64
 
 	FFI_USE_Offset bool // for Offset.
@@ -1129,7 +1153,7 @@ func (p GPUBufferBinding) FromRef(ref js.Ref) GPUBufferBinding {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBufferBinding GPUBufferBinding [// GPUBufferBinding] [0x140003d8500 0x140003d85a0 0x140003d86e0 0x140003d8640 0x140003d8780] 0x1400037dc98 {0 0}} in the application heap.
+// New creates a new GPUBufferBinding in the application heap.
 func (p GPUBufferBinding) New() js.Ref {
 	return bindings.GPUBufferBindingJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1207,7 +1231,7 @@ func (p GPUBindGroupEntry) FromRef(ref js.Ref) GPUBindGroupEntry {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBindGroupEntry GPUBindGroupEntry [// GPUBindGroupEntry] [0x140003d8460 0x140003d8820] 0x1400037dc50 {0 0}} in the application heap.
+// New creates a new GPUBindGroupEntry in the application heap.
 func (p GPUBindGroupEntry) New() js.Ref {
 	return bindings.GPUBindGroupEntryJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1251,7 +1275,7 @@ func (p GPUBindGroupDescriptor) FromRef(ref js.Ref) GPUBindGroupDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GPUBindGroupDescriptor GPUBindGroupDescriptor [// GPUBindGroupDescriptor] [0x140003d83c0 0x140003d88c0 0x140003d8960] 0x1400037dc20 {0 0}} in the application heap.
+// New creates a new GPUBindGroupDescriptor in the application heap.
 func (p GPUBindGroupDescriptor) New() js.Ref {
 	return bindings.GPUBindGroupDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,

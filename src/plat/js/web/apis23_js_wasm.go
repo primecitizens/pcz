@@ -137,6 +137,8 @@ type IdleRequestOptions struct {
 	// Timeout is "IdleRequestOptions.timeout"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Timeout MUST be set to true to make this field effective.
 	Timeout uint32
 
 	FFI_USE_Timeout bool // for Timeout.
@@ -150,7 +152,7 @@ func (p IdleRequestOptions) FromRef(ref js.Ref) IdleRequestOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IdleRequestOptions IdleRequestOptions [// IdleRequestOptions] [0x140005f0280 0x140005f0320] 0x14000574bd0 {0 0}} in the application heap.
+// New creates a new IdleRequestOptions in the application heap.
 func (p IdleRequestOptions) New() js.Ref {
 	return bindings.IdleRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -206,10 +208,14 @@ type WriteParams struct {
 	// Size is "WriteParams.size"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Size MUST be set to true to make this field effective.
 	Size uint64
 	// Position is "WriteParams.position"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Position MUST be set to true to make this field effective.
 	Position uint64
 	// Data is "WriteParams.data"
 	//
@@ -228,7 +234,7 @@ func (p WriteParams) FromRef(ref js.Ref) WriteParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 WriteParams WriteParams [// WriteParams] [0x140005f03c0 0x140005f0460 0x140005f05a0 0x140005f06e0 0x140005f0500 0x140005f0640] 0x14000574c90 {0 0}} in the application heap.
+// New creates a new WriteParams in the application heap.
 func (p WriteParams) New() js.Ref {
 	return bindings.WriteParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -450,6 +456,8 @@ type FileSystemCreateWritableOptions struct {
 	// KeepExistingData is "FileSystemCreateWritableOptions.keepExistingData"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_KeepExistingData MUST be set to true to make this field effective.
 	KeepExistingData bool
 
 	FFI_USE_KeepExistingData bool // for KeepExistingData.
@@ -463,7 +471,7 @@ func (p FileSystemCreateWritableOptions) FromRef(ref js.Ref) FileSystemCreateWri
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemCreateWritableOptions FileSystemCreateWritableOptions [// FileSystemCreateWritableOptions] [0x140005f0780 0x140005f0820] 0x14000574d98 {0 0}} in the application heap.
+// New creates a new FileSystemCreateWritableOptions in the application heap.
 func (p FileSystemCreateWritableOptions) New() js.Ref {
 	return bindings.FileSystemCreateWritableOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -488,6 +496,8 @@ type FileSystemReadWriteOptions struct {
 	// At is "FileSystemReadWriteOptions.at"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_At MUST be set to true to make this field effective.
 	At uint64
 
 	FFI_USE_At bool // for At.
@@ -501,7 +511,7 @@ func (p FileSystemReadWriteOptions) FromRef(ref js.Ref) FileSystemReadWriteOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemReadWriteOptions FileSystemReadWriteOptions [// FileSystemReadWriteOptions] [0x140005f08c0 0x140005f0960] 0x14000574df8 {0 0}} in the application heap.
+// New creates a new FileSystemReadWriteOptions in the application heap.
 func (p FileSystemReadWriteOptions) New() js.Ref {
 	return bindings.FileSystemReadWriteOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -872,7 +882,7 @@ func (p FilePickerAcceptType) FromRef(ref js.Ref) FilePickerAcceptType {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FilePickerAcceptType FilePickerAcceptType [// FilePickerAcceptType] [0x140005f0b40 0x140005f0be0] 0x14000574eb8 {0 0}} in the application heap.
+// New creates a new FilePickerAcceptType in the application heap.
 func (p FilePickerAcceptType) New() js.Ref {
 	return bindings.FilePickerAcceptTypeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -961,6 +971,8 @@ type OpenFilePickerOptions struct {
 	// Multiple is "OpenFilePickerOptions.multiple"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Multiple MUST be set to true to make this field effective.
 	Multiple bool
 	// Types is "OpenFilePickerOptions.types"
 	//
@@ -969,6 +981,8 @@ type OpenFilePickerOptions struct {
 	// ExcludeAcceptAllOption is "OpenFilePickerOptions.excludeAcceptAllOption"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ExcludeAcceptAllOption MUST be set to true to make this field effective.
 	ExcludeAcceptAllOption bool
 	// Id is "OpenFilePickerOptions.id"
 	//
@@ -991,7 +1005,7 @@ func (p OpenFilePickerOptions) FromRef(ref js.Ref) OpenFilePickerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OpenFilePickerOptions OpenFilePickerOptions [// OpenFilePickerOptions] [0x140005f0a00 0x140005f0c80 0x140005f0d20 0x140005f0e60 0x140005f0f00 0x140005f0aa0 0x140005f0dc0] 0x14000574e88 {0 0}} in the application heap.
+// New creates a new OpenFilePickerOptions in the application heap.
 func (p OpenFilePickerOptions) New() js.Ref {
 	return bindings.OpenFilePickerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1024,6 +1038,8 @@ type SaveFilePickerOptions struct {
 	// ExcludeAcceptAllOption is "SaveFilePickerOptions.excludeAcceptAllOption"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ExcludeAcceptAllOption MUST be set to true to make this field effective.
 	ExcludeAcceptAllOption bool
 	// Id is "SaveFilePickerOptions.id"
 	//
@@ -1045,7 +1061,7 @@ func (p SaveFilePickerOptions) FromRef(ref js.Ref) SaveFilePickerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SaveFilePickerOptions SaveFilePickerOptions [// SaveFilePickerOptions] [0x140005f0fa0 0x140005f1040 0x140005f10e0 0x140005f1220 0x140005f12c0 0x140005f1180] 0x14000574f60 {0 0}} in the application heap.
+// New creates a new SaveFilePickerOptions in the application heap.
 func (p SaveFilePickerOptions) New() js.Ref {
 	return bindings.SaveFilePickerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1070,6 +1086,8 @@ type FileSystemGetFileOptions struct {
 	// Create is "FileSystemGetFileOptions.create"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Create MUST be set to true to make this field effective.
 	Create bool
 
 	FFI_USE_Create bool // for Create.
@@ -1083,7 +1101,7 @@ func (p FileSystemGetFileOptions) FromRef(ref js.Ref) FileSystemGetFileOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemGetFileOptions FileSystemGetFileOptions [// FileSystemGetFileOptions] [0x140005f1360 0x140005f1400] 0x14000574fc0 {0 0}} in the application heap.
+// New creates a new FileSystemGetFileOptions in the application heap.
 func (p FileSystemGetFileOptions) New() js.Ref {
 	return bindings.FileSystemGetFileOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1108,6 +1126,8 @@ type FileSystemGetDirectoryOptions struct {
 	// Create is "FileSystemGetDirectoryOptions.create"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Create MUST be set to true to make this field effective.
 	Create bool
 
 	FFI_USE_Create bool // for Create.
@@ -1121,7 +1141,7 @@ func (p FileSystemGetDirectoryOptions) FromRef(ref js.Ref) FileSystemGetDirector
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemGetDirectoryOptions FileSystemGetDirectoryOptions [// FileSystemGetDirectoryOptions] [0x140005f14a0 0x140005f1540] 0x14000574ff0 {0 0}} in the application heap.
+// New creates a new FileSystemGetDirectoryOptions in the application heap.
 func (p FileSystemGetDirectoryOptions) New() js.Ref {
 	return bindings.FileSystemGetDirectoryOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1146,6 +1166,8 @@ type FileSystemRemoveOptions struct {
 	// Recursive is "FileSystemRemoveOptions.recursive"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Recursive MUST be set to true to make this field effective.
 	Recursive bool
 
 	FFI_USE_Recursive bool // for Recursive.
@@ -1159,7 +1181,7 @@ func (p FileSystemRemoveOptions) FromRef(ref js.Ref) FileSystemRemoveOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FileSystemRemoveOptions FileSystemRemoveOptions [// FileSystemRemoveOptions] [0x140005f15e0 0x140005f1680] 0x14000575038 {0 0}} in the application heap.
+// New creates a new FileSystemRemoveOptions in the application heap.
 func (p FileSystemRemoveOptions) New() js.Ref {
 	return bindings.FileSystemRemoveOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1396,7 +1418,7 @@ func (p DirectoryPickerOptions) FromRef(ref js.Ref) DirectoryPickerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DirectoryPickerOptions DirectoryPickerOptions [// DirectoryPickerOptions] [0x140005f1720 0x140005f17c0 0x140005f1860] 0x14000575080 {0 0}} in the application heap.
+// New creates a new DirectoryPickerOptions in the application heap.
 func (p DirectoryPickerOptions) New() js.Ref {
 	return bindings.DirectoryPickerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1521,7 +1543,7 @@ func (p QueryOptions) FromRef(ref js.Ref) QueryOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 QueryOptions QueryOptions [// QueryOptions] [0x140005f19a0] 0x14000575110 {0 0}} in the application heap.
+// New creates a new QueryOptions in the application heap.
 func (p QueryOptions) New() js.Ref {
 	return bindings.QueryOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1654,6 +1676,8 @@ type ItemDetails struct {
 	// IntroductoryPriceCycles is "ItemDetails.introductoryPriceCycles"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IntroductoryPriceCycles MUST be set to true to make this field effective.
 	IntroductoryPriceCycles uint64
 
 	FFI_USE_IntroductoryPriceCycles bool // for IntroductoryPriceCycles.
@@ -1667,7 +1691,7 @@ func (p ItemDetails) FromRef(ref js.Ref) ItemDetails {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ItemDetails ItemDetails [// ItemDetails] [0x140005f1ae0 0x140005f1b80 0x140005f1c20 0x140005f1cc0 0x140005f1d60 0x140005f1e00 0x140005f1ea0 0x140005f1f40 0x1400069c000 0x1400069c0a0 0x1400069c140 0x1400069c1e0] 0x14000575128 {0 0}} in the application heap.
+// New creates a new ItemDetails in the application heap.
 func (p ItemDetails) New() js.Ref {
 	return bindings.ItemDetailsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1707,7 +1731,7 @@ func (p PurchaseDetails) FromRef(ref js.Ref) PurchaseDetails {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PurchaseDetails PurchaseDetails [// PurchaseDetails] [0x1400069c280 0x1400069c320] 0x14000575188 {0 0}} in the application heap.
+// New creates a new PurchaseDetails in the application heap.
 func (p PurchaseDetails) New() js.Ref {
 	return bindings.PurchaseDetailsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2025,10 +2049,14 @@ type ImageBitmapOptions struct {
 	// ResizeWidth is "ImageBitmapOptions.resizeWidth"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ResizeWidth MUST be set to true to make this field effective.
 	ResizeWidth uint32
 	// ResizeHeight is "ImageBitmapOptions.resizeHeight"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ResizeHeight MUST be set to true to make this field effective.
 	ResizeHeight uint32
 	// ResizeQuality is "ImageBitmapOptions.resizeQuality"
 	//
@@ -2047,7 +2075,7 @@ func (p ImageBitmapOptions) FromRef(ref js.Ref) ImageBitmapOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ImageBitmapOptions ImageBitmapOptions [// ImageBitmapOptions] [0x1400069c3c0 0x1400069c460 0x1400069c500 0x1400069c5a0 0x1400069c6e0 0x1400069c820 0x1400069c640 0x1400069c780] 0x14000575260 {0 0}} in the application heap.
+// New creates a new ImageBitmapOptions in the application heap.
 func (p ImageBitmapOptions) New() js.Ref {
 	return bindings.ImageBitmapOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2535,7 +2563,7 @@ func (p NavigationUpdateCurrentEntryOptions) FromRef(ref js.Ref) NavigationUpdat
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationUpdateCurrentEntryOptions NavigationUpdateCurrentEntryOptions [// NavigationUpdateCurrentEntryOptions] [0x1400069caa0] 0x14000575410 {0 0}} in the application heap.
+// New creates a new NavigationUpdateCurrentEntryOptions in the application heap.
 func (p NavigationUpdateCurrentEntryOptions) New() js.Ref {
 	return bindings.NavigationUpdateCurrentEntryOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2575,7 +2603,7 @@ func (p NavigationResult) FromRef(ref js.Ref) NavigationResult {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationResult NavigationResult [// NavigationResult] [0x1400069cb40 0x1400069cbe0] 0x14000575440 {0 0}} in the application heap.
+// New creates a new NavigationResult in the application heap.
 func (p NavigationResult) New() js.Ref {
 	return bindings.NavigationResultJSLoad(
 		js.Pointer(&p), js.True, 0,

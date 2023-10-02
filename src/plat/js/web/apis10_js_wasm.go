@@ -36,7 +36,7 @@ func (p AudioEncoderInit) FromRef(ref js.Ref) AudioEncoderInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioEncoderInit AudioEncoderInit [// AudioEncoderInit] [0x14000252640 0x140002526e0] 0x14001c3b1b8 {0 0}} in the application heap.
+// New creates a new AudioEncoderInit in the application heap.
 func (p AudioEncoderInit) New() js.Ref {
 	return bindings.AudioEncoderInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -85,10 +85,14 @@ type FlacEncoderConfig struct {
 	// BlockSize is "FlacEncoderConfig.blockSize"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_BlockSize MUST be set to true to make this field effective.
 	BlockSize uint32
 	// CompressLevel is "FlacEncoderConfig.compressLevel"
 	//
 	// Optional, defaults to 5.
+	//
+	// NOTE: FFI_USE_CompressLevel MUST be set to true to make this field effective.
 	CompressLevel uint32
 
 	FFI_USE_BlockSize     bool // for BlockSize.
@@ -103,7 +107,7 @@ func (p FlacEncoderConfig) FromRef(ref js.Ref) FlacEncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FlacEncoderConfig FlacEncoderConfig [// FlacEncoderConfig] [0x14000252c80 0x14000252dc0 0x14000252d20 0x14000252e60] 0x14001c3b290 {0 0}} in the application heap.
+// New creates a new FlacEncoderConfig in the application heap.
 func (p FlacEncoderConfig) New() js.Ref {
 	return bindings.FlacEncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -156,22 +160,32 @@ type OpusEncoderConfig struct {
 	// FrameDuration is "OpusEncoderConfig.frameDuration"
 	//
 	// Optional, defaults to 20000.
+	//
+	// NOTE: FFI_USE_FrameDuration MUST be set to true to make this field effective.
 	FrameDuration uint64
 	// Complexity is "OpusEncoderConfig.complexity"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Complexity MUST be set to true to make this field effective.
 	Complexity uint32
 	// Packetlossperc is "OpusEncoderConfig.packetlossperc"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Packetlossperc MUST be set to true to make this field effective.
 	Packetlossperc uint32
 	// Useinbandfec is "OpusEncoderConfig.useinbandfec"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Useinbandfec MUST be set to true to make this field effective.
 	Useinbandfec bool
 	// Usedtx is "OpusEncoderConfig.usedtx"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Usedtx MUST be set to true to make this field effective.
 	Usedtx bool
 
 	FFI_USE_FrameDuration  bool // for FrameDuration.
@@ -189,7 +203,7 @@ func (p OpusEncoderConfig) FromRef(ref js.Ref) OpusEncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OpusEncoderConfig OpusEncoderConfig [// OpusEncoderConfig] [0x14000252fa0 0x14000253040 0x14000253180 0x140002532c0 0x14000253400 0x14000253540 0x140002530e0 0x14000253220 0x14000253360 0x140002534a0 0x140002535e0] 0x14001c3b470 {0 0}} in the application heap.
+// New creates a new OpusEncoderConfig in the application heap.
 func (p OpusEncoderConfig) New() js.Ref {
 	return bindings.OpusEncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -218,14 +232,20 @@ type AudioEncoderConfig struct {
 	// SampleRate is "AudioEncoderConfig.sampleRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SampleRate MUST be set to true to make this field effective.
 	SampleRate uint32
 	// NumberOfChannels is "AudioEncoderConfig.numberOfChannels"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_NumberOfChannels MUST be set to true to make this field effective.
 	NumberOfChannels uint32
 	// Bitrate is "AudioEncoderConfig.bitrate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Bitrate MUST be set to true to make this field effective.
 	Bitrate uint64
 	// BitrateMode is "AudioEncoderConfig.bitrateMode"
 	//
@@ -257,7 +277,7 @@ func (p AudioEncoderConfig) FromRef(ref js.Ref) AudioEncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioEncoderConfig AudioEncoderConfig [// AudioEncoderConfig] [0x14000252780 0x14000252820 0x14000252960 0x14000252aa0 0x14000252be0 0x14000252f00 0x14000253680 0x14000253720 0x140002528c0 0x14000252a00 0x14000252b40] 0x14001c3b218 {0 0}} in the application heap.
+// New creates a new AudioEncoderConfig in the application heap.
 func (p AudioEncoderConfig) New() js.Ref {
 	return bindings.AudioEncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -282,6 +302,8 @@ type AudioEncoderSupport struct {
 	// Supported is "AudioEncoderSupport.supported"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Supported MUST be set to true to make this field effective.
 	Supported bool
 	// Config is "AudioEncoderSupport.config"
 	//
@@ -299,7 +321,7 @@ func (p AudioEncoderSupport) FromRef(ref js.Ref) AudioEncoderSupport {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioEncoderSupport AudioEncoderSupport [// AudioEncoderSupport] [0x140002537c0 0x14000253900 0x14000253860] 0x14001c3b578 {0 0}} in the application heap.
+// New creates a new AudioEncoderSupport in the application heap.
 func (p AudioEncoderSupport) New() js.Ref {
 	return bindings.AudioEncoderSupportJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -953,7 +975,7 @@ func (p AudioOutputOptions) FromRef(ref js.Ref) AudioOutputOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioOutputOptions AudioOutputOptions [// AudioOutputOptions] [0x14000253ae0] 0x14001c3b620 {0 0}} in the application heap.
+// New creates a new AudioOutputOptions in the application heap.
 func (p AudioOutputOptions) New() js.Ref {
 	return bindings.AudioOutputOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -982,14 +1004,20 @@ type AudioParamDescriptor struct {
 	// DefaultValue is "AudioParamDescriptor.defaultValue"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_DefaultValue MUST be set to true to make this field effective.
 	DefaultValue float32
 	// MinValue is "AudioParamDescriptor.minValue"
 	//
 	// Optional, defaults to -3.4028235e38.
+	//
+	// NOTE: FFI_USE_MinValue MUST be set to true to make this field effective.
 	MinValue float32
 	// MaxValue is "AudioParamDescriptor.maxValue"
 	//
 	// Optional, defaults to 3.4028235e38.
+	//
+	// NOTE: FFI_USE_MaxValue MUST be set to true to make this field effective.
 	MaxValue float32
 	// AutomationRate is "AudioParamDescriptor.automationRate"
 	//
@@ -1009,7 +1037,7 @@ func (p AudioParamDescriptor) FromRef(ref js.Ref) AudioParamDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioParamDescriptor AudioParamDescriptor [// AudioParamDescriptor] [0x14000253b80 0x14000253c20 0x14000253d60 0x14000253ea0 0x1400025e000 0x14000253cc0 0x14000253e00 0x14000253f40] 0x14001c3b680 {0 0}} in the application heap.
+// New creates a new AudioParamDescriptor in the application heap.
 func (p AudioParamDescriptor) New() js.Ref {
 	return bindings.AudioParamDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1068,14 +1096,20 @@ type AudioProcessingEventInit struct {
 	// Bubbles is "AudioProcessingEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "AudioProcessingEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "AudioProcessingEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1091,7 +1125,7 @@ func (p AudioProcessingEventInit) FromRef(ref js.Ref) AudioProcessingEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioProcessingEventInit AudioProcessingEventInit [// AudioProcessingEventInit] [0x1400025e0a0 0x1400025e140 0x1400025e1e0 0x1400025e280 0x1400025e3c0 0x1400025e500 0x1400025e320 0x1400025e460 0x1400025e5a0] 0x14001c3b6e0 {0 0}} in the application heap.
+// New creates a new AudioProcessingEventInit in the application heap.
 func (p AudioProcessingEventInit) New() js.Ref {
 	return bindings.AudioProcessingEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1179,30 +1213,44 @@ type AudioRenderCapacityEventInit struct {
 	// Timestamp is "AudioRenderCapacityEventInit.timestamp"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Timestamp MUST be set to true to make this field effective.
 	Timestamp float64
 	// AverageLoad is "AudioRenderCapacityEventInit.averageLoad"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_AverageLoad MUST be set to true to make this field effective.
 	AverageLoad float64
 	// PeakLoad is "AudioRenderCapacityEventInit.peakLoad"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_PeakLoad MUST be set to true to make this field effective.
 	PeakLoad float64
 	// UnderrunRatio is "AudioRenderCapacityEventInit.underrunRatio"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_UnderrunRatio MUST be set to true to make this field effective.
 	UnderrunRatio float64
 	// Bubbles is "AudioRenderCapacityEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "AudioRenderCapacityEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "AudioRenderCapacityEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Timestamp     bool // for Timestamp.
@@ -1222,7 +1270,7 @@ func (p AudioRenderCapacityEventInit) FromRef(ref js.Ref) AudioRenderCapacityEve
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioRenderCapacityEventInit AudioRenderCapacityEventInit [// AudioRenderCapacityEventInit] [0x1400025e6e0 0x1400025e820 0x1400025e960 0x1400025eaa0 0x1400025ebe0 0x1400025ed20 0x1400025ee60 0x1400025e780 0x1400025e8c0 0x1400025ea00 0x1400025eb40 0x1400025ec80 0x1400025edc0 0x1400025ef00] 0x14000d68bd0 {0 0}} in the application heap.
+// New creates a new AudioRenderCapacityEventInit in the application heap.
 func (p AudioRenderCapacityEventInit) New() js.Ref {
 	return bindings.AudioRenderCapacityEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1633,10 +1681,14 @@ type AudioWorkletNodeOptions struct {
 	// NumberOfInputs is "AudioWorkletNodeOptions.numberOfInputs"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_NumberOfInputs MUST be set to true to make this field effective.
 	NumberOfInputs uint32
 	// NumberOfOutputs is "AudioWorkletNodeOptions.numberOfOutputs"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_NumberOfOutputs MUST be set to true to make this field effective.
 	NumberOfOutputs uint32
 	// OutputChannelCount is "AudioWorkletNodeOptions.outputChannelCount"
 	//
@@ -1653,6 +1705,8 @@ type AudioWorkletNodeOptions struct {
 	// ChannelCount is "AudioWorkletNodeOptions.channelCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ChannelCount MUST be set to true to make this field effective.
 	ChannelCount uint32
 	// ChannelCountMode is "AudioWorkletNodeOptions.channelCountMode"
 	//
@@ -1676,7 +1730,7 @@ func (p AudioWorkletNodeOptions) FromRef(ref js.Ref) AudioWorkletNodeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AudioWorkletNodeOptions AudioWorkletNodeOptions [// AudioWorkletNodeOptions] [0x1400025f0e0 0x1400025f220 0x1400025f360 0x1400025f400 0x1400025f4a0 0x1400025f540 0x1400025f680 0x1400025f720 0x1400025f180 0x1400025f2c0 0x1400025f5e0] 0x14000d69950 {0 0}} in the application heap.
+// New creates a new AudioWorkletNodeOptions in the application heap.
 func (p AudioWorkletNodeOptions) New() js.Ref {
 	return bindings.AudioWorkletNodeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1841,7 +1895,7 @@ func (p AuthenticationExtensionsPRFValues) FromRef(ref js.Ref) AuthenticationExt
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsPRFValues AuthenticationExtensionsPRFValues [// AuthenticationExtensionsPRFValues] [0x1400025f9a0 0x1400025fa40] 0x14000f8a8b8 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsPRFValues in the application heap.
 func (p AuthenticationExtensionsPRFValues) New() js.Ref {
 	return bindings.AuthenticationExtensionsPRFValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1881,7 +1935,7 @@ func (p AuthenticationExtensionsPRFInputs) FromRef(ref js.Ref) AuthenticationExt
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsPRFInputs AuthenticationExtensionsPRFInputs [// AuthenticationExtensionsPRFInputs] [0x1400025fae0 0x1400025fb80] 0x14000f8a840 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsPRFInputs in the application heap.
 func (p AuthenticationExtensionsPRFInputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsPRFInputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1921,7 +1975,7 @@ func (p PaymentCurrencyAmount) FromRef(ref js.Ref) PaymentCurrencyAmount {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentCurrencyAmount PaymentCurrencyAmount [// PaymentCurrencyAmount] [0x1400026e5a0 0x1400026e640] 0x14000f8ad68 {0 0}} in the application heap.
+// New creates a new PaymentCurrencyAmount in the application heap.
 func (p PaymentCurrencyAmount) New() js.Ref {
 	return bindings.PaymentCurrencyAmountJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1954,6 +2008,8 @@ type PaymentCredentialInstrument struct {
 	// IconMustBeShown is "PaymentCredentialInstrument.iconMustBeShown"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_IconMustBeShown MUST be set to true to make this field effective.
 	IconMustBeShown bool
 
 	FFI_USE_IconMustBeShown bool // for IconMustBeShown.
@@ -1967,7 +2023,7 @@ func (p PaymentCredentialInstrument) FromRef(ref js.Ref) PaymentCredentialInstru
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentCredentialInstrument PaymentCredentialInstrument [// PaymentCredentialInstrument] [0x1400026e780 0x1400026e820 0x1400026e8c0 0x1400026e960] 0x14000f8ad80 {0 0}} in the application heap.
+// New creates a new PaymentCredentialInstrument in the application heap.
 func (p PaymentCredentialInstrument) New() js.Ref {
 	return bindings.PaymentCredentialInstrumentJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1992,6 +2048,8 @@ type AuthenticationExtensionsPaymentInputs struct {
 	// IsPayment is "AuthenticationExtensionsPaymentInputs.isPayment"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IsPayment MUST be set to true to make this field effective.
 	IsPayment bool
 	// RpId is "AuthenticationExtensionsPaymentInputs.rpId"
 	//
@@ -2029,7 +2087,7 @@ func (p AuthenticationExtensionsPaymentInputs) FromRef(ref js.Ref) Authenticatio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsPaymentInputs AuthenticationExtensionsPaymentInputs [// AuthenticationExtensionsPaymentInputs] [0x1400026e1e0 0x1400026e320 0x1400026e3c0 0x1400026e460 0x1400026e500 0x1400026e6e0 0x1400026ea00 0x1400026e280] 0x14000f8ad08 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsPaymentInputs in the application heap.
 func (p AuthenticationExtensionsPaymentInputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsPaymentInputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2069,7 +2127,7 @@ func (p HMACGetSecretInput) FromRef(ref js.Ref) HMACGetSecretInput {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HMACGetSecretInput HMACGetSecretInput [// HMACGetSecretInput] [0x1400026eb40 0x1400026ebe0] 0x14000f8ade0 {0 0}} in the application heap.
+// New creates a new HMACGetSecretInput in the application heap.
 func (p HMACGetSecretInput) New() js.Ref {
 	return bindings.HMACGetSecretInputJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2098,6 +2156,8 @@ type AuthenticationExtensionsLargeBlobInputs struct {
 	// Read is "AuthenticationExtensionsLargeBlobInputs.read"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Read MUST be set to true to make this field effective.
 	Read bool
 	// Write is "AuthenticationExtensionsLargeBlobInputs.write"
 	//
@@ -2115,7 +2175,7 @@ func (p AuthenticationExtensionsLargeBlobInputs) FromRef(ref js.Ref) Authenticat
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsLargeBlobInputs AuthenticationExtensionsLargeBlobInputs [// AuthenticationExtensionsLargeBlobInputs] [0x1400026ed20 0x1400026edc0 0x1400026ef00 0x1400026ee60] 0x14000f8adf8 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsLargeBlobInputs in the application heap.
 func (p AuthenticationExtensionsLargeBlobInputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsLargeBlobInputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2155,7 +2215,7 @@ func (p AuthenticationExtensionsDevicePublicKeyInputs) FromRef(ref js.Ref) Authe
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsDevicePublicKeyInputs AuthenticationExtensionsDevicePublicKeyInputs [// AuthenticationExtensionsDevicePublicKeyInputs] [0x1400026f400 0x1400026f4a0] 0x14000f8ae40 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsDevicePublicKeyInputs in the application heap.
 func (p AuthenticationExtensionsDevicePublicKeyInputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsDevicePublicKeyInputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2180,6 +2240,8 @@ type AuthenticationExtensionsClientInputs struct {
 	// MinPinLength is "AuthenticationExtensionsClientInputs.minPinLength"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MinPinLength MUST be set to true to make this field effective.
 	MinPinLength bool
 	// Prf is "AuthenticationExtensionsClientInputs.prf"
 	//
@@ -2196,14 +2258,20 @@ type AuthenticationExtensionsClientInputs struct {
 	// GetCredBlob is "AuthenticationExtensionsClientInputs.getCredBlob"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_GetCredBlob MUST be set to true to make this field effective.
 	GetCredBlob bool
 	// HmacCreateSecret is "AuthenticationExtensionsClientInputs.hmacCreateSecret"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HmacCreateSecret MUST be set to true to make this field effective.
 	HmacCreateSecret bool
 	// CredProps is "AuthenticationExtensionsClientInputs.credProps"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CredProps MUST be set to true to make this field effective.
 	CredProps bool
 	// Payment is "AuthenticationExtensionsClientInputs.payment"
 	//
@@ -2228,10 +2296,14 @@ type AuthenticationExtensionsClientInputs struct {
 	// EnforceCredentialProtectionPolicy is "AuthenticationExtensionsClientInputs.enforceCredentialProtectionPolicy"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_EnforceCredentialProtectionPolicy MUST be set to true to make this field effective.
 	EnforceCredentialProtectionPolicy bool
 	// Uvm is "AuthenticationExtensionsClientInputs.uvm"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Uvm MUST be set to true to make this field effective.
 	Uvm bool
 	// DevicePubKey is "AuthenticationExtensionsClientInputs.devicePubKey"
 	//
@@ -2254,7 +2326,7 @@ func (p AuthenticationExtensionsClientInputs) FromRef(ref js.Ref) Authentication
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsClientInputs AuthenticationExtensionsClientInputs [// AuthenticationExtensionsClientInputs] [0x1400025f860 0x1400025fc20 0x1400025fcc0 0x1400025fd60 0x1400025fe00 0x1400025ff40 0x1400026e0a0 0x1400026eaa0 0x1400026ec80 0x1400026efa0 0x1400026f040 0x1400026f0e0 0x1400026f180 0x1400026f2c0 0x1400026f540 0x1400025f900 0x1400025fea0 0x1400026e000 0x1400026e140 0x1400026f220 0x1400026f360] 0x14000f8a4f8 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsClientInputs in the application heap.
 func (p AuthenticationExtensionsClientInputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsClientInputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2285,7 +2357,7 @@ func (p AuthenticationExtensionsClientInputsJSON) FromRef(ref js.Ref) Authentica
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsClientInputsJSON AuthenticationExtensionsClientInputsJSON [// AuthenticationExtensionsClientInputsJSON] [] 0x14000f8ae58 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsClientInputsJSON in the application heap.
 func (p AuthenticationExtensionsClientInputsJSON) New() js.Ref {
 	return bindings.AuthenticationExtensionsClientInputsJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2321,7 +2393,7 @@ func (p AuthenticationExtensionsDevicePublicKeyOutputs) FromRef(ref js.Ref) Auth
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsDevicePublicKeyOutputs AuthenticationExtensionsDevicePublicKeyOutputs [// AuthenticationExtensionsDevicePublicKeyOutputs] [0x1400026f5e0] 0x14000f8ae88 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsDevicePublicKeyOutputs in the application heap.
 func (p AuthenticationExtensionsDevicePublicKeyOutputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsDevicePublicKeyOutputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2350,6 +2422,8 @@ type CredentialPropertiesOutput struct {
 	// Rk is "CredentialPropertiesOutput.rk"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Rk MUST be set to true to make this field effective.
 	Rk bool
 
 	FFI_USE_Rk bool // for Rk.
@@ -2363,7 +2437,7 @@ func (p CredentialPropertiesOutput) FromRef(ref js.Ref) CredentialPropertiesOutp
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CredentialPropertiesOutput CredentialPropertiesOutput [// CredentialPropertiesOutput] [0x1400026fa40 0x1400026fae0] 0x14000f8aed0 {0 0}} in the application heap.
+// New creates a new CredentialPropertiesOutput in the application heap.
 func (p CredentialPropertiesOutput) New() js.Ref {
 	return bindings.CredentialPropertiesOutputJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2388,6 +2462,8 @@ type AuthenticationExtensionsLargeBlobOutputs struct {
 	// Supported is "AuthenticationExtensionsLargeBlobOutputs.supported"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Supported MUST be set to true to make this field effective.
 	Supported bool
 	// Blob is "AuthenticationExtensionsLargeBlobOutputs.blob"
 	//
@@ -2396,6 +2472,8 @@ type AuthenticationExtensionsLargeBlobOutputs struct {
 	// Written is "AuthenticationExtensionsLargeBlobOutputs.written"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Written MUST be set to true to make this field effective.
 	Written bool
 
 	FFI_USE_Supported bool // for Supported.
@@ -2410,7 +2488,7 @@ func (p AuthenticationExtensionsLargeBlobOutputs) FromRef(ref js.Ref) Authentica
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsLargeBlobOutputs AuthenticationExtensionsLargeBlobOutputs [// AuthenticationExtensionsLargeBlobOutputs] [0x1400026fc20 0x1400026fd60 0x1400026fe00 0x1400026fcc0 0x1400026fea0] 0x14000f8af00 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsLargeBlobOutputs in the application heap.
 func (p AuthenticationExtensionsLargeBlobOutputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsLargeBlobOutputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2450,7 +2528,7 @@ func (p HMACGetSecretOutput) FromRef(ref js.Ref) HMACGetSecretOutput {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 HMACGetSecretOutput HMACGetSecretOutput [// HMACGetSecretOutput] [0x14000274000 0x140002740a0] 0x14000f8af60 {0 0}} in the application heap.
+// New creates a new HMACGetSecretOutput in the application heap.
 func (p HMACGetSecretOutput) New() js.Ref {
 	return bindings.HMACGetSecretOutputJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2475,6 +2553,8 @@ type AuthenticationExtensionsPRFOutputs struct {
 	// Enabled is "AuthenticationExtensionsPRFOutputs.enabled"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Enabled MUST be set to true to make this field effective.
 	Enabled bool
 	// Results is "AuthenticationExtensionsPRFOutputs.results"
 	//
@@ -2492,7 +2572,7 @@ func (p AuthenticationExtensionsPRFOutputs) FromRef(ref js.Ref) AuthenticationEx
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsPRFOutputs AuthenticationExtensionsPRFOutputs [// AuthenticationExtensionsPRFOutputs] [0x140002741e0 0x14000274320 0x14000274280] 0x14000f8bfb0 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsPRFOutputs in the application heap.
 func (p AuthenticationExtensionsPRFOutputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsPRFOutputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2521,10 +2601,14 @@ type AuthenticationExtensionsClientOutputs struct {
 	// Appid is "AuthenticationExtensionsClientOutputs.appid"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Appid MUST be set to true to make this field effective.
 	Appid bool
 	// AppidExclude is "AuthenticationExtensionsClientOutputs.appidExclude"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AppidExclude MUST be set to true to make this field effective.
 	AppidExclude bool
 	// Uvm is "AuthenticationExtensionsClientOutputs.uvm"
 	//
@@ -2549,6 +2633,8 @@ type AuthenticationExtensionsClientOutputs struct {
 	// HmacCreateSecret is "AuthenticationExtensionsClientOutputs.hmacCreateSecret"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HmacCreateSecret MUST be set to true to make this field effective.
 	HmacCreateSecret bool
 
 	FFI_USE_Appid            bool // for Appid.
@@ -2564,7 +2650,7 @@ func (p AuthenticationExtensionsClientOutputs) FromRef(ref js.Ref) Authenticatio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsClientOutputs AuthenticationExtensionsClientOutputs [// AuthenticationExtensionsClientOutputs] [0x1400026f680 0x1400026f720 0x1400026f860 0x1400026f9a0 0x1400026fb80 0x1400026ff40 0x14000274140 0x140002743c0 0x14000274460 0x1400026f7c0 0x1400026f900 0x14000274500] 0x14000f8ae70 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsClientOutputs in the application heap.
 func (p AuthenticationExtensionsClientOutputs) New() js.Ref {
 	return bindings.AuthenticationExtensionsClientOutputsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2595,7 +2681,7 @@ func (p AuthenticationExtensionsClientOutputsJSON) FromRef(ref js.Ref) Authentic
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationExtensionsClientOutputsJSON AuthenticationExtensionsClientOutputsJSON [// AuthenticationExtensionsClientOutputsJSON] [] 0x14000f8bfe0 {0 0}} in the application heap.
+// New creates a new AuthenticationExtensionsClientOutputsJSON in the application heap.
 func (p AuthenticationExtensionsClientOutputsJSON) New() js.Ref {
 	return bindings.AuthenticationExtensionsClientOutputsJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2649,7 +2735,7 @@ func (p AuthenticatorAssertionResponseJSON) FromRef(ref js.Ref) AuthenticatorAss
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticatorAssertionResponseJSON AuthenticatorAssertionResponseJSON [// AuthenticatorAssertionResponseJSON] [0x140002746e0 0x14000274780 0x14000274820 0x140002748c0 0x14000274960] 0x1400107e030 {0 0}} in the application heap.
+// New creates a new AuthenticatorAssertionResponseJSON in the application heap.
 func (p AuthenticatorAssertionResponseJSON) New() js.Ref {
 	return bindings.AuthenticatorAssertionResponseJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2705,7 +2791,7 @@ func (p AuthenticationResponseJSON) FromRef(ref js.Ref) AuthenticationResponseJS
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticationResponseJSON AuthenticationResponseJSON [// AuthenticationResponseJSON] [0x140002745a0 0x14000274640 0x14000274a00 0x14000274aa0 0x14000274b40 0x14000274be0] 0x1400107e000 {0 0}} in the application heap.
+// New creates a new AuthenticationResponseJSON in the application heap.
 func (p AuthenticationResponseJSON) New() js.Ref {
 	return bindings.AuthenticationResponseJSONJSLoad(
 		js.Pointer(&p), js.True, 0,

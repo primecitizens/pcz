@@ -37,14 +37,20 @@ type RTCTrackEventInit struct {
 	// Bubbles is "RTCTrackEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "RTCTrackEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "RTCTrackEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -60,7 +66,7 @@ func (p RTCTrackEventInit) FromRef(ref js.Ref) RTCTrackEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCTrackEventInit RTCTrackEventInit [// RTCTrackEventInit] [0x140009eb180 0x140009eb220 0x140009eb2c0 0x140009eb360 0x140009eb400 0x140009eb540 0x140009eb680 0x140009eb4a0 0x140009eb5e0 0x140009eb720] 0x1400099d998 {0 0}} in the application heap.
+// New creates a new RTCTrackEventInit in the application heap.
 func (p RTCTrackEventInit) New() js.Ref {
 	return bindings.RTCTrackEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -207,18 +213,26 @@ type RTCTransportStats struct {
 	// PacketsSent is "RTCTransportStats.packetsSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsSent MUST be set to true to make this field effective.
 	PacketsSent uint64
 	// PacketsReceived is "RTCTransportStats.packetsReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PacketsReceived MUST be set to true to make this field effective.
 	PacketsReceived uint64
 	// BytesSent is "RTCTransportStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// BytesReceived is "RTCTransportStats.bytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesReceived MUST be set to true to make this field effective.
 	BytesReceived uint64
 	// IceRole is "RTCTransportStats.iceRole"
 	//
@@ -267,6 +281,8 @@ type RTCTransportStats struct {
 	// SelectedCandidatePairChanges is "RTCTransportStats.selectedCandidatePairChanges"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SelectedCandidatePairChanges MUST be set to true to make this field effective.
 	SelectedCandidatePairChanges uint32
 	// Timestamp is "RTCTransportStats.timestamp"
 	//
@@ -296,7 +312,7 @@ func (p RTCTransportStats) FromRef(ref js.Ref) RTCTransportStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCTransportStats RTCTransportStats [// RTCTransportStats] [0x140009eb900 0x140009eba40 0x140009ebb80 0x140009ebcc0 0x140009ebe00 0x140009ebea0 0x140009ebf40 0x140009f0000 0x140009f00a0 0x140009f0140 0x140009f01e0 0x140009f0280 0x140009f0320 0x140009f03c0 0x140009f0460 0x140009f0500 0x140009f0640 0x140009f06e0 0x140009f0780 0x140009eb9a0 0x140009ebae0 0x140009ebc20 0x140009ebd60 0x140009f05a0] 0x1400099da10 {0 0}} in the application heap.
+// New creates a new RTCTransportStats in the application heap.
 func (p RTCTransportStats) New() js.Ref {
 	return bindings.RTCTransportStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -321,18 +337,26 @@ type RTCVideoSourceStats struct {
 	// Width is "RTCVideoSourceStats.width"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width uint32
 	// Height is "RTCVideoSourceStats.height"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height uint32
 	// Frames is "RTCVideoSourceStats.frames"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frames MUST be set to true to make this field effective.
 	Frames uint32
 	// FramesPerSecond is "RTCVideoSourceStats.framesPerSecond"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FramesPerSecond MUST be set to true to make this field effective.
 	FramesPerSecond float64
 	// TrackIdentifier is "RTCVideoSourceStats.trackIdentifier"
 	//
@@ -369,7 +393,7 @@ func (p RTCVideoSourceStats) FromRef(ref js.Ref) RTCVideoSourceStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCVideoSourceStats RTCVideoSourceStats [// RTCVideoSourceStats] [0x140009f0820 0x140009f0960 0x140009f0aa0 0x140009f0be0 0x140009f0d20 0x140009f0dc0 0x140009f0e60 0x140009f0f00 0x140009f0fa0 0x140009f08c0 0x140009f0a00 0x140009f0b40 0x140009f0c80] 0x1400099dad0 {0 0}} in the application heap.
+// New creates a new RTCVideoSourceStats in the application heap.
 func (p RTCVideoSourceStats) New() js.Ref {
 	return bindings.RTCVideoSourceStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -802,6 +826,8 @@ type ReadableStreamIteratorOptions struct {
 	// PreventCancel is "ReadableStreamIteratorOptions.preventCancel"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PreventCancel MUST be set to true to make this field effective.
 	PreventCancel bool
 
 	FFI_USE_PreventCancel bool // for PreventCancel.
@@ -815,7 +841,7 @@ func (p ReadableStreamIteratorOptions) FromRef(ref js.Ref) ReadableStreamIterato
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReadableStreamIteratorOptions ReadableStreamIteratorOptions [// ReadableStreamIteratorOptions] [0x140009f10e0 0x140009f1180] 0x1400099db60 {0 0}} in the application heap.
+// New creates a new ReadableStreamIteratorOptions in the application heap.
 func (p ReadableStreamIteratorOptions) New() js.Ref {
 	return bindings.ReadableStreamIteratorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -872,7 +898,7 @@ func (p RelativeOrientationReadingValues) FromRef(ref js.Ref) RelativeOrientatio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RelativeOrientationReadingValues RelativeOrientationReadingValues [// RelativeOrientationReadingValues] [0x140009f1220] 0x1400099db90 {0 0}} in the application heap.
+// New creates a new RelativeOrientationReadingValues in the application heap.
 func (p RelativeOrientationReadingValues) New() js.Ref {
 	return bindings.RelativeOrientationReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1065,10 +1091,14 @@ type ReportResultBrowserSignals struct {
 	// ModifiedBid is "ReportResultBrowserSignals.modifiedBid"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ModifiedBid MUST be set to true to make this field effective.
 	ModifiedBid float64
 	// DataVersion is "ReportResultBrowserSignals.dataVersion"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataVersion MUST be set to true to make this field effective.
 	DataVersion uint32
 	// TopWindowHostname is "ReportResultBrowserSignals.topWindowHostname"
 	//
@@ -1123,7 +1153,7 @@ func (p ReportResultBrowserSignals) FromRef(ref js.Ref) ReportResultBrowserSigna
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReportResultBrowserSignals ReportResultBrowserSignals [// ReportResultBrowserSignals] [0x140009f1360 0x140009f1400 0x140009f14a0 0x140009f15e0 0x140009f1720 0x140009f17c0 0x140009f1860 0x140009f1900 0x140009f19a0 0x140009f1a40 0x140009f1ae0 0x140009f1b80 0x140009f1c20 0x140009f1cc0 0x140009f1540 0x140009f1680] 0x1400099dbc0 {0 0}} in the application heap.
+// New creates a new ReportResultBrowserSignals in the application heap.
 func (p ReportResultBrowserSignals) New() js.Ref {
 	return bindings.ReportResultBrowserSignalsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1148,6 +1178,8 @@ type ReportWinBrowserSignals struct {
 	// AdCost is "ReportWinBrowserSignals.adCost"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AdCost MUST be set to true to make this field effective.
 	AdCost float64
 	// Seller is "ReportWinBrowserSignals.seller"
 	//
@@ -1156,6 +1188,8 @@ type ReportWinBrowserSignals struct {
 	// MadeHighestScoringOtherBid is "ReportWinBrowserSignals.madeHighestScoringOtherBid"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MadeHighestScoringOtherBid MUST be set to true to make this field effective.
 	MadeHighestScoringOtherBid bool
 	// InterestGroupName is "ReportWinBrowserSignals.interestGroupName"
 	//
@@ -1168,10 +1202,14 @@ type ReportWinBrowserSignals struct {
 	// ModelingSignals is "ReportWinBrowserSignals.modelingSignals"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ModelingSignals MUST be set to true to make this field effective.
 	ModelingSignals uint16
 	// DataVersion is "ReportWinBrowserSignals.dataVersion"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataVersion MUST be set to true to make this field effective.
 	DataVersion uint32
 	// TopWindowHostname is "ReportWinBrowserSignals.topWindowHostname"
 	//
@@ -1228,7 +1266,7 @@ func (p ReportWinBrowserSignals) FromRef(ref js.Ref) ReportWinBrowserSignals {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReportWinBrowserSignals ReportWinBrowserSignals [// ReportWinBrowserSignals] [0x140009f1d60 0x140009f1ea0 0x140009f1f40 0x140009f60a0 0x140009f6140 0x140009f61e0 0x140009f6320 0x140009f6460 0x140009f6500 0x140009f65a0 0x140009f6640 0x140009f66e0 0x140009f6780 0x140009f6820 0x140009f68c0 0x140009f6960 0x140009f6a00 0x140009f1e00 0x140009f6000 0x140009f6280 0x140009f63c0] 0x1400099dc20 {0 0}} in the application heap.
+// New creates a new ReportWinBrowserSignals in the application heap.
 func (p ReportWinBrowserSignals) New() js.Ref {
 	return bindings.ReportWinBrowserSignalsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1300,7 +1338,7 @@ func (p ReportingBrowserSignals) FromRef(ref js.Ref) ReportingBrowserSignals {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReportingBrowserSignals ReportingBrowserSignals [// ReportingBrowserSignals] [0x140009f6aa0 0x140009f6b40 0x140009f6be0 0x140009f6c80 0x140009f6d20 0x140009f6dc0 0x140009f6e60 0x140009f6f00 0x140009f6fa0 0x140009f7040] 0x1400099dc80 {0 0}} in the application heap.
+// New creates a new ReportingBrowserSignals in the application heap.
 func (p ReportingBrowserSignals) New() js.Ref {
 	return bindings.ReportingBrowserSignalsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1391,6 +1429,8 @@ type ReportingObserverOptions struct {
 	// Buffered is "ReportingObserverOptions.buffered"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Buffered MUST be set to true to make this field effective.
 	Buffered bool
 
 	FFI_USE_Buffered bool // for Buffered.
@@ -1404,7 +1444,7 @@ func (p ReportingObserverOptions) FromRef(ref js.Ref) ReportingObserverOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ReportingObserverOptions ReportingObserverOptions [// ReportingObserverOptions] [0x140009f70e0 0x140009f7180 0x140009f7220] 0x1400099dcc8 {0 0}} in the application heap.
+// New creates a new ReportingObserverOptions in the application heap.
 func (p ReportingObserverOptions) New() js.Ref {
 	return bindings.ReportingObserverOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1785,7 +1825,7 @@ func (p ResizeObserverOptions) FromRef(ref js.Ref) ResizeObserverOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ResizeObserverOptions ResizeObserverOptions [// ResizeObserverOptions] [0x140009f7400] 0x1400099dd28 {0 0}} in the application heap.
+// New creates a new ResizeObserverOptions in the application heap.
 func (p ResizeObserverOptions) New() js.Ref {
 	return bindings.ResizeObserverOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1954,7 +1994,7 @@ func (p RsaHashedImportParams) FromRef(ref js.Ref) RsaHashedImportParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaHashedImportParams RsaHashedImportParams [// RsaHashedImportParams] [0x140009f74a0 0x140009f7540] 0x1400099ddd0 {0 0}} in the application heap.
+// New creates a new RsaHashedImportParams in the application heap.
 func (p RsaHashedImportParams) New() js.Ref {
 	return bindings.RsaHashedImportParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2002,7 +2042,7 @@ func (p RsaHashedKeyAlgorithm) FromRef(ref js.Ref) RsaHashedKeyAlgorithm {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaHashedKeyAlgorithm RsaHashedKeyAlgorithm [// RsaHashedKeyAlgorithm] [0x140009f75e0 0x140009f7680 0x140009f7720 0x140009f77c0] 0x1400099de30 {0 0}} in the application heap.
+// New creates a new RsaHashedKeyAlgorithm in the application heap.
 func (p RsaHashedKeyAlgorithm) New() js.Ref {
 	return bindings.RsaHashedKeyAlgorithmJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2050,7 +2090,7 @@ func (p RsaHashedKeyGenParams) FromRef(ref js.Ref) RsaHashedKeyGenParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaHashedKeyGenParams RsaHashedKeyGenParams [// RsaHashedKeyGenParams] [0x140009f7860 0x140009f7900 0x140009f79a0 0x140009f7a40] 0x1400099de90 {0 0}} in the application heap.
+// New creates a new RsaHashedKeyGenParams in the application heap.
 func (p RsaHashedKeyGenParams) New() js.Ref {
 	return bindings.RsaHashedKeyGenParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2094,7 +2134,7 @@ func (p RsaKeyAlgorithm) FromRef(ref js.Ref) RsaKeyAlgorithm {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaKeyAlgorithm RsaKeyAlgorithm [// RsaKeyAlgorithm] [0x140009f7ae0 0x140009f7b80 0x140009f7c20] 0x1400099def0 {0 0}} in the application heap.
+// New creates a new RsaKeyAlgorithm in the application heap.
 func (p RsaKeyAlgorithm) New() js.Ref {
 	return bindings.RsaKeyAlgorithmJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2138,7 +2178,7 @@ func (p RsaKeyGenParams) FromRef(ref js.Ref) RsaKeyGenParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaKeyGenParams RsaKeyGenParams [// RsaKeyGenParams] [0x140009f7cc0 0x140009f7d60 0x140009f7e00] 0x1400099df38 {0 0}} in the application heap.
+// New creates a new RsaKeyGenParams in the application heap.
 func (p RsaKeyGenParams) New() js.Ref {
 	return bindings.RsaKeyGenParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2178,7 +2218,7 @@ func (p RsaOaepParams) FromRef(ref js.Ref) RsaOaepParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaOaepParams RsaOaepParams [// RsaOaepParams] [0x140009f7ea0 0x140009f7f40] 0x1400099df68 {0 0}} in the application heap.
+// New creates a new RsaOaepParams in the application heap.
 func (p RsaOaepParams) New() js.Ref {
 	return bindings.RsaOaepParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2218,7 +2258,7 @@ func (p RsaPssParams) FromRef(ref js.Ref) RsaPssParams {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RsaPssParams RsaPssParams [// RsaPssParams] [0x14000a00000 0x14000a000a0] 0x1400099df98 {0 0}} in the application heap.
+// New creates a new RsaPssParams in the application heap.
 func (p RsaPssParams) New() js.Ref {
 	return bindings.RsaPssParamsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2282,14 +2322,20 @@ type SFrameTransformErrorEventInit struct {
 	// Bubbles is "SFrameTransformErrorEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "SFrameTransformErrorEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "SFrameTransformErrorEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2305,7 +2351,7 @@ func (p SFrameTransformErrorEventInit) FromRef(ref js.Ref) SFrameTransformErrorE
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SFrameTransformErrorEventInit SFrameTransformErrorEventInit [// SFrameTransformErrorEventInit] [0x14000a00140 0x14000a001e0 0x14000a00280 0x14000a00320 0x14000a00460 0x14000a005a0 0x14000a003c0 0x14000a00500 0x14000a00640] 0x1400099dfc8 {0 0}} in the application heap.
+// New creates a new SFrameTransformErrorEventInit in the application heap.
 func (p SFrameTransformErrorEventInit) New() js.Ref {
 	return bindings.SFrameTransformErrorEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,

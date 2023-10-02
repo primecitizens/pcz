@@ -25,22 +25,32 @@ type RTCAudioPlayoutStats struct {
 	// SynthesizedSamplesDuration is "RTCAudioPlayoutStats.synthesizedSamplesDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SynthesizedSamplesDuration MUST be set to true to make this field effective.
 	SynthesizedSamplesDuration float64
 	// SynthesizedSamplesEvents is "RTCAudioPlayoutStats.synthesizedSamplesEvents"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SynthesizedSamplesEvents MUST be set to true to make this field effective.
 	SynthesizedSamplesEvents uint32
 	// TotalSamplesDuration is "RTCAudioPlayoutStats.totalSamplesDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalSamplesDuration MUST be set to true to make this field effective.
 	TotalSamplesDuration float64
 	// TotalPlayoutDelay is "RTCAudioPlayoutStats.totalPlayoutDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalPlayoutDelay MUST be set to true to make this field effective.
 	TotalPlayoutDelay float64
 	// TotalSamplesCount is "RTCAudioPlayoutStats.totalSamplesCount"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalSamplesCount MUST be set to true to make this field effective.
 	TotalSamplesCount uint64
 	// Timestamp is "RTCAudioPlayoutStats.timestamp"
 	//
@@ -70,7 +80,7 @@ func (p RTCAudioPlayoutStats) FromRef(ref js.Ref) RTCAudioPlayoutStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCAudioPlayoutStats RTCAudioPlayoutStats [// RTCAudioPlayoutStats] [0x14000972c80 0x14000972d20 0x14000972e60 0x14000972fa0 0x140009730e0 0x14000973220 0x14000973360 0x14000973400 0x140009734a0 0x14000972dc0 0x14000972f00 0x14000973040 0x14000973180 0x140009732c0] 0x14000921650 {0 0}} in the application heap.
+// New creates a new RTCAudioPlayoutStats in the application heap.
 func (p RTCAudioPlayoutStats) New() js.Ref {
 	return bindings.RTCAudioPlayoutStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -95,38 +105,56 @@ type RTCAudioSourceStats struct {
 	// AudioLevel is "RTCAudioSourceStats.audioLevel"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AudioLevel MUST be set to true to make this field effective.
 	AudioLevel float64
 	// TotalAudioEnergy is "RTCAudioSourceStats.totalAudioEnergy"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalAudioEnergy MUST be set to true to make this field effective.
 	TotalAudioEnergy float64
 	// TotalSamplesDuration is "RTCAudioSourceStats.totalSamplesDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalSamplesDuration MUST be set to true to make this field effective.
 	TotalSamplesDuration float64
 	// EchoReturnLoss is "RTCAudioSourceStats.echoReturnLoss"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EchoReturnLoss MUST be set to true to make this field effective.
 	EchoReturnLoss float64
 	// EchoReturnLossEnhancement is "RTCAudioSourceStats.echoReturnLossEnhancement"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EchoReturnLossEnhancement MUST be set to true to make this field effective.
 	EchoReturnLossEnhancement float64
 	// DroppedSamplesDuration is "RTCAudioSourceStats.droppedSamplesDuration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DroppedSamplesDuration MUST be set to true to make this field effective.
 	DroppedSamplesDuration float64
 	// DroppedSamplesEvents is "RTCAudioSourceStats.droppedSamplesEvents"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DroppedSamplesEvents MUST be set to true to make this field effective.
 	DroppedSamplesEvents uint32
 	// TotalCaptureDelay is "RTCAudioSourceStats.totalCaptureDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalCaptureDelay MUST be set to true to make this field effective.
 	TotalCaptureDelay float64
 	// TotalSamplesCaptured is "RTCAudioSourceStats.totalSamplesCaptured"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TotalSamplesCaptured MUST be set to true to make this field effective.
 	TotalSamplesCaptured uint64
 	// TrackIdentifier is "RTCAudioSourceStats.trackIdentifier"
 	//
@@ -168,7 +196,7 @@ func (p RTCAudioSourceStats) FromRef(ref js.Ref) RTCAudioSourceStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCAudioSourceStats RTCAudioSourceStats [// RTCAudioSourceStats] [0x14000973540 0x14000973680 0x140009737c0 0x14000973900 0x14000973a40 0x14000973b80 0x14000973cc0 0x14000973e00 0x14000973f40 0x1400097e0a0 0x1400097e140 0x1400097e1e0 0x1400097e280 0x1400097e320 0x140009735e0 0x14000973720 0x14000973860 0x140009739a0 0x14000973ae0 0x14000973c20 0x14000973d60 0x14000973ea0 0x1400097e000] 0x14000921920 {0 0}} in the application heap.
+// New creates a new RTCAudioSourceStats in the application heap.
 func (p RTCAudioSourceStats) New() js.Ref {
 	return bindings.RTCAudioSourceStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -235,7 +263,7 @@ func (p RTCDtlsFingerprint) FromRef(ref js.Ref) RTCDtlsFingerprint {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCDtlsFingerprint RTCDtlsFingerprint [// RTCDtlsFingerprint] [0x1400097e3c0 0x1400097e460] 0x140009219e0 {0 0}} in the application heap.
+// New creates a new RTCDtlsFingerprint in the application heap.
 func (p RTCDtlsFingerprint) New() js.Ref {
 	return bindings.RTCDtlsFingerprintJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -316,6 +344,8 @@ type RTCCertificateExpiration struct {
 	// Expires is "RTCCertificateExpiration.expires"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Expires MUST be set to true to make this field effective.
 	Expires uint64
 
 	FFI_USE_Expires bool // for Expires.
@@ -329,7 +359,7 @@ func (p RTCCertificateExpiration) FromRef(ref js.Ref) RTCCertificateExpiration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCCertificateExpiration RTCCertificateExpiration [// RTCCertificateExpiration] [0x1400097e500 0x1400097e5a0] 0x140009219f8 {0 0}} in the application heap.
+// New creates a new RTCCertificateExpiration in the application heap.
 func (p RTCCertificateExpiration) New() js.Ref {
 	return bindings.RTCCertificateExpirationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -389,7 +419,7 @@ func (p RTCCertificateStats) FromRef(ref js.Ref) RTCCertificateStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCCertificateStats RTCCertificateStats [// RTCCertificateStats] [0x1400097e640 0x1400097e6e0 0x1400097e780 0x1400097e820 0x1400097e8c0 0x1400097e960 0x1400097ea00] 0x14000921a28 {0 0}} in the application heap.
+// New creates a new RTCCertificateStats in the application heap.
 func (p RTCCertificateStats) New() js.Ref {
 	return bindings.RTCCertificateStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -426,10 +456,14 @@ type RTCCodecStats struct {
 	// ClockRate is "RTCCodecStats.clockRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_ClockRate MUST be set to true to make this field effective.
 	ClockRate uint32
 	// Channels is "RTCCodecStats.channels"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Channels MUST be set to true to make this field effective.
 	Channels uint32
 	// SdpFmtpLine is "RTCCodecStats.sdpFmtpLine"
 	//
@@ -460,7 +494,7 @@ func (p RTCCodecStats) FromRef(ref js.Ref) RTCCodecStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCCodecStats RTCCodecStats [// RTCCodecStats] [0x1400097eaa0 0x1400097eb40 0x1400097ebe0 0x1400097ec80 0x1400097edc0 0x1400097ef00 0x1400097efa0 0x1400097f040 0x1400097f0e0 0x1400097ed20 0x1400097ee60] 0x14000921a70 {0 0}} in the application heap.
+// New creates a new RTCCodecStats in the application heap.
 func (p RTCCodecStats) New() js.Ref {
 	return bindings.RTCCodecStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -504,7 +538,7 @@ func (p RTCIceServer) FromRef(ref js.Ref) RTCIceServer {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIceServer RTCIceServer [// RTCIceServer] [0x1400097f180 0x1400097f220 0x1400097f2c0] 0x14000921b00 {0 0}} in the application heap.
+// New creates a new RTCIceServer in the application heap.
 func (p RTCIceServer) New() js.Ref {
 	return bindings.RTCIceServerJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -594,6 +628,8 @@ type RTCConfiguration struct {
 	// IceCandidatePoolSize is "RTCConfiguration.iceCandidatePoolSize"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_IceCandidatePoolSize MUST be set to true to make this field effective.
 	IceCandidatePoolSize uint8
 	// PeerIdentity is "RTCConfiguration.peerIdentity"
 	//
@@ -611,7 +647,7 @@ func (p RTCConfiguration) FromRef(ref js.Ref) RTCConfiguration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCConfiguration RTCConfiguration [// RTCConfiguration] [0x1400097f360 0x1400097f400 0x1400097f4a0 0x1400097f540 0x1400097f5e0 0x1400097f680 0x1400097f7c0 0x1400097f720] 0x14000921ae8 {0 0}} in the application heap.
+// New creates a new RTCConfiguration in the application heap.
 func (p RTCConfiguration) New() js.Ref {
 	return bindings.RTCConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -762,14 +798,20 @@ type RTCDTMFToneChangeEventInit struct {
 	// Bubbles is "RTCDTMFToneChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "RTCDTMFToneChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "RTCDTMFToneChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -785,7 +827,7 @@ func (p RTCDTMFToneChangeEventInit) FromRef(ref js.Ref) RTCDTMFToneChangeEventIn
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCDTMFToneChangeEventInit RTCDTMFToneChangeEventInit [// RTCDTMFToneChangeEventInit] [0x1400097f900 0x1400097f9a0 0x1400097fae0 0x1400097fc20 0x1400097fa40 0x1400097fb80 0x1400097fcc0] 0x14000921b78 {0 0}} in the application heap.
+// New creates a new RTCDTMFToneChangeEventInit in the application heap.
 func (p RTCDTMFToneChangeEventInit) New() js.Ref {
 	return bindings.RTCDTMFToneChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1220,14 +1262,20 @@ type RTCDataChannelEventInit struct {
 	// Bubbles is "RTCDataChannelEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "RTCDataChannelEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "RTCDataChannelEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1243,7 +1291,7 @@ func (p RTCDataChannelEventInit) FromRef(ref js.Ref) RTCDataChannelEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCDataChannelEventInit RTCDataChannelEventInit [// RTCDataChannelEventInit] [0x1400097fe00 0x1400097fea0 0x1400098c000 0x1400098c140 0x1400097ff40 0x1400098c0a0 0x1400098c1e0] 0x14000921c38 {0 0}} in the application heap.
+// New creates a new RTCDataChannelEventInit in the application heap.
 func (p RTCDataChannelEventInit) New() js.Ref {
 	return bindings.RTCDataChannelEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1309,14 +1357,20 @@ type RTCDataChannelInit struct {
 	// Ordered is "RTCDataChannelInit.ordered"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Ordered MUST be set to true to make this field effective.
 	Ordered bool
 	// MaxPacketLifeTime is "RTCDataChannelInit.maxPacketLifeTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxPacketLifeTime MUST be set to true to make this field effective.
 	MaxPacketLifeTime uint16
 	// MaxRetransmits is "RTCDataChannelInit.maxRetransmits"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MaxRetransmits MUST be set to true to make this field effective.
 	MaxRetransmits uint16
 	// Protocol is "RTCDataChannelInit.protocol"
 	//
@@ -1325,10 +1379,14 @@ type RTCDataChannelInit struct {
 	// Negotiated is "RTCDataChannelInit.negotiated"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Negotiated MUST be set to true to make this field effective.
 	Negotiated bool
 	// Id is "RTCDataChannelInit.id"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Id MUST be set to true to make this field effective.
 	Id uint16
 	// Priority is "RTCDataChannelInit.priority"
 	//
@@ -1350,7 +1408,7 @@ func (p RTCDataChannelInit) FromRef(ref js.Ref) RTCDataChannelInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCDataChannelInit RTCDataChannelInit [// RTCDataChannelInit] [0x1400098c280 0x1400098c3c0 0x1400098c500 0x1400098c640 0x1400098c6e0 0x1400098c820 0x1400098c960 0x1400098c320 0x1400098c460 0x1400098c5a0 0x1400098c780 0x1400098c8c0] 0x14000921c80 {0 0}} in the application heap.
+// New creates a new RTCDataChannelInit in the application heap.
 func (p RTCDataChannelInit) New() js.Ref {
 	return bindings.RTCDataChannelInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1383,6 +1441,8 @@ type RTCDataChannelStats struct {
 	// DataChannelIdentifier is "RTCDataChannelStats.dataChannelIdentifier"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataChannelIdentifier MUST be set to true to make this field effective.
 	DataChannelIdentifier uint16
 	// State is "RTCDataChannelStats.state"
 	//
@@ -1391,18 +1451,26 @@ type RTCDataChannelStats struct {
 	// MessagesSent is "RTCDataChannelStats.messagesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MessagesSent MUST be set to true to make this field effective.
 	MessagesSent uint32
 	// BytesSent is "RTCDataChannelStats.bytesSent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesSent MUST be set to true to make this field effective.
 	BytesSent uint64
 	// MessagesReceived is "RTCDataChannelStats.messagesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_MessagesReceived MUST be set to true to make this field effective.
 	MessagesReceived uint32
 	// BytesReceived is "RTCDataChannelStats.bytesReceived"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_BytesReceived MUST be set to true to make this field effective.
 	BytesReceived uint64
 	// Timestamp is "RTCDataChannelStats.timestamp"
 	//
@@ -1432,7 +1500,7 @@ func (p RTCDataChannelStats) FromRef(ref js.Ref) RTCDataChannelStats {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCDataChannelStats RTCDataChannelStats [// RTCDataChannelStats] [0x1400098ca00 0x1400098caa0 0x1400098cb40 0x1400098cc80 0x1400098cd20 0x1400098ce60 0x1400098cfa0 0x1400098d0e0 0x1400098d220 0x1400098d2c0 0x1400098d360 0x1400098cbe0 0x1400098cdc0 0x1400098cf00 0x1400098d040 0x1400098d180] 0x14000921cf8 {0 0}} in the application heap.
+// New creates a new RTCDataChannelStats in the application heap.
 func (p RTCDataChannelStats) New() js.Ref {
 	return bindings.RTCDataChannelStatsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1519,6 +1587,8 @@ type RTCIceCandidateInit struct {
 	// SdpMLineIndex is "RTCIceCandidateInit.sdpMLineIndex"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_SdpMLineIndex MUST be set to true to make this field effective.
 	SdpMLineIndex uint16
 	// UsernameFragment is "RTCIceCandidateInit.usernameFragment"
 	//
@@ -1536,7 +1606,7 @@ func (p RTCIceCandidateInit) FromRef(ref js.Ref) RTCIceCandidateInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIceCandidateInit RTCIceCandidateInit [// RTCIceCandidateInit] [0x1400098d400 0x1400098d4a0 0x1400098d540 0x1400098d680 0x1400098d5e0] 0x14000921e60 {0 0}} in the application heap.
+// New creates a new RTCIceCandidateInit in the application heap.
 func (p RTCIceCandidateInit) New() js.Ref {
 	return bindings.RTCIceCandidateInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1942,7 +2012,7 @@ func (p RTCIceCandidatePair) FromRef(ref js.Ref) RTCIceCandidatePair {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIceCandidatePair RTCIceCandidatePair [// RTCIceCandidatePair] [0x1400098d7c0 0x1400098d860] 0x14000921ea8 {0 0}} in the application heap.
+// New creates a new RTCIceCandidatePair in the application heap.
 func (p RTCIceCandidatePair) New() js.Ref {
 	return bindings.RTCIceCandidatePairJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1975,6 +2045,8 @@ type RTCIceParameters struct {
 	// IceLite is "RTCIceParameters.iceLite"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IceLite MUST be set to true to make this field effective.
 	IceLite bool
 
 	FFI_USE_IceLite bool // for IceLite.
@@ -1988,7 +2060,7 @@ func (p RTCIceParameters) FromRef(ref js.Ref) RTCIceParameters {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIceParameters RTCIceParameters [// RTCIceParameters] [0x1400098d900 0x1400098d9a0 0x1400098da40 0x1400098dae0] 0x14000921ed8 {0 0}} in the application heap.
+// New creates a new RTCIceParameters in the application heap.
 func (p RTCIceParameters) New() js.Ref {
 	return bindings.RTCIceParametersJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2028,7 +2100,7 @@ func (p RTCIceGatherOptions) FromRef(ref js.Ref) RTCIceGatherOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RTCIceGatherOptions RTCIceGatherOptions [// RTCIceGatherOptions] [0x1400098db80 0x1400098dc20] 0x14000921f20 {0 0}} in the application heap.
+// New creates a new RTCIceGatherOptions in the application heap.
 func (p RTCIceGatherOptions) New() js.Ref {
 	return bindings.RTCIceGatherOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

@@ -21,6 +21,8 @@ type IsInputPendingOptions struct {
 	// IncludeContinuous is "IsInputPendingOptions.includeContinuous"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IncludeContinuous MUST be set to true to make this field effective.
 	IncludeContinuous bool
 
 	FFI_USE_IncludeContinuous bool // for IncludeContinuous.
@@ -34,7 +36,7 @@ func (p IsInputPendingOptions) FromRef(ref js.Ref) IsInputPendingOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IsInputPendingOptions IsInputPendingOptions [// IsInputPendingOptions] [0x140005bf9a0 0x140005bfa40] 0x1400081ecc0 {0 0}} in the application heap.
+// New creates a new IsInputPendingOptions in the application heap.
 func (p IsInputPendingOptions) New() js.Ref {
 	return bindings.IsInputPendingOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -285,42 +287,62 @@ type PointerEventInit struct {
 	// PointerId is "PointerEventInit.pointerId"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_PointerId MUST be set to true to make this field effective.
 	PointerId int32
 	// Width is "PointerEventInit.width"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width float64
 	// Height is "PointerEventInit.height"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height float64
 	// Pressure is "PointerEventInit.pressure"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Pressure MUST be set to true to make this field effective.
 	Pressure float32
 	// TangentialPressure is "PointerEventInit.tangentialPressure"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_TangentialPressure MUST be set to true to make this field effective.
 	TangentialPressure float32
 	// TiltX is "PointerEventInit.tiltX"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TiltX MUST be set to true to make this field effective.
 	TiltX int32
 	// TiltY is "PointerEventInit.tiltY"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_TiltY MUST be set to true to make this field effective.
 	TiltY int32
 	// Twist is "PointerEventInit.twist"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Twist MUST be set to true to make this field effective.
 	Twist int32
 	// AltitudeAngle is "PointerEventInit.altitudeAngle"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AltitudeAngle MUST be set to true to make this field effective.
 	AltitudeAngle float64
 	// AzimuthAngle is "PointerEventInit.azimuthAngle"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AzimuthAngle MUST be set to true to make this field effective.
 	AzimuthAngle float64
 	// PointerType is "PointerEventInit.pointerType"
 	//
@@ -329,6 +351,8 @@ type PointerEventInit struct {
 	// IsPrimary is "PointerEventInit.isPrimary"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsPrimary MUST be set to true to make this field effective.
 	IsPrimary bool
 	// CoalescedEvents is "PointerEventInit.coalescedEvents"
 	//
@@ -341,10 +365,14 @@ type PointerEventInit struct {
 	// MovementX is "PointerEventInit.movementX"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MovementX MUST be set to true to make this field effective.
 	MovementX float64
 	// MovementY is "PointerEventInit.movementY"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_MovementY MUST be set to true to make this field effective.
 	MovementY float64
 
 	FFI_USE_PointerId          bool // for PointerId.
@@ -370,7 +398,7 @@ func (p PointerEventInit) FromRef(ref js.Ref) PointerEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PointerEventInit PointerEventInit [// PointerEventInit] [0x140005bfea0 0x140005e1220 0x1400069c8c0 0x1400069ca00 0x1400069d0e0 0x140007c60a0 0x140007c61e0 0x140007c6320 0x140007c6460 0x140007c65a0 0x140007c66e0 0x140007c6780 0x140007c68c0 0x140007c6960 0x140007c6a00 0x140007c6b40 0x140005e00a0 0x140005f1900 0x1400069c960 0x1400069d040 0x140007c6000 0x140007c6140 0x140007c6280 0x140007c63c0 0x140007c6500 0x140007c6640 0x140007c6820 0x140007c6aa0 0x140007c6be0] 0x1400081ed08 {0 0}} in the application heap.
+// New creates a new PointerEventInit in the application heap.
 func (p PointerEventInit) New() js.Ref {
 	return bindings.PointerEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -625,7 +653,7 @@ func (p InkTrailStyle) FromRef(ref js.Ref) InkTrailStyle {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 InkTrailStyle InkTrailStyle [// InkTrailStyle] [0x140007c6d20 0x140007c6dc0] 0x1400081edb0 {0 0}} in the application heap.
+// New creates a new InkTrailStyle in the application heap.
 func (p InkTrailStyle) New() js.Ref {
 	return bindings.InkTrailStyleJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -731,7 +759,7 @@ func (p InkPresenterParam) FromRef(ref js.Ref) InkPresenterParam {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 InkPresenterParam InkPresenterParam [// InkPresenterParam] [0x140007c6f00] 0x1400081edf8 {0 0}} in the application heap.
+// New creates a new InkPresenterParam in the application heap.
 func (p InkPresenterParam) New() js.Ref {
 	return bindings.InkPresenterParamJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1455,7 +1483,7 @@ func (p NavigatorUABrandVersion) FromRef(ref js.Ref) NavigatorUABrandVersion {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigatorUABrandVersion NavigatorUABrandVersion [// NavigatorUABrandVersion] [0x140007c72c0 0x140007c7360] 0x1400081eee8 {0 0}} in the application heap.
+// New creates a new NavigatorUABrandVersion in the application heap.
 func (p NavigatorUABrandVersion) New() js.Ref {
 	return bindings.NavigatorUABrandVersionJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1504,6 +1532,8 @@ type UADataValues struct {
 	// Mobile is "UADataValues.mobile"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Mobile MUST be set to true to make this field effective.
 	Mobile bool
 	// Platform is "UADataValues.platform"
 	//
@@ -1520,6 +1550,8 @@ type UADataValues struct {
 	// Wow64 is "UADataValues.wow64"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Wow64 MUST be set to true to make this field effective.
 	Wow64 bool
 
 	FFI_USE_Mobile bool // for Mobile.
@@ -1534,7 +1566,7 @@ func (p UADataValues) FromRef(ref js.Ref) UADataValues {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 UADataValues UADataValues [// UADataValues] [0x140007c7180 0x140007c7220 0x140007c7400 0x140007c74a0 0x140007c7540 0x140007c75e0 0x140007c7680 0x140007c77c0 0x140007c7860 0x140007c7900 0x140007c79a0 0x140007c7720 0x140007c7a40] 0x1400081eed0 {0 0}} in the application heap.
+// New creates a new UADataValues in the application heap.
 func (p UADataValues) New() js.Ref {
 	return bindings.UADataValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1563,6 +1595,8 @@ type UALowEntropyJSON struct {
 	// Mobile is "UALowEntropyJSON.mobile"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Mobile MUST be set to true to make this field effective.
 	Mobile bool
 	// Platform is "UALowEntropyJSON.platform"
 	//
@@ -1580,7 +1614,7 @@ func (p UALowEntropyJSON) FromRef(ref js.Ref) UALowEntropyJSON {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 UALowEntropyJSON UALowEntropyJSON [// UALowEntropyJSON] [0x140007c7ae0 0x140007c7b80 0x140007c7cc0 0x140007c7c20] 0x1400081ef18 {0 0}} in the application heap.
+// New creates a new UALowEntropyJSON in the application heap.
 func (p UALowEntropyJSON) New() js.Ref {
 	return bindings.UALowEntropyJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1707,10 +1741,14 @@ type StorageEstimate struct {
 	// Usage is "StorageEstimate.usage"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Usage MUST be set to true to make this field effective.
 	Usage uint64
 	// Quota is "StorageEstimate.quota"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Quota MUST be set to true to make this field effective.
 	Quota uint64
 
 	FFI_USE_Usage bool // for Usage.
@@ -1725,7 +1763,7 @@ func (p StorageEstimate) FromRef(ref js.Ref) StorageEstimate {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 StorageEstimate StorageEstimate [// StorageEstimate] [0x140007c7e00 0x140007c7f40 0x140007c7ea0 0x140007d2000] 0x1400081ef48 {0 0}} in the application heap.
+// New creates a new StorageEstimate in the application heap.
 func (p StorageEstimate) New() js.Ref {
 	return bindings.StorageEstimateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1914,6 +1952,8 @@ type IDBDatabaseInfo struct {
 	// Version is "IDBDatabaseInfo.version"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Version MUST be set to true to make this field effective.
 	Version uint64
 
 	FFI_USE_Version bool // for Version.
@@ -1927,7 +1967,7 @@ func (p IDBDatabaseInfo) FromRef(ref js.Ref) IDBDatabaseInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 IDBDatabaseInfo IDBDatabaseInfo [// IDBDatabaseInfo] [0x140007d20a0 0x140007d2140 0x140007d21e0] 0x1400081efa8 {0 0}} in the application heap.
+// New creates a new IDBDatabaseInfo in the application heap.
 func (p IDBDatabaseInfo) New() js.Ref {
 	return bindings.IDBDatabaseInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2312,6 +2352,8 @@ type StorageBucketOptions struct {
 	// Persisted is "StorageBucketOptions.persisted"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Persisted MUST be set to true to make this field effective.
 	Persisted bool
 	// Durability is "StorageBucketOptions.durability"
 	//
@@ -2320,10 +2362,14 @@ type StorageBucketOptions struct {
 	// Quota is "StorageBucketOptions.quota"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Quota MUST be set to true to make this field effective.
 	Quota uint64
 	// Expires is "StorageBucketOptions.expires"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: FFI_USE_Expires MUST be set to true to make this field effective.
 	Expires DOMHighResTimeStamp
 
 	FFI_USE_Persisted bool // for Persisted.
@@ -2339,7 +2385,7 @@ func (p StorageBucketOptions) FromRef(ref js.Ref) StorageBucketOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 StorageBucketOptions StorageBucketOptions [// StorageBucketOptions] [0x140007d2320 0x140007d2460 0x140007d2500 0x140007d2640 0x140007d23c0 0x140007d25a0 0x140007d26e0] 0x1400081f020 {0 0}} in the application heap.
+// New creates a new StorageBucketOptions in the application heap.
 func (p StorageBucketOptions) New() js.Ref {
 	return bindings.StorageBucketOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2614,10 +2660,14 @@ type LockOptions struct {
 	// IfAvailable is "LockOptions.ifAvailable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IfAvailable MUST be set to true to make this field effective.
 	IfAvailable bool
 	// Steal is "LockOptions.steal"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Steal MUST be set to true to make this field effective.
 	Steal bool
 	// Signal is "LockOptions.signal"
 	//
@@ -2636,7 +2686,7 @@ func (p LockOptions) FromRef(ref js.Ref) LockOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 LockOptions LockOptions [// LockOptions] [0x140007d2820 0x140007d28c0 0x140007d2a00 0x140007d2b40 0x140007d2960 0x140007d2aa0] 0x1400081f068 {0 0}} in the application heap.
+// New creates a new LockOptions in the application heap.
 func (p LockOptions) New() js.Ref {
 	return bindings.LockOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2680,7 +2730,7 @@ func (p LockInfo) FromRef(ref js.Ref) LockInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 LockInfo LockInfo [// LockInfo] [0x140007d2be0 0x140007d2c80 0x140007d2d20] 0x1400081f0f8 {0 0}} in the application heap.
+// New creates a new LockInfo in the application heap.
 func (p LockInfo) New() js.Ref {
 	return bindings.LockInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2720,7 +2770,7 @@ func (p LockManagerSnapshot) FromRef(ref js.Ref) LockManagerSnapshot {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 LockManagerSnapshot LockManagerSnapshot [// LockManagerSnapshot] [0x140007d2dc0 0x140007d2e60] 0x1400081f0c8 {0 0}} in the application heap.
+// New creates a new LockManagerSnapshot in the application heap.
 func (p LockManagerSnapshot) New() js.Ref {
 	return bindings.LockManagerSnapshotJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3224,7 +3274,7 @@ func (p MLComputeResult) FromRef(ref js.Ref) MLComputeResult {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MLComputeResult MLComputeResult [// MLComputeResult] [0x140007d3040 0x140007d30e0] 0x1400081f1a0 {0 0}} in the application heap.
+// New creates a new MLComputeResult in the application heap.
 func (p MLComputeResult) New() js.Ref {
 	return bindings.MLComputeResultJSLoad(
 		js.Pointer(&p), js.True, 0,

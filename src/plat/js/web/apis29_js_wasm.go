@@ -49,10 +49,14 @@ type SerialOptions struct {
 	// DataBits is "SerialOptions.dataBits"
 	//
 	// Optional, defaults to 8.
+	//
+	// NOTE: FFI_USE_DataBits MUST be set to true to make this field effective.
 	DataBits uint8
 	// StopBits is "SerialOptions.stopBits"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_StopBits MUST be set to true to make this field effective.
 	StopBits uint8
 	// Parity is "SerialOptions.parity"
 	//
@@ -61,6 +65,8 @@ type SerialOptions struct {
 	// BufferSize is "SerialOptions.bufferSize"
 	//
 	// Optional, defaults to 255.
+	//
+	// NOTE: FFI_USE_BufferSize MUST be set to true to make this field effective.
 	BufferSize uint32
 	// FlowControl is "SerialOptions.flowControl"
 	//
@@ -80,7 +86,7 @@ func (p SerialOptions) FromRef(ref js.Ref) SerialOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SerialOptions SerialOptions [// SerialOptions] [0x140001fd400 0x140001fd4a0 0x1400033e320 0x1400033e780 0x1400033e820 0x1400033f0e0 0x1400033e280 0x1400033e3c0 0x1400033e8c0] 0x1400081e708 {0 0}} in the application heap.
+// New creates a new SerialOptions in the application heap.
 func (p SerialOptions) New() js.Ref {
 	return bindings.SerialOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -105,14 +111,20 @@ type SerialOutputSignals struct {
 	// DataTerminalReady is "SerialOutputSignals.dataTerminalReady"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DataTerminalReady MUST be set to true to make this field effective.
 	DataTerminalReady bool
 	// RequestToSend is "SerialOutputSignals.requestToSend"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RequestToSend MUST be set to true to make this field effective.
 	RequestToSend bool
 	// Break is "SerialOutputSignals.break"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Break MUST be set to true to make this field effective.
 	Break bool
 
 	FFI_USE_DataTerminalReady bool // for DataTerminalReady.
@@ -128,7 +140,7 @@ func (p SerialOutputSignals) FromRef(ref js.Ref) SerialOutputSignals {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SerialOutputSignals SerialOutputSignals [// SerialOutputSignals] [0x1400033f180 0x1400033f540 0x14000a37180 0x1400033f2c0 0x14000a370e0 0x14000a37540] 0x1400081e768 {0 0}} in the application heap.
+// New creates a new SerialOutputSignals in the application heap.
 func (p SerialOutputSignals) New() js.Ref {
 	return bindings.SerialOutputSignalsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -176,7 +188,7 @@ func (p SerialInputSignals) FromRef(ref js.Ref) SerialInputSignals {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SerialInputSignals SerialInputSignals [// SerialInputSignals] [0x14000a37cc0 0x140014bb900 0x140000fcaa0 0x140000fde00] 0x1400081e7b0 {0 0}} in the application heap.
+// New creates a new SerialInputSignals in the application heap.
 func (p SerialInputSignals) New() js.Ref {
 	return bindings.SerialInputSignalsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -408,10 +420,14 @@ type SerialPortFilter struct {
 	// UsbVendorId is "SerialPortFilter.usbVendorId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsbVendorId MUST be set to true to make this field effective.
 	UsbVendorId uint16
 	// UsbProductId is "SerialPortFilter.usbProductId"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_UsbProductId MUST be set to true to make this field effective.
 	UsbProductId uint16
 	// BluetoothServiceClassId is "SerialPortFilter.bluetoothServiceClassId"
 	//
@@ -430,7 +446,7 @@ func (p SerialPortFilter) FromRef(ref js.Ref) SerialPortFilter {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SerialPortFilter SerialPortFilter [// SerialPortFilter] [0x140001828c0 0x14000183220 0x1400019e320 0x14000182960 0x14000183900] 0x1400081e810 {0 0}} in the application heap.
+// New creates a new SerialPortFilter in the application heap.
 func (p SerialPortFilter) New() js.Ref {
 	return bindings.SerialPortFilterJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -470,7 +486,7 @@ func (p SerialPortRequestOptions) FromRef(ref js.Ref) SerialPortRequestOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SerialPortRequestOptions SerialPortRequestOptions [// SerialPortRequestOptions] [0x1400020c820 0x1400020c8c0] 0x1400081e7e0 {0 0}} in the application heap.
+// New creates a new SerialPortRequestOptions in the application heap.
 func (p SerialPortRequestOptions) New() js.Ref {
 	return bindings.SerialPortRequestOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -629,7 +645,7 @@ func (p KeySystemTrackConfiguration) FromRef(ref js.Ref) KeySystemTrackConfigura
 	return p
 }
 
-// New creates a new {0x140004cc0e0 KeySystemTrackConfiguration KeySystemTrackConfiguration [// KeySystemTrackConfiguration] [0x1400023f0e0 0x1400023fae0] 0x1400081e8d0 {0 0}} in the application heap.
+// New creates a new KeySystemTrackConfiguration in the application heap.
 func (p KeySystemTrackConfiguration) New() js.Ref {
 	return bindings.KeySystemTrackConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -689,7 +705,7 @@ func (p MediaCapabilitiesKeySystemConfiguration) FromRef(ref js.Ref) MediaCapabi
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaCapabilitiesKeySystemConfiguration MediaCapabilitiesKeySystemConfiguration [// MediaCapabilitiesKeySystemConfiguration] [0x1400020caa0 0x1400020cbe0 0x1400023e960 0x1400023eb40 0x1400023ebe0 0x14000252280 0x14000253a40] 0x1400081e8b8 {0 0}} in the application heap.
+// New creates a new MediaCapabilitiesKeySystemConfiguration in the application heap.
 func (p MediaCapabilitiesKeySystemConfiguration) New() js.Ref {
 	return bindings.MediaCapabilitiesKeySystemConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -788,6 +804,8 @@ type VideoConfiguration struct {
 	// HasAlphaChannel is "VideoConfiguration.hasAlphaChannel"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_HasAlphaChannel MUST be set to true to make this field effective.
 	HasAlphaChannel bool
 	// HdrMetadataType is "VideoConfiguration.hdrMetadataType"
 	//
@@ -808,6 +826,8 @@ type VideoConfiguration struct {
 	// SpatialScalability is "VideoConfiguration.spatialScalability"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SpatialScalability MUST be set to true to make this field effective.
 	SpatialScalability bool
 
 	FFI_USE_HasAlphaChannel    bool // for HasAlphaChannel.
@@ -822,7 +842,7 @@ func (p VideoConfiguration) FromRef(ref js.Ref) VideoConfiguration {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 VideoConfiguration VideoConfiguration [// VideoConfiguration] [0x1400025efa0 0x1400025f040 0x14000274c80 0x14000294320 0x14000294640 0x14000294b40 0x14000295b80 0x140002c2640 0x140002c26e0 0x140002c2c80 0x140002c2dc0 0x14000295ae0 0x140002c2e60] 0x1400081e900 {0 0}} in the application heap.
+// New creates a new VideoConfiguration in the application heap.
 func (p VideoConfiguration) New() js.Ref {
 	return bindings.VideoConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -870,7 +890,7 @@ func (p MediaDecodingConfiguration) FromRef(ref js.Ref) MediaDecodingConfigurati
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaDecodingConfiguration MediaDecodingConfiguration [// MediaDecodingConfiguration] [0x1400020ca00 0x1400025e640 0x140002c3b80 0x140002c3c20] 0x1400081e870 {0 0}} in the application heap.
+// New creates a new MediaDecodingConfiguration in the application heap.
 func (p MediaDecodingConfiguration) New() js.Ref {
 	return bindings.MediaDecodingConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -922,7 +942,7 @@ func (p MediaCapabilitiesDecodingInfo) FromRef(ref js.Ref) MediaCapabilitiesDeco
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaCapabilitiesDecodingInfo MediaCapabilitiesDecodingInfo [// MediaCapabilitiesDecodingInfo] [0x1400020c960 0x14000313220 0x140003132c0 0x14000313360 0x14000313400] 0x1400081e858 {0 0}} in the application heap.
+// New creates a new MediaCapabilitiesDecodingInfo in the application heap.
 func (p MediaCapabilitiesDecodingInfo) New() js.Ref {
 	return bindings.MediaCapabilitiesDecodingInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -990,7 +1010,7 @@ func (p MediaEncodingConfiguration) FromRef(ref js.Ref) MediaEncodingConfigurati
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaEncodingConfiguration MediaEncodingConfiguration [// MediaEncodingConfiguration] [0x140003134a0 0x140003d0000 0x140003d8a00] 0x1400081e9a8 {0 0}} in the application heap.
+// New creates a new MediaEncodingConfiguration in the application heap.
 func (p MediaEncodingConfiguration) New() js.Ref {
 	return bindings.MediaEncodingConfigurationJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1038,7 +1058,7 @@ func (p MediaCapabilitiesEncodingInfo) FromRef(ref js.Ref) MediaCapabilitiesEnco
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaCapabilitiesEncodingInfo MediaCapabilitiesEncodingInfo [// MediaCapabilitiesEncodingInfo] [0x14000452780 0x140004ac780 0x140004ac820 0x140004ade00] 0x1400081e990 {0 0}} in the application heap.
+// New creates a new MediaCapabilitiesEncodingInfo in the application heap.
 func (p MediaCapabilitiesEncodingInfo) New() js.Ref {
 	return bindings.MediaCapabilitiesEncodingInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1530,7 +1550,7 @@ func (p ContactInfo) FromRef(ref js.Ref) ContactInfo {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ContactInfo ContactInfo [// ContactInfo] [0x140004e74a0 0x140004e7540 0x140004e75e0 0x140004fac80 0x140004fb400] 0x1400081e9d8 {0 0}} in the application heap.
+// New creates a new ContactInfo in the application heap.
 func (p ContactInfo) New() js.Ref {
 	return bindings.ContactInfoJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1555,6 +1575,8 @@ type ContactsSelectOptions struct {
 	// Multiple is "ContactsSelectOptions.multiple"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Multiple MUST be set to true to make this field effective.
 	Multiple bool
 
 	FFI_USE_Multiple bool // for Multiple.
@@ -1568,7 +1590,7 @@ func (p ContactsSelectOptions) FromRef(ref js.Ref) ContactsSelectOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ContactsSelectOptions ContactsSelectOptions [// ContactsSelectOptions] [0x14000542280 0x14000542780] 0x1400081ea68 {0 0}} in the application heap.
+// New creates a new ContactsSelectOptions in the application heap.
 func (p ContactsSelectOptions) New() js.Ref {
 	return bindings.ContactsSelectOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1949,14 +1971,20 @@ type MediaSessionActionDetails struct {
 	// SeekOffset is "MediaSessionActionDetails.seekOffset"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SeekOffset MUST be set to true to make this field effective.
 	SeekOffset float64
 	// SeekTime is "MediaSessionActionDetails.seekTime"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_SeekTime MUST be set to true to make this field effective.
 	SeekTime float64
 	// FastSeek is "MediaSessionActionDetails.fastSeek"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_FastSeek MUST be set to true to make this field effective.
 	FastSeek bool
 
 	FFI_USE_SeekOffset bool // for SeekOffset.
@@ -1972,7 +2000,7 @@ func (p MediaSessionActionDetails) FromRef(ref js.Ref) MediaSessionActionDetails
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaSessionActionDetails MediaSessionActionDetails [// MediaSessionActionDetails] [0x14000542820 0x140005428c0 0x14000542aa0 0x14000542be0 0x14000542a00 0x14000542b40 0x14000542c80] 0x1400081eb58 {0 0}} in the application heap.
+// New creates a new MediaSessionActionDetails in the application heap.
 func (p MediaSessionActionDetails) New() js.Ref {
 	return bindings.MediaSessionActionDetailsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1997,14 +2025,20 @@ type MediaPositionState struct {
 	// Duration is "MediaPositionState.duration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Duration MUST be set to true to make this field effective.
 	Duration float64
 	// PlaybackRate is "MediaPositionState.playbackRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PlaybackRate MUST be set to true to make this field effective.
 	PlaybackRate float64
 	// Position is "MediaPositionState.position"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Position MUST be set to true to make this field effective.
 	Position float64
 
 	FFI_USE_Duration     bool // for Duration.
@@ -2020,7 +2054,7 @@ func (p MediaPositionState) FromRef(ref js.Ref) MediaPositionState {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaPositionState MediaPositionState [// MediaPositionState] [0x14000542d20 0x14000542f00 0x140005430e0 0x14000542e60 0x14000542fa0 0x14000543180] 0x1400081ebb8 {0 0}} in the application heap.
+// New creates a new MediaPositionState in the application heap.
 func (p MediaPositionState) New() js.Ref {
 	return bindings.MediaPositionStateJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2064,7 +2098,7 @@ func (p MediaImage) FromRef(ref js.Ref) MediaImage {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaImage MediaImage [// MediaImage] [0x14000543860 0x14000543900 0x140005439a0] 0x1400081ec48 {0 0}} in the application heap.
+// New creates a new MediaImage in the application heap.
 func (p MediaImage) New() js.Ref {
 	return bindings.MediaImageJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2112,7 +2146,7 @@ func (p MediaMetadataInit) FromRef(ref js.Ref) MediaMetadataInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MediaMetadataInit MediaMetadataInit [// MediaMetadataInit] [0x14000543400 0x140005434a0 0x140005435e0 0x14000543a40] 0x1400081ec30 {0 0}} in the application heap.
+// New creates a new MediaMetadataInit in the application heap.
 func (p MediaMetadataInit) New() js.Ref {
 	return bindings.MediaMetadataInitJSLoad(
 		js.Pointer(&p), js.True, 0,

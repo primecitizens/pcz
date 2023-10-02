@@ -316,14 +316,20 @@ type XRCubeLayerInit struct {
 	// ColorFormat is "XRCubeLayerInit.colorFormat"
 	//
 	// Optional, defaults to 0x1908.
+	//
+	// NOTE: FFI_USE_ColorFormat MUST be set to true to make this field effective.
 	ColorFormat GLenum
 	// DepthFormat is "XRCubeLayerInit.depthFormat"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthFormat MUST be set to true to make this field effective.
 	DepthFormat GLenum
 	// MipLevels is "XRCubeLayerInit.mipLevels"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MipLevels MUST be set to true to make this field effective.
 	MipLevels uint32
 	// ViewPixelWidth is "XRCubeLayerInit.viewPixelWidth"
 	//
@@ -340,10 +346,14 @@ type XRCubeLayerInit struct {
 	// IsStatic is "XRCubeLayerInit.isStatic"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsStatic MUST be set to true to make this field effective.
 	IsStatic bool
 	// ClearOnAccess is "XRCubeLayerInit.clearOnAccess"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ClearOnAccess MUST be set to true to make this field effective.
 	ClearOnAccess bool
 
 	FFI_USE_ColorFormat   bool // for ColorFormat.
@@ -361,7 +371,7 @@ func (p XRCubeLayerInit) FromRef(ref js.Ref) XRCubeLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRCubeLayerInit XRCubeLayerInit [// XRCubeLayerInit] [0x14000aee640 0x14000aee6e0 0x14000aee780 0x14000aee960 0x14000aeeaa0 0x14000aeebe0 0x14000aeec80 0x14000aeed20 0x14000aeedc0 0x14000aeef00 0x14000aee820 0x14000aeea00 0x14000aeeb40 0x14000aeee60 0x14000aeefa0] 0x14000ad4e70 {0 0}} in the application heap.
+// New creates a new XRCubeLayerInit in the application heap.
 func (p XRCubeLayerInit) New() js.Ref {
 	return bindings.XRCubeLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -545,14 +555,20 @@ type XRCylinderLayerInit struct {
 	// Radius is "XRCylinderLayerInit.radius"
 	//
 	// Optional, defaults to 2.0.
+	//
+	// NOTE: FFI_USE_Radius MUST be set to true to make this field effective.
 	Radius float32
 	// CentralAngle is "XRCylinderLayerInit.centralAngle"
 	//
 	// Optional, defaults to 0.78539.
+	//
+	// NOTE: FFI_USE_CentralAngle MUST be set to true to make this field effective.
 	CentralAngle float32
 	// AspectRatio is "XRCylinderLayerInit.aspectRatio"
 	//
 	// Optional, defaults to 2.0.
+	//
+	// NOTE: FFI_USE_AspectRatio MUST be set to true to make this field effective.
 	AspectRatio float32
 	// Space is "XRCylinderLayerInit.space"
 	//
@@ -561,14 +577,20 @@ type XRCylinderLayerInit struct {
 	// ColorFormat is "XRCylinderLayerInit.colorFormat"
 	//
 	// Optional, defaults to 0x1908.
+	//
+	// NOTE: FFI_USE_ColorFormat MUST be set to true to make this field effective.
 	ColorFormat GLenum
 	// DepthFormat is "XRCylinderLayerInit.depthFormat"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthFormat MUST be set to true to make this field effective.
 	DepthFormat GLenum
 	// MipLevels is "XRCylinderLayerInit.mipLevels"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MipLevels MUST be set to true to make this field effective.
 	MipLevels uint32
 	// ViewPixelWidth is "XRCylinderLayerInit.viewPixelWidth"
 	//
@@ -585,10 +607,14 @@ type XRCylinderLayerInit struct {
 	// IsStatic is "XRCylinderLayerInit.isStatic"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsStatic MUST be set to true to make this field effective.
 	IsStatic bool
 	// ClearOnAccess is "XRCylinderLayerInit.clearOnAccess"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ClearOnAccess MUST be set to true to make this field effective.
 	ClearOnAccess bool
 
 	FFI_USE_Radius        bool // for Radius.
@@ -609,7 +635,7 @@ func (p XRCylinderLayerInit) FromRef(ref js.Ref) XRCylinderLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRCylinderLayerInit XRCylinderLayerInit [// XRCylinderLayerInit] [0x14000aef0e0 0x14000aef180 0x14000aef220 0x14000aef360 0x14000aef4a0 0x14000aef5e0 0x14000aef680 0x14000aef7c0 0x14000aef900 0x14000aefa40 0x14000aefae0 0x14000aefb80 0x14000aefc20 0x14000aefd60 0x14000aef2c0 0x14000aef400 0x14000aef540 0x14000aef720 0x14000aef860 0x14000aef9a0 0x14000aefcc0 0x14000aefe00] 0x14000ad4f00 {0 0}} in the application heap.
+// New creates a new XRCylinderLayerInit in the application heap.
 func (p XRCylinderLayerInit) New() js.Ref {
 	return bindings.XRCylinderLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -856,18 +882,26 @@ type XREquirectLayerInit struct {
 	// Radius is "XREquirectLayerInit.radius"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Radius MUST be set to true to make this field effective.
 	Radius float32
 	// CentralHorizontalAngle is "XREquirectLayerInit.centralHorizontalAngle"
 	//
 	// Optional, defaults to 6.28318.
+	//
+	// NOTE: FFI_USE_CentralHorizontalAngle MUST be set to true to make this field effective.
 	CentralHorizontalAngle float32
 	// UpperVerticalAngle is "XREquirectLayerInit.upperVerticalAngle"
 	//
 	// Optional, defaults to 1.570795.
+	//
+	// NOTE: FFI_USE_UpperVerticalAngle MUST be set to true to make this field effective.
 	UpperVerticalAngle float32
 	// LowerVerticalAngle is "XREquirectLayerInit.lowerVerticalAngle"
 	//
 	// Optional, defaults to -1.570795.
+	//
+	// NOTE: FFI_USE_LowerVerticalAngle MUST be set to true to make this field effective.
 	LowerVerticalAngle float32
 	// Space is "XREquirectLayerInit.space"
 	//
@@ -876,14 +910,20 @@ type XREquirectLayerInit struct {
 	// ColorFormat is "XREquirectLayerInit.colorFormat"
 	//
 	// Optional, defaults to 0x1908.
+	//
+	// NOTE: FFI_USE_ColorFormat MUST be set to true to make this field effective.
 	ColorFormat GLenum
 	// DepthFormat is "XREquirectLayerInit.depthFormat"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthFormat MUST be set to true to make this field effective.
 	DepthFormat GLenum
 	// MipLevels is "XREquirectLayerInit.mipLevels"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MipLevels MUST be set to true to make this field effective.
 	MipLevels uint32
 	// ViewPixelWidth is "XREquirectLayerInit.viewPixelWidth"
 	//
@@ -900,10 +940,14 @@ type XREquirectLayerInit struct {
 	// IsStatic is "XREquirectLayerInit.isStatic"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsStatic MUST be set to true to make this field effective.
 	IsStatic bool
 	// ClearOnAccess is "XREquirectLayerInit.clearOnAccess"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ClearOnAccess MUST be set to true to make this field effective.
 	ClearOnAccess bool
 
 	FFI_USE_Radius                 bool // for Radius.
@@ -925,7 +969,7 @@ func (p XREquirectLayerInit) FromRef(ref js.Ref) XREquirectLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XREquirectLayerInit XREquirectLayerInit [// XREquirectLayerInit] [0x14000b0c000 0x14000b0c0a0 0x14000b0c140 0x14000b0c280 0x14000b0c3c0 0x14000b0c500 0x14000b0c640 0x14000b0c6e0 0x14000b0c820 0x14000b0c960 0x14000b0caa0 0x14000b0cb40 0x14000b0cbe0 0x14000b0cc80 0x14000b0cdc0 0x14000b0c1e0 0x14000b0c320 0x14000b0c460 0x14000b0c5a0 0x14000b0c780 0x14000b0c8c0 0x14000b0ca00 0x14000b0cd20 0x14000b0ce60] 0x14000ad4ff0 {0 0}} in the application heap.
+// New creates a new XREquirectLayerInit in the application heap.
 func (p XREquirectLayerInit) New() js.Ref {
 	return bindings.XREquirectLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -958,14 +1002,20 @@ type XRInputSourceEventInit struct {
 	// Bubbles is "XRInputSourceEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "XRInputSourceEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "XRInputSourceEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -981,7 +1031,7 @@ func (p XRInputSourceEventInit) FromRef(ref js.Ref) XRInputSourceEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRInputSourceEventInit XRInputSourceEventInit [// XRInputSourceEventInit] [0x14000b0cf00 0x14000b0cfa0 0x14000b0d040 0x14000b0d180 0x14000b0d2c0 0x14000b0d0e0 0x14000b0d220 0x14000b0d360] 0x14000ad5068 {0 0}} in the application heap.
+// New creates a new XRInputSourceEventInit in the application heap.
 func (p XRInputSourceEventInit) New() js.Ref {
 	return bindings.XRInputSourceEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1070,14 +1120,20 @@ type XRInputSourcesChangeEventInit struct {
 	// Bubbles is "XRInputSourcesChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "XRInputSourcesChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "XRInputSourcesChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1093,7 +1149,7 @@ func (p XRInputSourcesChangeEventInit) FromRef(ref js.Ref) XRInputSourcesChangeE
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRInputSourcesChangeEventInit XRInputSourcesChangeEventInit [// XRInputSourcesChangeEventInit] [0x14000b0d4a0 0x14000b0d540 0x14000b0d5e0 0x14000b0d680 0x14000b0d7c0 0x14000b0d900 0x14000b0d720 0x14000b0d860 0x14000b0d9a0] 0x14000ad5098 {0 0}} in the application heap.
+// New creates a new XRInputSourcesChangeEventInit in the application heap.
 func (p XRInputSourcesChangeEventInit) New() js.Ref {
 	return bindings.XRInputSourcesChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1185,14 +1241,20 @@ type XRLayerEventInit struct {
 	// Bubbles is "XRLayerEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "XRLayerEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "XRLayerEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1208,7 +1270,7 @@ func (p XRLayerEventInit) FromRef(ref js.Ref) XRLayerEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRLayerEventInit XRLayerEventInit [// XRLayerEventInit] [0x14000b0dae0 0x14000b0db80 0x14000b0dcc0 0x14000b0de00 0x14000b0dc20 0x14000b0dd60 0x14000b0dea0] 0x14000ad50e0 {0 0}} in the application heap.
+// New creates a new XRLayerEventInit in the application heap.
 func (p XRLayerEventInit) New() js.Ref {
 	return bindings.XRLayerEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1278,14 +1340,20 @@ type XRLayerInit struct {
 	// ColorFormat is "XRLayerInit.colorFormat"
 	//
 	// Optional, defaults to 0x1908.
+	//
+	// NOTE: FFI_USE_ColorFormat MUST be set to true to make this field effective.
 	ColorFormat GLenum
 	// DepthFormat is "XRLayerInit.depthFormat"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthFormat MUST be set to true to make this field effective.
 	DepthFormat GLenum
 	// MipLevels is "XRLayerInit.mipLevels"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MipLevels MUST be set to true to make this field effective.
 	MipLevels uint32
 	// ViewPixelWidth is "XRLayerInit.viewPixelWidth"
 	//
@@ -1302,10 +1370,14 @@ type XRLayerInit struct {
 	// IsStatic is "XRLayerInit.isStatic"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsStatic MUST be set to true to make this field effective.
 	IsStatic bool
 	// ClearOnAccess is "XRLayerInit.clearOnAccess"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ClearOnAccess MUST be set to true to make this field effective.
 	ClearOnAccess bool
 
 	FFI_USE_ColorFormat   bool // for ColorFormat.
@@ -1323,7 +1395,7 @@ func (p XRLayerInit) FromRef(ref js.Ref) XRLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRLayerInit XRLayerInit [// XRLayerInit] [0x14000b0df40 0x14000b0e000 0x14000b0e140 0x14000b0e280 0x14000b0e3c0 0x14000b0e460 0x14000b0e500 0x14000b0e5a0 0x14000b0e6e0 0x14000b0e0a0 0x14000b0e1e0 0x14000b0e320 0x14000b0e640 0x14000b0e780] 0x14000ad5110 {0 0}} in the application heap.
+// New creates a new XRLayerInit in the application heap.
 func (p XRLayerInit) New() js.Ref {
 	return bindings.XRLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1458,10 +1530,14 @@ type XRMediaQuadLayerInit struct {
 	// Width is "XRMediaQuadLayerInit.width"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width float32
 	// Height is "XRMediaQuadLayerInit.height"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height float32
 	// Space is "XRMediaQuadLayerInit.space"
 	//
@@ -1474,6 +1550,8 @@ type XRMediaQuadLayerInit struct {
 	// InvertStereo is "XRMediaQuadLayerInit.invertStereo"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_InvertStereo MUST be set to true to make this field effective.
 	InvertStereo bool
 
 	FFI_USE_Width        bool // for Width.
@@ -1489,7 +1567,7 @@ func (p XRMediaQuadLayerInit) FromRef(ref js.Ref) XRMediaQuadLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRMediaQuadLayerInit XRMediaQuadLayerInit [// XRMediaQuadLayerInit] [0x14000b0e8c0 0x14000b0e960 0x14000b0eaa0 0x14000b0ebe0 0x14000b0ec80 0x14000b0ed20 0x14000b0ea00 0x14000b0eb40 0x14000b0edc0] 0x14000ad51b8 {0 0}} in the application heap.
+// New creates a new XRMediaQuadLayerInit in the application heap.
 func (p XRMediaQuadLayerInit) New() js.Ref {
 	return bindings.XRMediaQuadLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1518,14 +1596,20 @@ type XRMediaCylinderLayerInit struct {
 	// Radius is "XRMediaCylinderLayerInit.radius"
 	//
 	// Optional, defaults to 2.0.
+	//
+	// NOTE: FFI_USE_Radius MUST be set to true to make this field effective.
 	Radius float32
 	// CentralAngle is "XRMediaCylinderLayerInit.centralAngle"
 	//
 	// Optional, defaults to 0.78539.
+	//
+	// NOTE: FFI_USE_CentralAngle MUST be set to true to make this field effective.
 	CentralAngle float32
 	// AspectRatio is "XRMediaCylinderLayerInit.aspectRatio"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_AspectRatio MUST be set to true to make this field effective.
 	AspectRatio float32
 	// Space is "XRMediaCylinderLayerInit.space"
 	//
@@ -1538,6 +1622,8 @@ type XRMediaCylinderLayerInit struct {
 	// InvertStereo is "XRMediaCylinderLayerInit.invertStereo"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_InvertStereo MUST be set to true to make this field effective.
 	InvertStereo bool
 
 	FFI_USE_Radius       bool // for Radius.
@@ -1554,7 +1640,7 @@ func (p XRMediaCylinderLayerInit) FromRef(ref js.Ref) XRMediaCylinderLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRMediaCylinderLayerInit XRMediaCylinderLayerInit [// XRMediaCylinderLayerInit] [0x14000b0ee60 0x14000b0ef00 0x14000b0f040 0x14000b0f180 0x14000b0f2c0 0x14000b0f360 0x14000b0f400 0x14000b0efa0 0x14000b0f0e0 0x14000b0f220 0x14000b0f4a0] 0x14000ad5200 {0 0}} in the application heap.
+// New creates a new XRMediaCylinderLayerInit in the application heap.
 func (p XRMediaCylinderLayerInit) New() js.Ref {
 	return bindings.XRMediaCylinderLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1583,18 +1669,26 @@ type XRMediaEquirectLayerInit struct {
 	// Radius is "XRMediaEquirectLayerInit.radius"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_Radius MUST be set to true to make this field effective.
 	Radius float32
 	// CentralHorizontalAngle is "XRMediaEquirectLayerInit.centralHorizontalAngle"
 	//
 	// Optional, defaults to 6.28318.
+	//
+	// NOTE: FFI_USE_CentralHorizontalAngle MUST be set to true to make this field effective.
 	CentralHorizontalAngle float32
 	// UpperVerticalAngle is "XRMediaEquirectLayerInit.upperVerticalAngle"
 	//
 	// Optional, defaults to 1.570795.
+	//
+	// NOTE: FFI_USE_UpperVerticalAngle MUST be set to true to make this field effective.
 	UpperVerticalAngle float32
 	// LowerVerticalAngle is "XRMediaEquirectLayerInit.lowerVerticalAngle"
 	//
 	// Optional, defaults to -1.570795.
+	//
+	// NOTE: FFI_USE_LowerVerticalAngle MUST be set to true to make this field effective.
 	LowerVerticalAngle float32
 	// Space is "XRMediaEquirectLayerInit.space"
 	//
@@ -1607,6 +1701,8 @@ type XRMediaEquirectLayerInit struct {
 	// InvertStereo is "XRMediaEquirectLayerInit.invertStereo"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_InvertStereo MUST be set to true to make this field effective.
 	InvertStereo bool
 
 	FFI_USE_Radius                 bool // for Radius.
@@ -1624,7 +1720,7 @@ func (p XRMediaEquirectLayerInit) FromRef(ref js.Ref) XRMediaEquirectLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRMediaEquirectLayerInit XRMediaEquirectLayerInit [// XRMediaEquirectLayerInit] [0x14000b0f540 0x14000b0f5e0 0x14000b0f720 0x14000b0f860 0x14000b0f9a0 0x14000b0fae0 0x14000b0fb80 0x14000b0fc20 0x14000b0f680 0x14000b0f7c0 0x14000b0f900 0x14000b0fa40 0x14000b0fcc0] 0x14000ad5290 {0 0}} in the application heap.
+// New creates a new XRMediaEquirectLayerInit in the application heap.
 func (p XRMediaEquirectLayerInit) New() js.Ref {
 	return bindings.XRMediaEquirectLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1833,6 +1929,8 @@ type XRMediaLayerInit struct {
 	// InvertStereo is "XRMediaLayerInit.invertStereo"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_InvertStereo MUST be set to true to make this field effective.
 	InvertStereo bool
 
 	FFI_USE_InvertStereo bool // for InvertStereo.
@@ -1846,7 +1944,7 @@ func (p XRMediaLayerInit) FromRef(ref js.Ref) XRMediaLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRMediaLayerInit XRMediaLayerInit [// XRMediaLayerInit] [0x14000b0fd60 0x14000b0fe00 0x14000b0fea0 0x14000b0ff40] 0x14000ad52f0 {0 0}} in the application heap.
+// New creates a new XRMediaLayerInit in the application heap.
 func (p XRMediaLayerInit) New() js.Ref {
 	return bindings.XRMediaLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1971,7 +2069,7 @@ func (p XRPermissionDescriptor) FromRef(ref js.Ref) XRPermissionDescriptor {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRPermissionDescriptor XRPermissionDescriptor [// XRPermissionDescriptor] [0x14000b160a0 0x14000b16140 0x14000b161e0 0x14000b16280] 0x14000ad5320 {0 0}} in the application heap.
+// New creates a new XRPermissionDescriptor in the application heap.
 func (p XRPermissionDescriptor) New() js.Ref {
 	return bindings.XRPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2151,18 +2249,26 @@ type XRProjectionLayerInit struct {
 	// ColorFormat is "XRProjectionLayerInit.colorFormat"
 	//
 	// Optional, defaults to 0x1908.
+	//
+	// NOTE: FFI_USE_ColorFormat MUST be set to true to make this field effective.
 	ColorFormat GLenum
 	// DepthFormat is "XRProjectionLayerInit.depthFormat"
 	//
 	// Optional, defaults to 0x1902.
+	//
+	// NOTE: FFI_USE_DepthFormat MUST be set to true to make this field effective.
 	DepthFormat GLenum
 	// ScaleFactor is "XRProjectionLayerInit.scaleFactor"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_ScaleFactor MUST be set to true to make this field effective.
 	ScaleFactor float64
 	// ClearOnAccess is "XRProjectionLayerInit.clearOnAccess"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ClearOnAccess MUST be set to true to make this field effective.
 	ClearOnAccess bool
 
 	FFI_USE_ColorFormat   bool // for ColorFormat.
@@ -2179,7 +2285,7 @@ func (p XRProjectionLayerInit) FromRef(ref js.Ref) XRProjectionLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRProjectionLayerInit XRProjectionLayerInit [// XRProjectionLayerInit] [0x14000b163c0 0x14000b16460 0x14000b165a0 0x14000b166e0 0x14000b16820 0x14000b16500 0x14000b16640 0x14000b16780 0x14000b168c0] 0x14000ad5380 {0 0}} in the application heap.
+// New creates a new XRProjectionLayerInit in the application heap.
 func (p XRProjectionLayerInit) New() js.Ref {
 	return bindings.XRProjectionLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2212,10 +2318,14 @@ type XRQuadLayerInit struct {
 	// Width is "XRQuadLayerInit.width"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width float32
 	// Height is "XRQuadLayerInit.height"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height float32
 	// Space is "XRQuadLayerInit.space"
 	//
@@ -2224,14 +2334,20 @@ type XRQuadLayerInit struct {
 	// ColorFormat is "XRQuadLayerInit.colorFormat"
 	//
 	// Optional, defaults to 0x1908.
+	//
+	// NOTE: FFI_USE_ColorFormat MUST be set to true to make this field effective.
 	ColorFormat GLenum
 	// DepthFormat is "XRQuadLayerInit.depthFormat"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_DepthFormat MUST be set to true to make this field effective.
 	DepthFormat GLenum
 	// MipLevels is "XRQuadLayerInit.mipLevels"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_MipLevels MUST be set to true to make this field effective.
 	MipLevels uint32
 	// ViewPixelWidth is "XRQuadLayerInit.viewPixelWidth"
 	//
@@ -2248,10 +2364,14 @@ type XRQuadLayerInit struct {
 	// IsStatic is "XRQuadLayerInit.isStatic"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IsStatic MUST be set to true to make this field effective.
 	IsStatic bool
 	// ClearOnAccess is "XRQuadLayerInit.clearOnAccess"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_ClearOnAccess MUST be set to true to make this field effective.
 	ClearOnAccess bool
 
 	FFI_USE_Width         bool // for Width.
@@ -2271,7 +2391,7 @@ func (p XRQuadLayerInit) FromRef(ref js.Ref) XRQuadLayerInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRQuadLayerInit XRQuadLayerInit [// XRQuadLayerInit] [0x14000b16960 0x14000b16a00 0x14000b16aa0 0x14000b16be0 0x14000b16d20 0x14000b16dc0 0x14000b16f00 0x14000b17040 0x14000b17180 0x14000b17220 0x14000b172c0 0x14000b17360 0x14000b174a0 0x14000b16b40 0x14000b16c80 0x14000b16e60 0x14000b16fa0 0x14000b170e0 0x14000b17400 0x14000b17540] 0x14000ad5410 {0 0}} in the application heap.
+// New creates a new XRQuadLayerInit in the application heap.
 func (p XRQuadLayerInit) New() js.Ref {
 	return bindings.XRQuadLayerInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2304,14 +2424,20 @@ type XRReferenceSpaceEventInit struct {
 	// Bubbles is "XRReferenceSpaceEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "XRReferenceSpaceEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "XRReferenceSpaceEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2327,7 +2453,7 @@ func (p XRReferenceSpaceEventInit) FromRef(ref js.Ref) XRReferenceSpaceEventInit
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRReferenceSpaceEventInit XRReferenceSpaceEventInit [// XRReferenceSpaceEventInit] [0x14000b175e0 0x14000b17680 0x14000b17720 0x14000b17860 0x14000b179a0 0x14000b177c0 0x14000b17900 0x14000b17a40] 0x14000ad5488 {0 0}} in the application heap.
+// New creates a new XRReferenceSpaceEventInit in the application heap.
 func (p XRReferenceSpaceEventInit) New() js.Ref {
 	return bindings.XRReferenceSpaceEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2408,14 +2534,20 @@ type XRSessionEventInit struct {
 	// Bubbles is "XRSessionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "XRSessionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "XRSessionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2431,7 +2563,7 @@ func (p XRSessionEventInit) FromRef(ref js.Ref) XRSessionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRSessionEventInit XRSessionEventInit [// XRSessionEventInit] [0x14000b17b80 0x14000b17c20 0x14000b17d60 0x14000b17ea0 0x14000b17cc0 0x14000b17e00 0x14000b17f40] 0x14000ad54d0 {0 0}} in the application heap.
+// New creates a new XRSessionEventInit in the application heap.
 func (p XRSessionEventInit) New() js.Ref {
 	return bindings.XRSessionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2512,7 +2644,7 @@ func (p XRSessionSupportedPermissionDescriptor) FromRef(ref js.Ref) XRSessionSup
 	return p
 }
 
-// New creates a new {0x140004cc0e0 XRSessionSupportedPermissionDescriptor XRSessionSupportedPermissionDescriptor [// XRSessionSupportedPermissionDescriptor] [0x14000b18000 0x14000b180a0] 0x14000ad5500 {0 0}} in the application heap.
+// New creates a new XRSessionSupportedPermissionDescriptor in the application heap.
 func (p XRSessionSupportedPermissionDescriptor) New() js.Ref {
 	return bindings.XRSessionSupportedPermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,

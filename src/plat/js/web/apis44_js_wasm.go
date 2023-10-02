@@ -144,7 +144,7 @@ func (p NavigationInterceptOptions) FromRef(ref js.Ref) NavigationInterceptOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationInterceptOptions NavigationInterceptOptions [// NavigationInterceptOptions] [0x14000934640 0x140009346e0 0x14000934780] 0x140009203f0 {0 0}} in the application heap.
+// New creates a new NavigationInterceptOptions in the application heap.
 func (p NavigationInterceptOptions) New() js.Ref {
 	return bindings.NavigationInterceptOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -390,14 +390,20 @@ type NavigationCurrentEntryChangeEventInit struct {
 	// Bubbles is "NavigationCurrentEntryChangeEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "NavigationCurrentEntryChangeEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "NavigationCurrentEntryChangeEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -413,7 +419,7 @@ func (p NavigationCurrentEntryChangeEventInit) FromRef(ref js.Ref) NavigationCur
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationCurrentEntryChangeEventInit NavigationCurrentEntryChangeEventInit [// NavigationCurrentEntryChangeEventInit] [0x140009348c0 0x14000934960 0x14000934a00 0x14000934b40 0x14000934c80 0x14000934aa0 0x14000934be0 0x14000934d20] 0x14000920498 {0 0}} in the application heap.
+// New creates a new NavigationCurrentEntryChangeEventInit in the application heap.
 func (p NavigationCurrentEntryChangeEventInit) New() js.Ref {
 	return bindings.NavigationCurrentEntryChangeEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -502,18 +508,26 @@ type NavigationEventInit struct {
 	// Detail is "NavigationEventInit.detail"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Detail MUST be set to true to make this field effective.
 	Detail int32
 	// Bubbles is "NavigationEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "NavigationEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "NavigationEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Detail     bool // for Detail.
@@ -530,7 +544,7 @@ func (p NavigationEventInit) FromRef(ref js.Ref) NavigationEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NavigationEventInit NavigationEventInit [// NavigationEventInit] [0x14000934e60 0x14000934f00 0x14000934fa0 0x14000935040 0x14000935180 0x140009352c0 0x14000935400 0x140009350e0 0x14000935220 0x14000935360 0x140009354a0] 0x14000920510 {0 0}} in the application heap.
+// New creates a new NavigationEventInit in the application heap.
 func (p NavigationEventInit) New() js.Ref {
 	return bindings.NavigationEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -652,14 +666,20 @@ type NotificationEventInit struct {
 	// Bubbles is "NotificationEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "NotificationEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "NotificationEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -675,7 +695,7 @@ func (p NotificationEventInit) FromRef(ref js.Ref) NotificationEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 NotificationEventInit NotificationEventInit [// NotificationEventInit] [0x140009355e0 0x14000935680 0x14000935720 0x14000935860 0x140009359a0 0x140009357c0 0x14000935900 0x14000935a40] 0x140009205a0 {0 0}} in the application heap.
+// New creates a new NotificationEventInit in the application heap.
 func (p NotificationEventInit) New() js.Ref {
 	return bindings.NotificationEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1367,14 +1387,20 @@ type OfflineAudioCompletionEventInit struct {
 	// Bubbles is "OfflineAudioCompletionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "OfflineAudioCompletionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "OfflineAudioCompletionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -1390,7 +1416,7 @@ func (p OfflineAudioCompletionEventInit) FromRef(ref js.Ref) OfflineAudioComplet
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OfflineAudioCompletionEventInit OfflineAudioCompletionEventInit [// OfflineAudioCompletionEventInit] [0x14000935b80 0x14000935c20 0x14000935d60 0x14000935ea0 0x14000935cc0 0x14000935e00 0x14000935f40] 0x140009205d0 {0 0}} in the application heap.
+// New creates a new OfflineAudioCompletionEventInit in the application heap.
 func (p OfflineAudioCompletionEventInit) New() js.Ref {
 	return bindings.OfflineAudioCompletionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1456,6 +1482,8 @@ type OfflineAudioContextOptions struct {
 	// NumberOfChannels is "OfflineAudioContextOptions.numberOfChannels"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_NumberOfChannels MUST be set to true to make this field effective.
 	NumberOfChannels uint32
 	// Length is "OfflineAudioContextOptions.length"
 	//
@@ -1477,7 +1505,7 @@ func (p OfflineAudioContextOptions) FromRef(ref js.Ref) OfflineAudioContextOptio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OfflineAudioContextOptions OfflineAudioContextOptions [// OfflineAudioContextOptions] [0x1400093e000 0x1400093e140 0x1400093e1e0 0x1400093e0a0] 0x14000920600 {0 0}} in the application heap.
+// New creates a new OfflineAudioContextOptions in the application heap.
 func (p OfflineAudioContextOptions) New() js.Ref {
 	return bindings.OfflineAudioContextOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1759,18 +1787,26 @@ type PageTransitionEventInit struct {
 	// Persisted is "PageTransitionEventInit.persisted"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Persisted MUST be set to true to make this field effective.
 	Persisted bool
 	// Bubbles is "PageTransitionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "PageTransitionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "PageTransitionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Persisted  bool // for Persisted.
@@ -1787,7 +1823,7 @@ func (p PageTransitionEventInit) FromRef(ref js.Ref) PageTransitionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PageTransitionEventInit PageTransitionEventInit [// PageTransitionEventInit] [0x1400093e280 0x1400093e3c0 0x1400093e500 0x1400093e640 0x1400093e320 0x1400093e460 0x1400093e5a0 0x1400093e6e0] 0x14000920720 {0 0}} in the application heap.
+// New creates a new PageTransitionEventInit in the application heap.
 func (p PageTransitionEventInit) New() js.Ref {
 	return bindings.PageTransitionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3651,6 +3687,8 @@ type PaintRenderingContext2DSettings struct {
 	// Alpha is "PaintRenderingContext2DSettings.alpha"
 	//
 	// Optional, defaults to true.
+	//
+	// NOTE: FFI_USE_Alpha MUST be set to true to make this field effective.
 	Alpha bool
 
 	FFI_USE_Alpha bool // for Alpha.
@@ -3664,7 +3702,7 @@ func (p PaintRenderingContext2DSettings) FromRef(ref js.Ref) PaintRenderingConte
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaintRenderingContext2DSettings PaintRenderingContext2DSettings [// PaintRenderingContext2DSettings] [0x1400093e820 0x1400093e8c0] 0x14000920858 {0 0}} in the application heap.
+// New creates a new PaintRenderingContext2DSettings in the application heap.
 func (p PaintRenderingContext2DSettings) New() js.Ref {
 	return bindings.PaintRenderingContext2DSettingsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3899,7 +3937,7 @@ func (p PaymentCompleteDetails) FromRef(ref js.Ref) PaymentCompleteDetails {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentCompleteDetails PaymentCompleteDetails [// PaymentCompleteDetails] [0x1400093eaa0] 0x14000920888 {0 0}} in the application heap.
+// New creates a new PaymentCompleteDetails in the application heap.
 func (p PaymentCompleteDetails) New() js.Ref {
 	return bindings.PaymentCompleteDetailsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3932,6 +3970,8 @@ type PaymentItem struct {
 	// Pending is "PaymentItem.pending"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Pending MUST be set to true to make this field effective.
 	Pending bool
 
 	FFI_USE_Pending bool // for Pending.
@@ -3945,7 +3985,7 @@ func (p PaymentItem) FromRef(ref js.Ref) PaymentItem {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PaymentItem PaymentItem [// PaymentItem] [0x1400093eb40 0x1400093ebe0 0x1400093ec80 0x1400093ed20] 0x140009208e8 {0 0}} in the application heap.
+// New creates a new PaymentItem in the application heap.
 func (p PaymentItem) New() js.Ref {
 	return bindings.PaymentItemJSLoad(
 		js.Pointer(&p), js.True, 0,

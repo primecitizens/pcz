@@ -1801,14 +1801,20 @@ type MultiCacheQueryOptions struct {
 	// IgnoreSearch is "MultiCacheQueryOptions.ignoreSearch"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreSearch MUST be set to true to make this field effective.
 	IgnoreSearch bool
 	// IgnoreMethod is "MultiCacheQueryOptions.ignoreMethod"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreMethod MUST be set to true to make this field effective.
 	IgnoreMethod bool
 	// IgnoreVary is "MultiCacheQueryOptions.ignoreVary"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IgnoreVary MUST be set to true to make this field effective.
 	IgnoreVary bool
 
 	FFI_USE_IgnoreSearch bool // for IgnoreSearch.
@@ -1824,7 +1830,7 @@ func (p MultiCacheQueryOptions) FromRef(ref js.Ref) MultiCacheQueryOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 MultiCacheQueryOptions MultiCacheQueryOptions [// MultiCacheQueryOptions] [0x14000543ea0 0x14000543f40 0x140005be0a0 0x140005be1e0 0x140005be000 0x140005be140 0x140005be280] 0x14000574258 {0 0}} in the application heap.
+// New creates a new MultiCacheQueryOptions in the application heap.
 func (p MultiCacheQueryOptions) New() js.Ref {
 	return bindings.MultiCacheQueryOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2015,6 +2021,8 @@ type CameraDevicePermissionDescriptor struct {
 	// PanTiltZoom is "CameraDevicePermissionDescriptor.panTiltZoom"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_PanTiltZoom MUST be set to true to make this field effective.
 	PanTiltZoom bool
 	// Name is "CameraDevicePermissionDescriptor.name"
 	//
@@ -2032,7 +2040,7 @@ func (p CameraDevicePermissionDescriptor) FromRef(ref js.Ref) CameraDevicePermis
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CameraDevicePermissionDescriptor CameraDevicePermissionDescriptor [// CameraDevicePermissionDescriptor] [0x140005be320 0x140005be460 0x140005be3c0] 0x14000574300 {0 0}} in the application heap.
+// New creates a new CameraDevicePermissionDescriptor in the application heap.
 func (p CameraDevicePermissionDescriptor) New() js.Ref {
 	return bindings.CameraDevicePermissionDescriptorJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2172,14 +2180,20 @@ type CaptureActionEventInit struct {
 	// Bubbles is "CaptureActionEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "CaptureActionEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "CaptureActionEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -2195,7 +2209,7 @@ func (p CaptureActionEventInit) FromRef(ref js.Ref) CaptureActionEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CaptureActionEventInit CaptureActionEventInit [// CaptureActionEventInit] [0x140005be500 0x140005be5a0 0x140005be6e0 0x140005be820 0x140005be640 0x140005be780 0x140005be8c0] 0x14000574360 {0 0}} in the application heap.
+// New creates a new CaptureActionEventInit in the application heap.
 func (p CaptureActionEventInit) New() js.Ref {
 	return bindings.CaptureActionEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2340,6 +2354,8 @@ type CaptureHandleConfig struct {
 	// ExposeOrigin is "CaptureHandleConfig.exposeOrigin"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ExposeOrigin MUST be set to true to make this field effective.
 	ExposeOrigin bool
 	// Handle is "CaptureHandleConfig.handle"
 	//
@@ -2361,7 +2377,7 @@ func (p CaptureHandleConfig) FromRef(ref js.Ref) CaptureHandleConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CaptureHandleConfig CaptureHandleConfig [// CaptureHandleConfig] [0x140005be960 0x140005beaa0 0x140005beb40 0x140005bea00] 0x14000574450 {0 0}} in the application heap.
+// New creates a new CaptureHandleConfig in the application heap.
 func (p CaptureHandleConfig) New() js.Ref {
 	return bindings.CaptureHandleConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2386,22 +2402,32 @@ type CapturedMouseEventInit struct {
 	// SurfaceX is "CapturedMouseEventInit.surfaceX"
 	//
 	// Optional, defaults to -1.
+	//
+	// NOTE: FFI_USE_SurfaceX MUST be set to true to make this field effective.
 	SurfaceX int32
 	// SurfaceY is "CapturedMouseEventInit.surfaceY"
 	//
 	// Optional, defaults to -1.
+	//
+	// NOTE: FFI_USE_SurfaceY MUST be set to true to make this field effective.
 	SurfaceY int32
 	// Bubbles is "CapturedMouseEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "CapturedMouseEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "CapturedMouseEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_SurfaceX   bool // for SurfaceX.
@@ -2419,7 +2445,7 @@ func (p CapturedMouseEventInit) FromRef(ref js.Ref) CapturedMouseEventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CapturedMouseEventInit CapturedMouseEventInit [// CapturedMouseEventInit] [0x140005bebe0 0x140005bed20 0x140005bee60 0x140005befa0 0x140005bf0e0 0x140005bec80 0x140005bedc0 0x140005bef00 0x140005bf040 0x140005bf180] 0x14000574498 {0 0}} in the application heap.
+// New creates a new CapturedMouseEventInit in the application heap.
 func (p CapturedMouseEventInit) New() js.Ref {
 	return bindings.CapturedMouseEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2503,22 +2529,32 @@ type CharacterBoundsUpdateEventInit struct {
 	// RangeStart is "CharacterBoundsUpdateEventInit.rangeStart"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RangeStart MUST be set to true to make this field effective.
 	RangeStart uint32
 	// RangeEnd is "CharacterBoundsUpdateEventInit.rangeEnd"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_RangeEnd MUST be set to true to make this field effective.
 	RangeEnd uint32
 	// Bubbles is "CharacterBoundsUpdateEventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "CharacterBoundsUpdateEventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "CharacterBoundsUpdateEventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_RangeStart bool // for RangeStart.
@@ -2536,7 +2572,7 @@ func (p CharacterBoundsUpdateEventInit) FromRef(ref js.Ref) CharacterBoundsUpdat
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CharacterBoundsUpdateEventInit CharacterBoundsUpdateEventInit [// CharacterBoundsUpdateEventInit] [0x140005bf2c0 0x140005bf400 0x140005bf540 0x140005bf680 0x140005bf7c0 0x140005bf360 0x140005bf4a0 0x140005bf5e0 0x140005bf720 0x140005bf860] 0x140005744f8 {0 0}} in the application heap.
+// New creates a new CharacterBoundsUpdateEventInit in the application heap.
 func (p CharacterBoundsUpdateEventInit) New() js.Ref {
 	return bindings.CharacterBoundsUpdateEventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3189,6 +3225,8 @@ type ClientQueryOptions struct {
 	// IncludeUncontrolled is "ClientQueryOptions.includeUncontrolled"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_IncludeUncontrolled MUST be set to true to make this field effective.
 	IncludeUncontrolled bool
 	// Type is "ClientQueryOptions.type"
 	//
@@ -3206,7 +3244,7 @@ func (p ClientQueryOptions) FromRef(ref js.Ref) ClientQueryOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ClientQueryOptions ClientQueryOptions [// ClientQueryOptions] [0x140005bfae0 0x140005bfc20 0x140005bfb80] 0x14000574588 {0 0}} in the application heap.
+// New creates a new ClientQueryOptions in the application heap.
 func (p ClientQueryOptions) New() js.Ref {
 	return bindings.ClientQueryOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

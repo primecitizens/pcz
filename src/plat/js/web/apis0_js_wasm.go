@@ -140,6 +140,8 @@ type AV1EncoderConfig struct {
 	// ForceScreenContentTools is "AV1EncoderConfig.forceScreenContentTools"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_ForceScreenContentTools MUST be set to true to make this field effective.
 	ForceScreenContentTools bool
 
 	FFI_USE_ForceScreenContentTools bool // for ForceScreenContentTools.
@@ -153,7 +155,7 @@ func (p AV1EncoderConfig) FromRef(ref js.Ref) AV1EncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AV1EncoderConfig AV1EncoderConfig [// AV1EncoderConfig] [0x14000d000a0 0x14000d00140] 0x14000d699b0 {0 0}} in the application heap.
+// New creates a new AV1EncoderConfig in the application heap.
 func (p AV1EncoderConfig) New() js.Ref {
 	return bindings.AV1EncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -213,7 +215,7 @@ func (p AacEncoderConfig) FromRef(ref js.Ref) AacEncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AacEncoderConfig AacEncoderConfig [// AacEncoderConfig] [0x14000d001e0] 0x14000d699e0 {0 0}} in the application heap.
+// New creates a new AacEncoderConfig in the application heap.
 func (p AacEncoderConfig) New() js.Ref {
 	return bindings.AacEncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -305,14 +307,20 @@ type EventInit struct {
 	// Bubbles is "EventInit.bubbles"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Bubbles MUST be set to true to make this field effective.
 	Bubbles bool
 	// Cancelable is "EventInit.cancelable"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Cancelable MUST be set to true to make this field effective.
 	Cancelable bool
 	// Composed is "EventInit.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Bubbles    bool // for Bubbles.
@@ -328,7 +336,7 @@ func (p EventInit) FromRef(ref js.Ref) EventInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EventInit EventInit [// EventInit] [0x14000d00320 0x14000d00460 0x14000d005a0 0x14000d003c0 0x14000d00500 0x14000d00640] 0x14000d69a70 {0 0}} in the application heap.
+// New creates a new EventInit in the application heap.
 func (p EventInit) New() js.Ref {
 	return bindings.EventInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -413,10 +421,14 @@ type AddEventListenerOptions struct {
 	// Passive is "AddEventListenerOptions.passive"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Passive MUST be set to true to make this field effective.
 	Passive bool
 	// Once is "AddEventListenerOptions.once"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Once MUST be set to true to make this field effective.
 	Once bool
 	// Signal is "AddEventListenerOptions.signal"
 	//
@@ -425,6 +437,8 @@ type AddEventListenerOptions struct {
 	// Capture is "AddEventListenerOptions.capture"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Capture MUST be set to true to make this field effective.
 	Capture bool
 
 	FFI_USE_Passive bool // for Passive.
@@ -440,7 +454,7 @@ func (p AddEventListenerOptions) FromRef(ref js.Ref) AddEventListenerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AddEventListenerOptions AddEventListenerOptions [// AddEventListenerOptions] [0x14000d006e0 0x14000d00820 0x14000d00960 0x14000d00a00 0x14000d00780 0x14000d008c0 0x14000d00aa0] 0x14000d69ab8 {0 0}} in the application heap.
+// New creates a new AddEventListenerOptions in the application heap.
 func (p AddEventListenerOptions) New() js.Ref {
 	return bindings.AddEventListenerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -493,6 +507,8 @@ type EventListenerOptions struct {
 	// Capture is "EventListenerOptions.capture"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Capture MUST be set to true to make this field effective.
 	Capture bool
 
 	FFI_USE_Capture bool // for Capture.
@@ -506,7 +522,7 @@ func (p EventListenerOptions) FromRef(ref js.Ref) EventListenerOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EventListenerOptions EventListenerOptions [// EventListenerOptions] [0x14000d00b40 0x14000d00be0] 0x14001b74198 {0 0}} in the application heap.
+// New creates a new EventListenerOptions in the application heap.
 func (p EventListenerOptions) New() js.Ref {
 	return bindings.EventListenerOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1344,7 +1360,7 @@ func (p AbsoluteOrientationReadingValues) FromRef(ref js.Ref) AbsoluteOrientatio
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AbsoluteOrientationReadingValues AbsoluteOrientationReadingValues [// AbsoluteOrientationReadingValues] [0x14000d00d20] 0x14001b741c8 {0 0}} in the application heap.
+// New creates a new AbsoluteOrientationReadingValues in the application heap.
 func (p AbsoluteOrientationReadingValues) New() js.Ref {
 	return bindings.AbsoluteOrientationReadingValuesJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1397,6 +1413,8 @@ type OrientationSensorOptions struct {
 	// Frequency is "OrientationSensorOptions.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency float64
 
 	FFI_USE_Frequency bool // for Frequency.
@@ -1410,7 +1428,7 @@ func (p OrientationSensorOptions) FromRef(ref js.Ref) OrientationSensorOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OrientationSensorOptions OrientationSensorOptions [// OrientationSensorOptions] [0x14000d00dc0 0x14000d00e60 0x14000d00f00] 0x14001b741f8 {0 0}} in the application heap.
+// New creates a new OrientationSensorOptions in the application heap.
 func (p OrientationSensorOptions) New() js.Ref {
 	return bindings.OrientationSensorOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1491,6 +1509,8 @@ type GetRootNodeOptions struct {
 	// Composed is "GetRootNodeOptions.composed"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Composed MUST be set to true to make this field effective.
 	Composed bool
 
 	FFI_USE_Composed bool // for Composed.
@@ -1504,7 +1524,7 @@ func (p GetRootNodeOptions) FromRef(ref js.Ref) GetRootNodeOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 GetRootNodeOptions GetRootNodeOptions [// GetRootNodeOptions] [0x14000d00fa0 0x14000d01040] 0x14001b74300 {0 0}} in the application heap.
+// New creates a new GetRootNodeOptions in the application heap.
 func (p GetRootNodeOptions) New() js.Ref {
 	return bindings.GetRootNodeOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1928,30 +1948,44 @@ type CSSNumericType struct {
 	// Length is "CSSNumericType.length"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Length MUST be set to true to make this field effective.
 	Length int32
 	// Angle is "CSSNumericType.angle"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Angle MUST be set to true to make this field effective.
 	Angle int32
 	// Time is "CSSNumericType.time"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Time MUST be set to true to make this field effective.
 	Time int32
 	// Frequency is "CSSNumericType.frequency"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Frequency MUST be set to true to make this field effective.
 	Frequency int32
 	// Resolution is "CSSNumericType.resolution"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Resolution MUST be set to true to make this field effective.
 	Resolution int32
 	// Flex is "CSSNumericType.flex"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Flex MUST be set to true to make this field effective.
 	Flex int32
 	// Percent is "CSSNumericType.percent"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Percent MUST be set to true to make this field effective.
 	Percent int32
 	// PercentHint is "CSSNumericType.percentHint"
 	//
@@ -1975,7 +2009,7 @@ func (p CSSNumericType) FromRef(ref js.Ref) CSSNumericType {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CSSNumericType CSSNumericType [// CSSNumericType] [0x14000d01ae0 0x14000d01c20 0x14000d01d60 0x14000d01ea0 0x14000d12000 0x14000d12140 0x14000d12280 0x14000d123c0 0x14000d01b80 0x14000d01cc0 0x14000d01e00 0x14000d01f40 0x14000d120a0 0x14000d121e0 0x14000d12320] 0x14001b744e0 {0 0}} in the application heap.
+// New creates a new CSSNumericType in the application heap.
 func (p CSSNumericType) New() js.Ref {
 	return bindings.CSSNumericTypeJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2327,10 +2361,14 @@ type EffectTiming struct {
 	// IterationStart is "EffectTiming.iterationStart"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_IterationStart MUST be set to true to make this field effective.
 	IterationStart float64
 	// Iterations is "EffectTiming.iterations"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Iterations MUST be set to true to make this field effective.
 	Iterations float64
 	// Direction is "EffectTiming.direction"
 	//
@@ -2343,14 +2381,20 @@ type EffectTiming struct {
 	// Delay is "EffectTiming.delay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Delay MUST be set to true to make this field effective.
 	Delay float64
 	// EndDelay is "EffectTiming.endDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EndDelay MUST be set to true to make this field effective.
 	EndDelay float64
 	// PlaybackRate is "EffectTiming.playbackRate"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_PlaybackRate MUST be set to true to make this field effective.
 	PlaybackRate float64
 	// Duration is "EffectTiming.duration"
 	//
@@ -2372,7 +2416,7 @@ func (p EffectTiming) FromRef(ref js.Ref) EffectTiming {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 EffectTiming EffectTiming [// EffectTiming] [0x14000d01220 0x14000d012c0 0x14000d01400 0x14000d01540 0x14000d015e0 0x14000d01680 0x14000d017c0 0x14000d01900 0x14000d12460 0x14000d01360 0x14000d014a0 0x14000d01720 0x14000d01860 0x14000d019a0] 0x14001b74348 {0 0}} in the application heap.
+// New creates a new EffectTiming in the application heap.
 func (p EffectTiming) New() js.Ref {
 	return bindings.EffectTimingJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2397,10 +2441,14 @@ type ComputedEffectTiming struct {
 	// Progress is "ComputedEffectTiming.progress"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Progress MUST be set to true to make this field effective.
 	Progress float64
 	// CurrentIteration is "ComputedEffectTiming.currentIteration"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_CurrentIteration MUST be set to true to make this field effective.
 	CurrentIteration float64
 	// Fill is "ComputedEffectTiming.fill"
 	//
@@ -2409,10 +2457,14 @@ type ComputedEffectTiming struct {
 	// IterationStart is "ComputedEffectTiming.iterationStart"
 	//
 	// Optional, defaults to 0.0.
+	//
+	// NOTE: FFI_USE_IterationStart MUST be set to true to make this field effective.
 	IterationStart float64
 	// Iterations is "ComputedEffectTiming.iterations"
 	//
 	// Optional, defaults to 1.0.
+	//
+	// NOTE: FFI_USE_Iterations MUST be set to true to make this field effective.
 	Iterations float64
 	// Direction is "ComputedEffectTiming.direction"
 	//
@@ -2453,7 +2505,7 @@ func (p ComputedEffectTiming) FromRef(ref js.Ref) ComputedEffectTiming {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ComputedEffectTiming ComputedEffectTiming [// ComputedEffectTiming] [0x14000d12500 0x14000d12640 0x14000d12780 0x14000d12820 0x14000d12960 0x14000d12aa0 0x14000d12b40 0x14000d12be0 0x14000d12c80 0x14000d12d20 0x14000d12dc0 0x14000d125a0 0x14000d126e0 0x14000d128c0 0x14000d12a00] 0x14001b74570 {0 0}} in the application heap.
+// New creates a new ComputedEffectTiming in the application heap.
 func (p ComputedEffectTiming) New() js.Ref {
 	return bindings.ComputedEffectTimingJSLoad(
 		js.Pointer(&p), js.True, 0,

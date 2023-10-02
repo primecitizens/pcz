@@ -179,7 +179,7 @@ func (p AuthenticatorAttestationResponseJSON) FromRef(ref js.Ref) AuthenticatorA
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticatorAttestationResponseJSON AuthenticatorAttestationResponseJSON [// AuthenticatorAttestationResponseJSON] [0x14000274d20 0x14000274dc0 0x14000274e60 0x14000274f00 0x14000274fa0 0x14000275040] 0x1400107e090 {0 0}} in the application heap.
+// New creates a new AuthenticatorAttestationResponseJSON in the application heap.
 func (p AuthenticatorAttestationResponseJSON) New() js.Ref {
 	return bindings.AuthenticatorAttestationResponseJSONJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -245,6 +245,8 @@ type AuthenticatorSelectionCriteria struct {
 	// RequireResidentKey is "AuthenticatorSelectionCriteria.requireResidentKey"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_RequireResidentKey MUST be set to true to make this field effective.
 	RequireResidentKey bool
 	// UserVerification is "AuthenticatorSelectionCriteria.userVerification"
 	//
@@ -262,7 +264,7 @@ func (p AuthenticatorSelectionCriteria) FromRef(ref js.Ref) AuthenticatorSelecti
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AuthenticatorSelectionCriteria AuthenticatorSelectionCriteria [// AuthenticatorSelectionCriteria] [0x140002750e0 0x14000275180 0x14000275220 0x14000275360 0x140002752c0] 0x1400107e0a8 {0 0}} in the application heap.
+// New creates a new AuthenticatorSelectionCriteria in the application heap.
 func (p AuthenticatorSelectionCriteria) New() js.Ref {
 	return bindings.AuthenticatorSelectionCriteriaJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -430,7 +432,7 @@ func (p AvcEncoderConfig) FromRef(ref js.Ref) AvcEncoderConfig {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AvcEncoderConfig AvcEncoderConfig [// AvcEncoderConfig] [0x14000275400] 0x1400107e138 {0 0}} in the application heap.
+// New creates a new AvcEncoderConfig in the application heap.
 func (p AvcEncoderConfig) New() js.Ref {
 	return bindings.AvcEncoderConfigJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1230,7 +1232,7 @@ func (p PrivateToken) FromRef(ref js.Ref) PrivateToken {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 PrivateToken PrivateToken [// PrivateToken] [0x14000275ea0 0x14000275f40 0x14000294000 0x140002940a0] 0x1400107e408 {0 0}} in the application heap.
+// New creates a new PrivateToken in the application heap.
 func (p PrivateToken) New() js.Ref {
 	return bindings.PrivateTokenJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1319,6 +1321,8 @@ type RequestInit struct {
 	// Keepalive is "RequestInit.keepalive"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Keepalive MUST be set to true to make this field effective.
 	Keepalive bool
 	// Signal is "RequestInit.signal"
 	//
@@ -1360,7 +1364,7 @@ func (p RequestInit) FromRef(ref js.Ref) RequestInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 RequestInit RequestInit [// RequestInit] [0x140002754a0 0x14000275540 0x140002755e0 0x14000275680 0x14000275720 0x140002757c0 0x14000275860 0x14000275900 0x140002759a0 0x14000275a40 0x14000275ae0 0x14000275c20 0x14000275cc0 0x14000275d60 0x14000275e00 0x14000294140 0x140002941e0 0x14000294280 0x14000275b80] 0x1400107e180 {0 0}} in the application heap.
+// New creates a new RequestInit in the application heap.
 func (p RequestInit) New() js.Ref {
 	return bindings.RequestInitJSLoad(
 		js.Pointer(&p), js.True, 0,

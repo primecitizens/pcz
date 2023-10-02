@@ -3766,6 +3766,8 @@ type CSSMatrixComponentOptions struct {
 	// Is2D is "CSSMatrixComponentOptions.is2D"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Is2D MUST be set to true to make this field effective.
 	Is2D bool
 
 	FFI_USE_Is2D bool // for Is2D.
@@ -3779,7 +3781,7 @@ func (p CSSMatrixComponentOptions) FromRef(ref js.Ref) CSSMatrixComponentOptions
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CSSMatrixComponentOptions CSSMatrixComponentOptions [// CSSMatrixComponentOptions] [0x14000543220 0x140005432c0] 0x14000574078 {0 0}} in the application heap.
+// New creates a new CSSMatrixComponentOptions in the application heap.
 func (p CSSMatrixComponentOptions) New() js.Ref {
 	return bindings.CSSMatrixComponentOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,

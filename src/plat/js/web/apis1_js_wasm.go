@@ -21,10 +21,14 @@ type OptionalEffectTiming struct {
 	// Delay is "OptionalEffectTiming.delay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Delay MUST be set to true to make this field effective.
 	Delay float64
 	// EndDelay is "OptionalEffectTiming.endDelay"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_EndDelay MUST be set to true to make this field effective.
 	EndDelay float64
 	// Fill is "OptionalEffectTiming.fill"
 	//
@@ -33,10 +37,14 @@ type OptionalEffectTiming struct {
 	// IterationStart is "OptionalEffectTiming.iterationStart"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_IterationStart MUST be set to true to make this field effective.
 	IterationStart float64
 	// Iterations is "OptionalEffectTiming.iterations"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_Iterations MUST be set to true to make this field effective.
 	Iterations float64
 	// Duration is "OptionalEffectTiming.duration"
 	//
@@ -53,6 +61,8 @@ type OptionalEffectTiming struct {
 	// PlaybackRate is "OptionalEffectTiming.playbackRate"
 	//
 	// Optional
+	//
+	// NOTE: FFI_USE_PlaybackRate MUST be set to true to make this field effective.
 	PlaybackRate float64
 
 	FFI_USE_Delay          bool // for Delay.
@@ -70,7 +80,7 @@ func (p OptionalEffectTiming) FromRef(ref js.Ref) OptionalEffectTiming {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 OptionalEffectTiming OptionalEffectTiming [// OptionalEffectTiming] [0x14000d12e60 0x14000d12fa0 0x14000d130e0 0x14000d13180 0x14000d132c0 0x14000d13400 0x14000d134a0 0x14000d13540 0x14000d135e0 0x14000d12f00 0x14000d13040 0x14000d13220 0x14000d13360 0x14000d13680] 0x14001b74618 {0 0}} in the application heap.
+// New creates a new OptionalEffectTiming in the application heap.
 func (p OptionalEffectTiming) New() js.Ref {
 	return bindings.OptionalEffectTimingJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -1352,6 +1362,8 @@ type CSSStyleSheetInit struct {
 	// Disabled is "CSSStyleSheetInit.disabled"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Disabled MUST be set to true to make this field effective.
 	Disabled bool
 
 	FFI_USE_Disabled bool // for Disabled.
@@ -1365,7 +1377,7 @@ func (p CSSStyleSheetInit) FromRef(ref js.Ref) CSSStyleSheetInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 CSSStyleSheetInit CSSStyleSheetInit [// CSSStyleSheetInit] [0x14000d13a40 0x14000d13b80 0x14000d13c20 0x14000d13cc0] 0x14001b74750 {0 0}} in the application heap.
+// New creates a new CSSStyleSheetInit in the application heap.
 func (p CSSStyleSheetInit) New() js.Ref {
 	return bindings.CSSStyleSheetInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2124,6 +2136,8 @@ type ShadowRootInit struct {
 	// DelegatesFocus is "ShadowRootInit.delegatesFocus"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_DelegatesFocus MUST be set to true to make this field effective.
 	DelegatesFocus bool
 	// SlotAssignment is "ShadowRootInit.slotAssignment"
 	//
@@ -2141,7 +2155,7 @@ func (p ShadowRootInit) FromRef(ref js.Ref) ShadowRootInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ShadowRootInit ShadowRootInit [// ShadowRootInit] [0x14000d13ea0 0x14000d13f40 0x14000d180a0 0x14000d18000] 0x14001b74960 {0 0}} in the application heap.
+// New creates a new ShadowRootInit in the application heap.
 func (p ShadowRootInit) New() js.Ref {
 	return bindings.ShadowRootInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2318,7 +2332,7 @@ func (p FullscreenOptions) FromRef(ref js.Ref) FullscreenOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FullscreenOptions FullscreenOptions [// FullscreenOptions] [0x14000d18140 0x14000d18280] 0x14001b74e88 {0 0}} in the application heap.
+// New creates a new FullscreenOptions in the application heap.
 func (p FullscreenOptions) New() js.Ref {
 	return bindings.FullscreenOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2604,7 +2618,7 @@ func (p FocusableAreasOption) FromRef(ref js.Ref) FocusableAreasOption {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 FocusableAreasOption FocusableAreasOption [// FocusableAreasOption] [0x14000d18320] 0x14001b74f18 {0 0}} in the application heap.
+// New creates a new FocusableAreasOption in the application heap.
 func (p FocusableAreasOption) New() js.Ref {
 	return bindings.FocusableAreasOptionJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2674,7 +2688,7 @@ func (p SpatialNavigationSearchOptions) FromRef(ref js.Ref) SpatialNavigationSea
 	return p
 }
 
-// New creates a new {0x140004cc0e0 SpatialNavigationSearchOptions SpatialNavigationSearchOptions [// SpatialNavigationSearchOptions] [0x14000d183c0 0x14000d18460] 0x14001b74f60 {0 0}} in the application heap.
+// New creates a new SpatialNavigationSearchOptions in the application heap.
 func (p SpatialNavigationSearchOptions) New() js.Ref {
 	return bindings.SpatialNavigationSearchOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2699,18 +2713,26 @@ type DOMPointInit struct {
 	// X is "DOMPointInit.x"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_X MUST be set to true to make this field effective.
 	X float64
 	// Y is "DOMPointInit.y"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Y MUST be set to true to make this field effective.
 	Y float64
 	// Z is "DOMPointInit.z"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Z MUST be set to true to make this field effective.
 	Z float64
 	// W is "DOMPointInit.w"
 	//
 	// Optional, defaults to 1.
+	//
+	// NOTE: FFI_USE_W MUST be set to true to make this field effective.
 	W float64
 
 	FFI_USE_X bool // for X.
@@ -2727,7 +2749,7 @@ func (p DOMPointInit) FromRef(ref js.Ref) DOMPointInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DOMPointInit DOMPointInit [// DOMPointInit] [0x14000e04000 0x14000e04140 0x14000e04280 0x14000e043c0 0x14000e040a0 0x14000e041e0 0x14000e04320 0x14000e04460] 0x140000392c0 {0 0}} in the application heap.
+// New creates a new DOMPointInit in the application heap.
 func (p DOMPointInit) New() js.Ref {
 	return bindings.DOMPointInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2752,18 +2774,26 @@ type DOMRectInit struct {
 	// X is "DOMRectInit.x"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_X MUST be set to true to make this field effective.
 	X float64
 	// Y is "DOMRectInit.y"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Y MUST be set to true to make this field effective.
 	Y float64
 	// Width is "DOMRectInit.width"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Width MUST be set to true to make this field effective.
 	Width float64
 	// Height is "DOMRectInit.height"
 	//
 	// Optional, defaults to 0.
+	//
+	// NOTE: FFI_USE_Height MUST be set to true to make this field effective.
 	Height float64
 
 	FFI_USE_X      bool // for X.
@@ -2780,7 +2810,7 @@ func (p DOMRectInit) FromRef(ref js.Ref) DOMRectInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DOMRectInit DOMRectInit [// DOMRectInit] [0x14000e04500 0x14000e04640 0x14000e04780 0x14000e048c0 0x14000e045a0 0x14000e046e0 0x14000e04820 0x14000e04960] 0x140000394b8 {0 0}} in the application heap.
+// New creates a new DOMRectInit in the application heap.
 func (p DOMRectInit) New() js.Ref {
 	return bindings.DOMRectInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -2828,7 +2858,7 @@ func (p DOMQuadInit) FromRef(ref js.Ref) DOMQuadInit {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 DOMQuadInit DOMQuadInit [// DOMQuadInit] [0x14000e04a00 0x14000e04aa0 0x14000e04b40 0x14000ca2000] 0x14000039548 {0 0}} in the application heap.
+// New creates a new DOMQuadInit in the application heap.
 func (p DOMQuadInit) New() js.Ref {
 	return bindings.DOMQuadInitJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3530,7 +3560,7 @@ func (p ConvertCoordinateOptions) FromRef(ref js.Ref) ConvertCoordinateOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 ConvertCoordinateOptions ConvertCoordinateOptions [// ConvertCoordinateOptions] [0x14000be8280 0x14000be8320] 0x14000d9da70 {0 0}} in the application heap.
+// New creates a new ConvertCoordinateOptions in the application heap.
 func (p ConvertCoordinateOptions) New() js.Ref {
 	return bindings.ConvertCoordinateOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
@@ -3775,6 +3805,8 @@ type AssignedNodesOptions struct {
 	// Flatten is "AssignedNodesOptions.flatten"
 	//
 	// Optional, defaults to false.
+	//
+	// NOTE: FFI_USE_Flatten MUST be set to true to make this field effective.
 	Flatten bool
 
 	FFI_USE_Flatten bool // for Flatten.
@@ -3788,7 +3820,7 @@ func (p AssignedNodesOptions) FromRef(ref js.Ref) AssignedNodesOptions {
 	return p
 }
 
-// New creates a new {0x140004cc0e0 AssignedNodesOptions AssignedNodesOptions [// AssignedNodesOptions] [0x14000be8500 0x14000be8780] 0x14000d9dba8 {0 0}} in the application heap.
+// New creates a new AssignedNodesOptions in the application heap.
 func (p AssignedNodesOptions) New() js.Ref {
 	return bindings.AssignedNodesOptionsJSLoad(
 		js.Pointer(&p), js.True, 0,
