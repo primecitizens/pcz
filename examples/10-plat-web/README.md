@@ -1,5 +1,7 @@
 # Web Platform Example
 
+Live Demo: [https://primecitizens.github.io/livedemos/10-plat-web/](https://primecitizens.github.io/livedemos/10-plat-web/)
+
 > **NOTE**
 > This example only applies to `js/wasm` target and only runs in web browsers.
 
