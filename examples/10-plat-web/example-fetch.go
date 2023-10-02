@@ -22,7 +22,7 @@ var (
 
 func ExampleFetch() {
 	displayBuffer.TextBlock("<p>", "</p>",
-		"fetching wasm from /app.wasm ...",
+		"fetching wasm from ", wasmPath, " ...",
 	).Flush(false)
 
 	start := sysclock.Nanotime()
@@ -65,7 +65,7 @@ func ExampleFetch() {
 	data := js.TypedArray[byte]{}.FromArrayBuffer(true, arr)
 	sz := data.ByteLength()
 	displayBuffer.HTML("<p>").
-		Text("fetched app.wasm, size = ").Uint(uint64(sz), 10).
+		Text("fetched ", wasmPath, ", size = ").Uint(uint64(sz), 10).
 		Text(", took ").Uint(uint64((sysclock.Nanotime()-start)/time.Millisecond), 10).Text("ms").
 		HTML("</p>").
 		Flush(true)

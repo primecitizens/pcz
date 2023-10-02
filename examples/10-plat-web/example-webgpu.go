@@ -75,7 +75,7 @@ func (x *ExampleWebGPU) Run() {
 	if !hasWebGPU {
 		displayBuffer.Discard().TextBlock("<p>", "</p>",
 			"Sorry, WebGPU is not supported in this browser 😭",
-		)
+		).Flush(false)
 		return
 	}
 
