@@ -9,7 +9,7 @@ A reimagination of Go, using unmodified official toolchain (currently `go1.21`).
 
 - Be FFI friendly: unless it's a kernel, all useful programs works with FFI heavily.
 - Work natively
-  - Adapt to the running enviornment rather than insist working in an opinionated way.
+  - Adapt to the running environment rather than insist working in an opinionated way.
   - Provide platform native APIs: managing platform SDKs really sucks, do no more!
 - Expand* adoption of Go to...
   - Web/Nodejs applications.
@@ -33,7 +33,7 @@ A reimagination of Go, using unmodified official toolchain (currently `go1.21`).
 
 - `pcz`: A tool to build applications using custom std.
   - `pcz build` works like `go build` (invoking `go tool compile/asm/link/pack`) but with different options.
-  - `pcz dev` provides easy development enironment setup.
+  - `pcz dev` provides easy development environment setup.
 
   > **NOTE**
   > When running `pcz`, please make sure you are using `go1.21` toolchain, you can do this by setting environment variable `GOROOT` to the path to the toolchain home (if `pcz` wasn't built with local `go1.21` toolchain).
@@ -65,7 +65,7 @@ See [examples](./examples/)
 ## Go Language Support
 
 > **NOTE**
-> Currently our major focus is on providing support for platfrom natvie apis, thus most Go language features except those doesn't require runtime support are missing, this is mainly because most runtime features require allocation and scheduling, thus depends on platform apis we are working on (see [ROADMAP.md](https://github.com/primecitizens/pcz/blob/master/ROADMAP.md) for more details).
+> Currently our major focus is on providing support for platform native apis, thus most Go language features except those doesn't require runtime support are missing, this is mainly because most runtime features require allocation and scheduling, thus depends on platform apis we are working on (see [ROADMAP.md](https://github.com/primecitizens/pcz/blob/master/ROADMAP.md) for more details).
 
 - [ ] `append`
 - [x] `make`
