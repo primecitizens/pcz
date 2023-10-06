@@ -1,0 +1,70 @@
+// Copyright 2012 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// This is used by the app window API internally to pass through messages to
+// the shell window.
+
+// Null or undefined indicates that a value should not change.
+[Namespace=(chrome, app, currentWindowInternal)]
+dictionary Bounds {
+  long? left;
+  long? top;
+  long? width;
+  long? height;
+};
+
+// Null or undefined indicates that a value should not change. A value of 0
+// will clear the constraints.
+[Namespace=(chrome, app, currentWindowInternal)]
+dictionary SizeConstraints {
+  long? minWidth;
+  long? minHeight;
+  long? maxWidth;
+  long? maxHeight;
+};
+
+[Namespace=(chrome, app, currentWindowInternal)]
+dictionary RegionRect {
+  long left;
+  long top;
+  long width;
+  long height;
+};
+
+[Namespace=(chrome, app, currentWindowInternal)]
+dictionary Region {
+  sequence<RegionRect>? rects;
+};
+
+[Namespace=(chrome, app, currentWindowInternal)]
+interface Functions {
+  static void focus();
+  static void fullscreen();
+  static void minimize();
+  static void maximize();
+  static void restore();
+  static void drawAttention();
+  static void clearAttention();
+  static void show(optional boolean focused);
+  static void hide();
+  static void setBounds(DOMString boundsType, Bounds bounds);
+  static void setSizeConstraints(DOMString boundsType,
+                                 SizeConstraints constraints);
+  static void setIcon(DOMString icon_url);
+  static void setShape(Region region);
+  static void setAlwaysOnTop(boolean always_on_top);
+  static void setVisibleOnAllWorkspaces(boolean always_visible);
+  static void setActivateOnPointer(boolean activate_on_pointer);
+};
+
+[Namespace=(chrome, app, currentWindowInternal)]
+interface Events {
+  static void onClosed();
+  static void onBoundsChanged();
+  static void onFullscreened();
+  static void onMinimized();
+  static void onMaximized();
+  static void onRestored();
+  static void onAlphaEnabledChanged();
+};

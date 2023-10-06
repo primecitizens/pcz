@@ -1,0 +1,125 @@
+// Copyright 2014 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// Webcam Private API.
+
+[Namespace=(chrome, webcamPrivate)]
+enum PanDirection {
+  "stop",
+  "right",
+  "left",
+};
+
+[Namespace=(chrome, webcamPrivate)]
+enum TiltDirection {
+  "stop",
+  "up",
+  "down",
+};
+
+[Namespace=(chrome, webcamPrivate)]
+enum Protocol {
+  "visca",
+};
+
+[Namespace=(chrome, webcamPrivate)]
+enum AutofocusState {
+  "on",
+  "off",
+};
+
+[Namespace=(chrome, webcamPrivate)]
+dictionary ProtocolConfiguration {
+  Protocol? protocol;
+};
+
+[Namespace=(chrome, webcamPrivate)]
+dictionary WebcamConfiguration {
+  double? pan;
+  double? panSpeed;
+  PanDirection? panDirection;
+  double? tilt;
+  double? tiltSpeed;
+  TiltDirection? tiltDirection;
+  double? zoom;
+  AutofocusState? autofocusState;
+  double? focus;
+};
+
+[Namespace=(chrome, webcamPrivate)]
+dictionary Range { double min; double max; };
+
+[Namespace=(chrome, webcamPrivate)]
+dictionary WebcamCurrentConfiguration {
+  double pan;
+  double tilt;
+  double zoom;
+  double focus;
+
+  // Supported range of pan, tilt and zoom values.
+  Range? panRange;
+  Range? tiltRange;
+  Range? zoomRange;
+  Range? focusRange;
+};
+
+[Namespace=(chrome, webcamPrivate)]
+callback WebcamIdCallback = void(DOMString webcamId);
+[Namespace=(chrome, webcamPrivate)]
+callback WebcamConfigurationCallback =
+    void(WebcamCurrentConfiguration configuration);
+
+[Namespace=(chrome, webcamPrivate)]
+interface Functions {
+  // Open a serial port that controls a webcam.
+  [supportsPromises] static void openSerialWebcam(
+      DOMString path,
+      ProtocolConfiguration protocol,
+      WebcamIdCallback callback);
+
+  // Close a serial port connection to a webcam.
+  static void closeWebcam(DOMString webcamId);
+
+  // Retrieve webcam parameters. Will respond with a config holding the
+  // requested values that are available, or default values for those that
+  // aren't. If none of the requests succeed, will respond with an error.
+  [supportsPromises] static void get(
+      DOMString webcamId,
+      WebcamConfigurationCallback callback);
+
+  // A callback is included here which is invoked when the function responds.
+  // No configuration is returned through it.
+  [supportsPromises] static void set(DOMString webcamId,
+                                     WebcamConfiguration config,
+                                     WebcamConfigurationCallback callback);
+
+  // Reset a webcam. Note: the value of the parameter have no effect, it's the
+  // presence of the parameter that matters. E.g.: reset(webcamId, {pan: 0,
+  // tilt: 1}); will reset pan & tilt, but not zoom.
+  // A callback is included here which is invoked when the function responds.
+  // No configuration is returned through it.
+  [supportsPromises] static void reset(DOMString webcamId,
+                                       WebcamConfiguration config,
+                                       WebcamConfigurationCallback callback);
+
+  // Set home preset for a webcam. A callback is included here which is
+  // invoked when the function responds.
+  [supportsPromises] static void setHome(
+      DOMString webcamId,
+      WebcamConfigurationCallback callback);
+
+  // Restore the camera's position to that of the specified preset. A callback
+  // is included here which is invoked when the function responds.
+  [supportsPromises] static void restoreCameraPreset(
+      DOMString webcamId,
+      double presetNumber,
+      WebcamConfigurationCallback callback);
+
+  // Set the current camera's position to be stored for the specified preset.
+  // A callback is included here which is invoked when the function responds.
+  [supportsPromises] static void setCameraPreset(
+      DOMString webcamId,
+      double presetNumber,
+      WebcamConfigurationCallback callback);
+};

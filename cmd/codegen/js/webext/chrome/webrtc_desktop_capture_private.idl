@@ -1,0 +1,36 @@
+// Copyright 2015 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// Use the <code>chrome.webrtcDesktopCapturePrivate</code> API to capture
+// desktop media requested from a WebView.
+
+[Namespace=(chrome, webrtcDesktopCapturePrivate)]
+dictionary RequestInfo {
+  // The guest process id for the requester.
+  long guestProcessId;
+
+  // The webview render frame id for the requester.
+  long guestRenderFrameId;
+};
+
+[Namespace=(chrome, webrtcDesktopCapturePrivate)]
+enum DesktopCaptureSourceType {
+  "screen",
+  "window",
+  "tab",
+};
+
+[Namespace=(chrome, webrtcDesktopCapturePrivate)]
+callback chooseDesktopMediaCallback = void (DOMString streamId);
+
+[Namespace=(chrome, webrtcDesktopCapturePrivate)]
+interface Functions {
+  // Shows desktop media picker UI with the specified set of sources.
+  static long chooseDesktopMedia(sequence<DesktopCaptureSourceType> sources,
+                                 RequestInfo request,
+                                 chooseDesktopMediaCallback callback);
+
+  // Hides desktop media picker dialog shown by chooseDesktopMedia().
+  static void cancelChooseDesktopMedia(long desktopMediaRequestId);
+};

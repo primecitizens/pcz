@@ -1,0 +1,41 @@
+// Copyright 2014 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// Use the <code>chrome.documentScan</code> API to discover and retrieve
+// images from attached paper document scanners.
+
+[Namespace=(chrome, documentScan), platforms=("chromeos", "lacros")]
+dictionary ScanOptions {
+  // The MIME types that are accepted by the caller.
+  sequence<DOMString>? mimeTypes;
+
+  // The number of scanned images allowed (defaults to 1).
+  long? maxImages;
+};
+
+[Namespace=(chrome, documentScan), platforms=("chromeos", "lacros")]
+dictionary ScanResults {
+  // The data image URLs in a form that can be passed as the "src" value to
+  // an image tag.
+  sequence<DOMString> dataUrls;
+
+  // The MIME type of <code>dataUrls</code>.
+  DOMString mimeType;
+};
+
+// Callback from the <code>scan</code> method.
+// |result| The results from the scan, if successful.
+// Otherwise will return null and set runtime.lastError.
+[Namespace=(chrome, documentScan), platforms=("chromeos", "lacros")]
+callback ScanCallback = void (ScanResults result);
+
+[Namespace=(chrome, documentScan), platforms=("chromeos", "lacros")]
+interface Functions {
+  // Performs a document scan.  On success, the PNG data will be
+  // sent to the callback.
+  // |options| : Object containing scan parameters.
+  // |callback| : Called with the result and data from the scan.
+  [supportsPromises] static void scan(ScanOptions options,
+                                      ScanCallback callback);
+};
