@@ -16,6 +16,7 @@ import (
 	"github.com/primecitizens/cli"
 	"github.com/primecitizens/pcz/cmd/build/toolchain"
 	"github.com/primecitizens/pcz/cmd/utils/fsutils"
+	"github.com/primecitizens/pcz/cmd/utils/jsutils"
 )
 
 func BindgenCmd() *cli.Cmd {
@@ -143,7 +144,7 @@ func runBindgen(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []strin
 		}
 
 		var minified, sourceMap []byte
-		minified, sourceMap, err = Minify(MinifyOptions{
+		minified, sourceMap, err = jsutils.Minify(jsutils.MinifyOptions{
 			SourceCode: code,
 			ES:         translateES(spec.ES),
 		})

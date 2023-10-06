@@ -1,4 +1,7 @@
-package js
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2023 The Prime Citizens
+
+package jsutils
 
 import (
 	_ "embed" // for go:embed
@@ -14,6 +17,7 @@ import (
 var tsSource string
 
 type TranspileOptions struct {
+	// Src is the typescript source code to be transpiled.
 	Src            string
 	ModuleName     string
 	CompileOptions map[string]any
@@ -36,7 +40,13 @@ func Transpile(opts TranspileOptions) (js string, err error) {
 		panic(err)
 	}
 
-	// function transpile(input: string, compilerOptions?: CompilerOptions, fileName?: string, diagnostics?: Diagnostic[], moduleName?: string): string;
+	// function transpile(
+	//   input: string,
+	//   compilerOptions?: CompilerOptions,
+	//   fileName?: string,
+	//   diagnostics?: Diagnostic[],
+	//   moduleName?: string,
+	// ): string;
 	script := fmt.Sprintf(
 		`ts.transpile(src, %s, undefined, undefined, modulename)`,
 		unsafe.String(unsafe.SliceData(optsJSON), len(optsJSON)),

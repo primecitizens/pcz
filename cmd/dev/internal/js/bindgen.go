@@ -10,6 +10,7 @@ import (
 	"unsafe"
 
 	"github.com/primecitizens/pcz/cmd/build/toolchain"
+	"github.com/primecitizens/pcz/cmd/utils/jsutils"
 	"github.com/primecitizens/std"
 )
 
@@ -130,8 +131,8 @@ func CreateJSBindings(spec BindgenOptions) (code string, err error) {
 func transpileTS(tsSource string, spec BindgenOptions) (string, error) {
 	var sb strings.Builder
 
-	script, err := Transpile(
-		TranspileOptions{
+	script, err := jsutils.Transpile(
+		jsutils.TranspileOptions{
 			Src:        tsSource,
 			ModuleName: spec.ModuleName,
 			CompileOptions: map[string]interface{}{
