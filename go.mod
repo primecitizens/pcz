@@ -2,7 +2,7 @@ module github.com/primecitizens/pcz
 
 go 1.21
 
-replace github.com/primecitizens/pcz/std => ./src
+replace github.com/primecitizens/pcz/std => ./std
 
 require (
 	github.com/bmatcuk/doublestar/v4 v4.6.0

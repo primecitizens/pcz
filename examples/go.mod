@@ -2,7 +2,7 @@ module example.com
 
 go 1.21
 
-replace github.com/primecitizens/pcz/std => ../src
+replace github.com/primecitizens/pcz/std => ../std
 
 require (
   github.com/primecitizens/pcz/std v0.0.0

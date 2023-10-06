@@ -8,7 +8,7 @@
     "outDir": "./dist/",
     "baseUrl": "./",
     "paths": {
-      "@ffi": ["src/ffi/js/bindings/@ffi.ts"]
+      "@ffi": ["std/ffi/js/bindings/@ffi.ts"]
     },
     "lib": ["es2020", "dom"]
   }
