@@ -7,7 +7,7 @@
   - [Code Style](./01-code-style.md)
 
 - Go compiler internals
-  - [Go pragmas](./10-pragma.md)
+  - [Go pragmas](./10-pragmas.md)
 
 - Go assembly
   - [Overview](./20-asm.md)
