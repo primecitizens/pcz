@@ -99,19 +99,17 @@ func (p DeviceOrientationEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewDeviceOrientationEvent(typ js.String, eventInitDict DeviceOrientationEventInit) DeviceOrientationEvent {
-	return DeviceOrientationEvent{}.FromRef(
-		bindings.NewDeviceOrientationEventByDeviceOrientationEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewDeviceOrientationEvent(typ js.String, eventInitDict DeviceOrientationEventInit) (ret DeviceOrientationEvent) {
+	ret.ref = bindings.NewDeviceOrientationEventByDeviceOrientationEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewDeviceOrientationEventByDeviceOrientationEvent1(typ js.String) DeviceOrientationEvent {
-	return DeviceOrientationEvent{}.FromRef(
-		bindings.NewDeviceOrientationEventByDeviceOrientationEvent1(
-			typ.Ref()),
-	)
+func NewDeviceOrientationEventByDeviceOrientationEvent1(typ js.String) (ret DeviceOrientationEvent) {
+	ret.ref = bindings.NewDeviceOrientationEventByDeviceOrientationEvent1(
+		typ.Ref())
+	return
 }
 
 type DeviceOrientationEvent struct {
@@ -138,69 +136,78 @@ func (this DeviceOrientationEvent) Free() {
 
 // Alpha returns the value of property "DeviceOrientationEvent.alpha".
 //
-// The returned bool will be false if there is no such property.
-func (this DeviceOrientationEvent) Alpha() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetDeviceOrientationEventAlpha(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DeviceOrientationEvent) Alpha() (ret float64, ok bool) {
+	ok = js.True == bindings.GetDeviceOrientationEventAlpha(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Beta returns the value of property "DeviceOrientationEvent.beta".
 //
-// The returned bool will be false if there is no such property.
-func (this DeviceOrientationEvent) Beta() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetDeviceOrientationEventBeta(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DeviceOrientationEvent) Beta() (ret float64, ok bool) {
+	ok = js.True == bindings.GetDeviceOrientationEventBeta(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Gamma returns the value of property "DeviceOrientationEvent.gamma".
 //
-// The returned bool will be false if there is no such property.
-func (this DeviceOrientationEvent) Gamma() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetDeviceOrientationEventGamma(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DeviceOrientationEvent) Gamma() (ret float64, ok bool) {
+	ok = js.True == bindings.GetDeviceOrientationEventGamma(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Absolute returns the value of property "DeviceOrientationEvent.absolute".
 //
-// The returned bool will be false if there is no such property.
-func (this DeviceOrientationEvent) Absolute() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetDeviceOrientationEventAbsolute(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DeviceOrientationEvent) Absolute() (ret bool, ok bool) {
+	ok = js.True == bindings.GetDeviceOrientationEventAbsolute(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// RequestPermission calls the staticmethod "DeviceOrientationEvent.requestPermission".
-//
-// The returned bool will be false if there is no such method.
-func (this DeviceOrientationEvent) RequestPermission() (js.Promise[PermissionState], bool) {
-	var _ok bool
-	_ret := bindings.CallDeviceOrientationEventRequestPermission(
-		this.Ref(), js.Pointer(&_ok),
+// HasRequestPermission returns true if the staticmethod "DeviceOrientationEvent.requestPermission" exists.
+func (this DeviceOrientationEvent) HasRequestPermission() bool {
+	return js.True == bindings.HasDeviceOrientationEventRequestPermission(
+		this.Ref(),
 	)
-
-	return js.Promise[PermissionState]{}.FromRef(_ret), _ok
 }
 
 // RequestPermissionFunc returns the staticmethod "DeviceOrientationEvent.requestPermission".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DeviceOrientationEvent) RequestPermissionFunc() (fn js.Func[func() js.Promise[PermissionState]]) {
 	return fn.FromRef(
 		bindings.DeviceOrientationEventRequestPermissionFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// RequestPermission calls the staticmethod "DeviceOrientationEvent.requestPermission".
+func (this DeviceOrientationEvent) RequestPermission() (ret js.Promise[PermissionState]) {
+	bindings.CallDeviceOrientationEventRequestPermission(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryRequestPermission calls the staticmethod "DeviceOrientationEvent.requestPermission"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DeviceOrientationEvent) TryRequestPermission() (ret js.Promise[PermissionState], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDeviceOrientationEventRequestPermission(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type DirectionSetting uint32
@@ -315,12 +322,11 @@ func (p DocumentPictureInPictureEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewDocumentPictureInPictureEvent(typ js.String, eventInitDict DocumentPictureInPictureEventInit) DocumentPictureInPictureEvent {
-	return DocumentPictureInPictureEvent{}.FromRef(
-		bindings.NewDocumentPictureInPictureEventByDocumentPictureInPictureEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewDocumentPictureInPictureEvent(typ js.String, eventInitDict DocumentPictureInPictureEventInit) (ret DocumentPictureInPictureEvent) {
+	ret.ref = bindings.NewDocumentPictureInPictureEventByDocumentPictureInPictureEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type DocumentPictureInPictureEvent struct {
@@ -347,13 +353,12 @@ func (this DocumentPictureInPictureEvent) Free() {
 
 // Window returns the value of property "DocumentPictureInPictureEvent.window".
 //
-// The returned bool will be false if there is no such property.
-func (this DocumentPictureInPictureEvent) Window() (Window, bool) {
-	var _ok bool
-	_ret := bindings.GetDocumentPictureInPictureEventWindow(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DocumentPictureInPictureEvent) Window() (ret Window, ok bool) {
+	ok = js.True == bindings.GetDocumentPictureInPictureEventWindow(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Window{}.FromRef(_ret), _ok
+	return
 }
 
 type DragEventInit struct {
@@ -407,19 +412,17 @@ func (p DragEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewDragEvent(typ js.String, eventInitDict DragEventInit) DragEvent {
-	return DragEvent{}.FromRef(
-		bindings.NewDragEventByDragEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewDragEvent(typ js.String, eventInitDict DragEventInit) (ret DragEvent) {
+	ret.ref = bindings.NewDragEventByDragEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewDragEventByDragEvent1(typ js.String) DragEvent {
-	return DragEvent{}.FromRef(
-		bindings.NewDragEventByDragEvent1(
-			typ.Ref()),
-	)
+func NewDragEventByDragEvent1(typ js.String) (ret DragEvent) {
+	ret.ref = bindings.NewDragEventByDragEvent1(
+		typ.Ref())
+	return
 }
 
 type DragEvent struct {
@@ -446,13 +449,12 @@ func (this DragEvent) Free() {
 
 // DataTransfer returns the value of property "DragEvent.dataTransfer".
 //
-// The returned bool will be false if there is no such property.
-func (this DragEvent) DataTransfer() (DataTransfer, bool) {
-	var _ok bool
-	_ret := bindings.GetDragEventDataTransfer(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DragEvent) DataTransfer() (ret DataTransfer, ok bool) {
+	ok = js.True == bindings.GetDragEventDataTransfer(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DataTransfer{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -587,21 +589,14 @@ func (this EXT_disjoint_timer_query) Free() {
 	this.Ref().Free()
 }
 
-// CreateQueryEXT calls the method "EXT_disjoint_timer_query.createQueryEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) CreateQueryEXT() (WebGLTimerQueryEXT, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryCreateQueryEXT(
-		this.Ref(), js.Pointer(&_ok),
+// HasCreateQueryEXT returns true if the method "EXT_disjoint_timer_query.createQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasCreateQueryEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryCreateQueryEXT(
+		this.Ref(),
 	)
-
-	return WebGLTimerQueryEXT{}.FromRef(_ret), _ok
 }
 
 // CreateQueryEXTFunc returns the method "EXT_disjoint_timer_query.createQueryEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) CreateQueryEXTFunc() (fn js.Func[func() WebGLTimerQueryEXT]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryCreateQueryEXTFunc(
@@ -610,23 +605,34 @@ func (this EXT_disjoint_timer_query) CreateQueryEXTFunc() (fn js.Func[func() Web
 	)
 }
 
-// DeleteQueryEXT calls the method "EXT_disjoint_timer_query.deleteQueryEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) DeleteQueryEXT(query WebGLTimerQueryEXT) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryDeleteQueryEXT(
-		this.Ref(), js.Pointer(&_ok),
-		query.Ref(),
+// CreateQueryEXT calls the method "EXT_disjoint_timer_query.createQueryEXT".
+func (this EXT_disjoint_timer_query) CreateQueryEXT() (ret WebGLTimerQueryEXT) {
+	bindings.CallEXT_disjoint_timer_queryCreateQueryEXT(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryCreateQueryEXT calls the method "EXT_disjoint_timer_query.createQueryEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryCreateQueryEXT() (ret WebGLTimerQueryEXT, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryCreateQueryEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasDeleteQueryEXT returns true if the method "EXT_disjoint_timer_query.deleteQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasDeleteQueryEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryDeleteQueryEXT(
+		this.Ref(),
+	)
 }
 
 // DeleteQueryEXTFunc returns the method "EXT_disjoint_timer_query.deleteQueryEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) DeleteQueryEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT)]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryDeleteQueryEXTFunc(
@@ -635,22 +641,36 @@ func (this EXT_disjoint_timer_query) DeleteQueryEXTFunc() (fn js.Func[func(query
 	)
 }
 
-// IsQueryEXT calls the method "EXT_disjoint_timer_query.isQueryEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) IsQueryEXT(query WebGLTimerQueryEXT) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryIsQueryEXT(
-		this.Ref(), js.Pointer(&_ok),
+// DeleteQueryEXT calls the method "EXT_disjoint_timer_query.deleteQueryEXT".
+func (this EXT_disjoint_timer_query) DeleteQueryEXT(query WebGLTimerQueryEXT) (ret js.Void) {
+	bindings.CallEXT_disjoint_timer_queryDeleteQueryEXT(
+		this.Ref(), js.Pointer(&ret),
 		query.Ref(),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryDeleteQueryEXT calls the method "EXT_disjoint_timer_query.deleteQueryEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryDeleteQueryEXT(query WebGLTimerQueryEXT) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryDeleteQueryEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		query.Ref(),
+	)
+
+	return
+}
+
+// HasIsQueryEXT returns true if the method "EXT_disjoint_timer_query.isQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasIsQueryEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryIsQueryEXT(
+		this.Ref(),
+	)
 }
 
 // IsQueryEXTFunc returns the method "EXT_disjoint_timer_query.isQueryEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) IsQueryEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT) bool]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryIsQueryEXTFunc(
@@ -659,24 +679,36 @@ func (this EXT_disjoint_timer_query) IsQueryEXTFunc() (fn js.Func[func(query Web
 	)
 }
 
-// BeginQueryEXT calls the method "EXT_disjoint_timer_query.beginQueryEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) BeginQueryEXT(target GLenum, query WebGLTimerQueryEXT) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryBeginQueryEXT(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(target),
+// IsQueryEXT calls the method "EXT_disjoint_timer_query.isQueryEXT".
+func (this EXT_disjoint_timer_query) IsQueryEXT(query WebGLTimerQueryEXT) (ret bool) {
+	bindings.CallEXT_disjoint_timer_queryIsQueryEXT(
+		this.Ref(), js.Pointer(&ret),
 		query.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryIsQueryEXT calls the method "EXT_disjoint_timer_query.isQueryEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryIsQueryEXT(query WebGLTimerQueryEXT) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryIsQueryEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		query.Ref(),
+	)
+
+	return
+}
+
+// HasBeginQueryEXT returns true if the method "EXT_disjoint_timer_query.beginQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasBeginQueryEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryBeginQueryEXT(
+		this.Ref(),
+	)
 }
 
 // BeginQueryEXTFunc returns the method "EXT_disjoint_timer_query.beginQueryEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) BeginQueryEXTFunc() (fn js.Func[func(target GLenum, query WebGLTimerQueryEXT)]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryBeginQueryEXTFunc(
@@ -685,23 +717,38 @@ func (this EXT_disjoint_timer_query) BeginQueryEXTFunc() (fn js.Func[func(target
 	)
 }
 
-// EndQueryEXT calls the method "EXT_disjoint_timer_query.endQueryEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) EndQueryEXT(target GLenum) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryEndQueryEXT(
-		this.Ref(), js.Pointer(&_ok),
+// BeginQueryEXT calls the method "EXT_disjoint_timer_query.beginQueryEXT".
+func (this EXT_disjoint_timer_query) BeginQueryEXT(target GLenum, query WebGLTimerQueryEXT) (ret js.Void) {
+	bindings.CallEXT_disjoint_timer_queryBeginQueryEXT(
+		this.Ref(), js.Pointer(&ret),
 		uint32(target),
+		query.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryBeginQueryEXT calls the method "EXT_disjoint_timer_query.beginQueryEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryBeginQueryEXT(target GLenum, query WebGLTimerQueryEXT) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryBeginQueryEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(target),
+		query.Ref(),
+	)
+
+	return
+}
+
+// HasEndQueryEXT returns true if the method "EXT_disjoint_timer_query.endQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasEndQueryEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryEndQueryEXT(
+		this.Ref(),
+	)
 }
 
 // EndQueryEXTFunc returns the method "EXT_disjoint_timer_query.endQueryEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) EndQueryEXTFunc() (fn js.Func[func(target GLenum)]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryEndQueryEXTFunc(
@@ -710,24 +757,36 @@ func (this EXT_disjoint_timer_query) EndQueryEXTFunc() (fn js.Func[func(target G
 	)
 }
 
-// QueryCounterEXT calls the method "EXT_disjoint_timer_query.queryCounterEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) QueryCounterEXT(query WebGLTimerQueryEXT, target GLenum) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryQueryCounterEXT(
-		this.Ref(), js.Pointer(&_ok),
-		query.Ref(),
+// EndQueryEXT calls the method "EXT_disjoint_timer_query.endQueryEXT".
+func (this EXT_disjoint_timer_query) EndQueryEXT(target GLenum) (ret js.Void) {
+	bindings.CallEXT_disjoint_timer_queryEndQueryEXT(
+		this.Ref(), js.Pointer(&ret),
 		uint32(target),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryEndQueryEXT calls the method "EXT_disjoint_timer_query.endQueryEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryEndQueryEXT(target GLenum) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryEndQueryEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(target),
+	)
+
+	return
+}
+
+// HasQueryCounterEXT returns true if the method "EXT_disjoint_timer_query.queryCounterEXT" exists.
+func (this EXT_disjoint_timer_query) HasQueryCounterEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryQueryCounterEXT(
+		this.Ref(),
+	)
 }
 
 // QueryCounterEXTFunc returns the method "EXT_disjoint_timer_query.queryCounterEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) QueryCounterEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT, target GLenum)]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryQueryCounterEXTFunc(
@@ -736,23 +795,38 @@ func (this EXT_disjoint_timer_query) QueryCounterEXTFunc() (fn js.Func[func(quer
 	)
 }
 
-// GetQueryEXT calls the method "EXT_disjoint_timer_query.getQueryEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) GetQueryEXT(target GLenum, pname GLenum) (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryGetQueryEXT(
-		this.Ref(), js.Pointer(&_ok),
+// QueryCounterEXT calls the method "EXT_disjoint_timer_query.queryCounterEXT".
+func (this EXT_disjoint_timer_query) QueryCounterEXT(query WebGLTimerQueryEXT, target GLenum) (ret js.Void) {
+	bindings.CallEXT_disjoint_timer_queryQueryCounterEXT(
+		this.Ref(), js.Pointer(&ret),
+		query.Ref(),
 		uint32(target),
-		uint32(pname),
 	)
 
-	return js.Any{}.FromRef(_ret), _ok
+	return
+}
+
+// TryQueryCounterEXT calls the method "EXT_disjoint_timer_query.queryCounterEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryQueryCounterEXT(query WebGLTimerQueryEXT, target GLenum) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryQueryCounterEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		query.Ref(),
+		uint32(target),
+	)
+
+	return
+}
+
+// HasGetQueryEXT returns true if the method "EXT_disjoint_timer_query.getQueryEXT" exists.
+func (this EXT_disjoint_timer_query) HasGetQueryEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryGetQueryEXT(
+		this.Ref(),
+	)
 }
 
 // GetQueryEXTFunc returns the method "EXT_disjoint_timer_query.getQueryEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) GetQueryEXTFunc() (fn js.Func[func(target GLenum, pname GLenum) js.Any]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryGetQueryEXTFunc(
@@ -761,29 +835,68 @@ func (this EXT_disjoint_timer_query) GetQueryEXTFunc() (fn js.Func[func(target G
 	)
 }
 
-// GetQueryObjectEXT calls the method "EXT_disjoint_timer_query.getQueryObjectEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query) GetQueryObjectEXT(query WebGLTimerQueryEXT, pname GLenum) (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_queryGetQueryObjectEXT(
-		this.Ref(), js.Pointer(&_ok),
-		query.Ref(),
+// GetQueryEXT calls the method "EXT_disjoint_timer_query.getQueryEXT".
+func (this EXT_disjoint_timer_query) GetQueryEXT(target GLenum, pname GLenum) (ret js.Any) {
+	bindings.CallEXT_disjoint_timer_queryGetQueryEXT(
+		this.Ref(), js.Pointer(&ret),
+		uint32(target),
 		uint32(pname),
 	)
 
-	return js.Any{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetQueryEXT calls the method "EXT_disjoint_timer_query.getQueryEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryGetQueryEXT(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryGetQueryEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(target),
+		uint32(pname),
+	)
+
+	return
+}
+
+// HasGetQueryObjectEXT returns true if the method "EXT_disjoint_timer_query.getQueryObjectEXT" exists.
+func (this EXT_disjoint_timer_query) HasGetQueryObjectEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_queryGetQueryObjectEXT(
+		this.Ref(),
+	)
 }
 
 // GetQueryObjectEXTFunc returns the method "EXT_disjoint_timer_query.getQueryObjectEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query) GetQueryObjectEXTFunc() (fn js.Func[func(query WebGLTimerQueryEXT, pname GLenum) js.Any]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_queryGetQueryObjectEXTFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetQueryObjectEXT calls the method "EXT_disjoint_timer_query.getQueryObjectEXT".
+func (this EXT_disjoint_timer_query) GetQueryObjectEXT(query WebGLTimerQueryEXT, pname GLenum) (ret js.Any) {
+	bindings.CallEXT_disjoint_timer_queryGetQueryObjectEXT(
+		this.Ref(), js.Pointer(&ret),
+		query.Ref(),
+		uint32(pname),
+	)
+
+	return
+}
+
+// TryGetQueryObjectEXT calls the method "EXT_disjoint_timer_query.getQueryObjectEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query) TryGetQueryObjectEXT(query WebGLTimerQueryEXT, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_queryGetQueryObjectEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		query.Ref(),
+		uint32(pname),
+	)
+
+	return
 }
 
 const (
@@ -815,30 +928,44 @@ func (this EXT_disjoint_timer_query_webgl2) Free() {
 	this.Ref().Free()
 }
 
-// QueryCounterEXT calls the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT".
-//
-// The returned bool will be false if there is no such method.
-func (this EXT_disjoint_timer_query_webgl2) QueryCounterEXT(query WebGLQuery, target GLenum) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallEXT_disjoint_timer_query_webgl2QueryCounterEXT(
-		this.Ref(), js.Pointer(&_ok),
-		query.Ref(),
-		uint32(target),
+// HasQueryCounterEXT returns true if the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT" exists.
+func (this EXT_disjoint_timer_query_webgl2) HasQueryCounterEXT() bool {
+	return js.True == bindings.HasEXT_disjoint_timer_query_webgl2QueryCounterEXT(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // QueryCounterEXTFunc returns the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EXT_disjoint_timer_query_webgl2) QueryCounterEXTFunc() (fn js.Func[func(query WebGLQuery, target GLenum)]) {
 	return fn.FromRef(
 		bindings.EXT_disjoint_timer_query_webgl2QueryCounterEXTFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// QueryCounterEXT calls the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT".
+func (this EXT_disjoint_timer_query_webgl2) QueryCounterEXT(query WebGLQuery, target GLenum) (ret js.Void) {
+	bindings.CallEXT_disjoint_timer_query_webgl2QueryCounterEXT(
+		this.Ref(), js.Pointer(&ret),
+		query.Ref(),
+		uint32(target),
+	)
+
+	return
+}
+
+// TryQueryCounterEXT calls the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EXT_disjoint_timer_query_webgl2) TryQueryCounterEXT(query WebGLQuery, target GLenum) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEXT_disjoint_timer_query_webgl2QueryCounterEXT(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		query.Ref(),
+		uint32(target),
+	)
+
+	return
 }
 
 type EXT_float_blend struct {
@@ -1438,11 +1565,10 @@ func (p EncodedVideoChunkInit) Update(ref js.Ref) {
 	)
 }
 
-func NewEncodedVideoChunk(init EncodedVideoChunkInit) EncodedVideoChunk {
-	return EncodedVideoChunk{}.FromRef(
-		bindings.NewEncodedVideoChunkByEncodedVideoChunk(
-			js.Pointer(&init)),
-	)
+func NewEncodedVideoChunk(init EncodedVideoChunkInit) (ret EncodedVideoChunk) {
+	ret.ref = bindings.NewEncodedVideoChunkByEncodedVideoChunk(
+		js.Pointer(&init))
+	return
 }
 
 type EncodedVideoChunk struct {
@@ -1469,71 +1595,80 @@ func (this EncodedVideoChunk) Free() {
 
 // Type returns the value of property "EncodedVideoChunk.type".
 //
-// The returned bool will be false if there is no such property.
-func (this EncodedVideoChunk) Type() (EncodedVideoChunkType, bool) {
-	var _ok bool
-	_ret := bindings.GetEncodedVideoChunkType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this EncodedVideoChunk) Type() (ret EncodedVideoChunkType, ok bool) {
+	ok = js.True == bindings.GetEncodedVideoChunkType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return EncodedVideoChunkType(_ret), _ok
+	return
 }
 
 // Timestamp returns the value of property "EncodedVideoChunk.timestamp".
 //
-// The returned bool will be false if there is no such property.
-func (this EncodedVideoChunk) Timestamp() (int64, bool) {
-	var _ok bool
-	_ret := bindings.GetEncodedVideoChunkTimestamp(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this EncodedVideoChunk) Timestamp() (ret int64, ok bool) {
+	ok = js.True == bindings.GetEncodedVideoChunkTimestamp(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int64(_ret), _ok
+	return
 }
 
 // Duration returns the value of property "EncodedVideoChunk.duration".
 //
-// The returned bool will be false if there is no such property.
-func (this EncodedVideoChunk) Duration() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetEncodedVideoChunkDuration(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this EncodedVideoChunk) Duration() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetEncodedVideoChunkDuration(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 // ByteLength returns the value of property "EncodedVideoChunk.byteLength".
 //
-// The returned bool will be false if there is no such property.
-func (this EncodedVideoChunk) ByteLength() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetEncodedVideoChunkByteLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this EncodedVideoChunk) ByteLength() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetEncodedVideoChunkByteLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// CopyTo calls the method "EncodedVideoChunk.copyTo".
-//
-// The returned bool will be false if there is no such method.
-func (this EncodedVideoChunk) CopyTo(destination AllowSharedBufferSource) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallEncodedVideoChunkCopyTo(
-		this.Ref(), js.Pointer(&_ok),
-		destination.Ref(),
+// HasCopyTo returns true if the method "EncodedVideoChunk.copyTo" exists.
+func (this EncodedVideoChunk) HasCopyTo() bool {
+	return js.True == bindings.HasEncodedVideoChunkCopyTo(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // CopyToFunc returns the method "EncodedVideoChunk.copyTo".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EncodedVideoChunk) CopyToFunc() (fn js.Func[func(destination AllowSharedBufferSource)]) {
 	return fn.FromRef(
 		bindings.EncodedVideoChunkCopyToFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// CopyTo calls the method "EncodedVideoChunk.copyTo".
+func (this EncodedVideoChunk) CopyTo(destination AllowSharedBufferSource) (ret js.Void) {
+	bindings.CallEncodedVideoChunkCopyTo(
+		this.Ref(), js.Pointer(&ret),
+		destination.Ref(),
+	)
+
+	return
+}
+
+// TryCopyTo calls the method "EncodedVideoChunk.copyTo"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EncodedVideoChunk) TryCopyTo(destination AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEncodedVideoChunkCopyTo(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destination.Ref(),
+	)
+
+	return
 }
 
 type HardwareAcceleration uint32
@@ -1599,6 +1734,8 @@ type VideoDecoderConfig struct {
 	// ColorSpace is "VideoDecoderConfig.colorSpace"
 	//
 	// Optional
+	//
+	// NOTE: ColorSpace.FFI_USE MUST be set to true to get ColorSpace used.
 	ColorSpace VideoColorSpaceInit
 	// HardwareAcceleration is "VideoDecoderConfig.hardwareAcceleration"
 	//

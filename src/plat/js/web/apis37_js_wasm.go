@@ -17,10 +17,9 @@ func _() {
 	assert.TODO()
 }
 
-func NewHTMLAudioElement() HTMLAudioElement {
-	return HTMLAudioElement{}.FromRef(
-		bindings.NewHTMLAudioElementByHTMLAudioElement(),
-	)
+func NewHTMLAudioElement() (ret HTMLAudioElement) {
+	ret.ref = bindings.NewHTMLAudioElementByHTMLAudioElement()
+	return
 }
 
 type HTMLAudioElement struct {
@@ -45,10 +44,9 @@ func (this HTMLAudioElement) Free() {
 	this.Ref().Free()
 }
 
-func NewHTMLBRElement() HTMLBRElement {
-	return HTMLBRElement{}.FromRef(
-		bindings.NewHTMLBRElementByHTMLBRElement(),
-	)
+func NewHTMLBRElement() (ret HTMLBRElement) {
+	ret.ref = bindings.NewHTMLBRElementByHTMLBRElement()
+	return
 }
 
 type HTMLBRElement struct {
@@ -75,16 +73,15 @@ func (this HTMLBRElement) Free() {
 
 // Clear returns the value of property "HTMLBRElement.clear".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBRElement) Clear() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBRElementClear(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBRElement) Clear() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBRElementClear(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Clear sets the value of property "HTMLBRElement.clear" to val.
+// SetClear sets the value of property "HTMLBRElement.clear" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBRElement) SetClear(val js.String) bool {
@@ -94,10 +91,9 @@ func (this HTMLBRElement) SetClear(val js.String) bool {
 	)
 }
 
-func NewHTMLBaseElement() HTMLBaseElement {
-	return HTMLBaseElement{}.FromRef(
-		bindings.NewHTMLBaseElementByHTMLBaseElement(),
-	)
+func NewHTMLBaseElement() (ret HTMLBaseElement) {
+	ret.ref = bindings.NewHTMLBaseElementByHTMLBaseElement()
+	return
 }
 
 type HTMLBaseElement struct {
@@ -124,16 +120,15 @@ func (this HTMLBaseElement) Free() {
 
 // Href returns the value of property "HTMLBaseElement.href".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBaseElement) Href() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBaseElementHref(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBaseElement) Href() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBaseElementHref(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Href sets the value of property "HTMLBaseElement.href" to val.
+// SetHref sets the value of property "HTMLBaseElement.href" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBaseElement) SetHref(val js.String) bool {
@@ -145,16 +140,15 @@ func (this HTMLBaseElement) SetHref(val js.String) bool {
 
 // Target returns the value of property "HTMLBaseElement.target".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBaseElement) Target() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBaseElementTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBaseElement) Target() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBaseElementTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Target sets the value of property "HTMLBaseElement.target" to val.
+// SetTarget sets the value of property "HTMLBaseElement.target" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBaseElement) SetTarget(val js.String) bool {
@@ -164,10 +158,9 @@ func (this HTMLBaseElement) SetTarget(val js.String) bool {
 	)
 }
 
-func NewHTMLBodyElement() HTMLBodyElement {
-	return HTMLBodyElement{}.FromRef(
-		bindings.NewHTMLBodyElementByHTMLBodyElement(),
-	)
+func NewHTMLBodyElement() (ret HTMLBodyElement) {
+	ret.ref = bindings.NewHTMLBodyElementByHTMLBodyElement()
+	return
 }
 
 type HTMLBodyElement struct {
@@ -194,16 +187,15 @@ func (this HTMLBodyElement) Free() {
 
 // Text returns the value of property "HTMLBodyElement.text".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBodyElement) Text() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBodyElementText(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBodyElement) Text() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBodyElementText(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Text sets the value of property "HTMLBodyElement.text" to val.
+// SetText sets the value of property "HTMLBodyElement.text" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBodyElement) SetText(val js.String) bool {
@@ -215,16 +207,15 @@ func (this HTMLBodyElement) SetText(val js.String) bool {
 
 // Link returns the value of property "HTMLBodyElement.link".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBodyElement) Link() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBodyElementLink(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBodyElement) Link() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBodyElementLink(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Link sets the value of property "HTMLBodyElement.link" to val.
+// SetLink sets the value of property "HTMLBodyElement.link" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBodyElement) SetLink(val js.String) bool {
@@ -236,16 +227,15 @@ func (this HTMLBodyElement) SetLink(val js.String) bool {
 
 // VLink returns the value of property "HTMLBodyElement.vLink".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBodyElement) VLink() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBodyElementVLink(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBodyElement) VLink() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBodyElementVLink(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// VLink sets the value of property "HTMLBodyElement.vLink" to val.
+// SetVLink sets the value of property "HTMLBodyElement.vLink" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBodyElement) SetVLink(val js.String) bool {
@@ -257,16 +247,15 @@ func (this HTMLBodyElement) SetVLink(val js.String) bool {
 
 // ALink returns the value of property "HTMLBodyElement.aLink".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBodyElement) ALink() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBodyElementALink(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBodyElement) ALink() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBodyElementALink(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ALink sets the value of property "HTMLBodyElement.aLink" to val.
+// SetALink sets the value of property "HTMLBodyElement.aLink" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBodyElement) SetALink(val js.String) bool {
@@ -278,16 +267,15 @@ func (this HTMLBodyElement) SetALink(val js.String) bool {
 
 // BgColor returns the value of property "HTMLBodyElement.bgColor".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBodyElement) BgColor() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBodyElementBgColor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBodyElement) BgColor() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBodyElementBgColor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// BgColor sets the value of property "HTMLBodyElement.bgColor" to val.
+// SetBgColor sets the value of property "HTMLBodyElement.bgColor" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBodyElement) SetBgColor(val js.String) bool {
@@ -299,16 +287,15 @@ func (this HTMLBodyElement) SetBgColor(val js.String) bool {
 
 // Background returns the value of property "HTMLBodyElement.background".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLBodyElement) Background() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLBodyElementBackground(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLBodyElement) Background() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLBodyElementBackground(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Background sets the value of property "HTMLBodyElement.background" to val.
+// SetBackground sets the value of property "HTMLBodyElement.background" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLBodyElement) SetBackground(val js.String) bool {
@@ -318,10 +305,9 @@ func (this HTMLBodyElement) SetBackground(val js.String) bool {
 	)
 }
 
-func NewHTMLButtonElement() HTMLButtonElement {
-	return HTMLButtonElement{}.FromRef(
-		bindings.NewHTMLButtonElementByHTMLButtonElement(),
-	)
+func NewHTMLButtonElement() (ret HTMLButtonElement) {
+	ret.ref = bindings.NewHTMLButtonElementByHTMLButtonElement()
+	return
 }
 
 type HTMLButtonElement struct {
@@ -348,16 +334,15 @@ func (this HTMLButtonElement) Free() {
 
 // Disabled returns the value of property "HTMLButtonElement.disabled".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) Disabled() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementDisabled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) Disabled() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementDisabled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Disabled sets the value of property "HTMLButtonElement.disabled" to val.
+// SetDisabled sets the value of property "HTMLButtonElement.disabled" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetDisabled(val bool) bool {
@@ -369,27 +354,25 @@ func (this HTMLButtonElement) SetDisabled(val bool) bool {
 
 // Form returns the value of property "HTMLButtonElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // FormAction returns the value of property "HTMLButtonElement.formAction".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) FormAction() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementFormAction(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) FormAction() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementFormAction(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormAction sets the value of property "HTMLButtonElement.formAction" to val.
+// SetFormAction sets the value of property "HTMLButtonElement.formAction" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetFormAction(val js.String) bool {
@@ -401,16 +384,15 @@ func (this HTMLButtonElement) SetFormAction(val js.String) bool {
 
 // FormEnctype returns the value of property "HTMLButtonElement.formEnctype".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) FormEnctype() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementFormEnctype(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) FormEnctype() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementFormEnctype(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormEnctype sets the value of property "HTMLButtonElement.formEnctype" to val.
+// SetFormEnctype sets the value of property "HTMLButtonElement.formEnctype" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetFormEnctype(val js.String) bool {
@@ -422,16 +404,15 @@ func (this HTMLButtonElement) SetFormEnctype(val js.String) bool {
 
 // FormMethod returns the value of property "HTMLButtonElement.formMethod".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) FormMethod() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementFormMethod(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) FormMethod() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementFormMethod(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormMethod sets the value of property "HTMLButtonElement.formMethod" to val.
+// SetFormMethod sets the value of property "HTMLButtonElement.formMethod" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetFormMethod(val js.String) bool {
@@ -443,16 +424,15 @@ func (this HTMLButtonElement) SetFormMethod(val js.String) bool {
 
 // FormNoValidate returns the value of property "HTMLButtonElement.formNoValidate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) FormNoValidate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementFormNoValidate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) FormNoValidate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementFormNoValidate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// FormNoValidate sets the value of property "HTMLButtonElement.formNoValidate" to val.
+// SetFormNoValidate sets the value of property "HTMLButtonElement.formNoValidate" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetFormNoValidate(val bool) bool {
@@ -464,16 +444,15 @@ func (this HTMLButtonElement) SetFormNoValidate(val bool) bool {
 
 // FormTarget returns the value of property "HTMLButtonElement.formTarget".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) FormTarget() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementFormTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) FormTarget() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementFormTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormTarget sets the value of property "HTMLButtonElement.formTarget" to val.
+// SetFormTarget sets the value of property "HTMLButtonElement.formTarget" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetFormTarget(val js.String) bool {
@@ -485,16 +464,15 @@ func (this HTMLButtonElement) SetFormTarget(val js.String) bool {
 
 // Name returns the value of property "HTMLButtonElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLButtonElement.name" to val.
+// SetName sets the value of property "HTMLButtonElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetName(val js.String) bool {
@@ -506,16 +484,15 @@ func (this HTMLButtonElement) SetName(val js.String) bool {
 
 // Type returns the value of property "HTMLButtonElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLButtonElement.type" to val.
+// SetType sets the value of property "HTMLButtonElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetType(val js.String) bool {
@@ -527,16 +504,15 @@ func (this HTMLButtonElement) SetType(val js.String) bool {
 
 // Value returns the value of property "HTMLButtonElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) Value() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) Value() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLButtonElement.value" to val.
+// SetValue sets the value of property "HTMLButtonElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetValue(val js.String) bool {
@@ -548,60 +524,55 @@ func (this HTMLButtonElement) SetValue(val js.String) bool {
 
 // WillValidate returns the value of property "HTMLButtonElement.willValidate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) WillValidate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementWillValidate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) WillValidate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementWillValidate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Validity returns the value of property "HTMLButtonElement.validity".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) Validity() (ValidityState, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementValidity(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) Validity() (ret ValidityState, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ValidityState{}.FromRef(_ret), _ok
+	return
 }
 
 // ValidationMessage returns the value of property "HTMLButtonElement.validationMessage".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) ValidationMessage() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementValidationMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) ValidationMessage() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementValidationMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Labels returns the value of property "HTMLButtonElement.labels".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) Labels() (NodeList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementLabels(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) Labels() (ret NodeList, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementLabels(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return NodeList{}.FromRef(_ret), _ok
+	return
 }
 
 // PopoverTargetElement returns the value of property "HTMLButtonElement.popoverTargetElement".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) PopoverTargetElement() (Element, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementPopoverTargetElement(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) PopoverTargetElement() (ret Element, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementPopoverTargetElement(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Element{}.FromRef(_ret), _ok
+	return
 }
 
-// PopoverTargetElement sets the value of property "HTMLButtonElement.popoverTargetElement" to val.
+// SetPopoverTargetElement sets the value of property "HTMLButtonElement.popoverTargetElement" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetPopoverTargetElement(val Element) bool {
@@ -613,16 +584,15 @@ func (this HTMLButtonElement) SetPopoverTargetElement(val Element) bool {
 
 // PopoverTargetAction returns the value of property "HTMLButtonElement.popoverTargetAction".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLButtonElement) PopoverTargetAction() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLButtonElementPopoverTargetAction(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLButtonElement) PopoverTargetAction() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLButtonElementPopoverTargetAction(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// PopoverTargetAction sets the value of property "HTMLButtonElement.popoverTargetAction" to val.
+// SetPopoverTargetAction sets the value of property "HTMLButtonElement.popoverTargetAction" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLButtonElement) SetPopoverTargetAction(val js.String) bool {
@@ -632,21 +602,14 @@ func (this HTMLButtonElement) SetPopoverTargetAction(val js.String) bool {
 	)
 }
 
-// CheckValidity calls the method "HTMLButtonElement.checkValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLButtonElement) CheckValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLButtonElementCheckValidity(
-		this.Ref(), js.Pointer(&_ok),
+// HasCheckValidity returns true if the method "HTMLButtonElement.checkValidity" exists.
+func (this HTMLButtonElement) HasCheckValidity() bool {
+	return js.True == bindings.HasHTMLButtonElementCheckValidity(
+		this.Ref(),
 	)
-
-	return _ret == js.True, _ok
 }
 
 // CheckValidityFunc returns the method "HTMLButtonElement.checkValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLButtonElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLButtonElementCheckValidityFunc(
@@ -655,21 +618,34 @@ func (this HTMLButtonElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// ReportValidity calls the method "HTMLButtonElement.reportValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLButtonElement) ReportValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLButtonElementReportValidity(
-		this.Ref(), js.Pointer(&_ok),
+// CheckValidity calls the method "HTMLButtonElement.checkValidity".
+func (this HTMLButtonElement) CheckValidity() (ret bool) {
+	bindings.CallHTMLButtonElementCheckValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryCheckValidity calls the method "HTMLButtonElement.checkValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLButtonElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLButtonElementCheckValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReportValidity returns true if the method "HTMLButtonElement.reportValidity" exists.
+func (this HTMLButtonElement) HasReportValidity() bool {
+	return js.True == bindings.HasHTMLButtonElementReportValidity(
+		this.Ref(),
+	)
 }
 
 // ReportValidityFunc returns the method "HTMLButtonElement.reportValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLButtonElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLButtonElementReportValidityFunc(
@@ -678,23 +654,34 @@ func (this HTMLButtonElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// SetCustomValidity calls the method "HTMLButtonElement.setCustomValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLButtonElement) SetCustomValidity(err js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLButtonElementSetCustomValidity(
-		this.Ref(), js.Pointer(&_ok),
-		err.Ref(),
+// ReportValidity calls the method "HTMLButtonElement.reportValidity".
+func (this HTMLButtonElement) ReportValidity() (ret bool) {
+	bindings.CallHTMLButtonElementReportValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReportValidity calls the method "HTMLButtonElement.reportValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLButtonElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLButtonElementReportValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetCustomValidity returns true if the method "HTMLButtonElement.setCustomValidity" exists.
+func (this HTMLButtonElement) HasSetCustomValidity() bool {
+	return js.True == bindings.HasHTMLButtonElementSetCustomValidity(
+		this.Ref(),
+	)
 }
 
 // SetCustomValidityFunc returns the method "HTMLButtonElement.setCustomValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLButtonElement) SetCustomValidityFunc() (fn js.Func[func(err js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLButtonElementSetCustomValidityFunc(
@@ -703,10 +690,31 @@ func (this HTMLButtonElement) SetCustomValidityFunc() (fn js.Func[func(err js.St
 	)
 }
 
-func NewHTMLDListElement() HTMLDListElement {
-	return HTMLDListElement{}.FromRef(
-		bindings.NewHTMLDListElementByHTMLDListElement(),
+// SetCustomValidity calls the method "HTMLButtonElement.setCustomValidity".
+func (this HTMLButtonElement) SetCustomValidity(err js.String) (ret js.Void) {
+	bindings.CallHTMLButtonElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret),
+		err.Ref(),
 	)
+
+	return
+}
+
+// TrySetCustomValidity calls the method "HTMLButtonElement.setCustomValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLButtonElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLButtonElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		err.Ref(),
+	)
+
+	return
+}
+
+func NewHTMLDListElement() (ret HTMLDListElement) {
+	ret.ref = bindings.NewHTMLDListElementByHTMLDListElement()
+	return
 }
 
 type HTMLDListElement struct {
@@ -733,16 +741,15 @@ func (this HTMLDListElement) Free() {
 
 // Compact returns the value of property "HTMLDListElement.compact".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDListElement) Compact() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDListElementCompact(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDListElement) Compact() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLDListElementCompact(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Compact sets the value of property "HTMLDListElement.compact" to val.
+// SetCompact sets the value of property "HTMLDListElement.compact" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLDListElement) SetCompact(val bool) bool {
@@ -752,10 +759,9 @@ func (this HTMLDListElement) SetCompact(val bool) bool {
 	)
 }
 
-func NewHTMLDataElement() HTMLDataElement {
-	return HTMLDataElement{}.FromRef(
-		bindings.NewHTMLDataElementByHTMLDataElement(),
-	)
+func NewHTMLDataElement() (ret HTMLDataElement) {
+	ret.ref = bindings.NewHTMLDataElementByHTMLDataElement()
+	return
 }
 
 type HTMLDataElement struct {
@@ -782,16 +788,15 @@ func (this HTMLDataElement) Free() {
 
 // Value returns the value of property "HTMLDataElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDataElement) Value() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDataElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDataElement) Value() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLDataElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLDataElement.value" to val.
+// SetValue sets the value of property "HTMLDataElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLDataElement) SetValue(val js.String) bool {
@@ -801,10 +806,9 @@ func (this HTMLDataElement) SetValue(val js.String) bool {
 	)
 }
 
-func NewHTMLDataListElement() HTMLDataListElement {
-	return HTMLDataListElement{}.FromRef(
-		bindings.NewHTMLDataListElementByHTMLDataListElement(),
-	)
+func NewHTMLDataListElement() (ret HTMLDataListElement) {
+	ret.ref = bindings.NewHTMLDataListElementByHTMLDataListElement()
+	return
 }
 
 type HTMLDataListElement struct {
@@ -831,19 +835,17 @@ func (this HTMLDataListElement) Free() {
 
 // Options returns the value of property "HTMLDataListElement.options".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDataListElement) Options() (HTMLCollection, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDataListElementOptions(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDataListElement) Options() (ret HTMLCollection, ok bool) {
+	ok = js.True == bindings.GetHTMLDataListElementOptions(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLCollection{}.FromRef(_ret), _ok
+	return
 }
 
-func NewHTMLDetailsElement() HTMLDetailsElement {
-	return HTMLDetailsElement{}.FromRef(
-		bindings.NewHTMLDetailsElementByHTMLDetailsElement(),
-	)
+func NewHTMLDetailsElement() (ret HTMLDetailsElement) {
+	ret.ref = bindings.NewHTMLDetailsElementByHTMLDetailsElement()
+	return
 }
 
 type HTMLDetailsElement struct {
@@ -870,16 +872,15 @@ func (this HTMLDetailsElement) Free() {
 
 // Open returns the value of property "HTMLDetailsElement.open".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDetailsElement) Open() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDetailsElementOpen(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDetailsElement) Open() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLDetailsElementOpen(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Open sets the value of property "HTMLDetailsElement.open" to val.
+// SetOpen sets the value of property "HTMLDetailsElement.open" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLDetailsElement) SetOpen(val bool) bool {
@@ -889,10 +890,9 @@ func (this HTMLDetailsElement) SetOpen(val bool) bool {
 	)
 }
 
-func NewHTMLDialogElement() HTMLDialogElement {
-	return HTMLDialogElement{}.FromRef(
-		bindings.NewHTMLDialogElementByHTMLDialogElement(),
-	)
+func NewHTMLDialogElement() (ret HTMLDialogElement) {
+	ret.ref = bindings.NewHTMLDialogElementByHTMLDialogElement()
+	return
 }
 
 type HTMLDialogElement struct {
@@ -919,16 +919,15 @@ func (this HTMLDialogElement) Free() {
 
 // Open returns the value of property "HTMLDialogElement.open".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDialogElement) Open() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDialogElementOpen(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDialogElement) Open() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLDialogElementOpen(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Open sets the value of property "HTMLDialogElement.open" to val.
+// SetOpen sets the value of property "HTMLDialogElement.open" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLDialogElement) SetOpen(val bool) bool {
@@ -940,16 +939,15 @@ func (this HTMLDialogElement) SetOpen(val bool) bool {
 
 // ReturnValue returns the value of property "HTMLDialogElement.returnValue".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDialogElement) ReturnValue() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDialogElementReturnValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDialogElement) ReturnValue() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLDialogElementReturnValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ReturnValue sets the value of property "HTMLDialogElement.returnValue" to val.
+// SetReturnValue sets the value of property "HTMLDialogElement.returnValue" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLDialogElement) SetReturnValue(val js.String) bool {
@@ -959,22 +957,14 @@ func (this HTMLDialogElement) SetReturnValue(val js.String) bool {
 	)
 }
 
-// Show calls the method "HTMLDialogElement.show".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLDialogElement) Show() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLDialogElementShow(
-		this.Ref(), js.Pointer(&_ok),
+// HasShow returns true if the method "HTMLDialogElement.show" exists.
+func (this HTMLDialogElement) HasShow() bool {
+	return js.True == bindings.HasHTMLDialogElementShow(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ShowFunc returns the method "HTMLDialogElement.show".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLDialogElement) ShowFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLDialogElementShowFunc(
@@ -983,22 +973,34 @@ func (this HTMLDialogElement) ShowFunc() (fn js.Func[func()]) {
 	)
 }
 
-// ShowModal calls the method "HTMLDialogElement.showModal".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLDialogElement) ShowModal() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLDialogElementShowModal(
-		this.Ref(), js.Pointer(&_ok),
+// Show calls the method "HTMLDialogElement.show".
+func (this HTMLDialogElement) Show() (ret js.Void) {
+	bindings.CallHTMLDialogElementShow(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryShow calls the method "HTMLDialogElement.show"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLDialogElement) TryShow() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLDialogElementShow(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasShowModal returns true if the method "HTMLDialogElement.showModal" exists.
+func (this HTMLDialogElement) HasShowModal() bool {
+	return js.True == bindings.HasHTMLDialogElementShowModal(
+		this.Ref(),
+	)
 }
 
 // ShowModalFunc returns the method "HTMLDialogElement.showModal".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLDialogElement) ShowModalFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLDialogElementShowModalFunc(
@@ -1007,23 +1009,34 @@ func (this HTMLDialogElement) ShowModalFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Close calls the method "HTMLDialogElement.close".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLDialogElement) Close(returnValue js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLDialogElementClose(
-		this.Ref(), js.Pointer(&_ok),
-		returnValue.Ref(),
+// ShowModal calls the method "HTMLDialogElement.showModal".
+func (this HTMLDialogElement) ShowModal() (ret js.Void) {
+	bindings.CallHTMLDialogElementShowModal(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryShowModal calls the method "HTMLDialogElement.showModal"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLDialogElement) TryShowModal() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLDialogElementShowModal(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasClose returns true if the method "HTMLDialogElement.close" exists.
+func (this HTMLDialogElement) HasClose() bool {
+	return js.True == bindings.HasHTMLDialogElementClose(
+		this.Ref(),
+	)
 }
 
 // CloseFunc returns the method "HTMLDialogElement.close".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLDialogElement) CloseFunc() (fn js.Func[func(returnValue js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLDialogElementCloseFunc(
@@ -1032,22 +1045,36 @@ func (this HTMLDialogElement) CloseFunc() (fn js.Func[func(returnValue js.String
 	)
 }
 
-// Close1 calls the method "HTMLDialogElement.close".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLDialogElement) Close1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLDialogElementClose1(
-		this.Ref(), js.Pointer(&_ok),
+// Close calls the method "HTMLDialogElement.close".
+func (this HTMLDialogElement) Close(returnValue js.String) (ret js.Void) {
+	bindings.CallHTMLDialogElementClose(
+		this.Ref(), js.Pointer(&ret),
+		returnValue.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClose calls the method "HTMLDialogElement.close"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLDialogElement) TryClose(returnValue js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLDialogElementClose(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		returnValue.Ref(),
+	)
+
+	return
+}
+
+// HasClose1 returns true if the method "HTMLDialogElement.close" exists.
+func (this HTMLDialogElement) HasClose1() bool {
+	return js.True == bindings.HasHTMLDialogElementClose1(
+		this.Ref(),
+	)
 }
 
 // Close1Func returns the method "HTMLDialogElement.close".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLDialogElement) Close1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLDialogElementClose1Func(
@@ -1056,10 +1083,29 @@ func (this HTMLDialogElement) Close1Func() (fn js.Func[func()]) {
 	)
 }
 
-func NewHTMLDirectoryElement() HTMLDirectoryElement {
-	return HTMLDirectoryElement{}.FromRef(
-		bindings.NewHTMLDirectoryElementByHTMLDirectoryElement(),
+// Close1 calls the method "HTMLDialogElement.close".
+func (this HTMLDialogElement) Close1() (ret js.Void) {
+	bindings.CallHTMLDialogElementClose1(
+		this.Ref(), js.Pointer(&ret),
 	)
+
+	return
+}
+
+// TryClose1 calls the method "HTMLDialogElement.close"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLDialogElement) TryClose1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLDialogElementClose1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+func NewHTMLDirectoryElement() (ret HTMLDirectoryElement) {
+	ret.ref = bindings.NewHTMLDirectoryElementByHTMLDirectoryElement()
+	return
 }
 
 type HTMLDirectoryElement struct {
@@ -1086,16 +1132,15 @@ func (this HTMLDirectoryElement) Free() {
 
 // Compact returns the value of property "HTMLDirectoryElement.compact".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDirectoryElement) Compact() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDirectoryElementCompact(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDirectoryElement) Compact() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLDirectoryElementCompact(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Compact sets the value of property "HTMLDirectoryElement.compact" to val.
+// SetCompact sets the value of property "HTMLDirectoryElement.compact" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLDirectoryElement) SetCompact(val bool) bool {
@@ -1105,10 +1150,9 @@ func (this HTMLDirectoryElement) SetCompact(val bool) bool {
 	)
 }
 
-func NewHTMLDivElement() HTMLDivElement {
-	return HTMLDivElement{}.FromRef(
-		bindings.NewHTMLDivElementByHTMLDivElement(),
-	)
+func NewHTMLDivElement() (ret HTMLDivElement) {
+	ret.ref = bindings.NewHTMLDivElementByHTMLDivElement()
+	return
 }
 
 type HTMLDivElement struct {
@@ -1135,16 +1179,15 @@ func (this HTMLDivElement) Free() {
 
 // Align returns the value of property "HTMLDivElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLDivElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLDivElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLDivElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLDivElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLDivElement.align" to val.
+// SetAlign sets the value of property "HTMLDivElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLDivElement) SetAlign(val js.String) bool {
@@ -1154,10 +1197,9 @@ func (this HTMLDivElement) SetAlign(val js.String) bool {
 	)
 }
 
-func NewHTMLEmbedElement() HTMLEmbedElement {
-	return HTMLEmbedElement{}.FromRef(
-		bindings.NewHTMLEmbedElementByHTMLEmbedElement(),
-	)
+func NewHTMLEmbedElement() (ret HTMLEmbedElement) {
+	ret.ref = bindings.NewHTMLEmbedElementByHTMLEmbedElement()
+	return
 }
 
 type HTMLEmbedElement struct {
@@ -1184,16 +1226,15 @@ func (this HTMLEmbedElement) Free() {
 
 // Src returns the value of property "HTMLEmbedElement.src".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLEmbedElement) Src() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLEmbedElementSrc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLEmbedElement) Src() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLEmbedElementSrc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Src sets the value of property "HTMLEmbedElement.src" to val.
+// SetSrc sets the value of property "HTMLEmbedElement.src" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLEmbedElement) SetSrc(val js.String) bool {
@@ -1205,16 +1246,15 @@ func (this HTMLEmbedElement) SetSrc(val js.String) bool {
 
 // Type returns the value of property "HTMLEmbedElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLEmbedElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLEmbedElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLEmbedElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLEmbedElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLEmbedElement.type" to val.
+// SetType sets the value of property "HTMLEmbedElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLEmbedElement) SetType(val js.String) bool {
@@ -1226,16 +1266,15 @@ func (this HTMLEmbedElement) SetType(val js.String) bool {
 
 // Width returns the value of property "HTMLEmbedElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLEmbedElement) Width() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLEmbedElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLEmbedElement) Width() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLEmbedElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Width sets the value of property "HTMLEmbedElement.width" to val.
+// SetWidth sets the value of property "HTMLEmbedElement.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLEmbedElement) SetWidth(val js.String) bool {
@@ -1247,16 +1286,15 @@ func (this HTMLEmbedElement) SetWidth(val js.String) bool {
 
 // Height returns the value of property "HTMLEmbedElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLEmbedElement) Height() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLEmbedElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLEmbedElement) Height() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLEmbedElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Height sets the value of property "HTMLEmbedElement.height" to val.
+// SetHeight sets the value of property "HTMLEmbedElement.height" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLEmbedElement) SetHeight(val js.String) bool {
@@ -1268,16 +1306,15 @@ func (this HTMLEmbedElement) SetHeight(val js.String) bool {
 
 // Align returns the value of property "HTMLEmbedElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLEmbedElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLEmbedElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLEmbedElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLEmbedElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLEmbedElement.align" to val.
+// SetAlign sets the value of property "HTMLEmbedElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLEmbedElement) SetAlign(val js.String) bool {
@@ -1289,16 +1326,15 @@ func (this HTMLEmbedElement) SetAlign(val js.String) bool {
 
 // Name returns the value of property "HTMLEmbedElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLEmbedElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLEmbedElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLEmbedElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLEmbedElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLEmbedElement.name" to val.
+// SetName sets the value of property "HTMLEmbedElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLEmbedElement) SetName(val js.String) bool {
@@ -1308,21 +1344,14 @@ func (this HTMLEmbedElement) SetName(val js.String) bool {
 	)
 }
 
-// GetSVGDocument calls the method "HTMLEmbedElement.getSVGDocument".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLEmbedElement) GetSVGDocument() (Document, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLEmbedElementGetSVGDocument(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetSVGDocument returns true if the method "HTMLEmbedElement.getSVGDocument" exists.
+func (this HTMLEmbedElement) HasGetSVGDocument() bool {
+	return js.True == bindings.HasHTMLEmbedElementGetSVGDocument(
+		this.Ref(),
 	)
-
-	return Document{}.FromRef(_ret), _ok
 }
 
 // GetSVGDocumentFunc returns the method "HTMLEmbedElement.getSVGDocument".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLEmbedElement) GetSVGDocumentFunc() (fn js.Func[func() Document]) {
 	return fn.FromRef(
 		bindings.HTMLEmbedElementGetSVGDocumentFunc(
@@ -1331,10 +1360,29 @@ func (this HTMLEmbedElement) GetSVGDocumentFunc() (fn js.Func[func() Document]) 
 	)
 }
 
-func NewHTMLFencedFrameElement() HTMLFencedFrameElement {
-	return HTMLFencedFrameElement{}.FromRef(
-		bindings.NewHTMLFencedFrameElementByHTMLFencedFrameElement(),
+// GetSVGDocument calls the method "HTMLEmbedElement.getSVGDocument".
+func (this HTMLEmbedElement) GetSVGDocument() (ret Document) {
+	bindings.CallHTMLEmbedElementGetSVGDocument(
+		this.Ref(), js.Pointer(&ret),
 	)
+
+	return
+}
+
+// TryGetSVGDocument calls the method "HTMLEmbedElement.getSVGDocument"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLEmbedElement) TryGetSVGDocument() (ret Document, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLEmbedElementGetSVGDocument(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+func NewHTMLFencedFrameElement() (ret HTMLFencedFrameElement) {
+	ret.ref = bindings.NewHTMLFencedFrameElementByHTMLFencedFrameElement()
+	return
 }
 
 type HTMLFencedFrameElement struct {
@@ -1361,16 +1409,15 @@ func (this HTMLFencedFrameElement) Free() {
 
 // Config returns the value of property "HTMLFencedFrameElement.config".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFencedFrameElement) Config() (FencedFrameConfig, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFencedFrameElementConfig(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFencedFrameElement) Config() (ret FencedFrameConfig, ok bool) {
+	ok = js.True == bindings.GetHTMLFencedFrameElementConfig(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return FencedFrameConfig{}.FromRef(_ret), _ok
+	return
 }
 
-// Config sets the value of property "HTMLFencedFrameElement.config" to val.
+// SetConfig sets the value of property "HTMLFencedFrameElement.config" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFencedFrameElement) SetConfig(val FencedFrameConfig) bool {
@@ -1382,16 +1429,15 @@ func (this HTMLFencedFrameElement) SetConfig(val FencedFrameConfig) bool {
 
 // Width returns the value of property "HTMLFencedFrameElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFencedFrameElement) Width() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFencedFrameElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFencedFrameElement) Width() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFencedFrameElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Width sets the value of property "HTMLFencedFrameElement.width" to val.
+// SetWidth sets the value of property "HTMLFencedFrameElement.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFencedFrameElement) SetWidth(val js.String) bool {
@@ -1403,16 +1449,15 @@ func (this HTMLFencedFrameElement) SetWidth(val js.String) bool {
 
 // Height returns the value of property "HTMLFencedFrameElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFencedFrameElement) Height() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFencedFrameElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFencedFrameElement) Height() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFencedFrameElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Height sets the value of property "HTMLFencedFrameElement.height" to val.
+// SetHeight sets the value of property "HTMLFencedFrameElement.height" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFencedFrameElement) SetHeight(val js.String) bool {
@@ -1424,16 +1469,15 @@ func (this HTMLFencedFrameElement) SetHeight(val js.String) bool {
 
 // Allow returns the value of property "HTMLFencedFrameElement.allow".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFencedFrameElement) Allow() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFencedFrameElementAllow(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFencedFrameElement) Allow() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFencedFrameElementAllow(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Allow sets the value of property "HTMLFencedFrameElement.allow" to val.
+// SetAllow sets the value of property "HTMLFencedFrameElement.allow" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFencedFrameElement) SetAllow(val js.String) bool {
@@ -1443,10 +1487,9 @@ func (this HTMLFencedFrameElement) SetAllow(val js.String) bool {
 	)
 }
 
-func NewHTMLFieldSetElement() HTMLFieldSetElement {
-	return HTMLFieldSetElement{}.FromRef(
-		bindings.NewHTMLFieldSetElementByHTMLFieldSetElement(),
-	)
+func NewHTMLFieldSetElement() (ret HTMLFieldSetElement) {
+	ret.ref = bindings.NewHTMLFieldSetElementByHTMLFieldSetElement()
+	return
 }
 
 type HTMLFieldSetElement struct {
@@ -1473,16 +1516,15 @@ func (this HTMLFieldSetElement) Free() {
 
 // Disabled returns the value of property "HTMLFieldSetElement.disabled".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) Disabled() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementDisabled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) Disabled() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementDisabled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Disabled sets the value of property "HTMLFieldSetElement.disabled" to val.
+// SetDisabled sets the value of property "HTMLFieldSetElement.disabled" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFieldSetElement) SetDisabled(val bool) bool {
@@ -1494,27 +1536,25 @@ func (this HTMLFieldSetElement) SetDisabled(val bool) bool {
 
 // Form returns the value of property "HTMLFieldSetElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // Name returns the value of property "HTMLFieldSetElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLFieldSetElement.name" to val.
+// SetName sets the value of property "HTMLFieldSetElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFieldSetElement) SetName(val js.String) bool {
@@ -1526,74 +1566,62 @@ func (this HTMLFieldSetElement) SetName(val js.String) bool {
 
 // Type returns the value of property "HTMLFieldSetElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Elements returns the value of property "HTMLFieldSetElement.elements".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) Elements() (HTMLCollection, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementElements(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) Elements() (ret HTMLCollection, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementElements(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLCollection{}.FromRef(_ret), _ok
+	return
 }
 
 // WillValidate returns the value of property "HTMLFieldSetElement.willValidate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) WillValidate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementWillValidate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) WillValidate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementWillValidate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Validity returns the value of property "HTMLFieldSetElement.validity".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) Validity() (ValidityState, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementValidity(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) Validity() (ret ValidityState, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ValidityState{}.FromRef(_ret), _ok
+	return
 }
 
 // ValidationMessage returns the value of property "HTMLFieldSetElement.validationMessage".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFieldSetElement) ValidationMessage() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFieldSetElementValidationMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFieldSetElement) ValidationMessage() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFieldSetElementValidationMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// CheckValidity calls the method "HTMLFieldSetElement.checkValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLFieldSetElement) CheckValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLFieldSetElementCheckValidity(
-		this.Ref(), js.Pointer(&_ok),
+// HasCheckValidity returns true if the method "HTMLFieldSetElement.checkValidity" exists.
+func (this HTMLFieldSetElement) HasCheckValidity() bool {
+	return js.True == bindings.HasHTMLFieldSetElementCheckValidity(
+		this.Ref(),
 	)
-
-	return _ret == js.True, _ok
 }
 
 // CheckValidityFunc returns the method "HTMLFieldSetElement.checkValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLFieldSetElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLFieldSetElementCheckValidityFunc(
@@ -1602,21 +1630,34 @@ func (this HTMLFieldSetElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// ReportValidity calls the method "HTMLFieldSetElement.reportValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLFieldSetElement) ReportValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLFieldSetElementReportValidity(
-		this.Ref(), js.Pointer(&_ok),
+// CheckValidity calls the method "HTMLFieldSetElement.checkValidity".
+func (this HTMLFieldSetElement) CheckValidity() (ret bool) {
+	bindings.CallHTMLFieldSetElementCheckValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryCheckValidity calls the method "HTMLFieldSetElement.checkValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLFieldSetElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLFieldSetElementCheckValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReportValidity returns true if the method "HTMLFieldSetElement.reportValidity" exists.
+func (this HTMLFieldSetElement) HasReportValidity() bool {
+	return js.True == bindings.HasHTMLFieldSetElementReportValidity(
+		this.Ref(),
+	)
 }
 
 // ReportValidityFunc returns the method "HTMLFieldSetElement.reportValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLFieldSetElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLFieldSetElementReportValidityFunc(
@@ -1625,23 +1666,34 @@ func (this HTMLFieldSetElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// SetCustomValidity calls the method "HTMLFieldSetElement.setCustomValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLFieldSetElement) SetCustomValidity(err js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLFieldSetElementSetCustomValidity(
-		this.Ref(), js.Pointer(&_ok),
-		err.Ref(),
+// ReportValidity calls the method "HTMLFieldSetElement.reportValidity".
+func (this HTMLFieldSetElement) ReportValidity() (ret bool) {
+	bindings.CallHTMLFieldSetElementReportValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReportValidity calls the method "HTMLFieldSetElement.reportValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLFieldSetElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLFieldSetElementReportValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetCustomValidity returns true if the method "HTMLFieldSetElement.setCustomValidity" exists.
+func (this HTMLFieldSetElement) HasSetCustomValidity() bool {
+	return js.True == bindings.HasHTMLFieldSetElementSetCustomValidity(
+		this.Ref(),
+	)
 }
 
 // SetCustomValidityFunc returns the method "HTMLFieldSetElement.setCustomValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLFieldSetElement) SetCustomValidityFunc() (fn js.Func[func(err js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLFieldSetElementSetCustomValidityFunc(
@@ -1650,10 +1702,31 @@ func (this HTMLFieldSetElement) SetCustomValidityFunc() (fn js.Func[func(err js.
 	)
 }
 
-func NewHTMLFontElement() HTMLFontElement {
-	return HTMLFontElement{}.FromRef(
-		bindings.NewHTMLFontElementByHTMLFontElement(),
+// SetCustomValidity calls the method "HTMLFieldSetElement.setCustomValidity".
+func (this HTMLFieldSetElement) SetCustomValidity(err js.String) (ret js.Void) {
+	bindings.CallHTMLFieldSetElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret),
+		err.Ref(),
 	)
+
+	return
+}
+
+// TrySetCustomValidity calls the method "HTMLFieldSetElement.setCustomValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLFieldSetElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLFieldSetElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		err.Ref(),
+	)
+
+	return
+}
+
+func NewHTMLFontElement() (ret HTMLFontElement) {
+	ret.ref = bindings.NewHTMLFontElementByHTMLFontElement()
+	return
 }
 
 type HTMLFontElement struct {
@@ -1680,16 +1753,15 @@ func (this HTMLFontElement) Free() {
 
 // Color returns the value of property "HTMLFontElement.color".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFontElement) Color() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFontElementColor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFontElement) Color() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFontElementColor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Color sets the value of property "HTMLFontElement.color" to val.
+// SetColor sets the value of property "HTMLFontElement.color" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFontElement) SetColor(val js.String) bool {
@@ -1701,16 +1773,15 @@ func (this HTMLFontElement) SetColor(val js.String) bool {
 
 // Face returns the value of property "HTMLFontElement.face".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFontElement) Face() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFontElementFace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFontElement) Face() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFontElementFace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Face sets the value of property "HTMLFontElement.face" to val.
+// SetFace sets the value of property "HTMLFontElement.face" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFontElement) SetFace(val js.String) bool {
@@ -1722,16 +1793,15 @@ func (this HTMLFontElement) SetFace(val js.String) bool {
 
 // Size returns the value of property "HTMLFontElement.size".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFontElement) Size() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFontElementSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFontElement) Size() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFontElementSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Size sets the value of property "HTMLFontElement.size" to val.
+// SetSize sets the value of property "HTMLFontElement.size" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFontElement) SetSize(val js.String) bool {
@@ -1741,10 +1811,9 @@ func (this HTMLFontElement) SetSize(val js.String) bool {
 	)
 }
 
-func NewHTMLFrameElement() HTMLFrameElement {
-	return HTMLFrameElement{}.FromRef(
-		bindings.NewHTMLFrameElementByHTMLFrameElement(),
-	)
+func NewHTMLFrameElement() (ret HTMLFrameElement) {
+	ret.ref = bindings.NewHTMLFrameElementByHTMLFrameElement()
+	return
 }
 
 type HTMLFrameElement struct {
@@ -1771,16 +1840,15 @@ func (this HTMLFrameElement) Free() {
 
 // Name returns the value of property "HTMLFrameElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLFrameElement.name" to val.
+// SetName sets the value of property "HTMLFrameElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetName(val js.String) bool {
@@ -1792,16 +1860,15 @@ func (this HTMLFrameElement) SetName(val js.String) bool {
 
 // Scrolling returns the value of property "HTMLFrameElement.scrolling".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) Scrolling() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementScrolling(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) Scrolling() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementScrolling(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Scrolling sets the value of property "HTMLFrameElement.scrolling" to val.
+// SetScrolling sets the value of property "HTMLFrameElement.scrolling" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetScrolling(val js.String) bool {
@@ -1813,16 +1880,15 @@ func (this HTMLFrameElement) SetScrolling(val js.String) bool {
 
 // Src returns the value of property "HTMLFrameElement.src".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) Src() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementSrc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) Src() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementSrc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Src sets the value of property "HTMLFrameElement.src" to val.
+// SetSrc sets the value of property "HTMLFrameElement.src" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetSrc(val js.String) bool {
@@ -1834,16 +1900,15 @@ func (this HTMLFrameElement) SetSrc(val js.String) bool {
 
 // FrameBorder returns the value of property "HTMLFrameElement.frameBorder".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) FrameBorder() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementFrameBorder(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) FrameBorder() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementFrameBorder(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FrameBorder sets the value of property "HTMLFrameElement.frameBorder" to val.
+// SetFrameBorder sets the value of property "HTMLFrameElement.frameBorder" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetFrameBorder(val js.String) bool {
@@ -1855,16 +1920,15 @@ func (this HTMLFrameElement) SetFrameBorder(val js.String) bool {
 
 // LongDesc returns the value of property "HTMLFrameElement.longDesc".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) LongDesc() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementLongDesc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) LongDesc() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementLongDesc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// LongDesc sets the value of property "HTMLFrameElement.longDesc" to val.
+// SetLongDesc sets the value of property "HTMLFrameElement.longDesc" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetLongDesc(val js.String) bool {
@@ -1876,16 +1940,15 @@ func (this HTMLFrameElement) SetLongDesc(val js.String) bool {
 
 // NoResize returns the value of property "HTMLFrameElement.noResize".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) NoResize() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementNoResize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) NoResize() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementNoResize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// NoResize sets the value of property "HTMLFrameElement.noResize" to val.
+// SetNoResize sets the value of property "HTMLFrameElement.noResize" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetNoResize(val bool) bool {
@@ -1897,38 +1960,35 @@ func (this HTMLFrameElement) SetNoResize(val bool) bool {
 
 // ContentDocument returns the value of property "HTMLFrameElement.contentDocument".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) ContentDocument() (Document, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementContentDocument(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) ContentDocument() (ret Document, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementContentDocument(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Document{}.FromRef(_ret), _ok
+	return
 }
 
 // ContentWindow returns the value of property "HTMLFrameElement.contentWindow".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) ContentWindow() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementContentWindow(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) ContentWindow() (ret js.Object, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementContentWindow(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Object{}.FromRef(_ret), _ok
+	return
 }
 
 // MarginHeight returns the value of property "HTMLFrameElement.marginHeight".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) MarginHeight() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementMarginHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) MarginHeight() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementMarginHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// MarginHeight sets the value of property "HTMLFrameElement.marginHeight" to val.
+// SetMarginHeight sets the value of property "HTMLFrameElement.marginHeight" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetMarginHeight(val js.String) bool {
@@ -1940,16 +2000,15 @@ func (this HTMLFrameElement) SetMarginHeight(val js.String) bool {
 
 // MarginWidth returns the value of property "HTMLFrameElement.marginWidth".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameElement) MarginWidth() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameElementMarginWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameElement) MarginWidth() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameElementMarginWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// MarginWidth sets the value of property "HTMLFrameElement.marginWidth" to val.
+// SetMarginWidth sets the value of property "HTMLFrameElement.marginWidth" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameElement) SetMarginWidth(val js.String) bool {
@@ -1959,10 +2018,9 @@ func (this HTMLFrameElement) SetMarginWidth(val js.String) bool {
 	)
 }
 
-func NewHTMLFrameSetElement() HTMLFrameSetElement {
-	return HTMLFrameSetElement{}.FromRef(
-		bindings.NewHTMLFrameSetElementByHTMLFrameSetElement(),
-	)
+func NewHTMLFrameSetElement() (ret HTMLFrameSetElement) {
+	ret.ref = bindings.NewHTMLFrameSetElementByHTMLFrameSetElement()
+	return
 }
 
 type HTMLFrameSetElement struct {
@@ -1989,16 +2047,15 @@ func (this HTMLFrameSetElement) Free() {
 
 // Cols returns the value of property "HTMLFrameSetElement.cols".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameSetElement) Cols() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameSetElementCols(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameSetElement) Cols() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameSetElementCols(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Cols sets the value of property "HTMLFrameSetElement.cols" to val.
+// SetCols sets the value of property "HTMLFrameSetElement.cols" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameSetElement) SetCols(val js.String) bool {
@@ -2010,16 +2067,15 @@ func (this HTMLFrameSetElement) SetCols(val js.String) bool {
 
 // Rows returns the value of property "HTMLFrameSetElement.rows".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLFrameSetElement) Rows() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLFrameSetElementRows(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLFrameSetElement) Rows() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLFrameSetElementRows(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Rows sets the value of property "HTMLFrameSetElement.rows" to val.
+// SetRows sets the value of property "HTMLFrameSetElement.rows" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLFrameSetElement) SetRows(val js.String) bool {
@@ -2029,10 +2085,9 @@ func (this HTMLFrameSetElement) SetRows(val js.String) bool {
 	)
 }
 
-func NewHTMLHRElement() HTMLHRElement {
-	return HTMLHRElement{}.FromRef(
-		bindings.NewHTMLHRElementByHTMLHRElement(),
-	)
+func NewHTMLHRElement() (ret HTMLHRElement) {
+	ret.ref = bindings.NewHTMLHRElementByHTMLHRElement()
+	return
 }
 
 type HTMLHRElement struct {
@@ -2059,16 +2114,15 @@ func (this HTMLHRElement) Free() {
 
 // Align returns the value of property "HTMLHRElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLHRElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLHRElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLHRElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLHRElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLHRElement.align" to val.
+// SetAlign sets the value of property "HTMLHRElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLHRElement) SetAlign(val js.String) bool {
@@ -2080,16 +2134,15 @@ func (this HTMLHRElement) SetAlign(val js.String) bool {
 
 // Color returns the value of property "HTMLHRElement.color".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLHRElement) Color() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLHRElementColor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLHRElement) Color() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLHRElementColor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Color sets the value of property "HTMLHRElement.color" to val.
+// SetColor sets the value of property "HTMLHRElement.color" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLHRElement) SetColor(val js.String) bool {
@@ -2101,16 +2154,15 @@ func (this HTMLHRElement) SetColor(val js.String) bool {
 
 // NoShade returns the value of property "HTMLHRElement.noShade".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLHRElement) NoShade() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLHRElementNoShade(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLHRElement) NoShade() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLHRElementNoShade(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// NoShade sets the value of property "HTMLHRElement.noShade" to val.
+// SetNoShade sets the value of property "HTMLHRElement.noShade" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLHRElement) SetNoShade(val bool) bool {
@@ -2122,16 +2174,15 @@ func (this HTMLHRElement) SetNoShade(val bool) bool {
 
 // Size returns the value of property "HTMLHRElement.size".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLHRElement) Size() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLHRElementSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLHRElement) Size() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLHRElementSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Size sets the value of property "HTMLHRElement.size" to val.
+// SetSize sets the value of property "HTMLHRElement.size" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLHRElement) SetSize(val js.String) bool {
@@ -2143,16 +2194,15 @@ func (this HTMLHRElement) SetSize(val js.String) bool {
 
 // Width returns the value of property "HTMLHRElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLHRElement) Width() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLHRElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLHRElement) Width() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLHRElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Width sets the value of property "HTMLHRElement.width" to val.
+// SetWidth sets the value of property "HTMLHRElement.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLHRElement) SetWidth(val js.String) bool {
@@ -2162,10 +2212,9 @@ func (this HTMLHRElement) SetWidth(val js.String) bool {
 	)
 }
 
-func NewHTMLHeadingElement() HTMLHeadingElement {
-	return HTMLHeadingElement{}.FromRef(
-		bindings.NewHTMLHeadingElementByHTMLHeadingElement(),
-	)
+func NewHTMLHeadingElement() (ret HTMLHeadingElement) {
+	ret.ref = bindings.NewHTMLHeadingElementByHTMLHeadingElement()
+	return
 }
 
 type HTMLHeadingElement struct {
@@ -2192,16 +2241,15 @@ func (this HTMLHeadingElement) Free() {
 
 // Align returns the value of property "HTMLHeadingElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLHeadingElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLHeadingElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLHeadingElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLHeadingElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLHeadingElement.align" to val.
+// SetAlign sets the value of property "HTMLHeadingElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLHeadingElement) SetAlign(val js.String) bool {
@@ -2211,10 +2259,9 @@ func (this HTMLHeadingElement) SetAlign(val js.String) bool {
 	)
 }
 
-func NewHTMLHtmlElement() HTMLHtmlElement {
-	return HTMLHtmlElement{}.FromRef(
-		bindings.NewHTMLHtmlElementByHTMLHtmlElement(),
-	)
+func NewHTMLHtmlElement() (ret HTMLHtmlElement) {
+	ret.ref = bindings.NewHTMLHtmlElementByHTMLHtmlElement()
+	return
 }
 
 type HTMLHtmlElement struct {
@@ -2241,16 +2288,15 @@ func (this HTMLHtmlElement) Free() {
 
 // Version returns the value of property "HTMLHtmlElement.version".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLHtmlElement) Version() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLHtmlElementVersion(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLHtmlElement) Version() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLHtmlElementVersion(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Version sets the value of property "HTMLHtmlElement.version" to val.
+// SetVersion sets the value of property "HTMLHtmlElement.version" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLHtmlElement) SetVersion(val js.String) bool {
@@ -2260,10 +2306,9 @@ func (this HTMLHtmlElement) SetVersion(val js.String) bool {
 	)
 }
 
-func NewHTMLIFrameElement() HTMLIFrameElement {
-	return HTMLIFrameElement{}.FromRef(
-		bindings.NewHTMLIFrameElementByHTMLIFrameElement(),
-	)
+func NewHTMLIFrameElement() (ret HTMLIFrameElement) {
+	ret.ref = bindings.NewHTMLIFrameElementByHTMLIFrameElement()
+	return
 }
 
 type HTMLIFrameElement struct {
@@ -2290,16 +2335,15 @@ func (this HTMLIFrameElement) Free() {
 
 // Src returns the value of property "HTMLIFrameElement.src".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Src() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementSrc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Src() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementSrc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Src sets the value of property "HTMLIFrameElement.src" to val.
+// SetSrc sets the value of property "HTMLIFrameElement.src" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetSrc(val js.String) bool {
@@ -2311,16 +2355,15 @@ func (this HTMLIFrameElement) SetSrc(val js.String) bool {
 
 // Srcdoc returns the value of property "HTMLIFrameElement.srcdoc".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Srcdoc() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementSrcdoc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Srcdoc() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementSrcdoc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Srcdoc sets the value of property "HTMLIFrameElement.srcdoc" to val.
+// SetSrcdoc sets the value of property "HTMLIFrameElement.srcdoc" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetSrcdoc(val js.String) bool {
@@ -2332,16 +2375,15 @@ func (this HTMLIFrameElement) SetSrcdoc(val js.String) bool {
 
 // Name returns the value of property "HTMLIFrameElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLIFrameElement.name" to val.
+// SetName sets the value of property "HTMLIFrameElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetName(val js.String) bool {
@@ -2353,27 +2395,25 @@ func (this HTMLIFrameElement) SetName(val js.String) bool {
 
 // Sandbox returns the value of property "HTMLIFrameElement.sandbox".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Sandbox() (DOMTokenList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementSandbox(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Sandbox() (ret DOMTokenList, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementSandbox(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMTokenList{}.FromRef(_ret), _ok
+	return
 }
 
 // Allow returns the value of property "HTMLIFrameElement.allow".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Allow() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementAllow(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Allow() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementAllow(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Allow sets the value of property "HTMLIFrameElement.allow" to val.
+// SetAllow sets the value of property "HTMLIFrameElement.allow" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetAllow(val js.String) bool {
@@ -2385,16 +2425,15 @@ func (this HTMLIFrameElement) SetAllow(val js.String) bool {
 
 // AllowFullscreen returns the value of property "HTMLIFrameElement.allowFullscreen".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) AllowFullscreen() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementAllowFullscreen(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) AllowFullscreen() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementAllowFullscreen(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// AllowFullscreen sets the value of property "HTMLIFrameElement.allowFullscreen" to val.
+// SetAllowFullscreen sets the value of property "HTMLIFrameElement.allowFullscreen" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetAllowFullscreen(val bool) bool {
@@ -2406,16 +2445,15 @@ func (this HTMLIFrameElement) SetAllowFullscreen(val bool) bool {
 
 // Width returns the value of property "HTMLIFrameElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Width() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Width() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Width sets the value of property "HTMLIFrameElement.width" to val.
+// SetWidth sets the value of property "HTMLIFrameElement.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetWidth(val js.String) bool {
@@ -2427,16 +2465,15 @@ func (this HTMLIFrameElement) SetWidth(val js.String) bool {
 
 // Height returns the value of property "HTMLIFrameElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Height() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Height() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Height sets the value of property "HTMLIFrameElement.height" to val.
+// SetHeight sets the value of property "HTMLIFrameElement.height" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetHeight(val js.String) bool {
@@ -2448,16 +2485,15 @@ func (this HTMLIFrameElement) SetHeight(val js.String) bool {
 
 // ReferrerPolicy returns the value of property "HTMLIFrameElement.referrerPolicy".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) ReferrerPolicy() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementReferrerPolicy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) ReferrerPolicy() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementReferrerPolicy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ReferrerPolicy sets the value of property "HTMLIFrameElement.referrerPolicy" to val.
+// SetReferrerPolicy sets the value of property "HTMLIFrameElement.referrerPolicy" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetReferrerPolicy(val js.String) bool {
@@ -2469,16 +2505,15 @@ func (this HTMLIFrameElement) SetReferrerPolicy(val js.String) bool {
 
 // Loading returns the value of property "HTMLIFrameElement.loading".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Loading() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementLoading(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Loading() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementLoading(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Loading sets the value of property "HTMLIFrameElement.loading" to val.
+// SetLoading sets the value of property "HTMLIFrameElement.loading" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetLoading(val js.String) bool {
@@ -2490,49 +2525,45 @@ func (this HTMLIFrameElement) SetLoading(val js.String) bool {
 
 // ContentDocument returns the value of property "HTMLIFrameElement.contentDocument".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) ContentDocument() (Document, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementContentDocument(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) ContentDocument() (ret Document, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementContentDocument(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Document{}.FromRef(_ret), _ok
+	return
 }
 
 // ContentWindow returns the value of property "HTMLIFrameElement.contentWindow".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) ContentWindow() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementContentWindow(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) ContentWindow() (ret js.Object, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementContentWindow(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Object{}.FromRef(_ret), _ok
+	return
 }
 
 // PermissionsPolicy returns the value of property "HTMLIFrameElement.permissionsPolicy".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) PermissionsPolicy() (PermissionsPolicy, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementPermissionsPolicy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) PermissionsPolicy() (ret PermissionsPolicy, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementPermissionsPolicy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PermissionsPolicy{}.FromRef(_ret), _ok
+	return
 }
 
 // Csp returns the value of property "HTMLIFrameElement.csp".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Csp() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementCsp(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Csp() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementCsp(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Csp sets the value of property "HTMLIFrameElement.csp" to val.
+// SetCsp sets the value of property "HTMLIFrameElement.csp" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetCsp(val js.String) bool {
@@ -2544,16 +2575,15 @@ func (this HTMLIFrameElement) SetCsp(val js.String) bool {
 
 // PrivateToken returns the value of property "HTMLIFrameElement.privateToken".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) PrivateToken() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementPrivateToken(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) PrivateToken() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementPrivateToken(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// PrivateToken sets the value of property "HTMLIFrameElement.privateToken" to val.
+// SetPrivateToken sets the value of property "HTMLIFrameElement.privateToken" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetPrivateToken(val js.String) bool {
@@ -2565,16 +2595,15 @@ func (this HTMLIFrameElement) SetPrivateToken(val js.String) bool {
 
 // Align returns the value of property "HTMLIFrameElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLIFrameElement.align" to val.
+// SetAlign sets the value of property "HTMLIFrameElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetAlign(val js.String) bool {
@@ -2586,16 +2615,15 @@ func (this HTMLIFrameElement) SetAlign(val js.String) bool {
 
 // Scrolling returns the value of property "HTMLIFrameElement.scrolling".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) Scrolling() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementScrolling(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) Scrolling() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementScrolling(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Scrolling sets the value of property "HTMLIFrameElement.scrolling" to val.
+// SetScrolling sets the value of property "HTMLIFrameElement.scrolling" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetScrolling(val js.String) bool {
@@ -2607,16 +2635,15 @@ func (this HTMLIFrameElement) SetScrolling(val js.String) bool {
 
 // FrameBorder returns the value of property "HTMLIFrameElement.frameBorder".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) FrameBorder() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementFrameBorder(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) FrameBorder() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementFrameBorder(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FrameBorder sets the value of property "HTMLIFrameElement.frameBorder" to val.
+// SetFrameBorder sets the value of property "HTMLIFrameElement.frameBorder" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetFrameBorder(val js.String) bool {
@@ -2628,16 +2655,15 @@ func (this HTMLIFrameElement) SetFrameBorder(val js.String) bool {
 
 // LongDesc returns the value of property "HTMLIFrameElement.longDesc".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) LongDesc() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementLongDesc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) LongDesc() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementLongDesc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// LongDesc sets the value of property "HTMLIFrameElement.longDesc" to val.
+// SetLongDesc sets the value of property "HTMLIFrameElement.longDesc" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetLongDesc(val js.String) bool {
@@ -2649,16 +2675,15 @@ func (this HTMLIFrameElement) SetLongDesc(val js.String) bool {
 
 // MarginHeight returns the value of property "HTMLIFrameElement.marginHeight".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) MarginHeight() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementMarginHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) MarginHeight() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementMarginHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// MarginHeight sets the value of property "HTMLIFrameElement.marginHeight" to val.
+// SetMarginHeight sets the value of property "HTMLIFrameElement.marginHeight" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetMarginHeight(val js.String) bool {
@@ -2670,16 +2695,15 @@ func (this HTMLIFrameElement) SetMarginHeight(val js.String) bool {
 
 // MarginWidth returns the value of property "HTMLIFrameElement.marginWidth".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLIFrameElement) MarginWidth() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLIFrameElementMarginWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLIFrameElement) MarginWidth() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLIFrameElementMarginWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// MarginWidth sets the value of property "HTMLIFrameElement.marginWidth" to val.
+// SetMarginWidth sets the value of property "HTMLIFrameElement.marginWidth" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLIFrameElement) SetMarginWidth(val js.String) bool {
@@ -2689,27 +2713,40 @@ func (this HTMLIFrameElement) SetMarginWidth(val js.String) bool {
 	)
 }
 
-// GetSVGDocument calls the method "HTMLIFrameElement.getSVGDocument".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLIFrameElement) GetSVGDocument() (Document, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLIFrameElementGetSVGDocument(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetSVGDocument returns true if the method "HTMLIFrameElement.getSVGDocument" exists.
+func (this HTMLIFrameElement) HasGetSVGDocument() bool {
+	return js.True == bindings.HasHTMLIFrameElementGetSVGDocument(
+		this.Ref(),
 	)
-
-	return Document{}.FromRef(_ret), _ok
 }
 
 // GetSVGDocumentFunc returns the method "HTMLIFrameElement.getSVGDocument".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLIFrameElement) GetSVGDocumentFunc() (fn js.Func[func() Document]) {
 	return fn.FromRef(
 		bindings.HTMLIFrameElementGetSVGDocumentFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetSVGDocument calls the method "HTMLIFrameElement.getSVGDocument".
+func (this HTMLIFrameElement) GetSVGDocument() (ret Document) {
+	bindings.CallHTMLIFrameElementGetSVGDocument(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetSVGDocument calls the method "HTMLIFrameElement.getSVGDocument"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLIFrameElement) TryGetSVGDocument() (ret Document, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLIFrameElementGetSVGDocument(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type SelectionMode uint32
@@ -2742,10 +2779,9 @@ func (x SelectionMode) String() (string, bool) {
 	}
 }
 
-func NewHTMLInputElement() HTMLInputElement {
-	return HTMLInputElement{}.FromRef(
-		bindings.NewHTMLInputElementByHTMLInputElement(),
-	)
+func NewHTMLInputElement() (ret HTMLInputElement) {
+	ret.ref = bindings.NewHTMLInputElementByHTMLInputElement()
+	return
 }
 
 type HTMLInputElement struct {
@@ -2772,16 +2808,15 @@ func (this HTMLInputElement) Free() {
 
 // Accept returns the value of property "HTMLInputElement.accept".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Accept() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementAccept(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Accept() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementAccept(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Accept sets the value of property "HTMLInputElement.accept" to val.
+// SetAccept sets the value of property "HTMLInputElement.accept" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetAccept(val js.String) bool {
@@ -2793,16 +2828,15 @@ func (this HTMLInputElement) SetAccept(val js.String) bool {
 
 // Alt returns the value of property "HTMLInputElement.alt".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Alt() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementAlt(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Alt() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementAlt(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Alt sets the value of property "HTMLInputElement.alt" to val.
+// SetAlt sets the value of property "HTMLInputElement.alt" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetAlt(val js.String) bool {
@@ -2814,16 +2848,15 @@ func (this HTMLInputElement) SetAlt(val js.String) bool {
 
 // Autocomplete returns the value of property "HTMLInputElement.autocomplete".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Autocomplete() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementAutocomplete(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Autocomplete() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementAutocomplete(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Autocomplete sets the value of property "HTMLInputElement.autocomplete" to val.
+// SetAutocomplete sets the value of property "HTMLInputElement.autocomplete" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetAutocomplete(val js.String) bool {
@@ -2835,16 +2868,15 @@ func (this HTMLInputElement) SetAutocomplete(val js.String) bool {
 
 // DefaultChecked returns the value of property "HTMLInputElement.defaultChecked".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) DefaultChecked() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementDefaultChecked(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) DefaultChecked() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementDefaultChecked(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// DefaultChecked sets the value of property "HTMLInputElement.defaultChecked" to val.
+// SetDefaultChecked sets the value of property "HTMLInputElement.defaultChecked" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetDefaultChecked(val bool) bool {
@@ -2856,16 +2888,15 @@ func (this HTMLInputElement) SetDefaultChecked(val bool) bool {
 
 // Checked returns the value of property "HTMLInputElement.checked".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Checked() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementChecked(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Checked() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementChecked(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Checked sets the value of property "HTMLInputElement.checked" to val.
+// SetChecked sets the value of property "HTMLInputElement.checked" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetChecked(val bool) bool {
@@ -2877,16 +2908,15 @@ func (this HTMLInputElement) SetChecked(val bool) bool {
 
 // DirName returns the value of property "HTMLInputElement.dirName".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) DirName() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementDirName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) DirName() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementDirName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// DirName sets the value of property "HTMLInputElement.dirName" to val.
+// SetDirName sets the value of property "HTMLInputElement.dirName" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetDirName(val js.String) bool {
@@ -2898,16 +2928,15 @@ func (this HTMLInputElement) SetDirName(val js.String) bool {
 
 // Disabled returns the value of property "HTMLInputElement.disabled".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Disabled() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementDisabled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Disabled() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementDisabled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Disabled sets the value of property "HTMLInputElement.disabled" to val.
+// SetDisabled sets the value of property "HTMLInputElement.disabled" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetDisabled(val bool) bool {
@@ -2919,27 +2948,25 @@ func (this HTMLInputElement) SetDisabled(val bool) bool {
 
 // Form returns the value of property "HTMLInputElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // Files returns the value of property "HTMLInputElement.files".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Files() (FileList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementFiles(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Files() (ret FileList, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementFiles(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return FileList{}.FromRef(_ret), _ok
+	return
 }
 
-// Files sets the value of property "HTMLInputElement.files" to val.
+// SetFiles sets the value of property "HTMLInputElement.files" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetFiles(val FileList) bool {
@@ -2951,16 +2978,15 @@ func (this HTMLInputElement) SetFiles(val FileList) bool {
 
 // FormAction returns the value of property "HTMLInputElement.formAction".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) FormAction() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementFormAction(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) FormAction() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementFormAction(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormAction sets the value of property "HTMLInputElement.formAction" to val.
+// SetFormAction sets the value of property "HTMLInputElement.formAction" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetFormAction(val js.String) bool {
@@ -2972,16 +2998,15 @@ func (this HTMLInputElement) SetFormAction(val js.String) bool {
 
 // FormEnctype returns the value of property "HTMLInputElement.formEnctype".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) FormEnctype() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementFormEnctype(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) FormEnctype() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementFormEnctype(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormEnctype sets the value of property "HTMLInputElement.formEnctype" to val.
+// SetFormEnctype sets the value of property "HTMLInputElement.formEnctype" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetFormEnctype(val js.String) bool {
@@ -2993,16 +3018,15 @@ func (this HTMLInputElement) SetFormEnctype(val js.String) bool {
 
 // FormMethod returns the value of property "HTMLInputElement.formMethod".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) FormMethod() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementFormMethod(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) FormMethod() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementFormMethod(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormMethod sets the value of property "HTMLInputElement.formMethod" to val.
+// SetFormMethod sets the value of property "HTMLInputElement.formMethod" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetFormMethod(val js.String) bool {
@@ -3014,16 +3038,15 @@ func (this HTMLInputElement) SetFormMethod(val js.String) bool {
 
 // FormNoValidate returns the value of property "HTMLInputElement.formNoValidate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) FormNoValidate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementFormNoValidate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) FormNoValidate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementFormNoValidate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// FormNoValidate sets the value of property "HTMLInputElement.formNoValidate" to val.
+// SetFormNoValidate sets the value of property "HTMLInputElement.formNoValidate" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetFormNoValidate(val bool) bool {
@@ -3035,16 +3058,15 @@ func (this HTMLInputElement) SetFormNoValidate(val bool) bool {
 
 // FormTarget returns the value of property "HTMLInputElement.formTarget".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) FormTarget() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementFormTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) FormTarget() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementFormTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FormTarget sets the value of property "HTMLInputElement.formTarget" to val.
+// SetFormTarget sets the value of property "HTMLInputElement.formTarget" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetFormTarget(val js.String) bool {
@@ -3056,16 +3078,15 @@ func (this HTMLInputElement) SetFormTarget(val js.String) bool {
 
 // Height returns the value of property "HTMLInputElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Height() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Height() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Height sets the value of property "HTMLInputElement.height" to val.
+// SetHeight sets the value of property "HTMLInputElement.height" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetHeight(val uint32) bool {
@@ -3077,16 +3098,15 @@ func (this HTMLInputElement) SetHeight(val uint32) bool {
 
 // Indeterminate returns the value of property "HTMLInputElement.indeterminate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Indeterminate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementIndeterminate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Indeterminate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementIndeterminate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Indeterminate sets the value of property "HTMLInputElement.indeterminate" to val.
+// SetIndeterminate sets the value of property "HTMLInputElement.indeterminate" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetIndeterminate(val bool) bool {
@@ -3098,27 +3118,25 @@ func (this HTMLInputElement) SetIndeterminate(val bool) bool {
 
 // List returns the value of property "HTMLInputElement.list".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) List() (HTMLDataListElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementList(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) List() (ret HTMLDataListElement, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementList(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLDataListElement{}.FromRef(_ret), _ok
+	return
 }
 
 // Max returns the value of property "HTMLInputElement.max".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Max() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementMax(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Max() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementMax(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Max sets the value of property "HTMLInputElement.max" to val.
+// SetMax sets the value of property "HTMLInputElement.max" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetMax(val js.String) bool {
@@ -3130,16 +3148,15 @@ func (this HTMLInputElement) SetMax(val js.String) bool {
 
 // MaxLength returns the value of property "HTMLInputElement.maxLength".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) MaxLength() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementMaxLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) MaxLength() (ret int32, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementMaxLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// MaxLength sets the value of property "HTMLInputElement.maxLength" to val.
+// SetMaxLength sets the value of property "HTMLInputElement.maxLength" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetMaxLength(val int32) bool {
@@ -3151,16 +3168,15 @@ func (this HTMLInputElement) SetMaxLength(val int32) bool {
 
 // Min returns the value of property "HTMLInputElement.min".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Min() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementMin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Min() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementMin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Min sets the value of property "HTMLInputElement.min" to val.
+// SetMin sets the value of property "HTMLInputElement.min" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetMin(val js.String) bool {
@@ -3172,16 +3188,15 @@ func (this HTMLInputElement) SetMin(val js.String) bool {
 
 // MinLength returns the value of property "HTMLInputElement.minLength".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) MinLength() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementMinLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) MinLength() (ret int32, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementMinLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// MinLength sets the value of property "HTMLInputElement.minLength" to val.
+// SetMinLength sets the value of property "HTMLInputElement.minLength" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetMinLength(val int32) bool {
@@ -3193,16 +3208,15 @@ func (this HTMLInputElement) SetMinLength(val int32) bool {
 
 // Multiple returns the value of property "HTMLInputElement.multiple".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Multiple() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementMultiple(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Multiple() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementMultiple(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Multiple sets the value of property "HTMLInputElement.multiple" to val.
+// SetMultiple sets the value of property "HTMLInputElement.multiple" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetMultiple(val bool) bool {
@@ -3214,16 +3228,15 @@ func (this HTMLInputElement) SetMultiple(val bool) bool {
 
 // Name returns the value of property "HTMLInputElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLInputElement.name" to val.
+// SetName sets the value of property "HTMLInputElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetName(val js.String) bool {
@@ -3235,16 +3248,15 @@ func (this HTMLInputElement) SetName(val js.String) bool {
 
 // Pattern returns the value of property "HTMLInputElement.pattern".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Pattern() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementPattern(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Pattern() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementPattern(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Pattern sets the value of property "HTMLInputElement.pattern" to val.
+// SetPattern sets the value of property "HTMLInputElement.pattern" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetPattern(val js.String) bool {
@@ -3256,16 +3268,15 @@ func (this HTMLInputElement) SetPattern(val js.String) bool {
 
 // Placeholder returns the value of property "HTMLInputElement.placeholder".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Placeholder() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementPlaceholder(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Placeholder() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementPlaceholder(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Placeholder sets the value of property "HTMLInputElement.placeholder" to val.
+// SetPlaceholder sets the value of property "HTMLInputElement.placeholder" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetPlaceholder(val js.String) bool {
@@ -3277,16 +3288,15 @@ func (this HTMLInputElement) SetPlaceholder(val js.String) bool {
 
 // ReadOnly returns the value of property "HTMLInputElement.readOnly".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) ReadOnly() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementReadOnly(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) ReadOnly() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementReadOnly(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// ReadOnly sets the value of property "HTMLInputElement.readOnly" to val.
+// SetReadOnly sets the value of property "HTMLInputElement.readOnly" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetReadOnly(val bool) bool {
@@ -3298,16 +3308,15 @@ func (this HTMLInputElement) SetReadOnly(val bool) bool {
 
 // Required returns the value of property "HTMLInputElement.required".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Required() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementRequired(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Required() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementRequired(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Required sets the value of property "HTMLInputElement.required" to val.
+// SetRequired sets the value of property "HTMLInputElement.required" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetRequired(val bool) bool {
@@ -3319,16 +3328,15 @@ func (this HTMLInputElement) SetRequired(val bool) bool {
 
 // Size returns the value of property "HTMLInputElement.size".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Size() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Size() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Size sets the value of property "HTMLInputElement.size" to val.
+// SetSize sets the value of property "HTMLInputElement.size" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetSize(val uint32) bool {
@@ -3340,16 +3348,15 @@ func (this HTMLInputElement) SetSize(val uint32) bool {
 
 // Src returns the value of property "HTMLInputElement.src".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Src() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementSrc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Src() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementSrc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Src sets the value of property "HTMLInputElement.src" to val.
+// SetSrc sets the value of property "HTMLInputElement.src" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetSrc(val js.String) bool {
@@ -3361,16 +3368,15 @@ func (this HTMLInputElement) SetSrc(val js.String) bool {
 
 // Step returns the value of property "HTMLInputElement.step".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Step() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementStep(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Step() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementStep(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Step sets the value of property "HTMLInputElement.step" to val.
+// SetStep sets the value of property "HTMLInputElement.step" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetStep(val js.String) bool {
@@ -3382,16 +3388,15 @@ func (this HTMLInputElement) SetStep(val js.String) bool {
 
 // Type returns the value of property "HTMLInputElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLInputElement.type" to val.
+// SetType sets the value of property "HTMLInputElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetType(val js.String) bool {
@@ -3403,16 +3408,15 @@ func (this HTMLInputElement) SetType(val js.String) bool {
 
 // DefaultValue returns the value of property "HTMLInputElement.defaultValue".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) DefaultValue() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementDefaultValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) DefaultValue() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementDefaultValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// DefaultValue sets the value of property "HTMLInputElement.defaultValue" to val.
+// SetDefaultValue sets the value of property "HTMLInputElement.defaultValue" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetDefaultValue(val js.String) bool {
@@ -3424,16 +3428,15 @@ func (this HTMLInputElement) SetDefaultValue(val js.String) bool {
 
 // Value returns the value of property "HTMLInputElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Value() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Value() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLInputElement.value" to val.
+// SetValue sets the value of property "HTMLInputElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetValue(val js.String) bool {
@@ -3445,16 +3448,15 @@ func (this HTMLInputElement) SetValue(val js.String) bool {
 
 // ValueAsDate returns the value of property "HTMLInputElement.valueAsDate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) ValueAsDate() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementValueAsDate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) ValueAsDate() (ret js.Object, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementValueAsDate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Object{}.FromRef(_ret), _ok
+	return
 }
 
-// ValueAsDate sets the value of property "HTMLInputElement.valueAsDate" to val.
+// SetValueAsDate sets the value of property "HTMLInputElement.valueAsDate" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetValueAsDate(val js.Object) bool {
@@ -3466,16 +3468,15 @@ func (this HTMLInputElement) SetValueAsDate(val js.Object) bool {
 
 // ValueAsNumber returns the value of property "HTMLInputElement.valueAsNumber".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) ValueAsNumber() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementValueAsNumber(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) ValueAsNumber() (ret float64, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementValueAsNumber(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// ValueAsNumber sets the value of property "HTMLInputElement.valueAsNumber" to val.
+// SetValueAsNumber sets the value of property "HTMLInputElement.valueAsNumber" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetValueAsNumber(val float64) bool {
@@ -3487,16 +3488,15 @@ func (this HTMLInputElement) SetValueAsNumber(val float64) bool {
 
 // Width returns the value of property "HTMLInputElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Width() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Width() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Width sets the value of property "HTMLInputElement.width" to val.
+// SetWidth sets the value of property "HTMLInputElement.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetWidth(val uint32) bool {
@@ -3508,60 +3508,55 @@ func (this HTMLInputElement) SetWidth(val uint32) bool {
 
 // WillValidate returns the value of property "HTMLInputElement.willValidate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) WillValidate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementWillValidate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) WillValidate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementWillValidate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Validity returns the value of property "HTMLInputElement.validity".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Validity() (ValidityState, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementValidity(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Validity() (ret ValidityState, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ValidityState{}.FromRef(_ret), _ok
+	return
 }
 
 // ValidationMessage returns the value of property "HTMLInputElement.validationMessage".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) ValidationMessage() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementValidationMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) ValidationMessage() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementValidationMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Labels returns the value of property "HTMLInputElement.labels".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Labels() (NodeList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementLabels(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Labels() (ret NodeList, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementLabels(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return NodeList{}.FromRef(_ret), _ok
+	return
 }
 
 // SelectionStart returns the value of property "HTMLInputElement.selectionStart".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) SelectionStart() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementSelectionStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) SelectionStart() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementSelectionStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// SelectionStart sets the value of property "HTMLInputElement.selectionStart" to val.
+// SetSelectionStart sets the value of property "HTMLInputElement.selectionStart" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetSelectionStart(val uint32) bool {
@@ -3573,16 +3568,15 @@ func (this HTMLInputElement) SetSelectionStart(val uint32) bool {
 
 // SelectionEnd returns the value of property "HTMLInputElement.selectionEnd".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) SelectionEnd() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementSelectionEnd(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) SelectionEnd() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementSelectionEnd(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// SelectionEnd sets the value of property "HTMLInputElement.selectionEnd" to val.
+// SetSelectionEnd sets the value of property "HTMLInputElement.selectionEnd" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetSelectionEnd(val uint32) bool {
@@ -3594,16 +3588,15 @@ func (this HTMLInputElement) SetSelectionEnd(val uint32) bool {
 
 // SelectionDirection returns the value of property "HTMLInputElement.selectionDirection".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) SelectionDirection() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementSelectionDirection(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) SelectionDirection() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementSelectionDirection(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// SelectionDirection sets the value of property "HTMLInputElement.selectionDirection" to val.
+// SetSelectionDirection sets the value of property "HTMLInputElement.selectionDirection" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetSelectionDirection(val js.String) bool {
@@ -3615,16 +3608,15 @@ func (this HTMLInputElement) SetSelectionDirection(val js.String) bool {
 
 // Align returns the value of property "HTMLInputElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLInputElement.align" to val.
+// SetAlign sets the value of property "HTMLInputElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetAlign(val js.String) bool {
@@ -3636,16 +3628,15 @@ func (this HTMLInputElement) SetAlign(val js.String) bool {
 
 // UseMap returns the value of property "HTMLInputElement.useMap".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) UseMap() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementUseMap(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) UseMap() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementUseMap(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// UseMap sets the value of property "HTMLInputElement.useMap" to val.
+// SetUseMap sets the value of property "HTMLInputElement.useMap" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetUseMap(val js.String) bool {
@@ -3657,16 +3648,15 @@ func (this HTMLInputElement) SetUseMap(val js.String) bool {
 
 // Webkitdirectory returns the value of property "HTMLInputElement.webkitdirectory".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Webkitdirectory() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementWebkitdirectory(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Webkitdirectory() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementWebkitdirectory(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Webkitdirectory sets the value of property "HTMLInputElement.webkitdirectory" to val.
+// SetWebkitdirectory sets the value of property "HTMLInputElement.webkitdirectory" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetWebkitdirectory(val bool) bool {
@@ -3678,27 +3668,25 @@ func (this HTMLInputElement) SetWebkitdirectory(val bool) bool {
 
 // WebkitEntries returns the value of property "HTMLInputElement.webkitEntries".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) WebkitEntries() (js.FrozenArray[FileSystemEntry], bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementWebkitEntries(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) WebkitEntries() (ret js.FrozenArray[FileSystemEntry], ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementWebkitEntries(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[FileSystemEntry]{}.FromRef(_ret), _ok
+	return
 }
 
 // Capture returns the value of property "HTMLInputElement.capture".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) Capture() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementCapture(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) Capture() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementCapture(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Capture sets the value of property "HTMLInputElement.capture" to val.
+// SetCapture sets the value of property "HTMLInputElement.capture" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetCapture(val js.String) bool {
@@ -3710,16 +3698,15 @@ func (this HTMLInputElement) SetCapture(val js.String) bool {
 
 // PopoverTargetElement returns the value of property "HTMLInputElement.popoverTargetElement".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) PopoverTargetElement() (Element, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementPopoverTargetElement(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) PopoverTargetElement() (ret Element, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementPopoverTargetElement(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Element{}.FromRef(_ret), _ok
+	return
 }
 
-// PopoverTargetElement sets the value of property "HTMLInputElement.popoverTargetElement" to val.
+// SetPopoverTargetElement sets the value of property "HTMLInputElement.popoverTargetElement" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetPopoverTargetElement(val Element) bool {
@@ -3731,16 +3718,15 @@ func (this HTMLInputElement) SetPopoverTargetElement(val Element) bool {
 
 // PopoverTargetAction returns the value of property "HTMLInputElement.popoverTargetAction".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLInputElement) PopoverTargetAction() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLInputElementPopoverTargetAction(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLInputElement) PopoverTargetAction() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLInputElementPopoverTargetAction(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// PopoverTargetAction sets the value of property "HTMLInputElement.popoverTargetAction" to val.
+// SetPopoverTargetAction sets the value of property "HTMLInputElement.popoverTargetAction" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLInputElement) SetPopoverTargetAction(val js.String) bool {
@@ -3750,23 +3736,14 @@ func (this HTMLInputElement) SetPopoverTargetAction(val js.String) bool {
 	)
 }
 
-// StepUp calls the method "HTMLInputElement.stepUp".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) StepUp(n int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementStepUp(
-		this.Ref(), js.Pointer(&_ok),
-		int32(n),
+// HasStepUp returns true if the method "HTMLInputElement.stepUp" exists.
+func (this HTMLInputElement) HasStepUp() bool {
+	return js.True == bindings.HasHTMLInputElementStepUp(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // StepUpFunc returns the method "HTMLInputElement.stepUp".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) StepUpFunc() (fn js.Func[func(n int32)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementStepUpFunc(
@@ -3775,22 +3752,36 @@ func (this HTMLInputElement) StepUpFunc() (fn js.Func[func(n int32)]) {
 	)
 }
 
-// StepUp1 calls the method "HTMLInputElement.stepUp".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) StepUp1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementStepUp1(
-		this.Ref(), js.Pointer(&_ok),
+// StepUp calls the method "HTMLInputElement.stepUp".
+func (this HTMLInputElement) StepUp(n int32) (ret js.Void) {
+	bindings.CallHTMLInputElementStepUp(
+		this.Ref(), js.Pointer(&ret),
+		int32(n),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStepUp calls the method "HTMLInputElement.stepUp"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TryStepUp(n int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementStepUp(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		int32(n),
+	)
+
+	return
+}
+
+// HasStepUp1 returns true if the method "HTMLInputElement.stepUp" exists.
+func (this HTMLInputElement) HasStepUp1() bool {
+	return js.True == bindings.HasHTMLInputElementStepUp1(
+		this.Ref(),
+	)
 }
 
 // StepUp1Func returns the method "HTMLInputElement.stepUp".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) StepUp1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementStepUp1Func(
@@ -3799,23 +3790,34 @@ func (this HTMLInputElement) StepUp1Func() (fn js.Func[func()]) {
 	)
 }
 
-// StepDown calls the method "HTMLInputElement.stepDown".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) StepDown(n int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementStepDown(
-		this.Ref(), js.Pointer(&_ok),
-		int32(n),
+// StepUp1 calls the method "HTMLInputElement.stepUp".
+func (this HTMLInputElement) StepUp1() (ret js.Void) {
+	bindings.CallHTMLInputElementStepUp1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStepUp1 calls the method "HTMLInputElement.stepUp"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TryStepUp1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementStepUp1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasStepDown returns true if the method "HTMLInputElement.stepDown" exists.
+func (this HTMLInputElement) HasStepDown() bool {
+	return js.True == bindings.HasHTMLInputElementStepDown(
+		this.Ref(),
+	)
 }
 
 // StepDownFunc returns the method "HTMLInputElement.stepDown".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) StepDownFunc() (fn js.Func[func(n int32)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementStepDownFunc(
@@ -3824,22 +3826,36 @@ func (this HTMLInputElement) StepDownFunc() (fn js.Func[func(n int32)]) {
 	)
 }
 
-// StepDown1 calls the method "HTMLInputElement.stepDown".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) StepDown1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementStepDown1(
-		this.Ref(), js.Pointer(&_ok),
+// StepDown calls the method "HTMLInputElement.stepDown".
+func (this HTMLInputElement) StepDown(n int32) (ret js.Void) {
+	bindings.CallHTMLInputElementStepDown(
+		this.Ref(), js.Pointer(&ret),
+		int32(n),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStepDown calls the method "HTMLInputElement.stepDown"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TryStepDown(n int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementStepDown(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		int32(n),
+	)
+
+	return
+}
+
+// HasStepDown1 returns true if the method "HTMLInputElement.stepDown" exists.
+func (this HTMLInputElement) HasStepDown1() bool {
+	return js.True == bindings.HasHTMLInputElementStepDown1(
+		this.Ref(),
+	)
 }
 
 // StepDown1Func returns the method "HTMLInputElement.stepDown".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) StepDown1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementStepDown1Func(
@@ -3848,21 +3864,34 @@ func (this HTMLInputElement) StepDown1Func() (fn js.Func[func()]) {
 	)
 }
 
-// CheckValidity calls the method "HTMLInputElement.checkValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) CheckValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementCheckValidity(
-		this.Ref(), js.Pointer(&_ok),
+// StepDown1 calls the method "HTMLInputElement.stepDown".
+func (this HTMLInputElement) StepDown1() (ret js.Void) {
+	bindings.CallHTMLInputElementStepDown1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryStepDown1 calls the method "HTMLInputElement.stepDown"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TryStepDown1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementStepDown1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCheckValidity returns true if the method "HTMLInputElement.checkValidity" exists.
+func (this HTMLInputElement) HasCheckValidity() bool {
+	return js.True == bindings.HasHTMLInputElementCheckValidity(
+		this.Ref(),
+	)
 }
 
 // CheckValidityFunc returns the method "HTMLInputElement.checkValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementCheckValidityFunc(
@@ -3871,21 +3900,34 @@ func (this HTMLInputElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// ReportValidity calls the method "HTMLInputElement.reportValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) ReportValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementReportValidity(
-		this.Ref(), js.Pointer(&_ok),
+// CheckValidity calls the method "HTMLInputElement.checkValidity".
+func (this HTMLInputElement) CheckValidity() (ret bool) {
+	bindings.CallHTMLInputElementCheckValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryCheckValidity calls the method "HTMLInputElement.checkValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementCheckValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReportValidity returns true if the method "HTMLInputElement.reportValidity" exists.
+func (this HTMLInputElement) HasReportValidity() bool {
+	return js.True == bindings.HasHTMLInputElementReportValidity(
+		this.Ref(),
+	)
 }
 
 // ReportValidityFunc returns the method "HTMLInputElement.reportValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementReportValidityFunc(
@@ -3894,23 +3936,34 @@ func (this HTMLInputElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// SetCustomValidity calls the method "HTMLInputElement.setCustomValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) SetCustomValidity(err js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementSetCustomValidity(
-		this.Ref(), js.Pointer(&_ok),
-		err.Ref(),
+// ReportValidity calls the method "HTMLInputElement.reportValidity".
+func (this HTMLInputElement) ReportValidity() (ret bool) {
+	bindings.CallHTMLInputElementReportValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReportValidity calls the method "HTMLInputElement.reportValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementReportValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetCustomValidity returns true if the method "HTMLInputElement.setCustomValidity" exists.
+func (this HTMLInputElement) HasSetCustomValidity() bool {
+	return js.True == bindings.HasHTMLInputElementSetCustomValidity(
+		this.Ref(),
+	)
 }
 
 // SetCustomValidityFunc returns the method "HTMLInputElement.setCustomValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) SetCustomValidityFunc() (fn js.Func[func(err js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementSetCustomValidityFunc(
@@ -3919,22 +3972,36 @@ func (this HTMLInputElement) SetCustomValidityFunc() (fn js.Func[func(err js.Str
 	)
 }
 
-// Select calls the method "HTMLInputElement.select".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) Select() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementSelect(
-		this.Ref(), js.Pointer(&_ok),
+// SetCustomValidity calls the method "HTMLInputElement.setCustomValidity".
+func (this HTMLInputElement) SetCustomValidity(err js.String) (ret js.Void) {
+	bindings.CallHTMLInputElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret),
+		err.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetCustomValidity calls the method "HTMLInputElement.setCustomValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		err.Ref(),
+	)
+
+	return
+}
+
+// HasSelect returns true if the method "HTMLInputElement.select" exists.
+func (this HTMLInputElement) HasSelect() bool {
+	return js.True == bindings.HasHTMLInputElementSelect(
+		this.Ref(),
+	)
 }
 
 // SelectFunc returns the method "HTMLInputElement.select".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) SelectFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementSelectFunc(
@@ -3943,23 +4010,34 @@ func (this HTMLInputElement) SelectFunc() (fn js.Func[func()]) {
 	)
 }
 
-// SetRangeText calls the method "HTMLInputElement.setRangeText".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) SetRangeText(replacement js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementSetRangeText(
-		this.Ref(), js.Pointer(&_ok),
-		replacement.Ref(),
+// Select calls the method "HTMLInputElement.select".
+func (this HTMLInputElement) Select() (ret js.Void) {
+	bindings.CallHTMLInputElementSelect(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySelect calls the method "HTMLInputElement.select"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TrySelect() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementSelect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetRangeText returns true if the method "HTMLInputElement.setRangeText" exists.
+func (this HTMLInputElement) HasSetRangeText() bool {
+	return js.True == bindings.HasHTMLInputElementSetRangeText(
+		this.Ref(),
+	)
 }
 
 // SetRangeTextFunc returns the method "HTMLInputElement.setRangeText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) SetRangeTextFunc() (fn js.Func[func(replacement js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementSetRangeTextFunc(
@@ -3968,26 +4046,36 @@ func (this HTMLInputElement) SetRangeTextFunc() (fn js.Func[func(replacement js.
 	)
 }
 
-// SetRangeText1 calls the method "HTMLInputElement.setRangeText".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) SetRangeText1(replacement js.String, start uint32, end uint32, selectionMode SelectionMode) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementSetRangeText1(
-		this.Ref(), js.Pointer(&_ok),
+// SetRangeText calls the method "HTMLInputElement.setRangeText".
+func (this HTMLInputElement) SetRangeText(replacement js.String) (ret js.Void) {
+	bindings.CallHTMLInputElementSetRangeText(
+		this.Ref(), js.Pointer(&ret),
 		replacement.Ref(),
-		uint32(start),
-		uint32(end),
-		uint32(selectionMode),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetRangeText calls the method "HTMLInputElement.setRangeText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TrySetRangeText(replacement js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementSetRangeText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		replacement.Ref(),
+	)
+
+	return
+}
+
+// HasSetRangeText1 returns true if the method "HTMLInputElement.setRangeText" exists.
+func (this HTMLInputElement) HasSetRangeText1() bool {
+	return js.True == bindings.HasHTMLInputElementSetRangeText1(
+		this.Ref(),
+	)
 }
 
 // SetRangeText1Func returns the method "HTMLInputElement.setRangeText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) SetRangeText1Func() (fn js.Func[func(replacement js.String, start uint32, end uint32, selectionMode SelectionMode)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementSetRangeText1Func(
@@ -3996,25 +4084,42 @@ func (this HTMLInputElement) SetRangeText1Func() (fn js.Func[func(replacement js
 	)
 }
 
-// SetRangeText2 calls the method "HTMLInputElement.setRangeText".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) SetRangeText2(replacement js.String, start uint32, end uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementSetRangeText2(
-		this.Ref(), js.Pointer(&_ok),
+// SetRangeText1 calls the method "HTMLInputElement.setRangeText".
+func (this HTMLInputElement) SetRangeText1(replacement js.String, start uint32, end uint32, selectionMode SelectionMode) (ret js.Void) {
+	bindings.CallHTMLInputElementSetRangeText1(
+		this.Ref(), js.Pointer(&ret),
 		replacement.Ref(),
 		uint32(start),
 		uint32(end),
+		uint32(selectionMode),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetRangeText1 calls the method "HTMLInputElement.setRangeText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TrySetRangeText1(replacement js.String, start uint32, end uint32, selectionMode SelectionMode) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementSetRangeText1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		replacement.Ref(),
+		uint32(start),
+		uint32(end),
+		uint32(selectionMode),
+	)
+
+	return
+}
+
+// HasSetRangeText2 returns true if the method "HTMLInputElement.setRangeText" exists.
+func (this HTMLInputElement) HasSetRangeText2() bool {
+	return js.True == bindings.HasHTMLInputElementSetRangeText2(
+		this.Ref(),
+	)
 }
 
 // SetRangeText2Func returns the method "HTMLInputElement.setRangeText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) SetRangeText2Func() (fn js.Func[func(replacement js.String, start uint32, end uint32)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementSetRangeText2Func(
@@ -4023,25 +4128,40 @@ func (this HTMLInputElement) SetRangeText2Func() (fn js.Func[func(replacement js
 	)
 }
 
-// SetSelectionRange calls the method "HTMLInputElement.setSelectionRange".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) SetSelectionRange(start uint32, end uint32, direction js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementSetSelectionRange(
-		this.Ref(), js.Pointer(&_ok),
+// SetRangeText2 calls the method "HTMLInputElement.setRangeText".
+func (this HTMLInputElement) SetRangeText2(replacement js.String, start uint32, end uint32) (ret js.Void) {
+	bindings.CallHTMLInputElementSetRangeText2(
+		this.Ref(), js.Pointer(&ret),
+		replacement.Ref(),
 		uint32(start),
 		uint32(end),
-		direction.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetRangeText2 calls the method "HTMLInputElement.setRangeText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TrySetRangeText2(replacement js.String, start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementSetRangeText2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		replacement.Ref(),
+		uint32(start),
+		uint32(end),
+	)
+
+	return
+}
+
+// HasSetSelectionRange returns true if the method "HTMLInputElement.setSelectionRange" exists.
+func (this HTMLInputElement) HasSetSelectionRange() bool {
+	return js.True == bindings.HasHTMLInputElementSetSelectionRange(
+		this.Ref(),
+	)
 }
 
 // SetSelectionRangeFunc returns the method "HTMLInputElement.setSelectionRange".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) SetSelectionRangeFunc() (fn js.Func[func(start uint32, end uint32, direction js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementSetSelectionRangeFunc(
@@ -4050,24 +4170,40 @@ func (this HTMLInputElement) SetSelectionRangeFunc() (fn js.Func[func(start uint
 	)
 }
 
-// SetSelectionRange1 calls the method "HTMLInputElement.setSelectionRange".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) SetSelectionRange1(start uint32, end uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementSetSelectionRange1(
-		this.Ref(), js.Pointer(&_ok),
+// SetSelectionRange calls the method "HTMLInputElement.setSelectionRange".
+func (this HTMLInputElement) SetSelectionRange(start uint32, end uint32, direction js.String) (ret js.Void) {
+	bindings.CallHTMLInputElementSetSelectionRange(
+		this.Ref(), js.Pointer(&ret),
 		uint32(start),
 		uint32(end),
+		direction.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetSelectionRange calls the method "HTMLInputElement.setSelectionRange"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TrySetSelectionRange(start uint32, end uint32, direction js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementSetSelectionRange(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(start),
+		uint32(end),
+		direction.Ref(),
+	)
+
+	return
+}
+
+// HasSetSelectionRange1 returns true if the method "HTMLInputElement.setSelectionRange" exists.
+func (this HTMLInputElement) HasSetSelectionRange1() bool {
+	return js.True == bindings.HasHTMLInputElementSetSelectionRange1(
+		this.Ref(),
+	)
 }
 
 // SetSelectionRange1Func returns the method "HTMLInputElement.setSelectionRange".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) SetSelectionRange1Func() (fn js.Func[func(start uint32, end uint32)]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementSetSelectionRange1Func(
@@ -4076,22 +4212,38 @@ func (this HTMLInputElement) SetSelectionRange1Func() (fn js.Func[func(start uin
 	)
 }
 
-// ShowPicker calls the method "HTMLInputElement.showPicker".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLInputElement) ShowPicker() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLInputElementShowPicker(
-		this.Ref(), js.Pointer(&_ok),
+// SetSelectionRange1 calls the method "HTMLInputElement.setSelectionRange".
+func (this HTMLInputElement) SetSelectionRange1(start uint32, end uint32) (ret js.Void) {
+	bindings.CallHTMLInputElementSetSelectionRange1(
+		this.Ref(), js.Pointer(&ret),
+		uint32(start),
+		uint32(end),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetSelectionRange1 calls the method "HTMLInputElement.setSelectionRange"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TrySetSelectionRange1(start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementSetSelectionRange1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(start),
+		uint32(end),
+	)
+
+	return
+}
+
+// HasShowPicker returns true if the method "HTMLInputElement.showPicker" exists.
+func (this HTMLInputElement) HasShowPicker() bool {
+	return js.True == bindings.HasHTMLInputElementShowPicker(
+		this.Ref(),
+	)
 }
 
 // ShowPickerFunc returns the method "HTMLInputElement.showPicker".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLInputElement) ShowPickerFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLInputElementShowPickerFunc(
@@ -4100,10 +4252,29 @@ func (this HTMLInputElement) ShowPickerFunc() (fn js.Func[func()]) {
 	)
 }
 
-func NewHTMLLIElement() HTMLLIElement {
-	return HTMLLIElement{}.FromRef(
-		bindings.NewHTMLLIElementByHTMLLIElement(),
+// ShowPicker calls the method "HTMLInputElement.showPicker".
+func (this HTMLInputElement) ShowPicker() (ret js.Void) {
+	bindings.CallHTMLInputElementShowPicker(
+		this.Ref(), js.Pointer(&ret),
 	)
+
+	return
+}
+
+// TryShowPicker calls the method "HTMLInputElement.showPicker"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLInputElement) TryShowPicker() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLInputElementShowPicker(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+func NewHTMLLIElement() (ret HTMLLIElement) {
+	ret.ref = bindings.NewHTMLLIElementByHTMLLIElement()
+	return
 }
 
 type HTMLLIElement struct {
@@ -4130,16 +4301,15 @@ func (this HTMLLIElement) Free() {
 
 // Value returns the value of property "HTMLLIElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLIElement) Value() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLIElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLIElement) Value() (ret int32, ok bool) {
+	ok = js.True == bindings.GetHTMLLIElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLLIElement.value" to val.
+// SetValue sets the value of property "HTMLLIElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLIElement) SetValue(val int32) bool {
@@ -4151,16 +4321,15 @@ func (this HTMLLIElement) SetValue(val int32) bool {
 
 // Type returns the value of property "HTMLLIElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLIElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLIElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLIElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLIElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLLIElement.type" to val.
+// SetType sets the value of property "HTMLLIElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLIElement) SetType(val js.String) bool {
@@ -4170,10 +4339,9 @@ func (this HTMLLIElement) SetType(val js.String) bool {
 	)
 }
 
-func NewHTMLLabelElement() HTMLLabelElement {
-	return HTMLLabelElement{}.FromRef(
-		bindings.NewHTMLLabelElementByHTMLLabelElement(),
-	)
+func NewHTMLLabelElement() (ret HTMLLabelElement) {
+	ret.ref = bindings.NewHTMLLabelElementByHTMLLabelElement()
+	return
 }
 
 type HTMLLabelElement struct {
@@ -4200,27 +4368,25 @@ func (this HTMLLabelElement) Free() {
 
 // Form returns the value of property "HTMLLabelElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLabelElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLabelElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLabelElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLLabelElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // HtmlFor returns the value of property "HTMLLabelElement.htmlFor".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLabelElement) HtmlFor() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLabelElementHtmlFor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLabelElement) HtmlFor() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLabelElementHtmlFor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// HtmlFor sets the value of property "HTMLLabelElement.htmlFor" to val.
+// SetHtmlFor sets the value of property "HTMLLabelElement.htmlFor" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLabelElement) SetHtmlFor(val js.String) bool {
@@ -4232,19 +4398,17 @@ func (this HTMLLabelElement) SetHtmlFor(val js.String) bool {
 
 // Control returns the value of property "HTMLLabelElement.control".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLabelElement) Control() (HTMLElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLabelElementControl(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLabelElement) Control() (ret HTMLElement, ok bool) {
+	ok = js.True == bindings.GetHTMLLabelElementControl(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLElement{}.FromRef(_ret), _ok
+	return
 }
 
-func NewHTMLLegendElement() HTMLLegendElement {
-	return HTMLLegendElement{}.FromRef(
-		bindings.NewHTMLLegendElementByHTMLLegendElement(),
-	)
+func NewHTMLLegendElement() (ret HTMLLegendElement) {
+	ret.ref = bindings.NewHTMLLegendElementByHTMLLegendElement()
+	return
 }
 
 type HTMLLegendElement struct {
@@ -4271,27 +4435,25 @@ func (this HTMLLegendElement) Free() {
 
 // Form returns the value of property "HTMLLegendElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLegendElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLegendElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLegendElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLLegendElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // Align returns the value of property "HTMLLegendElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLegendElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLegendElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLegendElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLegendElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLLegendElement.align" to val.
+// SetAlign sets the value of property "HTMLLegendElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLegendElement) SetAlign(val js.String) bool {
@@ -4301,10 +4463,9 @@ func (this HTMLLegendElement) SetAlign(val js.String) bool {
 	)
 }
 
-func NewHTMLLinkElement() HTMLLinkElement {
-	return HTMLLinkElement{}.FromRef(
-		bindings.NewHTMLLinkElementByHTMLLinkElement(),
-	)
+func NewHTMLLinkElement() (ret HTMLLinkElement) {
+	ret.ref = bindings.NewHTMLLinkElementByHTMLLinkElement()
+	return
 }
 
 type HTMLLinkElement struct {
@@ -4331,16 +4492,15 @@ func (this HTMLLinkElement) Free() {
 
 // Href returns the value of property "HTMLLinkElement.href".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Href() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementHref(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Href() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementHref(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Href sets the value of property "HTMLLinkElement.href" to val.
+// SetHref sets the value of property "HTMLLinkElement.href" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetHref(val js.String) bool {
@@ -4352,16 +4512,15 @@ func (this HTMLLinkElement) SetHref(val js.String) bool {
 
 // CrossOrigin returns the value of property "HTMLLinkElement.crossOrigin".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) CrossOrigin() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementCrossOrigin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) CrossOrigin() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementCrossOrigin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// CrossOrigin sets the value of property "HTMLLinkElement.crossOrigin" to val.
+// SetCrossOrigin sets the value of property "HTMLLinkElement.crossOrigin" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetCrossOrigin(val js.String) bool {
@@ -4373,16 +4532,15 @@ func (this HTMLLinkElement) SetCrossOrigin(val js.String) bool {
 
 // Rel returns the value of property "HTMLLinkElement.rel".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Rel() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementRel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Rel() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementRel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Rel sets the value of property "HTMLLinkElement.rel" to val.
+// SetRel sets the value of property "HTMLLinkElement.rel" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetRel(val js.String) bool {
@@ -4394,16 +4552,15 @@ func (this HTMLLinkElement) SetRel(val js.String) bool {
 
 // As returns the value of property "HTMLLinkElement.as".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) As() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementAs(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) As() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementAs(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// As sets the value of property "HTMLLinkElement.as" to val.
+// SetAs sets the value of property "HTMLLinkElement.as" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetAs(val js.String) bool {
@@ -4415,27 +4572,25 @@ func (this HTMLLinkElement) SetAs(val js.String) bool {
 
 // RelList returns the value of property "HTMLLinkElement.relList".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) RelList() (DOMTokenList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementRelList(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) RelList() (ret DOMTokenList, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementRelList(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMTokenList{}.FromRef(_ret), _ok
+	return
 }
 
 // Media returns the value of property "HTMLLinkElement.media".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Media() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementMedia(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Media() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementMedia(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Media sets the value of property "HTMLLinkElement.media" to val.
+// SetMedia sets the value of property "HTMLLinkElement.media" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetMedia(val js.String) bool {
@@ -4447,16 +4602,15 @@ func (this HTMLLinkElement) SetMedia(val js.String) bool {
 
 // Integrity returns the value of property "HTMLLinkElement.integrity".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Integrity() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementIntegrity(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Integrity() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementIntegrity(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Integrity sets the value of property "HTMLLinkElement.integrity" to val.
+// SetIntegrity sets the value of property "HTMLLinkElement.integrity" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetIntegrity(val js.String) bool {
@@ -4468,16 +4622,15 @@ func (this HTMLLinkElement) SetIntegrity(val js.String) bool {
 
 // Hreflang returns the value of property "HTMLLinkElement.hreflang".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Hreflang() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementHreflang(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Hreflang() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementHreflang(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Hreflang sets the value of property "HTMLLinkElement.hreflang" to val.
+// SetHreflang sets the value of property "HTMLLinkElement.hreflang" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetHreflang(val js.String) bool {
@@ -4489,16 +4642,15 @@ func (this HTMLLinkElement) SetHreflang(val js.String) bool {
 
 // Type returns the value of property "HTMLLinkElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLLinkElement.type" to val.
+// SetType sets the value of property "HTMLLinkElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetType(val js.String) bool {
@@ -4510,27 +4662,25 @@ func (this HTMLLinkElement) SetType(val js.String) bool {
 
 // Sizes returns the value of property "HTMLLinkElement.sizes".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Sizes() (DOMTokenList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementSizes(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Sizes() (ret DOMTokenList, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementSizes(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMTokenList{}.FromRef(_ret), _ok
+	return
 }
 
 // ImageSrcset returns the value of property "HTMLLinkElement.imageSrcset".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) ImageSrcset() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementImageSrcset(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) ImageSrcset() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementImageSrcset(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ImageSrcset sets the value of property "HTMLLinkElement.imageSrcset" to val.
+// SetImageSrcset sets the value of property "HTMLLinkElement.imageSrcset" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetImageSrcset(val js.String) bool {
@@ -4542,16 +4692,15 @@ func (this HTMLLinkElement) SetImageSrcset(val js.String) bool {
 
 // ImageSizes returns the value of property "HTMLLinkElement.imageSizes".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) ImageSizes() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementImageSizes(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) ImageSizes() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementImageSizes(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ImageSizes sets the value of property "HTMLLinkElement.imageSizes" to val.
+// SetImageSizes sets the value of property "HTMLLinkElement.imageSizes" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetImageSizes(val js.String) bool {
@@ -4563,16 +4712,15 @@ func (this HTMLLinkElement) SetImageSizes(val js.String) bool {
 
 // ReferrerPolicy returns the value of property "HTMLLinkElement.referrerPolicy".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) ReferrerPolicy() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementReferrerPolicy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) ReferrerPolicy() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementReferrerPolicy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ReferrerPolicy sets the value of property "HTMLLinkElement.referrerPolicy" to val.
+// SetReferrerPolicy sets the value of property "HTMLLinkElement.referrerPolicy" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetReferrerPolicy(val js.String) bool {
@@ -4584,27 +4732,25 @@ func (this HTMLLinkElement) SetReferrerPolicy(val js.String) bool {
 
 // Blocking returns the value of property "HTMLLinkElement.blocking".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Blocking() (DOMTokenList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementBlocking(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Blocking() (ret DOMTokenList, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementBlocking(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMTokenList{}.FromRef(_ret), _ok
+	return
 }
 
 // Disabled returns the value of property "HTMLLinkElement.disabled".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Disabled() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementDisabled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Disabled() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementDisabled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Disabled sets the value of property "HTMLLinkElement.disabled" to val.
+// SetDisabled sets the value of property "HTMLLinkElement.disabled" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetDisabled(val bool) bool {
@@ -4616,16 +4762,15 @@ func (this HTMLLinkElement) SetDisabled(val bool) bool {
 
 // FetchPriority returns the value of property "HTMLLinkElement.fetchPriority".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) FetchPriority() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementFetchPriority(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) FetchPriority() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementFetchPriority(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// FetchPriority sets the value of property "HTMLLinkElement.fetchPriority" to val.
+// SetFetchPriority sets the value of property "HTMLLinkElement.fetchPriority" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetFetchPriority(val js.String) bool {
@@ -4637,16 +4782,15 @@ func (this HTMLLinkElement) SetFetchPriority(val js.String) bool {
 
 // Charset returns the value of property "HTMLLinkElement.charset".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Charset() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementCharset(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Charset() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementCharset(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Charset sets the value of property "HTMLLinkElement.charset" to val.
+// SetCharset sets the value of property "HTMLLinkElement.charset" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetCharset(val js.String) bool {
@@ -4658,16 +4802,15 @@ func (this HTMLLinkElement) SetCharset(val js.String) bool {
 
 // Rev returns the value of property "HTMLLinkElement.rev".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Rev() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementRev(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Rev() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementRev(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Rev sets the value of property "HTMLLinkElement.rev" to val.
+// SetRev sets the value of property "HTMLLinkElement.rev" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetRev(val js.String) bool {
@@ -4679,16 +4822,15 @@ func (this HTMLLinkElement) SetRev(val js.String) bool {
 
 // Target returns the value of property "HTMLLinkElement.target".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Target() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Target() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Target sets the value of property "HTMLLinkElement.target" to val.
+// SetTarget sets the value of property "HTMLLinkElement.target" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLLinkElement) SetTarget(val js.String) bool {
@@ -4700,19 +4842,17 @@ func (this HTMLLinkElement) SetTarget(val js.String) bool {
 
 // Sheet returns the value of property "HTMLLinkElement.sheet".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLLinkElement) Sheet() (CSSStyleSheet, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLLinkElementSheet(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLLinkElement) Sheet() (ret CSSStyleSheet, ok bool) {
+	ok = js.True == bindings.GetHTMLLinkElementSheet(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CSSStyleSheet{}.FromRef(_ret), _ok
+	return
 }
 
-func NewHTMLMapElement() HTMLMapElement {
-	return HTMLMapElement{}.FromRef(
-		bindings.NewHTMLMapElementByHTMLMapElement(),
-	)
+func NewHTMLMapElement() (ret HTMLMapElement) {
+	ret.ref = bindings.NewHTMLMapElementByHTMLMapElement()
+	return
 }
 
 type HTMLMapElement struct {
@@ -4739,16 +4879,15 @@ func (this HTMLMapElement) Free() {
 
 // Name returns the value of property "HTMLMapElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMapElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMapElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMapElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMapElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLMapElement.name" to val.
+// SetName sets the value of property "HTMLMapElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMapElement) SetName(val js.String) bool {
@@ -4760,19 +4899,17 @@ func (this HTMLMapElement) SetName(val js.String) bool {
 
 // Areas returns the value of property "HTMLMapElement.areas".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMapElement) Areas() (HTMLCollection, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMapElementAreas(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMapElement) Areas() (ret HTMLCollection, ok bool) {
+	ok = js.True == bindings.GetHTMLMapElementAreas(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLCollection{}.FromRef(_ret), _ok
+	return
 }
 
-func NewHTMLMarqueeElement() HTMLMarqueeElement {
-	return HTMLMarqueeElement{}.FromRef(
-		bindings.NewHTMLMarqueeElementByHTMLMarqueeElement(),
-	)
+func NewHTMLMarqueeElement() (ret HTMLMarqueeElement) {
+	ret.ref = bindings.NewHTMLMarqueeElementByHTMLMarqueeElement()
+	return
 }
 
 type HTMLMarqueeElement struct {
@@ -4799,16 +4936,15 @@ func (this HTMLMarqueeElement) Free() {
 
 // Behavior returns the value of property "HTMLMarqueeElement.behavior".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) Behavior() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementBehavior(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) Behavior() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementBehavior(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Behavior sets the value of property "HTMLMarqueeElement.behavior" to val.
+// SetBehavior sets the value of property "HTMLMarqueeElement.behavior" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetBehavior(val js.String) bool {
@@ -4820,16 +4956,15 @@ func (this HTMLMarqueeElement) SetBehavior(val js.String) bool {
 
 // BgColor returns the value of property "HTMLMarqueeElement.bgColor".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) BgColor() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementBgColor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) BgColor() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementBgColor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// BgColor sets the value of property "HTMLMarqueeElement.bgColor" to val.
+// SetBgColor sets the value of property "HTMLMarqueeElement.bgColor" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetBgColor(val js.String) bool {
@@ -4841,16 +4976,15 @@ func (this HTMLMarqueeElement) SetBgColor(val js.String) bool {
 
 // Direction returns the value of property "HTMLMarqueeElement.direction".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) Direction() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementDirection(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) Direction() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementDirection(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Direction sets the value of property "HTMLMarqueeElement.direction" to val.
+// SetDirection sets the value of property "HTMLMarqueeElement.direction" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetDirection(val js.String) bool {
@@ -4862,16 +4996,15 @@ func (this HTMLMarqueeElement) SetDirection(val js.String) bool {
 
 // Height returns the value of property "HTMLMarqueeElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) Height() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) Height() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Height sets the value of property "HTMLMarqueeElement.height" to val.
+// SetHeight sets the value of property "HTMLMarqueeElement.height" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetHeight(val js.String) bool {
@@ -4883,16 +5016,15 @@ func (this HTMLMarqueeElement) SetHeight(val js.String) bool {
 
 // Hspace returns the value of property "HTMLMarqueeElement.hspace".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) Hspace() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementHspace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) Hspace() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementHspace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Hspace sets the value of property "HTMLMarqueeElement.hspace" to val.
+// SetHspace sets the value of property "HTMLMarqueeElement.hspace" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetHspace(val uint32) bool {
@@ -4904,16 +5036,15 @@ func (this HTMLMarqueeElement) SetHspace(val uint32) bool {
 
 // Loop returns the value of property "HTMLMarqueeElement.loop".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) Loop() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementLoop(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) Loop() (ret int32, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementLoop(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// Loop sets the value of property "HTMLMarqueeElement.loop" to val.
+// SetLoop sets the value of property "HTMLMarqueeElement.loop" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetLoop(val int32) bool {
@@ -4925,16 +5056,15 @@ func (this HTMLMarqueeElement) SetLoop(val int32) bool {
 
 // ScrollAmount returns the value of property "HTMLMarqueeElement.scrollAmount".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) ScrollAmount() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementScrollAmount(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) ScrollAmount() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementScrollAmount(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// ScrollAmount sets the value of property "HTMLMarqueeElement.scrollAmount" to val.
+// SetScrollAmount sets the value of property "HTMLMarqueeElement.scrollAmount" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetScrollAmount(val uint32) bool {
@@ -4946,16 +5076,15 @@ func (this HTMLMarqueeElement) SetScrollAmount(val uint32) bool {
 
 // ScrollDelay returns the value of property "HTMLMarqueeElement.scrollDelay".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) ScrollDelay() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementScrollDelay(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) ScrollDelay() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementScrollDelay(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// ScrollDelay sets the value of property "HTMLMarqueeElement.scrollDelay" to val.
+// SetScrollDelay sets the value of property "HTMLMarqueeElement.scrollDelay" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetScrollDelay(val uint32) bool {
@@ -4967,16 +5096,15 @@ func (this HTMLMarqueeElement) SetScrollDelay(val uint32) bool {
 
 // TrueSpeed returns the value of property "HTMLMarqueeElement.trueSpeed".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) TrueSpeed() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementTrueSpeed(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) TrueSpeed() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementTrueSpeed(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// TrueSpeed sets the value of property "HTMLMarqueeElement.trueSpeed" to val.
+// SetTrueSpeed sets the value of property "HTMLMarqueeElement.trueSpeed" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetTrueSpeed(val bool) bool {
@@ -4988,16 +5116,15 @@ func (this HTMLMarqueeElement) SetTrueSpeed(val bool) bool {
 
 // Vspace returns the value of property "HTMLMarqueeElement.vspace".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) Vspace() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementVspace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) Vspace() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementVspace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Vspace sets the value of property "HTMLMarqueeElement.vspace" to val.
+// SetVspace sets the value of property "HTMLMarqueeElement.vspace" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetVspace(val uint32) bool {
@@ -5009,16 +5136,15 @@ func (this HTMLMarqueeElement) SetVspace(val uint32) bool {
 
 // Width returns the value of property "HTMLMarqueeElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMarqueeElement) Width() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMarqueeElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMarqueeElement) Width() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMarqueeElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Width sets the value of property "HTMLMarqueeElement.width" to val.
+// SetWidth sets the value of property "HTMLMarqueeElement.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMarqueeElement) SetWidth(val js.String) bool {
@@ -5028,22 +5154,14 @@ func (this HTMLMarqueeElement) SetWidth(val js.String) bool {
 	)
 }
 
-// Start calls the method "HTMLMarqueeElement.start".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLMarqueeElement) Start() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLMarqueeElementStart(
-		this.Ref(), js.Pointer(&_ok),
+// HasStart returns true if the method "HTMLMarqueeElement.start" exists.
+func (this HTMLMarqueeElement) HasStart() bool {
+	return js.True == bindings.HasHTMLMarqueeElementStart(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // StartFunc returns the method "HTMLMarqueeElement.start".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLMarqueeElement) StartFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLMarqueeElementStartFunc(
@@ -5052,22 +5170,34 @@ func (this HTMLMarqueeElement) StartFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Stop calls the method "HTMLMarqueeElement.stop".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLMarqueeElement) Stop() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLMarqueeElementStop(
-		this.Ref(), js.Pointer(&_ok),
+// Start calls the method "HTMLMarqueeElement.start".
+func (this HTMLMarqueeElement) Start() (ret js.Void) {
+	bindings.CallHTMLMarqueeElementStart(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStart calls the method "HTMLMarqueeElement.start"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLMarqueeElement) TryStart() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLMarqueeElementStart(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasStop returns true if the method "HTMLMarqueeElement.stop" exists.
+func (this HTMLMarqueeElement) HasStop() bool {
+	return js.True == bindings.HasHTMLMarqueeElementStop(
+		this.Ref(),
+	)
 }
 
 // StopFunc returns the method "HTMLMarqueeElement.stop".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLMarqueeElement) StopFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.HTMLMarqueeElementStopFunc(
@@ -5076,10 +5206,29 @@ func (this HTMLMarqueeElement) StopFunc() (fn js.Func[func()]) {
 	)
 }
 
-func NewHTMLMenuElement() HTMLMenuElement {
-	return HTMLMenuElement{}.FromRef(
-		bindings.NewHTMLMenuElementByHTMLMenuElement(),
+// Stop calls the method "HTMLMarqueeElement.stop".
+func (this HTMLMarqueeElement) Stop() (ret js.Void) {
+	bindings.CallHTMLMarqueeElementStop(
+		this.Ref(), js.Pointer(&ret),
 	)
+
+	return
+}
+
+// TryStop calls the method "HTMLMarqueeElement.stop"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLMarqueeElement) TryStop() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLMarqueeElementStop(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+func NewHTMLMenuElement() (ret HTMLMenuElement) {
+	ret.ref = bindings.NewHTMLMenuElementByHTMLMenuElement()
+	return
 }
 
 type HTMLMenuElement struct {
@@ -5106,16 +5255,15 @@ func (this HTMLMenuElement) Free() {
 
 // Compact returns the value of property "HTMLMenuElement.compact".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMenuElement) Compact() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMenuElementCompact(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMenuElement) Compact() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLMenuElementCompact(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Compact sets the value of property "HTMLMenuElement.compact" to val.
+// SetCompact sets the value of property "HTMLMenuElement.compact" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMenuElement) SetCompact(val bool) bool {
@@ -5125,10 +5273,9 @@ func (this HTMLMenuElement) SetCompact(val bool) bool {
 	)
 }
 
-func NewHTMLMetaElement() HTMLMetaElement {
-	return HTMLMetaElement{}.FromRef(
-		bindings.NewHTMLMetaElementByHTMLMetaElement(),
-	)
+func NewHTMLMetaElement() (ret HTMLMetaElement) {
+	ret.ref = bindings.NewHTMLMetaElementByHTMLMetaElement()
+	return
 }
 
 type HTMLMetaElement struct {
@@ -5155,16 +5302,15 @@ func (this HTMLMetaElement) Free() {
 
 // Name returns the value of property "HTMLMetaElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMetaElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMetaElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMetaElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMetaElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLMetaElement.name" to val.
+// SetName sets the value of property "HTMLMetaElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMetaElement) SetName(val js.String) bool {
@@ -5176,16 +5322,15 @@ func (this HTMLMetaElement) SetName(val js.String) bool {
 
 // HttpEquiv returns the value of property "HTMLMetaElement.httpEquiv".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMetaElement) HttpEquiv() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMetaElementHttpEquiv(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMetaElement) HttpEquiv() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMetaElementHttpEquiv(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// HttpEquiv sets the value of property "HTMLMetaElement.httpEquiv" to val.
+// SetHttpEquiv sets the value of property "HTMLMetaElement.httpEquiv" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMetaElement) SetHttpEquiv(val js.String) bool {
@@ -5197,16 +5342,15 @@ func (this HTMLMetaElement) SetHttpEquiv(val js.String) bool {
 
 // Content returns the value of property "HTMLMetaElement.content".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMetaElement) Content() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMetaElementContent(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMetaElement) Content() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMetaElementContent(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Content sets the value of property "HTMLMetaElement.content" to val.
+// SetContent sets the value of property "HTMLMetaElement.content" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMetaElement) SetContent(val js.String) bool {
@@ -5218,16 +5362,15 @@ func (this HTMLMetaElement) SetContent(val js.String) bool {
 
 // Media returns the value of property "HTMLMetaElement.media".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMetaElement) Media() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMetaElementMedia(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMetaElement) Media() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMetaElementMedia(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Media sets the value of property "HTMLMetaElement.media" to val.
+// SetMedia sets the value of property "HTMLMetaElement.media" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMetaElement) SetMedia(val js.String) bool {
@@ -5239,16 +5382,15 @@ func (this HTMLMetaElement) SetMedia(val js.String) bool {
 
 // Scheme returns the value of property "HTMLMetaElement.scheme".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMetaElement) Scheme() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMetaElementScheme(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMetaElement) Scheme() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLMetaElementScheme(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Scheme sets the value of property "HTMLMetaElement.scheme" to val.
+// SetScheme sets the value of property "HTMLMetaElement.scheme" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMetaElement) SetScheme(val js.String) bool {
@@ -5258,10 +5400,9 @@ func (this HTMLMetaElement) SetScheme(val js.String) bool {
 	)
 }
 
-func NewHTMLMeterElement() HTMLMeterElement {
-	return HTMLMeterElement{}.FromRef(
-		bindings.NewHTMLMeterElementByHTMLMeterElement(),
-	)
+func NewHTMLMeterElement() (ret HTMLMeterElement) {
+	ret.ref = bindings.NewHTMLMeterElementByHTMLMeterElement()
+	return
 }
 
 type HTMLMeterElement struct {
@@ -5288,16 +5429,15 @@ func (this HTMLMeterElement) Free() {
 
 // Value returns the value of property "HTMLMeterElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMeterElement) Value() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMeterElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMeterElement) Value() (ret float64, ok bool) {
+	ok = js.True == bindings.GetHTMLMeterElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLMeterElement.value" to val.
+// SetValue sets the value of property "HTMLMeterElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMeterElement) SetValue(val float64) bool {
@@ -5309,16 +5449,15 @@ func (this HTMLMeterElement) SetValue(val float64) bool {
 
 // Min returns the value of property "HTMLMeterElement.min".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMeterElement) Min() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMeterElementMin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMeterElement) Min() (ret float64, ok bool) {
+	ok = js.True == bindings.GetHTMLMeterElementMin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// Min sets the value of property "HTMLMeterElement.min" to val.
+// SetMin sets the value of property "HTMLMeterElement.min" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMeterElement) SetMin(val float64) bool {
@@ -5330,16 +5469,15 @@ func (this HTMLMeterElement) SetMin(val float64) bool {
 
 // Max returns the value of property "HTMLMeterElement.max".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMeterElement) Max() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMeterElementMax(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMeterElement) Max() (ret float64, ok bool) {
+	ok = js.True == bindings.GetHTMLMeterElementMax(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// Max sets the value of property "HTMLMeterElement.max" to val.
+// SetMax sets the value of property "HTMLMeterElement.max" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMeterElement) SetMax(val float64) bool {
@@ -5351,16 +5489,15 @@ func (this HTMLMeterElement) SetMax(val float64) bool {
 
 // Low returns the value of property "HTMLMeterElement.low".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMeterElement) Low() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMeterElementLow(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMeterElement) Low() (ret float64, ok bool) {
+	ok = js.True == bindings.GetHTMLMeterElementLow(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// Low sets the value of property "HTMLMeterElement.low" to val.
+// SetLow sets the value of property "HTMLMeterElement.low" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMeterElement) SetLow(val float64) bool {
@@ -5372,16 +5509,15 @@ func (this HTMLMeterElement) SetLow(val float64) bool {
 
 // High returns the value of property "HTMLMeterElement.high".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMeterElement) High() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMeterElementHigh(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMeterElement) High() (ret float64, ok bool) {
+	ok = js.True == bindings.GetHTMLMeterElementHigh(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// High sets the value of property "HTMLMeterElement.high" to val.
+// SetHigh sets the value of property "HTMLMeterElement.high" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMeterElement) SetHigh(val float64) bool {
@@ -5393,16 +5529,15 @@ func (this HTMLMeterElement) SetHigh(val float64) bool {
 
 // Optimum returns the value of property "HTMLMeterElement.optimum".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMeterElement) Optimum() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMeterElementOptimum(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMeterElement) Optimum() (ret float64, ok bool) {
+	ok = js.True == bindings.GetHTMLMeterElementOptimum(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// Optimum sets the value of property "HTMLMeterElement.optimum" to val.
+// SetOptimum sets the value of property "HTMLMeterElement.optimum" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLMeterElement) SetOptimum(val float64) bool {
@@ -5414,19 +5549,17 @@ func (this HTMLMeterElement) SetOptimum(val float64) bool {
 
 // Labels returns the value of property "HTMLMeterElement.labels".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLMeterElement) Labels() (NodeList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLMeterElementLabels(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLMeterElement) Labels() (ret NodeList, ok bool) {
+	ok = js.True == bindings.GetHTMLMeterElementLabels(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return NodeList{}.FromRef(_ret), _ok
+	return
 }
 
-func NewHTMLModElement() HTMLModElement {
-	return HTMLModElement{}.FromRef(
-		bindings.NewHTMLModElementByHTMLModElement(),
-	)
+func NewHTMLModElement() (ret HTMLModElement) {
+	ret.ref = bindings.NewHTMLModElementByHTMLModElement()
+	return
 }
 
 type HTMLModElement struct {
@@ -5453,16 +5586,15 @@ func (this HTMLModElement) Free() {
 
 // Cite returns the value of property "HTMLModElement.cite".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLModElement) Cite() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLModElementCite(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLModElement) Cite() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLModElementCite(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Cite sets the value of property "HTMLModElement.cite" to val.
+// SetCite sets the value of property "HTMLModElement.cite" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLModElement) SetCite(val js.String) bool {
@@ -5474,16 +5606,15 @@ func (this HTMLModElement) SetCite(val js.String) bool {
 
 // DateTime returns the value of property "HTMLModElement.dateTime".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLModElement) DateTime() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLModElementDateTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLModElement) DateTime() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLModElementDateTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// DateTime sets the value of property "HTMLModElement.dateTime" to val.
+// SetDateTime sets the value of property "HTMLModElement.dateTime" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLModElement) SetDateTime(val js.String) bool {
@@ -5515,10 +5646,9 @@ func (this HTMLModelElement) Free() {
 	this.Ref().Free()
 }
 
-func NewHTMLOListElement() HTMLOListElement {
-	return HTMLOListElement{}.FromRef(
-		bindings.NewHTMLOListElementByHTMLOListElement(),
-	)
+func NewHTMLOListElement() (ret HTMLOListElement) {
+	ret.ref = bindings.NewHTMLOListElementByHTMLOListElement()
+	return
 }
 
 type HTMLOListElement struct {
@@ -5545,16 +5675,15 @@ func (this HTMLOListElement) Free() {
 
 // Reversed returns the value of property "HTMLOListElement.reversed".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOListElement) Reversed() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOListElementReversed(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOListElement) Reversed() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLOListElementReversed(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Reversed sets the value of property "HTMLOListElement.reversed" to val.
+// SetReversed sets the value of property "HTMLOListElement.reversed" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOListElement) SetReversed(val bool) bool {
@@ -5566,16 +5695,15 @@ func (this HTMLOListElement) SetReversed(val bool) bool {
 
 // Start returns the value of property "HTMLOListElement.start".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOListElement) Start() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOListElementStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOListElement) Start() (ret int32, ok bool) {
+	ok = js.True == bindings.GetHTMLOListElementStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// Start sets the value of property "HTMLOListElement.start" to val.
+// SetStart sets the value of property "HTMLOListElement.start" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOListElement) SetStart(val int32) bool {
@@ -5587,16 +5715,15 @@ func (this HTMLOListElement) SetStart(val int32) bool {
 
 // Type returns the value of property "HTMLOListElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOListElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOListElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOListElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOListElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLOListElement.type" to val.
+// SetType sets the value of property "HTMLOListElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOListElement) SetType(val js.String) bool {
@@ -5608,16 +5735,15 @@ func (this HTMLOListElement) SetType(val js.String) bool {
 
 // Compact returns the value of property "HTMLOListElement.compact".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOListElement) Compact() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOListElementCompact(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOListElement) Compact() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLOListElementCompact(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Compact sets the value of property "HTMLOListElement.compact" to val.
+// SetCompact sets the value of property "HTMLOListElement.compact" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOListElement) SetCompact(val bool) bool {
@@ -5627,10 +5753,9 @@ func (this HTMLOListElement) SetCompact(val bool) bool {
 	)
 }
 
-func NewHTMLObjectElement() HTMLObjectElement {
-	return HTMLObjectElement{}.FromRef(
-		bindings.NewHTMLObjectElementByHTMLObjectElement(),
-	)
+func NewHTMLObjectElement() (ret HTMLObjectElement) {
+	ret.ref = bindings.NewHTMLObjectElementByHTMLObjectElement()
+	return
 }
 
 type HTMLObjectElement struct {
@@ -5657,16 +5782,15 @@ func (this HTMLObjectElement) Free() {
 
 // Data returns the value of property "HTMLObjectElement.data".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Data() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Data() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Data sets the value of property "HTMLObjectElement.data" to val.
+// SetData sets the value of property "HTMLObjectElement.data" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetData(val js.String) bool {
@@ -5678,16 +5802,15 @@ func (this HTMLObjectElement) SetData(val js.String) bool {
 
 // Type returns the value of property "HTMLObjectElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLObjectElement.type" to val.
+// SetType sets the value of property "HTMLObjectElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetType(val js.String) bool {
@@ -5699,16 +5822,15 @@ func (this HTMLObjectElement) SetType(val js.String) bool {
 
 // Name returns the value of property "HTMLObjectElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLObjectElement.name" to val.
+// SetName sets the value of property "HTMLObjectElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetName(val js.String) bool {
@@ -5720,27 +5842,25 @@ func (this HTMLObjectElement) SetName(val js.String) bool {
 
 // Form returns the value of property "HTMLObjectElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "HTMLObjectElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Width() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Width() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Width sets the value of property "HTMLObjectElement.width" to val.
+// SetWidth sets the value of property "HTMLObjectElement.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetWidth(val js.String) bool {
@@ -5752,16 +5872,15 @@ func (this HTMLObjectElement) SetWidth(val js.String) bool {
 
 // Height returns the value of property "HTMLObjectElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Height() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Height() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Height sets the value of property "HTMLObjectElement.height" to val.
+// SetHeight sets the value of property "HTMLObjectElement.height" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetHeight(val js.String) bool {
@@ -5773,71 +5892,65 @@ func (this HTMLObjectElement) SetHeight(val js.String) bool {
 
 // ContentDocument returns the value of property "HTMLObjectElement.contentDocument".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) ContentDocument() (Document, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementContentDocument(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) ContentDocument() (ret Document, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementContentDocument(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Document{}.FromRef(_ret), _ok
+	return
 }
 
 // ContentWindow returns the value of property "HTMLObjectElement.contentWindow".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) ContentWindow() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementContentWindow(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) ContentWindow() (ret js.Object, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementContentWindow(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Object{}.FromRef(_ret), _ok
+	return
 }
 
 // WillValidate returns the value of property "HTMLObjectElement.willValidate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) WillValidate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementWillValidate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) WillValidate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementWillValidate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Validity returns the value of property "HTMLObjectElement.validity".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Validity() (ValidityState, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementValidity(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Validity() (ret ValidityState, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ValidityState{}.FromRef(_ret), _ok
+	return
 }
 
 // ValidationMessage returns the value of property "HTMLObjectElement.validationMessage".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) ValidationMessage() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementValidationMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) ValidationMessage() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementValidationMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Align returns the value of property "HTMLObjectElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLObjectElement.align" to val.
+// SetAlign sets the value of property "HTMLObjectElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetAlign(val js.String) bool {
@@ -5849,16 +5962,15 @@ func (this HTMLObjectElement) SetAlign(val js.String) bool {
 
 // Archive returns the value of property "HTMLObjectElement.archive".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Archive() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementArchive(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Archive() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementArchive(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Archive sets the value of property "HTMLObjectElement.archive" to val.
+// SetArchive sets the value of property "HTMLObjectElement.archive" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetArchive(val js.String) bool {
@@ -5870,16 +5982,15 @@ func (this HTMLObjectElement) SetArchive(val js.String) bool {
 
 // Code returns the value of property "HTMLObjectElement.code".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Code() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementCode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Code() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementCode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Code sets the value of property "HTMLObjectElement.code" to val.
+// SetCode sets the value of property "HTMLObjectElement.code" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetCode(val js.String) bool {
@@ -5891,16 +6002,15 @@ func (this HTMLObjectElement) SetCode(val js.String) bool {
 
 // Declare returns the value of property "HTMLObjectElement.declare".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Declare() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementDeclare(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Declare() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementDeclare(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Declare sets the value of property "HTMLObjectElement.declare" to val.
+// SetDeclare sets the value of property "HTMLObjectElement.declare" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetDeclare(val bool) bool {
@@ -5912,16 +6022,15 @@ func (this HTMLObjectElement) SetDeclare(val bool) bool {
 
 // Hspace returns the value of property "HTMLObjectElement.hspace".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Hspace() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementHspace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Hspace() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementHspace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Hspace sets the value of property "HTMLObjectElement.hspace" to val.
+// SetHspace sets the value of property "HTMLObjectElement.hspace" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetHspace(val uint32) bool {
@@ -5933,16 +6042,15 @@ func (this HTMLObjectElement) SetHspace(val uint32) bool {
 
 // Standby returns the value of property "HTMLObjectElement.standby".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Standby() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementStandby(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Standby() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementStandby(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Standby sets the value of property "HTMLObjectElement.standby" to val.
+// SetStandby sets the value of property "HTMLObjectElement.standby" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetStandby(val js.String) bool {
@@ -5954,16 +6062,15 @@ func (this HTMLObjectElement) SetStandby(val js.String) bool {
 
 // Vspace returns the value of property "HTMLObjectElement.vspace".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Vspace() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementVspace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Vspace() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementVspace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Vspace sets the value of property "HTMLObjectElement.vspace" to val.
+// SetVspace sets the value of property "HTMLObjectElement.vspace" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetVspace(val uint32) bool {
@@ -5975,16 +6082,15 @@ func (this HTMLObjectElement) SetVspace(val uint32) bool {
 
 // CodeBase returns the value of property "HTMLObjectElement.codeBase".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) CodeBase() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementCodeBase(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) CodeBase() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementCodeBase(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// CodeBase sets the value of property "HTMLObjectElement.codeBase" to val.
+// SetCodeBase sets the value of property "HTMLObjectElement.codeBase" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetCodeBase(val js.String) bool {
@@ -5996,16 +6102,15 @@ func (this HTMLObjectElement) SetCodeBase(val js.String) bool {
 
 // CodeType returns the value of property "HTMLObjectElement.codeType".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) CodeType() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementCodeType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) CodeType() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementCodeType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// CodeType sets the value of property "HTMLObjectElement.codeType" to val.
+// SetCodeType sets the value of property "HTMLObjectElement.codeType" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetCodeType(val js.String) bool {
@@ -6017,16 +6122,15 @@ func (this HTMLObjectElement) SetCodeType(val js.String) bool {
 
 // UseMap returns the value of property "HTMLObjectElement.useMap".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) UseMap() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementUseMap(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) UseMap() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementUseMap(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// UseMap sets the value of property "HTMLObjectElement.useMap" to val.
+// SetUseMap sets the value of property "HTMLObjectElement.useMap" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetUseMap(val js.String) bool {
@@ -6038,16 +6142,15 @@ func (this HTMLObjectElement) SetUseMap(val js.String) bool {
 
 // Border returns the value of property "HTMLObjectElement.border".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLObjectElement) Border() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLObjectElementBorder(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLObjectElement) Border() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLObjectElementBorder(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Border sets the value of property "HTMLObjectElement.border" to val.
+// SetBorder sets the value of property "HTMLObjectElement.border" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLObjectElement) SetBorder(val js.String) bool {
@@ -6057,21 +6160,14 @@ func (this HTMLObjectElement) SetBorder(val js.String) bool {
 	)
 }
 
-// GetSVGDocument calls the method "HTMLObjectElement.getSVGDocument".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLObjectElement) GetSVGDocument() (Document, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLObjectElementGetSVGDocument(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetSVGDocument returns true if the method "HTMLObjectElement.getSVGDocument" exists.
+func (this HTMLObjectElement) HasGetSVGDocument() bool {
+	return js.True == bindings.HasHTMLObjectElementGetSVGDocument(
+		this.Ref(),
 	)
-
-	return Document{}.FromRef(_ret), _ok
 }
 
 // GetSVGDocumentFunc returns the method "HTMLObjectElement.getSVGDocument".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLObjectElement) GetSVGDocumentFunc() (fn js.Func[func() Document]) {
 	return fn.FromRef(
 		bindings.HTMLObjectElementGetSVGDocumentFunc(
@@ -6080,21 +6176,34 @@ func (this HTMLObjectElement) GetSVGDocumentFunc() (fn js.Func[func() Document])
 	)
 }
 
-// CheckValidity calls the method "HTMLObjectElement.checkValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLObjectElement) CheckValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLObjectElementCheckValidity(
-		this.Ref(), js.Pointer(&_ok),
+// GetSVGDocument calls the method "HTMLObjectElement.getSVGDocument".
+func (this HTMLObjectElement) GetSVGDocument() (ret Document) {
+	bindings.CallHTMLObjectElementGetSVGDocument(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryGetSVGDocument calls the method "HTMLObjectElement.getSVGDocument"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLObjectElement) TryGetSVGDocument() (ret Document, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLObjectElementGetSVGDocument(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCheckValidity returns true if the method "HTMLObjectElement.checkValidity" exists.
+func (this HTMLObjectElement) HasCheckValidity() bool {
+	return js.True == bindings.HasHTMLObjectElementCheckValidity(
+		this.Ref(),
+	)
 }
 
 // CheckValidityFunc returns the method "HTMLObjectElement.checkValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLObjectElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLObjectElementCheckValidityFunc(
@@ -6103,21 +6212,34 @@ func (this HTMLObjectElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// ReportValidity calls the method "HTMLObjectElement.reportValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLObjectElement) ReportValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLObjectElementReportValidity(
-		this.Ref(), js.Pointer(&_ok),
+// CheckValidity calls the method "HTMLObjectElement.checkValidity".
+func (this HTMLObjectElement) CheckValidity() (ret bool) {
+	bindings.CallHTMLObjectElementCheckValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryCheckValidity calls the method "HTMLObjectElement.checkValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLObjectElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLObjectElementCheckValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReportValidity returns true if the method "HTMLObjectElement.reportValidity" exists.
+func (this HTMLObjectElement) HasReportValidity() bool {
+	return js.True == bindings.HasHTMLObjectElementReportValidity(
+		this.Ref(),
+	)
 }
 
 // ReportValidityFunc returns the method "HTMLObjectElement.reportValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLObjectElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLObjectElementReportValidityFunc(
@@ -6126,23 +6248,34 @@ func (this HTMLObjectElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// SetCustomValidity calls the method "HTMLObjectElement.setCustomValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLObjectElement) SetCustomValidity(err js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLObjectElementSetCustomValidity(
-		this.Ref(), js.Pointer(&_ok),
-		err.Ref(),
+// ReportValidity calls the method "HTMLObjectElement.reportValidity".
+func (this HTMLObjectElement) ReportValidity() (ret bool) {
+	bindings.CallHTMLObjectElementReportValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReportValidity calls the method "HTMLObjectElement.reportValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLObjectElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLObjectElementReportValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetCustomValidity returns true if the method "HTMLObjectElement.setCustomValidity" exists.
+func (this HTMLObjectElement) HasSetCustomValidity() bool {
+	return js.True == bindings.HasHTMLObjectElementSetCustomValidity(
+		this.Ref(),
+	)
 }
 
 // SetCustomValidityFunc returns the method "HTMLObjectElement.setCustomValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLObjectElement) SetCustomValidityFunc() (fn js.Func[func(err js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLObjectElementSetCustomValidityFunc(
@@ -6151,10 +6284,31 @@ func (this HTMLObjectElement) SetCustomValidityFunc() (fn js.Func[func(err js.St
 	)
 }
 
-func NewHTMLOptGroupElement() HTMLOptGroupElement {
-	return HTMLOptGroupElement{}.FromRef(
-		bindings.NewHTMLOptGroupElementByHTMLOptGroupElement(),
+// SetCustomValidity calls the method "HTMLObjectElement.setCustomValidity".
+func (this HTMLObjectElement) SetCustomValidity(err js.String) (ret js.Void) {
+	bindings.CallHTMLObjectElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret),
+		err.Ref(),
 	)
+
+	return
+}
+
+// TrySetCustomValidity calls the method "HTMLObjectElement.setCustomValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLObjectElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLObjectElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		err.Ref(),
+	)
+
+	return
+}
+
+func NewHTMLOptGroupElement() (ret HTMLOptGroupElement) {
+	ret.ref = bindings.NewHTMLOptGroupElementByHTMLOptGroupElement()
+	return
 }
 
 type HTMLOptGroupElement struct {
@@ -6181,16 +6335,15 @@ func (this HTMLOptGroupElement) Free() {
 
 // Disabled returns the value of property "HTMLOptGroupElement.disabled".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptGroupElement) Disabled() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptGroupElementDisabled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptGroupElement) Disabled() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLOptGroupElementDisabled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Disabled sets the value of property "HTMLOptGroupElement.disabled" to val.
+// SetDisabled sets the value of property "HTMLOptGroupElement.disabled" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptGroupElement) SetDisabled(val bool) bool {
@@ -6202,16 +6355,15 @@ func (this HTMLOptGroupElement) SetDisabled(val bool) bool {
 
 // Label returns the value of property "HTMLOptGroupElement.label".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptGroupElement) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptGroupElementLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptGroupElement) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOptGroupElementLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "HTMLOptGroupElement.label" to val.
+// SetLabel sets the value of property "HTMLOptGroupElement.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptGroupElement) SetLabel(val js.String) bool {
@@ -6221,10 +6373,9 @@ func (this HTMLOptGroupElement) SetLabel(val js.String) bool {
 	)
 }
 
-func NewHTMLOptionElement() HTMLOptionElement {
-	return HTMLOptionElement{}.FromRef(
-		bindings.NewHTMLOptionElementByHTMLOptionElement(),
-	)
+func NewHTMLOptionElement() (ret HTMLOptionElement) {
+	ret.ref = bindings.NewHTMLOptionElementByHTMLOptionElement()
+	return
 }
 
 type HTMLOptionElement struct {
@@ -6251,16 +6402,15 @@ func (this HTMLOptionElement) Free() {
 
 // Disabled returns the value of property "HTMLOptionElement.disabled".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) Disabled() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementDisabled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) Disabled() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementDisabled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Disabled sets the value of property "HTMLOptionElement.disabled" to val.
+// SetDisabled sets the value of property "HTMLOptionElement.disabled" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionElement) SetDisabled(val bool) bool {
@@ -6272,27 +6422,25 @@ func (this HTMLOptionElement) SetDisabled(val bool) bool {
 
 // Form returns the value of property "HTMLOptionElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // Label returns the value of property "HTMLOptionElement.label".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "HTMLOptionElement.label" to val.
+// SetLabel sets the value of property "HTMLOptionElement.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionElement) SetLabel(val js.String) bool {
@@ -6304,16 +6452,15 @@ func (this HTMLOptionElement) SetLabel(val js.String) bool {
 
 // DefaultSelected returns the value of property "HTMLOptionElement.defaultSelected".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) DefaultSelected() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementDefaultSelected(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) DefaultSelected() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementDefaultSelected(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// DefaultSelected sets the value of property "HTMLOptionElement.defaultSelected" to val.
+// SetDefaultSelected sets the value of property "HTMLOptionElement.defaultSelected" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionElement) SetDefaultSelected(val bool) bool {
@@ -6325,16 +6472,15 @@ func (this HTMLOptionElement) SetDefaultSelected(val bool) bool {
 
 // Selected returns the value of property "HTMLOptionElement.selected".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) Selected() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementSelected(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) Selected() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementSelected(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Selected sets the value of property "HTMLOptionElement.selected" to val.
+// SetSelected sets the value of property "HTMLOptionElement.selected" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionElement) SetSelected(val bool) bool {
@@ -6346,16 +6492,15 @@ func (this HTMLOptionElement) SetSelected(val bool) bool {
 
 // Value returns the value of property "HTMLOptionElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) Value() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) Value() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLOptionElement.value" to val.
+// SetValue sets the value of property "HTMLOptionElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionElement) SetValue(val js.String) bool {
@@ -6367,16 +6512,15 @@ func (this HTMLOptionElement) SetValue(val js.String) bool {
 
 // Text returns the value of property "HTMLOptionElement.text".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) Text() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementText(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) Text() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementText(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Text sets the value of property "HTMLOptionElement.text" to val.
+// SetText sets the value of property "HTMLOptionElement.text" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionElement) SetText(val js.String) bool {
@@ -6388,13 +6532,12 @@ func (this HTMLOptionElement) SetText(val js.String) bool {
 
 // Index returns the value of property "HTMLOptionElement.index".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionElement) Index() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionElementIndex(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionElement) Index() (ret int32, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionElementIndex(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 type OneOf_HTMLOptionElement_HTMLOptGroupElement struct {
@@ -6473,16 +6616,15 @@ func (this HTMLOptionsCollection) Free() {
 
 // Length returns the value of property "HTMLOptionsCollection.length".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionsCollection) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionsCollectionLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionsCollection) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionsCollectionLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Length sets the value of property "HTMLOptionsCollection.length" to val.
+// SetLength sets the value of property "HTMLOptionsCollection.length" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionsCollection) SetLength(val uint32) bool {
@@ -6494,16 +6636,15 @@ func (this HTMLOptionsCollection) SetLength(val uint32) bool {
 
 // SelectedIndex returns the value of property "HTMLOptionsCollection.selectedIndex".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOptionsCollection) SelectedIndex() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOptionsCollectionSelectedIndex(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOptionsCollection) SelectedIndex() (ret int32, ok bool) {
+	ok = js.True == bindings.GetHTMLOptionsCollectionSelectedIndex(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// SelectedIndex sets the value of property "HTMLOptionsCollection.selectedIndex" to val.
+// SetSelectedIndex sets the value of property "HTMLOptionsCollection.selectedIndex" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOptionsCollection) SetSelectedIndex(val int32) bool {
@@ -6513,24 +6654,14 @@ func (this HTMLOptionsCollection) SetSelectedIndex(val int32) bool {
 	)
 }
 
-// Set calls the method "HTMLOptionsCollection.".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLOptionsCollection) Set(index uint32, option HTMLOptionElement) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLOptionsCollectionSet(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
-		option.Ref(),
+// HasSet returns true if the method "HTMLOptionsCollection." exists.
+func (this HTMLOptionsCollection) HasSet() bool {
+	return js.True == bindings.HasHTMLOptionsCollectionSet(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SetFunc returns the method "HTMLOptionsCollection.".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLOptionsCollection) SetFunc() (fn js.Func[func(index uint32, option HTMLOptionElement)]) {
 	return fn.FromRef(
 		bindings.HTMLOptionsCollectionSetFunc(
@@ -6539,24 +6670,38 @@ func (this HTMLOptionsCollection) SetFunc() (fn js.Func[func(index uint32, optio
 	)
 }
 
-// Add calls the method "HTMLOptionsCollection.add".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLOptionsCollection) Add(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLOptionsCollectionAdd(
-		this.Ref(), js.Pointer(&_ok),
-		element.Ref(),
-		before.Ref(),
+// Set calls the method "HTMLOptionsCollection.".
+func (this HTMLOptionsCollection) Set(index uint32, option HTMLOptionElement) (ret js.Void) {
+	bindings.CallHTMLOptionsCollectionSet(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+		option.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySet calls the method "HTMLOptionsCollection."
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLOptionsCollection) TrySet(index uint32, option HTMLOptionElement) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLOptionsCollectionSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+		option.Ref(),
+	)
+
+	return
+}
+
+// HasAdd returns true if the method "HTMLOptionsCollection.add" exists.
+func (this HTMLOptionsCollection) HasAdd() bool {
+	return js.True == bindings.HasHTMLOptionsCollectionAdd(
+		this.Ref(),
+	)
 }
 
 // AddFunc returns the method "HTMLOptionsCollection.add".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLOptionsCollection) AddFunc() (fn js.Func[func(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32)]) {
 	return fn.FromRef(
 		bindings.HTMLOptionsCollectionAddFunc(
@@ -6565,23 +6710,38 @@ func (this HTMLOptionsCollection) AddFunc() (fn js.Func[func(element OneOf_HTMLO
 	)
 }
 
-// Add1 calls the method "HTMLOptionsCollection.add".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLOptionsCollection) Add1(element OneOf_HTMLOptionElement_HTMLOptGroupElement) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLOptionsCollectionAdd1(
-		this.Ref(), js.Pointer(&_ok),
+// Add calls the method "HTMLOptionsCollection.add".
+func (this HTMLOptionsCollection) Add(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32) (ret js.Void) {
+	bindings.CallHTMLOptionsCollectionAdd(
+		this.Ref(), js.Pointer(&ret),
 		element.Ref(),
+		before.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAdd calls the method "HTMLOptionsCollection.add"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLOptionsCollection) TryAdd(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLOptionsCollectionAdd(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		element.Ref(),
+		before.Ref(),
+	)
+
+	return
+}
+
+// HasAdd1 returns true if the method "HTMLOptionsCollection.add" exists.
+func (this HTMLOptionsCollection) HasAdd1() bool {
+	return js.True == bindings.HasHTMLOptionsCollectionAdd1(
+		this.Ref(),
+	)
 }
 
 // Add1Func returns the method "HTMLOptionsCollection.add".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLOptionsCollection) Add1Func() (fn js.Func[func(element OneOf_HTMLOptionElement_HTMLOptGroupElement)]) {
 	return fn.FromRef(
 		bindings.HTMLOptionsCollectionAdd1Func(
@@ -6590,29 +6750,64 @@ func (this HTMLOptionsCollection) Add1Func() (fn js.Func[func(element OneOf_HTML
 	)
 }
 
-// Remove calls the method "HTMLOptionsCollection.remove".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLOptionsCollection) Remove(index int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLOptionsCollectionRemove(
-		this.Ref(), js.Pointer(&_ok),
-		int32(index),
+// Add1 calls the method "HTMLOptionsCollection.add".
+func (this HTMLOptionsCollection) Add1(element OneOf_HTMLOptionElement_HTMLOptGroupElement) (ret js.Void) {
+	bindings.CallHTMLOptionsCollectionAdd1(
+		this.Ref(), js.Pointer(&ret),
+		element.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAdd1 calls the method "HTMLOptionsCollection.add"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLOptionsCollection) TryAdd1(element OneOf_HTMLOptionElement_HTMLOptGroupElement) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLOptionsCollectionAdd1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		element.Ref(),
+	)
+
+	return
+}
+
+// HasRemove returns true if the method "HTMLOptionsCollection.remove" exists.
+func (this HTMLOptionsCollection) HasRemove() bool {
+	return js.True == bindings.HasHTMLOptionsCollectionRemove(
+		this.Ref(),
+	)
 }
 
 // RemoveFunc returns the method "HTMLOptionsCollection.remove".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLOptionsCollection) RemoveFunc() (fn js.Func[func(index int32)]) {
 	return fn.FromRef(
 		bindings.HTMLOptionsCollectionRemoveFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Remove calls the method "HTMLOptionsCollection.remove".
+func (this HTMLOptionsCollection) Remove(index int32) (ret js.Void) {
+	bindings.CallHTMLOptionsCollectionRemove(
+		this.Ref(), js.Pointer(&ret),
+		int32(index),
+	)
+
+	return
+}
+
+// TryRemove calls the method "HTMLOptionsCollection.remove"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLOptionsCollection) TryRemove(index int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLOptionsCollectionRemove(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		int32(index),
+	)
+
+	return
 }
 
 type OneOf_HTMLImageElement_SVGImageElement struct {
@@ -6643,10 +6838,9 @@ func (x OneOf_HTMLImageElement_SVGImageElement) SVGImageElement() SVGImageElemen
 
 type HTMLOrSVGImageElement = OneOf_HTMLImageElement_SVGImageElement
 
-func NewHTMLOutputElement() HTMLOutputElement {
-	return HTMLOutputElement{}.FromRef(
-		bindings.NewHTMLOutputElementByHTMLOutputElement(),
-	)
+func NewHTMLOutputElement() (ret HTMLOutputElement) {
+	ret.ref = bindings.NewHTMLOutputElementByHTMLOutputElement()
+	return
 }
 
 type HTMLOutputElement struct {
@@ -6673,38 +6867,35 @@ func (this HTMLOutputElement) Free() {
 
 // HtmlFor returns the value of property "HTMLOutputElement.htmlFor".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) HtmlFor() (DOMTokenList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementHtmlFor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) HtmlFor() (ret DOMTokenList, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementHtmlFor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMTokenList{}.FromRef(_ret), _ok
+	return
 }
 
 // Form returns the value of property "HTMLOutputElement.form".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) Form() (HTMLFormElement, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementForm(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) Form() (ret HTMLFormElement, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementForm(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HTMLFormElement{}.FromRef(_ret), _ok
+	return
 }
 
 // Name returns the value of property "HTMLOutputElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLOutputElement.name" to val.
+// SetName sets the value of property "HTMLOutputElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOutputElement) SetName(val js.String) bool {
@@ -6716,27 +6907,25 @@ func (this HTMLOutputElement) SetName(val js.String) bool {
 
 // Type returns the value of property "HTMLOutputElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // DefaultValue returns the value of property "HTMLOutputElement.defaultValue".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) DefaultValue() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementDefaultValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) DefaultValue() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementDefaultValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// DefaultValue sets the value of property "HTMLOutputElement.defaultValue" to val.
+// SetDefaultValue sets the value of property "HTMLOutputElement.defaultValue" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOutputElement) SetDefaultValue(val js.String) bool {
@@ -6748,16 +6937,15 @@ func (this HTMLOutputElement) SetDefaultValue(val js.String) bool {
 
 // Value returns the value of property "HTMLOutputElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) Value() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) Value() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLOutputElement.value" to val.
+// SetValue sets the value of property "HTMLOutputElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLOutputElement) SetValue(val js.String) bool {
@@ -6769,63 +6957,52 @@ func (this HTMLOutputElement) SetValue(val js.String) bool {
 
 // WillValidate returns the value of property "HTMLOutputElement.willValidate".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) WillValidate() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementWillValidate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) WillValidate() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementWillValidate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Validity returns the value of property "HTMLOutputElement.validity".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) Validity() (ValidityState, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementValidity(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) Validity() (ret ValidityState, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ValidityState{}.FromRef(_ret), _ok
+	return
 }
 
 // ValidationMessage returns the value of property "HTMLOutputElement.validationMessage".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) ValidationMessage() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementValidationMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) ValidationMessage() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementValidationMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Labels returns the value of property "HTMLOutputElement.labels".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLOutputElement) Labels() (NodeList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLOutputElementLabels(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLOutputElement) Labels() (ret NodeList, ok bool) {
+	ok = js.True == bindings.GetHTMLOutputElementLabels(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return NodeList{}.FromRef(_ret), _ok
+	return
 }
 
-// CheckValidity calls the method "HTMLOutputElement.checkValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLOutputElement) CheckValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLOutputElementCheckValidity(
-		this.Ref(), js.Pointer(&_ok),
+// HasCheckValidity returns true if the method "HTMLOutputElement.checkValidity" exists.
+func (this HTMLOutputElement) HasCheckValidity() bool {
+	return js.True == bindings.HasHTMLOutputElementCheckValidity(
+		this.Ref(),
 	)
-
-	return _ret == js.True, _ok
 }
 
 // CheckValidityFunc returns the method "HTMLOutputElement.checkValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLOutputElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLOutputElementCheckValidityFunc(
@@ -6834,21 +7011,34 @@ func (this HTMLOutputElement) CheckValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// ReportValidity calls the method "HTMLOutputElement.reportValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLOutputElement) ReportValidity() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLOutputElementReportValidity(
-		this.Ref(), js.Pointer(&_ok),
+// CheckValidity calls the method "HTMLOutputElement.checkValidity".
+func (this HTMLOutputElement) CheckValidity() (ret bool) {
+	bindings.CallHTMLOutputElementCheckValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryCheckValidity calls the method "HTMLOutputElement.checkValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLOutputElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLOutputElementCheckValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReportValidity returns true if the method "HTMLOutputElement.reportValidity" exists.
+func (this HTMLOutputElement) HasReportValidity() bool {
+	return js.True == bindings.HasHTMLOutputElementReportValidity(
+		this.Ref(),
+	)
 }
 
 // ReportValidityFunc returns the method "HTMLOutputElement.reportValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLOutputElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.HTMLOutputElementReportValidityFunc(
@@ -6857,23 +7047,34 @@ func (this HTMLOutputElement) ReportValidityFunc() (fn js.Func[func() bool]) {
 	)
 }
 
-// SetCustomValidity calls the method "HTMLOutputElement.setCustomValidity".
-//
-// The returned bool will be false if there is no such method.
-func (this HTMLOutputElement) SetCustomValidity(err js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHTMLOutputElementSetCustomValidity(
-		this.Ref(), js.Pointer(&_ok),
-		err.Ref(),
+// ReportValidity calls the method "HTMLOutputElement.reportValidity".
+func (this HTMLOutputElement) ReportValidity() (ret bool) {
+	bindings.CallHTMLOutputElementReportValidity(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReportValidity calls the method "HTMLOutputElement.reportValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLOutputElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLOutputElementReportValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetCustomValidity returns true if the method "HTMLOutputElement.setCustomValidity" exists.
+func (this HTMLOutputElement) HasSetCustomValidity() bool {
+	return js.True == bindings.HasHTMLOutputElementSetCustomValidity(
+		this.Ref(),
+	)
 }
 
 // SetCustomValidityFunc returns the method "HTMLOutputElement.setCustomValidity".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this HTMLOutputElement) SetCustomValidityFunc() (fn js.Func[func(err js.String)]) {
 	return fn.FromRef(
 		bindings.HTMLOutputElementSetCustomValidityFunc(
@@ -6882,10 +7083,31 @@ func (this HTMLOutputElement) SetCustomValidityFunc() (fn js.Func[func(err js.St
 	)
 }
 
-func NewHTMLParagraphElement() HTMLParagraphElement {
-	return HTMLParagraphElement{}.FromRef(
-		bindings.NewHTMLParagraphElementByHTMLParagraphElement(),
+// SetCustomValidity calls the method "HTMLOutputElement.setCustomValidity".
+func (this HTMLOutputElement) SetCustomValidity(err js.String) (ret js.Void) {
+	bindings.CallHTMLOutputElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret),
+		err.Ref(),
 	)
+
+	return
+}
+
+// TrySetCustomValidity calls the method "HTMLOutputElement.setCustomValidity"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this HTMLOutputElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHTMLOutputElementSetCustomValidity(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		err.Ref(),
+	)
+
+	return
+}
+
+func NewHTMLParagraphElement() (ret HTMLParagraphElement) {
+	ret.ref = bindings.NewHTMLParagraphElementByHTMLParagraphElement()
+	return
 }
 
 type HTMLParagraphElement struct {
@@ -6912,16 +7134,15 @@ func (this HTMLParagraphElement) Free() {
 
 // Align returns the value of property "HTMLParagraphElement.align".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLParagraphElement) Align() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLParagraphElementAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLParagraphElement) Align() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLParagraphElementAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Align sets the value of property "HTMLParagraphElement.align" to val.
+// SetAlign sets the value of property "HTMLParagraphElement.align" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLParagraphElement) SetAlign(val js.String) bool {
@@ -6931,10 +7152,9 @@ func (this HTMLParagraphElement) SetAlign(val js.String) bool {
 	)
 }
 
-func NewHTMLParamElement() HTMLParamElement {
-	return HTMLParamElement{}.FromRef(
-		bindings.NewHTMLParamElementByHTMLParamElement(),
-	)
+func NewHTMLParamElement() (ret HTMLParamElement) {
+	ret.ref = bindings.NewHTMLParamElementByHTMLParamElement()
+	return
 }
 
 type HTMLParamElement struct {
@@ -6961,16 +7181,15 @@ func (this HTMLParamElement) Free() {
 
 // Name returns the value of property "HTMLParamElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLParamElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLParamElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLParamElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLParamElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLParamElement.name" to val.
+// SetName sets the value of property "HTMLParamElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLParamElement) SetName(val js.String) bool {
@@ -6982,16 +7201,15 @@ func (this HTMLParamElement) SetName(val js.String) bool {
 
 // Value returns the value of property "HTMLParamElement.value".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLParamElement) Value() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLParamElementValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLParamElement) Value() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLParamElementValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Value sets the value of property "HTMLParamElement.value" to val.
+// SetValue sets the value of property "HTMLParamElement.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLParamElement) SetValue(val js.String) bool {
@@ -7003,16 +7221,15 @@ func (this HTMLParamElement) SetValue(val js.String) bool {
 
 // Type returns the value of property "HTMLParamElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLParamElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLParamElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLParamElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLParamElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLParamElement.type" to val.
+// SetType sets the value of property "HTMLParamElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLParamElement) SetType(val js.String) bool {
@@ -7024,16 +7241,15 @@ func (this HTMLParamElement) SetType(val js.String) bool {
 
 // ValueType returns the value of property "HTMLParamElement.valueType".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLParamElement) ValueType() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLParamElementValueType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLParamElement) ValueType() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLParamElementValueType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ValueType sets the value of property "HTMLParamElement.valueType" to val.
+// SetValueType sets the value of property "HTMLParamElement.valueType" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLParamElement) SetValueType(val js.String) bool {
@@ -7043,10 +7259,9 @@ func (this HTMLParamElement) SetValueType(val js.String) bool {
 	)
 }
 
-func NewHTMLPictureElement() HTMLPictureElement {
-	return HTMLPictureElement{}.FromRef(
-		bindings.NewHTMLPictureElementByHTMLPictureElement(),
-	)
+func NewHTMLPictureElement() (ret HTMLPictureElement) {
+	ret.ref = bindings.NewHTMLPictureElementByHTMLPictureElement()
+	return
 }
 
 type HTMLPictureElement struct {

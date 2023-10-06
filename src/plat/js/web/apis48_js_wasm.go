@@ -68,63 +68,52 @@ func (this RTCIceTransport) Free() {
 
 // Role returns the value of property "RTCIceTransport.role".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCIceTransport) Role() (RTCIceRole, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCIceTransportRole(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCIceTransport) Role() (ret RTCIceRole, ok bool) {
+	ok = js.True == bindings.GetRTCIceTransportRole(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCIceRole(_ret), _ok
+	return
 }
 
 // Component returns the value of property "RTCIceTransport.component".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCIceTransport) Component() (RTCIceComponent, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCIceTransportComponent(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCIceTransport) Component() (ret RTCIceComponent, ok bool) {
+	ok = js.True == bindings.GetRTCIceTransportComponent(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCIceComponent(_ret), _ok
+	return
 }
 
 // State returns the value of property "RTCIceTransport.state".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCIceTransport) State() (RTCIceTransportState, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCIceTransportState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCIceTransport) State() (ret RTCIceTransportState, ok bool) {
+	ok = js.True == bindings.GetRTCIceTransportState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCIceTransportState(_ret), _ok
+	return
 }
 
 // GatheringState returns the value of property "RTCIceTransport.gatheringState".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCIceTransport) GatheringState() (RTCIceGathererState, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCIceTransportGatheringState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCIceTransport) GatheringState() (ret RTCIceGathererState, ok bool) {
+	ok = js.True == bindings.GetRTCIceTransportGatheringState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCIceGathererState(_ret), _ok
+	return
 }
 
-// GetLocalCandidates calls the method "RTCIceTransport.getLocalCandidates".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) GetLocalCandidates() (js.Array[RTCIceCandidate], bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportGetLocalCandidates(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetLocalCandidates returns true if the method "RTCIceTransport.getLocalCandidates" exists.
+func (this RTCIceTransport) HasGetLocalCandidates() bool {
+	return js.True == bindings.HasRTCIceTransportGetLocalCandidates(
+		this.Ref(),
 	)
-
-	return js.Array[RTCIceCandidate]{}.FromRef(_ret), _ok
 }
 
 // GetLocalCandidatesFunc returns the method "RTCIceTransport.getLocalCandidates".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) GetLocalCandidatesFunc() (fn js.Func[func() js.Array[RTCIceCandidate]]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportGetLocalCandidatesFunc(
@@ -133,21 +122,34 @@ func (this RTCIceTransport) GetLocalCandidatesFunc() (fn js.Func[func() js.Array
 	)
 }
 
-// GetRemoteCandidates calls the method "RTCIceTransport.getRemoteCandidates".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) GetRemoteCandidates() (js.Array[RTCIceCandidate], bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportGetRemoteCandidates(
-		this.Ref(), js.Pointer(&_ok),
+// GetLocalCandidates calls the method "RTCIceTransport.getLocalCandidates".
+func (this RTCIceTransport) GetLocalCandidates() (ret js.Array[RTCIceCandidate]) {
+	bindings.CallRTCIceTransportGetLocalCandidates(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Array[RTCIceCandidate]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetLocalCandidates calls the method "RTCIceTransport.getLocalCandidates"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryGetLocalCandidates() (ret js.Array[RTCIceCandidate], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportGetLocalCandidates(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetRemoteCandidates returns true if the method "RTCIceTransport.getRemoteCandidates" exists.
+func (this RTCIceTransport) HasGetRemoteCandidates() bool {
+	return js.True == bindings.HasRTCIceTransportGetRemoteCandidates(
+		this.Ref(),
+	)
 }
 
 // GetRemoteCandidatesFunc returns the method "RTCIceTransport.getRemoteCandidates".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) GetRemoteCandidatesFunc() (fn js.Func[func() js.Array[RTCIceCandidate]]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportGetRemoteCandidatesFunc(
@@ -156,21 +158,34 @@ func (this RTCIceTransport) GetRemoteCandidatesFunc() (fn js.Func[func() js.Arra
 	)
 }
 
-// GetSelectedCandidatePair calls the method "RTCIceTransport.getSelectedCandidatePair".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) GetSelectedCandidatePair() (RTCIceCandidatePair, bool) {
-	var _ret RTCIceCandidatePair
-	_ok := js.True == bindings.CallRTCIceTransportGetSelectedCandidatePair(
-		this.Ref(), js.Pointer(&_ret),
+// GetRemoteCandidates calls the method "RTCIceTransport.getRemoteCandidates".
+func (this RTCIceTransport) GetRemoteCandidates() (ret js.Array[RTCIceCandidate]) {
+	bindings.CallRTCIceTransportGetRemoteCandidates(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret, _ok
+	return
+}
+
+// TryGetRemoteCandidates calls the method "RTCIceTransport.getRemoteCandidates"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryGetRemoteCandidates() (ret js.Array[RTCIceCandidate], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportGetRemoteCandidates(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetSelectedCandidatePair returns true if the method "RTCIceTransport.getSelectedCandidatePair" exists.
+func (this RTCIceTransport) HasGetSelectedCandidatePair() bool {
+	return js.True == bindings.HasRTCIceTransportGetSelectedCandidatePair(
+		this.Ref(),
+	)
 }
 
 // GetSelectedCandidatePairFunc returns the method "RTCIceTransport.getSelectedCandidatePair".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) GetSelectedCandidatePairFunc() (fn js.Func[func() RTCIceCandidatePair]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportGetSelectedCandidatePairFunc(
@@ -179,21 +194,34 @@ func (this RTCIceTransport) GetSelectedCandidatePairFunc() (fn js.Func[func() RT
 	)
 }
 
-// GetLocalParameters calls the method "RTCIceTransport.getLocalParameters".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) GetLocalParameters() (RTCIceParameters, bool) {
-	var _ret RTCIceParameters
-	_ok := js.True == bindings.CallRTCIceTransportGetLocalParameters(
-		this.Ref(), js.Pointer(&_ret),
+// GetSelectedCandidatePair calls the method "RTCIceTransport.getSelectedCandidatePair".
+func (this RTCIceTransport) GetSelectedCandidatePair() (ret RTCIceCandidatePair) {
+	bindings.CallRTCIceTransportGetSelectedCandidatePair(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret, _ok
+	return
+}
+
+// TryGetSelectedCandidatePair calls the method "RTCIceTransport.getSelectedCandidatePair"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryGetSelectedCandidatePair() (ret RTCIceCandidatePair, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportGetSelectedCandidatePair(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetLocalParameters returns true if the method "RTCIceTransport.getLocalParameters" exists.
+func (this RTCIceTransport) HasGetLocalParameters() bool {
+	return js.True == bindings.HasRTCIceTransportGetLocalParameters(
+		this.Ref(),
+	)
 }
 
 // GetLocalParametersFunc returns the method "RTCIceTransport.getLocalParameters".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) GetLocalParametersFunc() (fn js.Func[func() RTCIceParameters]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportGetLocalParametersFunc(
@@ -202,21 +230,34 @@ func (this RTCIceTransport) GetLocalParametersFunc() (fn js.Func[func() RTCIcePa
 	)
 }
 
-// GetRemoteParameters calls the method "RTCIceTransport.getRemoteParameters".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) GetRemoteParameters() (RTCIceParameters, bool) {
-	var _ret RTCIceParameters
-	_ok := js.True == bindings.CallRTCIceTransportGetRemoteParameters(
-		this.Ref(), js.Pointer(&_ret),
+// GetLocalParameters calls the method "RTCIceTransport.getLocalParameters".
+func (this RTCIceTransport) GetLocalParameters() (ret RTCIceParameters) {
+	bindings.CallRTCIceTransportGetLocalParameters(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret, _ok
+	return
+}
+
+// TryGetLocalParameters calls the method "RTCIceTransport.getLocalParameters"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryGetLocalParameters() (ret RTCIceParameters, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportGetLocalParameters(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetRemoteParameters returns true if the method "RTCIceTransport.getRemoteParameters" exists.
+func (this RTCIceTransport) HasGetRemoteParameters() bool {
+	return js.True == bindings.HasRTCIceTransportGetRemoteParameters(
+		this.Ref(),
+	)
 }
 
 // GetRemoteParametersFunc returns the method "RTCIceTransport.getRemoteParameters".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) GetRemoteParametersFunc() (fn js.Func[func() RTCIceParameters]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportGetRemoteParametersFunc(
@@ -225,23 +266,34 @@ func (this RTCIceTransport) GetRemoteParametersFunc() (fn js.Func[func() RTCIceP
 	)
 }
 
-// Gather calls the method "RTCIceTransport.gather".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) Gather(options RTCIceGatherOptions) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportGather(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&options),
+// GetRemoteParameters calls the method "RTCIceTransport.getRemoteParameters".
+func (this RTCIceTransport) GetRemoteParameters() (ret RTCIceParameters) {
+	bindings.CallRTCIceTransportGetRemoteParameters(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetRemoteParameters calls the method "RTCIceTransport.getRemoteParameters"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryGetRemoteParameters() (ret RTCIceParameters, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportGetRemoteParameters(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGather returns true if the method "RTCIceTransport.gather" exists.
+func (this RTCIceTransport) HasGather() bool {
+	return js.True == bindings.HasRTCIceTransportGather(
+		this.Ref(),
+	)
 }
 
 // GatherFunc returns the method "RTCIceTransport.gather".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) GatherFunc() (fn js.Func[func(options RTCIceGatherOptions)]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportGatherFunc(
@@ -250,22 +302,36 @@ func (this RTCIceTransport) GatherFunc() (fn js.Func[func(options RTCIceGatherOp
 	)
 }
 
-// Gather1 calls the method "RTCIceTransport.gather".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) Gather1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportGather1(
-		this.Ref(), js.Pointer(&_ok),
+// Gather calls the method "RTCIceTransport.gather".
+func (this RTCIceTransport) Gather(options RTCIceGatherOptions) (ret js.Void) {
+	bindings.CallRTCIceTransportGather(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&options),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGather calls the method "RTCIceTransport.gather"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryGather(options RTCIceGatherOptions) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportGather(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasGather1 returns true if the method "RTCIceTransport.gather" exists.
+func (this RTCIceTransport) HasGather1() bool {
+	return js.True == bindings.HasRTCIceTransportGather1(
+		this.Ref(),
+	)
 }
 
 // Gather1Func returns the method "RTCIceTransport.gather".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) Gather1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportGather1Func(
@@ -274,24 +340,34 @@ func (this RTCIceTransport) Gather1Func() (fn js.Func[func()]) {
 	)
 }
 
-// Start calls the method "RTCIceTransport.start".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) Start(remoteParameters RTCIceParameters, role RTCIceRole) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportStart(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&remoteParameters),
-		uint32(role),
+// Gather1 calls the method "RTCIceTransport.gather".
+func (this RTCIceTransport) Gather1() (ret js.Void) {
+	bindings.CallRTCIceTransportGather1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGather1 calls the method "RTCIceTransport.gather"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryGather1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportGather1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasStart returns true if the method "RTCIceTransport.start" exists.
+func (this RTCIceTransport) HasStart() bool {
+	return js.True == bindings.HasRTCIceTransportStart(
+		this.Ref(),
+	)
 }
 
 // StartFunc returns the method "RTCIceTransport.start".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) StartFunc() (fn js.Func[func(remoteParameters RTCIceParameters, role RTCIceRole)]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportStartFunc(
@@ -300,23 +376,38 @@ func (this RTCIceTransport) StartFunc() (fn js.Func[func(remoteParameters RTCIce
 	)
 }
 
-// Start1 calls the method "RTCIceTransport.start".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) Start1(remoteParameters RTCIceParameters) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportStart1(
-		this.Ref(), js.Pointer(&_ok),
+// Start calls the method "RTCIceTransport.start".
+func (this RTCIceTransport) Start(remoteParameters RTCIceParameters, role RTCIceRole) (ret js.Void) {
+	bindings.CallRTCIceTransportStart(
+		this.Ref(), js.Pointer(&ret),
 		js.Pointer(&remoteParameters),
+		uint32(role),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStart calls the method "RTCIceTransport.start"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryStart(remoteParameters RTCIceParameters, role RTCIceRole) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportStart(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&remoteParameters),
+		uint32(role),
+	)
+
+	return
+}
+
+// HasStart1 returns true if the method "RTCIceTransport.start" exists.
+func (this RTCIceTransport) HasStart1() bool {
+	return js.True == bindings.HasRTCIceTransportStart1(
+		this.Ref(),
+	)
 }
 
 // Start1Func returns the method "RTCIceTransport.start".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) Start1Func() (fn js.Func[func(remoteParameters RTCIceParameters)]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportStart1Func(
@@ -325,22 +416,36 @@ func (this RTCIceTransport) Start1Func() (fn js.Func[func(remoteParameters RTCIc
 	)
 }
 
-// Start2 calls the method "RTCIceTransport.start".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) Start2() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportStart2(
-		this.Ref(), js.Pointer(&_ok),
+// Start1 calls the method "RTCIceTransport.start".
+func (this RTCIceTransport) Start1(remoteParameters RTCIceParameters) (ret js.Void) {
+	bindings.CallRTCIceTransportStart1(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&remoteParameters),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStart1 calls the method "RTCIceTransport.start"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryStart1(remoteParameters RTCIceParameters) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportStart1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&remoteParameters),
+	)
+
+	return
+}
+
+// HasStart2 returns true if the method "RTCIceTransport.start" exists.
+func (this RTCIceTransport) HasStart2() bool {
+	return js.True == bindings.HasRTCIceTransportStart2(
+		this.Ref(),
+	)
 }
 
 // Start2Func returns the method "RTCIceTransport.start".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) Start2Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportStart2Func(
@@ -349,22 +454,34 @@ func (this RTCIceTransport) Start2Func() (fn js.Func[func()]) {
 	)
 }
 
-// Stop calls the method "RTCIceTransport.stop".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) Stop() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportStop(
-		this.Ref(), js.Pointer(&_ok),
+// Start2 calls the method "RTCIceTransport.start".
+func (this RTCIceTransport) Start2() (ret js.Void) {
+	bindings.CallRTCIceTransportStart2(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStart2 calls the method "RTCIceTransport.start"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryStart2() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportStart2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasStop returns true if the method "RTCIceTransport.stop" exists.
+func (this RTCIceTransport) HasStop() bool {
+	return js.True == bindings.HasRTCIceTransportStop(
+		this.Ref(),
+	)
 }
 
 // StopFunc returns the method "RTCIceTransport.stop".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) StopFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportStopFunc(
@@ -373,23 +490,34 @@ func (this RTCIceTransport) StopFunc() (fn js.Func[func()]) {
 	)
 }
 
-// AddRemoteCandidate calls the method "RTCIceTransport.addRemoteCandidate".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) AddRemoteCandidate(remoteCandidate RTCIceCandidateInit) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportAddRemoteCandidate(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&remoteCandidate),
+// Stop calls the method "RTCIceTransport.stop".
+func (this RTCIceTransport) Stop() (ret js.Void) {
+	bindings.CallRTCIceTransportStop(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStop calls the method "RTCIceTransport.stop"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryStop() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportStop(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasAddRemoteCandidate returns true if the method "RTCIceTransport.addRemoteCandidate" exists.
+func (this RTCIceTransport) HasAddRemoteCandidate() bool {
+	return js.True == bindings.HasRTCIceTransportAddRemoteCandidate(
+		this.Ref(),
+	)
 }
 
 // AddRemoteCandidateFunc returns the method "RTCIceTransport.addRemoteCandidate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) AddRemoteCandidateFunc() (fn js.Func[func(remoteCandidate RTCIceCandidateInit)]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportAddRemoteCandidateFunc(
@@ -398,28 +526,62 @@ func (this RTCIceTransport) AddRemoteCandidateFunc() (fn js.Func[func(remoteCand
 	)
 }
 
-// AddRemoteCandidate1 calls the method "RTCIceTransport.addRemoteCandidate".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIceTransport) AddRemoteCandidate1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIceTransportAddRemoteCandidate1(
-		this.Ref(), js.Pointer(&_ok),
+// AddRemoteCandidate calls the method "RTCIceTransport.addRemoteCandidate".
+func (this RTCIceTransport) AddRemoteCandidate(remoteCandidate RTCIceCandidateInit) (ret js.Void) {
+	bindings.CallRTCIceTransportAddRemoteCandidate(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&remoteCandidate),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAddRemoteCandidate calls the method "RTCIceTransport.addRemoteCandidate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryAddRemoteCandidate(remoteCandidate RTCIceCandidateInit) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportAddRemoteCandidate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&remoteCandidate),
+	)
+
+	return
+}
+
+// HasAddRemoteCandidate1 returns true if the method "RTCIceTransport.addRemoteCandidate" exists.
+func (this RTCIceTransport) HasAddRemoteCandidate1() bool {
+	return js.True == bindings.HasRTCIceTransportAddRemoteCandidate1(
+		this.Ref(),
+	)
 }
 
 // AddRemoteCandidate1Func returns the method "RTCIceTransport.addRemoteCandidate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIceTransport) AddRemoteCandidate1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.RTCIceTransportAddRemoteCandidate1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// AddRemoteCandidate1 calls the method "RTCIceTransport.addRemoteCandidate".
+func (this RTCIceTransport) AddRemoteCandidate1() (ret js.Void) {
+	bindings.CallRTCIceTransportAddRemoteCandidate1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryAddRemoteCandidate1 calls the method "RTCIceTransport.addRemoteCandidate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIceTransport) TryAddRemoteCandidate1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIceTransportAddRemoteCandidate1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type RTCDtlsTransportState uint32
@@ -479,47 +641,58 @@ func (this RTCDtlsTransport) Free() {
 
 // IceTransport returns the value of property "RTCDtlsTransport.iceTransport".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCDtlsTransport) IceTransport() (RTCIceTransport, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCDtlsTransportIceTransport(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCDtlsTransport) IceTransport() (ret RTCIceTransport, ok bool) {
+	ok = js.True == bindings.GetRTCDtlsTransportIceTransport(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCIceTransport{}.FromRef(_ret), _ok
+	return
 }
 
 // State returns the value of property "RTCDtlsTransport.state".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCDtlsTransport) State() (RTCDtlsTransportState, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCDtlsTransportState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCDtlsTransport) State() (ret RTCDtlsTransportState, ok bool) {
+	ok = js.True == bindings.GetRTCDtlsTransportState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCDtlsTransportState(_ret), _ok
+	return
 }
 
-// GetRemoteCertificates calls the method "RTCDtlsTransport.getRemoteCertificates".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCDtlsTransport) GetRemoteCertificates() (js.Array[js.ArrayBuffer], bool) {
-	var _ok bool
-	_ret := bindings.CallRTCDtlsTransportGetRemoteCertificates(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetRemoteCertificates returns true if the method "RTCDtlsTransport.getRemoteCertificates" exists.
+func (this RTCDtlsTransport) HasGetRemoteCertificates() bool {
+	return js.True == bindings.HasRTCDtlsTransportGetRemoteCertificates(
+		this.Ref(),
 	)
-
-	return js.Array[js.ArrayBuffer]{}.FromRef(_ret), _ok
 }
 
 // GetRemoteCertificatesFunc returns the method "RTCDtlsTransport.getRemoteCertificates".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCDtlsTransport) GetRemoteCertificatesFunc() (fn js.Func[func() js.Array[js.ArrayBuffer]]) {
 	return fn.FromRef(
 		bindings.RTCDtlsTransportGetRemoteCertificatesFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetRemoteCertificates calls the method "RTCDtlsTransport.getRemoteCertificates".
+func (this RTCDtlsTransport) GetRemoteCertificates() (ret js.Array[js.ArrayBuffer]) {
+	bindings.CallRTCDtlsTransportGetRemoteCertificates(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetRemoteCertificates calls the method "RTCDtlsTransport.getRemoteCertificates"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCDtlsTransport) TryGetRemoteCertificates() (ret js.Array[js.ArrayBuffer], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCDtlsTransportGetRemoteCertificates(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type RTCEncodedAudioFrameMetadata struct {
@@ -604,27 +777,25 @@ func (this RTCEncodedAudioFrame) Free() {
 
 // Timestamp returns the value of property "RTCEncodedAudioFrame.timestamp".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCEncodedAudioFrame) Timestamp() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCEncodedAudioFrameTimestamp(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCEncodedAudioFrame) Timestamp() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetRTCEncodedAudioFrameTimestamp(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Data returns the value of property "RTCEncodedAudioFrame.data".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCEncodedAudioFrame) Data() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCEncodedAudioFrameData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCEncodedAudioFrame) Data() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetRTCEncodedAudioFrameData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
-// Data sets the value of property "RTCEncodedAudioFrame.data" to val.
+// SetData sets the value of property "RTCEncodedAudioFrame.data" to val.
 //
 // It returns false if the property cannot be set.
 func (this RTCEncodedAudioFrame) SetData(val js.ArrayBuffer) bool {
@@ -634,27 +805,40 @@ func (this RTCEncodedAudioFrame) SetData(val js.ArrayBuffer) bool {
 	)
 }
 
-// GetMetadata calls the method "RTCEncodedAudioFrame.getMetadata".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCEncodedAudioFrame) GetMetadata() (RTCEncodedAudioFrameMetadata, bool) {
-	var _ret RTCEncodedAudioFrameMetadata
-	_ok := js.True == bindings.CallRTCEncodedAudioFrameGetMetadata(
-		this.Ref(), js.Pointer(&_ret),
+// HasGetMetadata returns true if the method "RTCEncodedAudioFrame.getMetadata" exists.
+func (this RTCEncodedAudioFrame) HasGetMetadata() bool {
+	return js.True == bindings.HasRTCEncodedAudioFrameGetMetadata(
+		this.Ref(),
 	)
-
-	return _ret, _ok
 }
 
 // GetMetadataFunc returns the method "RTCEncodedAudioFrame.getMetadata".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCEncodedAudioFrame) GetMetadataFunc() (fn js.Func[func() RTCEncodedAudioFrameMetadata]) {
 	return fn.FromRef(
 		bindings.RTCEncodedAudioFrameGetMetadataFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetMetadata calls the method "RTCEncodedAudioFrame.getMetadata".
+func (this RTCEncodedAudioFrame) GetMetadata() (ret RTCEncodedAudioFrameMetadata) {
+	bindings.CallRTCEncodedAudioFrameGetMetadata(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetMetadata calls the method "RTCEncodedAudioFrame.getMetadata"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCEncodedAudioFrame) TryGetMetadata() (ret RTCEncodedAudioFrameMetadata, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCEncodedAudioFrameGetMetadata(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type RTCEncodedVideoFrameMetadata struct {
@@ -805,38 +989,35 @@ func (this RTCEncodedVideoFrame) Free() {
 
 // Type returns the value of property "RTCEncodedVideoFrame.type".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCEncodedVideoFrame) Type() (RTCEncodedVideoFrameType, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCEncodedVideoFrameType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCEncodedVideoFrame) Type() (ret RTCEncodedVideoFrameType, ok bool) {
+	ok = js.True == bindings.GetRTCEncodedVideoFrameType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCEncodedVideoFrameType(_ret), _ok
+	return
 }
 
 // Timestamp returns the value of property "RTCEncodedVideoFrame.timestamp".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCEncodedVideoFrame) Timestamp() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCEncodedVideoFrameTimestamp(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCEncodedVideoFrame) Timestamp() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetRTCEncodedVideoFrameTimestamp(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Data returns the value of property "RTCEncodedVideoFrame.data".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCEncodedVideoFrame) Data() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCEncodedVideoFrameData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCEncodedVideoFrame) Data() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetRTCEncodedVideoFrameData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
-// Data sets the value of property "RTCEncodedVideoFrame.data" to val.
+// SetData sets the value of property "RTCEncodedVideoFrame.data" to val.
 //
 // It returns false if the property cannot be set.
 func (this RTCEncodedVideoFrame) SetData(val js.ArrayBuffer) bool {
@@ -846,27 +1027,40 @@ func (this RTCEncodedVideoFrame) SetData(val js.ArrayBuffer) bool {
 	)
 }
 
-// GetMetadata calls the method "RTCEncodedVideoFrame.getMetadata".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCEncodedVideoFrame) GetMetadata() (RTCEncodedVideoFrameMetadata, bool) {
-	var _ret RTCEncodedVideoFrameMetadata
-	_ok := js.True == bindings.CallRTCEncodedVideoFrameGetMetadata(
-		this.Ref(), js.Pointer(&_ret),
+// HasGetMetadata returns true if the method "RTCEncodedVideoFrame.getMetadata" exists.
+func (this RTCEncodedVideoFrame) HasGetMetadata() bool {
+	return js.True == bindings.HasRTCEncodedVideoFrameGetMetadata(
+		this.Ref(),
 	)
-
-	return _ret, _ok
 }
 
 // GetMetadataFunc returns the method "RTCEncodedVideoFrame.getMetadata".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCEncodedVideoFrame) GetMetadataFunc() (fn js.Func[func() RTCEncodedVideoFrameMetadata]) {
 	return fn.FromRef(
 		bindings.RTCEncodedVideoFrameGetMetadataFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetMetadata calls the method "RTCEncodedVideoFrame.getMetadata".
+func (this RTCEncodedVideoFrame) GetMetadata() (ret RTCEncodedVideoFrameMetadata) {
+	bindings.CallRTCEncodedVideoFrameGetMetadata(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetMetadata calls the method "RTCEncodedVideoFrame.getMetadata"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCEncodedVideoFrame) TryGetMetadata() (ret RTCEncodedVideoFrameMetadata, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCEncodedVideoFrameGetMetadata(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type RTCErrorDetailType uint32
@@ -980,19 +1174,17 @@ func (p RTCErrorInit) Update(ref js.Ref) {
 	)
 }
 
-func NewRTCError(init RTCErrorInit, message js.String) RTCError {
-	return RTCError{}.FromRef(
-		bindings.NewRTCErrorByRTCError(
-			js.Pointer(&init),
-			message.Ref()),
-	)
+func NewRTCError(init RTCErrorInit, message js.String) (ret RTCError) {
+	ret.ref = bindings.NewRTCErrorByRTCError(
+		js.Pointer(&init),
+		message.Ref())
+	return
 }
 
-func NewRTCErrorByRTCError1(init RTCErrorInit) RTCError {
-	return RTCError{}.FromRef(
-		bindings.NewRTCErrorByRTCError1(
-			js.Pointer(&init)),
-	)
+func NewRTCErrorByRTCError1(init RTCErrorInit) (ret RTCError) {
+	ret.ref = bindings.NewRTCErrorByRTCError1(
+		js.Pointer(&init))
+	return
 }
 
 type RTCError struct {
@@ -1019,68 +1211,62 @@ func (this RTCError) Free() {
 
 // ErrorDetail returns the value of property "RTCError.errorDetail".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCError) ErrorDetail() (RTCErrorDetailType, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCErrorErrorDetail(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCError) ErrorDetail() (ret RTCErrorDetailType, ok bool) {
+	ok = js.True == bindings.GetRTCErrorErrorDetail(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCErrorDetailType(_ret), _ok
+	return
 }
 
 // SdpLineNumber returns the value of property "RTCError.sdpLineNumber".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCError) SdpLineNumber() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCErrorSdpLineNumber(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCError) SdpLineNumber() (ret int32, ok bool) {
+	ok = js.True == bindings.GetRTCErrorSdpLineNumber(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 // SctpCauseCode returns the value of property "RTCError.sctpCauseCode".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCError) SctpCauseCode() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCErrorSctpCauseCode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCError) SctpCauseCode() (ret int32, ok bool) {
+	ok = js.True == bindings.GetRTCErrorSctpCauseCode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 // ReceivedAlert returns the value of property "RTCError.receivedAlert".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCError) ReceivedAlert() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCErrorReceivedAlert(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCError) ReceivedAlert() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetRTCErrorReceivedAlert(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // SentAlert returns the value of property "RTCError.sentAlert".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCError) SentAlert() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCErrorSentAlert(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCError) SentAlert() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetRTCErrorSentAlert(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // HttpRequestStatusCode returns the value of property "RTCError.httpRequestStatusCode".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCError) HttpRequestStatusCode() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCErrorHttpRequestStatusCode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCError) HttpRequestStatusCode() (ret int32, ok bool) {
+	ok = js.True == bindings.GetRTCErrorHttpRequestStatusCode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 type RTCErrorDetailTypeIdp uint32
@@ -1183,12 +1369,11 @@ func (p RTCErrorEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewRTCErrorEvent(typ js.String, eventInitDict RTCErrorEventInit) RTCErrorEvent {
-	return RTCErrorEvent{}.FromRef(
-		bindings.NewRTCErrorEventByRTCErrorEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewRTCErrorEvent(typ js.String, eventInitDict RTCErrorEventInit) (ret RTCErrorEvent) {
+	ret.ref = bindings.NewRTCErrorEventByRTCErrorEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type RTCErrorEvent struct {
@@ -1215,13 +1400,12 @@ func (this RTCErrorEvent) Free() {
 
 // Error returns the value of property "RTCErrorEvent.error".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCErrorEvent) Error() (RTCError, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCErrorEventError(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCErrorEvent) Error() (ret RTCError, ok bool) {
+	ok = js.True == bindings.GetRTCErrorEventError(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCError{}.FromRef(_ret), _ok
+	return
 }
 
 type RTCStatsIceCandidatePairState uint32
@@ -1616,12 +1800,11 @@ func (x RTCIceGatheringState) String() (string, bool) {
 	}
 }
 
-func NewRTCIdentityAssertion(idp js.String, name js.String) RTCIdentityAssertion {
-	return RTCIdentityAssertion{}.FromRef(
-		bindings.NewRTCIdentityAssertionByRTCIdentityAssertion(
-			idp.Ref(),
-			name.Ref()),
-	)
+func NewRTCIdentityAssertion(idp js.String, name js.String) (ret RTCIdentityAssertion) {
+	ret.ref = bindings.NewRTCIdentityAssertionByRTCIdentityAssertion(
+		idp.Ref(),
+		name.Ref())
+	return
 }
 
 type RTCIdentityAssertion struct {
@@ -1648,16 +1831,15 @@ func (this RTCIdentityAssertion) Free() {
 
 // Idp returns the value of property "RTCIdentityAssertion.idp".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCIdentityAssertion) Idp() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCIdentityAssertionIdp(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCIdentityAssertion) Idp() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetRTCIdentityAssertionIdp(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Idp sets the value of property "RTCIdentityAssertion.idp" to val.
+// SetIdp sets the value of property "RTCIdentityAssertion.idp" to val.
 //
 // It returns false if the property cannot be set.
 func (this RTCIdentityAssertion) SetIdp(val js.String) bool {
@@ -1669,16 +1851,15 @@ func (this RTCIdentityAssertion) SetIdp(val js.String) bool {
 
 // Name returns the value of property "RTCIdentityAssertion.name".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCIdentityAssertion) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCIdentityAssertionName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCIdentityAssertion) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetRTCIdentityAssertionName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "RTCIdentityAssertion.name" to val.
+// SetName sets the value of property "RTCIdentityAssertion.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this RTCIdentityAssertion) SetName(val js.String) bool {
@@ -1852,29 +2033,42 @@ func (this RTCIdentityProviderRegistrar) Free() {
 	this.Ref().Free()
 }
 
-// Register calls the method "RTCIdentityProviderRegistrar.register".
-//
-// The returned bool will be false if there is no such method.
-func (this RTCIdentityProviderRegistrar) Register(idp RTCIdentityProvider) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallRTCIdentityProviderRegistrarRegister(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&idp),
+// HasRegister returns true if the method "RTCIdentityProviderRegistrar.register" exists.
+func (this RTCIdentityProviderRegistrar) HasRegister() bool {
+	return js.True == bindings.HasRTCIdentityProviderRegistrarRegister(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // RegisterFunc returns the method "RTCIdentityProviderRegistrar.register".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this RTCIdentityProviderRegistrar) RegisterFunc() (fn js.Func[func(idp RTCIdentityProvider)]) {
 	return fn.FromRef(
 		bindings.RTCIdentityProviderRegistrarRegisterFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Register calls the method "RTCIdentityProviderRegistrar.register".
+func (this RTCIdentityProviderRegistrar) Register(idp RTCIdentityProvider) (ret js.Void) {
+	bindings.CallRTCIdentityProviderRegistrarRegister(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&idp),
+	)
+
+	return
+}
+
+// TryRegister calls the method "RTCIdentityProviderRegistrar.register"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this RTCIdentityProviderRegistrar) TryRegister(idp RTCIdentityProvider) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryRTCIdentityProviderRegistrarRegister(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&idp),
+	)
+
+	return
 }
 
 type RTCIdentityProviderGlobalScope struct {
@@ -1901,13 +2095,12 @@ func (this RTCIdentityProviderGlobalScope) Free() {
 
 // RtcIdentityProvider returns the value of property "RTCIdentityProviderGlobalScope.rtcIdentityProvider".
 //
-// The returned bool will be false if there is no such property.
-func (this RTCIdentityProviderGlobalScope) RtcIdentityProvider() (RTCIdentityProviderRegistrar, bool) {
-	var _ok bool
-	_ret := bindings.GetRTCIdentityProviderGlobalScopeRtcIdentityProvider(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this RTCIdentityProviderGlobalScope) RtcIdentityProvider() (ret RTCIdentityProviderRegistrar, ok bool) {
+	ok = js.True == bindings.GetRTCIdentityProviderGlobalScopeRtcIdentityProvider(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return RTCIdentityProviderRegistrar{}.FromRef(_ret), _ok
+	return
 }
 
 type RTCInboundRtpStreamStats struct {

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2023 The Prime Citizens
+
 import { Application, CallbackFunc, Pointer, heap, importModule } from "@ffi";
 
 importModule("ffi/js/async", (A: Application) => {

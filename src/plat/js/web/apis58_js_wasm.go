@@ -101,27 +101,25 @@ func (this XRCompositionLayer) Free() {
 
 // Layout returns the value of property "XRCompositionLayer.layout".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCompositionLayer) Layout() (XRLayerLayout, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCompositionLayerLayout(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCompositionLayer) Layout() (ret XRLayerLayout, ok bool) {
+	ok = js.True == bindings.GetXRCompositionLayerLayout(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRLayerLayout(_ret), _ok
+	return
 }
 
 // BlendTextureSourceAlpha returns the value of property "XRCompositionLayer.blendTextureSourceAlpha".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCompositionLayer) BlendTextureSourceAlpha() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCompositionLayerBlendTextureSourceAlpha(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCompositionLayer) BlendTextureSourceAlpha() (ret bool, ok bool) {
+	ok = js.True == bindings.GetXRCompositionLayerBlendTextureSourceAlpha(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// BlendTextureSourceAlpha sets the value of property "XRCompositionLayer.blendTextureSourceAlpha" to val.
+// SetBlendTextureSourceAlpha sets the value of property "XRCompositionLayer.blendTextureSourceAlpha" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCompositionLayer) SetBlendTextureSourceAlpha(val bool) bool {
@@ -133,16 +131,15 @@ func (this XRCompositionLayer) SetBlendTextureSourceAlpha(val bool) bool {
 
 // ForceMonoPresentation returns the value of property "XRCompositionLayer.forceMonoPresentation".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCompositionLayer) ForceMonoPresentation() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCompositionLayerForceMonoPresentation(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCompositionLayer) ForceMonoPresentation() (ret bool, ok bool) {
+	ok = js.True == bindings.GetXRCompositionLayerForceMonoPresentation(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// ForceMonoPresentation sets the value of property "XRCompositionLayer.forceMonoPresentation" to val.
+// SetForceMonoPresentation sets the value of property "XRCompositionLayer.forceMonoPresentation" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCompositionLayer) SetForceMonoPresentation(val bool) bool {
@@ -154,16 +151,15 @@ func (this XRCompositionLayer) SetForceMonoPresentation(val bool) bool {
 
 // Opacity returns the value of property "XRCompositionLayer.opacity".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCompositionLayer) Opacity() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCompositionLayerOpacity(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCompositionLayer) Opacity() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRCompositionLayerOpacity(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// Opacity sets the value of property "XRCompositionLayer.opacity" to val.
+// SetOpacity sets the value of property "XRCompositionLayer.opacity" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCompositionLayer) SetOpacity(val float32) bool {
@@ -175,27 +171,25 @@ func (this XRCompositionLayer) SetOpacity(val float32) bool {
 
 // MipLevels returns the value of property "XRCompositionLayer.mipLevels".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCompositionLayer) MipLevels() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCompositionLayerMipLevels(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCompositionLayer) MipLevels() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRCompositionLayerMipLevels(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Quality returns the value of property "XRCompositionLayer.quality".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCompositionLayer) Quality() (XRLayerQuality, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCompositionLayerQuality(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCompositionLayer) Quality() (ret XRLayerQuality, ok bool) {
+	ok = js.True == bindings.GetXRCompositionLayerQuality(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRLayerQuality(_ret), _ok
+	return
 }
 
-// Quality sets the value of property "XRCompositionLayer.quality" to val.
+// SetQuality sets the value of property "XRCompositionLayer.quality" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCompositionLayer) SetQuality(val XRLayerQuality) bool {
@@ -207,37 +201,48 @@ func (this XRCompositionLayer) SetQuality(val XRLayerQuality) bool {
 
 // NeedsRedraw returns the value of property "XRCompositionLayer.needsRedraw".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCompositionLayer) NeedsRedraw() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCompositionLayerNeedsRedraw(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCompositionLayer) NeedsRedraw() (ret bool, ok bool) {
+	ok = js.True == bindings.GetXRCompositionLayerNeedsRedraw(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Destroy calls the method "XRCompositionLayer.destroy".
-//
-// The returned bool will be false if there is no such method.
-func (this XRCompositionLayer) Destroy() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallXRCompositionLayerDestroy(
-		this.Ref(), js.Pointer(&_ok),
+// HasDestroy returns true if the method "XRCompositionLayer.destroy" exists.
+func (this XRCompositionLayer) HasDestroy() bool {
+	return js.True == bindings.HasXRCompositionLayerDestroy(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // DestroyFunc returns the method "XRCompositionLayer.destroy".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRCompositionLayer) DestroyFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.XRCompositionLayerDestroyFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Destroy calls the method "XRCompositionLayer.destroy".
+func (this XRCompositionLayer) Destroy() (ret js.Void) {
+	bindings.CallXRCompositionLayerDestroy(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryDestroy calls the method "XRCompositionLayer.destroy"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRCompositionLayer) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRCompositionLayerDestroy(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type XRCubeLayer struct {
@@ -264,16 +269,15 @@ func (this XRCubeLayer) Free() {
 
 // Space returns the value of property "XRCubeLayer.space".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCubeLayer) Space() (XRSpace, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCubeLayerSpace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCubeLayer) Space() (ret XRSpace, ok bool) {
+	ok = js.True == bindings.GetXRCubeLayerSpace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRSpace{}.FromRef(_ret), _ok
+	return
 }
 
-// Space sets the value of property "XRCubeLayer.space" to val.
+// SetSpace sets the value of property "XRCubeLayer.space" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCubeLayer) SetSpace(val XRSpace) bool {
@@ -285,16 +289,15 @@ func (this XRCubeLayer) SetSpace(val XRSpace) bool {
 
 // Orientation returns the value of property "XRCubeLayer.orientation".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCubeLayer) Orientation() (DOMPointReadOnly, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCubeLayerOrientation(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCubeLayer) Orientation() (ret DOMPointReadOnly, ok bool) {
+	ok = js.True == bindings.GetXRCubeLayerOrientation(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMPointReadOnly{}.FromRef(_ret), _ok
+	return
 }
 
-// Orientation sets the value of property "XRCubeLayer.orientation" to val.
+// SetOrientation sets the value of property "XRCubeLayer.orientation" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCubeLayer) SetOrientation(val DOMPointReadOnly) bool {
@@ -416,16 +419,15 @@ func (this XRCylinderLayer) Free() {
 
 // Space returns the value of property "XRCylinderLayer.space".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCylinderLayer) Space() (XRSpace, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCylinderLayerSpace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCylinderLayer) Space() (ret XRSpace, ok bool) {
+	ok = js.True == bindings.GetXRCylinderLayerSpace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRSpace{}.FromRef(_ret), _ok
+	return
 }
 
-// Space sets the value of property "XRCylinderLayer.space" to val.
+// SetSpace sets the value of property "XRCylinderLayer.space" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCylinderLayer) SetSpace(val XRSpace) bool {
@@ -437,16 +439,15 @@ func (this XRCylinderLayer) SetSpace(val XRSpace) bool {
 
 // Transform returns the value of property "XRCylinderLayer.transform".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCylinderLayer) Transform() (XRRigidTransform, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCylinderLayerTransform(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCylinderLayer) Transform() (ret XRRigidTransform, ok bool) {
+	ok = js.True == bindings.GetXRCylinderLayerTransform(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRRigidTransform{}.FromRef(_ret), _ok
+	return
 }
 
-// Transform sets the value of property "XRCylinderLayer.transform" to val.
+// SetTransform sets the value of property "XRCylinderLayer.transform" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCylinderLayer) SetTransform(val XRRigidTransform) bool {
@@ -458,16 +459,15 @@ func (this XRCylinderLayer) SetTransform(val XRRigidTransform) bool {
 
 // Radius returns the value of property "XRCylinderLayer.radius".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCylinderLayer) Radius() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCylinderLayerRadius(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCylinderLayer) Radius() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRCylinderLayerRadius(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// Radius sets the value of property "XRCylinderLayer.radius" to val.
+// SetRadius sets the value of property "XRCylinderLayer.radius" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCylinderLayer) SetRadius(val float32) bool {
@@ -479,16 +479,15 @@ func (this XRCylinderLayer) SetRadius(val float32) bool {
 
 // CentralAngle returns the value of property "XRCylinderLayer.centralAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCylinderLayer) CentralAngle() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCylinderLayerCentralAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCylinderLayer) CentralAngle() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRCylinderLayerCentralAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// CentralAngle sets the value of property "XRCylinderLayer.centralAngle" to val.
+// SetCentralAngle sets the value of property "XRCylinderLayer.centralAngle" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCylinderLayer) SetCentralAngle(val float32) bool {
@@ -500,16 +499,15 @@ func (this XRCylinderLayer) SetCentralAngle(val float32) bool {
 
 // AspectRatio returns the value of property "XRCylinderLayer.aspectRatio".
 //
-// The returned bool will be false if there is no such property.
-func (this XRCylinderLayer) AspectRatio() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRCylinderLayerAspectRatio(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRCylinderLayer) AspectRatio() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRCylinderLayerAspectRatio(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// AspectRatio sets the value of property "XRCylinderLayer.aspectRatio" to val.
+// SetAspectRatio sets the value of property "XRCylinderLayer.aspectRatio" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRCylinderLayer) SetAspectRatio(val float32) bool {
@@ -680,46 +678,42 @@ func (this XRDepthInformation) Free() {
 
 // Width returns the value of property "XRDepthInformation.width".
 //
-// The returned bool will be false if there is no such property.
-func (this XRDepthInformation) Width() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRDepthInformationWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRDepthInformation) Width() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRDepthInformationWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Height returns the value of property "XRDepthInformation.height".
 //
-// The returned bool will be false if there is no such property.
-func (this XRDepthInformation) Height() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRDepthInformationHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRDepthInformation) Height() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRDepthInformationHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // NormDepthBufferFromNormView returns the value of property "XRDepthInformation.normDepthBufferFromNormView".
 //
-// The returned bool will be false if there is no such property.
-func (this XRDepthInformation) NormDepthBufferFromNormView() (XRRigidTransform, bool) {
-	var _ok bool
-	_ret := bindings.GetXRDepthInformationNormDepthBufferFromNormView(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRDepthInformation) NormDepthBufferFromNormView() (ret XRRigidTransform, ok bool) {
+	ok = js.True == bindings.GetXRDepthInformationNormDepthBufferFromNormView(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRRigidTransform{}.FromRef(_ret), _ok
+	return
 }
 
 // RawValueToMeters returns the value of property "XRDepthInformation.rawValueToMeters".
 //
-// The returned bool will be false if there is no such property.
-func (this XRDepthInformation) RawValueToMeters() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRDepthInformationRawValueToMeters(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRDepthInformation) RawValueToMeters() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRDepthInformationRawValueToMeters(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 type XREquirectLayer struct {
@@ -746,16 +740,15 @@ func (this XREquirectLayer) Free() {
 
 // Space returns the value of property "XREquirectLayer.space".
 //
-// The returned bool will be false if there is no such property.
-func (this XREquirectLayer) Space() (XRSpace, bool) {
-	var _ok bool
-	_ret := bindings.GetXREquirectLayerSpace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XREquirectLayer) Space() (ret XRSpace, ok bool) {
+	ok = js.True == bindings.GetXREquirectLayerSpace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRSpace{}.FromRef(_ret), _ok
+	return
 }
 
-// Space sets the value of property "XREquirectLayer.space" to val.
+// SetSpace sets the value of property "XREquirectLayer.space" to val.
 //
 // It returns false if the property cannot be set.
 func (this XREquirectLayer) SetSpace(val XRSpace) bool {
@@ -767,16 +760,15 @@ func (this XREquirectLayer) SetSpace(val XRSpace) bool {
 
 // Transform returns the value of property "XREquirectLayer.transform".
 //
-// The returned bool will be false if there is no such property.
-func (this XREquirectLayer) Transform() (XRRigidTransform, bool) {
-	var _ok bool
-	_ret := bindings.GetXREquirectLayerTransform(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XREquirectLayer) Transform() (ret XRRigidTransform, ok bool) {
+	ok = js.True == bindings.GetXREquirectLayerTransform(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRRigidTransform{}.FromRef(_ret), _ok
+	return
 }
 
-// Transform sets the value of property "XREquirectLayer.transform" to val.
+// SetTransform sets the value of property "XREquirectLayer.transform" to val.
 //
 // It returns false if the property cannot be set.
 func (this XREquirectLayer) SetTransform(val XRRigidTransform) bool {
@@ -788,16 +780,15 @@ func (this XREquirectLayer) SetTransform(val XRRigidTransform) bool {
 
 // Radius returns the value of property "XREquirectLayer.radius".
 //
-// The returned bool will be false if there is no such property.
-func (this XREquirectLayer) Radius() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXREquirectLayerRadius(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XREquirectLayer) Radius() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXREquirectLayerRadius(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// Radius sets the value of property "XREquirectLayer.radius" to val.
+// SetRadius sets the value of property "XREquirectLayer.radius" to val.
 //
 // It returns false if the property cannot be set.
 func (this XREquirectLayer) SetRadius(val float32) bool {
@@ -809,16 +800,15 @@ func (this XREquirectLayer) SetRadius(val float32) bool {
 
 // CentralHorizontalAngle returns the value of property "XREquirectLayer.centralHorizontalAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this XREquirectLayer) CentralHorizontalAngle() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXREquirectLayerCentralHorizontalAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XREquirectLayer) CentralHorizontalAngle() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXREquirectLayerCentralHorizontalAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// CentralHorizontalAngle sets the value of property "XREquirectLayer.centralHorizontalAngle" to val.
+// SetCentralHorizontalAngle sets the value of property "XREquirectLayer.centralHorizontalAngle" to val.
 //
 // It returns false if the property cannot be set.
 func (this XREquirectLayer) SetCentralHorizontalAngle(val float32) bool {
@@ -830,16 +820,15 @@ func (this XREquirectLayer) SetCentralHorizontalAngle(val float32) bool {
 
 // UpperVerticalAngle returns the value of property "XREquirectLayer.upperVerticalAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this XREquirectLayer) UpperVerticalAngle() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXREquirectLayerUpperVerticalAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XREquirectLayer) UpperVerticalAngle() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXREquirectLayerUpperVerticalAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// UpperVerticalAngle sets the value of property "XREquirectLayer.upperVerticalAngle" to val.
+// SetUpperVerticalAngle sets the value of property "XREquirectLayer.upperVerticalAngle" to val.
 //
 // It returns false if the property cannot be set.
 func (this XREquirectLayer) SetUpperVerticalAngle(val float32) bool {
@@ -851,16 +840,15 @@ func (this XREquirectLayer) SetUpperVerticalAngle(val float32) bool {
 
 // LowerVerticalAngle returns the value of property "XREquirectLayer.lowerVerticalAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this XREquirectLayer) LowerVerticalAngle() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXREquirectLayerLowerVerticalAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XREquirectLayer) LowerVerticalAngle() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXREquirectLayerLowerVerticalAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// LowerVerticalAngle sets the value of property "XREquirectLayer.lowerVerticalAngle" to val.
+// SetLowerVerticalAngle sets the value of property "XREquirectLayer.lowerVerticalAngle" to val.
 //
 // It returns false if the property cannot be set.
 func (this XREquirectLayer) SetLowerVerticalAngle(val float32) bool {
@@ -1052,12 +1040,11 @@ func (p XRInputSourceEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewXRInputSourceEvent(typ js.String, eventInitDict XRInputSourceEventInit) XRInputSourceEvent {
-	return XRInputSourceEvent{}.FromRef(
-		bindings.NewXRInputSourceEventByXRInputSourceEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewXRInputSourceEvent(typ js.String, eventInitDict XRInputSourceEventInit) (ret XRInputSourceEvent) {
+	ret.ref = bindings.NewXRInputSourceEventByXRInputSourceEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type XRInputSourceEvent struct {
@@ -1084,24 +1071,22 @@ func (this XRInputSourceEvent) Free() {
 
 // Frame returns the value of property "XRInputSourceEvent.frame".
 //
-// The returned bool will be false if there is no such property.
-func (this XRInputSourceEvent) Frame() (XRFrame, bool) {
-	var _ok bool
-	_ret := bindings.GetXRInputSourceEventFrame(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRInputSourceEvent) Frame() (ret XRFrame, ok bool) {
+	ok = js.True == bindings.GetXRInputSourceEventFrame(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRFrame{}.FromRef(_ret), _ok
+	return
 }
 
 // InputSource returns the value of property "XRInputSourceEvent.inputSource".
 //
-// The returned bool will be false if there is no such property.
-func (this XRInputSourceEvent) InputSource() (XRInputSource, bool) {
-	var _ok bool
-	_ret := bindings.GetXRInputSourceEventInputSource(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRInputSourceEvent) InputSource() (ret XRInputSource, ok bool) {
+	ok = js.True == bindings.GetXRInputSourceEventInputSource(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRInputSource{}.FromRef(_ret), _ok
+	return
 }
 
 type XRInputSourcesChangeEventInit struct {
@@ -1170,12 +1155,11 @@ func (p XRInputSourcesChangeEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewXRInputSourcesChangeEvent(typ js.String, eventInitDict XRInputSourcesChangeEventInit) XRInputSourcesChangeEvent {
-	return XRInputSourcesChangeEvent{}.FromRef(
-		bindings.NewXRInputSourcesChangeEventByXRInputSourcesChangeEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewXRInputSourcesChangeEvent(typ js.String, eventInitDict XRInputSourcesChangeEventInit) (ret XRInputSourcesChangeEvent) {
+	ret.ref = bindings.NewXRInputSourcesChangeEventByXRInputSourcesChangeEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type XRInputSourcesChangeEvent struct {
@@ -1202,35 +1186,32 @@ func (this XRInputSourcesChangeEvent) Free() {
 
 // Session returns the value of property "XRInputSourcesChangeEvent.session".
 //
-// The returned bool will be false if there is no such property.
-func (this XRInputSourcesChangeEvent) Session() (XRSession, bool) {
-	var _ok bool
-	_ret := bindings.GetXRInputSourcesChangeEventSession(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRInputSourcesChangeEvent) Session() (ret XRSession, ok bool) {
+	ok = js.True == bindings.GetXRInputSourcesChangeEventSession(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRSession{}.FromRef(_ret), _ok
+	return
 }
 
 // Added returns the value of property "XRInputSourcesChangeEvent.added".
 //
-// The returned bool will be false if there is no such property.
-func (this XRInputSourcesChangeEvent) Added() (js.FrozenArray[XRInputSource], bool) {
-	var _ok bool
-	_ret := bindings.GetXRInputSourcesChangeEventAdded(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRInputSourcesChangeEvent) Added() (ret js.FrozenArray[XRInputSource], ok bool) {
+	ok = js.True == bindings.GetXRInputSourcesChangeEventAdded(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[XRInputSource]{}.FromRef(_ret), _ok
+	return
 }
 
 // Removed returns the value of property "XRInputSourcesChangeEvent.removed".
 //
-// The returned bool will be false if there is no such property.
-func (this XRInputSourcesChangeEvent) Removed() (js.FrozenArray[XRInputSource], bool) {
-	var _ok bool
-	_ret := bindings.GetXRInputSourcesChangeEventRemoved(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRInputSourcesChangeEvent) Removed() (ret js.FrozenArray[XRInputSource], ok bool) {
+	ok = js.True == bindings.GetXRInputSourcesChangeEventRemoved(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[XRInputSource]{}.FromRef(_ret), _ok
+	return
 }
 
 type XRLayerEventInit struct {
@@ -1291,12 +1272,11 @@ func (p XRLayerEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewXRLayerEvent(typ js.String, eventInitDict XRLayerEventInit) XRLayerEvent {
-	return XRLayerEvent{}.FromRef(
-		bindings.NewXRLayerEventByXRLayerEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewXRLayerEvent(typ js.String, eventInitDict XRLayerEventInit) (ret XRLayerEvent) {
+	ret.ref = bindings.NewXRLayerEventByXRLayerEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type XRLayerEvent struct {
@@ -1323,13 +1303,12 @@ func (this XRLayerEvent) Free() {
 
 // Layer returns the value of property "XRLayerEvent.layer".
 //
-// The returned bool will be false if there is no such property.
-func (this XRLayerEvent) Layer() (XRLayer, bool) {
-	var _ok bool
-	_ret := bindings.GetXRLayerEventLayer(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRLayerEvent) Layer() (ret XRLayer, ok bool) {
+	ok = js.True == bindings.GetXRLayerEventLayer(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRLayer{}.FromRef(_ret), _ok
+	return
 }
 
 type XRLayerInit struct {
@@ -1440,16 +1419,15 @@ func (this XRQuadLayer) Free() {
 
 // Space returns the value of property "XRQuadLayer.space".
 //
-// The returned bool will be false if there is no such property.
-func (this XRQuadLayer) Space() (XRSpace, bool) {
-	var _ok bool
-	_ret := bindings.GetXRQuadLayerSpace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRQuadLayer) Space() (ret XRSpace, ok bool) {
+	ok = js.True == bindings.GetXRQuadLayerSpace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRSpace{}.FromRef(_ret), _ok
+	return
 }
 
-// Space sets the value of property "XRQuadLayer.space" to val.
+// SetSpace sets the value of property "XRQuadLayer.space" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRQuadLayer) SetSpace(val XRSpace) bool {
@@ -1461,16 +1439,15 @@ func (this XRQuadLayer) SetSpace(val XRSpace) bool {
 
 // Transform returns the value of property "XRQuadLayer.transform".
 //
-// The returned bool will be false if there is no such property.
-func (this XRQuadLayer) Transform() (XRRigidTransform, bool) {
-	var _ok bool
-	_ret := bindings.GetXRQuadLayerTransform(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRQuadLayer) Transform() (ret XRRigidTransform, ok bool) {
+	ok = js.True == bindings.GetXRQuadLayerTransform(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRRigidTransform{}.FromRef(_ret), _ok
+	return
 }
 
-// Transform sets the value of property "XRQuadLayer.transform" to val.
+// SetTransform sets the value of property "XRQuadLayer.transform" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRQuadLayer) SetTransform(val XRRigidTransform) bool {
@@ -1482,16 +1459,15 @@ func (this XRQuadLayer) SetTransform(val XRRigidTransform) bool {
 
 // Width returns the value of property "XRQuadLayer.width".
 //
-// The returned bool will be false if there is no such property.
-func (this XRQuadLayer) Width() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRQuadLayerWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRQuadLayer) Width() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRQuadLayerWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// Width sets the value of property "XRQuadLayer.width" to val.
+// SetWidth sets the value of property "XRQuadLayer.width" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRQuadLayer) SetWidth(val float32) bool {
@@ -1503,16 +1479,15 @@ func (this XRQuadLayer) SetWidth(val float32) bool {
 
 // Height returns the value of property "XRQuadLayer.height".
 //
-// The returned bool will be false if there is no such property.
-func (this XRQuadLayer) Height() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRQuadLayerHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRQuadLayer) Height() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRQuadLayerHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// Height sets the value of property "XRQuadLayer.height" to val.
+// SetHeight sets the value of property "XRQuadLayer.height" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRQuadLayer) SetHeight(val float32) bool {
@@ -1741,11 +1716,10 @@ func (p XRMediaEquirectLayerInit) Update(ref js.Ref) {
 	)
 }
 
-func NewXRMediaBinding(session XRSession) XRMediaBinding {
-	return XRMediaBinding{}.FromRef(
-		bindings.NewXRMediaBindingByXRMediaBinding(
-			session.Ref()),
-	)
+func NewXRMediaBinding(session XRSession) (ret XRMediaBinding) {
+	ret.ref = bindings.NewXRMediaBindingByXRMediaBinding(
+		session.Ref())
+	return
 }
 
 type XRMediaBinding struct {
@@ -1770,23 +1744,14 @@ func (this XRMediaBinding) Free() {
 	this.Ref().Free()
 }
 
-// CreateQuadLayer calls the method "XRMediaBinding.createQuadLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRMediaBinding) CreateQuadLayer(video HTMLVideoElement, init XRMediaQuadLayerInit) (XRQuadLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRMediaBindingCreateQuadLayer(
-		this.Ref(), js.Pointer(&_ok),
-		video.Ref(),
-		js.Pointer(&init),
+// HasCreateQuadLayer returns true if the method "XRMediaBinding.createQuadLayer" exists.
+func (this XRMediaBinding) HasCreateQuadLayer() bool {
+	return js.True == bindings.HasXRMediaBindingCreateQuadLayer(
+		this.Ref(),
 	)
-
-	return XRQuadLayer{}.FromRef(_ret), _ok
 }
 
 // CreateQuadLayerFunc returns the method "XRMediaBinding.createQuadLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRMediaBinding) CreateQuadLayerFunc() (fn js.Func[func(video HTMLVideoElement, init XRMediaQuadLayerInit) XRQuadLayer]) {
 	return fn.FromRef(
 		bindings.XRMediaBindingCreateQuadLayerFunc(
@@ -1795,22 +1760,38 @@ func (this XRMediaBinding) CreateQuadLayerFunc() (fn js.Func[func(video HTMLVide
 	)
 }
 
-// CreateQuadLayer1 calls the method "XRMediaBinding.createQuadLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRMediaBinding) CreateQuadLayer1(video HTMLVideoElement) (XRQuadLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRMediaBindingCreateQuadLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateQuadLayer calls the method "XRMediaBinding.createQuadLayer".
+func (this XRMediaBinding) CreateQuadLayer(video HTMLVideoElement, init XRMediaQuadLayerInit) (ret XRQuadLayer) {
+	bindings.CallXRMediaBindingCreateQuadLayer(
+		this.Ref(), js.Pointer(&ret),
 		video.Ref(),
+		js.Pointer(&init),
 	)
 
-	return XRQuadLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateQuadLayer calls the method "XRMediaBinding.createQuadLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRMediaBinding) TryCreateQuadLayer(video HTMLVideoElement, init XRMediaQuadLayerInit) (ret XRQuadLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRMediaBindingCreateQuadLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		video.Ref(),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateQuadLayer1 returns true if the method "XRMediaBinding.createQuadLayer" exists.
+func (this XRMediaBinding) HasCreateQuadLayer1() bool {
+	return js.True == bindings.HasXRMediaBindingCreateQuadLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateQuadLayer1Func returns the method "XRMediaBinding.createQuadLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRMediaBinding) CreateQuadLayer1Func() (fn js.Func[func(video HTMLVideoElement) XRQuadLayer]) {
 	return fn.FromRef(
 		bindings.XRMediaBindingCreateQuadLayer1Func(
@@ -1819,23 +1800,36 @@ func (this XRMediaBinding) CreateQuadLayer1Func() (fn js.Func[func(video HTMLVid
 	)
 }
 
-// CreateCylinderLayer calls the method "XRMediaBinding.createCylinderLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRMediaBinding) CreateCylinderLayer(video HTMLVideoElement, init XRMediaCylinderLayerInit) (XRCylinderLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRMediaBindingCreateCylinderLayer(
-		this.Ref(), js.Pointer(&_ok),
+// CreateQuadLayer1 calls the method "XRMediaBinding.createQuadLayer".
+func (this XRMediaBinding) CreateQuadLayer1(video HTMLVideoElement) (ret XRQuadLayer) {
+	bindings.CallXRMediaBindingCreateQuadLayer1(
+		this.Ref(), js.Pointer(&ret),
 		video.Ref(),
-		js.Pointer(&init),
 	)
 
-	return XRCylinderLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateQuadLayer1 calls the method "XRMediaBinding.createQuadLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRMediaBinding) TryCreateQuadLayer1(video HTMLVideoElement) (ret XRQuadLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRMediaBindingCreateQuadLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		video.Ref(),
+	)
+
+	return
+}
+
+// HasCreateCylinderLayer returns true if the method "XRMediaBinding.createCylinderLayer" exists.
+func (this XRMediaBinding) HasCreateCylinderLayer() bool {
+	return js.True == bindings.HasXRMediaBindingCreateCylinderLayer(
+		this.Ref(),
+	)
 }
 
 // CreateCylinderLayerFunc returns the method "XRMediaBinding.createCylinderLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRMediaBinding) CreateCylinderLayerFunc() (fn js.Func[func(video HTMLVideoElement, init XRMediaCylinderLayerInit) XRCylinderLayer]) {
 	return fn.FromRef(
 		bindings.XRMediaBindingCreateCylinderLayerFunc(
@@ -1844,22 +1838,38 @@ func (this XRMediaBinding) CreateCylinderLayerFunc() (fn js.Func[func(video HTML
 	)
 }
 
-// CreateCylinderLayer1 calls the method "XRMediaBinding.createCylinderLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRMediaBinding) CreateCylinderLayer1(video HTMLVideoElement) (XRCylinderLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRMediaBindingCreateCylinderLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateCylinderLayer calls the method "XRMediaBinding.createCylinderLayer".
+func (this XRMediaBinding) CreateCylinderLayer(video HTMLVideoElement, init XRMediaCylinderLayerInit) (ret XRCylinderLayer) {
+	bindings.CallXRMediaBindingCreateCylinderLayer(
+		this.Ref(), js.Pointer(&ret),
 		video.Ref(),
+		js.Pointer(&init),
 	)
 
-	return XRCylinderLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateCylinderLayer calls the method "XRMediaBinding.createCylinderLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRMediaBinding) TryCreateCylinderLayer(video HTMLVideoElement, init XRMediaCylinderLayerInit) (ret XRCylinderLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRMediaBindingCreateCylinderLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		video.Ref(),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateCylinderLayer1 returns true if the method "XRMediaBinding.createCylinderLayer" exists.
+func (this XRMediaBinding) HasCreateCylinderLayer1() bool {
+	return js.True == bindings.HasXRMediaBindingCreateCylinderLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateCylinderLayer1Func returns the method "XRMediaBinding.createCylinderLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRMediaBinding) CreateCylinderLayer1Func() (fn js.Func[func(video HTMLVideoElement) XRCylinderLayer]) {
 	return fn.FromRef(
 		bindings.XRMediaBindingCreateCylinderLayer1Func(
@@ -1868,23 +1878,36 @@ func (this XRMediaBinding) CreateCylinderLayer1Func() (fn js.Func[func(video HTM
 	)
 }
 
-// CreateEquirectLayer calls the method "XRMediaBinding.createEquirectLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRMediaBinding) CreateEquirectLayer(video HTMLVideoElement, init XRMediaEquirectLayerInit) (XREquirectLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRMediaBindingCreateEquirectLayer(
-		this.Ref(), js.Pointer(&_ok),
+// CreateCylinderLayer1 calls the method "XRMediaBinding.createCylinderLayer".
+func (this XRMediaBinding) CreateCylinderLayer1(video HTMLVideoElement) (ret XRCylinderLayer) {
+	bindings.CallXRMediaBindingCreateCylinderLayer1(
+		this.Ref(), js.Pointer(&ret),
 		video.Ref(),
-		js.Pointer(&init),
 	)
 
-	return XREquirectLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateCylinderLayer1 calls the method "XRMediaBinding.createCylinderLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRMediaBinding) TryCreateCylinderLayer1(video HTMLVideoElement) (ret XRCylinderLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRMediaBindingCreateCylinderLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		video.Ref(),
+	)
+
+	return
+}
+
+// HasCreateEquirectLayer returns true if the method "XRMediaBinding.createEquirectLayer" exists.
+func (this XRMediaBinding) HasCreateEquirectLayer() bool {
+	return js.True == bindings.HasXRMediaBindingCreateEquirectLayer(
+		this.Ref(),
+	)
 }
 
 // CreateEquirectLayerFunc returns the method "XRMediaBinding.createEquirectLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRMediaBinding) CreateEquirectLayerFunc() (fn js.Func[func(video HTMLVideoElement, init XRMediaEquirectLayerInit) XREquirectLayer]) {
 	return fn.FromRef(
 		bindings.XRMediaBindingCreateEquirectLayerFunc(
@@ -1893,28 +1916,66 @@ func (this XRMediaBinding) CreateEquirectLayerFunc() (fn js.Func[func(video HTML
 	)
 }
 
-// CreateEquirectLayer1 calls the method "XRMediaBinding.createEquirectLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRMediaBinding) CreateEquirectLayer1(video HTMLVideoElement) (XREquirectLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRMediaBindingCreateEquirectLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateEquirectLayer calls the method "XRMediaBinding.createEquirectLayer".
+func (this XRMediaBinding) CreateEquirectLayer(video HTMLVideoElement, init XRMediaEquirectLayerInit) (ret XREquirectLayer) {
+	bindings.CallXRMediaBindingCreateEquirectLayer(
+		this.Ref(), js.Pointer(&ret),
 		video.Ref(),
+		js.Pointer(&init),
 	)
 
-	return XREquirectLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateEquirectLayer calls the method "XRMediaBinding.createEquirectLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRMediaBinding) TryCreateEquirectLayer(video HTMLVideoElement, init XRMediaEquirectLayerInit) (ret XREquirectLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRMediaBindingCreateEquirectLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		video.Ref(),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateEquirectLayer1 returns true if the method "XRMediaBinding.createEquirectLayer" exists.
+func (this XRMediaBinding) HasCreateEquirectLayer1() bool {
+	return js.True == bindings.HasXRMediaBindingCreateEquirectLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateEquirectLayer1Func returns the method "XRMediaBinding.createEquirectLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRMediaBinding) CreateEquirectLayer1Func() (fn js.Func[func(video HTMLVideoElement) XREquirectLayer]) {
 	return fn.FromRef(
 		bindings.XRMediaBindingCreateEquirectLayer1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// CreateEquirectLayer1 calls the method "XRMediaBinding.createEquirectLayer".
+func (this XRMediaBinding) CreateEquirectLayer1(video HTMLVideoElement) (ret XREquirectLayer) {
+	bindings.CallXRMediaBindingCreateEquirectLayer1(
+		this.Ref(), js.Pointer(&ret),
+		video.Ref(),
+	)
+
+	return
+}
+
+// TryCreateEquirectLayer1 calls the method "XRMediaBinding.createEquirectLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRMediaBinding) TryCreateEquirectLayer1(video HTMLVideoElement) (ret XREquirectLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRMediaBindingCreateEquirectLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		video.Ref(),
+	)
+
+	return
 }
 
 type XRMediaLayerInit struct {
@@ -1989,57 +2050,52 @@ func (this XRMesh) Free() {
 
 // MeshSpace returns the value of property "XRMesh.meshSpace".
 //
-// The returned bool will be false if there is no such property.
-func (this XRMesh) MeshSpace() (XRSpace, bool) {
-	var _ok bool
-	_ret := bindings.GetXRMeshMeshSpace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRMesh) MeshSpace() (ret XRSpace, ok bool) {
+	ok = js.True == bindings.GetXRMeshMeshSpace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRSpace{}.FromRef(_ret), _ok
+	return
 }
 
 // Vertices returns the value of property "XRMesh.vertices".
 //
-// The returned bool will be false if there is no such property.
-func (this XRMesh) Vertices() (js.FrozenArray[js.TypedArray[float32]], bool) {
-	var _ok bool
-	_ret := bindings.GetXRMeshVertices(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRMesh) Vertices() (ret js.FrozenArray[js.TypedArray[float32]], ok bool) {
+	ok = js.True == bindings.GetXRMeshVertices(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[js.TypedArray[float32]]{}.FromRef(_ret), _ok
+	return
 }
 
 // Indices returns the value of property "XRMesh.indices".
 //
-// The returned bool will be false if there is no such property.
-func (this XRMesh) Indices() (js.TypedArray[uint32], bool) {
-	var _ok bool
-	_ret := bindings.GetXRMeshIndices(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRMesh) Indices() (ret js.TypedArray[uint32], ok bool) {
+	ok = js.True == bindings.GetXRMeshIndices(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.TypedArray[uint32]{}.FromRef(_ret), _ok
+	return
 }
 
 // LastChangedTime returns the value of property "XRMesh.lastChangedTime".
 //
-// The returned bool will be false if there is no such property.
-func (this XRMesh) LastChangedTime() (DOMHighResTimeStamp, bool) {
-	var _ok bool
-	_ret := bindings.GetXRMeshLastChangedTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRMesh) LastChangedTime() (ret DOMHighResTimeStamp, ok bool) {
+	ok = js.True == bindings.GetXRMeshLastChangedTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMHighResTimeStamp(_ret), _ok
+	return
 }
 
 // SemanticLabel returns the value of property "XRMesh.semanticLabel".
 //
-// The returned bool will be false if there is no such property.
-func (this XRMesh) SemanticLabel() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetXRMeshSemanticLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRMesh) SemanticLabel() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetXRMeshSemanticLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 type XRPermissionDescriptor struct {
@@ -2114,16 +2170,15 @@ func (this XRPermissionStatus) Free() {
 
 // Granted returns the value of property "XRPermissionStatus.granted".
 //
-// The returned bool will be false if there is no such property.
-func (this XRPermissionStatus) Granted() (js.FrozenArray[js.String], bool) {
-	var _ok bool
-	_ret := bindings.GetXRPermissionStatusGranted(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRPermissionStatus) Granted() (ret js.FrozenArray[js.String], ok bool) {
+	ok = js.True == bindings.GetXRPermissionStatusGranted(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[js.String]{}.FromRef(_ret), _ok
+	return
 }
 
-// Granted sets the value of property "XRPermissionStatus.granted" to val.
+// SetGranted sets the value of property "XRPermissionStatus.granted" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRPermissionStatus) SetGranted(val js.FrozenArray[js.String]) bool {
@@ -2157,60 +2212,55 @@ func (this XRProjectionLayer) Free() {
 
 // TextureWidth returns the value of property "XRProjectionLayer.textureWidth".
 //
-// The returned bool will be false if there is no such property.
-func (this XRProjectionLayer) TextureWidth() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRProjectionLayerTextureWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRProjectionLayer) TextureWidth() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRProjectionLayerTextureWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // TextureHeight returns the value of property "XRProjectionLayer.textureHeight".
 //
-// The returned bool will be false if there is no such property.
-func (this XRProjectionLayer) TextureHeight() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRProjectionLayerTextureHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRProjectionLayer) TextureHeight() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRProjectionLayerTextureHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // TextureArrayLength returns the value of property "XRProjectionLayer.textureArrayLength".
 //
-// The returned bool will be false if there is no such property.
-func (this XRProjectionLayer) TextureArrayLength() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRProjectionLayerTextureArrayLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRProjectionLayer) TextureArrayLength() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRProjectionLayerTextureArrayLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // IgnoreDepthValues returns the value of property "XRProjectionLayer.ignoreDepthValues".
 //
-// The returned bool will be false if there is no such property.
-func (this XRProjectionLayer) IgnoreDepthValues() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetXRProjectionLayerIgnoreDepthValues(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRProjectionLayer) IgnoreDepthValues() (ret bool, ok bool) {
+	ok = js.True == bindings.GetXRProjectionLayerIgnoreDepthValues(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // FixedFoveation returns the value of property "XRProjectionLayer.fixedFoveation".
 //
-// The returned bool will be false if there is no such property.
-func (this XRProjectionLayer) FixedFoveation() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRProjectionLayerFixedFoveation(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRProjectionLayer) FixedFoveation() (ret float32, ok bool) {
+	ok = js.True == bindings.GetXRProjectionLayerFixedFoveation(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// FixedFoveation sets the value of property "XRProjectionLayer.fixedFoveation" to val.
+// SetFixedFoveation sets the value of property "XRProjectionLayer.fixedFoveation" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRProjectionLayer) SetFixedFoveation(val float32) bool {
@@ -2222,16 +2272,15 @@ func (this XRProjectionLayer) SetFixedFoveation(val float32) bool {
 
 // DeltaPose returns the value of property "XRProjectionLayer.deltaPose".
 //
-// The returned bool will be false if there is no such property.
-func (this XRProjectionLayer) DeltaPose() (XRRigidTransform, bool) {
-	var _ok bool
-	_ret := bindings.GetXRProjectionLayerDeltaPose(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRProjectionLayer) DeltaPose() (ret XRRigidTransform, ok bool) {
+	ok = js.True == bindings.GetXRProjectionLayerDeltaPose(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRRigidTransform{}.FromRef(_ret), _ok
+	return
 }
 
-// DeltaPose sets the value of property "XRProjectionLayer.deltaPose" to val.
+// SetDeltaPose sets the value of property "XRProjectionLayer.deltaPose" to val.
 //
 // It returns false if the property cannot be set.
 func (this XRProjectionLayer) SetDeltaPose(val XRRigidTransform) bool {
@@ -2474,12 +2523,11 @@ func (p XRReferenceSpaceEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewXRReferenceSpaceEvent(typ js.String, eventInitDict XRReferenceSpaceEventInit) XRReferenceSpaceEvent {
-	return XRReferenceSpaceEvent{}.FromRef(
-		bindings.NewXRReferenceSpaceEventByXRReferenceSpaceEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewXRReferenceSpaceEvent(typ js.String, eventInitDict XRReferenceSpaceEventInit) (ret XRReferenceSpaceEvent) {
+	ret.ref = bindings.NewXRReferenceSpaceEventByXRReferenceSpaceEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type XRReferenceSpaceEvent struct {
@@ -2506,24 +2554,22 @@ func (this XRReferenceSpaceEvent) Free() {
 
 // ReferenceSpace returns the value of property "XRReferenceSpaceEvent.referenceSpace".
 //
-// The returned bool will be false if there is no such property.
-func (this XRReferenceSpaceEvent) ReferenceSpace() (XRReferenceSpace, bool) {
-	var _ok bool
-	_ret := bindings.GetXRReferenceSpaceEventReferenceSpace(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRReferenceSpaceEvent) ReferenceSpace() (ret XRReferenceSpace, ok bool) {
+	ok = js.True == bindings.GetXRReferenceSpaceEventReferenceSpace(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRReferenceSpace{}.FromRef(_ret), _ok
+	return
 }
 
 // Transform returns the value of property "XRReferenceSpaceEvent.transform".
 //
-// The returned bool will be false if there is no such property.
-func (this XRReferenceSpaceEvent) Transform() (XRRigidTransform, bool) {
-	var _ok bool
-	_ret := bindings.GetXRReferenceSpaceEventTransform(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRReferenceSpaceEvent) Transform() (ret XRRigidTransform, ok bool) {
+	ok = js.True == bindings.GetXRReferenceSpaceEventTransform(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRRigidTransform{}.FromRef(_ret), _ok
+	return
 }
 
 type XRSessionEventInit struct {
@@ -2584,12 +2630,11 @@ func (p XRSessionEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewXRSessionEvent(typ js.String, eventInitDict XRSessionEventInit) XRSessionEvent {
-	return XRSessionEvent{}.FromRef(
-		bindings.NewXRSessionEventByXRSessionEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewXRSessionEvent(typ js.String, eventInitDict XRSessionEventInit) (ret XRSessionEvent) {
+	ret.ref = bindings.NewXRSessionEventByXRSessionEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type XRSessionEvent struct {
@@ -2616,13 +2661,12 @@ func (this XRSessionEvent) Free() {
 
 // Session returns the value of property "XRSessionEvent.session".
 //
-// The returned bool will be false if there is no such property.
-func (this XRSessionEvent) Session() (XRSession, bool) {
-	var _ok bool
-	_ret := bindings.GetXRSessionEventSession(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRSessionEvent) Session() (ret XRSession, ok bool) {
+	ok = js.True == bindings.GetXRSessionEventSession(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRSession{}.FromRef(_ret), _ok
+	return
 }
 
 type XRSessionSupportedPermissionDescriptor struct {
@@ -2689,13 +2733,12 @@ func (this XRSubImage) Free() {
 
 // Viewport returns the value of property "XRSubImage.viewport".
 //
-// The returned bool will be false if there is no such property.
-func (this XRSubImage) Viewport() (XRViewport, bool) {
-	var _ok bool
-	_ret := bindings.GetXRSubImageViewport(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRSubImage) Viewport() (ret XRViewport, ok bool) {
+	ok = js.True == bindings.GetXRSubImageViewport(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return XRViewport{}.FromRef(_ret), _ok
+	return
 }
 
 type XRWebGLSubImage struct {
@@ -2722,112 +2765,102 @@ func (this XRWebGLSubImage) Free() {
 
 // ColorTexture returns the value of property "XRWebGLSubImage.colorTexture".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) ColorTexture() (WebGLTexture, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageColorTexture(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) ColorTexture() (ret WebGLTexture, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageColorTexture(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WebGLTexture{}.FromRef(_ret), _ok
+	return
 }
 
 // DepthStencilTexture returns the value of property "XRWebGLSubImage.depthStencilTexture".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) DepthStencilTexture() (WebGLTexture, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageDepthStencilTexture(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) DepthStencilTexture() (ret WebGLTexture, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageDepthStencilTexture(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WebGLTexture{}.FromRef(_ret), _ok
+	return
 }
 
 // MotionVectorTexture returns the value of property "XRWebGLSubImage.motionVectorTexture".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) MotionVectorTexture() (WebGLTexture, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageMotionVectorTexture(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) MotionVectorTexture() (ret WebGLTexture, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageMotionVectorTexture(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WebGLTexture{}.FromRef(_ret), _ok
+	return
 }
 
 // ImageIndex returns the value of property "XRWebGLSubImage.imageIndex".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) ImageIndex() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageImageIndex(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) ImageIndex() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageImageIndex(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // ColorTextureWidth returns the value of property "XRWebGLSubImage.colorTextureWidth".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) ColorTextureWidth() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageColorTextureWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) ColorTextureWidth() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageColorTextureWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // ColorTextureHeight returns the value of property "XRWebGLSubImage.colorTextureHeight".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) ColorTextureHeight() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageColorTextureHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) ColorTextureHeight() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageColorTextureHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // DepthStencilTextureWidth returns the value of property "XRWebGLSubImage.depthStencilTextureWidth".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) DepthStencilTextureWidth() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageDepthStencilTextureWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) DepthStencilTextureWidth() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageDepthStencilTextureWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // DepthStencilTextureHeight returns the value of property "XRWebGLSubImage.depthStencilTextureHeight".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) DepthStencilTextureHeight() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageDepthStencilTextureHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) DepthStencilTextureHeight() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageDepthStencilTextureHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // MotionVectorTextureWidth returns the value of property "XRWebGLSubImage.motionVectorTextureWidth".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) MotionVectorTextureWidth() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageMotionVectorTextureWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) MotionVectorTextureWidth() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageMotionVectorTextureWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // MotionVectorTextureHeight returns the value of property "XRWebGLSubImage.motionVectorTextureHeight".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLSubImage) MotionVectorTextureHeight() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLSubImageMotionVectorTextureHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLSubImage) MotionVectorTextureHeight() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetXRWebGLSubImageMotionVectorTextureHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 type XRWebGLDepthInformation struct {
@@ -2854,21 +2887,19 @@ func (this XRWebGLDepthInformation) Free() {
 
 // Texture returns the value of property "XRWebGLDepthInformation.texture".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLDepthInformation) Texture() (WebGLTexture, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLDepthInformationTexture(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLDepthInformation) Texture() (ret WebGLTexture, ok bool) {
+	ok = js.True == bindings.GetXRWebGLDepthInformationTexture(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WebGLTexture{}.FromRef(_ret), _ok
+	return
 }
 
-func NewXRWebGLBinding(session XRSession, context XRWebGLRenderingContext) XRWebGLBinding {
-	return XRWebGLBinding{}.FromRef(
-		bindings.NewXRWebGLBindingByXRWebGLBinding(
-			session.Ref(),
-			context.Ref()),
-	)
+func NewXRWebGLBinding(session XRSession, context XRWebGLRenderingContext) (ret XRWebGLBinding) {
+	ret.ref = bindings.NewXRWebGLBindingByXRWebGLBinding(
+		session.Ref(),
+		context.Ref())
+	return
 }
 
 type XRWebGLBinding struct {
@@ -2895,42 +2926,32 @@ func (this XRWebGLBinding) Free() {
 
 // NativeProjectionScaleFactor returns the value of property "XRWebGLBinding.nativeProjectionScaleFactor".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLBinding) NativeProjectionScaleFactor() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLBindingNativeProjectionScaleFactor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLBinding) NativeProjectionScaleFactor() (ret float64, ok bool) {
+	ok = js.True == bindings.GetXRWebGLBindingNativeProjectionScaleFactor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // UsesDepthValues returns the value of property "XRWebGLBinding.usesDepthValues".
 //
-// The returned bool will be false if there is no such property.
-func (this XRWebGLBinding) UsesDepthValues() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetXRWebGLBindingUsesDepthValues(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this XRWebGLBinding) UsesDepthValues() (ret bool, ok bool) {
+	ok = js.True == bindings.GetXRWebGLBindingUsesDepthValues(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// CreateProjectionLayer calls the method "XRWebGLBinding.createProjectionLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateProjectionLayer(init XRProjectionLayerInit) (XRProjectionLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateProjectionLayer(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&init),
+// HasCreateProjectionLayer returns true if the method "XRWebGLBinding.createProjectionLayer" exists.
+func (this XRWebGLBinding) HasCreateProjectionLayer() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateProjectionLayer(
+		this.Ref(),
 	)
-
-	return XRProjectionLayer{}.FromRef(_ret), _ok
 }
 
 // CreateProjectionLayerFunc returns the method "XRWebGLBinding.createProjectionLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateProjectionLayerFunc() (fn js.Func[func(init XRProjectionLayerInit) XRProjectionLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateProjectionLayerFunc(
@@ -2939,21 +2960,36 @@ func (this XRWebGLBinding) CreateProjectionLayerFunc() (fn js.Func[func(init XRP
 	)
 }
 
-// CreateProjectionLayer1 calls the method "XRWebGLBinding.createProjectionLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateProjectionLayer1() (XRProjectionLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateProjectionLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateProjectionLayer calls the method "XRWebGLBinding.createProjectionLayer".
+func (this XRWebGLBinding) CreateProjectionLayer(init XRProjectionLayerInit) (ret XRProjectionLayer) {
+	bindings.CallXRWebGLBindingCreateProjectionLayer(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&init),
 	)
 
-	return XRProjectionLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateProjectionLayer calls the method "XRWebGLBinding.createProjectionLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateProjectionLayer(init XRProjectionLayerInit) (ret XRProjectionLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateProjectionLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateProjectionLayer1 returns true if the method "XRWebGLBinding.createProjectionLayer" exists.
+func (this XRWebGLBinding) HasCreateProjectionLayer1() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateProjectionLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateProjectionLayer1Func returns the method "XRWebGLBinding.createProjectionLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateProjectionLayer1Func() (fn js.Func[func() XRProjectionLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateProjectionLayer1Func(
@@ -2962,22 +2998,34 @@ func (this XRWebGLBinding) CreateProjectionLayer1Func() (fn js.Func[func() XRPro
 	)
 }
 
-// CreateQuadLayer calls the method "XRWebGLBinding.createQuadLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateQuadLayer(init XRQuadLayerInit) (XRQuadLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateQuadLayer(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&init),
+// CreateProjectionLayer1 calls the method "XRWebGLBinding.createProjectionLayer".
+func (this XRWebGLBinding) CreateProjectionLayer1() (ret XRProjectionLayer) {
+	bindings.CallXRWebGLBindingCreateProjectionLayer1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return XRQuadLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateProjectionLayer1 calls the method "XRWebGLBinding.createProjectionLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateProjectionLayer1() (ret XRProjectionLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateProjectionLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCreateQuadLayer returns true if the method "XRWebGLBinding.createQuadLayer" exists.
+func (this XRWebGLBinding) HasCreateQuadLayer() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateQuadLayer(
+		this.Ref(),
+	)
 }
 
 // CreateQuadLayerFunc returns the method "XRWebGLBinding.createQuadLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateQuadLayerFunc() (fn js.Func[func(init XRQuadLayerInit) XRQuadLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateQuadLayerFunc(
@@ -2986,21 +3034,36 @@ func (this XRWebGLBinding) CreateQuadLayerFunc() (fn js.Func[func(init XRQuadLay
 	)
 }
 
-// CreateQuadLayer1 calls the method "XRWebGLBinding.createQuadLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateQuadLayer1() (XRQuadLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateQuadLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateQuadLayer calls the method "XRWebGLBinding.createQuadLayer".
+func (this XRWebGLBinding) CreateQuadLayer(init XRQuadLayerInit) (ret XRQuadLayer) {
+	bindings.CallXRWebGLBindingCreateQuadLayer(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&init),
 	)
 
-	return XRQuadLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateQuadLayer calls the method "XRWebGLBinding.createQuadLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateQuadLayer(init XRQuadLayerInit) (ret XRQuadLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateQuadLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateQuadLayer1 returns true if the method "XRWebGLBinding.createQuadLayer" exists.
+func (this XRWebGLBinding) HasCreateQuadLayer1() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateQuadLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateQuadLayer1Func returns the method "XRWebGLBinding.createQuadLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateQuadLayer1Func() (fn js.Func[func() XRQuadLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateQuadLayer1Func(
@@ -3009,22 +3072,34 @@ func (this XRWebGLBinding) CreateQuadLayer1Func() (fn js.Func[func() XRQuadLayer
 	)
 }
 
-// CreateCylinderLayer calls the method "XRWebGLBinding.createCylinderLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateCylinderLayer(init XRCylinderLayerInit) (XRCylinderLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateCylinderLayer(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&init),
+// CreateQuadLayer1 calls the method "XRWebGLBinding.createQuadLayer".
+func (this XRWebGLBinding) CreateQuadLayer1() (ret XRQuadLayer) {
+	bindings.CallXRWebGLBindingCreateQuadLayer1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return XRCylinderLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateQuadLayer1 calls the method "XRWebGLBinding.createQuadLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateQuadLayer1() (ret XRQuadLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateQuadLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCreateCylinderLayer returns true if the method "XRWebGLBinding.createCylinderLayer" exists.
+func (this XRWebGLBinding) HasCreateCylinderLayer() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateCylinderLayer(
+		this.Ref(),
+	)
 }
 
 // CreateCylinderLayerFunc returns the method "XRWebGLBinding.createCylinderLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateCylinderLayerFunc() (fn js.Func[func(init XRCylinderLayerInit) XRCylinderLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateCylinderLayerFunc(
@@ -3033,21 +3108,36 @@ func (this XRWebGLBinding) CreateCylinderLayerFunc() (fn js.Func[func(init XRCyl
 	)
 }
 
-// CreateCylinderLayer1 calls the method "XRWebGLBinding.createCylinderLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateCylinderLayer1() (XRCylinderLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateCylinderLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateCylinderLayer calls the method "XRWebGLBinding.createCylinderLayer".
+func (this XRWebGLBinding) CreateCylinderLayer(init XRCylinderLayerInit) (ret XRCylinderLayer) {
+	bindings.CallXRWebGLBindingCreateCylinderLayer(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&init),
 	)
 
-	return XRCylinderLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateCylinderLayer calls the method "XRWebGLBinding.createCylinderLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateCylinderLayer(init XRCylinderLayerInit) (ret XRCylinderLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateCylinderLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateCylinderLayer1 returns true if the method "XRWebGLBinding.createCylinderLayer" exists.
+func (this XRWebGLBinding) HasCreateCylinderLayer1() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateCylinderLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateCylinderLayer1Func returns the method "XRWebGLBinding.createCylinderLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateCylinderLayer1Func() (fn js.Func[func() XRCylinderLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateCylinderLayer1Func(
@@ -3056,22 +3146,34 @@ func (this XRWebGLBinding) CreateCylinderLayer1Func() (fn js.Func[func() XRCylin
 	)
 }
 
-// CreateEquirectLayer calls the method "XRWebGLBinding.createEquirectLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateEquirectLayer(init XREquirectLayerInit) (XREquirectLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateEquirectLayer(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&init),
+// CreateCylinderLayer1 calls the method "XRWebGLBinding.createCylinderLayer".
+func (this XRWebGLBinding) CreateCylinderLayer1() (ret XRCylinderLayer) {
+	bindings.CallXRWebGLBindingCreateCylinderLayer1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return XREquirectLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateCylinderLayer1 calls the method "XRWebGLBinding.createCylinderLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateCylinderLayer1() (ret XRCylinderLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateCylinderLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCreateEquirectLayer returns true if the method "XRWebGLBinding.createEquirectLayer" exists.
+func (this XRWebGLBinding) HasCreateEquirectLayer() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateEquirectLayer(
+		this.Ref(),
+	)
 }
 
 // CreateEquirectLayerFunc returns the method "XRWebGLBinding.createEquirectLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateEquirectLayerFunc() (fn js.Func[func(init XREquirectLayerInit) XREquirectLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateEquirectLayerFunc(
@@ -3080,21 +3182,36 @@ func (this XRWebGLBinding) CreateEquirectLayerFunc() (fn js.Func[func(init XREqu
 	)
 }
 
-// CreateEquirectLayer1 calls the method "XRWebGLBinding.createEquirectLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateEquirectLayer1() (XREquirectLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateEquirectLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateEquirectLayer calls the method "XRWebGLBinding.createEquirectLayer".
+func (this XRWebGLBinding) CreateEquirectLayer(init XREquirectLayerInit) (ret XREquirectLayer) {
+	bindings.CallXRWebGLBindingCreateEquirectLayer(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&init),
 	)
 
-	return XREquirectLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateEquirectLayer calls the method "XRWebGLBinding.createEquirectLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateEquirectLayer(init XREquirectLayerInit) (ret XREquirectLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateEquirectLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateEquirectLayer1 returns true if the method "XRWebGLBinding.createEquirectLayer" exists.
+func (this XRWebGLBinding) HasCreateEquirectLayer1() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateEquirectLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateEquirectLayer1Func returns the method "XRWebGLBinding.createEquirectLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateEquirectLayer1Func() (fn js.Func[func() XREquirectLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateEquirectLayer1Func(
@@ -3103,22 +3220,34 @@ func (this XRWebGLBinding) CreateEquirectLayer1Func() (fn js.Func[func() XREquir
 	)
 }
 
-// CreateCubeLayer calls the method "XRWebGLBinding.createCubeLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateCubeLayer(init XRCubeLayerInit) (XRCubeLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateCubeLayer(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&init),
+// CreateEquirectLayer1 calls the method "XRWebGLBinding.createEquirectLayer".
+func (this XRWebGLBinding) CreateEquirectLayer1() (ret XREquirectLayer) {
+	bindings.CallXRWebGLBindingCreateEquirectLayer1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return XRCubeLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateEquirectLayer1 calls the method "XRWebGLBinding.createEquirectLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateEquirectLayer1() (ret XREquirectLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateEquirectLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCreateCubeLayer returns true if the method "XRWebGLBinding.createCubeLayer" exists.
+func (this XRWebGLBinding) HasCreateCubeLayer() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateCubeLayer(
+		this.Ref(),
+	)
 }
 
 // CreateCubeLayerFunc returns the method "XRWebGLBinding.createCubeLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateCubeLayerFunc() (fn js.Func[func(init XRCubeLayerInit) XRCubeLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateCubeLayerFunc(
@@ -3127,21 +3256,36 @@ func (this XRWebGLBinding) CreateCubeLayerFunc() (fn js.Func[func(init XRCubeLay
 	)
 }
 
-// CreateCubeLayer1 calls the method "XRWebGLBinding.createCubeLayer".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) CreateCubeLayer1() (XRCubeLayer, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingCreateCubeLayer1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateCubeLayer calls the method "XRWebGLBinding.createCubeLayer".
+func (this XRWebGLBinding) CreateCubeLayer(init XRCubeLayerInit) (ret XRCubeLayer) {
+	bindings.CallXRWebGLBindingCreateCubeLayer(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&init),
 	)
 
-	return XRCubeLayer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateCubeLayer calls the method "XRWebGLBinding.createCubeLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateCubeLayer(init XRCubeLayerInit) (ret XRCubeLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateCubeLayer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasCreateCubeLayer1 returns true if the method "XRWebGLBinding.createCubeLayer" exists.
+func (this XRWebGLBinding) HasCreateCubeLayer1() bool {
+	return js.True == bindings.HasXRWebGLBindingCreateCubeLayer1(
+		this.Ref(),
+	)
 }
 
 // CreateCubeLayer1Func returns the method "XRWebGLBinding.createCubeLayer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) CreateCubeLayer1Func() (fn js.Func[func() XRCubeLayer]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingCreateCubeLayer1Func(
@@ -3150,24 +3294,34 @@ func (this XRWebGLBinding) CreateCubeLayer1Func() (fn js.Func[func() XRCubeLayer
 	)
 }
 
-// GetSubImage calls the method "XRWebGLBinding.getSubImage".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) GetSubImage(layer XRCompositionLayer, frame XRFrame, eye XREye) (XRWebGLSubImage, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingGetSubImage(
-		this.Ref(), js.Pointer(&_ok),
-		layer.Ref(),
-		frame.Ref(),
-		uint32(eye),
+// CreateCubeLayer1 calls the method "XRWebGLBinding.createCubeLayer".
+func (this XRWebGLBinding) CreateCubeLayer1() (ret XRCubeLayer) {
+	bindings.CallXRWebGLBindingCreateCubeLayer1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return XRWebGLSubImage{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateCubeLayer1 calls the method "XRWebGLBinding.createCubeLayer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryCreateCubeLayer1() (ret XRCubeLayer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingCreateCubeLayer1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetSubImage returns true if the method "XRWebGLBinding.getSubImage" exists.
+func (this XRWebGLBinding) HasGetSubImage() bool {
+	return js.True == bindings.HasXRWebGLBindingGetSubImage(
+		this.Ref(),
+	)
 }
 
 // GetSubImageFunc returns the method "XRWebGLBinding.getSubImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) GetSubImageFunc() (fn js.Func[func(layer XRCompositionLayer, frame XRFrame, eye XREye) XRWebGLSubImage]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingGetSubImageFunc(
@@ -3176,23 +3330,40 @@ func (this XRWebGLBinding) GetSubImageFunc() (fn js.Func[func(layer XRCompositio
 	)
 }
 
-// GetSubImage1 calls the method "XRWebGLBinding.getSubImage".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) GetSubImage1(layer XRCompositionLayer, frame XRFrame) (XRWebGLSubImage, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingGetSubImage1(
-		this.Ref(), js.Pointer(&_ok),
+// GetSubImage calls the method "XRWebGLBinding.getSubImage".
+func (this XRWebGLBinding) GetSubImage(layer XRCompositionLayer, frame XRFrame, eye XREye) (ret XRWebGLSubImage) {
+	bindings.CallXRWebGLBindingGetSubImage(
+		this.Ref(), js.Pointer(&ret),
 		layer.Ref(),
 		frame.Ref(),
+		uint32(eye),
 	)
 
-	return XRWebGLSubImage{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetSubImage calls the method "XRWebGLBinding.getSubImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryGetSubImage(layer XRCompositionLayer, frame XRFrame, eye XREye) (ret XRWebGLSubImage, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingGetSubImage(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		layer.Ref(),
+		frame.Ref(),
+		uint32(eye),
+	)
+
+	return
+}
+
+// HasGetSubImage1 returns true if the method "XRWebGLBinding.getSubImage" exists.
+func (this XRWebGLBinding) HasGetSubImage1() bool {
+	return js.True == bindings.HasXRWebGLBindingGetSubImage1(
+		this.Ref(),
+	)
 }
 
 // GetSubImage1Func returns the method "XRWebGLBinding.getSubImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) GetSubImage1Func() (fn js.Func[func(layer XRCompositionLayer, frame XRFrame) XRWebGLSubImage]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingGetSubImage1Func(
@@ -3201,23 +3372,38 @@ func (this XRWebGLBinding) GetSubImage1Func() (fn js.Func[func(layer XRCompositi
 	)
 }
 
-// GetViewSubImage calls the method "XRWebGLBinding.getViewSubImage".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) GetViewSubImage(layer XRProjectionLayer, view XRView) (XRWebGLSubImage, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingGetViewSubImage(
-		this.Ref(), js.Pointer(&_ok),
+// GetSubImage1 calls the method "XRWebGLBinding.getSubImage".
+func (this XRWebGLBinding) GetSubImage1(layer XRCompositionLayer, frame XRFrame) (ret XRWebGLSubImage) {
+	bindings.CallXRWebGLBindingGetSubImage1(
+		this.Ref(), js.Pointer(&ret),
 		layer.Ref(),
-		view.Ref(),
+		frame.Ref(),
 	)
 
-	return XRWebGLSubImage{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetSubImage1 calls the method "XRWebGLBinding.getSubImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryGetSubImage1(layer XRCompositionLayer, frame XRFrame) (ret XRWebGLSubImage, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingGetSubImage1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		layer.Ref(),
+		frame.Ref(),
+	)
+
+	return
+}
+
+// HasGetViewSubImage returns true if the method "XRWebGLBinding.getViewSubImage" exists.
+func (this XRWebGLBinding) HasGetViewSubImage() bool {
+	return js.True == bindings.HasXRWebGLBindingGetViewSubImage(
+		this.Ref(),
+	)
 }
 
 // GetViewSubImageFunc returns the method "XRWebGLBinding.getViewSubImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) GetViewSubImageFunc() (fn js.Func[func(layer XRProjectionLayer, view XRView) XRWebGLSubImage]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingGetViewSubImageFunc(
@@ -3226,22 +3412,38 @@ func (this XRWebGLBinding) GetViewSubImageFunc() (fn js.Func[func(layer XRProjec
 	)
 }
 
-// GetCameraImage calls the method "XRWebGLBinding.getCameraImage".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) GetCameraImage(camera XRCamera) (WebGLTexture, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingGetCameraImage(
-		this.Ref(), js.Pointer(&_ok),
-		camera.Ref(),
+// GetViewSubImage calls the method "XRWebGLBinding.getViewSubImage".
+func (this XRWebGLBinding) GetViewSubImage(layer XRProjectionLayer, view XRView) (ret XRWebGLSubImage) {
+	bindings.CallXRWebGLBindingGetViewSubImage(
+		this.Ref(), js.Pointer(&ret),
+		layer.Ref(),
+		view.Ref(),
 	)
 
-	return WebGLTexture{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetViewSubImage calls the method "XRWebGLBinding.getViewSubImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryGetViewSubImage(layer XRProjectionLayer, view XRView) (ret XRWebGLSubImage, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingGetViewSubImage(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		layer.Ref(),
+		view.Ref(),
+	)
+
+	return
+}
+
+// HasGetCameraImage returns true if the method "XRWebGLBinding.getCameraImage" exists.
+func (this XRWebGLBinding) HasGetCameraImage() bool {
+	return js.True == bindings.HasXRWebGLBindingGetCameraImage(
+		this.Ref(),
+	)
 }
 
 // GetCameraImageFunc returns the method "XRWebGLBinding.getCameraImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) GetCameraImageFunc() (fn js.Func[func(camera XRCamera) WebGLTexture]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingGetCameraImageFunc(
@@ -3250,22 +3452,36 @@ func (this XRWebGLBinding) GetCameraImageFunc() (fn js.Func[func(camera XRCamera
 	)
 }
 
-// GetDepthInformation calls the method "XRWebGLBinding.getDepthInformation".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) GetDepthInformation(view XRView) (XRWebGLDepthInformation, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingGetDepthInformation(
-		this.Ref(), js.Pointer(&_ok),
-		view.Ref(),
+// GetCameraImage calls the method "XRWebGLBinding.getCameraImage".
+func (this XRWebGLBinding) GetCameraImage(camera XRCamera) (ret WebGLTexture) {
+	bindings.CallXRWebGLBindingGetCameraImage(
+		this.Ref(), js.Pointer(&ret),
+		camera.Ref(),
 	)
 
-	return XRWebGLDepthInformation{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetCameraImage calls the method "XRWebGLBinding.getCameraImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryGetCameraImage(camera XRCamera) (ret WebGLTexture, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingGetCameraImage(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		camera.Ref(),
+	)
+
+	return
+}
+
+// HasGetDepthInformation returns true if the method "XRWebGLBinding.getDepthInformation" exists.
+func (this XRWebGLBinding) HasGetDepthInformation() bool {
+	return js.True == bindings.HasXRWebGLBindingGetDepthInformation(
+		this.Ref(),
+	)
 }
 
 // GetDepthInformationFunc returns the method "XRWebGLBinding.getDepthInformation".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) GetDepthInformationFunc() (fn js.Func[func(view XRView) XRWebGLDepthInformation]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingGetDepthInformationFunc(
@@ -3274,28 +3490,64 @@ func (this XRWebGLBinding) GetDepthInformationFunc() (fn js.Func[func(view XRVie
 	)
 }
 
-// GetReflectionCubeMap calls the method "XRWebGLBinding.getReflectionCubeMap".
-//
-// The returned bool will be false if there is no such method.
-func (this XRWebGLBinding) GetReflectionCubeMap(lightProbe XRLightProbe) (WebGLTexture, bool) {
-	var _ok bool
-	_ret := bindings.CallXRWebGLBindingGetReflectionCubeMap(
-		this.Ref(), js.Pointer(&_ok),
-		lightProbe.Ref(),
+// GetDepthInformation calls the method "XRWebGLBinding.getDepthInformation".
+func (this XRWebGLBinding) GetDepthInformation(view XRView) (ret XRWebGLDepthInformation) {
+	bindings.CallXRWebGLBindingGetDepthInformation(
+		this.Ref(), js.Pointer(&ret),
+		view.Ref(),
 	)
 
-	return WebGLTexture{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetDepthInformation calls the method "XRWebGLBinding.getDepthInformation"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryGetDepthInformation(view XRView) (ret XRWebGLDepthInformation, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingGetDepthInformation(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		view.Ref(),
+	)
+
+	return
+}
+
+// HasGetReflectionCubeMap returns true if the method "XRWebGLBinding.getReflectionCubeMap" exists.
+func (this XRWebGLBinding) HasGetReflectionCubeMap() bool {
+	return js.True == bindings.HasXRWebGLBindingGetReflectionCubeMap(
+		this.Ref(),
+	)
 }
 
 // GetReflectionCubeMapFunc returns the method "XRWebGLBinding.getReflectionCubeMap".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XRWebGLBinding) GetReflectionCubeMapFunc() (fn js.Func[func(lightProbe XRLightProbe) WebGLTexture]) {
 	return fn.FromRef(
 		bindings.XRWebGLBindingGetReflectionCubeMapFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetReflectionCubeMap calls the method "XRWebGLBinding.getReflectionCubeMap".
+func (this XRWebGLBinding) GetReflectionCubeMap(lightProbe XRLightProbe) (ret WebGLTexture) {
+	bindings.CallXRWebGLBindingGetReflectionCubeMap(
+		this.Ref(), js.Pointer(&ret),
+		lightProbe.Ref(),
+	)
+
+	return
+}
+
+// TryGetReflectionCubeMap calls the method "XRWebGLBinding.getReflectionCubeMap"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XRWebGLBinding) TryGetReflectionCubeMap(lightProbe XRLightProbe) (ret WebGLTexture, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXRWebGLBindingGetReflectionCubeMap(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		lightProbe.Ref(),
+	)
+
+	return
 }
 
 type XSLTProcessor struct {
@@ -3320,23 +3572,14 @@ func (this XSLTProcessor) Free() {
 	this.Ref().Free()
 }
 
-// ImportStylesheet calls the method "XSLTProcessor.importStylesheet".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) ImportStylesheet(style Node) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorImportStylesheet(
-		this.Ref(), js.Pointer(&_ok),
-		style.Ref(),
+// HasImportStylesheet returns true if the method "XSLTProcessor.importStylesheet" exists.
+func (this XSLTProcessor) HasImportStylesheet() bool {
+	return js.True == bindings.HasXSLTProcessorImportStylesheet(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ImportStylesheetFunc returns the method "XSLTProcessor.importStylesheet".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) ImportStylesheetFunc() (fn js.Func[func(style Node)]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorImportStylesheetFunc(
@@ -3345,23 +3588,36 @@ func (this XSLTProcessor) ImportStylesheetFunc() (fn js.Func[func(style Node)]) 
 	)
 }
 
-// TransformToFragment calls the method "XSLTProcessor.transformToFragment".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) TransformToFragment(source Node, output Document) (DocumentFragment, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorTransformToFragment(
-		this.Ref(), js.Pointer(&_ok),
-		source.Ref(),
-		output.Ref(),
+// ImportStylesheet calls the method "XSLTProcessor.importStylesheet".
+func (this XSLTProcessor) ImportStylesheet(style Node) (ret js.Void) {
+	bindings.CallXSLTProcessorImportStylesheet(
+		this.Ref(), js.Pointer(&ret),
+		style.Ref(),
 	)
 
-	return DocumentFragment{}.FromRef(_ret), _ok
+	return
+}
+
+// TryImportStylesheet calls the method "XSLTProcessor.importStylesheet"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TryImportStylesheet(style Node) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorImportStylesheet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		style.Ref(),
+	)
+
+	return
+}
+
+// HasTransformToFragment returns true if the method "XSLTProcessor.transformToFragment" exists.
+func (this XSLTProcessor) HasTransformToFragment() bool {
+	return js.True == bindings.HasXSLTProcessorTransformToFragment(
+		this.Ref(),
+	)
 }
 
 // TransformToFragmentFunc returns the method "XSLTProcessor.transformToFragment".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) TransformToFragmentFunc() (fn js.Func[func(source Node, output Document) DocumentFragment]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorTransformToFragmentFunc(
@@ -3370,22 +3626,38 @@ func (this XSLTProcessor) TransformToFragmentFunc() (fn js.Func[func(source Node
 	)
 }
 
-// TransformToDocument calls the method "XSLTProcessor.transformToDocument".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) TransformToDocument(source Node) (Document, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorTransformToDocument(
-		this.Ref(), js.Pointer(&_ok),
+// TransformToFragment calls the method "XSLTProcessor.transformToFragment".
+func (this XSLTProcessor) TransformToFragment(source Node, output Document) (ret DocumentFragment) {
+	bindings.CallXSLTProcessorTransformToFragment(
+		this.Ref(), js.Pointer(&ret),
 		source.Ref(),
+		output.Ref(),
 	)
 
-	return Document{}.FromRef(_ret), _ok
+	return
+}
+
+// TryTransformToFragment calls the method "XSLTProcessor.transformToFragment"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TryTransformToFragment(source Node, output Document) (ret DocumentFragment, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorTransformToFragment(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		source.Ref(),
+		output.Ref(),
+	)
+
+	return
+}
+
+// HasTransformToDocument returns true if the method "XSLTProcessor.transformToDocument" exists.
+func (this XSLTProcessor) HasTransformToDocument() bool {
+	return js.True == bindings.HasXSLTProcessorTransformToDocument(
+		this.Ref(),
+	)
 }
 
 // TransformToDocumentFunc returns the method "XSLTProcessor.transformToDocument".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) TransformToDocumentFunc() (fn js.Func[func(source Node) Document]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorTransformToDocumentFunc(
@@ -3394,25 +3666,36 @@ func (this XSLTProcessor) TransformToDocumentFunc() (fn js.Func[func(source Node
 	)
 }
 
-// SetParameter calls the method "XSLTProcessor.setParameter".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) SetParameter(namespaceURI js.String, localName js.String, value js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorSetParameter(
-		this.Ref(), js.Pointer(&_ok),
-		namespaceURI.Ref(),
-		localName.Ref(),
-		value.Ref(),
+// TransformToDocument calls the method "XSLTProcessor.transformToDocument".
+func (this XSLTProcessor) TransformToDocument(source Node) (ret Document) {
+	bindings.CallXSLTProcessorTransformToDocument(
+		this.Ref(), js.Pointer(&ret),
+		source.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryTransformToDocument calls the method "XSLTProcessor.transformToDocument"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TryTransformToDocument(source Node) (ret Document, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorTransformToDocument(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		source.Ref(),
+	)
+
+	return
+}
+
+// HasSetParameter returns true if the method "XSLTProcessor.setParameter" exists.
+func (this XSLTProcessor) HasSetParameter() bool {
+	return js.True == bindings.HasXSLTProcessorSetParameter(
+		this.Ref(),
+	)
 }
 
 // SetParameterFunc returns the method "XSLTProcessor.setParameter".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) SetParameterFunc() (fn js.Func[func(namespaceURI js.String, localName js.String, value js.Any)]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorSetParameterFunc(
@@ -3421,23 +3704,40 @@ func (this XSLTProcessor) SetParameterFunc() (fn js.Func[func(namespaceURI js.St
 	)
 }
 
-// GetParameter calls the method "XSLTProcessor.getParameter".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) GetParameter(namespaceURI js.String, localName js.String) (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorGetParameter(
-		this.Ref(), js.Pointer(&_ok),
+// SetParameter calls the method "XSLTProcessor.setParameter".
+func (this XSLTProcessor) SetParameter(namespaceURI js.String, localName js.String, value js.Any) (ret js.Void) {
+	bindings.CallXSLTProcessorSetParameter(
+		this.Ref(), js.Pointer(&ret),
 		namespaceURI.Ref(),
 		localName.Ref(),
+		value.Ref(),
 	)
 
-	return js.Any{}.FromRef(_ret), _ok
+	return
+}
+
+// TrySetParameter calls the method "XSLTProcessor.setParameter"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TrySetParameter(namespaceURI js.String, localName js.String, value js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorSetParameter(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		namespaceURI.Ref(),
+		localName.Ref(),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasGetParameter returns true if the method "XSLTProcessor.getParameter" exists.
+func (this XSLTProcessor) HasGetParameter() bool {
+	return js.True == bindings.HasXSLTProcessorGetParameter(
+		this.Ref(),
+	)
 }
 
 // GetParameterFunc returns the method "XSLTProcessor.getParameter".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) GetParameterFunc() (fn js.Func[func(namespaceURI js.String, localName js.String) js.Any]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorGetParameterFunc(
@@ -3446,24 +3746,38 @@ func (this XSLTProcessor) GetParameterFunc() (fn js.Func[func(namespaceURI js.St
 	)
 }
 
-// RemoveParameter calls the method "XSLTProcessor.removeParameter".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) RemoveParameter(namespaceURI js.String, localName js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorRemoveParameter(
-		this.Ref(), js.Pointer(&_ok),
+// GetParameter calls the method "XSLTProcessor.getParameter".
+func (this XSLTProcessor) GetParameter(namespaceURI js.String, localName js.String) (ret js.Any) {
+	bindings.CallXSLTProcessorGetParameter(
+		this.Ref(), js.Pointer(&ret),
 		namespaceURI.Ref(),
 		localName.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetParameter calls the method "XSLTProcessor.getParameter"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TryGetParameter(namespaceURI js.String, localName js.String) (ret js.Any, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorGetParameter(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		namespaceURI.Ref(),
+		localName.Ref(),
+	)
+
+	return
+}
+
+// HasRemoveParameter returns true if the method "XSLTProcessor.removeParameter" exists.
+func (this XSLTProcessor) HasRemoveParameter() bool {
+	return js.True == bindings.HasXSLTProcessorRemoveParameter(
+		this.Ref(),
+	)
 }
 
 // RemoveParameterFunc returns the method "XSLTProcessor.removeParameter".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) RemoveParameterFunc() (fn js.Func[func(namespaceURI js.String, localName js.String)]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorRemoveParameterFunc(
@@ -3472,22 +3786,38 @@ func (this XSLTProcessor) RemoveParameterFunc() (fn js.Func[func(namespaceURI js
 	)
 }
 
-// ClearParameters calls the method "XSLTProcessor.clearParameters".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) ClearParameters() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorClearParameters(
-		this.Ref(), js.Pointer(&_ok),
+// RemoveParameter calls the method "XSLTProcessor.removeParameter".
+func (this XSLTProcessor) RemoveParameter(namespaceURI js.String, localName js.String) (ret js.Void) {
+	bindings.CallXSLTProcessorRemoveParameter(
+		this.Ref(), js.Pointer(&ret),
+		namespaceURI.Ref(),
+		localName.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryRemoveParameter calls the method "XSLTProcessor.removeParameter"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TryRemoveParameter(namespaceURI js.String, localName js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorRemoveParameter(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		namespaceURI.Ref(),
+		localName.Ref(),
+	)
+
+	return
+}
+
+// HasClearParameters returns true if the method "XSLTProcessor.clearParameters" exists.
+func (this XSLTProcessor) HasClearParameters() bool {
+	return js.True == bindings.HasXSLTProcessorClearParameters(
+		this.Ref(),
+	)
 }
 
 // ClearParametersFunc returns the method "XSLTProcessor.clearParameters".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) ClearParametersFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorClearParametersFunc(
@@ -3496,22 +3826,34 @@ func (this XSLTProcessor) ClearParametersFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Reset calls the method "XSLTProcessor.reset".
-//
-// The returned bool will be false if there is no such method.
-func (this XSLTProcessor) Reset() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallXSLTProcessorReset(
-		this.Ref(), js.Pointer(&_ok),
+// ClearParameters calls the method "XSLTProcessor.clearParameters".
+func (this XSLTProcessor) ClearParameters() (ret js.Void) {
+	bindings.CallXSLTProcessorClearParameters(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClearParameters calls the method "XSLTProcessor.clearParameters"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TryClearParameters() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorClearParameters(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReset returns true if the method "XSLTProcessor.reset" exists.
+func (this XSLTProcessor) HasReset() bool {
+	return js.True == bindings.HasXSLTProcessorReset(
+		this.Ref(),
+	)
 }
 
 // ResetFunc returns the method "XSLTProcessor.reset".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this XSLTProcessor) ResetFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.XSLTProcessorResetFunc(
@@ -3520,676 +3862,962 @@ func (this XSLTProcessor) ResetFunc() (fn js.Func[func()]) {
 	)
 }
 
-type Console struct{}
-
-// Assert calls the function "console.assert".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Assert(condition bool, data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleAssert(
-		js.Pointer(&_ok),
-		js.Bool(bool(condition)),
-		js.SliceData(data),
-		js.SizeU(len(data)),
+// Reset calls the method "XSLTProcessor.reset".
+func (this XSLTProcessor) Reset() (ret js.Void) {
+	bindings.CallXSLTProcessorReset(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReset calls the method "XSLTProcessor.reset"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this XSLTProcessor) TryReset() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryXSLTProcessorReset(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+type Console struct{}
+
+// HasAssert returns ture if the function "console.assert" exists.
+func (Console) HasAssert() bool {
+	return js.True == bindings.HasConsoleAssert()
 }
 
 // AssertFunc returns the function "console.assert".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) AssertFunc() (fn js.Func[func(condition bool, data ...js.Any)]) {
+func (Console) AssertFunc() (fn js.Func[func(condition bool, data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleAssertFunc(),
 	)
 }
 
-// Assert1 calls the function "console.assert".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Assert1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleAssert1(
-		js.Pointer(&_ok),
+// Assert calls the function "console.assert".
+func (Console) Assert(condition bool, data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleAssert(
+		js.Pointer(&ret),
+		js.Bool(bool(condition)),
+		js.SliceData(data),
+		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryAssert calls the function "console.assert"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryAssert(condition bool, data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleAssert(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.Bool(bool(condition)),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasAssert1 returns ture if the function "console.assert" exists.
+func (Console) HasAssert1() bool {
+	return js.True == bindings.HasConsoleAssert1()
 }
 
 // Assert1Func returns the function "console.assert".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) Assert1Func() (fn js.Func[func()]) {
+func (Console) Assert1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleAssert1Func(),
 	)
 }
 
-// Clear calls the function "console.clear".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Clear() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleClear(
-		js.Pointer(&_ok),
+// Assert1 calls the function "console.assert".
+func (Console) Assert1() (ret js.Void) {
+	bindings.CallConsoleAssert1(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryAssert1 calls the function "console.assert"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryAssert1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleAssert1(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasClear returns ture if the function "console.clear" exists.
+func (Console) HasClear() bool {
+	return js.True == bindings.HasConsoleClear()
 }
 
 // ClearFunc returns the function "console.clear".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) ClearFunc() (fn js.Func[func()]) {
+func (Console) ClearFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleClearFunc(),
 	)
 }
 
-// Debug calls the function "console.debug".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Debug(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleDebug(
-		js.Pointer(&_ok),
-		js.SliceData(data),
-		js.SizeU(len(data)),
+// Clear calls the function "console.clear".
+func (Console) Clear() (ret js.Void) {
+	bindings.CallConsoleClear(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryClear calls the function "console.clear"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryClear() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleClear(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasDebug returns ture if the function "console.debug" exists.
+func (Console) HasDebug() bool {
+	return js.True == bindings.HasConsoleDebug()
 }
 
 // DebugFunc returns the function "console.debug".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) DebugFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) DebugFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleDebugFunc(),
 	)
 }
 
-// Error calls the function "console.error".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Error(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleError(
-		js.Pointer(&_ok),
+// Debug calls the function "console.debug".
+func (Console) Debug(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleDebug(
+		js.Pointer(&ret),
 		js.SliceData(data),
 		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryDebug calls the function "console.debug"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryDebug(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleDebug(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasError returns ture if the function "console.error" exists.
+func (Console) HasError() bool {
+	return js.True == bindings.HasConsoleError()
 }
 
 // ErrorFunc returns the function "console.error".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) ErrorFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) ErrorFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleErrorFunc(),
 	)
 }
 
-// Info calls the function "console.info".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Info(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleInfo(
-		js.Pointer(&_ok),
+// Error calls the function "console.error".
+func (Console) Error(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleError(
+		js.Pointer(&ret),
 		js.SliceData(data),
 		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryError calls the function "console.error"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryError(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleError(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasInfo returns ture if the function "console.info" exists.
+func (Console) HasInfo() bool {
+	return js.True == bindings.HasConsoleInfo()
 }
 
 // InfoFunc returns the function "console.info".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) InfoFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) InfoFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleInfoFunc(),
 	)
 }
 
-// Log calls the function "console.log".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Log(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleLog(
-		js.Pointer(&_ok),
+// Info calls the function "console.info".
+func (Console) Info(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleInfo(
+		js.Pointer(&ret),
 		js.SliceData(data),
 		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryInfo calls the function "console.info"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryInfo(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleInfo(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasLog returns ture if the function "console.log" exists.
+func (Console) HasLog() bool {
+	return js.True == bindings.HasConsoleLog()
 }
 
 // LogFunc returns the function "console.log".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) LogFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) LogFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleLogFunc(),
 	)
 }
 
-// Table calls the function "console.table".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Table(tabularData js.Any, properties js.Array[js.String]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTable(
-		js.Pointer(&_ok),
-		tabularData.Ref(),
-		properties.Ref(),
+// Log calls the function "console.log".
+func (Console) Log(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleLog(
+		js.Pointer(&ret),
+		js.SliceData(data),
+		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryLog calls the function "console.log"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryLog(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleLog(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasTable returns ture if the function "console.table" exists.
+func (Console) HasTable() bool {
+	return js.True == bindings.HasConsoleTable()
 }
 
 // TableFunc returns the function "console.table".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) TableFunc() (fn js.Func[func(tabularData js.Any, properties js.Array[js.String])]) {
+func (Console) TableFunc() (fn js.Func[func(tabularData js.Any, properties js.Array[js.String])]) {
 	return fn.FromRef(
 		bindings.ConsoleTableFunc(),
 	)
 }
 
-// Table1 calls the function "console.table".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Table1(tabularData js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTable1(
-		js.Pointer(&_ok),
+// Table calls the function "console.table".
+func (Console) Table(tabularData js.Any, properties js.Array[js.String]) (ret js.Void) {
+	bindings.CallConsoleTable(
+		js.Pointer(&ret),
 		tabularData.Ref(),
+		properties.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTable calls the function "console.table"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTable(tabularData js.Any, properties js.Array[js.String]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTable(
+		js.Pointer(&ret), js.Pointer(&exception),
+		tabularData.Ref(),
+		properties.Ref(),
+	)
+	return
+}
+
+// HasTable1 returns ture if the function "console.table" exists.
+func (Console) HasTable1() bool {
+	return js.True == bindings.HasConsoleTable1()
 }
 
 // Table1Func returns the function "console.table".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) Table1Func() (fn js.Func[func(tabularData js.Any)]) {
+func (Console) Table1Func() (fn js.Func[func(tabularData js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleTable1Func(),
 	)
 }
 
-// Table2 calls the function "console.table".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Table2() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTable2(
-		js.Pointer(&_ok),
+// Table1 calls the function "console.table".
+func (Console) Table1(tabularData js.Any) (ret js.Void) {
+	bindings.CallConsoleTable1(
+		js.Pointer(&ret),
+		tabularData.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTable1 calls the function "console.table"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTable1(tabularData js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTable1(
+		js.Pointer(&ret), js.Pointer(&exception),
+		tabularData.Ref(),
+	)
+	return
+}
+
+// HasTable2 returns ture if the function "console.table" exists.
+func (Console) HasTable2() bool {
+	return js.True == bindings.HasConsoleTable2()
 }
 
 // Table2Func returns the function "console.table".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) Table2Func() (fn js.Func[func()]) {
+func (Console) Table2Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleTable2Func(),
 	)
 }
 
-// Trace calls the function "console.trace".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Trace(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTrace(
-		js.Pointer(&_ok),
-		js.SliceData(data),
-		js.SizeU(len(data)),
+// Table2 calls the function "console.table".
+func (Console) Table2() (ret js.Void) {
+	bindings.CallConsoleTable2(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTable2 calls the function "console.table"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTable2() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTable2(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasTrace returns ture if the function "console.trace" exists.
+func (Console) HasTrace() bool {
+	return js.True == bindings.HasConsoleTrace()
 }
 
 // TraceFunc returns the function "console.trace".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) TraceFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) TraceFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleTraceFunc(),
 	)
 }
 
-// Warn calls the function "console.warn".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Warn(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleWarn(
-		js.Pointer(&_ok),
+// Trace calls the function "console.trace".
+func (Console) Trace(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleTrace(
+		js.Pointer(&ret),
 		js.SliceData(data),
 		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTrace calls the function "console.trace"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTrace(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTrace(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasWarn returns ture if the function "console.warn" exists.
+func (Console) HasWarn() bool {
+	return js.True == bindings.HasConsoleWarn()
 }
 
 // WarnFunc returns the function "console.warn".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) WarnFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) WarnFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleWarnFunc(),
 	)
 }
 
-// Dir calls the function "console.dir".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Dir(item js.Any, options js.Object) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleDir(
-		js.Pointer(&_ok),
-		item.Ref(),
-		options.Ref(),
+// Warn calls the function "console.warn".
+func (Console) Warn(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleWarn(
+		js.Pointer(&ret),
+		js.SliceData(data),
+		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryWarn calls the function "console.warn"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryWarn(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleWarn(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasDir returns ture if the function "console.dir" exists.
+func (Console) HasDir() bool {
+	return js.True == bindings.HasConsoleDir()
 }
 
 // DirFunc returns the function "console.dir".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) DirFunc() (fn js.Func[func(item js.Any, options js.Object)]) {
+func (Console) DirFunc() (fn js.Func[func(item js.Any, options js.Object)]) {
 	return fn.FromRef(
 		bindings.ConsoleDirFunc(),
 	)
 }
 
-// Dir1 calls the function "console.dir".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Dir1(item js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleDir1(
-		js.Pointer(&_ok),
+// Dir calls the function "console.dir".
+func (Console) Dir(item js.Any, options js.Object) (ret js.Void) {
+	bindings.CallConsoleDir(
+		js.Pointer(&ret),
 		item.Ref(),
+		options.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryDir calls the function "console.dir"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryDir(item js.Any, options js.Object) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleDir(
+		js.Pointer(&ret), js.Pointer(&exception),
+		item.Ref(),
+		options.Ref(),
+	)
+	return
+}
+
+// HasDir1 returns ture if the function "console.dir" exists.
+func (Console) HasDir1() bool {
+	return js.True == bindings.HasConsoleDir1()
 }
 
 // Dir1Func returns the function "console.dir".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) Dir1Func() (fn js.Func[func(item js.Any)]) {
+func (Console) Dir1Func() (fn js.Func[func(item js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleDir1Func(),
 	)
 }
 
-// Dir2 calls the function "console.dir".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Dir2() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleDir2(
-		js.Pointer(&_ok),
+// Dir1 calls the function "console.dir".
+func (Console) Dir1(item js.Any) (ret js.Void) {
+	bindings.CallConsoleDir1(
+		js.Pointer(&ret),
+		item.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryDir1 calls the function "console.dir"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryDir1(item js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleDir1(
+		js.Pointer(&ret), js.Pointer(&exception),
+		item.Ref(),
+	)
+	return
+}
+
+// HasDir2 returns ture if the function "console.dir" exists.
+func (Console) HasDir2() bool {
+	return js.True == bindings.HasConsoleDir2()
 }
 
 // Dir2Func returns the function "console.dir".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) Dir2Func() (fn js.Func[func()]) {
+func (Console) Dir2Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleDir2Func(),
 	)
 }
 
-// Dirxml calls the function "console.dirxml".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Dirxml(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleDirxml(
-		js.Pointer(&_ok),
-		js.SliceData(data),
-		js.SizeU(len(data)),
+// Dir2 calls the function "console.dir".
+func (Console) Dir2() (ret js.Void) {
+	bindings.CallConsoleDir2(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryDir2 calls the function "console.dir"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryDir2() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleDir2(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasDirxml returns ture if the function "console.dirxml" exists.
+func (Console) HasDirxml() bool {
+	return js.True == bindings.HasConsoleDirxml()
 }
 
 // DirxmlFunc returns the function "console.dirxml".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) DirxmlFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) DirxmlFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleDirxmlFunc(),
 	)
 }
 
-// Count calls the function "console.count".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Count(label js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleCount(
-		js.Pointer(&_ok),
-		label.Ref(),
+// Dirxml calls the function "console.dirxml".
+func (Console) Dirxml(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleDirxml(
+		js.Pointer(&ret),
+		js.SliceData(data),
+		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryDirxml calls the function "console.dirxml"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryDirxml(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleDirxml(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasCount returns ture if the function "console.count" exists.
+func (Console) HasCount() bool {
+	return js.True == bindings.HasConsoleCount()
 }
 
 // CountFunc returns the function "console.count".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) CountFunc() (fn js.Func[func(label js.String)]) {
+func (Console) CountFunc() (fn js.Func[func(label js.String)]) {
 	return fn.FromRef(
 		bindings.ConsoleCountFunc(),
 	)
 }
 
-// Count1 calls the function "console.count".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Count1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleCount1(
-		js.Pointer(&_ok),
+// Count calls the function "console.count".
+func (Console) Count(label js.String) (ret js.Void) {
+	bindings.CallConsoleCount(
+		js.Pointer(&ret),
+		label.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryCount calls the function "console.count"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryCount(label js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleCount(
+		js.Pointer(&ret), js.Pointer(&exception),
+		label.Ref(),
+	)
+	return
+}
+
+// HasCount1 returns ture if the function "console.count" exists.
+func (Console) HasCount1() bool {
+	return js.True == bindings.HasConsoleCount1()
 }
 
 // Count1Func returns the function "console.count".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) Count1Func() (fn js.Func[func()]) {
+func (Console) Count1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleCount1Func(),
 	)
 }
 
-// CountReset calls the function "console.countReset".
-//
-// The returned bool will be false if there is no such method.
-func (Console) CountReset(label js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleCountReset(
-		js.Pointer(&_ok),
-		label.Ref(),
+// Count1 calls the function "console.count".
+func (Console) Count1() (ret js.Void) {
+	bindings.CallConsoleCount1(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryCount1 calls the function "console.count"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryCount1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleCount1(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasCountReset returns ture if the function "console.countReset" exists.
+func (Console) HasCountReset() bool {
+	return js.True == bindings.HasConsoleCountReset()
 }
 
 // CountResetFunc returns the function "console.countReset".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) CountResetFunc() (fn js.Func[func(label js.String)]) {
+func (Console) CountResetFunc() (fn js.Func[func(label js.String)]) {
 	return fn.FromRef(
 		bindings.ConsoleCountResetFunc(),
 	)
 }
 
-// CountReset1 calls the function "console.countReset".
-//
-// The returned bool will be false if there is no such method.
-func (Console) CountReset1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleCountReset1(
-		js.Pointer(&_ok),
+// CountReset calls the function "console.countReset".
+func (Console) CountReset(label js.String) (ret js.Void) {
+	bindings.CallConsoleCountReset(
+		js.Pointer(&ret),
+		label.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryCountReset calls the function "console.countReset"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryCountReset(label js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleCountReset(
+		js.Pointer(&ret), js.Pointer(&exception),
+		label.Ref(),
+	)
+	return
+}
+
+// HasCountReset1 returns ture if the function "console.countReset" exists.
+func (Console) HasCountReset1() bool {
+	return js.True == bindings.HasConsoleCountReset1()
 }
 
 // CountReset1Func returns the function "console.countReset".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) CountReset1Func() (fn js.Func[func()]) {
+func (Console) CountReset1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleCountReset1Func(),
 	)
 }
 
-// Group calls the function "console.group".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Group(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleGroup(
-		js.Pointer(&_ok),
-		js.SliceData(data),
-		js.SizeU(len(data)),
+// CountReset1 calls the function "console.countReset".
+func (Console) CountReset1() (ret js.Void) {
+	bindings.CallConsoleCountReset1(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryCountReset1 calls the function "console.countReset"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryCountReset1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleCountReset1(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasGroup returns ture if the function "console.group" exists.
+func (Console) HasGroup() bool {
+	return js.True == bindings.HasConsoleGroup()
 }
 
 // GroupFunc returns the function "console.group".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) GroupFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) GroupFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleGroupFunc(),
 	)
 }
 
-// GroupCollapsed calls the function "console.groupCollapsed".
-//
-// The returned bool will be false if there is no such method.
-func (Console) GroupCollapsed(data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleGroupCollapsed(
-		js.Pointer(&_ok),
+// Group calls the function "console.group".
+func (Console) Group(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleGroup(
+		js.Pointer(&ret),
 		js.SliceData(data),
 		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryGroup calls the function "console.group"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryGroup(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleGroup(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasGroupCollapsed returns ture if the function "console.groupCollapsed" exists.
+func (Console) HasGroupCollapsed() bool {
+	return js.True == bindings.HasConsoleGroupCollapsed()
 }
 
 // GroupCollapsedFunc returns the function "console.groupCollapsed".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) GroupCollapsedFunc() (fn js.Func[func(data ...js.Any)]) {
+func (Console) GroupCollapsedFunc() (fn js.Func[func(data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleGroupCollapsedFunc(),
 	)
 }
 
-// GroupEnd calls the function "console.groupEnd".
-//
-// The returned bool will be false if there is no such method.
-func (Console) GroupEnd() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleGroupEnd(
-		js.Pointer(&_ok),
+// GroupCollapsed calls the function "console.groupCollapsed".
+func (Console) GroupCollapsed(data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleGroupCollapsed(
+		js.Pointer(&ret),
+		js.SliceData(data),
+		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryGroupCollapsed calls the function "console.groupCollapsed"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryGroupCollapsed(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleGroupCollapsed(
+		js.Pointer(&ret), js.Pointer(&exception),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasGroupEnd returns ture if the function "console.groupEnd" exists.
+func (Console) HasGroupEnd() bool {
+	return js.True == bindings.HasConsoleGroupEnd()
 }
 
 // GroupEndFunc returns the function "console.groupEnd".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) GroupEndFunc() (fn js.Func[func()]) {
+func (Console) GroupEndFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleGroupEndFunc(),
 	)
 }
 
-// Time calls the function "console.time".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Time(label js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTime(
-		js.Pointer(&_ok),
-		label.Ref(),
+// GroupEnd calls the function "console.groupEnd".
+func (Console) GroupEnd() (ret js.Void) {
+	bindings.CallConsoleGroupEnd(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryGroupEnd calls the function "console.groupEnd"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryGroupEnd() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleGroupEnd(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasTime returns ture if the function "console.time" exists.
+func (Console) HasTime() bool {
+	return js.True == bindings.HasConsoleTime()
 }
 
 // TimeFunc returns the function "console.time".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) TimeFunc() (fn js.Func[func(label js.String)]) {
+func (Console) TimeFunc() (fn js.Func[func(label js.String)]) {
 	return fn.FromRef(
 		bindings.ConsoleTimeFunc(),
 	)
 }
 
-// Time1 calls the function "console.time".
-//
-// The returned bool will be false if there is no such method.
-func (Console) Time1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTime1(
-		js.Pointer(&_ok),
+// Time calls the function "console.time".
+func (Console) Time(label js.String) (ret js.Void) {
+	bindings.CallConsoleTime(
+		js.Pointer(&ret),
+		label.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTime calls the function "console.time"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTime(label js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTime(
+		js.Pointer(&ret), js.Pointer(&exception),
+		label.Ref(),
+	)
+	return
+}
+
+// HasTime1 returns ture if the function "console.time" exists.
+func (Console) HasTime1() bool {
+	return js.True == bindings.HasConsoleTime1()
 }
 
 // Time1Func returns the function "console.time".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) Time1Func() (fn js.Func[func()]) {
+func (Console) Time1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleTime1Func(),
 	)
 }
 
-// TimeLog calls the function "console.timeLog".
-//
-// The returned bool will be false if there is no such method.
-func (Console) TimeLog(label js.String, data ...js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTimeLog(
-		js.Pointer(&_ok),
-		label.Ref(),
-		js.SliceData(data),
-		js.SizeU(len(data)),
+// Time1 calls the function "console.time".
+func (Console) Time1() (ret js.Void) {
+	bindings.CallConsoleTime1(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTime1 calls the function "console.time"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTime1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTime1(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasTimeLog returns ture if the function "console.timeLog" exists.
+func (Console) HasTimeLog() bool {
+	return js.True == bindings.HasConsoleTimeLog()
 }
 
 // TimeLogFunc returns the function "console.timeLog".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) TimeLogFunc() (fn js.Func[func(label js.String, data ...js.Any)]) {
+func (Console) TimeLogFunc() (fn js.Func[func(label js.String, data ...js.Any)]) {
 	return fn.FromRef(
 		bindings.ConsoleTimeLogFunc(),
 	)
 }
 
-// TimeLog1 calls the function "console.timeLog".
-//
-// The returned bool will be false if there is no such method.
-func (Console) TimeLog1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTimeLog1(
-		js.Pointer(&_ok),
+// TimeLog calls the function "console.timeLog".
+func (Console) TimeLog(label js.String, data ...js.Any) (ret js.Void) {
+	bindings.CallConsoleTimeLog(
+		js.Pointer(&ret),
+		label.Ref(),
+		js.SliceData(data),
+		js.SizeU(len(data)),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTimeLog calls the function "console.timeLog"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTimeLog(label js.String, data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTimeLog(
+		js.Pointer(&ret), js.Pointer(&exception),
+		label.Ref(),
+		js.SliceData(data),
+		js.SizeU(len(data)),
+	)
+	return
+}
+
+// HasTimeLog1 returns ture if the function "console.timeLog" exists.
+func (Console) HasTimeLog1() bool {
+	return js.True == bindings.HasConsoleTimeLog1()
 }
 
 // TimeLog1Func returns the function "console.timeLog".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) TimeLog1Func() (fn js.Func[func()]) {
+func (Console) TimeLog1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleTimeLog1Func(),
 	)
 }
 
-// TimeEnd calls the function "console.timeEnd".
-//
-// The returned bool will be false if there is no such method.
-func (Console) TimeEnd(label js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTimeEnd(
-		js.Pointer(&_ok),
-		label.Ref(),
+// TimeLog1 calls the function "console.timeLog".
+func (Console) TimeLog1() (ret js.Void) {
+	bindings.CallConsoleTimeLog1(
+		js.Pointer(&ret),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTimeLog1 calls the function "console.timeLog"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTimeLog1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTimeLog1(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
+}
+
+// HasTimeEnd returns ture if the function "console.timeEnd" exists.
+func (Console) HasTimeEnd() bool {
+	return js.True == bindings.HasConsoleTimeEnd()
 }
 
 // TimeEndFunc returns the function "console.timeEnd".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) TimeEndFunc() (fn js.Func[func(label js.String)]) {
+func (Console) TimeEndFunc() (fn js.Func[func(label js.String)]) {
 	return fn.FromRef(
 		bindings.ConsoleTimeEndFunc(),
 	)
 }
 
-// TimeEnd1 calls the function "console.timeEnd".
-//
-// The returned bool will be false if there is no such method.
-func (Console) TimeEnd1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallConsoleTimeEnd1(
-		js.Pointer(&_ok),
+// TimeEnd calls the function "console.timeEnd".
+func (Console) TimeEnd(label js.String) (ret js.Void) {
+	bindings.CallConsoleTimeEnd(
+		js.Pointer(&ret),
+		label.Ref(),
 	)
+	return
+}
 
-	_ = _ret
-	return js.Void{}, _ok
+// TryTimeEnd calls the function "console.timeEnd"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTimeEnd(label js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTimeEnd(
+		js.Pointer(&ret), js.Pointer(&exception),
+		label.Ref(),
+	)
+	return
+}
+
+// HasTimeEnd1 returns ture if the function "console.timeEnd" exists.
+func (Console) HasTimeEnd1() bool {
+	return js.True == bindings.HasConsoleTimeEnd1()
 }
 
 // TimeEnd1Func returns the function "console.timeEnd".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this Console) TimeEnd1Func() (fn js.Func[func()]) {
+func (Console) TimeEnd1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.ConsoleTimeEnd1Func(),
 	)
+}
+
+// TimeEnd1 calls the function "console.timeEnd".
+func (Console) TimeEnd1() (ret js.Void) {
+	bindings.CallConsoleTimeEnd1(
+		js.Pointer(&ret),
+	)
+	return
+}
+
+// TryTimeEnd1 calls the function "console.timeEnd"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (Console) TryTimeEnd1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryConsoleTimeEnd1(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
 }

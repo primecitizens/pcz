@@ -67,52 +67,42 @@ func (this WindowClient) Free() {
 
 // VisibilityState returns the value of property "WindowClient.visibilityState".
 //
-// The returned bool will be false if there is no such property.
-func (this WindowClient) VisibilityState() (DocumentVisibilityState, bool) {
-	var _ok bool
-	_ret := bindings.GetWindowClientVisibilityState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WindowClient) VisibilityState() (ret DocumentVisibilityState, ok bool) {
+	ok = js.True == bindings.GetWindowClientVisibilityState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DocumentVisibilityState(_ret), _ok
+	return
 }
 
 // Focused returns the value of property "WindowClient.focused".
 //
-// The returned bool will be false if there is no such property.
-func (this WindowClient) Focused() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetWindowClientFocused(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WindowClient) Focused() (ret bool, ok bool) {
+	ok = js.True == bindings.GetWindowClientFocused(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // AncestorOrigins returns the value of property "WindowClient.ancestorOrigins".
 //
-// The returned bool will be false if there is no such property.
-func (this WindowClient) AncestorOrigins() (js.FrozenArray[js.String], bool) {
-	var _ok bool
-	_ret := bindings.GetWindowClientAncestorOrigins(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WindowClient) AncestorOrigins() (ret js.FrozenArray[js.String], ok bool) {
+	ok = js.True == bindings.GetWindowClientAncestorOrigins(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[js.String]{}.FromRef(_ret), _ok
+	return
 }
 
-// Focus calls the method "WindowClient.focus".
-//
-// The returned bool will be false if there is no such method.
-func (this WindowClient) Focus() (js.Promise[WindowClient], bool) {
-	var _ok bool
-	_ret := bindings.CallWindowClientFocus(
-		this.Ref(), js.Pointer(&_ok),
+// HasFocus returns true if the method "WindowClient.focus" exists.
+func (this WindowClient) HasFocus() bool {
+	return js.True == bindings.HasWindowClientFocus(
+		this.Ref(),
 	)
-
-	return js.Promise[WindowClient]{}.FromRef(_ret), _ok
 }
 
 // FocusFunc returns the method "WindowClient.focus".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this WindowClient) FocusFunc() (fn js.Func[func() js.Promise[WindowClient]]) {
 	return fn.FromRef(
 		bindings.WindowClientFocusFunc(
@@ -121,28 +111,62 @@ func (this WindowClient) FocusFunc() (fn js.Func[func() js.Promise[WindowClient]
 	)
 }
 
-// Navigate calls the method "WindowClient.navigate".
-//
-// The returned bool will be false if there is no such method.
-func (this WindowClient) Navigate(url js.String) (js.Promise[WindowClient], bool) {
-	var _ok bool
-	_ret := bindings.CallWindowClientNavigate(
-		this.Ref(), js.Pointer(&_ok),
-		url.Ref(),
+// Focus calls the method "WindowClient.focus".
+func (this WindowClient) Focus() (ret js.Promise[WindowClient]) {
+	bindings.CallWindowClientFocus(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[WindowClient]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryFocus calls the method "WindowClient.focus"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this WindowClient) TryFocus() (ret js.Promise[WindowClient], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryWindowClientFocus(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasNavigate returns true if the method "WindowClient.navigate" exists.
+func (this WindowClient) HasNavigate() bool {
+	return js.True == bindings.HasWindowClientNavigate(
+		this.Ref(),
+	)
 }
 
 // NavigateFunc returns the method "WindowClient.navigate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this WindowClient) NavigateFunc() (fn js.Func[func(url js.String) js.Promise[WindowClient]]) {
 	return fn.FromRef(
 		bindings.WindowClientNavigateFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Navigate calls the method "WindowClient.navigate".
+func (this WindowClient) Navigate(url js.String) (ret js.Promise[WindowClient]) {
+	bindings.CallWindowClientNavigate(
+		this.Ref(), js.Pointer(&ret),
+		url.Ref(),
+	)
+
+	return
+}
+
+// TryNavigate calls the method "WindowClient.navigate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this WindowClient) TryNavigate(url js.String) (ret js.Promise[WindowClient], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryWindowClientNavigate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		url.Ref(),
+	)
+
+	return
 }
 
 type Clients struct {
@@ -167,22 +191,14 @@ func (this Clients) Free() {
 	this.Ref().Free()
 }
 
-// Get calls the method "Clients.get".
-//
-// The returned bool will be false if there is no such method.
-func (this Clients) Get(id js.String) (js.Promise[OneOf_Client_undefined], bool) {
-	var _ok bool
-	_ret := bindings.CallClientsGet(
-		this.Ref(), js.Pointer(&_ok),
-		id.Ref(),
+// HasGet returns true if the method "Clients.get" exists.
+func (this Clients) HasGet() bool {
+	return js.True == bindings.HasClientsGet(
+		this.Ref(),
 	)
-
-	return js.Promise[OneOf_Client_undefined]{}.FromRef(_ret), _ok
 }
 
 // GetFunc returns the method "Clients.get".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clients) GetFunc() (fn js.Func[func(id js.String) js.Promise[OneOf_Client_undefined]]) {
 	return fn.FromRef(
 		bindings.ClientsGetFunc(
@@ -191,22 +207,36 @@ func (this Clients) GetFunc() (fn js.Func[func(id js.String) js.Promise[OneOf_Cl
 	)
 }
 
-// MatchAll calls the method "Clients.matchAll".
-//
-// The returned bool will be false if there is no such method.
-func (this Clients) MatchAll(options ClientQueryOptions) (js.Promise[js.FrozenArray[Client]], bool) {
-	var _ok bool
-	_ret := bindings.CallClientsMatchAll(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&options),
+// Get calls the method "Clients.get".
+func (this Clients) Get(id js.String) (ret js.Promise[OneOf_Client_undefined]) {
+	bindings.CallClientsGet(
+		this.Ref(), js.Pointer(&ret),
+		id.Ref(),
 	)
 
-	return js.Promise[js.FrozenArray[Client]]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGet calls the method "Clients.get"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clients) TryGet(id js.String) (ret js.Promise[OneOf_Client_undefined], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClientsGet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		id.Ref(),
+	)
+
+	return
+}
+
+// HasMatchAll returns true if the method "Clients.matchAll" exists.
+func (this Clients) HasMatchAll() bool {
+	return js.True == bindings.HasClientsMatchAll(
+		this.Ref(),
+	)
 }
 
 // MatchAllFunc returns the method "Clients.matchAll".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clients) MatchAllFunc() (fn js.Func[func(options ClientQueryOptions) js.Promise[js.FrozenArray[Client]]]) {
 	return fn.FromRef(
 		bindings.ClientsMatchAllFunc(
@@ -215,21 +245,36 @@ func (this Clients) MatchAllFunc() (fn js.Func[func(options ClientQueryOptions) 
 	)
 }
 
-// MatchAll1 calls the method "Clients.matchAll".
-//
-// The returned bool will be false if there is no such method.
-func (this Clients) MatchAll1() (js.Promise[js.FrozenArray[Client]], bool) {
-	var _ok bool
-	_ret := bindings.CallClientsMatchAll1(
-		this.Ref(), js.Pointer(&_ok),
+// MatchAll calls the method "Clients.matchAll".
+func (this Clients) MatchAll(options ClientQueryOptions) (ret js.Promise[js.FrozenArray[Client]]) {
+	bindings.CallClientsMatchAll(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&options),
 	)
 
-	return js.Promise[js.FrozenArray[Client]]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryMatchAll calls the method "Clients.matchAll"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clients) TryMatchAll(options ClientQueryOptions) (ret js.Promise[js.FrozenArray[Client]], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClientsMatchAll(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasMatchAll1 returns true if the method "Clients.matchAll" exists.
+func (this Clients) HasMatchAll1() bool {
+	return js.True == bindings.HasClientsMatchAll1(
+		this.Ref(),
+	)
 }
 
 // MatchAll1Func returns the method "Clients.matchAll".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clients) MatchAll1Func() (fn js.Func[func() js.Promise[js.FrozenArray[Client]]]) {
 	return fn.FromRef(
 		bindings.ClientsMatchAll1Func(
@@ -238,22 +283,34 @@ func (this Clients) MatchAll1Func() (fn js.Func[func() js.Promise[js.FrozenArray
 	)
 }
 
-// OpenWindow calls the method "Clients.openWindow".
-//
-// The returned bool will be false if there is no such method.
-func (this Clients) OpenWindow(url js.String) (js.Promise[WindowClient], bool) {
-	var _ok bool
-	_ret := bindings.CallClientsOpenWindow(
-		this.Ref(), js.Pointer(&_ok),
-		url.Ref(),
+// MatchAll1 calls the method "Clients.matchAll".
+func (this Clients) MatchAll1() (ret js.Promise[js.FrozenArray[Client]]) {
+	bindings.CallClientsMatchAll1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[WindowClient]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryMatchAll1 calls the method "Clients.matchAll"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clients) TryMatchAll1() (ret js.Promise[js.FrozenArray[Client]], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClientsMatchAll1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasOpenWindow returns true if the method "Clients.openWindow" exists.
+func (this Clients) HasOpenWindow() bool {
+	return js.True == bindings.HasClientsOpenWindow(
+		this.Ref(),
+	)
 }
 
 // OpenWindowFunc returns the method "Clients.openWindow".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clients) OpenWindowFunc() (fn js.Func[func(url js.String) js.Promise[WindowClient]]) {
 	return fn.FromRef(
 		bindings.ClientsOpenWindowFunc(
@@ -262,27 +319,62 @@ func (this Clients) OpenWindowFunc() (fn js.Func[func(url js.String) js.Promise[
 	)
 }
 
-// Claim calls the method "Clients.claim".
-//
-// The returned bool will be false if there is no such method.
-func (this Clients) Claim() (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallClientsClaim(
-		this.Ref(), js.Pointer(&_ok),
+// OpenWindow calls the method "Clients.openWindow".
+func (this Clients) OpenWindow(url js.String) (ret js.Promise[WindowClient]) {
+	bindings.CallClientsOpenWindow(
+		this.Ref(), js.Pointer(&ret),
+		url.Ref(),
 	)
 
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryOpenWindow calls the method "Clients.openWindow"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clients) TryOpenWindow(url js.String) (ret js.Promise[WindowClient], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClientsOpenWindow(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		url.Ref(),
+	)
+
+	return
+}
+
+// HasClaim returns true if the method "Clients.claim" exists.
+func (this Clients) HasClaim() bool {
+	return js.True == bindings.HasClientsClaim(
+		this.Ref(),
+	)
 }
 
 // ClaimFunc returns the method "Clients.claim".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clients) ClaimFunc() (fn js.Func[func() js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.ClientsClaimFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Claim calls the method "Clients.claim".
+func (this Clients) Claim() (ret js.Promise[js.Void]) {
+	bindings.CallClientsClaim(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryClaim calls the method "Clients.claim"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clients) TryClaim() (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClientsClaim(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type OneOf_String_Blob struct {
@@ -376,19 +468,17 @@ func (p ClipboardItemOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewClipboardItem(items js.Record[ClipboardItemData], options ClipboardItemOptions) ClipboardItem {
-	return ClipboardItem{}.FromRef(
-		bindings.NewClipboardItemByClipboardItem(
-			items.Ref(),
-			js.Pointer(&options)),
-	)
+func NewClipboardItem(items js.Record[ClipboardItemData], options ClipboardItemOptions) (ret ClipboardItem) {
+	ret.ref = bindings.NewClipboardItemByClipboardItem(
+		items.Ref(),
+		js.Pointer(&options))
+	return
 }
 
-func NewClipboardItemByClipboardItem1(items js.Record[ClipboardItemData]) ClipboardItem {
-	return ClipboardItem{}.FromRef(
-		bindings.NewClipboardItemByClipboardItem1(
-			items.Ref()),
-	)
+func NewClipboardItemByClipboardItem1(items js.Record[ClipboardItemData]) (ret ClipboardItem) {
+	ret.ref = bindings.NewClipboardItemByClipboardItem1(
+		items.Ref())
+	return
 }
 
 type ClipboardItem struct {
@@ -415,48 +505,60 @@ func (this ClipboardItem) Free() {
 
 // PresentationStyle returns the value of property "ClipboardItem.presentationStyle".
 //
-// The returned bool will be false if there is no such property.
-func (this ClipboardItem) PresentationStyle() (PresentationStyle, bool) {
-	var _ok bool
-	_ret := bindings.GetClipboardItemPresentationStyle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ClipboardItem) PresentationStyle() (ret PresentationStyle, ok bool) {
+	ok = js.True == bindings.GetClipboardItemPresentationStyle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PresentationStyle(_ret), _ok
+	return
 }
 
 // Types returns the value of property "ClipboardItem.types".
 //
-// The returned bool will be false if there is no such property.
-func (this ClipboardItem) Types() (js.FrozenArray[js.String], bool) {
-	var _ok bool
-	_ret := bindings.GetClipboardItemTypes(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ClipboardItem) Types() (ret js.FrozenArray[js.String], ok bool) {
+	ok = js.True == bindings.GetClipboardItemTypes(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[js.String]{}.FromRef(_ret), _ok
+	return
 }
 
-// GetType calls the method "ClipboardItem.getType".
-//
-// The returned bool will be false if there is no such method.
-func (this ClipboardItem) GetType(typ js.String) (js.Promise[Blob], bool) {
-	var _ok bool
-	_ret := bindings.CallClipboardItemGetType(
-		this.Ref(), js.Pointer(&_ok),
-		typ.Ref(),
+// HasGetType returns true if the method "ClipboardItem.getType" exists.
+func (this ClipboardItem) HasGetType() bool {
+	return js.True == bindings.HasClipboardItemGetType(
+		this.Ref(),
 	)
-
-	return js.Promise[Blob]{}.FromRef(_ret), _ok
 }
 
 // GetTypeFunc returns the method "ClipboardItem.getType".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this ClipboardItem) GetTypeFunc() (fn js.Func[func(typ js.String) js.Promise[Blob]]) {
 	return fn.FromRef(
 		bindings.ClipboardItemGetTypeFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetType calls the method "ClipboardItem.getType".
+func (this ClipboardItem) GetType(typ js.String) (ret js.Promise[Blob]) {
+	bindings.CallClipboardItemGetType(
+		this.Ref(), js.Pointer(&ret),
+		typ.Ref(),
+	)
+
+	return
+}
+
+// TryGetType calls the method "ClipboardItem.getType"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this ClipboardItem) TryGetType(typ js.String) (ret js.Promise[Blob], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClipboardItemGetType(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		typ.Ref(),
+	)
+
+	return
 }
 
 type ClipboardItems = js.Array[ClipboardItem]
@@ -483,21 +585,14 @@ func (this Clipboard) Free() {
 	this.Ref().Free()
 }
 
-// Read calls the method "Clipboard.read".
-//
-// The returned bool will be false if there is no such method.
-func (this Clipboard) Read() (js.Promise[ClipboardItems], bool) {
-	var _ok bool
-	_ret := bindings.CallClipboardRead(
-		this.Ref(), js.Pointer(&_ok),
+// HasRead returns true if the method "Clipboard.read" exists.
+func (this Clipboard) HasRead() bool {
+	return js.True == bindings.HasClipboardRead(
+		this.Ref(),
 	)
-
-	return js.Promise[ClipboardItems]{}.FromRef(_ret), _ok
 }
 
 // ReadFunc returns the method "Clipboard.read".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clipboard) ReadFunc() (fn js.Func[func() js.Promise[ClipboardItems]]) {
 	return fn.FromRef(
 		bindings.ClipboardReadFunc(
@@ -506,21 +601,34 @@ func (this Clipboard) ReadFunc() (fn js.Func[func() js.Promise[ClipboardItems]])
 	)
 }
 
-// ReadText calls the method "Clipboard.readText".
-//
-// The returned bool will be false if there is no such method.
-func (this Clipboard) ReadText() (js.Promise[js.String], bool) {
-	var _ok bool
-	_ret := bindings.CallClipboardReadText(
-		this.Ref(), js.Pointer(&_ok),
+// Read calls the method "Clipboard.read".
+func (this Clipboard) Read() (ret js.Promise[ClipboardItems]) {
+	bindings.CallClipboardRead(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[js.String]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRead calls the method "Clipboard.read"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clipboard) TryRead() (ret js.Promise[ClipboardItems], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClipboardRead(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReadText returns true if the method "Clipboard.readText" exists.
+func (this Clipboard) HasReadText() bool {
+	return js.True == bindings.HasClipboardReadText(
+		this.Ref(),
+	)
 }
 
 // ReadTextFunc returns the method "Clipboard.readText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clipboard) ReadTextFunc() (fn js.Func[func() js.Promise[js.String]]) {
 	return fn.FromRef(
 		bindings.ClipboardReadTextFunc(
@@ -529,22 +637,34 @@ func (this Clipboard) ReadTextFunc() (fn js.Func[func() js.Promise[js.String]]) 
 	)
 }
 
-// Write calls the method "Clipboard.write".
-//
-// The returned bool will be false if there is no such method.
-func (this Clipboard) Write(data ClipboardItems) (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallClipboardWrite(
-		this.Ref(), js.Pointer(&_ok),
-		data.Ref(),
+// ReadText calls the method "Clipboard.readText".
+func (this Clipboard) ReadText() (ret js.Promise[js.String]) {
+	bindings.CallClipboardReadText(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReadText calls the method "Clipboard.readText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clipboard) TryReadText() (ret js.Promise[js.String], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClipboardReadText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasWrite returns true if the method "Clipboard.write" exists.
+func (this Clipboard) HasWrite() bool {
+	return js.True == bindings.HasClipboardWrite(
+		this.Ref(),
+	)
 }
 
 // WriteFunc returns the method "Clipboard.write".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clipboard) WriteFunc() (fn js.Func[func(data ClipboardItems) js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.ClipboardWriteFunc(
@@ -553,28 +673,64 @@ func (this Clipboard) WriteFunc() (fn js.Func[func(data ClipboardItems) js.Promi
 	)
 }
 
-// WriteText calls the method "Clipboard.writeText".
-//
-// The returned bool will be false if there is no such method.
-func (this Clipboard) WriteText(data js.String) (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallClipboardWriteText(
-		this.Ref(), js.Pointer(&_ok),
+// Write calls the method "Clipboard.write".
+func (this Clipboard) Write(data ClipboardItems) (ret js.Promise[js.Void]) {
+	bindings.CallClipboardWrite(
+		this.Ref(), js.Pointer(&ret),
 		data.Ref(),
 	)
 
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryWrite calls the method "Clipboard.write"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clipboard) TryWrite(data ClipboardItems) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClipboardWrite(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
+}
+
+// HasWriteText returns true if the method "Clipboard.writeText" exists.
+func (this Clipboard) HasWriteText() bool {
+	return js.True == bindings.HasClipboardWriteText(
+		this.Ref(),
+	)
 }
 
 // WriteTextFunc returns the method "Clipboard.writeText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Clipboard) WriteTextFunc() (fn js.Func[func(data js.String) js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.ClipboardWriteTextFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// WriteText calls the method "Clipboard.writeText".
+func (this Clipboard) WriteText(data js.String) (ret js.Promise[js.Void]) {
+	bindings.CallClipboardWriteText(
+		this.Ref(), js.Pointer(&ret),
+		data.Ref(),
+	)
+
+	return
+}
+
+// TryWriteText calls the method "Clipboard.writeText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Clipboard) TryWriteText(data js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryClipboardWriteText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
 }
 
 type FunctionStringCallbackFunc func(this js.Ref, data js.String) js.Ref
@@ -772,42 +928,32 @@ func (this FileSystemHandle) Free() {
 
 // Kind returns the value of property "FileSystemHandle.kind".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystemHandle) Kind() (FileSystemHandleKind, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemHandleKind(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystemHandle) Kind() (ret FileSystemHandleKind, ok bool) {
+	ok = js.True == bindings.GetFileSystemHandleKind(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return FileSystemHandleKind(_ret), _ok
+	return
 }
 
 // Name returns the value of property "FileSystemHandle.name".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystemHandle) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemHandleName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystemHandle) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFileSystemHandleName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// IsSameEntry calls the method "FileSystemHandle.isSameEntry".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemHandle) IsSameEntry(other FileSystemHandle) (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemHandleIsSameEntry(
-		this.Ref(), js.Pointer(&_ok),
-		other.Ref(),
+// HasIsSameEntry returns true if the method "FileSystemHandle.isSameEntry" exists.
+func (this FileSystemHandle) HasIsSameEntry() bool {
+	return js.True == bindings.HasFileSystemHandleIsSameEntry(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
 }
 
 // IsSameEntryFunc returns the method "FileSystemHandle.isSameEntry".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemHandle) IsSameEntryFunc() (fn js.Func[func(other FileSystemHandle) js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.FileSystemHandleIsSameEntryFunc(
@@ -816,22 +962,36 @@ func (this FileSystemHandle) IsSameEntryFunc() (fn js.Func[func(other FileSystem
 	)
 }
 
-// QueryPermission calls the method "FileSystemHandle.queryPermission".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemHandle) QueryPermission(descriptor FileSystemHandlePermissionDescriptor) (js.Promise[PermissionState], bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemHandleQueryPermission(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&descriptor),
+// IsSameEntry calls the method "FileSystemHandle.isSameEntry".
+func (this FileSystemHandle) IsSameEntry(other FileSystemHandle) (ret js.Promise[js.Boolean]) {
+	bindings.CallFileSystemHandleIsSameEntry(
+		this.Ref(), js.Pointer(&ret),
+		other.Ref(),
 	)
 
-	return js.Promise[PermissionState]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryIsSameEntry calls the method "FileSystemHandle.isSameEntry"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemHandle) TryIsSameEntry(other FileSystemHandle) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemHandleIsSameEntry(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		other.Ref(),
+	)
+
+	return
+}
+
+// HasQueryPermission returns true if the method "FileSystemHandle.queryPermission" exists.
+func (this FileSystemHandle) HasQueryPermission() bool {
+	return js.True == bindings.HasFileSystemHandleQueryPermission(
+		this.Ref(),
+	)
 }
 
 // QueryPermissionFunc returns the method "FileSystemHandle.queryPermission".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemHandle) QueryPermissionFunc() (fn js.Func[func(descriptor FileSystemHandlePermissionDescriptor) js.Promise[PermissionState]]) {
 	return fn.FromRef(
 		bindings.FileSystemHandleQueryPermissionFunc(
@@ -840,21 +1000,36 @@ func (this FileSystemHandle) QueryPermissionFunc() (fn js.Func[func(descriptor F
 	)
 }
 
-// QueryPermission1 calls the method "FileSystemHandle.queryPermission".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemHandle) QueryPermission1() (js.Promise[PermissionState], bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemHandleQueryPermission1(
-		this.Ref(), js.Pointer(&_ok),
+// QueryPermission calls the method "FileSystemHandle.queryPermission".
+func (this FileSystemHandle) QueryPermission(descriptor FileSystemHandlePermissionDescriptor) (ret js.Promise[PermissionState]) {
+	bindings.CallFileSystemHandleQueryPermission(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&descriptor),
 	)
 
-	return js.Promise[PermissionState]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryQueryPermission calls the method "FileSystemHandle.queryPermission"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemHandle) TryQueryPermission(descriptor FileSystemHandlePermissionDescriptor) (ret js.Promise[PermissionState], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemHandleQueryPermission(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&descriptor),
+	)
+
+	return
+}
+
+// HasQueryPermission1 returns true if the method "FileSystemHandle.queryPermission" exists.
+func (this FileSystemHandle) HasQueryPermission1() bool {
+	return js.True == bindings.HasFileSystemHandleQueryPermission1(
+		this.Ref(),
+	)
 }
 
 // QueryPermission1Func returns the method "FileSystemHandle.queryPermission".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemHandle) QueryPermission1Func() (fn js.Func[func() js.Promise[PermissionState]]) {
 	return fn.FromRef(
 		bindings.FileSystemHandleQueryPermission1Func(
@@ -863,22 +1038,34 @@ func (this FileSystemHandle) QueryPermission1Func() (fn js.Func[func() js.Promis
 	)
 }
 
-// RequestPermission calls the method "FileSystemHandle.requestPermission".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemHandle) RequestPermission(descriptor FileSystemHandlePermissionDescriptor) (js.Promise[PermissionState], bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemHandleRequestPermission(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&descriptor),
+// QueryPermission1 calls the method "FileSystemHandle.queryPermission".
+func (this FileSystemHandle) QueryPermission1() (ret js.Promise[PermissionState]) {
+	bindings.CallFileSystemHandleQueryPermission1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[PermissionState]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryQueryPermission1 calls the method "FileSystemHandle.queryPermission"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemHandle) TryQueryPermission1() (ret js.Promise[PermissionState], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemHandleQueryPermission1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasRequestPermission returns true if the method "FileSystemHandle.requestPermission" exists.
+func (this FileSystemHandle) HasRequestPermission() bool {
+	return js.True == bindings.HasFileSystemHandleRequestPermission(
+		this.Ref(),
+	)
 }
 
 // RequestPermissionFunc returns the method "FileSystemHandle.requestPermission".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemHandle) RequestPermissionFunc() (fn js.Func[func(descriptor FileSystemHandlePermissionDescriptor) js.Promise[PermissionState]]) {
 	return fn.FromRef(
 		bindings.FileSystemHandleRequestPermissionFunc(
@@ -887,27 +1074,62 @@ func (this FileSystemHandle) RequestPermissionFunc() (fn js.Func[func(descriptor
 	)
 }
 
-// RequestPermission1 calls the method "FileSystemHandle.requestPermission".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemHandle) RequestPermission1() (js.Promise[PermissionState], bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemHandleRequestPermission1(
-		this.Ref(), js.Pointer(&_ok),
+// RequestPermission calls the method "FileSystemHandle.requestPermission".
+func (this FileSystemHandle) RequestPermission(descriptor FileSystemHandlePermissionDescriptor) (ret js.Promise[PermissionState]) {
+	bindings.CallFileSystemHandleRequestPermission(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&descriptor),
 	)
 
-	return js.Promise[PermissionState]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRequestPermission calls the method "FileSystemHandle.requestPermission"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemHandle) TryRequestPermission(descriptor FileSystemHandlePermissionDescriptor) (ret js.Promise[PermissionState], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemHandleRequestPermission(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&descriptor),
+	)
+
+	return
+}
+
+// HasRequestPermission1 returns true if the method "FileSystemHandle.requestPermission" exists.
+func (this FileSystemHandle) HasRequestPermission1() bool {
+	return js.True == bindings.HasFileSystemHandleRequestPermission1(
+		this.Ref(),
+	)
 }
 
 // RequestPermission1Func returns the method "FileSystemHandle.requestPermission".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemHandle) RequestPermission1Func() (fn js.Func[func() js.Promise[PermissionState]]) {
 	return fn.FromRef(
 		bindings.FileSystemHandleRequestPermission1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// RequestPermission1 calls the method "FileSystemHandle.requestPermission".
+func (this FileSystemHandle) RequestPermission1() (ret js.Promise[PermissionState]) {
+	bindings.CallFileSystemHandleRequestPermission1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryRequestPermission1 calls the method "FileSystemHandle.requestPermission"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemHandle) TryRequestPermission1() (ret js.Promise[PermissionState], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemHandleRequestPermission1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type FileSystemEntryCallbackFunc func(this js.Ref, entry FileSystemEntry) js.Ref
@@ -1112,24 +1334,14 @@ func (this FileSystemDirectoryReader) Free() {
 	this.Ref().Free()
 }
 
-// ReadEntries calls the method "FileSystemDirectoryReader.readEntries".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryReader) ReadEntries(successCallback js.Func[func(entries js.Array[FileSystemEntry])], errorCallback js.Func[func(err DOMException)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryReaderReadEntries(
-		this.Ref(), js.Pointer(&_ok),
-		successCallback.Ref(),
-		errorCallback.Ref(),
+// HasReadEntries returns true if the method "FileSystemDirectoryReader.readEntries" exists.
+func (this FileSystemDirectoryReader) HasReadEntries() bool {
+	return js.True == bindings.HasFileSystemDirectoryReaderReadEntries(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ReadEntriesFunc returns the method "FileSystemDirectoryReader.readEntries".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryReader) ReadEntriesFunc() (fn js.Func[func(successCallback js.Func[func(entries js.Array[FileSystemEntry])], errorCallback js.Func[func(err DOMException)])]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryReaderReadEntriesFunc(
@@ -1138,29 +1350,66 @@ func (this FileSystemDirectoryReader) ReadEntriesFunc() (fn js.Func[func(success
 	)
 }
 
-// ReadEntries1 calls the method "FileSystemDirectoryReader.readEntries".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryReader) ReadEntries1(successCallback js.Func[func(entries js.Array[FileSystemEntry])]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryReaderReadEntries1(
-		this.Ref(), js.Pointer(&_ok),
+// ReadEntries calls the method "FileSystemDirectoryReader.readEntries".
+func (this FileSystemDirectoryReader) ReadEntries(successCallback js.Func[func(entries js.Array[FileSystemEntry])], errorCallback js.Func[func(err DOMException)]) (ret js.Void) {
+	bindings.CallFileSystemDirectoryReaderReadEntries(
+		this.Ref(), js.Pointer(&ret),
 		successCallback.Ref(),
+		errorCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReadEntries calls the method "FileSystemDirectoryReader.readEntries"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryReader) TryReadEntries(successCallback js.Func[func(entries js.Array[FileSystemEntry])], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryReaderReadEntries(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		successCallback.Ref(),
+		errorCallback.Ref(),
+	)
+
+	return
+}
+
+// HasReadEntries1 returns true if the method "FileSystemDirectoryReader.readEntries" exists.
+func (this FileSystemDirectoryReader) HasReadEntries1() bool {
+	return js.True == bindings.HasFileSystemDirectoryReaderReadEntries1(
+		this.Ref(),
+	)
 }
 
 // ReadEntries1Func returns the method "FileSystemDirectoryReader.readEntries".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryReader) ReadEntries1Func() (fn js.Func[func(successCallback js.Func[func(entries js.Array[FileSystemEntry])])]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryReaderReadEntries1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// ReadEntries1 calls the method "FileSystemDirectoryReader.readEntries".
+func (this FileSystemDirectoryReader) ReadEntries1(successCallback js.Func[func(entries js.Array[FileSystemEntry])]) (ret js.Void) {
+	bindings.CallFileSystemDirectoryReaderReadEntries1(
+		this.Ref(), js.Pointer(&ret),
+		successCallback.Ref(),
+	)
+
+	return
+}
+
+// TryReadEntries1 calls the method "FileSystemDirectoryReader.readEntries"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryReader) TryReadEntries1(successCallback js.Func[func(entries js.Array[FileSystemEntry])]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryReaderReadEntries1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		successCallback.Ref(),
+	)
+
+	return
 }
 
 type FileSystemFlags struct {
@@ -1232,21 +1481,14 @@ func (this FileSystemDirectoryEntry) Free() {
 	this.Ref().Free()
 }
 
-// CreateReader calls the method "FileSystemDirectoryEntry.createReader".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) CreateReader() (FileSystemDirectoryReader, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryCreateReader(
-		this.Ref(), js.Pointer(&_ok),
+// HasCreateReader returns true if the method "FileSystemDirectoryEntry.createReader" exists.
+func (this FileSystemDirectoryEntry) HasCreateReader() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryCreateReader(
+		this.Ref(),
 	)
-
-	return FileSystemDirectoryReader{}.FromRef(_ret), _ok
 }
 
 // CreateReaderFunc returns the method "FileSystemDirectoryEntry.createReader".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) CreateReaderFunc() (fn js.Func[func() FileSystemDirectoryReader]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryCreateReaderFunc(
@@ -1255,26 +1497,34 @@ func (this FileSystemDirectoryEntry) CreateReaderFunc() (fn js.Func[func() FileS
 	)
 }
 
-// GetFile calls the method "FileSystemDirectoryEntry.getFile".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetFile(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetFile(
-		this.Ref(), js.Pointer(&_ok),
-		path.Ref(),
-		js.Pointer(&options),
-		successCallback.Ref(),
-		errorCallback.Ref(),
+// CreateReader calls the method "FileSystemDirectoryEntry.createReader".
+func (this FileSystemDirectoryEntry) CreateReader() (ret FileSystemDirectoryReader) {
+	bindings.CallFileSystemDirectoryEntryCreateReader(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryCreateReader calls the method "FileSystemDirectoryEntry.createReader"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryCreateReader() (ret FileSystemDirectoryReader, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryCreateReader(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetFile returns true if the method "FileSystemDirectoryEntry.getFile" exists.
+func (this FileSystemDirectoryEntry) HasGetFile() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetFile(
+		this.Ref(),
+	)
 }
 
 // GetFileFunc returns the method "FileSystemDirectoryEntry.getFile".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetFileFunc() (fn js.Func[func(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)])]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetFileFunc(
@@ -1283,25 +1533,42 @@ func (this FileSystemDirectoryEntry) GetFileFunc() (fn js.Func[func(path js.Stri
 	)
 }
 
-// GetFile1 calls the method "FileSystemDirectoryEntry.getFile".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetFile1(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetFile1(
-		this.Ref(), js.Pointer(&_ok),
+// GetFile calls the method "FileSystemDirectoryEntry.getFile".
+func (this FileSystemDirectoryEntry) GetFile(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetFile(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
 		js.Pointer(&options),
 		successCallback.Ref(),
+		errorCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetFile calls the method "FileSystemDirectoryEntry.getFile"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetFile(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetFile(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		js.Pointer(&options),
+		successCallback.Ref(),
+		errorCallback.Ref(),
+	)
+
+	return
+}
+
+// HasGetFile1 returns true if the method "FileSystemDirectoryEntry.getFile" exists.
+func (this FileSystemDirectoryEntry) HasGetFile1() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetFile1(
+		this.Ref(),
+	)
 }
 
 // GetFile1Func returns the method "FileSystemDirectoryEntry.getFile".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetFile1Func() (fn js.Func[func(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)])]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetFile1Func(
@@ -1310,24 +1577,40 @@ func (this FileSystemDirectoryEntry) GetFile1Func() (fn js.Func[func(path js.Str
 	)
 }
 
-// GetFile2 calls the method "FileSystemDirectoryEntry.getFile".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetFile2(path js.String, options FileSystemFlags) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetFile2(
-		this.Ref(), js.Pointer(&_ok),
+// GetFile1 calls the method "FileSystemDirectoryEntry.getFile".
+func (this FileSystemDirectoryEntry) GetFile1(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)]) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetFile1(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
 		js.Pointer(&options),
+		successCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetFile1 calls the method "FileSystemDirectoryEntry.getFile"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetFile1(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetFile1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		js.Pointer(&options),
+		successCallback.Ref(),
+	)
+
+	return
+}
+
+// HasGetFile2 returns true if the method "FileSystemDirectoryEntry.getFile" exists.
+func (this FileSystemDirectoryEntry) HasGetFile2() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetFile2(
+		this.Ref(),
+	)
 }
 
 // GetFile2Func returns the method "FileSystemDirectoryEntry.getFile".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetFile2Func() (fn js.Func[func(path js.String, options FileSystemFlags)]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetFile2Func(
@@ -1336,23 +1619,38 @@ func (this FileSystemDirectoryEntry) GetFile2Func() (fn js.Func[func(path js.Str
 	)
 }
 
-// GetFile3 calls the method "FileSystemDirectoryEntry.getFile".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetFile3(path js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetFile3(
-		this.Ref(), js.Pointer(&_ok),
+// GetFile2 calls the method "FileSystemDirectoryEntry.getFile".
+func (this FileSystemDirectoryEntry) GetFile2(path js.String, options FileSystemFlags) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetFile2(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
+		js.Pointer(&options),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetFile2 calls the method "FileSystemDirectoryEntry.getFile"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetFile2(path js.String, options FileSystemFlags) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetFile2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasGetFile3 returns true if the method "FileSystemDirectoryEntry.getFile" exists.
+func (this FileSystemDirectoryEntry) HasGetFile3() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetFile3(
+		this.Ref(),
+	)
 }
 
 // GetFile3Func returns the method "FileSystemDirectoryEntry.getFile".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetFile3Func() (fn js.Func[func(path js.String)]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetFile3Func(
@@ -1361,22 +1659,36 @@ func (this FileSystemDirectoryEntry) GetFile3Func() (fn js.Func[func(path js.Str
 	)
 }
 
-// GetFile4 calls the method "FileSystemDirectoryEntry.getFile".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetFile4() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetFile4(
-		this.Ref(), js.Pointer(&_ok),
+// GetFile3 calls the method "FileSystemDirectoryEntry.getFile".
+func (this FileSystemDirectoryEntry) GetFile3(path js.String) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetFile3(
+		this.Ref(), js.Pointer(&ret),
+		path.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetFile3 calls the method "FileSystemDirectoryEntry.getFile"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetFile3(path js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetFile3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+	)
+
+	return
+}
+
+// HasGetFile4 returns true if the method "FileSystemDirectoryEntry.getFile" exists.
+func (this FileSystemDirectoryEntry) HasGetFile4() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetFile4(
+		this.Ref(),
+	)
 }
 
 // GetFile4Func returns the method "FileSystemDirectoryEntry.getFile".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetFile4Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetFile4Func(
@@ -1385,26 +1697,34 @@ func (this FileSystemDirectoryEntry) GetFile4Func() (fn js.Func[func()]) {
 	)
 }
 
-// GetDirectory calls the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetDirectory(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetDirectory(
-		this.Ref(), js.Pointer(&_ok),
-		path.Ref(),
-		js.Pointer(&options),
-		successCallback.Ref(),
-		errorCallback.Ref(),
+// GetFile4 calls the method "FileSystemDirectoryEntry.getFile".
+func (this FileSystemDirectoryEntry) GetFile4() (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetFile4(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetFile4 calls the method "FileSystemDirectoryEntry.getFile"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetFile4() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetFile4(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetDirectory returns true if the method "FileSystemDirectoryEntry.getDirectory" exists.
+func (this FileSystemDirectoryEntry) HasGetDirectory() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetDirectory(
+		this.Ref(),
+	)
 }
 
 // GetDirectoryFunc returns the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetDirectoryFunc() (fn js.Func[func(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)])]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetDirectoryFunc(
@@ -1413,25 +1733,42 @@ func (this FileSystemDirectoryEntry) GetDirectoryFunc() (fn js.Func[func(path js
 	)
 }
 
-// GetDirectory1 calls the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetDirectory1(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetDirectory1(
-		this.Ref(), js.Pointer(&_ok),
+// GetDirectory calls the method "FileSystemDirectoryEntry.getDirectory".
+func (this FileSystemDirectoryEntry) GetDirectory(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetDirectory(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
 		js.Pointer(&options),
 		successCallback.Ref(),
+		errorCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetDirectory calls the method "FileSystemDirectoryEntry.getDirectory"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetDirectory(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetDirectory(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		js.Pointer(&options),
+		successCallback.Ref(),
+		errorCallback.Ref(),
+	)
+
+	return
+}
+
+// HasGetDirectory1 returns true if the method "FileSystemDirectoryEntry.getDirectory" exists.
+func (this FileSystemDirectoryEntry) HasGetDirectory1() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetDirectory1(
+		this.Ref(),
+	)
 }
 
 // GetDirectory1Func returns the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetDirectory1Func() (fn js.Func[func(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)])]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetDirectory1Func(
@@ -1440,24 +1777,40 @@ func (this FileSystemDirectoryEntry) GetDirectory1Func() (fn js.Func[func(path j
 	)
 }
 
-// GetDirectory2 calls the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetDirectory2(path js.String, options FileSystemFlags) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetDirectory2(
-		this.Ref(), js.Pointer(&_ok),
+// GetDirectory1 calls the method "FileSystemDirectoryEntry.getDirectory".
+func (this FileSystemDirectoryEntry) GetDirectory1(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)]) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetDirectory1(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
 		js.Pointer(&options),
+		successCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetDirectory1 calls the method "FileSystemDirectoryEntry.getDirectory"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetDirectory1(path js.String, options FileSystemFlags, successCallback js.Func[func(entry FileSystemEntry)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetDirectory1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		js.Pointer(&options),
+		successCallback.Ref(),
+	)
+
+	return
+}
+
+// HasGetDirectory2 returns true if the method "FileSystemDirectoryEntry.getDirectory" exists.
+func (this FileSystemDirectoryEntry) HasGetDirectory2() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetDirectory2(
+		this.Ref(),
+	)
 }
 
 // GetDirectory2Func returns the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetDirectory2Func() (fn js.Func[func(path js.String, options FileSystemFlags)]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetDirectory2Func(
@@ -1466,23 +1819,38 @@ func (this FileSystemDirectoryEntry) GetDirectory2Func() (fn js.Func[func(path j
 	)
 }
 
-// GetDirectory3 calls the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetDirectory3(path js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetDirectory3(
-		this.Ref(), js.Pointer(&_ok),
+// GetDirectory2 calls the method "FileSystemDirectoryEntry.getDirectory".
+func (this FileSystemDirectoryEntry) GetDirectory2(path js.String, options FileSystemFlags) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetDirectory2(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
+		js.Pointer(&options),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetDirectory2 calls the method "FileSystemDirectoryEntry.getDirectory"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetDirectory2(path js.String, options FileSystemFlags) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetDirectory2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasGetDirectory3 returns true if the method "FileSystemDirectoryEntry.getDirectory" exists.
+func (this FileSystemDirectoryEntry) HasGetDirectory3() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetDirectory3(
+		this.Ref(),
+	)
 }
 
 // GetDirectory3Func returns the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetDirectory3Func() (fn js.Func[func(path js.String)]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetDirectory3Func(
@@ -1491,28 +1859,62 @@ func (this FileSystemDirectoryEntry) GetDirectory3Func() (fn js.Func[func(path j
 	)
 }
 
-// GetDirectory4 calls the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemDirectoryEntry) GetDirectory4() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemDirectoryEntryGetDirectory4(
-		this.Ref(), js.Pointer(&_ok),
+// GetDirectory3 calls the method "FileSystemDirectoryEntry.getDirectory".
+func (this FileSystemDirectoryEntry) GetDirectory3(path js.String) (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetDirectory3(
+		this.Ref(), js.Pointer(&ret),
+		path.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetDirectory3 calls the method "FileSystemDirectoryEntry.getDirectory"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetDirectory3(path js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetDirectory3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+	)
+
+	return
+}
+
+// HasGetDirectory4 returns true if the method "FileSystemDirectoryEntry.getDirectory" exists.
+func (this FileSystemDirectoryEntry) HasGetDirectory4() bool {
+	return js.True == bindings.HasFileSystemDirectoryEntryGetDirectory4(
+		this.Ref(),
+	)
 }
 
 // GetDirectory4Func returns the method "FileSystemDirectoryEntry.getDirectory".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemDirectoryEntry) GetDirectory4Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.FileSystemDirectoryEntryGetDirectory4Func(
 			this.Ref(),
 		),
 	)
+}
+
+// GetDirectory4 calls the method "FileSystemDirectoryEntry.getDirectory".
+func (this FileSystemDirectoryEntry) GetDirectory4() (ret js.Void) {
+	bindings.CallFileSystemDirectoryEntryGetDirectory4(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetDirectory4 calls the method "FileSystemDirectoryEntry.getDirectory"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemDirectoryEntry) TryGetDirectory4() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemDirectoryEntryGetDirectory4(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type FileSystem struct {
@@ -1539,24 +1941,22 @@ func (this FileSystem) Free() {
 
 // Name returns the value of property "FileSystem.name".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystem) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystem) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFileSystemName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Root returns the value of property "FileSystem.root".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystem) Root() (FileSystemDirectoryEntry, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemRoot(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystem) Root() (ret FileSystemDirectoryEntry, ok bool) {
+	ok = js.True == bindings.GetFileSystemRoot(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return FileSystemDirectoryEntry{}.FromRef(_ret), _ok
+	return
 }
 
 type FileSystemEntry struct {
@@ -1583,77 +1983,62 @@ func (this FileSystemEntry) Free() {
 
 // IsFile returns the value of property "FileSystemEntry.isFile".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystemEntry) IsFile() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemEntryIsFile(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystemEntry) IsFile() (ret bool, ok bool) {
+	ok = js.True == bindings.GetFileSystemEntryIsFile(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // IsDirectory returns the value of property "FileSystemEntry.isDirectory".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystemEntry) IsDirectory() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemEntryIsDirectory(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystemEntry) IsDirectory() (ret bool, ok bool) {
+	ok = js.True == bindings.GetFileSystemEntryIsDirectory(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Name returns the value of property "FileSystemEntry.name".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystemEntry) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemEntryName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystemEntry) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFileSystemEntryName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // FullPath returns the value of property "FileSystemEntry.fullPath".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystemEntry) FullPath() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemEntryFullPath(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystemEntry) FullPath() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFileSystemEntryFullPath(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Filesystem returns the value of property "FileSystemEntry.filesystem".
 //
-// The returned bool will be false if there is no such property.
-func (this FileSystemEntry) Filesystem() (FileSystem, bool) {
-	var _ok bool
-	_ret := bindings.GetFileSystemEntryFilesystem(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileSystemEntry) Filesystem() (ret FileSystem, ok bool) {
+	ok = js.True == bindings.GetFileSystemEntryFilesystem(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return FileSystem{}.FromRef(_ret), _ok
+	return
 }
 
-// GetParent calls the method "FileSystemEntry.getParent".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemEntry) GetParent(successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemEntryGetParent(
-		this.Ref(), js.Pointer(&_ok),
-		successCallback.Ref(),
-		errorCallback.Ref(),
+// HasGetParent returns true if the method "FileSystemEntry.getParent" exists.
+func (this FileSystemEntry) HasGetParent() bool {
+	return js.True == bindings.HasFileSystemEntryGetParent(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // GetParentFunc returns the method "FileSystemEntry.getParent".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemEntry) GetParentFunc() (fn js.Func[func(successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)])]) {
 	return fn.FromRef(
 		bindings.FileSystemEntryGetParentFunc(
@@ -1662,23 +2047,38 @@ func (this FileSystemEntry) GetParentFunc() (fn js.Func[func(successCallback js.
 	)
 }
 
-// GetParent1 calls the method "FileSystemEntry.getParent".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemEntry) GetParent1(successCallback js.Func[func(entry FileSystemEntry)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemEntryGetParent1(
-		this.Ref(), js.Pointer(&_ok),
+// GetParent calls the method "FileSystemEntry.getParent".
+func (this FileSystemEntry) GetParent(successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (ret js.Void) {
+	bindings.CallFileSystemEntryGetParent(
+		this.Ref(), js.Pointer(&ret),
 		successCallback.Ref(),
+		errorCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetParent calls the method "FileSystemEntry.getParent"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemEntry) TryGetParent(successCallback js.Func[func(entry FileSystemEntry)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemEntryGetParent(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		successCallback.Ref(),
+		errorCallback.Ref(),
+	)
+
+	return
+}
+
+// HasGetParent1 returns true if the method "FileSystemEntry.getParent" exists.
+func (this FileSystemEntry) HasGetParent1() bool {
+	return js.True == bindings.HasFileSystemEntryGetParent1(
+		this.Ref(),
+	)
 }
 
 // GetParent1Func returns the method "FileSystemEntry.getParent".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemEntry) GetParent1Func() (fn js.Func[func(successCallback js.Func[func(entry FileSystemEntry)])]) {
 	return fn.FromRef(
 		bindings.FileSystemEntryGetParent1Func(
@@ -1687,28 +2087,62 @@ func (this FileSystemEntry) GetParent1Func() (fn js.Func[func(successCallback js
 	)
 }
 
-// GetParent2 calls the method "FileSystemEntry.getParent".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemEntry) GetParent2() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemEntryGetParent2(
-		this.Ref(), js.Pointer(&_ok),
+// GetParent1 calls the method "FileSystemEntry.getParent".
+func (this FileSystemEntry) GetParent1(successCallback js.Func[func(entry FileSystemEntry)]) (ret js.Void) {
+	bindings.CallFileSystemEntryGetParent1(
+		this.Ref(), js.Pointer(&ret),
+		successCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetParent1 calls the method "FileSystemEntry.getParent"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemEntry) TryGetParent1(successCallback js.Func[func(entry FileSystemEntry)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemEntryGetParent1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		successCallback.Ref(),
+	)
+
+	return
+}
+
+// HasGetParent2 returns true if the method "FileSystemEntry.getParent" exists.
+func (this FileSystemEntry) HasGetParent2() bool {
+	return js.True == bindings.HasFileSystemEntryGetParent2(
+		this.Ref(),
+	)
 }
 
 // GetParent2Func returns the method "FileSystemEntry.getParent".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemEntry) GetParent2Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.FileSystemEntryGetParent2Func(
 			this.Ref(),
 		),
 	)
+}
+
+// GetParent2 calls the method "FileSystemEntry.getParent".
+func (this FileSystemEntry) GetParent2() (ret js.Void) {
+	bindings.CallFileSystemEntryGetParent2(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetParent2 calls the method "FileSystemEntry.getParent"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemEntry) TryGetParent2() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemEntryGetParent2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type DataTransferItem struct {
@@ -1735,43 +2169,32 @@ func (this DataTransferItem) Free() {
 
 // Kind returns the value of property "DataTransferItem.kind".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransferItem) Kind() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferItemKind(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransferItem) Kind() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetDataTransferItemKind(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Type returns the value of property "DataTransferItem.type".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransferItem) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferItemType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransferItem) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetDataTransferItemType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// GetAsString calls the method "DataTransferItem.getAsString".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItem) GetAsString(callback js.Func[func(data js.String)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemGetAsString(
-		this.Ref(), js.Pointer(&_ok),
-		callback.Ref(),
+// HasGetAsString returns true if the method "DataTransferItem.getAsString" exists.
+func (this DataTransferItem) HasGetAsString() bool {
+	return js.True == bindings.HasDataTransferItemGetAsString(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // GetAsStringFunc returns the method "DataTransferItem.getAsString".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItem) GetAsStringFunc() (fn js.Func[func(callback js.Func[func(data js.String)])]) {
 	return fn.FromRef(
 		bindings.DataTransferItemGetAsStringFunc(
@@ -1780,21 +2203,36 @@ func (this DataTransferItem) GetAsStringFunc() (fn js.Func[func(callback js.Func
 	)
 }
 
-// GetAsFile calls the method "DataTransferItem.getAsFile".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItem) GetAsFile() (File, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemGetAsFile(
-		this.Ref(), js.Pointer(&_ok),
+// GetAsString calls the method "DataTransferItem.getAsString".
+func (this DataTransferItem) GetAsString(callback js.Func[func(data js.String)]) (ret js.Void) {
+	bindings.CallDataTransferItemGetAsString(
+		this.Ref(), js.Pointer(&ret),
+		callback.Ref(),
 	)
 
-	return File{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetAsString calls the method "DataTransferItem.getAsString"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItem) TryGetAsString(callback js.Func[func(data js.String)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemGetAsString(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		callback.Ref(),
+	)
+
+	return
+}
+
+// HasGetAsFile returns true if the method "DataTransferItem.getAsFile" exists.
+func (this DataTransferItem) HasGetAsFile() bool {
+	return js.True == bindings.HasDataTransferItemGetAsFile(
+		this.Ref(),
+	)
 }
 
 // GetAsFileFunc returns the method "DataTransferItem.getAsFile".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItem) GetAsFileFunc() (fn js.Func[func() File]) {
 	return fn.FromRef(
 		bindings.DataTransferItemGetAsFileFunc(
@@ -1803,21 +2241,34 @@ func (this DataTransferItem) GetAsFileFunc() (fn js.Func[func() File]) {
 	)
 }
 
-// GetAsFileSystemHandle calls the method "DataTransferItem.getAsFileSystemHandle".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItem) GetAsFileSystemHandle() (js.Promise[FileSystemHandle], bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemGetAsFileSystemHandle(
-		this.Ref(), js.Pointer(&_ok),
+// GetAsFile calls the method "DataTransferItem.getAsFile".
+func (this DataTransferItem) GetAsFile() (ret File) {
+	bindings.CallDataTransferItemGetAsFile(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[FileSystemHandle]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetAsFile calls the method "DataTransferItem.getAsFile"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItem) TryGetAsFile() (ret File, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemGetAsFile(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetAsFileSystemHandle returns true if the method "DataTransferItem.getAsFileSystemHandle" exists.
+func (this DataTransferItem) HasGetAsFileSystemHandle() bool {
+	return js.True == bindings.HasDataTransferItemGetAsFileSystemHandle(
+		this.Ref(),
+	)
 }
 
 // GetAsFileSystemHandleFunc returns the method "DataTransferItem.getAsFileSystemHandle".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItem) GetAsFileSystemHandleFunc() (fn js.Func[func() js.Promise[FileSystemHandle]]) {
 	return fn.FromRef(
 		bindings.DataTransferItemGetAsFileSystemHandleFunc(
@@ -1826,27 +2277,60 @@ func (this DataTransferItem) GetAsFileSystemHandleFunc() (fn js.Func[func() js.P
 	)
 }
 
-// WebkitGetAsEntry calls the method "DataTransferItem.webkitGetAsEntry".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItem) WebkitGetAsEntry() (FileSystemEntry, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemWebkitGetAsEntry(
-		this.Ref(), js.Pointer(&_ok),
+// GetAsFileSystemHandle calls the method "DataTransferItem.getAsFileSystemHandle".
+func (this DataTransferItem) GetAsFileSystemHandle() (ret js.Promise[FileSystemHandle]) {
+	bindings.CallDataTransferItemGetAsFileSystemHandle(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return FileSystemEntry{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetAsFileSystemHandle calls the method "DataTransferItem.getAsFileSystemHandle"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItem) TryGetAsFileSystemHandle() (ret js.Promise[FileSystemHandle], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemGetAsFileSystemHandle(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasWebkitGetAsEntry returns true if the method "DataTransferItem.webkitGetAsEntry" exists.
+func (this DataTransferItem) HasWebkitGetAsEntry() bool {
+	return js.True == bindings.HasDataTransferItemWebkitGetAsEntry(
+		this.Ref(),
+	)
 }
 
 // WebkitGetAsEntryFunc returns the method "DataTransferItem.webkitGetAsEntry".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItem) WebkitGetAsEntryFunc() (fn js.Func[func() FileSystemEntry]) {
 	return fn.FromRef(
 		bindings.DataTransferItemWebkitGetAsEntryFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// WebkitGetAsEntry calls the method "DataTransferItem.webkitGetAsEntry".
+func (this DataTransferItem) WebkitGetAsEntry() (ret FileSystemEntry) {
+	bindings.CallDataTransferItemWebkitGetAsEntry(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryWebkitGetAsEntry calls the method "DataTransferItem.webkitGetAsEntry"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItem) TryWebkitGetAsEntry() (ret FileSystemEntry, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemWebkitGetAsEntry(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type DataTransferItemList struct {
@@ -1873,31 +2357,22 @@ func (this DataTransferItemList) Free() {
 
 // Length returns the value of property "DataTransferItemList.length".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransferItemList) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferItemListLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransferItemList) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetDataTransferItemListLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Get calls the method "DataTransferItemList.".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItemList) Get(index uint32) (DataTransferItem, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemListGet(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// HasGet returns true if the method "DataTransferItemList." exists.
+func (this DataTransferItemList) HasGet() bool {
+	return js.True == bindings.HasDataTransferItemListGet(
+		this.Ref(),
 	)
-
-	return DataTransferItem{}.FromRef(_ret), _ok
 }
 
 // GetFunc returns the method "DataTransferItemList.".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItemList) GetFunc() (fn js.Func[func(index uint32) DataTransferItem]) {
 	return fn.FromRef(
 		bindings.DataTransferItemListGetFunc(
@@ -1906,23 +2381,36 @@ func (this DataTransferItemList) GetFunc() (fn js.Func[func(index uint32) DataTr
 	)
 }
 
-// Add calls the method "DataTransferItemList.add".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItemList) Add(data js.String, typ js.String) (DataTransferItem, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemListAdd(
-		this.Ref(), js.Pointer(&_ok),
-		data.Ref(),
-		typ.Ref(),
+// Get calls the method "DataTransferItemList.".
+func (this DataTransferItemList) Get(index uint32) (ret DataTransferItem) {
+	bindings.CallDataTransferItemListGet(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return DataTransferItem{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGet calls the method "DataTransferItemList."
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItemList) TryGet(index uint32) (ret DataTransferItem, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemListGet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasAdd returns true if the method "DataTransferItemList.add" exists.
+func (this DataTransferItemList) HasAdd() bool {
+	return js.True == bindings.HasDataTransferItemListAdd(
+		this.Ref(),
+	)
 }
 
 // AddFunc returns the method "DataTransferItemList.add".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItemList) AddFunc() (fn js.Func[func(data js.String, typ js.String) DataTransferItem]) {
 	return fn.FromRef(
 		bindings.DataTransferItemListAddFunc(
@@ -1931,22 +2419,38 @@ func (this DataTransferItemList) AddFunc() (fn js.Func[func(data js.String, typ 
 	)
 }
 
-// Add1 calls the method "DataTransferItemList.add".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItemList) Add1(data File) (DataTransferItem, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemListAdd1(
-		this.Ref(), js.Pointer(&_ok),
+// Add calls the method "DataTransferItemList.add".
+func (this DataTransferItemList) Add(data js.String, typ js.String) (ret DataTransferItem) {
+	bindings.CallDataTransferItemListAdd(
+		this.Ref(), js.Pointer(&ret),
 		data.Ref(),
+		typ.Ref(),
 	)
 
-	return DataTransferItem{}.FromRef(_ret), _ok
+	return
+}
+
+// TryAdd calls the method "DataTransferItemList.add"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItemList) TryAdd(data js.String, typ js.String) (ret DataTransferItem, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemListAdd(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+		typ.Ref(),
+	)
+
+	return
+}
+
+// HasAdd1 returns true if the method "DataTransferItemList.add" exists.
+func (this DataTransferItemList) HasAdd1() bool {
+	return js.True == bindings.HasDataTransferItemListAdd1(
+		this.Ref(),
+	)
 }
 
 // Add1Func returns the method "DataTransferItemList.add".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItemList) Add1Func() (fn js.Func[func(data File) DataTransferItem]) {
 	return fn.FromRef(
 		bindings.DataTransferItemListAdd1Func(
@@ -1955,23 +2459,36 @@ func (this DataTransferItemList) Add1Func() (fn js.Func[func(data File) DataTran
 	)
 }
 
-// Remove calls the method "DataTransferItemList.remove".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItemList) Remove(index uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemListRemove(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// Add1 calls the method "DataTransferItemList.add".
+func (this DataTransferItemList) Add1(data File) (ret DataTransferItem) {
+	bindings.CallDataTransferItemListAdd1(
+		this.Ref(), js.Pointer(&ret),
+		data.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAdd1 calls the method "DataTransferItemList.add"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItemList) TryAdd1(data File) (ret DataTransferItem, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemListAdd1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
+}
+
+// HasRemove returns true if the method "DataTransferItemList.remove" exists.
+func (this DataTransferItemList) HasRemove() bool {
+	return js.True == bindings.HasDataTransferItemListRemove(
+		this.Ref(),
+	)
 }
 
 // RemoveFunc returns the method "DataTransferItemList.remove".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItemList) RemoveFunc() (fn js.Func[func(index uint32)]) {
 	return fn.FromRef(
 		bindings.DataTransferItemListRemoveFunc(
@@ -1980,28 +2497,62 @@ func (this DataTransferItemList) RemoveFunc() (fn js.Func[func(index uint32)]) {
 	)
 }
 
-// Clear calls the method "DataTransferItemList.clear".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransferItemList) Clear() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferItemListClear(
-		this.Ref(), js.Pointer(&_ok),
+// Remove calls the method "DataTransferItemList.remove".
+func (this DataTransferItemList) Remove(index uint32) (ret js.Void) {
+	bindings.CallDataTransferItemListRemove(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryRemove calls the method "DataTransferItemList.remove"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItemList) TryRemove(index uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemListRemove(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasClear returns true if the method "DataTransferItemList.clear" exists.
+func (this DataTransferItemList) HasClear() bool {
+	return js.True == bindings.HasDataTransferItemListClear(
+		this.Ref(),
+	)
 }
 
 // ClearFunc returns the method "DataTransferItemList.clear".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransferItemList) ClearFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.DataTransferItemListClearFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Clear calls the method "DataTransferItemList.clear".
+func (this DataTransferItemList) Clear() (ret js.Void) {
+	bindings.CallDataTransferItemListClear(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryClear calls the method "DataTransferItemList.clear"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransferItemList) TryClear() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferItemListClear(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type FileList struct {
@@ -2028,37 +2579,50 @@ func (this FileList) Free() {
 
 // Length returns the value of property "FileList.length".
 //
-// The returned bool will be false if there is no such property.
-func (this FileList) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetFileListLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileList) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetFileListLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Item calls the method "FileList.item".
-//
-// The returned bool will be false if there is no such method.
-func (this FileList) Item(index uint32) (File, bool) {
-	var _ok bool
-	_ret := bindings.CallFileListItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// HasItem returns true if the method "FileList.item" exists.
+func (this FileList) HasItem() bool {
+	return js.True == bindings.HasFileListItem(
+		this.Ref(),
 	)
-
-	return File{}.FromRef(_ret), _ok
 }
 
 // ItemFunc returns the method "FileList.item".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileList) ItemFunc() (fn js.Func[func(index uint32) File]) {
 	return fn.FromRef(
 		bindings.FileListItemFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Item calls the method "FileList.item".
+func (this FileList) Item(index uint32) (ret File) {
+	bindings.CallFileListItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+	)
+
+	return
+}
+
+// TryItem calls the method "FileList.item"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileList) TryItem(index uint32) (ret File, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileListItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
 }
 
 type DataTransfer struct {
@@ -2085,16 +2649,15 @@ func (this DataTransfer) Free() {
 
 // DropEffect returns the value of property "DataTransfer.dropEffect".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransfer) DropEffect() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferDropEffect(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransfer) DropEffect() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetDataTransferDropEffect(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// DropEffect sets the value of property "DataTransfer.dropEffect" to val.
+// SetDropEffect sets the value of property "DataTransfer.dropEffect" to val.
 //
 // It returns false if the property cannot be set.
 func (this DataTransfer) SetDropEffect(val js.String) bool {
@@ -2106,16 +2669,15 @@ func (this DataTransfer) SetDropEffect(val js.String) bool {
 
 // EffectAllowed returns the value of property "DataTransfer.effectAllowed".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransfer) EffectAllowed() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferEffectAllowed(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransfer) EffectAllowed() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetDataTransferEffectAllowed(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// EffectAllowed sets the value of property "DataTransfer.effectAllowed" to val.
+// SetEffectAllowed sets the value of property "DataTransfer.effectAllowed" to val.
 //
 // It returns false if the property cannot be set.
 func (this DataTransfer) SetEffectAllowed(val js.String) bool {
@@ -2127,56 +2689,42 @@ func (this DataTransfer) SetEffectAllowed(val js.String) bool {
 
 // Items returns the value of property "DataTransfer.items".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransfer) Items() (DataTransferItemList, bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferItems(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransfer) Items() (ret DataTransferItemList, ok bool) {
+	ok = js.True == bindings.GetDataTransferItems(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DataTransferItemList{}.FromRef(_ret), _ok
+	return
 }
 
 // Types returns the value of property "DataTransfer.types".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransfer) Types() (js.FrozenArray[js.String], bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferTypes(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransfer) Types() (ret js.FrozenArray[js.String], ok bool) {
+	ok = js.True == bindings.GetDataTransferTypes(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[js.String]{}.FromRef(_ret), _ok
+	return
 }
 
 // Files returns the value of property "DataTransfer.files".
 //
-// The returned bool will be false if there is no such property.
-func (this DataTransfer) Files() (FileList, bool) {
-	var _ok bool
-	_ret := bindings.GetDataTransferFiles(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this DataTransfer) Files() (ret FileList, ok bool) {
+	ok = js.True == bindings.GetDataTransferFiles(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return FileList{}.FromRef(_ret), _ok
+	return
 }
 
-// SetDragImage calls the method "DataTransfer.setDragImage".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransfer) SetDragImage(image Element, x int32, y int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferSetDragImage(
-		this.Ref(), js.Pointer(&_ok),
-		image.Ref(),
-		int32(x),
-		int32(y),
+// HasSetDragImage returns true if the method "DataTransfer.setDragImage" exists.
+func (this DataTransfer) HasSetDragImage() bool {
+	return js.True == bindings.HasDataTransferSetDragImage(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SetDragImageFunc returns the method "DataTransfer.setDragImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransfer) SetDragImageFunc() (fn js.Func[func(image Element, x int32, y int32)]) {
 	return fn.FromRef(
 		bindings.DataTransferSetDragImageFunc(
@@ -2185,22 +2733,40 @@ func (this DataTransfer) SetDragImageFunc() (fn js.Func[func(image Element, x in
 	)
 }
 
-// GetData calls the method "DataTransfer.getData".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransfer) GetData(format js.String) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferGetData(
-		this.Ref(), js.Pointer(&_ok),
-		format.Ref(),
+// SetDragImage calls the method "DataTransfer.setDragImage".
+func (this DataTransfer) SetDragImage(image Element, x int32, y int32) (ret js.Void) {
+	bindings.CallDataTransferSetDragImage(
+		this.Ref(), js.Pointer(&ret),
+		image.Ref(),
+		int32(x),
+		int32(y),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TrySetDragImage calls the method "DataTransfer.setDragImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransfer) TrySetDragImage(image Element, x int32, y int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferSetDragImage(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		image.Ref(),
+		int32(x),
+		int32(y),
+	)
+
+	return
+}
+
+// HasGetData returns true if the method "DataTransfer.getData" exists.
+func (this DataTransfer) HasGetData() bool {
+	return js.True == bindings.HasDataTransferGetData(
+		this.Ref(),
+	)
 }
 
 // GetDataFunc returns the method "DataTransfer.getData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransfer) GetDataFunc() (fn js.Func[func(format js.String) js.String]) {
 	return fn.FromRef(
 		bindings.DataTransferGetDataFunc(
@@ -2209,24 +2775,36 @@ func (this DataTransfer) GetDataFunc() (fn js.Func[func(format js.String) js.Str
 	)
 }
 
-// SetData calls the method "DataTransfer.setData".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransfer) SetData(format js.String, data js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferSetData(
-		this.Ref(), js.Pointer(&_ok),
+// GetData calls the method "DataTransfer.getData".
+func (this DataTransfer) GetData(format js.String) (ret js.String) {
+	bindings.CallDataTransferGetData(
+		this.Ref(), js.Pointer(&ret),
 		format.Ref(),
-		data.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetData calls the method "DataTransfer.getData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransfer) TryGetData(format js.String) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferGetData(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		format.Ref(),
+	)
+
+	return
+}
+
+// HasSetData returns true if the method "DataTransfer.setData" exists.
+func (this DataTransfer) HasSetData() bool {
+	return js.True == bindings.HasDataTransferSetData(
+		this.Ref(),
+	)
 }
 
 // SetDataFunc returns the method "DataTransfer.setData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransfer) SetDataFunc() (fn js.Func[func(format js.String, data js.String)]) {
 	return fn.FromRef(
 		bindings.DataTransferSetDataFunc(
@@ -2235,23 +2813,38 @@ func (this DataTransfer) SetDataFunc() (fn js.Func[func(format js.String, data j
 	)
 }
 
-// ClearData calls the method "DataTransfer.clearData".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransfer) ClearData(format js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferClearData(
-		this.Ref(), js.Pointer(&_ok),
+// SetData calls the method "DataTransfer.setData".
+func (this DataTransfer) SetData(format js.String, data js.String) (ret js.Void) {
+	bindings.CallDataTransferSetData(
+		this.Ref(), js.Pointer(&ret),
 		format.Ref(),
+		data.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetData calls the method "DataTransfer.setData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransfer) TrySetData(format js.String, data js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferSetData(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		format.Ref(),
+		data.Ref(),
+	)
+
+	return
+}
+
+// HasClearData returns true if the method "DataTransfer.clearData" exists.
+func (this DataTransfer) HasClearData() bool {
+	return js.True == bindings.HasDataTransferClearData(
+		this.Ref(),
+	)
 }
 
 // ClearDataFunc returns the method "DataTransfer.clearData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransfer) ClearDataFunc() (fn js.Func[func(format js.String)]) {
 	return fn.FromRef(
 		bindings.DataTransferClearDataFunc(
@@ -2260,28 +2853,62 @@ func (this DataTransfer) ClearDataFunc() (fn js.Func[func(format js.String)]) {
 	)
 }
 
-// ClearData1 calls the method "DataTransfer.clearData".
-//
-// The returned bool will be false if there is no such method.
-func (this DataTransfer) ClearData1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallDataTransferClearData1(
-		this.Ref(), js.Pointer(&_ok),
+// ClearData calls the method "DataTransfer.clearData".
+func (this DataTransfer) ClearData(format js.String) (ret js.Void) {
+	bindings.CallDataTransferClearData(
+		this.Ref(), js.Pointer(&ret),
+		format.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClearData calls the method "DataTransfer.clearData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransfer) TryClearData(format js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferClearData(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		format.Ref(),
+	)
+
+	return
+}
+
+// HasClearData1 returns true if the method "DataTransfer.clearData" exists.
+func (this DataTransfer) HasClearData1() bool {
+	return js.True == bindings.HasDataTransferClearData1(
+		this.Ref(),
+	)
 }
 
 // ClearData1Func returns the method "DataTransfer.clearData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this DataTransfer) ClearData1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.DataTransferClearData1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// ClearData1 calls the method "DataTransfer.clearData".
+func (this DataTransfer) ClearData1() (ret js.Void) {
+	bindings.CallDataTransferClearData1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryClearData1 calls the method "DataTransfer.clearData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this DataTransfer) TryClearData1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryDataTransferClearData1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type ClipboardEventInit struct {
@@ -2342,19 +2969,17 @@ func (p ClipboardEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewClipboardEvent(typ js.String, eventInitDict ClipboardEventInit) ClipboardEvent {
-	return ClipboardEvent{}.FromRef(
-		bindings.NewClipboardEventByClipboardEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewClipboardEvent(typ js.String, eventInitDict ClipboardEventInit) (ret ClipboardEvent) {
+	ret.ref = bindings.NewClipboardEventByClipboardEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewClipboardEventByClipboardEvent1(typ js.String) ClipboardEvent {
-	return ClipboardEvent{}.FromRef(
-		bindings.NewClipboardEventByClipboardEvent1(
-			typ.Ref()),
-	)
+func NewClipboardEventByClipboardEvent1(typ js.String) (ret ClipboardEvent) {
+	ret.ref = bindings.NewClipboardEventByClipboardEvent1(
+		typ.Ref())
+	return
 }
 
 type ClipboardEvent struct {
@@ -2381,13 +3006,12 @@ func (this ClipboardEvent) Free() {
 
 // ClipboardData returns the value of property "ClipboardEvent.clipboardData".
 //
-// The returned bool will be false if there is no such property.
-func (this ClipboardEvent) ClipboardData() (DataTransfer, bool) {
-	var _ok bool
-	_ret := bindings.GetClipboardEventClipboardData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ClipboardEvent) ClipboardData() (ret DataTransfer, ok bool) {
+	ok = js.True == bindings.GetClipboardEventClipboardData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DataTransfer{}.FromRef(_ret), _ok
+	return
 }
 
 type ClipboardPermissionDescriptor struct {
@@ -2506,19 +3130,17 @@ func (p CloseEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewCloseEvent(typ js.String, eventInitDict CloseEventInit) CloseEvent {
-	return CloseEvent{}.FromRef(
-		bindings.NewCloseEventByCloseEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewCloseEvent(typ js.String, eventInitDict CloseEventInit) (ret CloseEvent) {
+	ret.ref = bindings.NewCloseEventByCloseEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewCloseEventByCloseEvent1(typ js.String) CloseEvent {
-	return CloseEvent{}.FromRef(
-		bindings.NewCloseEventByCloseEvent1(
-			typ.Ref()),
-	)
+func NewCloseEventByCloseEvent1(typ js.String) (ret CloseEvent) {
+	ret.ref = bindings.NewCloseEventByCloseEvent1(
+		typ.Ref())
+	return
 }
 
 type CloseEvent struct {
@@ -2545,35 +3167,32 @@ func (this CloseEvent) Free() {
 
 // WasClean returns the value of property "CloseEvent.wasClean".
 //
-// The returned bool will be false if there is no such property.
-func (this CloseEvent) WasClean() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetCloseEventWasClean(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this CloseEvent) WasClean() (ret bool, ok bool) {
+	ok = js.True == bindings.GetCloseEventWasClean(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Code returns the value of property "CloseEvent.code".
 //
-// The returned bool will be false if there is no such property.
-func (this CloseEvent) Code() (uint16, bool) {
-	var _ok bool
-	_ret := bindings.GetCloseEventCode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this CloseEvent) Code() (ret uint16, ok bool) {
+	ok = js.True == bindings.GetCloseEventCode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint16(_ret), _ok
+	return
 }
 
 // Reason returns the value of property "CloseEvent.reason".
 //
-// The returned bool will be false if there is no such property.
-func (this CloseEvent) Reason() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetCloseEventReason(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this CloseEvent) Reason() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetCloseEventReason(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 type CollectedClientAdditionalPaymentData struct {
@@ -2596,10 +3215,14 @@ type CollectedClientAdditionalPaymentData struct {
 	// Total is "CollectedClientAdditionalPaymentData.total"
 	//
 	// Required
+	//
+	// NOTE: Total.FFI_USE MUST be set to true to get Total used.
 	Total PaymentCurrencyAmount
 	// Instrument is "CollectedClientAdditionalPaymentData.instrument"
 	//
 	// Required
+	//
+	// NOTE: Instrument.FFI_USE MUST be set to true to get Instrument used.
 	Instrument PaymentCredentialInstrument
 
 	FFI_USE bool
@@ -2692,6 +3315,8 @@ type CollectedClientPaymentData struct {
 	// Payment is "CollectedClientPaymentData.payment"
 	//
 	// Required
+	//
+	// NOTE: Payment.FFI_USE MUST be set to true to get Payment used.
 	Payment CollectedClientAdditionalPaymentData
 	// Type is "CollectedClientPaymentData.type"
 	//
@@ -2962,43 +3587,32 @@ func (this MediaQueryList) Free() {
 
 // Media returns the value of property "MediaQueryList.media".
 //
-// The returned bool will be false if there is no such property.
-func (this MediaQueryList) Media() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMediaQueryListMedia(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MediaQueryList) Media() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMediaQueryListMedia(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Matches returns the value of property "MediaQueryList.matches".
 //
-// The returned bool will be false if there is no such property.
-func (this MediaQueryList) Matches() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetMediaQueryListMatches(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MediaQueryList) Matches() (ret bool, ok bool) {
+	ok = js.True == bindings.GetMediaQueryListMatches(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// AddListener calls the method "MediaQueryList.addListener".
-//
-// The returned bool will be false if there is no such method.
-func (this MediaQueryList) AddListener(callback js.Func[func(event Event)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallMediaQueryListAddListener(
-		this.Ref(), js.Pointer(&_ok),
-		callback.Ref(),
+// HasAddListener returns true if the method "MediaQueryList.addListener" exists.
+func (this MediaQueryList) HasAddListener() bool {
+	return js.True == bindings.HasMediaQueryListAddListener(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // AddListenerFunc returns the method "MediaQueryList.addListener".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MediaQueryList) AddListenerFunc() (fn js.Func[func(callback js.Func[func(event Event)])]) {
 	return fn.FromRef(
 		bindings.MediaQueryListAddListenerFunc(
@@ -3007,27 +3621,62 @@ func (this MediaQueryList) AddListenerFunc() (fn js.Func[func(callback js.Func[f
 	)
 }
 
-// RemoveListener calls the method "MediaQueryList.removeListener".
-//
-// The returned bool will be false if there is no such method.
-func (this MediaQueryList) RemoveListener(callback js.Func[func(event Event)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallMediaQueryListRemoveListener(
-		this.Ref(), js.Pointer(&_ok),
+// AddListener calls the method "MediaQueryList.addListener".
+func (this MediaQueryList) AddListener(callback js.Func[func(event Event)]) (ret js.Void) {
+	bindings.CallMediaQueryListAddListener(
+		this.Ref(), js.Pointer(&ret),
 		callback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAddListener calls the method "MediaQueryList.addListener"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MediaQueryList) TryAddListener(callback js.Func[func(event Event)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMediaQueryListAddListener(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		callback.Ref(),
+	)
+
+	return
+}
+
+// HasRemoveListener returns true if the method "MediaQueryList.removeListener" exists.
+func (this MediaQueryList) HasRemoveListener() bool {
+	return js.True == bindings.HasMediaQueryListRemoveListener(
+		this.Ref(),
+	)
 }
 
 // RemoveListenerFunc returns the method "MediaQueryList.removeListener".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MediaQueryList) RemoveListenerFunc() (fn js.Func[func(callback js.Func[func(event Event)])]) {
 	return fn.FromRef(
 		bindings.MediaQueryListRemoveListenerFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// RemoveListener calls the method "MediaQueryList.removeListener".
+func (this MediaQueryList) RemoveListener(callback js.Func[func(event Event)]) (ret js.Void) {
+	bindings.CallMediaQueryListRemoveListener(
+		this.Ref(), js.Pointer(&ret),
+		callback.Ref(),
+	)
+
+	return
+}
+
+// TryRemoveListener calls the method "MediaQueryList.removeListener"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MediaQueryList) TryRemoveListener(callback js.Func[func(event Event)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMediaQueryListRemoveListener(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		callback.Ref(),
+	)
+
+	return
 }

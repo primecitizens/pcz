@@ -79,22 +79,14 @@ func (this Scheduling) Free() {
 	this.Ref().Free()
 }
 
-// IsInputPending calls the method "Scheduling.isInputPending".
-//
-// The returned bool will be false if there is no such method.
-func (this Scheduling) IsInputPending(isInputPendingOptions IsInputPendingOptions) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallSchedulingIsInputPending(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&isInputPendingOptions),
+// HasIsInputPending returns true if the method "Scheduling.isInputPending" exists.
+func (this Scheduling) HasIsInputPending() bool {
+	return js.True == bindings.HasSchedulingIsInputPending(
+		this.Ref(),
 	)
-
-	return _ret == js.True, _ok
 }
 
 // IsInputPendingFunc returns the method "Scheduling.isInputPending".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Scheduling) IsInputPendingFunc() (fn js.Func[func(isInputPendingOptions IsInputPendingOptions) bool]) {
 	return fn.FromRef(
 		bindings.SchedulingIsInputPendingFunc(
@@ -103,27 +95,62 @@ func (this Scheduling) IsInputPendingFunc() (fn js.Func[func(isInputPendingOptio
 	)
 }
 
-// IsInputPending1 calls the method "Scheduling.isInputPending".
-//
-// The returned bool will be false if there is no such method.
-func (this Scheduling) IsInputPending1() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallSchedulingIsInputPending1(
-		this.Ref(), js.Pointer(&_ok),
+// IsInputPending calls the method "Scheduling.isInputPending".
+func (this Scheduling) IsInputPending(isInputPendingOptions IsInputPendingOptions) (ret bool) {
+	bindings.CallSchedulingIsInputPending(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&isInputPendingOptions),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryIsInputPending calls the method "Scheduling.isInputPending"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Scheduling) TryIsInputPending(isInputPendingOptions IsInputPendingOptions) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySchedulingIsInputPending(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&isInputPendingOptions),
+	)
+
+	return
+}
+
+// HasIsInputPending1 returns true if the method "Scheduling.isInputPending" exists.
+func (this Scheduling) HasIsInputPending1() bool {
+	return js.True == bindings.HasSchedulingIsInputPending1(
+		this.Ref(),
+	)
 }
 
 // IsInputPending1Func returns the method "Scheduling.isInputPending".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Scheduling) IsInputPending1Func() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.SchedulingIsInputPending1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// IsInputPending1 calls the method "Scheduling.isInputPending".
+func (this Scheduling) IsInputPending1() (ret bool) {
+	bindings.CallSchedulingIsInputPending1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryIsInputPending1 calls the method "Scheduling.isInputPending"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Scheduling) TryIsInputPending1() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySchedulingIsInputPending1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type WakeLockType uint32
@@ -171,47 +198,58 @@ func (this WakeLockSentinel) Free() {
 
 // Released returns the value of property "WakeLockSentinel.released".
 //
-// The returned bool will be false if there is no such property.
-func (this WakeLockSentinel) Released() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetWakeLockSentinelReleased(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WakeLockSentinel) Released() (ret bool, ok bool) {
+	ok = js.True == bindings.GetWakeLockSentinelReleased(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Type returns the value of property "WakeLockSentinel.type".
 //
-// The returned bool will be false if there is no such property.
-func (this WakeLockSentinel) Type() (WakeLockType, bool) {
-	var _ok bool
-	_ret := bindings.GetWakeLockSentinelType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WakeLockSentinel) Type() (ret WakeLockType, ok bool) {
+	ok = js.True == bindings.GetWakeLockSentinelType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WakeLockType(_ret), _ok
+	return
 }
 
-// Release calls the method "WakeLockSentinel.release".
-//
-// The returned bool will be false if there is no such method.
-func (this WakeLockSentinel) Release() (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallWakeLockSentinelRelease(
-		this.Ref(), js.Pointer(&_ok),
+// HasRelease returns true if the method "WakeLockSentinel.release" exists.
+func (this WakeLockSentinel) HasRelease() bool {
+	return js.True == bindings.HasWakeLockSentinelRelease(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
 }
 
 // ReleaseFunc returns the method "WakeLockSentinel.release".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this WakeLockSentinel) ReleaseFunc() (fn js.Func[func() js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.WakeLockSentinelReleaseFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Release calls the method "WakeLockSentinel.release".
+func (this WakeLockSentinel) Release() (ret js.Promise[js.Void]) {
+	bindings.CallWakeLockSentinelRelease(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryRelease calls the method "WakeLockSentinel.release"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this WakeLockSentinel) TryRelease() (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryWakeLockSentinelRelease(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type WakeLock struct {
@@ -236,22 +274,14 @@ func (this WakeLock) Free() {
 	this.Ref().Free()
 }
 
-// Request calls the method "WakeLock.request".
-//
-// The returned bool will be false if there is no such method.
-func (this WakeLock) Request(typ WakeLockType) (js.Promise[WakeLockSentinel], bool) {
-	var _ok bool
-	_ret := bindings.CallWakeLockRequest(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(typ),
+// HasRequest returns true if the method "WakeLock.request" exists.
+func (this WakeLock) HasRequest() bool {
+	return js.True == bindings.HasWakeLockRequest(
+		this.Ref(),
 	)
-
-	return js.Promise[WakeLockSentinel]{}.FromRef(_ret), _ok
 }
 
 // RequestFunc returns the method "WakeLock.request".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this WakeLock) RequestFunc() (fn js.Func[func(typ WakeLockType) js.Promise[WakeLockSentinel]]) {
 	return fn.FromRef(
 		bindings.WakeLockRequestFunc(
@@ -260,27 +290,62 @@ func (this WakeLock) RequestFunc() (fn js.Func[func(typ WakeLockType) js.Promise
 	)
 }
 
-// Request1 calls the method "WakeLock.request".
-//
-// The returned bool will be false if there is no such method.
-func (this WakeLock) Request1() (js.Promise[WakeLockSentinel], bool) {
-	var _ok bool
-	_ret := bindings.CallWakeLockRequest1(
-		this.Ref(), js.Pointer(&_ok),
+// Request calls the method "WakeLock.request".
+func (this WakeLock) Request(typ WakeLockType) (ret js.Promise[WakeLockSentinel]) {
+	bindings.CallWakeLockRequest(
+		this.Ref(), js.Pointer(&ret),
+		uint32(typ),
 	)
 
-	return js.Promise[WakeLockSentinel]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRequest calls the method "WakeLock.request"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this WakeLock) TryRequest(typ WakeLockType) (ret js.Promise[WakeLockSentinel], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryWakeLockRequest(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(typ),
+	)
+
+	return
+}
+
+// HasRequest1 returns true if the method "WakeLock.request" exists.
+func (this WakeLock) HasRequest1() bool {
+	return js.True == bindings.HasWakeLockRequest1(
+		this.Ref(),
+	)
 }
 
 // Request1Func returns the method "WakeLock.request".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this WakeLock) Request1Func() (fn js.Func[func() js.Promise[WakeLockSentinel]]) {
 	return fn.FromRef(
 		bindings.WakeLockRequest1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// Request1 calls the method "WakeLock.request".
+func (this WakeLock) Request1() (ret js.Promise[WakeLockSentinel]) {
+	bindings.CallWakeLockRequest1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryRequest1 calls the method "WakeLock.request"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this WakeLock) TryRequest1() (ret js.Promise[WakeLockSentinel], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryWakeLockRequest1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type PointerEventInit struct {
@@ -419,19 +484,17 @@ func (p PointerEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewPointerEvent(typ js.String, eventInitDict PointerEventInit) PointerEvent {
-	return PointerEvent{}.FromRef(
-		bindings.NewPointerEventByPointerEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewPointerEvent(typ js.String, eventInitDict PointerEventInit) (ret PointerEvent) {
+	ret.ref = bindings.NewPointerEventByPointerEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewPointerEventByPointerEvent1(typ js.String) PointerEvent {
-	return PointerEvent{}.FromRef(
-		bindings.NewPointerEventByPointerEvent1(
-			typ.Ref()),
-	)
+func NewPointerEventByPointerEvent1(typ js.String) (ret PointerEvent) {
+	ret.ref = bindings.NewPointerEventByPointerEvent1(
+		typ.Ref())
+	return
 }
 
 type PointerEvent struct {
@@ -458,151 +521,132 @@ func (this PointerEvent) Free() {
 
 // PointerId returns the value of property "PointerEvent.pointerId".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) PointerId() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventPointerId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) PointerId() (ret int32, ok bool) {
+	ok = js.True == bindings.GetPointerEventPointerId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 // Width returns the value of property "PointerEvent.width".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) Width() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) Width() (ret float64, ok bool) {
+	ok = js.True == bindings.GetPointerEventWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Height returns the value of property "PointerEvent.height".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) Height() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) Height() (ret float64, ok bool) {
+	ok = js.True == bindings.GetPointerEventHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Pressure returns the value of property "PointerEvent.pressure".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) Pressure() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventPressure(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) Pressure() (ret float32, ok bool) {
+	ok = js.True == bindings.GetPointerEventPressure(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // TangentialPressure returns the value of property "PointerEvent.tangentialPressure".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) TangentialPressure() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventTangentialPressure(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) TangentialPressure() (ret float32, ok bool) {
+	ok = js.True == bindings.GetPointerEventTangentialPressure(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // TiltX returns the value of property "PointerEvent.tiltX".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) TiltX() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventTiltX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) TiltX() (ret int32, ok bool) {
+	ok = js.True == bindings.GetPointerEventTiltX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 // TiltY returns the value of property "PointerEvent.tiltY".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) TiltY() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventTiltY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) TiltY() (ret int32, ok bool) {
+	ok = js.True == bindings.GetPointerEventTiltY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 // Twist returns the value of property "PointerEvent.twist".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) Twist() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventTwist(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) Twist() (ret int32, ok bool) {
+	ok = js.True == bindings.GetPointerEventTwist(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 // AltitudeAngle returns the value of property "PointerEvent.altitudeAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) AltitudeAngle() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventAltitudeAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) AltitudeAngle() (ret float64, ok bool) {
+	ok = js.True == bindings.GetPointerEventAltitudeAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // AzimuthAngle returns the value of property "PointerEvent.azimuthAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) AzimuthAngle() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventAzimuthAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) AzimuthAngle() (ret float64, ok bool) {
+	ok = js.True == bindings.GetPointerEventAzimuthAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // PointerType returns the value of property "PointerEvent.pointerType".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) PointerType() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventPointerType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) PointerType() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPointerEventPointerType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // IsPrimary returns the value of property "PointerEvent.isPrimary".
 //
-// The returned bool will be false if there is no such property.
-func (this PointerEvent) IsPrimary() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetPointerEventIsPrimary(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PointerEvent) IsPrimary() (ret bool, ok bool) {
+	ok = js.True == bindings.GetPointerEventIsPrimary(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// GetCoalescedEvents calls the method "PointerEvent.getCoalescedEvents".
-//
-// The returned bool will be false if there is no such method.
-func (this PointerEvent) GetCoalescedEvents() (js.Array[PointerEvent], bool) {
-	var _ok bool
-	_ret := bindings.CallPointerEventGetCoalescedEvents(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetCoalescedEvents returns true if the method "PointerEvent.getCoalescedEvents" exists.
+func (this PointerEvent) HasGetCoalescedEvents() bool {
+	return js.True == bindings.HasPointerEventGetCoalescedEvents(
+		this.Ref(),
 	)
-
-	return js.Array[PointerEvent]{}.FromRef(_ret), _ok
 }
 
 // GetCoalescedEventsFunc returns the method "PointerEvent.getCoalescedEvents".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PointerEvent) GetCoalescedEventsFunc() (fn js.Func[func() js.Array[PointerEvent]]) {
 	return fn.FromRef(
 		bindings.PointerEventGetCoalescedEventsFunc(
@@ -611,27 +655,60 @@ func (this PointerEvent) GetCoalescedEventsFunc() (fn js.Func[func() js.Array[Po
 	)
 }
 
-// GetPredictedEvents calls the method "PointerEvent.getPredictedEvents".
-//
-// The returned bool will be false if there is no such method.
-func (this PointerEvent) GetPredictedEvents() (js.Array[PointerEvent], bool) {
-	var _ok bool
-	_ret := bindings.CallPointerEventGetPredictedEvents(
-		this.Ref(), js.Pointer(&_ok),
+// GetCoalescedEvents calls the method "PointerEvent.getCoalescedEvents".
+func (this PointerEvent) GetCoalescedEvents() (ret js.Array[PointerEvent]) {
+	bindings.CallPointerEventGetCoalescedEvents(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Array[PointerEvent]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetCoalescedEvents calls the method "PointerEvent.getCoalescedEvents"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PointerEvent) TryGetCoalescedEvents() (ret js.Array[PointerEvent], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPointerEventGetCoalescedEvents(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetPredictedEvents returns true if the method "PointerEvent.getPredictedEvents" exists.
+func (this PointerEvent) HasGetPredictedEvents() bool {
+	return js.True == bindings.HasPointerEventGetPredictedEvents(
+		this.Ref(),
+	)
 }
 
 // GetPredictedEventsFunc returns the method "PointerEvent.getPredictedEvents".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PointerEvent) GetPredictedEventsFunc() (fn js.Func[func() js.Array[PointerEvent]]) {
 	return fn.FromRef(
 		bindings.PointerEventGetPredictedEventsFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetPredictedEvents calls the method "PointerEvent.getPredictedEvents".
+func (this PointerEvent) GetPredictedEvents() (ret js.Array[PointerEvent]) {
+	bindings.CallPointerEventGetPredictedEvents(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetPredictedEvents calls the method "PointerEvent.getPredictedEvents"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PointerEvent) TryGetPredictedEvents() (ret js.Array[PointerEvent], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPointerEventGetPredictedEvents(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type InkTrailStyle struct {
@@ -698,50 +775,62 @@ func (this InkPresenter) Free() {
 
 // PresentationArea returns the value of property "InkPresenter.presentationArea".
 //
-// The returned bool will be false if there is no such property.
-func (this InkPresenter) PresentationArea() (Element, bool) {
-	var _ok bool
-	_ret := bindings.GetInkPresenterPresentationArea(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this InkPresenter) PresentationArea() (ret Element, ok bool) {
+	ok = js.True == bindings.GetInkPresenterPresentationArea(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Element{}.FromRef(_ret), _ok
+	return
 }
 
 // ExpectedImprovement returns the value of property "InkPresenter.expectedImprovement".
 //
-// The returned bool will be false if there is no such property.
-func (this InkPresenter) ExpectedImprovement() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetInkPresenterExpectedImprovement(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this InkPresenter) ExpectedImprovement() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetInkPresenterExpectedImprovement(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// UpdateInkTrailStartPoint calls the method "InkPresenter.updateInkTrailStartPoint".
-//
-// The returned bool will be false if there is no such method.
-func (this InkPresenter) UpdateInkTrailStartPoint(event PointerEvent, style InkTrailStyle) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallInkPresenterUpdateInkTrailStartPoint(
-		this.Ref(), js.Pointer(&_ok),
-		event.Ref(),
-		js.Pointer(&style),
+// HasUpdateInkTrailStartPoint returns true if the method "InkPresenter.updateInkTrailStartPoint" exists.
+func (this InkPresenter) HasUpdateInkTrailStartPoint() bool {
+	return js.True == bindings.HasInkPresenterUpdateInkTrailStartPoint(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // UpdateInkTrailStartPointFunc returns the method "InkPresenter.updateInkTrailStartPoint".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this InkPresenter) UpdateInkTrailStartPointFunc() (fn js.Func[func(event PointerEvent, style InkTrailStyle)]) {
 	return fn.FromRef(
 		bindings.InkPresenterUpdateInkTrailStartPointFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// UpdateInkTrailStartPoint calls the method "InkPresenter.updateInkTrailStartPoint".
+func (this InkPresenter) UpdateInkTrailStartPoint(event PointerEvent, style InkTrailStyle) (ret js.Void) {
+	bindings.CallInkPresenterUpdateInkTrailStartPoint(
+		this.Ref(), js.Pointer(&ret),
+		event.Ref(),
+		js.Pointer(&style),
+	)
+
+	return
+}
+
+// TryUpdateInkTrailStartPoint calls the method "InkPresenter.updateInkTrailStartPoint"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this InkPresenter) TryUpdateInkTrailStartPoint(event PointerEvent, style InkTrailStyle) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryInkPresenterUpdateInkTrailStartPoint(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		event.Ref(),
+		js.Pointer(&style),
+	)
+
+	return
 }
 
 type InkPresenterParam struct {
@@ -802,22 +891,14 @@ func (this Ink) Free() {
 	this.Ref().Free()
 }
 
-// RequestPresenter calls the method "Ink.requestPresenter".
-//
-// The returned bool will be false if there is no such method.
-func (this Ink) RequestPresenter(param InkPresenterParam) (js.Promise[InkPresenter], bool) {
-	var _ok bool
-	_ret := bindings.CallInkRequestPresenter(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&param),
+// HasRequestPresenter returns true if the method "Ink.requestPresenter" exists.
+func (this Ink) HasRequestPresenter() bool {
+	return js.True == bindings.HasInkRequestPresenter(
+		this.Ref(),
 	)
-
-	return js.Promise[InkPresenter]{}.FromRef(_ret), _ok
 }
 
 // RequestPresenterFunc returns the method "Ink.requestPresenter".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Ink) RequestPresenterFunc() (fn js.Func[func(param InkPresenterParam) js.Promise[InkPresenter]]) {
 	return fn.FromRef(
 		bindings.InkRequestPresenterFunc(
@@ -826,27 +907,62 @@ func (this Ink) RequestPresenterFunc() (fn js.Func[func(param InkPresenterParam)
 	)
 }
 
-// RequestPresenter1 calls the method "Ink.requestPresenter".
-//
-// The returned bool will be false if there is no such method.
-func (this Ink) RequestPresenter1() (js.Promise[InkPresenter], bool) {
-	var _ok bool
-	_ret := bindings.CallInkRequestPresenter1(
-		this.Ref(), js.Pointer(&_ok),
+// RequestPresenter calls the method "Ink.requestPresenter".
+func (this Ink) RequestPresenter(param InkPresenterParam) (ret js.Promise[InkPresenter]) {
+	bindings.CallInkRequestPresenter(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&param),
 	)
 
-	return js.Promise[InkPresenter]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRequestPresenter calls the method "Ink.requestPresenter"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Ink) TryRequestPresenter(param InkPresenterParam) (ret js.Promise[InkPresenter], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryInkRequestPresenter(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&param),
+	)
+
+	return
+}
+
+// HasRequestPresenter1 returns true if the method "Ink.requestPresenter" exists.
+func (this Ink) HasRequestPresenter1() bool {
+	return js.True == bindings.HasInkRequestPresenter1(
+		this.Ref(),
+	)
 }
 
 // RequestPresenter1Func returns the method "Ink.requestPresenter".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Ink) RequestPresenter1Func() (fn js.Func[func() js.Promise[InkPresenter]]) {
 	return fn.FromRef(
 		bindings.InkRequestPresenter1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// RequestPresenter1 calls the method "Ink.requestPresenter".
+func (this Ink) RequestPresenter1() (ret js.Promise[InkPresenter]) {
+	bindings.CallInkRequestPresenter1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryRequestPresenter1 calls the method "Ink.requestPresenter"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Ink) TryRequestPresenter1() (ret js.Promise[InkPresenter], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryInkRequestPresenter1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type PresentationConnectionState uint32
@@ -903,49 +1019,45 @@ func (this PresentationConnection) Free() {
 
 // Id returns the value of property "PresentationConnection.id".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnection) Id() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnection) Id() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Url returns the value of property "PresentationConnection.url".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnection) Url() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionUrl(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnection) Url() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionUrl(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // State returns the value of property "PresentationConnection.state".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnection) State() (PresentationConnectionState, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnection) State() (ret PresentationConnectionState, ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PresentationConnectionState(_ret), _ok
+	return
 }
 
 // BinaryType returns the value of property "PresentationConnection.binaryType".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnection) BinaryType() (BinaryType, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionBinaryType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnection) BinaryType() (ret BinaryType, ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionBinaryType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return BinaryType(_ret), _ok
+	return
 }
 
-// BinaryType sets the value of property "PresentationConnection.binaryType" to val.
+// SetBinaryType sets the value of property "PresentationConnection.binaryType" to val.
 //
 // It returns false if the property cannot be set.
 func (this PresentationConnection) SetBinaryType(val BinaryType) bool {
@@ -955,22 +1067,14 @@ func (this PresentationConnection) SetBinaryType(val BinaryType) bool {
 	)
 }
 
-// Close calls the method "PresentationConnection.close".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationConnection) Close() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationConnectionClose(
-		this.Ref(), js.Pointer(&_ok),
+// HasClose returns true if the method "PresentationConnection.close" exists.
+func (this PresentationConnection) HasClose() bool {
+	return js.True == bindings.HasPresentationConnectionClose(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // CloseFunc returns the method "PresentationConnection.close".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationConnection) CloseFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.PresentationConnectionCloseFunc(
@@ -979,22 +1083,34 @@ func (this PresentationConnection) CloseFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Terminate calls the method "PresentationConnection.terminate".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationConnection) Terminate() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationConnectionTerminate(
-		this.Ref(), js.Pointer(&_ok),
+// Close calls the method "PresentationConnection.close".
+func (this PresentationConnection) Close() (ret js.Void) {
+	bindings.CallPresentationConnectionClose(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClose calls the method "PresentationConnection.close"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationConnection) TryClose() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationConnectionClose(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasTerminate returns true if the method "PresentationConnection.terminate" exists.
+func (this PresentationConnection) HasTerminate() bool {
+	return js.True == bindings.HasPresentationConnectionTerminate(
+		this.Ref(),
+	)
 }
 
 // TerminateFunc returns the method "PresentationConnection.terminate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationConnection) TerminateFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.PresentationConnectionTerminateFunc(
@@ -1003,23 +1119,34 @@ func (this PresentationConnection) TerminateFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Send calls the method "PresentationConnection.send".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationConnection) Send(message js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationConnectionSend(
-		this.Ref(), js.Pointer(&_ok),
-		message.Ref(),
+// Terminate calls the method "PresentationConnection.terminate".
+func (this PresentationConnection) Terminate() (ret js.Void) {
+	bindings.CallPresentationConnectionTerminate(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryTerminate calls the method "PresentationConnection.terminate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationConnection) TryTerminate() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationConnectionTerminate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSend returns true if the method "PresentationConnection.send" exists.
+func (this PresentationConnection) HasSend() bool {
+	return js.True == bindings.HasPresentationConnectionSend(
+		this.Ref(),
+	)
 }
 
 // SendFunc returns the method "PresentationConnection.send".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationConnection) SendFunc() (fn js.Func[func(message js.String)]) {
 	return fn.FromRef(
 		bindings.PresentationConnectionSendFunc(
@@ -1028,23 +1155,36 @@ func (this PresentationConnection) SendFunc() (fn js.Func[func(message js.String
 	)
 }
 
-// Send1 calls the method "PresentationConnection.send".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationConnection) Send1(data Blob) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationConnectionSend1(
-		this.Ref(), js.Pointer(&_ok),
-		data.Ref(),
+// Send calls the method "PresentationConnection.send".
+func (this PresentationConnection) Send(message js.String) (ret js.Void) {
+	bindings.CallPresentationConnectionSend(
+		this.Ref(), js.Pointer(&ret),
+		message.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySend calls the method "PresentationConnection.send"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationConnection) TrySend(message js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationConnectionSend(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		message.Ref(),
+	)
+
+	return
+}
+
+// HasSend1 returns true if the method "PresentationConnection.send" exists.
+func (this PresentationConnection) HasSend1() bool {
+	return js.True == bindings.HasPresentationConnectionSend1(
+		this.Ref(),
+	)
 }
 
 // Send1Func returns the method "PresentationConnection.send".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationConnection) Send1Func() (fn js.Func[func(data Blob)]) {
 	return fn.FromRef(
 		bindings.PresentationConnectionSend1Func(
@@ -1053,23 +1193,36 @@ func (this PresentationConnection) Send1Func() (fn js.Func[func(data Blob)]) {
 	)
 }
 
-// Send2 calls the method "PresentationConnection.send".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationConnection) Send2(data js.ArrayBuffer) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationConnectionSend2(
-		this.Ref(), js.Pointer(&_ok),
+// Send1 calls the method "PresentationConnection.send".
+func (this PresentationConnection) Send1(data Blob) (ret js.Void) {
+	bindings.CallPresentationConnectionSend1(
+		this.Ref(), js.Pointer(&ret),
 		data.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySend1 calls the method "PresentationConnection.send"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationConnection) TrySend1(data Blob) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationConnectionSend1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
+}
+
+// HasSend2 returns true if the method "PresentationConnection.send" exists.
+func (this PresentationConnection) HasSend2() bool {
+	return js.True == bindings.HasPresentationConnectionSend2(
+		this.Ref(),
+	)
 }
 
 // Send2Func returns the method "PresentationConnection.send".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationConnection) Send2Func() (fn js.Func[func(data js.ArrayBuffer)]) {
 	return fn.FromRef(
 		bindings.PresentationConnectionSend2Func(
@@ -1078,29 +1231,64 @@ func (this PresentationConnection) Send2Func() (fn js.Func[func(data js.ArrayBuf
 	)
 }
 
-// Send3 calls the method "PresentationConnection.send".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationConnection) Send3(data ArrayBufferView) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationConnectionSend3(
-		this.Ref(), js.Pointer(&_ok),
+// Send2 calls the method "PresentationConnection.send".
+func (this PresentationConnection) Send2(data js.ArrayBuffer) (ret js.Void) {
+	bindings.CallPresentationConnectionSend2(
+		this.Ref(), js.Pointer(&ret),
 		data.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySend2 calls the method "PresentationConnection.send"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationConnection) TrySend2(data js.ArrayBuffer) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationConnectionSend2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
+}
+
+// HasSend3 returns true if the method "PresentationConnection.send" exists.
+func (this PresentationConnection) HasSend3() bool {
+	return js.True == bindings.HasPresentationConnectionSend3(
+		this.Ref(),
+	)
 }
 
 // Send3Func returns the method "PresentationConnection.send".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this PresentationConnection) Send3Func() (fn js.Func[func(data ArrayBufferView)]) {
+func (this PresentationConnection) Send3Func() (fn js.Func[func(data js.ArrayBufferView)]) {
 	return fn.FromRef(
 		bindings.PresentationConnectionSend3Func(
 			this.Ref(),
 		),
 	)
+}
+
+// Send3 calls the method "PresentationConnection.send".
+func (this PresentationConnection) Send3(data js.ArrayBufferView) (ret js.Void) {
+	bindings.CallPresentationConnectionSend3(
+		this.Ref(), js.Pointer(&ret),
+		data.Ref(),
+	)
+
+	return
+}
+
+// TrySend3 calls the method "PresentationConnection.send"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationConnection) TrySend3(data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationConnectionSend3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
 }
 
 type PresentationAvailability struct {
@@ -1127,27 +1315,24 @@ func (this PresentationAvailability) Free() {
 
 // Value returns the value of property "PresentationAvailability.value".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationAvailability) Value() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationAvailabilityValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationAvailability) Value() (ret bool, ok bool) {
+	ok = js.True == bindings.GetPresentationAvailabilityValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-func NewPresentationRequest(url js.String) PresentationRequest {
-	return PresentationRequest{}.FromRef(
-		bindings.NewPresentationRequestByPresentationRequest(
-			url.Ref()),
-	)
+func NewPresentationRequest(url js.String) (ret PresentationRequest) {
+	ret.ref = bindings.NewPresentationRequestByPresentationRequest(
+		url.Ref())
+	return
 }
 
-func NewPresentationRequestByPresentationRequest1(urls js.Array[js.String]) PresentationRequest {
-	return PresentationRequest{}.FromRef(
-		bindings.NewPresentationRequestByPresentationRequest1(
-			urls.Ref()),
-	)
+func NewPresentationRequestByPresentationRequest1(urls js.Array[js.String]) (ret PresentationRequest) {
+	ret.ref = bindings.NewPresentationRequestByPresentationRequest1(
+		urls.Ref())
+	return
 }
 
 type PresentationRequest struct {
@@ -1172,21 +1357,14 @@ func (this PresentationRequest) Free() {
 	this.Ref().Free()
 }
 
-// Start calls the method "PresentationRequest.start".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationRequest) Start() (js.Promise[PresentationConnection], bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationRequestStart(
-		this.Ref(), js.Pointer(&_ok),
+// HasStart returns true if the method "PresentationRequest.start" exists.
+func (this PresentationRequest) HasStart() bool {
+	return js.True == bindings.HasPresentationRequestStart(
+		this.Ref(),
 	)
-
-	return js.Promise[PresentationConnection]{}.FromRef(_ret), _ok
 }
 
 // StartFunc returns the method "PresentationRequest.start".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationRequest) StartFunc() (fn js.Func[func() js.Promise[PresentationConnection]]) {
 	return fn.FromRef(
 		bindings.PresentationRequestStartFunc(
@@ -1195,22 +1373,34 @@ func (this PresentationRequest) StartFunc() (fn js.Func[func() js.Promise[Presen
 	)
 }
 
-// Reconnect calls the method "PresentationRequest.reconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationRequest) Reconnect(presentationId js.String) (js.Promise[PresentationConnection], bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationRequestReconnect(
-		this.Ref(), js.Pointer(&_ok),
-		presentationId.Ref(),
+// Start calls the method "PresentationRequest.start".
+func (this PresentationRequest) Start() (ret js.Promise[PresentationConnection]) {
+	bindings.CallPresentationRequestStart(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[PresentationConnection]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryStart calls the method "PresentationRequest.start"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationRequest) TryStart() (ret js.Promise[PresentationConnection], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationRequestStart(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReconnect returns true if the method "PresentationRequest.reconnect" exists.
+func (this PresentationRequest) HasReconnect() bool {
+	return js.True == bindings.HasPresentationRequestReconnect(
+		this.Ref(),
+	)
 }
 
 // ReconnectFunc returns the method "PresentationRequest.reconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationRequest) ReconnectFunc() (fn js.Func[func(presentationId js.String) js.Promise[PresentationConnection]]) {
 	return fn.FromRef(
 		bindings.PresentationRequestReconnectFunc(
@@ -1219,27 +1409,62 @@ func (this PresentationRequest) ReconnectFunc() (fn js.Func[func(presentationId 
 	)
 }
 
-// GetAvailability calls the method "PresentationRequest.getAvailability".
-//
-// The returned bool will be false if there is no such method.
-func (this PresentationRequest) GetAvailability() (js.Promise[PresentationAvailability], bool) {
-	var _ok bool
-	_ret := bindings.CallPresentationRequestGetAvailability(
-		this.Ref(), js.Pointer(&_ok),
+// Reconnect calls the method "PresentationRequest.reconnect".
+func (this PresentationRequest) Reconnect(presentationId js.String) (ret js.Promise[PresentationConnection]) {
+	bindings.CallPresentationRequestReconnect(
+		this.Ref(), js.Pointer(&ret),
+		presentationId.Ref(),
 	)
 
-	return js.Promise[PresentationAvailability]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReconnect calls the method "PresentationRequest.reconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationRequest) TryReconnect(presentationId js.String) (ret js.Promise[PresentationConnection], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationRequestReconnect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		presentationId.Ref(),
+	)
+
+	return
+}
+
+// HasGetAvailability returns true if the method "PresentationRequest.getAvailability" exists.
+func (this PresentationRequest) HasGetAvailability() bool {
+	return js.True == bindings.HasPresentationRequestGetAvailability(
+		this.Ref(),
+	)
 }
 
 // GetAvailabilityFunc returns the method "PresentationRequest.getAvailability".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PresentationRequest) GetAvailabilityFunc() (fn js.Func[func() js.Promise[PresentationAvailability]]) {
 	return fn.FromRef(
 		bindings.PresentationRequestGetAvailabilityFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetAvailability calls the method "PresentationRequest.getAvailability".
+func (this PresentationRequest) GetAvailability() (ret js.Promise[PresentationAvailability]) {
+	bindings.CallPresentationRequestGetAvailability(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetAvailability calls the method "PresentationRequest.getAvailability"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PresentationRequest) TryGetAvailability() (ret js.Promise[PresentationAvailability], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPresentationRequestGetAvailability(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type PresentationConnectionList struct {
@@ -1266,13 +1491,12 @@ func (this PresentationConnectionList) Free() {
 
 // Connections returns the value of property "PresentationConnectionList.connections".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnectionList) Connections() (js.FrozenArray[PresentationConnection], bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionListConnections(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnectionList) Connections() (ret js.FrozenArray[PresentationConnection], ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionListConnections(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[PresentationConnection]{}.FromRef(_ret), _ok
+	return
 }
 
 type PresentationReceiver struct {
@@ -1299,13 +1523,12 @@ func (this PresentationReceiver) Free() {
 
 // ConnectionList returns the value of property "PresentationReceiver.connectionList".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationReceiver) ConnectionList() (js.Promise[PresentationConnectionList], bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationReceiverConnectionList(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationReceiver) ConnectionList() (ret js.Promise[PresentationConnectionList], ok bool) {
+	ok = js.True == bindings.GetPresentationReceiverConnectionList(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Promise[PresentationConnectionList]{}.FromRef(_ret), _ok
+	return
 }
 
 type Presentation struct {
@@ -1332,16 +1555,15 @@ func (this Presentation) Free() {
 
 // DefaultRequest returns the value of property "Presentation.defaultRequest".
 //
-// The returned bool will be false if there is no such property.
-func (this Presentation) DefaultRequest() (PresentationRequest, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationDefaultRequest(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Presentation) DefaultRequest() (ret PresentationRequest, ok bool) {
+	ok = js.True == bindings.GetPresentationDefaultRequest(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PresentationRequest{}.FromRef(_ret), _ok
+	return
 }
 
-// DefaultRequest sets the value of property "Presentation.defaultRequest" to val.
+// SetDefaultRequest sets the value of property "Presentation.defaultRequest" to val.
 //
 // It returns false if the property cannot be set.
 func (this Presentation) SetDefaultRequest(val PresentationRequest) bool {
@@ -1353,13 +1575,12 @@ func (this Presentation) SetDefaultRequest(val PresentationRequest) bool {
 
 // Receiver returns the value of property "Presentation.receiver".
 //
-// The returned bool will be false if there is no such property.
-func (this Presentation) Receiver() (PresentationReceiver, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationReceiver(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Presentation) Receiver() (ret PresentationReceiver, ok bool) {
+	ok = js.True == bindings.GetPresentationReceiver(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PresentationReceiver{}.FromRef(_ret), _ok
+	return
 }
 
 type VirtualKeyboard struct {
@@ -1386,27 +1607,25 @@ func (this VirtualKeyboard) Free() {
 
 // BoundingRect returns the value of property "VirtualKeyboard.boundingRect".
 //
-// The returned bool will be false if there is no such property.
-func (this VirtualKeyboard) BoundingRect() (DOMRect, bool) {
-	var _ok bool
-	_ret := bindings.GetVirtualKeyboardBoundingRect(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this VirtualKeyboard) BoundingRect() (ret DOMRect, ok bool) {
+	ok = js.True == bindings.GetVirtualKeyboardBoundingRect(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMRect{}.FromRef(_ret), _ok
+	return
 }
 
 // OverlaysContent returns the value of property "VirtualKeyboard.overlaysContent".
 //
-// The returned bool will be false if there is no such property.
-func (this VirtualKeyboard) OverlaysContent() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetVirtualKeyboardOverlaysContent(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this VirtualKeyboard) OverlaysContent() (ret bool, ok bool) {
+	ok = js.True == bindings.GetVirtualKeyboardOverlaysContent(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// OverlaysContent sets the value of property "VirtualKeyboard.overlaysContent" to val.
+// SetOverlaysContent sets the value of property "VirtualKeyboard.overlaysContent" to val.
 //
 // It returns false if the property cannot be set.
 func (this VirtualKeyboard) SetOverlaysContent(val bool) bool {
@@ -1416,22 +1635,14 @@ func (this VirtualKeyboard) SetOverlaysContent(val bool) bool {
 	)
 }
 
-// Show calls the method "VirtualKeyboard.show".
-//
-// The returned bool will be false if there is no such method.
-func (this VirtualKeyboard) Show() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallVirtualKeyboardShow(
-		this.Ref(), js.Pointer(&_ok),
+// HasShow returns true if the method "VirtualKeyboard.show" exists.
+func (this VirtualKeyboard) HasShow() bool {
+	return js.True == bindings.HasVirtualKeyboardShow(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ShowFunc returns the method "VirtualKeyboard.show".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this VirtualKeyboard) ShowFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.VirtualKeyboardShowFunc(
@@ -1440,28 +1651,60 @@ func (this VirtualKeyboard) ShowFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Hide calls the method "VirtualKeyboard.hide".
-//
-// The returned bool will be false if there is no such method.
-func (this VirtualKeyboard) Hide() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallVirtualKeyboardHide(
-		this.Ref(), js.Pointer(&_ok),
+// Show calls the method "VirtualKeyboard.show".
+func (this VirtualKeyboard) Show() (ret js.Void) {
+	bindings.CallVirtualKeyboardShow(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryShow calls the method "VirtualKeyboard.show"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this VirtualKeyboard) TryShow() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryVirtualKeyboardShow(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasHide returns true if the method "VirtualKeyboard.hide" exists.
+func (this VirtualKeyboard) HasHide() bool {
+	return js.True == bindings.HasVirtualKeyboardHide(
+		this.Ref(),
+	)
 }
 
 // HideFunc returns the method "VirtualKeyboard.hide".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this VirtualKeyboard) HideFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.VirtualKeyboardHideFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Hide calls the method "VirtualKeyboard.hide".
+func (this VirtualKeyboard) Hide() (ret js.Void) {
+	bindings.CallVirtualKeyboardHide(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryHide calls the method "VirtualKeyboard.hide"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this VirtualKeyboard) TryHide() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryVirtualKeyboardHide(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type NavigatorUABrandVersion struct {
@@ -1659,53 +1902,42 @@ func (this NavigatorUAData) Free() {
 
 // Brands returns the value of property "NavigatorUAData.brands".
 //
-// The returned bool will be false if there is no such property.
-func (this NavigatorUAData) Brands() (js.FrozenArray[NavigatorUABrandVersion], bool) {
-	var _ok bool
-	_ret := bindings.GetNavigatorUADataBrands(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this NavigatorUAData) Brands() (ret js.FrozenArray[NavigatorUABrandVersion], ok bool) {
+	ok = js.True == bindings.GetNavigatorUADataBrands(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[NavigatorUABrandVersion]{}.FromRef(_ret), _ok
+	return
 }
 
 // Mobile returns the value of property "NavigatorUAData.mobile".
 //
-// The returned bool will be false if there is no such property.
-func (this NavigatorUAData) Mobile() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetNavigatorUADataMobile(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this NavigatorUAData) Mobile() (ret bool, ok bool) {
+	ok = js.True == bindings.GetNavigatorUADataMobile(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Platform returns the value of property "NavigatorUAData.platform".
 //
-// The returned bool will be false if there is no such property.
-func (this NavigatorUAData) Platform() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetNavigatorUADataPlatform(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this NavigatorUAData) Platform() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetNavigatorUADataPlatform(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// GetHighEntropyValues calls the method "NavigatorUAData.getHighEntropyValues".
-//
-// The returned bool will be false if there is no such method.
-func (this NavigatorUAData) GetHighEntropyValues(hints js.Array[js.String]) (js.Promise[UADataValues], bool) {
-	var _ok bool
-	_ret := bindings.CallNavigatorUADataGetHighEntropyValues(
-		this.Ref(), js.Pointer(&_ok),
-		hints.Ref(),
+// HasGetHighEntropyValues returns true if the method "NavigatorUAData.getHighEntropyValues" exists.
+func (this NavigatorUAData) HasGetHighEntropyValues() bool {
+	return js.True == bindings.HasNavigatorUADataGetHighEntropyValues(
+		this.Ref(),
 	)
-
-	return js.Promise[UADataValues]{}.FromRef(_ret), _ok
 }
 
 // GetHighEntropyValuesFunc returns the method "NavigatorUAData.getHighEntropyValues".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this NavigatorUAData) GetHighEntropyValuesFunc() (fn js.Func[func(hints js.Array[js.String]) js.Promise[UADataValues]]) {
 	return fn.FromRef(
 		bindings.NavigatorUADataGetHighEntropyValuesFunc(
@@ -1714,27 +1946,62 @@ func (this NavigatorUAData) GetHighEntropyValuesFunc() (fn js.Func[func(hints js
 	)
 }
 
-// ToJSON calls the method "NavigatorUAData.toJSON".
-//
-// The returned bool will be false if there is no such method.
-func (this NavigatorUAData) ToJSON() (UALowEntropyJSON, bool) {
-	var _ret UALowEntropyJSON
-	_ok := js.True == bindings.CallNavigatorUADataToJSON(
-		this.Ref(), js.Pointer(&_ret),
+// GetHighEntropyValues calls the method "NavigatorUAData.getHighEntropyValues".
+func (this NavigatorUAData) GetHighEntropyValues(hints js.Array[js.String]) (ret js.Promise[UADataValues]) {
+	bindings.CallNavigatorUADataGetHighEntropyValues(
+		this.Ref(), js.Pointer(&ret),
+		hints.Ref(),
 	)
 
-	return _ret, _ok
+	return
+}
+
+// TryGetHighEntropyValues calls the method "NavigatorUAData.getHighEntropyValues"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this NavigatorUAData) TryGetHighEntropyValues(hints js.Array[js.String]) (ret js.Promise[UADataValues], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryNavigatorUADataGetHighEntropyValues(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		hints.Ref(),
+	)
+
+	return
+}
+
+// HasToJSON returns true if the method "NavigatorUAData.toJSON" exists.
+func (this NavigatorUAData) HasToJSON() bool {
+	return js.True == bindings.HasNavigatorUADataToJSON(
+		this.Ref(),
+	)
 }
 
 // ToJSONFunc returns the method "NavigatorUAData.toJSON".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this NavigatorUAData) ToJSONFunc() (fn js.Func[func() UALowEntropyJSON]) {
 	return fn.FromRef(
 		bindings.NavigatorUADataToJSONFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// ToJSON calls the method "NavigatorUAData.toJSON".
+func (this NavigatorUAData) ToJSON() (ret UALowEntropyJSON) {
+	bindings.CallNavigatorUADataToJSON(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryToJSON calls the method "NavigatorUAData.toJSON"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this NavigatorUAData) TryToJSON() (ret UALowEntropyJSON, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryNavigatorUADataToJSON(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type StorageEstimate struct {
@@ -1806,21 +2073,14 @@ func (this StorageManager) Free() {
 	this.Ref().Free()
 }
 
-// Persisted calls the method "StorageManager.persisted".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageManager) Persisted() (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageManagerPersisted(
-		this.Ref(), js.Pointer(&_ok),
+// HasPersisted returns true if the method "StorageManager.persisted" exists.
+func (this StorageManager) HasPersisted() bool {
+	return js.True == bindings.HasStorageManagerPersisted(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
 }
 
 // PersistedFunc returns the method "StorageManager.persisted".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageManager) PersistedFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.StorageManagerPersistedFunc(
@@ -1829,21 +2089,34 @@ func (this StorageManager) PersistedFunc() (fn js.Func[func() js.Promise[js.Bool
 	)
 }
 
-// Persist calls the method "StorageManager.persist".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageManager) Persist() (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageManagerPersist(
-		this.Ref(), js.Pointer(&_ok),
+// Persisted calls the method "StorageManager.persisted".
+func (this StorageManager) Persisted() (ret js.Promise[js.Boolean]) {
+	bindings.CallStorageManagerPersisted(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryPersisted calls the method "StorageManager.persisted"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageManager) TryPersisted() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageManagerPersisted(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasPersist returns true if the method "StorageManager.persist" exists.
+func (this StorageManager) HasPersist() bool {
+	return js.True == bindings.HasStorageManagerPersist(
+		this.Ref(),
+	)
 }
 
 // PersistFunc returns the method "StorageManager.persist".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageManager) PersistFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.StorageManagerPersistFunc(
@@ -1852,21 +2125,34 @@ func (this StorageManager) PersistFunc() (fn js.Func[func() js.Promise[js.Boolea
 	)
 }
 
-// Estimate calls the method "StorageManager.estimate".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageManager) Estimate() (js.Promise[StorageEstimate], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageManagerEstimate(
-		this.Ref(), js.Pointer(&_ok),
+// Persist calls the method "StorageManager.persist".
+func (this StorageManager) Persist() (ret js.Promise[js.Boolean]) {
+	bindings.CallStorageManagerPersist(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[StorageEstimate]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryPersist calls the method "StorageManager.persist"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageManager) TryPersist() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageManagerPersist(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasEstimate returns true if the method "StorageManager.estimate" exists.
+func (this StorageManager) HasEstimate() bool {
+	return js.True == bindings.HasStorageManagerEstimate(
+		this.Ref(),
+	)
 }
 
 // EstimateFunc returns the method "StorageManager.estimate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageManager) EstimateFunc() (fn js.Func[func() js.Promise[StorageEstimate]]) {
 	return fn.FromRef(
 		bindings.StorageManagerEstimateFunc(
@@ -1875,27 +2161,60 @@ func (this StorageManager) EstimateFunc() (fn js.Func[func() js.Promise[StorageE
 	)
 }
 
-// GetDirectory calls the method "StorageManager.getDirectory".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageManager) GetDirectory() (js.Promise[FileSystemDirectoryHandle], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageManagerGetDirectory(
-		this.Ref(), js.Pointer(&_ok),
+// Estimate calls the method "StorageManager.estimate".
+func (this StorageManager) Estimate() (ret js.Promise[StorageEstimate]) {
+	bindings.CallStorageManagerEstimate(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[FileSystemDirectoryHandle]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryEstimate calls the method "StorageManager.estimate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageManager) TryEstimate() (ret js.Promise[StorageEstimate], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageManagerEstimate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetDirectory returns true if the method "StorageManager.getDirectory" exists.
+func (this StorageManager) HasGetDirectory() bool {
+	return js.True == bindings.HasStorageManagerGetDirectory(
+		this.Ref(),
+	)
 }
 
 // GetDirectoryFunc returns the method "StorageManager.getDirectory".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageManager) GetDirectoryFunc() (fn js.Func[func() js.Promise[FileSystemDirectoryHandle]]) {
 	return fn.FromRef(
 		bindings.StorageManagerGetDirectoryFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetDirectory calls the method "StorageManager.getDirectory".
+func (this StorageManager) GetDirectory() (ret js.Promise[FileSystemDirectoryHandle]) {
+	bindings.CallStorageManagerGetDirectory(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetDirectory calls the method "StorageManager.getDirectory"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageManager) TryGetDirectory() (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageManagerGetDirectory(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type StorageBucketDurability uint32
@@ -2010,23 +2329,14 @@ func (this IDBFactory) Free() {
 	this.Ref().Free()
 }
 
-// Open calls the method "IDBFactory.open".
-//
-// The returned bool will be false if there is no such method.
-func (this IDBFactory) Open(name js.String, version uint64) (IDBOpenDBRequest, bool) {
-	var _ok bool
-	_ret := bindings.CallIDBFactoryOpen(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
-		float64(version),
+// HasOpen returns true if the method "IDBFactory.open" exists.
+func (this IDBFactory) HasOpen() bool {
+	return js.True == bindings.HasIDBFactoryOpen(
+		this.Ref(),
 	)
-
-	return IDBOpenDBRequest{}.FromRef(_ret), _ok
 }
 
 // OpenFunc returns the method "IDBFactory.open".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this IDBFactory) OpenFunc() (fn js.Func[func(name js.String, version uint64) IDBOpenDBRequest]) {
 	return fn.FromRef(
 		bindings.IDBFactoryOpenFunc(
@@ -2035,22 +2345,38 @@ func (this IDBFactory) OpenFunc() (fn js.Func[func(name js.String, version uint6
 	)
 }
 
-// Open1 calls the method "IDBFactory.open".
-//
-// The returned bool will be false if there is no such method.
-func (this IDBFactory) Open1(name js.String) (IDBOpenDBRequest, bool) {
-	var _ok bool
-	_ret := bindings.CallIDBFactoryOpen1(
-		this.Ref(), js.Pointer(&_ok),
+// Open calls the method "IDBFactory.open".
+func (this IDBFactory) Open(name js.String, version uint64) (ret IDBOpenDBRequest) {
+	bindings.CallIDBFactoryOpen(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
+		float64(version),
 	)
 
-	return IDBOpenDBRequest{}.FromRef(_ret), _ok
+	return
+}
+
+// TryOpen calls the method "IDBFactory.open"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this IDBFactory) TryOpen(name js.String, version uint64) (ret IDBOpenDBRequest, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryIDBFactoryOpen(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		float64(version),
+	)
+
+	return
+}
+
+// HasOpen1 returns true if the method "IDBFactory.open" exists.
+func (this IDBFactory) HasOpen1() bool {
+	return js.True == bindings.HasIDBFactoryOpen1(
+		this.Ref(),
+	)
 }
 
 // Open1Func returns the method "IDBFactory.open".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this IDBFactory) Open1Func() (fn js.Func[func(name js.String) IDBOpenDBRequest]) {
 	return fn.FromRef(
 		bindings.IDBFactoryOpen1Func(
@@ -2059,22 +2385,36 @@ func (this IDBFactory) Open1Func() (fn js.Func[func(name js.String) IDBOpenDBReq
 	)
 }
 
-// DeleteDatabase calls the method "IDBFactory.deleteDatabase".
-//
-// The returned bool will be false if there is no such method.
-func (this IDBFactory) DeleteDatabase(name js.String) (IDBOpenDBRequest, bool) {
-	var _ok bool
-	_ret := bindings.CallIDBFactoryDeleteDatabase(
-		this.Ref(), js.Pointer(&_ok),
+// Open1 calls the method "IDBFactory.open".
+func (this IDBFactory) Open1(name js.String) (ret IDBOpenDBRequest) {
+	bindings.CallIDBFactoryOpen1(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
 	)
 
-	return IDBOpenDBRequest{}.FromRef(_ret), _ok
+	return
+}
+
+// TryOpen1 calls the method "IDBFactory.open"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this IDBFactory) TryOpen1(name js.String) (ret IDBOpenDBRequest, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryIDBFactoryOpen1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasDeleteDatabase returns true if the method "IDBFactory.deleteDatabase" exists.
+func (this IDBFactory) HasDeleteDatabase() bool {
+	return js.True == bindings.HasIDBFactoryDeleteDatabase(
+		this.Ref(),
+	)
 }
 
 // DeleteDatabaseFunc returns the method "IDBFactory.deleteDatabase".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this IDBFactory) DeleteDatabaseFunc() (fn js.Func[func(name js.String) IDBOpenDBRequest]) {
 	return fn.FromRef(
 		bindings.IDBFactoryDeleteDatabaseFunc(
@@ -2083,21 +2423,36 @@ func (this IDBFactory) DeleteDatabaseFunc() (fn js.Func[func(name js.String) IDB
 	)
 }
 
-// Databases calls the method "IDBFactory.databases".
-//
-// The returned bool will be false if there is no such method.
-func (this IDBFactory) Databases() (js.Promise[js.Array[IDBDatabaseInfo]], bool) {
-	var _ok bool
-	_ret := bindings.CallIDBFactoryDatabases(
-		this.Ref(), js.Pointer(&_ok),
+// DeleteDatabase calls the method "IDBFactory.deleteDatabase".
+func (this IDBFactory) DeleteDatabase(name js.String) (ret IDBOpenDBRequest) {
+	bindings.CallIDBFactoryDeleteDatabase(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
 	)
 
-	return js.Promise[js.Array[IDBDatabaseInfo]]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryDeleteDatabase calls the method "IDBFactory.deleteDatabase"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this IDBFactory) TryDeleteDatabase(name js.String) (ret IDBOpenDBRequest, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryIDBFactoryDeleteDatabase(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasDatabases returns true if the method "IDBFactory.databases" exists.
+func (this IDBFactory) HasDatabases() bool {
+	return js.True == bindings.HasIDBFactoryDatabases(
+		this.Ref(),
+	)
 }
 
 // DatabasesFunc returns the method "IDBFactory.databases".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this IDBFactory) DatabasesFunc() (fn js.Func[func() js.Promise[js.Array[IDBDatabaseInfo]]]) {
 	return fn.FromRef(
 		bindings.IDBFactoryDatabasesFunc(
@@ -2106,29 +2461,64 @@ func (this IDBFactory) DatabasesFunc() (fn js.Func[func() js.Promise[js.Array[ID
 	)
 }
 
-// Cmp calls the method "IDBFactory.cmp".
-//
-// The returned bool will be false if there is no such method.
-func (this IDBFactory) Cmp(first js.Any, second js.Any) (int16, bool) {
-	var _ok bool
-	_ret := bindings.CallIDBFactoryCmp(
-		this.Ref(), js.Pointer(&_ok),
-		first.Ref(),
-		second.Ref(),
+// Databases calls the method "IDBFactory.databases".
+func (this IDBFactory) Databases() (ret js.Promise[js.Array[IDBDatabaseInfo]]) {
+	bindings.CallIDBFactoryDatabases(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return int16(_ret), _ok
+	return
+}
+
+// TryDatabases calls the method "IDBFactory.databases"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this IDBFactory) TryDatabases() (ret js.Promise[js.Array[IDBDatabaseInfo]], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryIDBFactoryDatabases(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCmp returns true if the method "IDBFactory.cmp" exists.
+func (this IDBFactory) HasCmp() bool {
+	return js.True == bindings.HasIDBFactoryCmp(
+		this.Ref(),
+	)
 }
 
 // CmpFunc returns the method "IDBFactory.cmp".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this IDBFactory) CmpFunc() (fn js.Func[func(first js.Any, second js.Any) int16]) {
 	return fn.FromRef(
 		bindings.IDBFactoryCmpFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Cmp calls the method "IDBFactory.cmp".
+func (this IDBFactory) Cmp(first js.Any, second js.Any) (ret int16) {
+	bindings.CallIDBFactoryCmp(
+		this.Ref(), js.Pointer(&ret),
+		first.Ref(),
+		second.Ref(),
+	)
+
+	return
+}
+
+// TryCmp calls the method "IDBFactory.cmp"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this IDBFactory) TryCmp(first js.Any, second js.Any) (ret int16, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryIDBFactoryCmp(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		first.Ref(),
+		second.Ref(),
+	)
+
+	return
 }
 
 type StorageBucket struct {
@@ -2155,52 +2545,42 @@ func (this StorageBucket) Free() {
 
 // Name returns the value of property "StorageBucket.name".
 //
-// The returned bool will be false if there is no such property.
-func (this StorageBucket) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetStorageBucketName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this StorageBucket) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetStorageBucketName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // IndexedDB returns the value of property "StorageBucket.indexedDB".
 //
-// The returned bool will be false if there is no such property.
-func (this StorageBucket) IndexedDB() (IDBFactory, bool) {
-	var _ok bool
-	_ret := bindings.GetStorageBucketIndexedDB(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this StorageBucket) IndexedDB() (ret IDBFactory, ok bool) {
+	ok = js.True == bindings.GetStorageBucketIndexedDB(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return IDBFactory{}.FromRef(_ret), _ok
+	return
 }
 
 // Caches returns the value of property "StorageBucket.caches".
 //
-// The returned bool will be false if there is no such property.
-func (this StorageBucket) Caches() (CacheStorage, bool) {
-	var _ok bool
-	_ret := bindings.GetStorageBucketCaches(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this StorageBucket) Caches() (ret CacheStorage, ok bool) {
+	ok = js.True == bindings.GetStorageBucketCaches(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CacheStorage{}.FromRef(_ret), _ok
+	return
 }
 
-// Persist calls the method "StorageBucket.persist".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucket) Persist() (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketPersist(
-		this.Ref(), js.Pointer(&_ok),
+// HasPersist returns true if the method "StorageBucket.persist" exists.
+func (this StorageBucket) HasPersist() bool {
+	return js.True == bindings.HasStorageBucketPersist(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
 }
 
 // PersistFunc returns the method "StorageBucket.persist".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucket) PersistFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.StorageBucketPersistFunc(
@@ -2209,21 +2589,34 @@ func (this StorageBucket) PersistFunc() (fn js.Func[func() js.Promise[js.Boolean
 	)
 }
 
-// Persisted calls the method "StorageBucket.persisted".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucket) Persisted() (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketPersisted(
-		this.Ref(), js.Pointer(&_ok),
+// Persist calls the method "StorageBucket.persist".
+func (this StorageBucket) Persist() (ret js.Promise[js.Boolean]) {
+	bindings.CallStorageBucketPersist(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryPersist calls the method "StorageBucket.persist"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucket) TryPersist() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketPersist(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasPersisted returns true if the method "StorageBucket.persisted" exists.
+func (this StorageBucket) HasPersisted() bool {
+	return js.True == bindings.HasStorageBucketPersisted(
+		this.Ref(),
+	)
 }
 
 // PersistedFunc returns the method "StorageBucket.persisted".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucket) PersistedFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.StorageBucketPersistedFunc(
@@ -2232,21 +2625,34 @@ func (this StorageBucket) PersistedFunc() (fn js.Func[func() js.Promise[js.Boole
 	)
 }
 
-// Estimate calls the method "StorageBucket.estimate".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucket) Estimate() (js.Promise[StorageEstimate], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketEstimate(
-		this.Ref(), js.Pointer(&_ok),
+// Persisted calls the method "StorageBucket.persisted".
+func (this StorageBucket) Persisted() (ret js.Promise[js.Boolean]) {
+	bindings.CallStorageBucketPersisted(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[StorageEstimate]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryPersisted calls the method "StorageBucket.persisted"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucket) TryPersisted() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketPersisted(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasEstimate returns true if the method "StorageBucket.estimate" exists.
+func (this StorageBucket) HasEstimate() bool {
+	return js.True == bindings.HasStorageBucketEstimate(
+		this.Ref(),
+	)
 }
 
 // EstimateFunc returns the method "StorageBucket.estimate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucket) EstimateFunc() (fn js.Func[func() js.Promise[StorageEstimate]]) {
 	return fn.FromRef(
 		bindings.StorageBucketEstimateFunc(
@@ -2255,21 +2661,34 @@ func (this StorageBucket) EstimateFunc() (fn js.Func[func() js.Promise[StorageEs
 	)
 }
 
-// Durability calls the method "StorageBucket.durability".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucket) Durability() (js.Promise[StorageBucketDurability], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketDurability(
-		this.Ref(), js.Pointer(&_ok),
+// Estimate calls the method "StorageBucket.estimate".
+func (this StorageBucket) Estimate() (ret js.Promise[StorageEstimate]) {
+	bindings.CallStorageBucketEstimate(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[StorageBucketDurability]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryEstimate calls the method "StorageBucket.estimate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucket) TryEstimate() (ret js.Promise[StorageEstimate], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketEstimate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasDurability returns true if the method "StorageBucket.durability" exists.
+func (this StorageBucket) HasDurability() bool {
+	return js.True == bindings.HasStorageBucketDurability(
+		this.Ref(),
+	)
 }
 
 // DurabilityFunc returns the method "StorageBucket.durability".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucket) DurabilityFunc() (fn js.Func[func() js.Promise[StorageBucketDurability]]) {
 	return fn.FromRef(
 		bindings.StorageBucketDurabilityFunc(
@@ -2278,22 +2697,34 @@ func (this StorageBucket) DurabilityFunc() (fn js.Func[func() js.Promise[Storage
 	)
 }
 
-// SetExpires calls the method "StorageBucket.setExpires".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucket) SetExpires(expires DOMHighResTimeStamp) (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketSetExpires(
-		this.Ref(), js.Pointer(&_ok),
-		float64(expires),
+// Durability calls the method "StorageBucket.durability".
+func (this StorageBucket) Durability() (ret js.Promise[StorageBucketDurability]) {
+	bindings.CallStorageBucketDurability(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryDurability calls the method "StorageBucket.durability"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucket) TryDurability() (ret js.Promise[StorageBucketDurability], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketDurability(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetExpires returns true if the method "StorageBucket.setExpires" exists.
+func (this StorageBucket) HasSetExpires() bool {
+	return js.True == bindings.HasStorageBucketSetExpires(
+		this.Ref(),
+	)
 }
 
 // SetExpiresFunc returns the method "StorageBucket.setExpires".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucket) SetExpiresFunc() (fn js.Func[func(expires DOMHighResTimeStamp) js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.StorageBucketSetExpiresFunc(
@@ -2302,21 +2733,36 @@ func (this StorageBucket) SetExpiresFunc() (fn js.Func[func(expires DOMHighResTi
 	)
 }
 
-// Expires calls the method "StorageBucket.expires".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucket) Expires() (js.Promise[js.Number[DOMHighResTimeStamp]], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketExpires(
-		this.Ref(), js.Pointer(&_ok),
+// SetExpires calls the method "StorageBucket.setExpires".
+func (this StorageBucket) SetExpires(expires DOMHighResTimeStamp) (ret js.Promise[js.Void]) {
+	bindings.CallStorageBucketSetExpires(
+		this.Ref(), js.Pointer(&ret),
+		float64(expires),
 	)
 
-	return js.Promise[js.Number[DOMHighResTimeStamp]]{}.FromRef(_ret), _ok
+	return
+}
+
+// TrySetExpires calls the method "StorageBucket.setExpires"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucket) TrySetExpires(expires DOMHighResTimeStamp) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketSetExpires(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(expires),
+	)
+
+	return
+}
+
+// HasExpires returns true if the method "StorageBucket.expires" exists.
+func (this StorageBucket) HasExpires() bool {
+	return js.True == bindings.HasStorageBucketExpires(
+		this.Ref(),
+	)
 }
 
 // ExpiresFunc returns the method "StorageBucket.expires".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucket) ExpiresFunc() (fn js.Func[func() js.Promise[js.Number[DOMHighResTimeStamp]]]) {
 	return fn.FromRef(
 		bindings.StorageBucketExpiresFunc(
@@ -2325,27 +2771,60 @@ func (this StorageBucket) ExpiresFunc() (fn js.Func[func() js.Promise[js.Number[
 	)
 }
 
-// GetDirectory calls the method "StorageBucket.getDirectory".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucket) GetDirectory() (js.Promise[FileSystemDirectoryHandle], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketGetDirectory(
-		this.Ref(), js.Pointer(&_ok),
+// Expires calls the method "StorageBucket.expires".
+func (this StorageBucket) Expires() (ret js.Promise[js.Number[DOMHighResTimeStamp]]) {
+	bindings.CallStorageBucketExpires(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[FileSystemDirectoryHandle]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryExpires calls the method "StorageBucket.expires"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucket) TryExpires() (ret js.Promise[js.Number[DOMHighResTimeStamp]], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketExpires(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetDirectory returns true if the method "StorageBucket.getDirectory" exists.
+func (this StorageBucket) HasGetDirectory() bool {
+	return js.True == bindings.HasStorageBucketGetDirectory(
+		this.Ref(),
+	)
 }
 
 // GetDirectoryFunc returns the method "StorageBucket.getDirectory".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucket) GetDirectoryFunc() (fn js.Func[func() js.Promise[FileSystemDirectoryHandle]]) {
 	return fn.FromRef(
 		bindings.StorageBucketGetDirectoryFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetDirectory calls the method "StorageBucket.getDirectory".
+func (this StorageBucket) GetDirectory() (ret js.Promise[FileSystemDirectoryHandle]) {
+	bindings.CallStorageBucketGetDirectory(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetDirectory calls the method "StorageBucket.getDirectory"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucket) TryGetDirectory() (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketGetDirectory(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type StorageBucketOptions struct {
@@ -2428,23 +2907,14 @@ func (this StorageBucketManager) Free() {
 	this.Ref().Free()
 }
 
-// Open calls the method "StorageBucketManager.open".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucketManager) Open(name js.String, options StorageBucketOptions) (js.Promise[StorageBucket], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketManagerOpen(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
-		js.Pointer(&options),
+// HasOpen returns true if the method "StorageBucketManager.open" exists.
+func (this StorageBucketManager) HasOpen() bool {
+	return js.True == bindings.HasStorageBucketManagerOpen(
+		this.Ref(),
 	)
-
-	return js.Promise[StorageBucket]{}.FromRef(_ret), _ok
 }
 
 // OpenFunc returns the method "StorageBucketManager.open".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucketManager) OpenFunc() (fn js.Func[func(name js.String, options StorageBucketOptions) js.Promise[StorageBucket]]) {
 	return fn.FromRef(
 		bindings.StorageBucketManagerOpenFunc(
@@ -2453,22 +2923,38 @@ func (this StorageBucketManager) OpenFunc() (fn js.Func[func(name js.String, opt
 	)
 }
 
-// Open1 calls the method "StorageBucketManager.open".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucketManager) Open1(name js.String) (js.Promise[StorageBucket], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketManagerOpen1(
-		this.Ref(), js.Pointer(&_ok),
+// Open calls the method "StorageBucketManager.open".
+func (this StorageBucketManager) Open(name js.String, options StorageBucketOptions) (ret js.Promise[StorageBucket]) {
+	bindings.CallStorageBucketManagerOpen(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
+		js.Pointer(&options),
 	)
 
-	return js.Promise[StorageBucket]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryOpen calls the method "StorageBucketManager.open"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucketManager) TryOpen(name js.String, options StorageBucketOptions) (ret js.Promise[StorageBucket], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketManagerOpen(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasOpen1 returns true if the method "StorageBucketManager.open" exists.
+func (this StorageBucketManager) HasOpen1() bool {
+	return js.True == bindings.HasStorageBucketManagerOpen1(
+		this.Ref(),
+	)
 }
 
 // Open1Func returns the method "StorageBucketManager.open".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucketManager) Open1Func() (fn js.Func[func(name js.String) js.Promise[StorageBucket]]) {
 	return fn.FromRef(
 		bindings.StorageBucketManagerOpen1Func(
@@ -2477,21 +2963,36 @@ func (this StorageBucketManager) Open1Func() (fn js.Func[func(name js.String) js
 	)
 }
 
-// Keys calls the method "StorageBucketManager.keys".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucketManager) Keys() (js.Promise[js.Array[js.String]], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketManagerKeys(
-		this.Ref(), js.Pointer(&_ok),
+// Open1 calls the method "StorageBucketManager.open".
+func (this StorageBucketManager) Open1(name js.String) (ret js.Promise[StorageBucket]) {
+	bindings.CallStorageBucketManagerOpen1(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
 	)
 
-	return js.Promise[js.Array[js.String]]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryOpen1 calls the method "StorageBucketManager.open"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucketManager) TryOpen1(name js.String) (ret js.Promise[StorageBucket], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketManagerOpen1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasKeys returns true if the method "StorageBucketManager.keys" exists.
+func (this StorageBucketManager) HasKeys() bool {
+	return js.True == bindings.HasStorageBucketManagerKeys(
+		this.Ref(),
+	)
 }
 
 // KeysFunc returns the method "StorageBucketManager.keys".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucketManager) KeysFunc() (fn js.Func[func() js.Promise[js.Array[js.String]]]) {
 	return fn.FromRef(
 		bindings.StorageBucketManagerKeysFunc(
@@ -2500,28 +3001,62 @@ func (this StorageBucketManager) KeysFunc() (fn js.Func[func() js.Promise[js.Arr
 	)
 }
 
-// Delete calls the method "StorageBucketManager.delete".
-//
-// The returned bool will be false if there is no such method.
-func (this StorageBucketManager) Delete(name js.String) (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallStorageBucketManagerDelete(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
+// Keys calls the method "StorageBucketManager.keys".
+func (this StorageBucketManager) Keys() (ret js.Promise[js.Array[js.String]]) {
+	bindings.CallStorageBucketManagerKeys(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryKeys calls the method "StorageBucketManager.keys"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucketManager) TryKeys() (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketManagerKeys(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasDelete returns true if the method "StorageBucketManager.delete" exists.
+func (this StorageBucketManager) HasDelete() bool {
+	return js.True == bindings.HasStorageBucketManagerDelete(
+		this.Ref(),
+	)
 }
 
 // DeleteFunc returns the method "StorageBucketManager.delete".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this StorageBucketManager) DeleteFunc() (fn js.Func[func(name js.String) js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.StorageBucketManagerDeleteFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Delete calls the method "StorageBucketManager.delete".
+func (this StorageBucketManager) Delete(name js.String) (ret js.Promise[js.Void]) {
+	bindings.CallStorageBucketManagerDelete(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+	)
+
+	return
+}
+
+// TryDelete calls the method "StorageBucketManager.delete"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this StorageBucketManager) TryDelete(name js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryStorageBucketManagerDelete(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
 }
 
 type LockGrantedCallbackFunc func(this js.Ref, lock Lock) js.Ref
@@ -2632,24 +3167,22 @@ func (this Lock) Free() {
 
 // Name returns the value of property "Lock.name".
 //
-// The returned bool will be false if there is no such property.
-func (this Lock) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetLockName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Lock) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetLockName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Mode returns the value of property "Lock.mode".
 //
-// The returned bool will be false if there is no such property.
-func (this Lock) Mode() (LockMode, bool) {
-	var _ok bool
-	_ret := bindings.GetLockMode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Lock) Mode() (ret LockMode, ok bool) {
+	ok = js.True == bindings.GetLockMode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return LockMode(_ret), _ok
+	return
 }
 
 type LockOptions struct {
@@ -2813,23 +3346,14 @@ func (this LockManager) Free() {
 	this.Ref().Free()
 }
 
-// Request calls the method "LockManager.request".
-//
-// The returned bool will be false if there is no such method.
-func (this LockManager) Request(name js.String, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (js.Promise[js.Any], bool) {
-	var _ok bool
-	_ret := bindings.CallLockManagerRequest(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
-		callback.Ref(),
+// HasRequest returns true if the method "LockManager.request" exists.
+func (this LockManager) HasRequest() bool {
+	return js.True == bindings.HasLockManagerRequest(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Any]{}.FromRef(_ret), _ok
 }
 
 // RequestFunc returns the method "LockManager.request".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this LockManager) RequestFunc() (fn js.Func[func(name js.String, callback js.Func[func(lock Lock) js.Promise[js.Any]]) js.Promise[js.Any]]) {
 	return fn.FromRef(
 		bindings.LockManagerRequestFunc(
@@ -2838,24 +3362,38 @@ func (this LockManager) RequestFunc() (fn js.Func[func(name js.String, callback 
 	)
 }
 
-// Request1 calls the method "LockManager.request".
-//
-// The returned bool will be false if there is no such method.
-func (this LockManager) Request1(name js.String, options LockOptions, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (js.Promise[js.Any], bool) {
-	var _ok bool
-	_ret := bindings.CallLockManagerRequest1(
-		this.Ref(), js.Pointer(&_ok),
+// Request calls the method "LockManager.request".
+func (this LockManager) Request(name js.String, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (ret js.Promise[js.Any]) {
+	bindings.CallLockManagerRequest(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
-		js.Pointer(&options),
 		callback.Ref(),
 	)
 
-	return js.Promise[js.Any]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRequest calls the method "LockManager.request"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this LockManager) TryRequest(name js.String, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (ret js.Promise[js.Any], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryLockManagerRequest(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		callback.Ref(),
+	)
+
+	return
+}
+
+// HasRequest1 returns true if the method "LockManager.request" exists.
+func (this LockManager) HasRequest1() bool {
+	return js.True == bindings.HasLockManagerRequest1(
+		this.Ref(),
+	)
 }
 
 // Request1Func returns the method "LockManager.request".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this LockManager) Request1Func() (fn js.Func[func(name js.String, options LockOptions, callback js.Func[func(lock Lock) js.Promise[js.Any]]) js.Promise[js.Any]]) {
 	return fn.FromRef(
 		bindings.LockManagerRequest1Func(
@@ -2864,27 +3402,66 @@ func (this LockManager) Request1Func() (fn js.Func[func(name js.String, options 
 	)
 }
 
-// Query calls the method "LockManager.query".
-//
-// The returned bool will be false if there is no such method.
-func (this LockManager) Query() (js.Promise[LockManagerSnapshot], bool) {
-	var _ok bool
-	_ret := bindings.CallLockManagerQuery(
-		this.Ref(), js.Pointer(&_ok),
+// Request1 calls the method "LockManager.request".
+func (this LockManager) Request1(name js.String, options LockOptions, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (ret js.Promise[js.Any]) {
+	bindings.CallLockManagerRequest1(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+		js.Pointer(&options),
+		callback.Ref(),
 	)
 
-	return js.Promise[LockManagerSnapshot]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRequest1 calls the method "LockManager.request"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this LockManager) TryRequest1(name js.String, options LockOptions, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (ret js.Promise[js.Any], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryLockManagerRequest1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		js.Pointer(&options),
+		callback.Ref(),
+	)
+
+	return
+}
+
+// HasQuery returns true if the method "LockManager.query" exists.
+func (this LockManager) HasQuery() bool {
+	return js.True == bindings.HasLockManagerQuery(
+		this.Ref(),
+	)
 }
 
 // QueryFunc returns the method "LockManager.query".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this LockManager) QueryFunc() (fn js.Func[func() js.Promise[LockManagerSnapshot]]) {
 	return fn.FromRef(
 		bindings.LockManagerQueryFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Query calls the method "LockManager.query".
+func (this LockManager) Query() (ret js.Promise[LockManagerSnapshot]) {
+	bindings.CallLockManagerQuery(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryQuery calls the method "LockManager.query"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this LockManager) TryQuery() (ret js.Promise[LockManagerSnapshot], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryLockManagerQuery(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type MimeType struct {
@@ -2911,46 +3488,42 @@ func (this MimeType) Free() {
 
 // Type returns the value of property "MimeType.type".
 //
-// The returned bool will be false if there is no such property.
-func (this MimeType) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMimeTypeType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MimeType) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMimeTypeType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Description returns the value of property "MimeType.description".
 //
-// The returned bool will be false if there is no such property.
-func (this MimeType) Description() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMimeTypeDescription(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MimeType) Description() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMimeTypeDescription(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Suffixes returns the value of property "MimeType.suffixes".
 //
-// The returned bool will be false if there is no such property.
-func (this MimeType) Suffixes() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMimeTypeSuffixes(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MimeType) Suffixes() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMimeTypeSuffixes(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // EnabledPlugin returns the value of property "MimeType.enabledPlugin".
 //
-// The returned bool will be false if there is no such property.
-func (this MimeType) EnabledPlugin() (Plugin, bool) {
-	var _ok bool
-	_ret := bindings.GetMimeTypeEnabledPlugin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MimeType) EnabledPlugin() (ret Plugin, ok bool) {
+	ok = js.True == bindings.GetMimeTypeEnabledPlugin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Plugin{}.FromRef(_ret), _ok
+	return
 }
 
 type Plugin struct {
@@ -2977,64 +3550,52 @@ func (this Plugin) Free() {
 
 // Name returns the value of property "Plugin.name".
 //
-// The returned bool will be false if there is no such property.
-func (this Plugin) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPluginName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Plugin) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPluginName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Description returns the value of property "Plugin.description".
 //
-// The returned bool will be false if there is no such property.
-func (this Plugin) Description() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPluginDescription(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Plugin) Description() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPluginDescription(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Filename returns the value of property "Plugin.filename".
 //
-// The returned bool will be false if there is no such property.
-func (this Plugin) Filename() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPluginFilename(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Plugin) Filename() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPluginFilename(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Length returns the value of property "Plugin.length".
 //
-// The returned bool will be false if there is no such property.
-func (this Plugin) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetPluginLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Plugin) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetPluginLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Item calls the method "Plugin.item".
-//
-// The returned bool will be false if there is no such method.
-func (this Plugin) Item(index uint32) (MimeType, bool) {
-	var _ok bool
-	_ret := bindings.CallPluginItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// HasItem returns true if the method "Plugin.item" exists.
+func (this Plugin) HasItem() bool {
+	return js.True == bindings.HasPluginItem(
+		this.Ref(),
 	)
-
-	return MimeType{}.FromRef(_ret), _ok
 }
 
 // ItemFunc returns the method "Plugin.item".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Plugin) ItemFunc() (fn js.Func[func(index uint32) MimeType]) {
 	return fn.FromRef(
 		bindings.PluginItemFunc(
@@ -3043,28 +3604,64 @@ func (this Plugin) ItemFunc() (fn js.Func[func(index uint32) MimeType]) {
 	)
 }
 
-// NamedItem calls the method "Plugin.namedItem".
-//
-// The returned bool will be false if there is no such method.
-func (this Plugin) NamedItem(name js.String) (MimeType, bool) {
-	var _ok bool
-	_ret := bindings.CallPluginNamedItem(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
+// Item calls the method "Plugin.item".
+func (this Plugin) Item(index uint32) (ret MimeType) {
+	bindings.CallPluginItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return MimeType{}.FromRef(_ret), _ok
+	return
+}
+
+// TryItem calls the method "Plugin.item"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Plugin) TryItem(index uint32) (ret MimeType, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPluginItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasNamedItem returns true if the method "Plugin.namedItem" exists.
+func (this Plugin) HasNamedItem() bool {
+	return js.True == bindings.HasPluginNamedItem(
+		this.Ref(),
+	)
 }
 
 // NamedItemFunc returns the method "Plugin.namedItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Plugin) NamedItemFunc() (fn js.Func[func(name js.String) MimeType]) {
 	return fn.FromRef(
 		bindings.PluginNamedItemFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// NamedItem calls the method "Plugin.namedItem".
+func (this Plugin) NamedItem(name js.String) (ret MimeType) {
+	bindings.CallPluginNamedItem(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+	)
+
+	return
+}
+
+// TryNamedItem calls the method "Plugin.namedItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Plugin) TryNamedItem(name js.String) (ret MimeType, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPluginNamedItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
 }
 
 type PluginArray struct {
@@ -3091,31 +3688,22 @@ func (this PluginArray) Free() {
 
 // Length returns the value of property "PluginArray.length".
 //
-// The returned bool will be false if there is no such property.
-func (this PluginArray) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetPluginArrayLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PluginArray) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetPluginArrayLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Refresh calls the method "PluginArray.refresh".
-//
-// The returned bool will be false if there is no such method.
-func (this PluginArray) Refresh() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPluginArrayRefresh(
-		this.Ref(), js.Pointer(&_ok),
+// HasRefresh returns true if the method "PluginArray.refresh" exists.
+func (this PluginArray) HasRefresh() bool {
+	return js.True == bindings.HasPluginArrayRefresh(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // RefreshFunc returns the method "PluginArray.refresh".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PluginArray) RefreshFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.PluginArrayRefreshFunc(
@@ -3124,22 +3712,34 @@ func (this PluginArray) RefreshFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Item calls the method "PluginArray.item".
-//
-// The returned bool will be false if there is no such method.
-func (this PluginArray) Item(index uint32) (Plugin, bool) {
-	var _ok bool
-	_ret := bindings.CallPluginArrayItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// Refresh calls the method "PluginArray.refresh".
+func (this PluginArray) Refresh() (ret js.Void) {
+	bindings.CallPluginArrayRefresh(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return Plugin{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRefresh calls the method "PluginArray.refresh"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PluginArray) TryRefresh() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPluginArrayRefresh(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasItem returns true if the method "PluginArray.item" exists.
+func (this PluginArray) HasItem() bool {
+	return js.True == bindings.HasPluginArrayItem(
+		this.Ref(),
+	)
 }
 
 // ItemFunc returns the method "PluginArray.item".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PluginArray) ItemFunc() (fn js.Func[func(index uint32) Plugin]) {
 	return fn.FromRef(
 		bindings.PluginArrayItemFunc(
@@ -3148,28 +3748,64 @@ func (this PluginArray) ItemFunc() (fn js.Func[func(index uint32) Plugin]) {
 	)
 }
 
-// NamedItem calls the method "PluginArray.namedItem".
-//
-// The returned bool will be false if there is no such method.
-func (this PluginArray) NamedItem(name js.String) (Plugin, bool) {
-	var _ok bool
-	_ret := bindings.CallPluginArrayNamedItem(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
+// Item calls the method "PluginArray.item".
+func (this PluginArray) Item(index uint32) (ret Plugin) {
+	bindings.CallPluginArrayItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return Plugin{}.FromRef(_ret), _ok
+	return
+}
+
+// TryItem calls the method "PluginArray.item"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PluginArray) TryItem(index uint32) (ret Plugin, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPluginArrayItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasNamedItem returns true if the method "PluginArray.namedItem" exists.
+func (this PluginArray) HasNamedItem() bool {
+	return js.True == bindings.HasPluginArrayNamedItem(
+		this.Ref(),
+	)
 }
 
 // NamedItemFunc returns the method "PluginArray.namedItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PluginArray) NamedItemFunc() (fn js.Func[func(name js.String) Plugin]) {
 	return fn.FromRef(
 		bindings.PluginArrayNamedItemFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// NamedItem calls the method "PluginArray.namedItem".
+func (this PluginArray) NamedItem(name js.String) (ret Plugin) {
+	bindings.CallPluginArrayNamedItem(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+	)
+
+	return
+}
+
+// TryNamedItem calls the method "PluginArray.namedItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PluginArray) TryNamedItem(name js.String) (ret Plugin, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPluginArrayNamedItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
 }
 
 type MimeTypeArray struct {
@@ -3196,31 +3832,22 @@ func (this MimeTypeArray) Free() {
 
 // Length returns the value of property "MimeTypeArray.length".
 //
-// The returned bool will be false if there is no such property.
-func (this MimeTypeArray) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetMimeTypeArrayLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MimeTypeArray) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetMimeTypeArrayLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Item calls the method "MimeTypeArray.item".
-//
-// The returned bool will be false if there is no such method.
-func (this MimeTypeArray) Item(index uint32) (MimeType, bool) {
-	var _ok bool
-	_ret := bindings.CallMimeTypeArrayItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// HasItem returns true if the method "MimeTypeArray.item" exists.
+func (this MimeTypeArray) HasItem() bool {
+	return js.True == bindings.HasMimeTypeArrayItem(
+		this.Ref(),
 	)
-
-	return MimeType{}.FromRef(_ret), _ok
 }
 
 // ItemFunc returns the method "MimeTypeArray.item".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MimeTypeArray) ItemFunc() (fn js.Func[func(index uint32) MimeType]) {
 	return fn.FromRef(
 		bindings.MimeTypeArrayItemFunc(
@@ -3229,22 +3856,36 @@ func (this MimeTypeArray) ItemFunc() (fn js.Func[func(index uint32) MimeType]) {
 	)
 }
 
-// NamedItem calls the method "MimeTypeArray.namedItem".
-//
-// The returned bool will be false if there is no such method.
-func (this MimeTypeArray) NamedItem(name js.String) (MimeType, bool) {
-	var _ok bool
-	_ret := bindings.CallMimeTypeArrayNamedItem(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
+// Item calls the method "MimeTypeArray.item".
+func (this MimeTypeArray) Item(index uint32) (ret MimeType) {
+	bindings.CallMimeTypeArrayItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return MimeType{}.FromRef(_ret), _ok
+	return
+}
+
+// TryItem calls the method "MimeTypeArray.item"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MimeTypeArray) TryItem(index uint32) (ret MimeType, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMimeTypeArrayItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasNamedItem returns true if the method "MimeTypeArray.namedItem" exists.
+func (this MimeTypeArray) HasNamedItem() bool {
+	return js.True == bindings.HasMimeTypeArrayNamedItem(
+		this.Ref(),
+	)
 }
 
 // NamedItemFunc returns the method "MimeTypeArray.namedItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MimeTypeArray) NamedItemFunc() (fn js.Func[func(name js.String) MimeType]) {
 	return fn.FromRef(
 		bindings.MimeTypeArrayNamedItemFunc(
@@ -3253,7 +3894,29 @@ func (this MimeTypeArray) NamedItemFunc() (fn js.Func[func(name js.String) MimeT
 	)
 }
 
-type MLNamedArrayBufferViews = js.Record[ArrayBufferView]
+// NamedItem calls the method "MimeTypeArray.namedItem".
+func (this MimeTypeArray) NamedItem(name js.String) (ret MimeType) {
+	bindings.CallMimeTypeArrayNamedItem(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+	)
+
+	return
+}
+
+// TryNamedItem calls the method "MimeTypeArray.namedItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MimeTypeArray) TryNamedItem(name js.String) (ret MimeType, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMimeTypeArrayNamedItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+type MLNamedArrayBufferViews = js.Record[js.ArrayBufferView]
 
 type MLComputeResult struct {
 	// Inputs is "MLComputeResult.inputs"

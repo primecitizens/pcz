@@ -43,7 +43,7 @@ func (a Array[T]) Ref() Ref {
 }
 
 func (a Array[T]) Once() Array[T] {
-	Ref(a.ref).Once()
+	bindings.Once(a.ref)
 	return a
 }
 
@@ -244,7 +244,7 @@ func (buf ArrayBuffer) Ref() Ref {
 }
 
 func (buf ArrayBuffer) Once() ArrayBuffer {
-	Ref(buf.ref).Once()
+	bindings.Once(buf.ref)
 	return buf
 }
 
@@ -269,12 +269,37 @@ func (buf SharedArrayBuffer) Ref() Ref {
 }
 
 func (buf SharedArrayBuffer) Once() SharedArrayBuffer {
-	Ref(buf.ref).Once()
+	bindings.Once(buf.ref)
 	return buf
 }
 
 func (buf SharedArrayBuffer) Free() {
 	bindings.Free(buf.ref)
+	return
+}
+
+// TODO
+type ArrayBufferView struct {
+	ref bindings.Ref
+}
+
+func (v ArrayBufferView) FromRef(ref Ref) ArrayBufferView {
+	return ArrayBufferView{
+		ref: bindings.Ref(ref),
+	}
+}
+
+func (v ArrayBufferView) Ref() Ref {
+	return Ref(v.ref)
+}
+
+func (v ArrayBufferView) Once() ArrayBufferView {
+	bindings.Once(v.ref)
+	return v
+}
+
+func (v ArrayBufferView) Free() {
+	bindings.Free(v.ref)
 	return
 }
 

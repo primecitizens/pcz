@@ -31,7 +31,7 @@ func ExampleFetch() {
 		wasmPath = "/app.wasm"
 	}
 
-	resp, err, ok := js.Must(window.Fetch(
+	resp, err, ok := window.Fetch(
 		web.RequestInfo{}.FromRef(js.NewString(wasmPath).Ref().Once()),
 		web.RequestInit{
 			Method:            js.NewString("GET").Once(),
@@ -44,23 +44,24 @@ func ExampleFetch() {
 			Keepalive:         false,
 			Priority:          web.RequestPriority_HIGH,
 		},
-	)).Await(true)
+	).Await(true)
 	if !ok {
-		console.Log(err)
+		console.Log(err.Once())
 		return
 	}
 
-	blob, err, ok := js.Must(resp.Once().Blob()).Await(true)
+	blob, err, ok := resp.Once().Blob().Await(true)
 	if !ok {
-		console.Log(err)
+		console.Log(err.Once())
 		return
 	}
 
-	arr, err, ok := js.Must(blob.Once().ArrayBuffer()).Await(true)
+	arr, err, ok := blob.Once().ArrayBuffer().Await(true)
 	if !ok {
-		console.Log(err)
+		console.Log(err.Once())
 		return
 	}
+	defer arr.Free()
 
 	data := js.TypedArray[byte]{}.FromArrayBuffer(true, arr)
 	sz := data.ByteLength()

@@ -197,16 +197,15 @@ func (this GPUSampler) Free() {
 
 // Label returns the value of property "GPUSampler.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUSampler) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUSamplerLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUSampler) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUSamplerLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPUSampler.label" to val.
+// SetLabel sets the value of property "GPUSampler.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPUSampler) SetLabel(val js.String) bool {
@@ -443,16 +442,15 @@ func (this GPUExternalTexture) Free() {
 
 // Label returns the value of property "GPUExternalTexture.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUExternalTexture) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUExternalTextureLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUExternalTexture) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUExternalTextureLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPUExternalTexture.label" to val.
+// SetLabel sets the value of property "GPUExternalTexture.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPUExternalTexture) SetLabel(val js.String) bool {
@@ -556,16 +554,15 @@ func (this GPUBindGroupLayout) Free() {
 
 // Label returns the value of property "GPUBindGroupLayout.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUBindGroupLayout) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUBindGroupLayoutLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUBindGroupLayout) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUBindGroupLayoutLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPUBindGroupLayout.label" to val.
+// SetLabel sets the value of property "GPUBindGroupLayout.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPUBindGroupLayout) SetLabel(val js.String) bool {
@@ -909,22 +906,32 @@ type GPUBindGroupLayoutEntry struct {
 	// Buffer is "GPUBindGroupLayoutEntry.buffer"
 	//
 	// Optional
+	//
+	// NOTE: Buffer.FFI_USE MUST be set to true to get Buffer used.
 	Buffer GPUBufferBindingLayout
 	// Sampler is "GPUBindGroupLayoutEntry.sampler"
 	//
 	// Optional
+	//
+	// NOTE: Sampler.FFI_USE MUST be set to true to get Sampler used.
 	Sampler GPUSamplerBindingLayout
 	// Texture is "GPUBindGroupLayoutEntry.texture"
 	//
 	// Optional
+	//
+	// NOTE: Texture.FFI_USE MUST be set to true to get Texture used.
 	Texture GPUTextureBindingLayout
 	// StorageTexture is "GPUBindGroupLayoutEntry.storageTexture"
 	//
 	// Optional
+	//
+	// NOTE: StorageTexture.FFI_USE MUST be set to true to get StorageTexture used.
 	StorageTexture GPUStorageTextureBindingLayout
 	// ExternalTexture is "GPUBindGroupLayoutEntry.externalTexture"
 	//
 	// Optional
+	//
+	// NOTE: ExternalTexture.FFI_USE MUST be set to true to get ExternalTexture used.
 	ExternalTexture GPUExternalTextureBindingLayout
 
 	FFI_USE bool
@@ -1021,16 +1028,15 @@ func (this GPUPipelineLayout) Free() {
 
 // Label returns the value of property "GPUPipelineLayout.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUPipelineLayout) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUPipelineLayoutLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUPipelineLayout) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUPipelineLayoutLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPUPipelineLayout.label" to val.
+// SetLabel sets the value of property "GPUPipelineLayout.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPUPipelineLayout) SetLabel(val js.String) bool {
@@ -1104,16 +1110,15 @@ func (this GPUBindGroup) Free() {
 
 // Label returns the value of property "GPUBindGroup.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUBindGroup) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUBindGroupLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUBindGroup) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUBindGroupLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPUBindGroup.label" to val.
+// SetLabel sets the value of property "GPUBindGroup.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPUBindGroup) SetLabel(val js.String) bool {
@@ -1347,68 +1352,62 @@ func (this GPUCompilationMessage) Free() {
 
 // Message returns the value of property "GPUCompilationMessage.message".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUCompilationMessage) Message() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUCompilationMessageMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUCompilationMessage) Message() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUCompilationMessageMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Type returns the value of property "GPUCompilationMessage.type".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUCompilationMessage) Type() (GPUCompilationMessageType, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUCompilationMessageType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUCompilationMessage) Type() (ret GPUCompilationMessageType, ok bool) {
+	ok = js.True == bindings.GetGPUCompilationMessageType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GPUCompilationMessageType(_ret), _ok
+	return
 }
 
 // LineNum returns the value of property "GPUCompilationMessage.lineNum".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUCompilationMessage) LineNum() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUCompilationMessageLineNum(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUCompilationMessage) LineNum() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetGPUCompilationMessageLineNum(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 // LinePos returns the value of property "GPUCompilationMessage.linePos".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUCompilationMessage) LinePos() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUCompilationMessageLinePos(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUCompilationMessage) LinePos() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetGPUCompilationMessageLinePos(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 // Offset returns the value of property "GPUCompilationMessage.offset".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUCompilationMessage) Offset() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUCompilationMessageOffset(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUCompilationMessage) Offset() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetGPUCompilationMessageOffset(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 // Length returns the value of property "GPUCompilationMessage.length".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUCompilationMessage) Length() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUCompilationMessageLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUCompilationMessage) Length() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetGPUCompilationMessageLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 type GPUCompilationInfo struct {
@@ -1435,13 +1434,12 @@ func (this GPUCompilationInfo) Free() {
 
 // Messages returns the value of property "GPUCompilationInfo.messages".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUCompilationInfo) Messages() (js.FrozenArray[GPUCompilationMessage], bool) {
-	var _ok bool
-	_ret := bindings.GetGPUCompilationInfoMessages(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUCompilationInfo) Messages() (ret js.FrozenArray[GPUCompilationMessage], ok bool) {
+	ok = js.True == bindings.GetGPUCompilationInfoMessages(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[GPUCompilationMessage]{}.FromRef(_ret), _ok
+	return
 }
 
 type GPUShaderModule struct {
@@ -1468,16 +1466,15 @@ func (this GPUShaderModule) Free() {
 
 // Label returns the value of property "GPUShaderModule.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUShaderModule) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUShaderModuleLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUShaderModule) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUShaderModuleLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPUShaderModule.label" to val.
+// SetLabel sets the value of property "GPUShaderModule.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPUShaderModule) SetLabel(val js.String) bool {
@@ -1487,25 +1484,38 @@ func (this GPUShaderModule) SetLabel(val js.String) bool {
 	)
 }
 
-// GetCompilationInfo calls the method "GPUShaderModule.getCompilationInfo".
-//
-// The returned bool will be false if there is no such method.
-func (this GPUShaderModule) GetCompilationInfo() (js.Promise[GPUCompilationInfo], bool) {
-	var _ok bool
-	_ret := bindings.CallGPUShaderModuleGetCompilationInfo(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetCompilationInfo returns true if the method "GPUShaderModule.getCompilationInfo" exists.
+func (this GPUShaderModule) HasGetCompilationInfo() bool {
+	return js.True == bindings.HasGPUShaderModuleGetCompilationInfo(
+		this.Ref(),
 	)
-
-	return js.Promise[GPUCompilationInfo]{}.FromRef(_ret), _ok
 }
 
 // GetCompilationInfoFunc returns the method "GPUShaderModule.getCompilationInfo".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this GPUShaderModule) GetCompilationInfoFunc() (fn js.Func[func() js.Promise[GPUCompilationInfo]]) {
 	return fn.FromRef(
 		bindings.GPUShaderModuleGetCompilationInfoFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetCompilationInfo calls the method "GPUShaderModule.getCompilationInfo".
+func (this GPUShaderModule) GetCompilationInfo() (ret js.Promise[GPUCompilationInfo]) {
+	bindings.CallGPUShaderModuleGetCompilationInfo(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetCompilationInfo calls the method "GPUShaderModule.getCompilationInfo"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this GPUShaderModule) TryGetCompilationInfo() (ret js.Promise[GPUCompilationInfo], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryGPUShaderModuleGetCompilationInfo(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }

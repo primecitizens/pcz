@@ -74,6 +74,10 @@ func CallBool(
 //go:noescape
 func Once(ref Ref)
 
+//go:wasmimport ffi/js once
+//go:noescape
+func Clone(ref Ref) Ref
+
 //go:wasmimport ffi/js instanceof
 //go:noescape
 func Instanceof(

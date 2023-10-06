@@ -36,6 +36,11 @@ func (r Ref) Once() Ref {
 	return r
 }
 
+// Clone returns a new heap reference to the same object referenced by r.
+func (r Ref) Clone() Ref {
+	return Ref(bindings.Clone(bindings.Ref(r)))
+}
+
 // Free the referenced js value.
 func (r Ref) Free() {
 	bindings.Free(bindings.Ref(r))

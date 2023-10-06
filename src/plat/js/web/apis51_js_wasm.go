@@ -41,16 +41,15 @@ func (this SVGAnimatedEnumeration) Free() {
 
 // BaseVal returns the value of property "SVGAnimatedEnumeration.baseVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedEnumeration) BaseVal() (uint16, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedEnumerationBaseVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedEnumeration) BaseVal() (ret uint16, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedEnumerationBaseVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint16(_ret), _ok
+	return
 }
 
-// BaseVal sets the value of property "SVGAnimatedEnumeration.baseVal" to val.
+// SetBaseVal sets the value of property "SVGAnimatedEnumeration.baseVal" to val.
 //
 // It returns false if the property cannot be set.
 func (this SVGAnimatedEnumeration) SetBaseVal(val uint16) bool {
@@ -62,13 +61,12 @@ func (this SVGAnimatedEnumeration) SetBaseVal(val uint16) bool {
 
 // AnimVal returns the value of property "SVGAnimatedEnumeration.animVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedEnumeration) AnimVal() (uint16, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedEnumerationAnimVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedEnumeration) AnimVal() (ret uint16, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedEnumerationAnimVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint16(_ret), _ok
+	return
 }
 
 type SVGAnimatedInteger struct {
@@ -95,16 +93,15 @@ func (this SVGAnimatedInteger) Free() {
 
 // BaseVal returns the value of property "SVGAnimatedInteger.baseVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedInteger) BaseVal() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedIntegerBaseVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedInteger) BaseVal() (ret int32, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedIntegerBaseVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// BaseVal sets the value of property "SVGAnimatedInteger.baseVal" to val.
+// SetBaseVal sets the value of property "SVGAnimatedInteger.baseVal" to val.
 //
 // It returns false if the property cannot be set.
 func (this SVGAnimatedInteger) SetBaseVal(val int32) bool {
@@ -116,13 +113,12 @@ func (this SVGAnimatedInteger) SetBaseVal(val int32) bool {
 
 // AnimVal returns the value of property "SVGAnimatedInteger.animVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedInteger) AnimVal() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedIntegerAnimVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedInteger) AnimVal() (ret int32, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedIntegerAnimVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 type SVGLengthList struct {
@@ -149,42 +145,32 @@ func (this SVGLengthList) Free() {
 
 // Length returns the value of property "SVGLengthList.length".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGLengthList) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGLengthListLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGLengthList) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGLengthListLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // NumberOfItems returns the value of property "SVGLengthList.numberOfItems".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGLengthList) NumberOfItems() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGLengthListNumberOfItems(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGLengthList) NumberOfItems() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGLengthListNumberOfItems(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Clear calls the method "SVGLengthList.clear".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) Clear() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListClear(
-		this.Ref(), js.Pointer(&_ok),
+// HasClear returns true if the method "SVGLengthList.clear" exists.
+func (this SVGLengthList) HasClear() bool {
+	return js.True == bindings.HasSVGLengthListClear(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ClearFunc returns the method "SVGLengthList.clear".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) ClearFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.SVGLengthListClearFunc(
@@ -193,22 +179,34 @@ func (this SVGLengthList) ClearFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Initialize calls the method "SVGLengthList.initialize".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) Initialize(newItem SVGLength) (SVGLength, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListInitialize(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// Clear calls the method "SVGLengthList.clear".
+func (this SVGLengthList) Clear() (ret js.Void) {
+	bindings.CallSVGLengthListClear(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return SVGLength{}.FromRef(_ret), _ok
+	return
+}
+
+// TryClear calls the method "SVGLengthList.clear"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TryClear() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListClear(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasInitialize returns true if the method "SVGLengthList.initialize" exists.
+func (this SVGLengthList) HasInitialize() bool {
+	return js.True == bindings.HasSVGLengthListInitialize(
+		this.Ref(),
+	)
 }
 
 // InitializeFunc returns the method "SVGLengthList.initialize".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) InitializeFunc() (fn js.Func[func(newItem SVGLength) SVGLength]) {
 	return fn.FromRef(
 		bindings.SVGLengthListInitializeFunc(
@@ -217,22 +215,36 @@ func (this SVGLengthList) InitializeFunc() (fn js.Func[func(newItem SVGLength) S
 	)
 }
 
-// GetItem calls the method "SVGLengthList.getItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) GetItem(index uint32) (SVGLength, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListGetItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// Initialize calls the method "SVGLengthList.initialize".
+func (this SVGLengthList) Initialize(newItem SVGLength) (ret SVGLength) {
+	bindings.CallSVGLengthListInitialize(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 	)
 
-	return SVGLength{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInitialize calls the method "SVGLengthList.initialize"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TryInitialize(newItem SVGLength) (ret SVGLength, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListInitialize(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasGetItem returns true if the method "SVGLengthList.getItem" exists.
+func (this SVGLengthList) HasGetItem() bool {
+	return js.True == bindings.HasSVGLengthListGetItem(
+		this.Ref(),
+	)
 }
 
 // GetItemFunc returns the method "SVGLengthList.getItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) GetItemFunc() (fn js.Func[func(index uint32) SVGLength]) {
 	return fn.FromRef(
 		bindings.SVGLengthListGetItemFunc(
@@ -241,23 +253,36 @@ func (this SVGLengthList) GetItemFunc() (fn js.Func[func(index uint32) SVGLength
 	)
 }
 
-// InsertItemBefore calls the method "SVGLengthList.insertItemBefore".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) InsertItemBefore(newItem SVGLength, index uint32) (SVGLength, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListInsertItemBefore(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// GetItem calls the method "SVGLengthList.getItem".
+func (this SVGLengthList) GetItem(index uint32) (ret SVGLength) {
+	bindings.CallSVGLengthListGetItem(
+		this.Ref(), js.Pointer(&ret),
 		uint32(index),
 	)
 
-	return SVGLength{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetItem calls the method "SVGLengthList.getItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TryGetItem(index uint32) (ret SVGLength, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListGetItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasInsertItemBefore returns true if the method "SVGLengthList.insertItemBefore" exists.
+func (this SVGLengthList) HasInsertItemBefore() bool {
+	return js.True == bindings.HasSVGLengthListInsertItemBefore(
+		this.Ref(),
+	)
 }
 
 // InsertItemBeforeFunc returns the method "SVGLengthList.insertItemBefore".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) InsertItemBeforeFunc() (fn js.Func[func(newItem SVGLength, index uint32) SVGLength]) {
 	return fn.FromRef(
 		bindings.SVGLengthListInsertItemBeforeFunc(
@@ -266,23 +291,38 @@ func (this SVGLengthList) InsertItemBeforeFunc() (fn js.Func[func(newItem SVGLen
 	)
 }
 
-// ReplaceItem calls the method "SVGLengthList.replaceItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) ReplaceItem(newItem SVGLength, index uint32) (SVGLength, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListReplaceItem(
-		this.Ref(), js.Pointer(&_ok),
+// InsertItemBefore calls the method "SVGLengthList.insertItemBefore".
+func (this SVGLengthList) InsertItemBefore(newItem SVGLength, index uint32) (ret SVGLength) {
+	bindings.CallSVGLengthListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 		uint32(index),
 	)
 
-	return SVGLength{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInsertItemBefore calls the method "SVGLengthList.insertItemBefore"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TryInsertItemBefore(newItem SVGLength, index uint32) (ret SVGLength, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasReplaceItem returns true if the method "SVGLengthList.replaceItem" exists.
+func (this SVGLengthList) HasReplaceItem() bool {
+	return js.True == bindings.HasSVGLengthListReplaceItem(
+		this.Ref(),
+	)
 }
 
 // ReplaceItemFunc returns the method "SVGLengthList.replaceItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) ReplaceItemFunc() (fn js.Func[func(newItem SVGLength, index uint32) SVGLength]) {
 	return fn.FromRef(
 		bindings.SVGLengthListReplaceItemFunc(
@@ -291,22 +331,38 @@ func (this SVGLengthList) ReplaceItemFunc() (fn js.Func[func(newItem SVGLength, 
 	)
 }
 
-// RemoveItem calls the method "SVGLengthList.removeItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) RemoveItem(index uint32) (SVGLength, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListRemoveItem(
-		this.Ref(), js.Pointer(&_ok),
+// ReplaceItem calls the method "SVGLengthList.replaceItem".
+func (this SVGLengthList) ReplaceItem(newItem SVGLength, index uint32) (ret SVGLength) {
+	bindings.CallSVGLengthListReplaceItem(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 		uint32(index),
 	)
 
-	return SVGLength{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReplaceItem calls the method "SVGLengthList.replaceItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TryReplaceItem(newItem SVGLength, index uint32) (ret SVGLength, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListReplaceItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasRemoveItem returns true if the method "SVGLengthList.removeItem" exists.
+func (this SVGLengthList) HasRemoveItem() bool {
+	return js.True == bindings.HasSVGLengthListRemoveItem(
+		this.Ref(),
+	)
 }
 
 // RemoveItemFunc returns the method "SVGLengthList.removeItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) RemoveItemFunc() (fn js.Func[func(index uint32) SVGLength]) {
 	return fn.FromRef(
 		bindings.SVGLengthListRemoveItemFunc(
@@ -315,22 +371,36 @@ func (this SVGLengthList) RemoveItemFunc() (fn js.Func[func(index uint32) SVGLen
 	)
 }
 
-// AppendItem calls the method "SVGLengthList.appendItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) AppendItem(newItem SVGLength) (SVGLength, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListAppendItem(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// RemoveItem calls the method "SVGLengthList.removeItem".
+func (this SVGLengthList) RemoveItem(index uint32) (ret SVGLength) {
+	bindings.CallSVGLengthListRemoveItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return SVGLength{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRemoveItem calls the method "SVGLengthList.removeItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TryRemoveItem(index uint32) (ret SVGLength, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListRemoveItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasAppendItem returns true if the method "SVGLengthList.appendItem" exists.
+func (this SVGLengthList) HasAppendItem() bool {
+	return js.True == bindings.HasSVGLengthListAppendItem(
+		this.Ref(),
+	)
 }
 
 // AppendItemFunc returns the method "SVGLengthList.appendItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) AppendItemFunc() (fn js.Func[func(newItem SVGLength) SVGLength]) {
 	return fn.FromRef(
 		bindings.SVGLengthListAppendItemFunc(
@@ -339,30 +409,66 @@ func (this SVGLengthList) AppendItemFunc() (fn js.Func[func(newItem SVGLength) S
 	)
 }
 
-// Set calls the method "SVGLengthList.".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGLengthList) Set(index uint32, newItem SVGLength) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGLengthListSet(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// AppendItem calls the method "SVGLengthList.appendItem".
+func (this SVGLengthList) AppendItem(newItem SVGLength) (ret SVGLength) {
+	bindings.CallSVGLengthListAppendItem(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAppendItem calls the method "SVGLengthList.appendItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TryAppendItem(newItem SVGLength) (ret SVGLength, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListAppendItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasSet returns true if the method "SVGLengthList." exists.
+func (this SVGLengthList) HasSet() bool {
+	return js.True == bindings.HasSVGLengthListSet(
+		this.Ref(),
+	)
 }
 
 // SetFunc returns the method "SVGLengthList.".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGLengthList) SetFunc() (fn js.Func[func(index uint32, newItem SVGLength)]) {
 	return fn.FromRef(
 		bindings.SVGLengthListSetFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Set calls the method "SVGLengthList.".
+func (this SVGLengthList) Set(index uint32, newItem SVGLength) (ret js.Void) {
+	bindings.CallSVGLengthListSet(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// TrySet calls the method "SVGLengthList."
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGLengthList) TrySet(index uint32, newItem SVGLength) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGLengthListSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+		newItem.Ref(),
+	)
+
+	return
 }
 
 type SVGAnimatedLengthList struct {
@@ -389,24 +495,22 @@ func (this SVGAnimatedLengthList) Free() {
 
 // BaseVal returns the value of property "SVGAnimatedLengthList.baseVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedLengthList) BaseVal() (SVGLengthList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedLengthListBaseVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedLengthList) BaseVal() (ret SVGLengthList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedLengthListBaseVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGLengthList{}.FromRef(_ret), _ok
+	return
 }
 
 // AnimVal returns the value of property "SVGAnimatedLengthList.animVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedLengthList) AnimVal() (SVGLengthList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedLengthListAnimVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedLengthList) AnimVal() (ret SVGLengthList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedLengthListAnimVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGLengthList{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGAnimatedNumber struct {
@@ -433,16 +537,15 @@ func (this SVGAnimatedNumber) Free() {
 
 // BaseVal returns the value of property "SVGAnimatedNumber.baseVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedNumber) BaseVal() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedNumberBaseVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedNumber) BaseVal() (ret float32, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedNumberBaseVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
-// BaseVal sets the value of property "SVGAnimatedNumber.baseVal" to val.
+// SetBaseVal sets the value of property "SVGAnimatedNumber.baseVal" to val.
 //
 // It returns false if the property cannot be set.
 func (this SVGAnimatedNumber) SetBaseVal(val float32) bool {
@@ -454,13 +557,12 @@ func (this SVGAnimatedNumber) SetBaseVal(val float32) bool {
 
 // AnimVal returns the value of property "SVGAnimatedNumber.animVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedNumber) AnimVal() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedNumberAnimVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedNumber) AnimVal() (ret float32, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedNumberAnimVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 type SVGNumberList struct {
@@ -487,42 +589,32 @@ func (this SVGNumberList) Free() {
 
 // Length returns the value of property "SVGNumberList.length".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGNumberList) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGNumberListLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGNumberList) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGNumberListLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // NumberOfItems returns the value of property "SVGNumberList.numberOfItems".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGNumberList) NumberOfItems() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGNumberListNumberOfItems(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGNumberList) NumberOfItems() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGNumberListNumberOfItems(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Clear calls the method "SVGNumberList.clear".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) Clear() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListClear(
-		this.Ref(), js.Pointer(&_ok),
+// HasClear returns true if the method "SVGNumberList.clear" exists.
+func (this SVGNumberList) HasClear() bool {
+	return js.True == bindings.HasSVGNumberListClear(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ClearFunc returns the method "SVGNumberList.clear".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) ClearFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.SVGNumberListClearFunc(
@@ -531,22 +623,34 @@ func (this SVGNumberList) ClearFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Initialize calls the method "SVGNumberList.initialize".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) Initialize(newItem SVGNumber) (SVGNumber, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListInitialize(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// Clear calls the method "SVGNumberList.clear".
+func (this SVGNumberList) Clear() (ret js.Void) {
+	bindings.CallSVGNumberListClear(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return SVGNumber{}.FromRef(_ret), _ok
+	return
+}
+
+// TryClear calls the method "SVGNumberList.clear"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TryClear() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListClear(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasInitialize returns true if the method "SVGNumberList.initialize" exists.
+func (this SVGNumberList) HasInitialize() bool {
+	return js.True == bindings.HasSVGNumberListInitialize(
+		this.Ref(),
+	)
 }
 
 // InitializeFunc returns the method "SVGNumberList.initialize".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) InitializeFunc() (fn js.Func[func(newItem SVGNumber) SVGNumber]) {
 	return fn.FromRef(
 		bindings.SVGNumberListInitializeFunc(
@@ -555,22 +659,36 @@ func (this SVGNumberList) InitializeFunc() (fn js.Func[func(newItem SVGNumber) S
 	)
 }
 
-// GetItem calls the method "SVGNumberList.getItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) GetItem(index uint32) (SVGNumber, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListGetItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// Initialize calls the method "SVGNumberList.initialize".
+func (this SVGNumberList) Initialize(newItem SVGNumber) (ret SVGNumber) {
+	bindings.CallSVGNumberListInitialize(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 	)
 
-	return SVGNumber{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInitialize calls the method "SVGNumberList.initialize"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TryInitialize(newItem SVGNumber) (ret SVGNumber, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListInitialize(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasGetItem returns true if the method "SVGNumberList.getItem" exists.
+func (this SVGNumberList) HasGetItem() bool {
+	return js.True == bindings.HasSVGNumberListGetItem(
+		this.Ref(),
+	)
 }
 
 // GetItemFunc returns the method "SVGNumberList.getItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) GetItemFunc() (fn js.Func[func(index uint32) SVGNumber]) {
 	return fn.FromRef(
 		bindings.SVGNumberListGetItemFunc(
@@ -579,23 +697,36 @@ func (this SVGNumberList) GetItemFunc() (fn js.Func[func(index uint32) SVGNumber
 	)
 }
 
-// InsertItemBefore calls the method "SVGNumberList.insertItemBefore".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) InsertItemBefore(newItem SVGNumber, index uint32) (SVGNumber, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListInsertItemBefore(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// GetItem calls the method "SVGNumberList.getItem".
+func (this SVGNumberList) GetItem(index uint32) (ret SVGNumber) {
+	bindings.CallSVGNumberListGetItem(
+		this.Ref(), js.Pointer(&ret),
 		uint32(index),
 	)
 
-	return SVGNumber{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetItem calls the method "SVGNumberList.getItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TryGetItem(index uint32) (ret SVGNumber, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListGetItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasInsertItemBefore returns true if the method "SVGNumberList.insertItemBefore" exists.
+func (this SVGNumberList) HasInsertItemBefore() bool {
+	return js.True == bindings.HasSVGNumberListInsertItemBefore(
+		this.Ref(),
+	)
 }
 
 // InsertItemBeforeFunc returns the method "SVGNumberList.insertItemBefore".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) InsertItemBeforeFunc() (fn js.Func[func(newItem SVGNumber, index uint32) SVGNumber]) {
 	return fn.FromRef(
 		bindings.SVGNumberListInsertItemBeforeFunc(
@@ -604,23 +735,38 @@ func (this SVGNumberList) InsertItemBeforeFunc() (fn js.Func[func(newItem SVGNum
 	)
 }
 
-// ReplaceItem calls the method "SVGNumberList.replaceItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) ReplaceItem(newItem SVGNumber, index uint32) (SVGNumber, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListReplaceItem(
-		this.Ref(), js.Pointer(&_ok),
+// InsertItemBefore calls the method "SVGNumberList.insertItemBefore".
+func (this SVGNumberList) InsertItemBefore(newItem SVGNumber, index uint32) (ret SVGNumber) {
+	bindings.CallSVGNumberListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 		uint32(index),
 	)
 
-	return SVGNumber{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInsertItemBefore calls the method "SVGNumberList.insertItemBefore"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TryInsertItemBefore(newItem SVGNumber, index uint32) (ret SVGNumber, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasReplaceItem returns true if the method "SVGNumberList.replaceItem" exists.
+func (this SVGNumberList) HasReplaceItem() bool {
+	return js.True == bindings.HasSVGNumberListReplaceItem(
+		this.Ref(),
+	)
 }
 
 // ReplaceItemFunc returns the method "SVGNumberList.replaceItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) ReplaceItemFunc() (fn js.Func[func(newItem SVGNumber, index uint32) SVGNumber]) {
 	return fn.FromRef(
 		bindings.SVGNumberListReplaceItemFunc(
@@ -629,22 +775,38 @@ func (this SVGNumberList) ReplaceItemFunc() (fn js.Func[func(newItem SVGNumber, 
 	)
 }
 
-// RemoveItem calls the method "SVGNumberList.removeItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) RemoveItem(index uint32) (SVGNumber, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListRemoveItem(
-		this.Ref(), js.Pointer(&_ok),
+// ReplaceItem calls the method "SVGNumberList.replaceItem".
+func (this SVGNumberList) ReplaceItem(newItem SVGNumber, index uint32) (ret SVGNumber) {
+	bindings.CallSVGNumberListReplaceItem(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 		uint32(index),
 	)
 
-	return SVGNumber{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReplaceItem calls the method "SVGNumberList.replaceItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TryReplaceItem(newItem SVGNumber, index uint32) (ret SVGNumber, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListReplaceItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasRemoveItem returns true if the method "SVGNumberList.removeItem" exists.
+func (this SVGNumberList) HasRemoveItem() bool {
+	return js.True == bindings.HasSVGNumberListRemoveItem(
+		this.Ref(),
+	)
 }
 
 // RemoveItemFunc returns the method "SVGNumberList.removeItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) RemoveItemFunc() (fn js.Func[func(index uint32) SVGNumber]) {
 	return fn.FromRef(
 		bindings.SVGNumberListRemoveItemFunc(
@@ -653,22 +815,36 @@ func (this SVGNumberList) RemoveItemFunc() (fn js.Func[func(index uint32) SVGNum
 	)
 }
 
-// AppendItem calls the method "SVGNumberList.appendItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) AppendItem(newItem SVGNumber) (SVGNumber, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListAppendItem(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// RemoveItem calls the method "SVGNumberList.removeItem".
+func (this SVGNumberList) RemoveItem(index uint32) (ret SVGNumber) {
+	bindings.CallSVGNumberListRemoveItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return SVGNumber{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRemoveItem calls the method "SVGNumberList.removeItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TryRemoveItem(index uint32) (ret SVGNumber, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListRemoveItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasAppendItem returns true if the method "SVGNumberList.appendItem" exists.
+func (this SVGNumberList) HasAppendItem() bool {
+	return js.True == bindings.HasSVGNumberListAppendItem(
+		this.Ref(),
+	)
 }
 
 // AppendItemFunc returns the method "SVGNumberList.appendItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) AppendItemFunc() (fn js.Func[func(newItem SVGNumber) SVGNumber]) {
 	return fn.FromRef(
 		bindings.SVGNumberListAppendItemFunc(
@@ -677,30 +853,66 @@ func (this SVGNumberList) AppendItemFunc() (fn js.Func[func(newItem SVGNumber) S
 	)
 }
 
-// Set calls the method "SVGNumberList.".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGNumberList) Set(index uint32, newItem SVGNumber) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGNumberListSet(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// AppendItem calls the method "SVGNumberList.appendItem".
+func (this SVGNumberList) AppendItem(newItem SVGNumber) (ret SVGNumber) {
+	bindings.CallSVGNumberListAppendItem(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAppendItem calls the method "SVGNumberList.appendItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TryAppendItem(newItem SVGNumber) (ret SVGNumber, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListAppendItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasSet returns true if the method "SVGNumberList." exists.
+func (this SVGNumberList) HasSet() bool {
+	return js.True == bindings.HasSVGNumberListSet(
+		this.Ref(),
+	)
 }
 
 // SetFunc returns the method "SVGNumberList.".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGNumberList) SetFunc() (fn js.Func[func(index uint32, newItem SVGNumber)]) {
 	return fn.FromRef(
 		bindings.SVGNumberListSetFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Set calls the method "SVGNumberList.".
+func (this SVGNumberList) Set(index uint32, newItem SVGNumber) (ret js.Void) {
+	bindings.CallSVGNumberListSet(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// TrySet calls the method "SVGNumberList."
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGNumberList) TrySet(index uint32, newItem SVGNumber) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGNumberListSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+		newItem.Ref(),
+	)
+
+	return
 }
 
 type SVGAnimatedNumberList struct {
@@ -727,24 +939,22 @@ func (this SVGAnimatedNumberList) Free() {
 
 // BaseVal returns the value of property "SVGAnimatedNumberList.baseVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedNumberList) BaseVal() (SVGNumberList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedNumberListBaseVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedNumberList) BaseVal() (ret SVGNumberList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedNumberListBaseVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGNumberList{}.FromRef(_ret), _ok
+	return
 }
 
 // AnimVal returns the value of property "SVGAnimatedNumberList.animVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedNumberList) AnimVal() (SVGNumberList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedNumberListAnimVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedNumberList) AnimVal() (ret SVGNumberList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedNumberListAnimVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGNumberList{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGTransformList struct {
@@ -771,42 +981,32 @@ func (this SVGTransformList) Free() {
 
 // Length returns the value of property "SVGTransformList.length".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGTransformList) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGTransformListLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGTransformList) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGTransformListLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // NumberOfItems returns the value of property "SVGTransformList.numberOfItems".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGTransformList) NumberOfItems() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGTransformListNumberOfItems(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGTransformList) NumberOfItems() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGTransformListNumberOfItems(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Clear calls the method "SVGTransformList.clear".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) Clear() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListClear(
-		this.Ref(), js.Pointer(&_ok),
+// HasClear returns true if the method "SVGTransformList.clear" exists.
+func (this SVGTransformList) HasClear() bool {
+	return js.True == bindings.HasSVGTransformListClear(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ClearFunc returns the method "SVGTransformList.clear".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) ClearFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.SVGTransformListClearFunc(
@@ -815,22 +1015,34 @@ func (this SVGTransformList) ClearFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Initialize calls the method "SVGTransformList.initialize".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) Initialize(newItem SVGTransform) (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListInitialize(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// Clear calls the method "SVGTransformList.clear".
+func (this SVGTransformList) Clear() (ret js.Void) {
+	bindings.CallSVGTransformListClear(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryClear calls the method "SVGTransformList.clear"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryClear() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListClear(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasInitialize returns true if the method "SVGTransformList.initialize" exists.
+func (this SVGTransformList) HasInitialize() bool {
+	return js.True == bindings.HasSVGTransformListInitialize(
+		this.Ref(),
+	)
 }
 
 // InitializeFunc returns the method "SVGTransformList.initialize".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) InitializeFunc() (fn js.Func[func(newItem SVGTransform) SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListInitializeFunc(
@@ -839,22 +1051,36 @@ func (this SVGTransformList) InitializeFunc() (fn js.Func[func(newItem SVGTransf
 	)
 }
 
-// GetItem calls the method "SVGTransformList.getItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) GetItem(index uint32) (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListGetItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// Initialize calls the method "SVGTransformList.initialize".
+func (this SVGTransformList) Initialize(newItem SVGTransform) (ret SVGTransform) {
+	bindings.CallSVGTransformListInitialize(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInitialize calls the method "SVGTransformList.initialize"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryInitialize(newItem SVGTransform) (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListInitialize(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasGetItem returns true if the method "SVGTransformList.getItem" exists.
+func (this SVGTransformList) HasGetItem() bool {
+	return js.True == bindings.HasSVGTransformListGetItem(
+		this.Ref(),
+	)
 }
 
 // GetItemFunc returns the method "SVGTransformList.getItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) GetItemFunc() (fn js.Func[func(index uint32) SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListGetItemFunc(
@@ -863,23 +1089,36 @@ func (this SVGTransformList) GetItemFunc() (fn js.Func[func(index uint32) SVGTra
 	)
 }
 
-// InsertItemBefore calls the method "SVGTransformList.insertItemBefore".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) InsertItemBefore(newItem SVGTransform, index uint32) (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListInsertItemBefore(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// GetItem calls the method "SVGTransformList.getItem".
+func (this SVGTransformList) GetItem(index uint32) (ret SVGTransform) {
+	bindings.CallSVGTransformListGetItem(
+		this.Ref(), js.Pointer(&ret),
 		uint32(index),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetItem calls the method "SVGTransformList.getItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryGetItem(index uint32) (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListGetItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasInsertItemBefore returns true if the method "SVGTransformList.insertItemBefore" exists.
+func (this SVGTransformList) HasInsertItemBefore() bool {
+	return js.True == bindings.HasSVGTransformListInsertItemBefore(
+		this.Ref(),
+	)
 }
 
 // InsertItemBeforeFunc returns the method "SVGTransformList.insertItemBefore".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) InsertItemBeforeFunc() (fn js.Func[func(newItem SVGTransform, index uint32) SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListInsertItemBeforeFunc(
@@ -888,23 +1127,38 @@ func (this SVGTransformList) InsertItemBeforeFunc() (fn js.Func[func(newItem SVG
 	)
 }
 
-// ReplaceItem calls the method "SVGTransformList.replaceItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) ReplaceItem(newItem SVGTransform, index uint32) (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListReplaceItem(
-		this.Ref(), js.Pointer(&_ok),
+// InsertItemBefore calls the method "SVGTransformList.insertItemBefore".
+func (this SVGTransformList) InsertItemBefore(newItem SVGTransform, index uint32) (ret SVGTransform) {
+	bindings.CallSVGTransformListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 		uint32(index),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInsertItemBefore calls the method "SVGTransformList.insertItemBefore"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryInsertItemBefore(newItem SVGTransform, index uint32) (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasReplaceItem returns true if the method "SVGTransformList.replaceItem" exists.
+func (this SVGTransformList) HasReplaceItem() bool {
+	return js.True == bindings.HasSVGTransformListReplaceItem(
+		this.Ref(),
+	)
 }
 
 // ReplaceItemFunc returns the method "SVGTransformList.replaceItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) ReplaceItemFunc() (fn js.Func[func(newItem SVGTransform, index uint32) SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListReplaceItemFunc(
@@ -913,22 +1167,38 @@ func (this SVGTransformList) ReplaceItemFunc() (fn js.Func[func(newItem SVGTrans
 	)
 }
 
-// RemoveItem calls the method "SVGTransformList.removeItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) RemoveItem(index uint32) (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListRemoveItem(
-		this.Ref(), js.Pointer(&_ok),
+// ReplaceItem calls the method "SVGTransformList.replaceItem".
+func (this SVGTransformList) ReplaceItem(newItem SVGTransform, index uint32) (ret SVGTransform) {
+	bindings.CallSVGTransformListReplaceItem(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 		uint32(index),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReplaceItem calls the method "SVGTransformList.replaceItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryReplaceItem(newItem SVGTransform, index uint32) (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListReplaceItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasRemoveItem returns true if the method "SVGTransformList.removeItem" exists.
+func (this SVGTransformList) HasRemoveItem() bool {
+	return js.True == bindings.HasSVGTransformListRemoveItem(
+		this.Ref(),
+	)
 }
 
 // RemoveItemFunc returns the method "SVGTransformList.removeItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) RemoveItemFunc() (fn js.Func[func(index uint32) SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListRemoveItemFunc(
@@ -937,22 +1207,36 @@ func (this SVGTransformList) RemoveItemFunc() (fn js.Func[func(index uint32) SVG
 	)
 }
 
-// AppendItem calls the method "SVGTransformList.appendItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) AppendItem(newItem SVGTransform) (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListAppendItem(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// RemoveItem calls the method "SVGTransformList.removeItem".
+func (this SVGTransformList) RemoveItem(index uint32) (ret SVGTransform) {
+	bindings.CallSVGTransformListRemoveItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRemoveItem calls the method "SVGTransformList.removeItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryRemoveItem(index uint32) (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListRemoveItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasAppendItem returns true if the method "SVGTransformList.appendItem" exists.
+func (this SVGTransformList) HasAppendItem() bool {
+	return js.True == bindings.HasSVGTransformListAppendItem(
+		this.Ref(),
+	)
 }
 
 // AppendItemFunc returns the method "SVGTransformList.appendItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) AppendItemFunc() (fn js.Func[func(newItem SVGTransform) SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListAppendItemFunc(
@@ -961,24 +1245,36 @@ func (this SVGTransformList) AppendItemFunc() (fn js.Func[func(newItem SVGTransf
 	)
 }
 
-// Set calls the method "SVGTransformList.".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) Set(index uint32, newItem SVGTransform) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListSet(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// AppendItem calls the method "SVGTransformList.appendItem".
+func (this SVGTransformList) AppendItem(newItem SVGTransform) (ret SVGTransform) {
+	bindings.CallSVGTransformListAppendItem(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAppendItem calls the method "SVGTransformList.appendItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryAppendItem(newItem SVGTransform) (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListAppendItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasSet returns true if the method "SVGTransformList." exists.
+func (this SVGTransformList) HasSet() bool {
+	return js.True == bindings.HasSVGTransformListSet(
+		this.Ref(),
+	)
 }
 
 // SetFunc returns the method "SVGTransformList.".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) SetFunc() (fn js.Func[func(index uint32, newItem SVGTransform)]) {
 	return fn.FromRef(
 		bindings.SVGTransformListSetFunc(
@@ -987,22 +1283,38 @@ func (this SVGTransformList) SetFunc() (fn js.Func[func(index uint32, newItem SV
 	)
 }
 
-// CreateSVGTransformFromMatrix calls the method "SVGTransformList.createSVGTransformFromMatrix".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) CreateSVGTransformFromMatrix(matrix DOMMatrix2DInit) (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListCreateSVGTransformFromMatrix(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&matrix),
+// Set calls the method "SVGTransformList.".
+func (this SVGTransformList) Set(index uint32, newItem SVGTransform) (ret js.Void) {
+	bindings.CallSVGTransformListSet(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+		newItem.Ref(),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TrySet calls the method "SVGTransformList."
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TrySet(index uint32, newItem SVGTransform) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasCreateSVGTransformFromMatrix returns true if the method "SVGTransformList.createSVGTransformFromMatrix" exists.
+func (this SVGTransformList) HasCreateSVGTransformFromMatrix() bool {
+	return js.True == bindings.HasSVGTransformListCreateSVGTransformFromMatrix(
+		this.Ref(),
+	)
 }
 
 // CreateSVGTransformFromMatrixFunc returns the method "SVGTransformList.createSVGTransformFromMatrix".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) CreateSVGTransformFromMatrixFunc() (fn js.Func[func(matrix DOMMatrix2DInit) SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListCreateSVGTransformFromMatrixFunc(
@@ -1011,21 +1323,36 @@ func (this SVGTransformList) CreateSVGTransformFromMatrixFunc() (fn js.Func[func
 	)
 }
 
-// CreateSVGTransformFromMatrix1 calls the method "SVGTransformList.createSVGTransformFromMatrix".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) CreateSVGTransformFromMatrix1() (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListCreateSVGTransformFromMatrix1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateSVGTransformFromMatrix calls the method "SVGTransformList.createSVGTransformFromMatrix".
+func (this SVGTransformList) CreateSVGTransformFromMatrix(matrix DOMMatrix2DInit) (ret SVGTransform) {
+	bindings.CallSVGTransformListCreateSVGTransformFromMatrix(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&matrix),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateSVGTransformFromMatrix calls the method "SVGTransformList.createSVGTransformFromMatrix"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryCreateSVGTransformFromMatrix(matrix DOMMatrix2DInit) (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListCreateSVGTransformFromMatrix(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&matrix),
+	)
+
+	return
+}
+
+// HasCreateSVGTransformFromMatrix1 returns true if the method "SVGTransformList.createSVGTransformFromMatrix" exists.
+func (this SVGTransformList) HasCreateSVGTransformFromMatrix1() bool {
+	return js.True == bindings.HasSVGTransformListCreateSVGTransformFromMatrix1(
+		this.Ref(),
+	)
 }
 
 // CreateSVGTransformFromMatrix1Func returns the method "SVGTransformList.createSVGTransformFromMatrix".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) CreateSVGTransformFromMatrix1Func() (fn js.Func[func() SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListCreateSVGTransformFromMatrix1Func(
@@ -1034,27 +1361,60 @@ func (this SVGTransformList) CreateSVGTransformFromMatrix1Func() (fn js.Func[fun
 	)
 }
 
-// Consolidate calls the method "SVGTransformList.consolidate".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGTransformList) Consolidate() (SVGTransform, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGTransformListConsolidate(
-		this.Ref(), js.Pointer(&_ok),
+// CreateSVGTransformFromMatrix1 calls the method "SVGTransformList.createSVGTransformFromMatrix".
+func (this SVGTransformList) CreateSVGTransformFromMatrix1() (ret SVGTransform) {
+	bindings.CallSVGTransformListCreateSVGTransformFromMatrix1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return SVGTransform{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateSVGTransformFromMatrix1 calls the method "SVGTransformList.createSVGTransformFromMatrix"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryCreateSVGTransformFromMatrix1() (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListCreateSVGTransformFromMatrix1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasConsolidate returns true if the method "SVGTransformList.consolidate" exists.
+func (this SVGTransformList) HasConsolidate() bool {
+	return js.True == bindings.HasSVGTransformListConsolidate(
+		this.Ref(),
+	)
 }
 
 // ConsolidateFunc returns the method "SVGTransformList.consolidate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGTransformList) ConsolidateFunc() (fn js.Func[func() SVGTransform]) {
 	return fn.FromRef(
 		bindings.SVGTransformListConsolidateFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Consolidate calls the method "SVGTransformList.consolidate".
+func (this SVGTransformList) Consolidate() (ret SVGTransform) {
+	bindings.CallSVGTransformListConsolidate(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryConsolidate calls the method "SVGTransformList.consolidate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGTransformList) TryConsolidate() (ret SVGTransform, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGTransformListConsolidate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type SVGAnimatedTransformList struct {
@@ -1081,24 +1441,22 @@ func (this SVGAnimatedTransformList) Free() {
 
 // BaseVal returns the value of property "SVGAnimatedTransformList.baseVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedTransformList) BaseVal() (SVGTransformList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedTransformListBaseVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedTransformList) BaseVal() (ret SVGTransformList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedTransformListBaseVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGTransformList{}.FromRef(_ret), _ok
+	return
 }
 
 // AnimVal returns the value of property "SVGAnimatedTransformList.animVal".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimatedTransformList) AnimVal() (SVGTransformList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimatedTransformListAnimVal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimatedTransformList) AnimVal() (ret SVGTransformList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimatedTransformListAnimVal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGTransformList{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGStringList struct {
@@ -1125,42 +1483,32 @@ func (this SVGStringList) Free() {
 
 // Length returns the value of property "SVGStringList.length".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGStringList) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGStringListLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGStringList) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGStringListLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // NumberOfItems returns the value of property "SVGStringList.numberOfItems".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGStringList) NumberOfItems() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGStringListNumberOfItems(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGStringList) NumberOfItems() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetSVGStringListNumberOfItems(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Clear calls the method "SVGStringList.clear".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) Clear() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListClear(
-		this.Ref(), js.Pointer(&_ok),
+// HasClear returns true if the method "SVGStringList.clear" exists.
+func (this SVGStringList) HasClear() bool {
+	return js.True == bindings.HasSVGStringListClear(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ClearFunc returns the method "SVGStringList.clear".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) ClearFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.SVGStringListClearFunc(
@@ -1169,22 +1517,34 @@ func (this SVGStringList) ClearFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Initialize calls the method "SVGStringList.initialize".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) Initialize(newItem js.String) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListInitialize(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// Clear calls the method "SVGStringList.clear".
+func (this SVGStringList) Clear() (ret js.Void) {
+	bindings.CallSVGStringListClear(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryClear calls the method "SVGStringList.clear"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TryClear() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListClear(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasInitialize returns true if the method "SVGStringList.initialize" exists.
+func (this SVGStringList) HasInitialize() bool {
+	return js.True == bindings.HasSVGStringListInitialize(
+		this.Ref(),
+	)
 }
 
 // InitializeFunc returns the method "SVGStringList.initialize".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) InitializeFunc() (fn js.Func[func(newItem js.String) js.String]) {
 	return fn.FromRef(
 		bindings.SVGStringListInitializeFunc(
@@ -1193,22 +1553,36 @@ func (this SVGStringList) InitializeFunc() (fn js.Func[func(newItem js.String) j
 	)
 }
 
-// GetItem calls the method "SVGStringList.getItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) GetItem(index uint32) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListGetItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// Initialize calls the method "SVGStringList.initialize".
+func (this SVGStringList) Initialize(newItem js.String) (ret js.String) {
+	bindings.CallSVGStringListInitialize(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInitialize calls the method "SVGStringList.initialize"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TryInitialize(newItem js.String) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListInitialize(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasGetItem returns true if the method "SVGStringList.getItem" exists.
+func (this SVGStringList) HasGetItem() bool {
+	return js.True == bindings.HasSVGStringListGetItem(
+		this.Ref(),
+	)
 }
 
 // GetItemFunc returns the method "SVGStringList.getItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) GetItemFunc() (fn js.Func[func(index uint32) js.String]) {
 	return fn.FromRef(
 		bindings.SVGStringListGetItemFunc(
@@ -1217,23 +1591,36 @@ func (this SVGStringList) GetItemFunc() (fn js.Func[func(index uint32) js.String
 	)
 }
 
-// InsertItemBefore calls the method "SVGStringList.insertItemBefore".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) InsertItemBefore(newItem js.String, index uint32) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListInsertItemBefore(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// GetItem calls the method "SVGStringList.getItem".
+func (this SVGStringList) GetItem(index uint32) (ret js.String) {
+	bindings.CallSVGStringListGetItem(
+		this.Ref(), js.Pointer(&ret),
 		uint32(index),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetItem calls the method "SVGStringList.getItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TryGetItem(index uint32) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListGetItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasInsertItemBefore returns true if the method "SVGStringList.insertItemBefore" exists.
+func (this SVGStringList) HasInsertItemBefore() bool {
+	return js.True == bindings.HasSVGStringListInsertItemBefore(
+		this.Ref(),
+	)
 }
 
 // InsertItemBeforeFunc returns the method "SVGStringList.insertItemBefore".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) InsertItemBeforeFunc() (fn js.Func[func(newItem js.String, index uint32) js.String]) {
 	return fn.FromRef(
 		bindings.SVGStringListInsertItemBeforeFunc(
@@ -1242,23 +1629,38 @@ func (this SVGStringList) InsertItemBeforeFunc() (fn js.Func[func(newItem js.Str
 	)
 }
 
-// ReplaceItem calls the method "SVGStringList.replaceItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) ReplaceItem(newItem js.String, index uint32) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListReplaceItem(
-		this.Ref(), js.Pointer(&_ok),
+// InsertItemBefore calls the method "SVGStringList.insertItemBefore".
+func (this SVGStringList) InsertItemBefore(newItem js.String, index uint32) (ret js.String) {
+	bindings.CallSVGStringListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 		uint32(index),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryInsertItemBefore calls the method "SVGStringList.insertItemBefore"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TryInsertItemBefore(newItem js.String, index uint32) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListInsertItemBefore(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasReplaceItem returns true if the method "SVGStringList.replaceItem" exists.
+func (this SVGStringList) HasReplaceItem() bool {
+	return js.True == bindings.HasSVGStringListReplaceItem(
+		this.Ref(),
+	)
 }
 
 // ReplaceItemFunc returns the method "SVGStringList.replaceItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) ReplaceItemFunc() (fn js.Func[func(newItem js.String, index uint32) js.String]) {
 	return fn.FromRef(
 		bindings.SVGStringListReplaceItemFunc(
@@ -1267,22 +1669,38 @@ func (this SVGStringList) ReplaceItemFunc() (fn js.Func[func(newItem js.String, 
 	)
 }
 
-// RemoveItem calls the method "SVGStringList.removeItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) RemoveItem(index uint32) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListRemoveItem(
-		this.Ref(), js.Pointer(&_ok),
+// ReplaceItem calls the method "SVGStringList.replaceItem".
+func (this SVGStringList) ReplaceItem(newItem js.String, index uint32) (ret js.String) {
+	bindings.CallSVGStringListReplaceItem(
+		this.Ref(), js.Pointer(&ret),
+		newItem.Ref(),
 		uint32(index),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReplaceItem calls the method "SVGStringList.replaceItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TryReplaceItem(newItem js.String, index uint32) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListReplaceItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasRemoveItem returns true if the method "SVGStringList.removeItem" exists.
+func (this SVGStringList) HasRemoveItem() bool {
+	return js.True == bindings.HasSVGStringListRemoveItem(
+		this.Ref(),
+	)
 }
 
 // RemoveItemFunc returns the method "SVGStringList.removeItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) RemoveItemFunc() (fn js.Func[func(index uint32) js.String]) {
 	return fn.FromRef(
 		bindings.SVGStringListRemoveItemFunc(
@@ -1291,22 +1709,36 @@ func (this SVGStringList) RemoveItemFunc() (fn js.Func[func(index uint32) js.Str
 	)
 }
 
-// AppendItem calls the method "SVGStringList.appendItem".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) AppendItem(newItem js.String) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListAppendItem(
-		this.Ref(), js.Pointer(&_ok),
-		newItem.Ref(),
+// RemoveItem calls the method "SVGStringList.removeItem".
+func (this SVGStringList) RemoveItem(index uint32) (ret js.String) {
+	bindings.CallSVGStringListRemoveItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRemoveItem calls the method "SVGStringList.removeItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TryRemoveItem(index uint32) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListRemoveItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasAppendItem returns true if the method "SVGStringList.appendItem" exists.
+func (this SVGStringList) HasAppendItem() bool {
+	return js.True == bindings.HasSVGStringListAppendItem(
+		this.Ref(),
+	)
 }
 
 // AppendItemFunc returns the method "SVGStringList.appendItem".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) AppendItemFunc() (fn js.Func[func(newItem js.String) js.String]) {
 	return fn.FromRef(
 		bindings.SVGStringListAppendItemFunc(
@@ -1315,30 +1747,66 @@ func (this SVGStringList) AppendItemFunc() (fn js.Func[func(newItem js.String) j
 	)
 }
 
-// Set calls the method "SVGStringList.".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGStringList) Set(index uint32, newItem js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGStringListSet(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// AppendItem calls the method "SVGStringList.appendItem".
+func (this SVGStringList) AppendItem(newItem js.String) (ret js.String) {
+	bindings.CallSVGStringListAppendItem(
+		this.Ref(), js.Pointer(&ret),
 		newItem.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAppendItem calls the method "SVGStringList.appendItem"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TryAppendItem(newItem js.String) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListAppendItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// HasSet returns true if the method "SVGStringList." exists.
+func (this SVGStringList) HasSet() bool {
+	return js.True == bindings.HasSVGStringListSet(
+		this.Ref(),
+	)
 }
 
 // SetFunc returns the method "SVGStringList.".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGStringList) SetFunc() (fn js.Func[func(index uint32, newItem js.String)]) {
 	return fn.FromRef(
 		bindings.SVGStringListSetFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Set calls the method "SVGStringList.".
+func (this SVGStringList) Set(index uint32, newItem js.String) (ret js.Void) {
+	bindings.CallSVGStringListSet(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+		newItem.Ref(),
+	)
+
+	return
+}
+
+// TrySet calls the method "SVGStringList."
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGStringList) TrySet(index uint32, newItem js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGStringListSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+		newItem.Ref(),
+	)
+
+	return
 }
 
 type SVGAnimationElement struct {
@@ -1365,52 +1833,42 @@ func (this SVGAnimationElement) Free() {
 
 // TargetElement returns the value of property "SVGAnimationElement.targetElement".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimationElement) TargetElement() (SVGElement, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimationElementTargetElement(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimationElement) TargetElement() (ret SVGElement, ok bool) {
+	ok = js.True == bindings.GetSVGAnimationElementTargetElement(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGElement{}.FromRef(_ret), _ok
+	return
 }
 
 // RequiredExtensions returns the value of property "SVGAnimationElement.requiredExtensions".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimationElement) RequiredExtensions() (SVGStringList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimationElementRequiredExtensions(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimationElement) RequiredExtensions() (ret SVGStringList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimationElementRequiredExtensions(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGStringList{}.FromRef(_ret), _ok
+	return
 }
 
 // SystemLanguage returns the value of property "SVGAnimationElement.systemLanguage".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGAnimationElement) SystemLanguage() (SVGStringList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGAnimationElementSystemLanguage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGAnimationElement) SystemLanguage() (ret SVGStringList, ok bool) {
+	ok = js.True == bindings.GetSVGAnimationElementSystemLanguage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGStringList{}.FromRef(_ret), _ok
+	return
 }
 
-// GetStartTime calls the method "SVGAnimationElement.getStartTime".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGAnimationElement) GetStartTime() (float32, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGAnimationElementGetStartTime(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetStartTime returns true if the method "SVGAnimationElement.getStartTime" exists.
+func (this SVGAnimationElement) HasGetStartTime() bool {
+	return js.True == bindings.HasSVGAnimationElementGetStartTime(
+		this.Ref(),
 	)
-
-	return float32(_ret), _ok
 }
 
 // GetStartTimeFunc returns the method "SVGAnimationElement.getStartTime".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGAnimationElement) GetStartTimeFunc() (fn js.Func[func() float32]) {
 	return fn.FromRef(
 		bindings.SVGAnimationElementGetStartTimeFunc(
@@ -1419,21 +1877,34 @@ func (this SVGAnimationElement) GetStartTimeFunc() (fn js.Func[func() float32]) 
 	)
 }
 
-// GetCurrentTime calls the method "SVGAnimationElement.getCurrentTime".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGAnimationElement) GetCurrentTime() (float32, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGAnimationElementGetCurrentTime(
-		this.Ref(), js.Pointer(&_ok),
+// GetStartTime calls the method "SVGAnimationElement.getStartTime".
+func (this SVGAnimationElement) GetStartTime() (ret float32) {
+	bindings.CallSVGAnimationElementGetStartTime(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return float32(_ret), _ok
+	return
+}
+
+// TryGetStartTime calls the method "SVGAnimationElement.getStartTime"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGAnimationElement) TryGetStartTime() (ret float32, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGAnimationElementGetStartTime(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetCurrentTime returns true if the method "SVGAnimationElement.getCurrentTime" exists.
+func (this SVGAnimationElement) HasGetCurrentTime() bool {
+	return js.True == bindings.HasSVGAnimationElementGetCurrentTime(
+		this.Ref(),
+	)
 }
 
 // GetCurrentTimeFunc returns the method "SVGAnimationElement.getCurrentTime".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGAnimationElement) GetCurrentTimeFunc() (fn js.Func[func() float32]) {
 	return fn.FromRef(
 		bindings.SVGAnimationElementGetCurrentTimeFunc(
@@ -1442,21 +1913,34 @@ func (this SVGAnimationElement) GetCurrentTimeFunc() (fn js.Func[func() float32]
 	)
 }
 
-// GetSimpleDuration calls the method "SVGAnimationElement.getSimpleDuration".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGAnimationElement) GetSimpleDuration() (float32, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGAnimationElementGetSimpleDuration(
-		this.Ref(), js.Pointer(&_ok),
+// GetCurrentTime calls the method "SVGAnimationElement.getCurrentTime".
+func (this SVGAnimationElement) GetCurrentTime() (ret float32) {
+	bindings.CallSVGAnimationElementGetCurrentTime(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return float32(_ret), _ok
+	return
+}
+
+// TryGetCurrentTime calls the method "SVGAnimationElement.getCurrentTime"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGAnimationElement) TryGetCurrentTime() (ret float32, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGAnimationElementGetCurrentTime(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetSimpleDuration returns true if the method "SVGAnimationElement.getSimpleDuration" exists.
+func (this SVGAnimationElement) HasGetSimpleDuration() bool {
+	return js.True == bindings.HasSVGAnimationElementGetSimpleDuration(
+		this.Ref(),
+	)
 }
 
 // GetSimpleDurationFunc returns the method "SVGAnimationElement.getSimpleDuration".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGAnimationElement) GetSimpleDurationFunc() (fn js.Func[func() float32]) {
 	return fn.FromRef(
 		bindings.SVGAnimationElementGetSimpleDurationFunc(
@@ -1465,22 +1949,34 @@ func (this SVGAnimationElement) GetSimpleDurationFunc() (fn js.Func[func() float
 	)
 }
 
-// BeginElement calls the method "SVGAnimationElement.beginElement".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGAnimationElement) BeginElement() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGAnimationElementBeginElement(
-		this.Ref(), js.Pointer(&_ok),
+// GetSimpleDuration calls the method "SVGAnimationElement.getSimpleDuration".
+func (this SVGAnimationElement) GetSimpleDuration() (ret float32) {
+	bindings.CallSVGAnimationElementGetSimpleDuration(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetSimpleDuration calls the method "SVGAnimationElement.getSimpleDuration"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGAnimationElement) TryGetSimpleDuration() (ret float32, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGAnimationElementGetSimpleDuration(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasBeginElement returns true if the method "SVGAnimationElement.beginElement" exists.
+func (this SVGAnimationElement) HasBeginElement() bool {
+	return js.True == bindings.HasSVGAnimationElementBeginElement(
+		this.Ref(),
+	)
 }
 
 // BeginElementFunc returns the method "SVGAnimationElement.beginElement".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGAnimationElement) BeginElementFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.SVGAnimationElementBeginElementFunc(
@@ -1489,23 +1985,34 @@ func (this SVGAnimationElement) BeginElementFunc() (fn js.Func[func()]) {
 	)
 }
 
-// BeginElementAt calls the method "SVGAnimationElement.beginElementAt".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGAnimationElement) BeginElementAt(offset float32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGAnimationElementBeginElementAt(
-		this.Ref(), js.Pointer(&_ok),
-		float32(offset),
+// BeginElement calls the method "SVGAnimationElement.beginElement".
+func (this SVGAnimationElement) BeginElement() (ret js.Void) {
+	bindings.CallSVGAnimationElementBeginElement(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryBeginElement calls the method "SVGAnimationElement.beginElement"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGAnimationElement) TryBeginElement() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGAnimationElementBeginElement(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasBeginElementAt returns true if the method "SVGAnimationElement.beginElementAt" exists.
+func (this SVGAnimationElement) HasBeginElementAt() bool {
+	return js.True == bindings.HasSVGAnimationElementBeginElementAt(
+		this.Ref(),
+	)
 }
 
 // BeginElementAtFunc returns the method "SVGAnimationElement.beginElementAt".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGAnimationElement) BeginElementAtFunc() (fn js.Func[func(offset float32)]) {
 	return fn.FromRef(
 		bindings.SVGAnimationElementBeginElementAtFunc(
@@ -1514,22 +2021,36 @@ func (this SVGAnimationElement) BeginElementAtFunc() (fn js.Func[func(offset flo
 	)
 }
 
-// EndElement calls the method "SVGAnimationElement.endElement".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGAnimationElement) EndElement() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGAnimationElementEndElement(
-		this.Ref(), js.Pointer(&_ok),
+// BeginElementAt calls the method "SVGAnimationElement.beginElementAt".
+func (this SVGAnimationElement) BeginElementAt(offset float32) (ret js.Void) {
+	bindings.CallSVGAnimationElementBeginElementAt(
+		this.Ref(), js.Pointer(&ret),
+		float32(offset),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryBeginElementAt calls the method "SVGAnimationElement.beginElementAt"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGAnimationElement) TryBeginElementAt(offset float32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGAnimationElementBeginElementAt(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float32(offset),
+	)
+
+	return
+}
+
+// HasEndElement returns true if the method "SVGAnimationElement.endElement" exists.
+func (this SVGAnimationElement) HasEndElement() bool {
+	return js.True == bindings.HasSVGAnimationElementEndElement(
+		this.Ref(),
+	)
 }
 
 // EndElementFunc returns the method "SVGAnimationElement.endElement".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGAnimationElement) EndElementFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.SVGAnimationElementEndElementFunc(
@@ -1538,29 +2059,62 @@ func (this SVGAnimationElement) EndElementFunc() (fn js.Func[func()]) {
 	)
 }
 
-// EndElementAt calls the method "SVGAnimationElement.endElementAt".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGAnimationElement) EndElementAt(offset float32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGAnimationElementEndElementAt(
-		this.Ref(), js.Pointer(&_ok),
-		float32(offset),
+// EndElement calls the method "SVGAnimationElement.endElement".
+func (this SVGAnimationElement) EndElement() (ret js.Void) {
+	bindings.CallSVGAnimationElementEndElement(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryEndElement calls the method "SVGAnimationElement.endElement"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGAnimationElement) TryEndElement() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGAnimationElementEndElement(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasEndElementAt returns true if the method "SVGAnimationElement.endElementAt" exists.
+func (this SVGAnimationElement) HasEndElementAt() bool {
+	return js.True == bindings.HasSVGAnimationElementEndElementAt(
+		this.Ref(),
+	)
 }
 
 // EndElementAtFunc returns the method "SVGAnimationElement.endElementAt".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGAnimationElement) EndElementAtFunc() (fn js.Func[func(offset float32)]) {
 	return fn.FromRef(
 		bindings.SVGAnimationElementEndElementAtFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// EndElementAt calls the method "SVGAnimationElement.endElementAt".
+func (this SVGAnimationElement) EndElementAt(offset float32) (ret js.Void) {
+	bindings.CallSVGAnimationElementEndElementAt(
+		this.Ref(), js.Pointer(&ret),
+		float32(offset),
+	)
+
+	return
+}
+
+// TryEndElementAt calls the method "SVGAnimationElement.endElementAt"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGAnimationElement) TryEndElementAt(offset float32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGAnimationElementEndElementAt(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float32(offset),
+	)
+
+	return
 }
 
 type SVGBoundingBoxOptions struct {
@@ -1648,35 +2202,32 @@ func (this SVGCircleElement) Free() {
 
 // Cx returns the value of property "SVGCircleElement.cx".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGCircleElement) Cx() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGCircleElementCx(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGCircleElement) Cx() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGCircleElementCx(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Cy returns the value of property "SVGCircleElement.cy".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGCircleElement) Cy() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGCircleElementCy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGCircleElement) Cy() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGCircleElementCy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // R returns the value of property "SVGCircleElement.r".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGCircleElement) R() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGCircleElementR(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGCircleElement) R() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGCircleElementR(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGClipPathElement struct {
@@ -1703,24 +2254,22 @@ func (this SVGClipPathElement) Free() {
 
 // ClipPathUnits returns the value of property "SVGClipPathElement.clipPathUnits".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGClipPathElement) ClipPathUnits() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGClipPathElementClipPathUnits(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGClipPathElement) ClipPathUnits() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGClipPathElementClipPathUnits(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // Transform returns the value of property "SVGClipPathElement.transform".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGClipPathElement) Transform() (SVGAnimatedTransformList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGClipPathElementTransform(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGClipPathElement) Transform() (ret SVGAnimatedTransformList, ok bool) {
+	ok = js.True == bindings.GetSVGClipPathElementTransform(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedTransformList{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -1756,79 +2305,72 @@ func (this SVGComponentTransferFunctionElement) Free() {
 
 // Type returns the value of property "SVGComponentTransferFunctionElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGComponentTransferFunctionElement) Type() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGComponentTransferFunctionElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGComponentTransferFunctionElement) Type() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGComponentTransferFunctionElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // TableValues returns the value of property "SVGComponentTransferFunctionElement.tableValues".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGComponentTransferFunctionElement) TableValues() (SVGAnimatedNumberList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGComponentTransferFunctionElementTableValues(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGComponentTransferFunctionElement) TableValues() (ret SVGAnimatedNumberList, ok bool) {
+	ok = js.True == bindings.GetSVGComponentTransferFunctionElementTableValues(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumberList{}.FromRef(_ret), _ok
+	return
 }
 
 // Slope returns the value of property "SVGComponentTransferFunctionElement.slope".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGComponentTransferFunctionElement) Slope() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGComponentTransferFunctionElementSlope(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGComponentTransferFunctionElement) Slope() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGComponentTransferFunctionElementSlope(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Intercept returns the value of property "SVGComponentTransferFunctionElement.intercept".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGComponentTransferFunctionElement) Intercept() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGComponentTransferFunctionElementIntercept(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGComponentTransferFunctionElement) Intercept() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGComponentTransferFunctionElementIntercept(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Amplitude returns the value of property "SVGComponentTransferFunctionElement.amplitude".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGComponentTransferFunctionElement) Amplitude() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGComponentTransferFunctionElementAmplitude(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGComponentTransferFunctionElement) Amplitude() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGComponentTransferFunctionElementAmplitude(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Exponent returns the value of property "SVGComponentTransferFunctionElement.exponent".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGComponentTransferFunctionElement) Exponent() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGComponentTransferFunctionElementExponent(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGComponentTransferFunctionElement) Exponent() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGComponentTransferFunctionElementExponent(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Offset returns the value of property "SVGComponentTransferFunctionElement.offset".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGComponentTransferFunctionElement) Offset() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGComponentTransferFunctionElementOffset(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGComponentTransferFunctionElement) Offset() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGComponentTransferFunctionElementOffset(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGDefsElement struct {
@@ -1921,46 +2463,42 @@ func (this SVGEllipseElement) Free() {
 
 // Cx returns the value of property "SVGEllipseElement.cx".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGEllipseElement) Cx() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGEllipseElementCx(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGEllipseElement) Cx() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGEllipseElementCx(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Cy returns the value of property "SVGEllipseElement.cy".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGEllipseElement) Cy() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGEllipseElementCy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGEllipseElement) Cy() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGEllipseElementCy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Rx returns the value of property "SVGEllipseElement.rx".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGEllipseElement) Rx() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGEllipseElementRx(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGEllipseElement) Rx() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGEllipseElementRx(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Ry returns the value of property "SVGEllipseElement.ry".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGEllipseElement) Ry() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGEllipseElementRy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGEllipseElement) Ry() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGEllipseElementRy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -2007,90 +2545,82 @@ func (this SVGFEBlendElement) Free() {
 
 // In1 returns the value of property "SVGFEBlendElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // In2 returns the value of property "SVGFEBlendElement.in2".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) In2() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementIn2(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) In2() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementIn2(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Mode returns the value of property "SVGFEBlendElement.mode".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) Mode() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementMode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) Mode() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementMode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEBlendElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEBlendElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEBlendElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEBlendElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEBlendElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEBlendElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEBlendElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEBlendElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEBlendElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -2125,90 +2655,82 @@ func (this SVGFEColorMatrixElement) Free() {
 
 // In1 returns the value of property "SVGFEColorMatrixElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Type returns the value of property "SVGFEColorMatrixElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) Type() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) Type() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // Values returns the value of property "SVGFEColorMatrixElement.values".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) Values() (SVGAnimatedNumberList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementValues(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) Values() (ret SVGAnimatedNumberList, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementValues(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumberList{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEColorMatrixElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEColorMatrixElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEColorMatrixElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEColorMatrixElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEColorMatrixElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEColorMatrixElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEColorMatrixElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEColorMatrixElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEColorMatrixElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEComponentTransferElement struct {
@@ -2235,68 +2757,62 @@ func (this SVGFEComponentTransferElement) Free() {
 
 // In1 returns the value of property "SVGFEComponentTransferElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEComponentTransferElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEComponentTransferElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEComponentTransferElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEComponentTransferElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEComponentTransferElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEComponentTransferElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEComponentTransferElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEComponentTransferElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEComponentTransferElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEComponentTransferElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEComponentTransferElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEComponentTransferElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEComponentTransferElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEComponentTransferElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEComponentTransferElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEComponentTransferElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEComponentTransferElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEComponentTransferElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEComponentTransferElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEComponentTransferElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEComponentTransferElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEComponentTransferElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEComponentTransferElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEComponentTransferElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEComponentTransferElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEComponentTransferElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEComponentTransferElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEComponentTransferElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEComponentTransferElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -2333,134 +2849,122 @@ func (this SVGFECompositeElement) Free() {
 
 // In1 returns the value of property "SVGFECompositeElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // In2 returns the value of property "SVGFECompositeElement.in2".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) In2() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementIn2(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) In2() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementIn2(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Operator returns the value of property "SVGFECompositeElement.operator".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) Operator() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementOperator(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) Operator() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementOperator(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // K1 returns the value of property "SVGFECompositeElement.k1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) K1() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementK1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) K1() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementK1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // K2 returns the value of property "SVGFECompositeElement.k2".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) K2() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementK2(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) K2() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementK2(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // K3 returns the value of property "SVGFECompositeElement.k3".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) K3() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementK3(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) K3() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementK3(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // K4 returns the value of property "SVGFECompositeElement.k4".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) K4() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementK4(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) K4() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementK4(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFECompositeElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFECompositeElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFECompositeElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFECompositeElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFECompositeElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFECompositeElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFECompositeElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFECompositeElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFECompositeElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -2494,189 +2998,172 @@ func (this SVGFEConvolveMatrixElement) Free() {
 
 // In1 returns the value of property "SVGFEConvolveMatrixElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // OrderX returns the value of property "SVGFEConvolveMatrixElement.orderX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) OrderX() (SVGAnimatedInteger, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementOrderX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) OrderX() (ret SVGAnimatedInteger, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementOrderX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedInteger{}.FromRef(_ret), _ok
+	return
 }
 
 // OrderY returns the value of property "SVGFEConvolveMatrixElement.orderY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) OrderY() (SVGAnimatedInteger, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementOrderY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) OrderY() (ret SVGAnimatedInteger, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementOrderY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedInteger{}.FromRef(_ret), _ok
+	return
 }
 
 // KernelMatrix returns the value of property "SVGFEConvolveMatrixElement.kernelMatrix".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) KernelMatrix() (SVGAnimatedNumberList, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementKernelMatrix(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) KernelMatrix() (ret SVGAnimatedNumberList, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementKernelMatrix(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumberList{}.FromRef(_ret), _ok
+	return
 }
 
 // Divisor returns the value of property "SVGFEConvolveMatrixElement.divisor".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) Divisor() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementDivisor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) Divisor() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementDivisor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Bias returns the value of property "SVGFEConvolveMatrixElement.bias".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) Bias() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementBias(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) Bias() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementBias(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // TargetX returns the value of property "SVGFEConvolveMatrixElement.targetX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) TargetX() (SVGAnimatedInteger, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementTargetX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) TargetX() (ret SVGAnimatedInteger, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementTargetX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedInteger{}.FromRef(_ret), _ok
+	return
 }
 
 // TargetY returns the value of property "SVGFEConvolveMatrixElement.targetY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) TargetY() (SVGAnimatedInteger, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementTargetY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) TargetY() (ret SVGAnimatedInteger, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementTargetY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedInteger{}.FromRef(_ret), _ok
+	return
 }
 
 // EdgeMode returns the value of property "SVGFEConvolveMatrixElement.edgeMode".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) EdgeMode() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementEdgeMode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) EdgeMode() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementEdgeMode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // KernelUnitLengthX returns the value of property "SVGFEConvolveMatrixElement.kernelUnitLengthX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) KernelUnitLengthX() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementKernelUnitLengthX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) KernelUnitLengthX() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementKernelUnitLengthX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // KernelUnitLengthY returns the value of property "SVGFEConvolveMatrixElement.kernelUnitLengthY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) KernelUnitLengthY() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementKernelUnitLengthY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) KernelUnitLengthY() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementKernelUnitLengthY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // PreserveAlpha returns the value of property "SVGFEConvolveMatrixElement.preserveAlpha".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) PreserveAlpha() (SVGAnimatedBoolean, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementPreserveAlpha(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) PreserveAlpha() (ret SVGAnimatedBoolean, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementPreserveAlpha(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedBoolean{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEConvolveMatrixElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEConvolveMatrixElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEConvolveMatrixElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEConvolveMatrixElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEConvolveMatrixElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEConvolveMatrixElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEConvolveMatrixElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEConvolveMatrixElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEConvolveMatrixElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEDiffuseLightingElement struct {
@@ -2703,112 +3190,102 @@ func (this SVGFEDiffuseLightingElement) Free() {
 
 // In1 returns the value of property "SVGFEDiffuseLightingElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // SurfaceScale returns the value of property "SVGFEDiffuseLightingElement.surfaceScale".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) SurfaceScale() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementSurfaceScale(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) SurfaceScale() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementSurfaceScale(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // DiffuseConstant returns the value of property "SVGFEDiffuseLightingElement.diffuseConstant".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) DiffuseConstant() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementDiffuseConstant(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) DiffuseConstant() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementDiffuseConstant(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // KernelUnitLengthX returns the value of property "SVGFEDiffuseLightingElement.kernelUnitLengthX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) KernelUnitLengthX() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementKernelUnitLengthX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) KernelUnitLengthX() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementKernelUnitLengthX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // KernelUnitLengthY returns the value of property "SVGFEDiffuseLightingElement.kernelUnitLengthY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) KernelUnitLengthY() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementKernelUnitLengthY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) KernelUnitLengthY() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementKernelUnitLengthY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEDiffuseLightingElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEDiffuseLightingElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEDiffuseLightingElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEDiffuseLightingElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEDiffuseLightingElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDiffuseLightingElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDiffuseLightingElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDiffuseLightingElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEDiffuseLightingElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -2843,112 +3320,102 @@ func (this SVGFEDisplacementMapElement) Free() {
 
 // In1 returns the value of property "SVGFEDisplacementMapElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // In2 returns the value of property "SVGFEDisplacementMapElement.in2".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) In2() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementIn2(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) In2() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementIn2(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Scale returns the value of property "SVGFEDisplacementMapElement.scale".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) Scale() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementScale(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) Scale() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementScale(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // XChannelSelector returns the value of property "SVGFEDisplacementMapElement.xChannelSelector".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) XChannelSelector() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementXChannelSelector(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) XChannelSelector() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementXChannelSelector(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // YChannelSelector returns the value of property "SVGFEDisplacementMapElement.yChannelSelector".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) YChannelSelector() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementYChannelSelector(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) YChannelSelector() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementYChannelSelector(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEDisplacementMapElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEDisplacementMapElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEDisplacementMapElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEDisplacementMapElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEDisplacementMapElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDisplacementMapElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDisplacementMapElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDisplacementMapElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEDisplacementMapElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEDistantLightElement struct {
@@ -2975,24 +3442,22 @@ func (this SVGFEDistantLightElement) Free() {
 
 // Azimuth returns the value of property "SVGFEDistantLightElement.azimuth".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDistantLightElement) Azimuth() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDistantLightElementAzimuth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDistantLightElement) Azimuth() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDistantLightElementAzimuth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Elevation returns the value of property "SVGFEDistantLightElement.elevation".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDistantLightElement) Elevation() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDistantLightElementElevation(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDistantLightElement) Elevation() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDistantLightElementElevation(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEDropShadowElement struct {
@@ -3019,138 +3484,142 @@ func (this SVGFEDropShadowElement) Free() {
 
 // In1 returns the value of property "SVGFEDropShadowElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Dx returns the value of property "SVGFEDropShadowElement.dx".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) Dx() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementDx(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) Dx() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementDx(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Dy returns the value of property "SVGFEDropShadowElement.dy".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) Dy() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementDy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) Dy() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementDy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // StdDeviationX returns the value of property "SVGFEDropShadowElement.stdDeviationX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) StdDeviationX() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementStdDeviationX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) StdDeviationX() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementStdDeviationX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // StdDeviationY returns the value of property "SVGFEDropShadowElement.stdDeviationY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) StdDeviationY() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementStdDeviationY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) StdDeviationY() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementStdDeviationY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEDropShadowElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEDropShadowElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEDropShadowElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEDropShadowElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEDropShadowElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEDropShadowElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEDropShadowElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEDropShadowElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEDropShadowElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
-// SetStdDeviation calls the method "SVGFEDropShadowElement.setStdDeviation".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGFEDropShadowElement) SetStdDeviation(stdDeviationX float32, stdDeviationY float32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGFEDropShadowElementSetStdDeviation(
-		this.Ref(), js.Pointer(&_ok),
-		float32(stdDeviationX),
-		float32(stdDeviationY),
+// HasSetStdDeviation returns true if the method "SVGFEDropShadowElement.setStdDeviation" exists.
+func (this SVGFEDropShadowElement) HasSetStdDeviation() bool {
+	return js.True == bindings.HasSVGFEDropShadowElementSetStdDeviation(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SetStdDeviationFunc returns the method "SVGFEDropShadowElement.setStdDeviation".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGFEDropShadowElement) SetStdDeviationFunc() (fn js.Func[func(stdDeviationX float32, stdDeviationY float32)]) {
 	return fn.FromRef(
 		bindings.SVGFEDropShadowElementSetStdDeviationFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// SetStdDeviation calls the method "SVGFEDropShadowElement.setStdDeviation".
+func (this SVGFEDropShadowElement) SetStdDeviation(stdDeviationX float32, stdDeviationY float32) (ret js.Void) {
+	bindings.CallSVGFEDropShadowElementSetStdDeviation(
+		this.Ref(), js.Pointer(&ret),
+		float32(stdDeviationX),
+		float32(stdDeviationY),
+	)
+
+	return
+}
+
+// TrySetStdDeviation calls the method "SVGFEDropShadowElement.setStdDeviation"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGFEDropShadowElement) TrySetStdDeviation(stdDeviationX float32, stdDeviationY float32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGFEDropShadowElementSetStdDeviation(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float32(stdDeviationX),
+		float32(stdDeviationY),
+	)
+
+	return
 }
 
 type SVGFEFloodElement struct {
@@ -3177,57 +3646,52 @@ func (this SVGFEFloodElement) Free() {
 
 // X returns the value of property "SVGFEFloodElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEFloodElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEFloodElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEFloodElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEFloodElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEFloodElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEFloodElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEFloodElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEFloodElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEFloodElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEFloodElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEFloodElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEFloodElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEFloodElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEFloodElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEFloodElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEFloodElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEFloodElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEFloodElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEFloodElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEFloodElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEFloodElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEFloodElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEFloodElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEFloodElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEFuncAElement struct {
@@ -3349,127 +3813,132 @@ func (this SVGFEGaussianBlurElement) Free() {
 
 // In1 returns the value of property "SVGFEGaussianBlurElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // StdDeviationX returns the value of property "SVGFEGaussianBlurElement.stdDeviationX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) StdDeviationX() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementStdDeviationX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) StdDeviationX() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementStdDeviationX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // StdDeviationY returns the value of property "SVGFEGaussianBlurElement.stdDeviationY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) StdDeviationY() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementStdDeviationY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) StdDeviationY() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementStdDeviationY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // EdgeMode returns the value of property "SVGFEGaussianBlurElement.edgeMode".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) EdgeMode() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementEdgeMode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) EdgeMode() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementEdgeMode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEGaussianBlurElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEGaussianBlurElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEGaussianBlurElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEGaussianBlurElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEGaussianBlurElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEGaussianBlurElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEGaussianBlurElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEGaussianBlurElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEGaussianBlurElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
-// SetStdDeviation calls the method "SVGFEGaussianBlurElement.setStdDeviation".
-//
-// The returned bool will be false if there is no such method.
-func (this SVGFEGaussianBlurElement) SetStdDeviation(stdDeviationX float32, stdDeviationY float32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallSVGFEGaussianBlurElementSetStdDeviation(
-		this.Ref(), js.Pointer(&_ok),
-		float32(stdDeviationX),
-		float32(stdDeviationY),
+// HasSetStdDeviation returns true if the method "SVGFEGaussianBlurElement.setStdDeviation" exists.
+func (this SVGFEGaussianBlurElement) HasSetStdDeviation() bool {
+	return js.True == bindings.HasSVGFEGaussianBlurElementSetStdDeviation(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SetStdDeviationFunc returns the method "SVGFEGaussianBlurElement.setStdDeviation".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this SVGFEGaussianBlurElement) SetStdDeviationFunc() (fn js.Func[func(stdDeviationX float32, stdDeviationY float32)]) {
 	return fn.FromRef(
 		bindings.SVGFEGaussianBlurElementSetStdDeviationFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// SetStdDeviation calls the method "SVGFEGaussianBlurElement.setStdDeviation".
+func (this SVGFEGaussianBlurElement) SetStdDeviation(stdDeviationX float32, stdDeviationY float32) (ret js.Void) {
+	bindings.CallSVGFEGaussianBlurElementSetStdDeviation(
+		this.Ref(), js.Pointer(&ret),
+		float32(stdDeviationX),
+		float32(stdDeviationY),
+	)
+
+	return
+}
+
+// TrySetStdDeviation calls the method "SVGFEGaussianBlurElement.setStdDeviation"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this SVGFEGaussianBlurElement) TrySetStdDeviation(stdDeviationX float32, stdDeviationY float32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TrySVGFEGaussianBlurElementSetStdDeviation(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float32(stdDeviationX),
+		float32(stdDeviationY),
+	)
+
+	return
 }
 
 type SVGFEImageElement struct {
@@ -3496,90 +3965,82 @@ func (this SVGFEImageElement) Free() {
 
 // PreserveAspectRatio returns the value of property "SVGFEImageElement.preserveAspectRatio".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) PreserveAspectRatio() (SVGAnimatedPreserveAspectRatio, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementPreserveAspectRatio(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) PreserveAspectRatio() (ret SVGAnimatedPreserveAspectRatio, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementPreserveAspectRatio(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedPreserveAspectRatio{}.FromRef(_ret), _ok
+	return
 }
 
 // CrossOrigin returns the value of property "SVGFEImageElement.crossOrigin".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) CrossOrigin() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementCrossOrigin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) CrossOrigin() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementCrossOrigin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEImageElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEImageElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEImageElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEImageElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEImageElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Href returns the value of property "SVGFEImageElement.href".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEImageElement) Href() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEImageElementHref(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEImageElement) Href() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEImageElementHref(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEMergeElement struct {
@@ -3606,57 +4067,52 @@ func (this SVGFEMergeElement) Free() {
 
 // X returns the value of property "SVGFEMergeElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMergeElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMergeElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMergeElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMergeElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEMergeElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMergeElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMergeElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMergeElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMergeElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEMergeElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMergeElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMergeElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMergeElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMergeElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEMergeElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMergeElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMergeElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMergeElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMergeElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEMergeElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMergeElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMergeElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMergeElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEMergeElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEMergeNodeElement struct {
@@ -3683,13 +4139,12 @@ func (this SVGFEMergeNodeElement) Free() {
 
 // In1 returns the value of property "SVGFEMergeNodeElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMergeNodeElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMergeNodeElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMergeNodeElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEMergeNodeElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 const (
@@ -3722,101 +4177,92 @@ func (this SVGFEMorphologyElement) Free() {
 
 // In1 returns the value of property "SVGFEMorphologyElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Operator returns the value of property "SVGFEMorphologyElement.operator".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) Operator() (SVGAnimatedEnumeration, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementOperator(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) Operator() (ret SVGAnimatedEnumeration, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementOperator(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedEnumeration{}.FromRef(_ret), _ok
+	return
 }
 
 // RadiusX returns the value of property "SVGFEMorphologyElement.radiusX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) RadiusX() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementRadiusX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) RadiusX() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementRadiusX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // RadiusY returns the value of property "SVGFEMorphologyElement.radiusY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) RadiusY() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementRadiusY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) RadiusY() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementRadiusY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEMorphologyElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEMorphologyElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEMorphologyElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEMorphologyElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEMorphologyElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEMorphologyElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEMorphologyElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEMorphologyElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEMorphologyElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEOffsetElement struct {
@@ -3843,90 +4289,82 @@ func (this SVGFEOffsetElement) Free() {
 
 // In1 returns the value of property "SVGFEOffsetElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // Dx returns the value of property "SVGFEOffsetElement.dx".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) Dx() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementDx(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) Dx() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementDx(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Dy returns the value of property "SVGFEOffsetElement.dy".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) Dy() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementDy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) Dy() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementDy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFEOffsetElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEOffsetElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFEOffsetElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFEOffsetElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFEOffsetElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEOffsetElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEOffsetElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEOffsetElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFEOffsetElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFEPointLightElement struct {
@@ -3953,35 +4391,32 @@ func (this SVGFEPointLightElement) Free() {
 
 // X returns the value of property "SVGFEPointLightElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEPointLightElement) X() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEPointLightElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEPointLightElement) X() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEPointLightElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFEPointLightElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEPointLightElement) Y() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEPointLightElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEPointLightElement) Y() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEPointLightElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Z returns the value of property "SVGFEPointLightElement.z".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFEPointLightElement) Z() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFEPointLightElementZ(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFEPointLightElement) Z() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFEPointLightElementZ(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFESpecularLightingElement struct {
@@ -4008,123 +4443,112 @@ func (this SVGFESpecularLightingElement) Free() {
 
 // In1 returns the value of property "SVGFESpecularLightingElement.in1".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) In1() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementIn1(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) In1() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementIn1(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 // SurfaceScale returns the value of property "SVGFESpecularLightingElement.surfaceScale".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) SurfaceScale() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementSurfaceScale(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) SurfaceScale() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementSurfaceScale(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // SpecularConstant returns the value of property "SVGFESpecularLightingElement.specularConstant".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) SpecularConstant() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementSpecularConstant(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) SpecularConstant() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementSpecularConstant(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // SpecularExponent returns the value of property "SVGFESpecularLightingElement.specularExponent".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) SpecularExponent() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementSpecularExponent(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) SpecularExponent() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementSpecularExponent(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // KernelUnitLengthX returns the value of property "SVGFESpecularLightingElement.kernelUnitLengthX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) KernelUnitLengthX() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementKernelUnitLengthX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) KernelUnitLengthX() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementKernelUnitLengthX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // KernelUnitLengthY returns the value of property "SVGFESpecularLightingElement.kernelUnitLengthY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) KernelUnitLengthY() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementKernelUnitLengthY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) KernelUnitLengthY() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementKernelUnitLengthY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // X returns the value of property "SVGFESpecularLightingElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) X() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) X() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFESpecularLightingElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) Y() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) Y() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Width returns the value of property "SVGFESpecularLightingElement.width".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) Width() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) Width() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Height returns the value of property "SVGFESpecularLightingElement.height".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) Height() (SVGAnimatedLength, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementHeight(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) Height() (ret SVGAnimatedLength, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementHeight(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedLength{}.FromRef(_ret), _ok
+	return
 }
 
 // Result returns the value of property "SVGFESpecularLightingElement.result".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpecularLightingElement) Result() (SVGAnimatedString, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpecularLightingElementResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpecularLightingElement) Result() (ret SVGAnimatedString, ok bool) {
+	ok = js.True == bindings.GetSVGFESpecularLightingElementResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedString{}.FromRef(_ret), _ok
+	return
 }
 
 type SVGFESpotLightElement struct {
@@ -4151,88 +4575,80 @@ func (this SVGFESpotLightElement) Free() {
 
 // X returns the value of property "SVGFESpotLightElement.x".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) X() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) X() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Y returns the value of property "SVGFESpotLightElement.y".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) Y() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) Y() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // Z returns the value of property "SVGFESpotLightElement.z".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) Z() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementZ(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) Z() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementZ(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // PointsAtX returns the value of property "SVGFESpotLightElement.pointsAtX".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) PointsAtX() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementPointsAtX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) PointsAtX() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementPointsAtX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // PointsAtY returns the value of property "SVGFESpotLightElement.pointsAtY".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) PointsAtY() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementPointsAtY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) PointsAtY() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementPointsAtY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // PointsAtZ returns the value of property "SVGFESpotLightElement.pointsAtZ".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) PointsAtZ() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementPointsAtZ(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) PointsAtZ() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementPointsAtZ(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // SpecularExponent returns the value of property "SVGFESpotLightElement.specularExponent".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) SpecularExponent() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementSpecularExponent(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) SpecularExponent() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementSpecularExponent(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }
 
 // LimitingConeAngle returns the value of property "SVGFESpotLightElement.limitingConeAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this SVGFESpotLightElement) LimitingConeAngle() (SVGAnimatedNumber, bool) {
-	var _ok bool
-	_ret := bindings.GetSVGFESpotLightElementLimitingConeAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SVGFESpotLightElement) LimitingConeAngle() (ret SVGAnimatedNumber, ok bool) {
+	ok = js.True == bindings.GetSVGFESpotLightElementLimitingConeAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return SVGAnimatedNumber{}.FromRef(_ret), _ok
+	return
 }

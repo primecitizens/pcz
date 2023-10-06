@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2023 The Prime Citizens
+
 import { importModule, heap, Application } from "@ffi";
 
 importModule("ffi/js", (A: Application): Record<string, Function> => {
@@ -7,6 +10,9 @@ importModule("ffi/js", (A: Application): Record<string, Function> => {
     //
     "once": (ref: heap.Ref<any>): void => {
       A.H.freeAfterNGets(ref, 1);
+    },
+    "clone": (ref: heap.Ref<any>): heap.Ref<any> => {
+      return A.H.push(A.H.get(ref));
     },
     "free": (ref: heap.Ref<any>): void => {
       A.H.take(ref);

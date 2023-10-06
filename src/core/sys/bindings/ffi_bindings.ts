@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// Copyright 2023 The Prime Citizens
+
 import { Application, Pointer, importModule } from "@ffi";
 
 importModule("core/sys", (A: Application) => {

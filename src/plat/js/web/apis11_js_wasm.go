@@ -43,30 +43,22 @@ func (this AuthenticatorAttestationResponse) Free() {
 
 // AttestationObject returns the value of property "AuthenticatorAttestationResponse.attestationObject".
 //
-// The returned bool will be false if there is no such property.
-func (this AuthenticatorAttestationResponse) AttestationObject() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAuthenticatorAttestationResponseAttestationObject(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AuthenticatorAttestationResponse) AttestationObject() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetAuthenticatorAttestationResponseAttestationObject(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
-// GetTransports calls the method "AuthenticatorAttestationResponse.getTransports".
-//
-// The returned bool will be false if there is no such method.
-func (this AuthenticatorAttestationResponse) GetTransports() (js.Array[js.String], bool) {
-	var _ok bool
-	_ret := bindings.CallAuthenticatorAttestationResponseGetTransports(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetTransports returns true if the method "AuthenticatorAttestationResponse.getTransports" exists.
+func (this AuthenticatorAttestationResponse) HasGetTransports() bool {
+	return js.True == bindings.HasAuthenticatorAttestationResponseGetTransports(
+		this.Ref(),
 	)
-
-	return js.Array[js.String]{}.FromRef(_ret), _ok
 }
 
 // GetTransportsFunc returns the method "AuthenticatorAttestationResponse.getTransports".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AuthenticatorAttestationResponse) GetTransportsFunc() (fn js.Func[func() js.Array[js.String]]) {
 	return fn.FromRef(
 		bindings.AuthenticatorAttestationResponseGetTransportsFunc(
@@ -75,21 +67,34 @@ func (this AuthenticatorAttestationResponse) GetTransportsFunc() (fn js.Func[fun
 	)
 }
 
-// GetAuthenticatorData calls the method "AuthenticatorAttestationResponse.getAuthenticatorData".
-//
-// The returned bool will be false if there is no such method.
-func (this AuthenticatorAttestationResponse) GetAuthenticatorData() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.CallAuthenticatorAttestationResponseGetAuthenticatorData(
-		this.Ref(), js.Pointer(&_ok),
+// GetTransports calls the method "AuthenticatorAttestationResponse.getTransports".
+func (this AuthenticatorAttestationResponse) GetTransports() (ret js.Array[js.String]) {
+	bindings.CallAuthenticatorAttestationResponseGetTransports(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetTransports calls the method "AuthenticatorAttestationResponse.getTransports"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AuthenticatorAttestationResponse) TryGetTransports() (ret js.Array[js.String], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetTransports(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetAuthenticatorData returns true if the method "AuthenticatorAttestationResponse.getAuthenticatorData" exists.
+func (this AuthenticatorAttestationResponse) HasGetAuthenticatorData() bool {
+	return js.True == bindings.HasAuthenticatorAttestationResponseGetAuthenticatorData(
+		this.Ref(),
+	)
 }
 
 // GetAuthenticatorDataFunc returns the method "AuthenticatorAttestationResponse.getAuthenticatorData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AuthenticatorAttestationResponse) GetAuthenticatorDataFunc() (fn js.Func[func() js.ArrayBuffer]) {
 	return fn.FromRef(
 		bindings.AuthenticatorAttestationResponseGetAuthenticatorDataFunc(
@@ -98,21 +103,34 @@ func (this AuthenticatorAttestationResponse) GetAuthenticatorDataFunc() (fn js.F
 	)
 }
 
-// GetPublicKey calls the method "AuthenticatorAttestationResponse.getPublicKey".
-//
-// The returned bool will be false if there is no such method.
-func (this AuthenticatorAttestationResponse) GetPublicKey() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.CallAuthenticatorAttestationResponseGetPublicKey(
-		this.Ref(), js.Pointer(&_ok),
+// GetAuthenticatorData calls the method "AuthenticatorAttestationResponse.getAuthenticatorData".
+func (this AuthenticatorAttestationResponse) GetAuthenticatorData() (ret js.ArrayBuffer) {
+	bindings.CallAuthenticatorAttestationResponseGetAuthenticatorData(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetAuthenticatorData calls the method "AuthenticatorAttestationResponse.getAuthenticatorData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AuthenticatorAttestationResponse) TryGetAuthenticatorData() (ret js.ArrayBuffer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetAuthenticatorData(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetPublicKey returns true if the method "AuthenticatorAttestationResponse.getPublicKey" exists.
+func (this AuthenticatorAttestationResponse) HasGetPublicKey() bool {
+	return js.True == bindings.HasAuthenticatorAttestationResponseGetPublicKey(
+		this.Ref(),
+	)
 }
 
 // GetPublicKeyFunc returns the method "AuthenticatorAttestationResponse.getPublicKey".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AuthenticatorAttestationResponse) GetPublicKeyFunc() (fn js.Func[func() js.ArrayBuffer]) {
 	return fn.FromRef(
 		bindings.AuthenticatorAttestationResponseGetPublicKeyFunc(
@@ -121,27 +139,60 @@ func (this AuthenticatorAttestationResponse) GetPublicKeyFunc() (fn js.Func[func
 	)
 }
 
-// GetPublicKeyAlgorithm calls the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm".
-//
-// The returned bool will be false if there is no such method.
-func (this AuthenticatorAttestationResponse) GetPublicKeyAlgorithm() (COSEAlgorithmIdentifier, bool) {
-	var _ok bool
-	_ret := bindings.CallAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
-		this.Ref(), js.Pointer(&_ok),
+// GetPublicKey calls the method "AuthenticatorAttestationResponse.getPublicKey".
+func (this AuthenticatorAttestationResponse) GetPublicKey() (ret js.ArrayBuffer) {
+	bindings.CallAuthenticatorAttestationResponseGetPublicKey(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return COSEAlgorithmIdentifier(_ret), _ok
+	return
+}
+
+// TryGetPublicKey calls the method "AuthenticatorAttestationResponse.getPublicKey"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AuthenticatorAttestationResponse) TryGetPublicKey() (ret js.ArrayBuffer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetPublicKey(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasGetPublicKeyAlgorithm returns true if the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm" exists.
+func (this AuthenticatorAttestationResponse) HasGetPublicKeyAlgorithm() bool {
+	return js.True == bindings.HasAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
+		this.Ref(),
+	)
 }
 
 // GetPublicKeyAlgorithmFunc returns the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AuthenticatorAttestationResponse) GetPublicKeyAlgorithmFunc() (fn js.Func[func() COSEAlgorithmIdentifier]) {
 	return fn.FromRef(
 		bindings.AuthenticatorAttestationResponseGetPublicKeyAlgorithmFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetPublicKeyAlgorithm calls the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm".
+func (this AuthenticatorAttestationResponse) GetPublicKeyAlgorithm() (ret COSEAlgorithmIdentifier) {
+	bindings.CallAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetPublicKeyAlgorithm calls the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AuthenticatorAttestationResponse) TryGetPublicKeyAlgorithm() (ret COSEAlgorithmIdentifier, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type AuthenticatorAttestationResponseJSON struct {
@@ -224,13 +275,12 @@ func (this AuthenticatorResponse) Free() {
 
 // ClientDataJSON returns the value of property "AuthenticatorResponse.clientDataJSON".
 //
-// The returned bool will be false if there is no such property.
-func (this AuthenticatorResponse) ClientDataJSON() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAuthenticatorResponseClientDataJSON(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AuthenticatorResponse) ClientDataJSON() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetAuthenticatorResponseClientDataJSON(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 type AuthenticatorSelectionCriteria struct {
@@ -539,17 +589,15 @@ func (x OneOf_ArrayArrayString_RecordString_String) String() js.String {
 	return js.String{}.FromRef(x.ref)
 }
 
-func NewURLSearchParams(init OneOf_ArrayArrayString_RecordString_String) URLSearchParams {
-	return URLSearchParams{}.FromRef(
-		bindings.NewURLSearchParamsByURLSearchParams(
-			init.Ref()),
-	)
+func NewURLSearchParams(init OneOf_ArrayArrayString_RecordString_String) (ret URLSearchParams) {
+	ret.ref = bindings.NewURLSearchParamsByURLSearchParams(
+		init.Ref())
+	return
 }
 
-func NewURLSearchParamsByURLSearchParams1() URLSearchParams {
-	return URLSearchParams{}.FromRef(
-		bindings.NewURLSearchParamsByURLSearchParams1(),
-	)
+func NewURLSearchParamsByURLSearchParams1() (ret URLSearchParams) {
+	ret.ref = bindings.NewURLSearchParamsByURLSearchParams1()
+	return
 }
 
 type URLSearchParams struct {
@@ -576,33 +624,22 @@ func (this URLSearchParams) Free() {
 
 // Size returns the value of property "URLSearchParams.size".
 //
-// The returned bool will be false if there is no such property.
-func (this URLSearchParams) Size() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetURLSearchParamsSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this URLSearchParams) Size() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetURLSearchParamsSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Append calls the method "URLSearchParams.append".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Append(name js.String, value js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsAppend(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
-		value.Ref(),
+// HasAppend returns true if the method "URLSearchParams.append" exists.
+func (this URLSearchParams) HasAppend() bool {
+	return js.True == bindings.HasURLSearchParamsAppend(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // AppendFunc returns the method "URLSearchParams.append".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) AppendFunc() (fn js.Func[func(name js.String, value js.String)]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsAppendFunc(
@@ -611,24 +648,38 @@ func (this URLSearchParams) AppendFunc() (fn js.Func[func(name js.String, value 
 	)
 }
 
-// Delete calls the method "URLSearchParams.delete".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Delete(name js.String, value js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsDelete(
-		this.Ref(), js.Pointer(&_ok),
+// Append calls the method "URLSearchParams.append".
+func (this URLSearchParams) Append(name js.String, value js.String) (ret js.Void) {
+	bindings.CallURLSearchParamsAppend(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
 		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAppend calls the method "URLSearchParams.append"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryAppend(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsAppend(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasDelete returns true if the method "URLSearchParams.delete" exists.
+func (this URLSearchParams) HasDelete() bool {
+	return js.True == bindings.HasURLSearchParamsDelete(
+		this.Ref(),
+	)
 }
 
 // DeleteFunc returns the method "URLSearchParams.delete".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) DeleteFunc() (fn js.Func[func(name js.String, value js.String)]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsDeleteFunc(
@@ -637,23 +688,38 @@ func (this URLSearchParams) DeleteFunc() (fn js.Func[func(name js.String, value 
 	)
 }
 
-// Delete1 calls the method "URLSearchParams.delete".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Delete1(name js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsDelete1(
-		this.Ref(), js.Pointer(&_ok),
+// Delete calls the method "URLSearchParams.delete".
+func (this URLSearchParams) Delete(name js.String, value js.String) (ret js.Void) {
+	bindings.CallURLSearchParamsDelete(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
+		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDelete calls the method "URLSearchParams.delete"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryDelete(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsDelete(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasDelete1 returns true if the method "URLSearchParams.delete" exists.
+func (this URLSearchParams) HasDelete1() bool {
+	return js.True == bindings.HasURLSearchParamsDelete1(
+		this.Ref(),
+	)
 }
 
 // Delete1Func returns the method "URLSearchParams.delete".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) Delete1Func() (fn js.Func[func(name js.String)]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsDelete1Func(
@@ -662,22 +728,36 @@ func (this URLSearchParams) Delete1Func() (fn js.Func[func(name js.String)]) {
 	)
 }
 
-// Get calls the method "URLSearchParams.get".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Get(name js.String) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsGet(
-		this.Ref(), js.Pointer(&_ok),
+// Delete1 calls the method "URLSearchParams.delete".
+func (this URLSearchParams) Delete1(name js.String) (ret js.Void) {
+	bindings.CallURLSearchParamsDelete1(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryDelete1 calls the method "URLSearchParams.delete"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryDelete1(name js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsDelete1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasGet returns true if the method "URLSearchParams.get" exists.
+func (this URLSearchParams) HasGet() bool {
+	return js.True == bindings.HasURLSearchParamsGet(
+		this.Ref(),
+	)
 }
 
 // GetFunc returns the method "URLSearchParams.get".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) GetFunc() (fn js.Func[func(name js.String) js.String]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsGetFunc(
@@ -686,22 +766,36 @@ func (this URLSearchParams) GetFunc() (fn js.Func[func(name js.String) js.String
 	)
 }
 
-// GetAll calls the method "URLSearchParams.getAll".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) GetAll(name js.String) (js.Array[js.String], bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsGetAll(
-		this.Ref(), js.Pointer(&_ok),
+// Get calls the method "URLSearchParams.get".
+func (this URLSearchParams) Get(name js.String) (ret js.String) {
+	bindings.CallURLSearchParamsGet(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
 	)
 
-	return js.Array[js.String]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGet calls the method "URLSearchParams.get"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryGet(name js.String) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsGet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasGetAll returns true if the method "URLSearchParams.getAll" exists.
+func (this URLSearchParams) HasGetAll() bool {
+	return js.True == bindings.HasURLSearchParamsGetAll(
+		this.Ref(),
+	)
 }
 
 // GetAllFunc returns the method "URLSearchParams.getAll".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) GetAllFunc() (fn js.Func[func(name js.String) js.Array[js.String]]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsGetAllFunc(
@@ -710,23 +804,36 @@ func (this URLSearchParams) GetAllFunc() (fn js.Func[func(name js.String) js.Arr
 	)
 }
 
-// Has calls the method "URLSearchParams.has".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Has(name js.String, value js.String) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsHas(
-		this.Ref(), js.Pointer(&_ok),
+// GetAll calls the method "URLSearchParams.getAll".
+func (this URLSearchParams) GetAll(name js.String) (ret js.Array[js.String]) {
+	bindings.CallURLSearchParamsGetAll(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
-		value.Ref(),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryGetAll calls the method "URLSearchParams.getAll"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryGetAll(name js.String) (ret js.Array[js.String], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsGetAll(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasHas returns true if the method "URLSearchParams.has" exists.
+func (this URLSearchParams) HasHas() bool {
+	return js.True == bindings.HasURLSearchParamsHas(
+		this.Ref(),
+	)
 }
 
 // HasFunc returns the method "URLSearchParams.has".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) HasFunc() (fn js.Func[func(name js.String, value js.String) bool]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsHasFunc(
@@ -735,22 +842,38 @@ func (this URLSearchParams) HasFunc() (fn js.Func[func(name js.String, value js.
 	)
 }
 
-// Has1 calls the method "URLSearchParams.has".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Has1(name js.String) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsHas1(
-		this.Ref(), js.Pointer(&_ok),
+// Has calls the method "URLSearchParams.has".
+func (this URLSearchParams) Has(name js.String, value js.String) (ret bool) {
+	bindings.CallURLSearchParamsHas(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
+		value.Ref(),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryHas calls the method "URLSearchParams.has"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryHas(name js.String, value js.String) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsHas(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasHas1 returns true if the method "URLSearchParams.has" exists.
+func (this URLSearchParams) HasHas1() bool {
+	return js.True == bindings.HasURLSearchParamsHas1(
+		this.Ref(),
+	)
 }
 
 // Has1Func returns the method "URLSearchParams.has".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) Has1Func() (fn js.Func[func(name js.String) bool]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsHas1Func(
@@ -759,24 +882,36 @@ func (this URLSearchParams) Has1Func() (fn js.Func[func(name js.String) bool]) {
 	)
 }
 
-// Set calls the method "URLSearchParams.set".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Set(name js.String, value js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsSet(
-		this.Ref(), js.Pointer(&_ok),
+// Has1 calls the method "URLSearchParams.has".
+func (this URLSearchParams) Has1(name js.String) (ret bool) {
+	bindings.CallURLSearchParamsHas1(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
-		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryHas1 calls the method "URLSearchParams.has"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryHas1(name js.String) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsHas1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasSet returns true if the method "URLSearchParams.set" exists.
+func (this URLSearchParams) HasSet() bool {
+	return js.True == bindings.HasURLSearchParamsSet(
+		this.Ref(),
+	)
 }
 
 // SetFunc returns the method "URLSearchParams.set".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) SetFunc() (fn js.Func[func(name js.String, value js.String)]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsSetFunc(
@@ -785,22 +920,38 @@ func (this URLSearchParams) SetFunc() (fn js.Func[func(name js.String, value js.
 	)
 }
 
-// Sort calls the method "URLSearchParams.sort".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) Sort() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsSort(
-		this.Ref(), js.Pointer(&_ok),
+// Set calls the method "URLSearchParams.set".
+func (this URLSearchParams) Set(name js.String, value js.String) (ret js.Void) {
+	bindings.CallURLSearchParamsSet(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySet calls the method "URLSearchParams.set"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TrySet(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasSort returns true if the method "URLSearchParams.sort" exists.
+func (this URLSearchParams) HasSort() bool {
+	return js.True == bindings.HasURLSearchParamsSort(
+		this.Ref(),
+	)
 }
 
 // SortFunc returns the method "URLSearchParams.sort".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) SortFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsSortFunc(
@@ -809,27 +960,60 @@ func (this URLSearchParams) SortFunc() (fn js.Func[func()]) {
 	)
 }
 
-// ToString calls the method "URLSearchParams.toString".
-//
-// The returned bool will be false if there is no such method.
-func (this URLSearchParams) ToString() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallURLSearchParamsToString(
-		this.Ref(), js.Pointer(&_ok),
+// Sort calls the method "URLSearchParams.sort".
+func (this URLSearchParams) Sort() (ret js.Void) {
+	bindings.CallURLSearchParamsSort(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TrySort calls the method "URLSearchParams.sort"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TrySort() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsSort(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasToString returns true if the method "URLSearchParams.toString" exists.
+func (this URLSearchParams) HasToString() bool {
+	return js.True == bindings.HasURLSearchParamsToString(
+		this.Ref(),
+	)
 }
 
 // ToStringFunc returns the method "URLSearchParams.toString".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this URLSearchParams) ToStringFunc() (fn js.Func[func() js.String]) {
 	return fn.FromRef(
 		bindings.URLSearchParamsToStringFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// ToString calls the method "URLSearchParams.toString".
+func (this URLSearchParams) ToString() (ret js.String) {
+	bindings.CallURLSearchParamsToString(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryToString calls the method "URLSearchParams.toString"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this URLSearchParams) TryToString() (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryURLSearchParamsToString(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type OneOf_ReadableStream_Blob_TypedArrayInt8_TypedArrayInt16_TypedArrayInt32_TypedArrayUint8_TypedArrayUint16_TypedArrayUint32_TypedArrayInt64_TypedArrayUint64_TypedArrayFloat32_TypedArrayFloat64_DataView_ArrayBuffer_FormData_URLSearchParams_String struct {
@@ -1343,6 +1527,8 @@ type RequestInit struct {
 	// PrivateToken is "RequestInit.privateToken"
 	//
 	// Optional
+	//
+	// NOTE: PrivateToken.FFI_USE MUST be set to true to get PrivateToken used.
 	PrivateToken PrivateToken
 	// TargetAddressSpace is "RequestInit.targetAddressSpace"
 	//
@@ -1351,6 +1537,8 @@ type RequestInit struct {
 	// AttributionReporting is "RequestInit.attributionReporting"
 	//
 	// Optional
+	//
+	// NOTE: AttributionReporting.FFI_USE MUST be set to true to get AttributionReporting used.
 	AttributionReporting AttributionReportingRequestOptions
 
 	FFI_USE_Keepalive bool // for Keepalive.
@@ -1385,17 +1573,15 @@ func (p RequestInit) Update(ref js.Ref) {
 	)
 }
 
-func NewHeaders(init HeadersInit) Headers {
-	return Headers{}.FromRef(
-		bindings.NewHeadersByHeaders(
-			init.Ref()),
-	)
+func NewHeaders(init HeadersInit) (ret Headers) {
+	ret.ref = bindings.NewHeadersByHeaders(
+		init.Ref())
+	return
 }
 
-func NewHeadersByHeaders1() Headers {
-	return Headers{}.FromRef(
-		bindings.NewHeadersByHeaders1(),
-	)
+func NewHeadersByHeaders1() (ret Headers) {
+	ret.ref = bindings.NewHeadersByHeaders1()
+	return
 }
 
 type Headers struct {
@@ -1420,24 +1606,14 @@ func (this Headers) Free() {
 	this.Ref().Free()
 }
 
-// Append calls the method "Headers.append".
-//
-// The returned bool will be false if there is no such method.
-func (this Headers) Append(name js.String, value js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHeadersAppend(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
-		value.Ref(),
+// HasAppend returns true if the method "Headers.append" exists.
+func (this Headers) HasAppend() bool {
+	return js.True == bindings.HasHeadersAppend(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // AppendFunc returns the method "Headers.append".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Headers) AppendFunc() (fn js.Func[func(name js.String, value js.String)]) {
 	return fn.FromRef(
 		bindings.HeadersAppendFunc(
@@ -1446,23 +1622,38 @@ func (this Headers) AppendFunc() (fn js.Func[func(name js.String, value js.Strin
 	)
 }
 
-// Delete calls the method "Headers.delete".
-//
-// The returned bool will be false if there is no such method.
-func (this Headers) Delete(name js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHeadersDelete(
-		this.Ref(), js.Pointer(&_ok),
+// Append calls the method "Headers.append".
+func (this Headers) Append(name js.String, value js.String) (ret js.Void) {
+	bindings.CallHeadersAppend(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
+		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryAppend calls the method "Headers.append"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Headers) TryAppend(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHeadersAppend(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasDelete returns true if the method "Headers.delete" exists.
+func (this Headers) HasDelete() bool {
+	return js.True == bindings.HasHeadersDelete(
+		this.Ref(),
+	)
 }
 
 // DeleteFunc returns the method "Headers.delete".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Headers) DeleteFunc() (fn js.Func[func(name js.String)]) {
 	return fn.FromRef(
 		bindings.HeadersDeleteFunc(
@@ -1471,22 +1662,36 @@ func (this Headers) DeleteFunc() (fn js.Func[func(name js.String)]) {
 	)
 }
 
-// Get calls the method "Headers.get".
-//
-// The returned bool will be false if there is no such method.
-func (this Headers) Get(name js.String) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallHeadersGet(
-		this.Ref(), js.Pointer(&_ok),
+// Delete calls the method "Headers.delete".
+func (this Headers) Delete(name js.String) (ret js.Void) {
+	bindings.CallHeadersDelete(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryDelete calls the method "Headers.delete"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Headers) TryDelete(name js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHeadersDelete(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasGet returns true if the method "Headers.get" exists.
+func (this Headers) HasGet() bool {
+	return js.True == bindings.HasHeadersGet(
+		this.Ref(),
+	)
 }
 
 // GetFunc returns the method "Headers.get".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Headers) GetFunc() (fn js.Func[func(name js.String) js.String]) {
 	return fn.FromRef(
 		bindings.HeadersGetFunc(
@@ -1495,21 +1700,36 @@ func (this Headers) GetFunc() (fn js.Func[func(name js.String) js.String]) {
 	)
 }
 
-// GetSetCookie calls the method "Headers.getSetCookie".
-//
-// The returned bool will be false if there is no such method.
-func (this Headers) GetSetCookie() (js.Array[js.String], bool) {
-	var _ok bool
-	_ret := bindings.CallHeadersGetSetCookie(
-		this.Ref(), js.Pointer(&_ok),
+// Get calls the method "Headers.get".
+func (this Headers) Get(name js.String) (ret js.String) {
+	bindings.CallHeadersGet(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
 	)
 
-	return js.Array[js.String]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGet calls the method "Headers.get"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Headers) TryGet(name js.String) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHeadersGet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasGetSetCookie returns true if the method "Headers.getSetCookie" exists.
+func (this Headers) HasGetSetCookie() bool {
+	return js.True == bindings.HasHeadersGetSetCookie(
+		this.Ref(),
+	)
 }
 
 // GetSetCookieFunc returns the method "Headers.getSetCookie".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Headers) GetSetCookieFunc() (fn js.Func[func() js.Array[js.String]]) {
 	return fn.FromRef(
 		bindings.HeadersGetSetCookieFunc(
@@ -1518,22 +1738,34 @@ func (this Headers) GetSetCookieFunc() (fn js.Func[func() js.Array[js.String]]) 
 	)
 }
 
-// Has calls the method "Headers.has".
-//
-// The returned bool will be false if there is no such method.
-func (this Headers) Has(name js.String) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallHeadersHas(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
+// GetSetCookie calls the method "Headers.getSetCookie".
+func (this Headers) GetSetCookie() (ret js.Array[js.String]) {
+	bindings.CallHeadersGetSetCookie(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryGetSetCookie calls the method "Headers.getSetCookie"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Headers) TryGetSetCookie() (ret js.Array[js.String], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHeadersGetSetCookie(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasHas returns true if the method "Headers.has" exists.
+func (this Headers) HasHas() bool {
+	return js.True == bindings.HasHeadersHas(
+		this.Ref(),
+	)
 }
 
 // HasFunc returns the method "Headers.has".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Headers) HasFunc() (fn js.Func[func(name js.String) bool]) {
 	return fn.FromRef(
 		bindings.HeadersHasFunc(
@@ -1542,30 +1774,66 @@ func (this Headers) HasFunc() (fn js.Func[func(name js.String) bool]) {
 	)
 }
 
-// Set calls the method "Headers.set".
-//
-// The returned bool will be false if there is no such method.
-func (this Headers) Set(name js.String, value js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallHeadersSet(
-		this.Ref(), js.Pointer(&_ok),
+// Has calls the method "Headers.has".
+func (this Headers) Has(name js.String) (ret bool) {
+	bindings.CallHeadersHas(
+		this.Ref(), js.Pointer(&ret),
 		name.Ref(),
-		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryHas calls the method "Headers.has"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Headers) TryHas(name js.String) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHeadersHas(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+	)
+
+	return
+}
+
+// HasSet returns true if the method "Headers.set" exists.
+func (this Headers) HasSet() bool {
+	return js.True == bindings.HasHeadersSet(
+		this.Ref(),
+	)
 }
 
 // SetFunc returns the method "Headers.set".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Headers) SetFunc() (fn js.Func[func(name js.String, value js.String)]) {
 	return fn.FromRef(
 		bindings.HeadersSetFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Set calls the method "Headers.set".
+func (this Headers) Set(name js.String, value js.String) (ret js.Void) {
+	bindings.CallHeadersSet(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+		value.Ref(),
+	)
+
+	return
+}
+
+// TrySet calls the method "Headers.set"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Headers) TrySet(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryHeadersSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		value.Ref(),
+	)
+
+	return
 }
 
 type RequestDestination uint32

@@ -34,7 +34,7 @@ func (x *ExampleEvent) Run() {
 	}
 
 	x.running = true
-	js.Must(window.AddEventListener1(evtMousemove, x.listener))
+	window.AddEventListener1(evtMousemove, x.listener)
 	return
 }
 
@@ -54,5 +54,5 @@ func (x *ExampleEvent) Stop() {
 	}
 
 	x.running = false
-	js.Must(window.RemoveEventListener1(evtMousemove, x.listener))
+	window.RemoveEventListener1(evtMousemove, x.listener)
 }

@@ -172,16 +172,15 @@ func (this GPUComputePipeline) Free() {
 
 // Label returns the value of property "GPUComputePipeline.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUComputePipeline) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUComputePipelineLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUComputePipeline) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPUComputePipelineLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPUComputePipeline.label" to val.
+// SetLabel sets the value of property "GPUComputePipeline.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPUComputePipeline) SetLabel(val js.String) bool {
@@ -191,28 +190,42 @@ func (this GPUComputePipeline) SetLabel(val js.String) bool {
 	)
 }
 
-// GetBindGroupLayout calls the method "GPUComputePipeline.getBindGroupLayout".
-//
-// The returned bool will be false if there is no such method.
-func (this GPUComputePipeline) GetBindGroupLayout(index uint32) (GPUBindGroupLayout, bool) {
-	var _ok bool
-	_ret := bindings.CallGPUComputePipelineGetBindGroupLayout(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// HasGetBindGroupLayout returns true if the method "GPUComputePipeline.getBindGroupLayout" exists.
+func (this GPUComputePipeline) HasGetBindGroupLayout() bool {
+	return js.True == bindings.HasGPUComputePipelineGetBindGroupLayout(
+		this.Ref(),
 	)
-
-	return GPUBindGroupLayout{}.FromRef(_ret), _ok
 }
 
 // GetBindGroupLayoutFunc returns the method "GPUComputePipeline.getBindGroupLayout".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this GPUComputePipeline) GetBindGroupLayoutFunc() (fn js.Func[func(index uint32) GPUBindGroupLayout]) {
 	return fn.FromRef(
 		bindings.GPUComputePipelineGetBindGroupLayoutFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetBindGroupLayout calls the method "GPUComputePipeline.getBindGroupLayout".
+func (this GPUComputePipeline) GetBindGroupLayout(index uint32) (ret GPUBindGroupLayout) {
+	bindings.CallGPUComputePipelineGetBindGroupLayout(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+	)
+
+	return
+}
+
+// TryGetBindGroupLayout calls the method "GPUComputePipeline.getBindGroupLayout"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this GPUComputePipeline) TryGetBindGroupLayout(index uint32) (ret GPUBindGroupLayout, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryGPUComputePipelineGetBindGroupLayout(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
 }
 
 type GPUPipelineConstantValue float64
@@ -265,6 +278,8 @@ type GPUComputePipelineDescriptor struct {
 	// Compute is "GPUComputePipelineDescriptor.compute"
 	//
 	// Required
+	//
+	// NOTE: Compute.FFI_USE MUST be set to true to get Compute used.
 	Compute GPUProgrammableStage
 	// Layout is "GPUComputePipelineDescriptor.layout"
 	//
@@ -329,16 +344,15 @@ func (this GPURenderPipeline) Free() {
 
 // Label returns the value of property "GPURenderPipeline.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPURenderPipeline) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPURenderPipelineLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPURenderPipeline) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPURenderPipelineLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPURenderPipeline.label" to val.
+// SetLabel sets the value of property "GPURenderPipeline.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPURenderPipeline) SetLabel(val js.String) bool {
@@ -348,28 +362,42 @@ func (this GPURenderPipeline) SetLabel(val js.String) bool {
 	)
 }
 
-// GetBindGroupLayout calls the method "GPURenderPipeline.getBindGroupLayout".
-//
-// The returned bool will be false if there is no such method.
-func (this GPURenderPipeline) GetBindGroupLayout(index uint32) (GPUBindGroupLayout, bool) {
-	var _ok bool
-	_ret := bindings.CallGPURenderPipelineGetBindGroupLayout(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// HasGetBindGroupLayout returns true if the method "GPURenderPipeline.getBindGroupLayout" exists.
+func (this GPURenderPipeline) HasGetBindGroupLayout() bool {
+	return js.True == bindings.HasGPURenderPipelineGetBindGroupLayout(
+		this.Ref(),
 	)
-
-	return GPUBindGroupLayout{}.FromRef(_ret), _ok
 }
 
 // GetBindGroupLayoutFunc returns the method "GPURenderPipeline.getBindGroupLayout".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this GPURenderPipeline) GetBindGroupLayoutFunc() (fn js.Func[func(index uint32) GPUBindGroupLayout]) {
 	return fn.FromRef(
 		bindings.GPURenderPipelineGetBindGroupLayoutFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetBindGroupLayout calls the method "GPURenderPipeline.getBindGroupLayout".
+func (this GPURenderPipeline) GetBindGroupLayout(index uint32) (ret GPUBindGroupLayout) {
+	bindings.CallGPURenderPipelineGetBindGroupLayout(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+	)
+
+	return
+}
+
+// TryGetBindGroupLayout calls the method "GPURenderPipeline.getBindGroupLayout"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this GPURenderPipeline) TryGetBindGroupLayout(index uint32) (ret GPUBindGroupLayout, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryGPURenderPipelineGetBindGroupLayout(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
 }
 
 type GPUVertexStepMode uint32
@@ -914,10 +942,14 @@ type GPUDepthStencilState struct {
 	// StencilFront is "GPUDepthStencilState.stencilFront"
 	//
 	// Optional, defaults to {}.
+	//
+	// NOTE: StencilFront.FFI_USE MUST be set to true to get StencilFront used.
 	StencilFront GPUStencilFaceState
 	// StencilBack is "GPUDepthStencilState.stencilBack"
 	//
 	// Optional, defaults to {}.
+	//
+	// NOTE: StencilBack.FFI_USE MUST be set to true to get StencilBack used.
 	StencilBack GPUStencilFaceState
 	// StencilReadMask is "GPUDepthStencilState.stencilReadMask"
 	//
@@ -1180,10 +1212,14 @@ type GPUBlendState struct {
 	// Color is "GPUBlendState.color"
 	//
 	// Required
+	//
+	// NOTE: Color.FFI_USE MUST be set to true to get Color used.
 	Color GPUBlendComponent
 	// Alpha is "GPUBlendState.alpha"
 	//
 	// Required
+	//
+	// NOTE: Alpha.FFI_USE MUST be set to true to get Alpha used.
 	Alpha GPUBlendComponent
 
 	FFI_USE bool
@@ -1226,6 +1262,8 @@ type GPUColorTargetState struct {
 	// Blend is "GPUColorTargetState.blend"
 	//
 	// Optional
+	//
+	// NOTE: Blend.FFI_USE MUST be set to true to get Blend used.
 	Blend GPUBlendState
 	// WriteMask is "GPUColorTargetState.writeMask"
 	//
@@ -1318,22 +1356,32 @@ type GPURenderPipelineDescriptor struct {
 	// Vertex is "GPURenderPipelineDescriptor.vertex"
 	//
 	// Required
+	//
+	// NOTE: Vertex.FFI_USE MUST be set to true to get Vertex used.
 	Vertex GPUVertexState
 	// Primitive is "GPURenderPipelineDescriptor.primitive"
 	//
 	// Optional, defaults to {}.
+	//
+	// NOTE: Primitive.FFI_USE MUST be set to true to get Primitive used.
 	Primitive GPUPrimitiveState
 	// DepthStencil is "GPURenderPipelineDescriptor.depthStencil"
 	//
 	// Optional
+	//
+	// NOTE: DepthStencil.FFI_USE MUST be set to true to get DepthStencil used.
 	DepthStencil GPUDepthStencilState
 	// Multisample is "GPURenderPipelineDescriptor.multisample"
 	//
 	// Optional, defaults to {}.
+	//
+	// NOTE: Multisample.FFI_USE MUST be set to true to get Multisample used.
 	Multisample GPUMultisampleState
 	// Fragment is "GPURenderPipelineDescriptor.fragment"
 	//
 	// Optional
+	//
+	// NOTE: Fragment.FFI_USE MUST be set to true to get Fragment used.
 	Fragment GPUFragmentState
 	// Layout is "GPURenderPipelineDescriptor.layout"
 	//
@@ -1476,16 +1524,15 @@ func (this GPURenderBundle) Free() {
 
 // Label returns the value of property "GPURenderBundle.label".
 //
-// The returned bool will be false if there is no such property.
-func (this GPURenderBundle) Label() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetGPURenderBundleLabel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPURenderBundle) Label() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetGPURenderBundleLabel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Label sets the value of property "GPURenderBundle.label" to val.
+// SetLabel sets the value of property "GPURenderBundle.label" to val.
 //
 // It returns false if the property cannot be set.
 func (this GPURenderBundle) SetLabel(val js.String) bool {

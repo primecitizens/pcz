@@ -85,7 +85,7 @@ func init() {
 		btnExampleFetch.EventTarget,
 		btnExampleWebGPU.EventTarget,
 	} {
-		js.Must(elem.AddEventListener(click, listener, t))
+		elem.AddEventListener(click, listener, t)
 	}
 }
 

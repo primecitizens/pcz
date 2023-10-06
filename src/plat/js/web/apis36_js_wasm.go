@@ -17,11 +17,10 @@ func _() {
 	assert.TODO()
 }
 
-func NewGPUInternalError(message js.String) GPUInternalError {
-	return GPUInternalError{}.FromRef(
-		bindings.NewGPUInternalErrorByGPUInternalError(
-			message.Ref()),
-	)
+func NewGPUInternalError(message js.String) (ret GPUInternalError) {
+	ret.ref = bindings.NewGPUInternalErrorByGPUInternalError(
+		message.Ref())
+	return
 }
 
 type GPUInternalError struct {
@@ -89,11 +88,10 @@ func (p GPUObjectDescriptorBase) Update(ref js.Ref) {
 	)
 }
 
-func NewGPUOutOfMemoryError(message js.String) GPUOutOfMemoryError {
-	return GPUOutOfMemoryError{}.FromRef(
-		bindings.NewGPUOutOfMemoryErrorByGPUOutOfMemoryError(
-			message.Ref()),
-	)
+func NewGPUOutOfMemoryError(message js.String) (ret GPUOutOfMemoryError) {
+	ret.ref = bindings.NewGPUOutOfMemoryErrorByGPUOutOfMemoryError(
+		message.Ref())
+	return
 }
 
 type GPUOutOfMemoryError struct {
@@ -218,18 +216,16 @@ func (p GPUPipelineErrorInit) Update(ref js.Ref) {
 	)
 }
 
-func NewGPUPipelineError(message js.String, options GPUPipelineErrorInit) GPUPipelineError {
-	return GPUPipelineError{}.FromRef(
-		bindings.NewGPUPipelineErrorByGPUPipelineError(
-			message.Ref(),
-			js.Pointer(&options)),
-	)
+func NewGPUPipelineError(message js.String, options GPUPipelineErrorInit) (ret GPUPipelineError) {
+	ret.ref = bindings.NewGPUPipelineErrorByGPUPipelineError(
+		message.Ref(),
+		js.Pointer(&options))
+	return
 }
 
-func NewGPUPipelineErrorByGPUPipelineError1() GPUPipelineError {
-	return GPUPipelineError{}.FromRef(
-		bindings.NewGPUPipelineErrorByGPUPipelineError1(),
-	)
+func NewGPUPipelineErrorByGPUPipelineError1() (ret GPUPipelineError) {
+	ret.ref = bindings.NewGPUPipelineErrorByGPUPipelineError1()
+	return
 }
 
 type GPUPipelineError struct {
@@ -256,13 +252,12 @@ func (this GPUPipelineError) Free() {
 
 // Reason returns the value of property "GPUPipelineError.reason".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUPipelineError) Reason() (GPUPipelineErrorReason, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUPipelineErrorReason(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUPipelineError) Reason() (ret GPUPipelineErrorReason, ok bool) {
+	ok = js.True == bindings.GetGPUPipelineErrorReason(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GPUPipelineErrorReason(_ret), _ok
+	return
 }
 
 type GPURenderPassLayout struct {
@@ -393,12 +388,11 @@ func (p GPUUncapturedErrorEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewGPUUncapturedErrorEvent(typ js.String, gpuUncapturedErrorEventInitDict GPUUncapturedErrorEventInit) GPUUncapturedErrorEvent {
-	return GPUUncapturedErrorEvent{}.FromRef(
-		bindings.NewGPUUncapturedErrorEventByGPUUncapturedErrorEvent(
-			typ.Ref(),
-			js.Pointer(&gpuUncapturedErrorEventInitDict)),
-	)
+func NewGPUUncapturedErrorEvent(typ js.String, gpuUncapturedErrorEventInitDict GPUUncapturedErrorEventInit) (ret GPUUncapturedErrorEvent) {
+	ret.ref = bindings.NewGPUUncapturedErrorEventByGPUUncapturedErrorEvent(
+		typ.Ref(),
+		js.Pointer(&gpuUncapturedErrorEventInitDict))
+	return
 }
 
 type GPUUncapturedErrorEvent struct {
@@ -425,20 +419,18 @@ func (this GPUUncapturedErrorEvent) Free() {
 
 // Error returns the value of property "GPUUncapturedErrorEvent.error".
 //
-// The returned bool will be false if there is no such property.
-func (this GPUUncapturedErrorEvent) Error() (GPUError, bool) {
-	var _ok bool
-	_ret := bindings.GetGPUUncapturedErrorEventError(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GPUUncapturedErrorEvent) Error() (ret GPUError, ok bool) {
+	ok = js.True == bindings.GetGPUUncapturedErrorEventError(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GPUError{}.FromRef(_ret), _ok
+	return
 }
 
-func NewGPUValidationError(message js.String) GPUValidationError {
-	return GPUValidationError{}.FromRef(
-		bindings.NewGPUValidationErrorByGPUValidationError(
-			message.Ref()),
-	)
+func NewGPUValidationError(message js.String) (ret GPUValidationError) {
+	ret.ref = bindings.NewGPUValidationErrorByGPUValidationError(
+		message.Ref())
+	return
 }
 
 type GPUValidationError struct {
@@ -521,12 +513,11 @@ func (p GamepadEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewGamepadEvent(typ js.String, eventInitDict GamepadEventInit) GamepadEvent {
-	return GamepadEvent{}.FromRef(
-		bindings.NewGamepadEventByGamepadEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewGamepadEvent(typ js.String, eventInitDict GamepadEventInit) (ret GamepadEvent) {
+	ret.ref = bindings.NewGamepadEventByGamepadEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type GamepadEvent struct {
@@ -553,13 +544,12 @@ func (this GamepadEvent) Free() {
 
 // Gamepad returns the value of property "GamepadEvent.gamepad".
 //
-// The returned bool will be false if there is no such property.
-func (this GamepadEvent) Gamepad() (Gamepad, bool) {
-	var _ok bool
-	_ret := bindings.GetGamepadEventGamepad(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GamepadEvent) Gamepad() (ret Gamepad, ok bool) {
+	ok = js.True == bindings.GetGamepadEventGamepad(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Gamepad{}.FromRef(_ret), _ok
+	return
 }
 
 type GenerateAssertionCallbackFunc func(this js.Ref, contents js.String, origin js.String, options RTCIdentityProviderOptions) js.Ref
@@ -670,6 +660,8 @@ type RTCIdentityAssertionResult struct {
 	// Idp is "RTCIdentityAssertionResult.idp"
 	//
 	// Required
+	//
+	// NOTE: Idp.FFI_USE MUST be set to true to get Idp used.
 	Idp RTCIdentityProviderDetails
 	// Assertion is "RTCIdentityAssertionResult.assertion"
 	//
@@ -1220,17 +1212,15 @@ func (p ReadOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewGeolocationSensor(options GeolocationSensorOptions) GeolocationSensor {
-	return GeolocationSensor{}.FromRef(
-		bindings.NewGeolocationSensorByGeolocationSensor(
-			js.Pointer(&options)),
-	)
+func NewGeolocationSensor(options GeolocationSensorOptions) (ret GeolocationSensor) {
+	ret.ref = bindings.NewGeolocationSensorByGeolocationSensor(
+		js.Pointer(&options))
+	return
 }
 
-func NewGeolocationSensorByGeolocationSensor1() GeolocationSensor {
-	return GeolocationSensor{}.FromRef(
-		bindings.NewGeolocationSensorByGeolocationSensor1(),
-	)
+func NewGeolocationSensorByGeolocationSensor1() (ret GeolocationSensor) {
+	ret.ref = bindings.NewGeolocationSensorByGeolocationSensor1()
+	return
 }
 
 type GeolocationSensor struct {
@@ -1257,97 +1247,82 @@ func (this GeolocationSensor) Free() {
 
 // Latitude returns the value of property "GeolocationSensor.latitude".
 //
-// The returned bool will be false if there is no such property.
-func (this GeolocationSensor) Latitude() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGeolocationSensorLatitude(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GeolocationSensor) Latitude() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGeolocationSensorLatitude(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Longitude returns the value of property "GeolocationSensor.longitude".
 //
-// The returned bool will be false if there is no such property.
-func (this GeolocationSensor) Longitude() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGeolocationSensorLongitude(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GeolocationSensor) Longitude() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGeolocationSensorLongitude(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Altitude returns the value of property "GeolocationSensor.altitude".
 //
-// The returned bool will be false if there is no such property.
-func (this GeolocationSensor) Altitude() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGeolocationSensorAltitude(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GeolocationSensor) Altitude() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGeolocationSensorAltitude(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Accuracy returns the value of property "GeolocationSensor.accuracy".
 //
-// The returned bool will be false if there is no such property.
-func (this GeolocationSensor) Accuracy() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGeolocationSensorAccuracy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GeolocationSensor) Accuracy() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGeolocationSensorAccuracy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // AltitudeAccuracy returns the value of property "GeolocationSensor.altitudeAccuracy".
 //
-// The returned bool will be false if there is no such property.
-func (this GeolocationSensor) AltitudeAccuracy() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGeolocationSensorAltitudeAccuracy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GeolocationSensor) AltitudeAccuracy() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGeolocationSensorAltitudeAccuracy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Heading returns the value of property "GeolocationSensor.heading".
 //
-// The returned bool will be false if there is no such property.
-func (this GeolocationSensor) Heading() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGeolocationSensorHeading(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GeolocationSensor) Heading() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGeolocationSensorHeading(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Speed returns the value of property "GeolocationSensor.speed".
 //
-// The returned bool will be false if there is no such property.
-func (this GeolocationSensor) Speed() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGeolocationSensorSpeed(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this GeolocationSensor) Speed() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGeolocationSensorSpeed(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// Read calls the staticmethod "GeolocationSensor.read".
-//
-// The returned bool will be false if there is no such method.
-func (this GeolocationSensor) Read(readOptions ReadOptions) (js.Promise[GeolocationSensorReading], bool) {
-	var _ok bool
-	_ret := bindings.CallGeolocationSensorRead(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&readOptions),
+// HasRead returns true if the staticmethod "GeolocationSensor.read" exists.
+func (this GeolocationSensor) HasRead() bool {
+	return js.True == bindings.HasGeolocationSensorRead(
+		this.Ref(),
 	)
-
-	return js.Promise[GeolocationSensorReading]{}.FromRef(_ret), _ok
 }
 
 // ReadFunc returns the staticmethod "GeolocationSensor.read".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this GeolocationSensor) ReadFunc() (fn js.Func[func(readOptions ReadOptions) js.Promise[GeolocationSensorReading]]) {
 	return fn.FromRef(
 		bindings.GeolocationSensorReadFunc(
@@ -1356,27 +1331,62 @@ func (this GeolocationSensor) ReadFunc() (fn js.Func[func(readOptions ReadOption
 	)
 }
 
-// Read1 calls the staticmethod "GeolocationSensor.read".
-//
-// The returned bool will be false if there is no such method.
-func (this GeolocationSensor) Read1() (js.Promise[GeolocationSensorReading], bool) {
-	var _ok bool
-	_ret := bindings.CallGeolocationSensorRead1(
-		this.Ref(), js.Pointer(&_ok),
+// Read calls the staticmethod "GeolocationSensor.read".
+func (this GeolocationSensor) Read(readOptions ReadOptions) (ret js.Promise[GeolocationSensorReading]) {
+	bindings.CallGeolocationSensorRead(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&readOptions),
 	)
 
-	return js.Promise[GeolocationSensorReading]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryRead calls the staticmethod "GeolocationSensor.read"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this GeolocationSensor) TryRead(readOptions ReadOptions) (ret js.Promise[GeolocationSensorReading], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryGeolocationSensorRead(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&readOptions),
+	)
+
+	return
+}
+
+// HasRead1 returns true if the staticmethod "GeolocationSensor.read" exists.
+func (this GeolocationSensor) HasRead1() bool {
+	return js.True == bindings.HasGeolocationSensorRead1(
+		this.Ref(),
+	)
 }
 
 // Read1Func returns the staticmethod "GeolocationSensor.read".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this GeolocationSensor) Read1Func() (fn js.Func[func() js.Promise[GeolocationSensorReading]]) {
 	return fn.FromRef(
 		bindings.GeolocationSensorRead1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// Read1 calls the staticmethod "GeolocationSensor.read".
+func (this GeolocationSensor) Read1() (ret js.Promise[GeolocationSensorReading]) {
+	bindings.CallGeolocationSensorRead1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryRead1 calls the staticmethod "GeolocationSensor.read"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this GeolocationSensor) TryRead1() (ret js.Promise[GeolocationSensorReading], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryGeolocationSensorRead1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type ValueType uint32
@@ -1462,19 +1472,17 @@ func (p GlobalDescriptor) Update(ref js.Ref) {
 	)
 }
 
-func NewGlobal(descriptor GlobalDescriptor, v js.Any) Global {
-	return Global{}.FromRef(
-		bindings.NewGlobalByGlobal(
-			js.Pointer(&descriptor),
-			v.Ref()),
-	)
+func NewGlobal(descriptor GlobalDescriptor, v js.Any) (ret Global) {
+	ret.ref = bindings.NewGlobalByGlobal(
+		js.Pointer(&descriptor),
+		v.Ref())
+	return
 }
 
-func NewGlobalByGlobal1(descriptor GlobalDescriptor) Global {
-	return Global{}.FromRef(
-		bindings.NewGlobalByGlobal1(
-			js.Pointer(&descriptor)),
-	)
+func NewGlobalByGlobal1(descriptor GlobalDescriptor) (ret Global) {
+	ret.ref = bindings.NewGlobalByGlobal1(
+		js.Pointer(&descriptor))
+	return
 }
 
 type Global struct {
@@ -1501,16 +1509,15 @@ func (this Global) Free() {
 
 // Value returns the value of property "Global.value".
 //
-// The returned bool will be false if there is no such property.
-func (this Global) Value() (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.GetGlobalValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Global) Value() (ret js.Any, ok bool) {
+	ok = js.True == bindings.GetGlobalValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Any{}.FromRef(_ret), _ok
+	return
 }
 
-// Value sets the value of property "Global.value" to val.
+// SetValue sets the value of property "Global.value" to val.
 //
 // It returns false if the property cannot be set.
 func (this Global) SetValue(val js.Any) bool {
@@ -1520,27 +1527,40 @@ func (this Global) SetValue(val js.Any) bool {
 	)
 }
 
-// ValueOf calls the method "Global.valueOf".
-//
-// The returned bool will be false if there is no such method.
-func (this Global) ValueOf() (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.CallGlobalValueOf(
-		this.Ref(), js.Pointer(&_ok),
+// HasValueOf returns true if the method "Global.valueOf" exists.
+func (this Global) HasValueOf() bool {
+	return js.True == bindings.HasGlobalValueOf(
+		this.Ref(),
 	)
-
-	return js.Any{}.FromRef(_ret), _ok
 }
 
 // ValueOfFunc returns the method "Global.valueOf".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Global) ValueOfFunc() (fn js.Func[func() js.Any]) {
 	return fn.FromRef(
 		bindings.GlobalValueOfFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// ValueOf calls the method "Global.valueOf".
+func (this Global) ValueOf() (ret js.Any) {
+	bindings.CallGlobalValueOf(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryValueOf calls the method "Global.valueOf"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Global) TryValueOf() (ret js.Any, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryGlobalValueOf(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type GravityReadingValues struct {
@@ -1587,17 +1607,15 @@ func (p GravityReadingValues) Update(ref js.Ref) {
 	)
 }
 
-func NewGravitySensor(options AccelerometerSensorOptions) GravitySensor {
-	return GravitySensor{}.FromRef(
-		bindings.NewGravitySensorByGravitySensor(
-			js.Pointer(&options)),
-	)
+func NewGravitySensor(options AccelerometerSensorOptions) (ret GravitySensor) {
+	ret.ref = bindings.NewGravitySensorByGravitySensor(
+		js.Pointer(&options))
+	return
 }
 
-func NewGravitySensorByGravitySensor1() GravitySensor {
-	return GravitySensor{}.FromRef(
-		bindings.NewGravitySensorByGravitySensor1(),
-	)
+func NewGravitySensorByGravitySensor1() (ret GravitySensor) {
+	ret.ref = bindings.NewGravitySensorByGravitySensor1()
+	return
 }
 
 type GravitySensor struct {
@@ -1690,17 +1708,15 @@ func (p GyroscopeSensorOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewGyroscope(sensorOptions GyroscopeSensorOptions) Gyroscope {
-	return Gyroscope{}.FromRef(
-		bindings.NewGyroscopeByGyroscope(
-			js.Pointer(&sensorOptions)),
-	)
+func NewGyroscope(sensorOptions GyroscopeSensorOptions) (ret Gyroscope) {
+	ret.ref = bindings.NewGyroscopeByGyroscope(
+		js.Pointer(&sensorOptions))
+	return
 }
 
-func NewGyroscopeByGyroscope1() Gyroscope {
-	return Gyroscope{}.FromRef(
-		bindings.NewGyroscopeByGyroscope1(),
-	)
+func NewGyroscopeByGyroscope1() (ret Gyroscope) {
+	ret.ref = bindings.NewGyroscopeByGyroscope1()
+	return
 }
 
 type Gyroscope struct {
@@ -1727,35 +1743,32 @@ func (this Gyroscope) Free() {
 
 // X returns the value of property "Gyroscope.x".
 //
-// The returned bool will be false if there is no such property.
-func (this Gyroscope) X() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGyroscopeX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Gyroscope) X() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGyroscopeX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Y returns the value of property "Gyroscope.y".
 //
-// The returned bool will be false if there is no such property.
-func (this Gyroscope) Y() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGyroscopeY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Gyroscope) Y() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGyroscopeY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Z returns the value of property "Gyroscope.z".
 //
-// The returned bool will be false if there is no such property.
-func (this Gyroscope) Z() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetGyroscopeZ(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Gyroscope) Z() (ret float64, ok bool) {
+	ok = js.True == bindings.GetGyroscopeZ(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 type GyroscopeReadingValues struct {
@@ -1860,12 +1873,11 @@ func (p HIDConnectionEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewHIDConnectionEvent(typ js.String, eventInitDict HIDConnectionEventInit) HIDConnectionEvent {
-	return HIDConnectionEvent{}.FromRef(
-		bindings.NewHIDConnectionEventByHIDConnectionEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewHIDConnectionEvent(typ js.String, eventInitDict HIDConnectionEventInit) (ret HIDConnectionEvent) {
+	ret.ref = bindings.NewHIDConnectionEventByHIDConnectionEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type HIDConnectionEvent struct {
@@ -1892,13 +1904,12 @@ func (this HIDConnectionEvent) Free() {
 
 // Device returns the value of property "HIDConnectionEvent.device".
 //
-// The returned bool will be false if there is no such property.
-func (this HIDConnectionEvent) Device() (HIDDevice, bool) {
-	var _ok bool
-	_ret := bindings.GetHIDConnectionEventDevice(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HIDConnectionEvent) Device() (ret HIDDevice, ok bool) {
+	ok = js.True == bindings.GetHIDConnectionEventDevice(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HIDDevice{}.FromRef(_ret), _ok
+	return
 }
 
 type HIDInputReportEventInit struct {
@@ -1967,12 +1978,11 @@ func (p HIDInputReportEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewHIDInputReportEvent(typ js.String, eventInitDict HIDInputReportEventInit) HIDInputReportEvent {
-	return HIDInputReportEvent{}.FromRef(
-		bindings.NewHIDInputReportEventByHIDInputReportEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewHIDInputReportEvent(typ js.String, eventInitDict HIDInputReportEventInit) (ret HIDInputReportEvent) {
+	ret.ref = bindings.NewHIDInputReportEventByHIDInputReportEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type HIDInputReportEvent struct {
@@ -1999,41 +2009,37 @@ func (this HIDInputReportEvent) Free() {
 
 // Device returns the value of property "HIDInputReportEvent.device".
 //
-// The returned bool will be false if there is no such property.
-func (this HIDInputReportEvent) Device() (HIDDevice, bool) {
-	var _ok bool
-	_ret := bindings.GetHIDInputReportEventDevice(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HIDInputReportEvent) Device() (ret HIDDevice, ok bool) {
+	ok = js.True == bindings.GetHIDInputReportEventDevice(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return HIDDevice{}.FromRef(_ret), _ok
+	return
 }
 
 // ReportId returns the value of property "HIDInputReportEvent.reportId".
 //
-// The returned bool will be false if there is no such property.
-func (this HIDInputReportEvent) ReportId() (uint8, bool) {
-	var _ok bool
-	_ret := bindings.GetHIDInputReportEventReportId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HIDInputReportEvent) ReportId() (ret uint8, ok bool) {
+	ok = js.True == bindings.GetHIDInputReportEventReportId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint8(_ret), _ok
+	return
 }
 
 // Data returns the value of property "HIDInputReportEvent.data".
 //
-// The returned bool will be false if there is no such property.
-func (this HIDInputReportEvent) Data() (js.DataView, bool) {
-	var _ok bool
-	_ret := bindings.GetHIDInputReportEventData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HIDInputReportEvent) Data() (ret js.DataView, ok bool) {
+	ok = js.True == bindings.GetHIDInputReportEventData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.DataView{}.FromRef(_ret), _ok
+	return
 }
 
-func NewHTMLAnchorElement() HTMLAnchorElement {
-	return HTMLAnchorElement{}.FromRef(
-		bindings.NewHTMLAnchorElementByHTMLAnchorElement(),
-	)
+func NewHTMLAnchorElement() (ret HTMLAnchorElement) {
+	ret.ref = bindings.NewHTMLAnchorElementByHTMLAnchorElement()
+	return
 }
 
 type HTMLAnchorElement struct {
@@ -2060,16 +2066,15 @@ func (this HTMLAnchorElement) Free() {
 
 // Target returns the value of property "HTMLAnchorElement.target".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Target() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Target() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Target sets the value of property "HTMLAnchorElement.target" to val.
+// SetTarget sets the value of property "HTMLAnchorElement.target" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetTarget(val js.String) bool {
@@ -2081,16 +2086,15 @@ func (this HTMLAnchorElement) SetTarget(val js.String) bool {
 
 // Download returns the value of property "HTMLAnchorElement.download".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Download() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementDownload(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Download() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementDownload(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Download sets the value of property "HTMLAnchorElement.download" to val.
+// SetDownload sets the value of property "HTMLAnchorElement.download" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetDownload(val js.String) bool {
@@ -2102,16 +2106,15 @@ func (this HTMLAnchorElement) SetDownload(val js.String) bool {
 
 // Ping returns the value of property "HTMLAnchorElement.ping".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Ping() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementPing(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Ping() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementPing(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Ping sets the value of property "HTMLAnchorElement.ping" to val.
+// SetPing sets the value of property "HTMLAnchorElement.ping" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPing(val js.String) bool {
@@ -2123,16 +2126,15 @@ func (this HTMLAnchorElement) SetPing(val js.String) bool {
 
 // Rel returns the value of property "HTMLAnchorElement.rel".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Rel() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementRel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Rel() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementRel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Rel sets the value of property "HTMLAnchorElement.rel" to val.
+// SetRel sets the value of property "HTMLAnchorElement.rel" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetRel(val js.String) bool {
@@ -2144,27 +2146,25 @@ func (this HTMLAnchorElement) SetRel(val js.String) bool {
 
 // RelList returns the value of property "HTMLAnchorElement.relList".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) RelList() (DOMTokenList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementRelList(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) RelList() (ret DOMTokenList, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementRelList(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMTokenList{}.FromRef(_ret), _ok
+	return
 }
 
 // Hreflang returns the value of property "HTMLAnchorElement.hreflang".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Hreflang() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementHreflang(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Hreflang() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementHreflang(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Hreflang sets the value of property "HTMLAnchorElement.hreflang" to val.
+// SetHreflang sets the value of property "HTMLAnchorElement.hreflang" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHreflang(val js.String) bool {
@@ -2176,16 +2176,15 @@ func (this HTMLAnchorElement) SetHreflang(val js.String) bool {
 
 // Type returns the value of property "HTMLAnchorElement.type".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Type() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Type() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Type sets the value of property "HTMLAnchorElement.type" to val.
+// SetType sets the value of property "HTMLAnchorElement.type" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetType(val js.String) bool {
@@ -2197,16 +2196,15 @@ func (this HTMLAnchorElement) SetType(val js.String) bool {
 
 // Text returns the value of property "HTMLAnchorElement.text".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Text() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementText(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Text() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementText(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Text sets the value of property "HTMLAnchorElement.text" to val.
+// SetText sets the value of property "HTMLAnchorElement.text" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetText(val js.String) bool {
@@ -2218,16 +2216,15 @@ func (this HTMLAnchorElement) SetText(val js.String) bool {
 
 // ReferrerPolicy returns the value of property "HTMLAnchorElement.referrerPolicy".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) ReferrerPolicy() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementReferrerPolicy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) ReferrerPolicy() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementReferrerPolicy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ReferrerPolicy sets the value of property "HTMLAnchorElement.referrerPolicy" to val.
+// SetReferrerPolicy sets the value of property "HTMLAnchorElement.referrerPolicy" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetReferrerPolicy(val js.String) bool {
@@ -2239,16 +2236,15 @@ func (this HTMLAnchorElement) SetReferrerPolicy(val js.String) bool {
 
 // AttributionSourceId returns the value of property "HTMLAnchorElement.attributionSourceId".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) AttributionSourceId() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementAttributionSourceId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) AttributionSourceId() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementAttributionSourceId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// AttributionSourceId sets the value of property "HTMLAnchorElement.attributionSourceId" to val.
+// SetAttributionSourceId sets the value of property "HTMLAnchorElement.attributionSourceId" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetAttributionSourceId(val uint32) bool {
@@ -2260,16 +2256,15 @@ func (this HTMLAnchorElement) SetAttributionSourceId(val uint32) bool {
 
 // Coords returns the value of property "HTMLAnchorElement.coords".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Coords() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementCoords(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Coords() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementCoords(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Coords sets the value of property "HTMLAnchorElement.coords" to val.
+// SetCoords sets the value of property "HTMLAnchorElement.coords" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetCoords(val js.String) bool {
@@ -2281,16 +2276,15 @@ func (this HTMLAnchorElement) SetCoords(val js.String) bool {
 
 // Charset returns the value of property "HTMLAnchorElement.charset".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Charset() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementCharset(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Charset() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementCharset(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Charset sets the value of property "HTMLAnchorElement.charset" to val.
+// SetCharset sets the value of property "HTMLAnchorElement.charset" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetCharset(val js.String) bool {
@@ -2302,16 +2296,15 @@ func (this HTMLAnchorElement) SetCharset(val js.String) bool {
 
 // Name returns the value of property "HTMLAnchorElement.name".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Name sets the value of property "HTMLAnchorElement.name" to val.
+// SetName sets the value of property "HTMLAnchorElement.name" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetName(val js.String) bool {
@@ -2323,16 +2316,15 @@ func (this HTMLAnchorElement) SetName(val js.String) bool {
 
 // Rev returns the value of property "HTMLAnchorElement.rev".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Rev() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementRev(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Rev() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementRev(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Rev sets the value of property "HTMLAnchorElement.rev" to val.
+// SetRev sets the value of property "HTMLAnchorElement.rev" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetRev(val js.String) bool {
@@ -2344,16 +2336,15 @@ func (this HTMLAnchorElement) SetRev(val js.String) bool {
 
 // Shape returns the value of property "HTMLAnchorElement.shape".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Shape() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementShape(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Shape() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementShape(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Shape sets the value of property "HTMLAnchorElement.shape" to val.
+// SetShape sets the value of property "HTMLAnchorElement.shape" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetShape(val js.String) bool {
@@ -2365,16 +2356,15 @@ func (this HTMLAnchorElement) SetShape(val js.String) bool {
 
 // Href returns the value of property "HTMLAnchorElement.href".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Href() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementHref(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Href() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementHref(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Href sets the value of property "HTMLAnchorElement.href" to val.
+// SetHref sets the value of property "HTMLAnchorElement.href" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHref(val js.String) bool {
@@ -2386,27 +2376,25 @@ func (this HTMLAnchorElement) SetHref(val js.String) bool {
 
 // Origin returns the value of property "HTMLAnchorElement.origin".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Origin() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementOrigin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Origin() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementOrigin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Protocol returns the value of property "HTMLAnchorElement.protocol".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Protocol() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementProtocol(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Protocol() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementProtocol(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Protocol sets the value of property "HTMLAnchorElement.protocol" to val.
+// SetProtocol sets the value of property "HTMLAnchorElement.protocol" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetProtocol(val js.String) bool {
@@ -2418,16 +2406,15 @@ func (this HTMLAnchorElement) SetProtocol(val js.String) bool {
 
 // Username returns the value of property "HTMLAnchorElement.username".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Username() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementUsername(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Username() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementUsername(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Username sets the value of property "HTMLAnchorElement.username" to val.
+// SetUsername sets the value of property "HTMLAnchorElement.username" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetUsername(val js.String) bool {
@@ -2439,16 +2426,15 @@ func (this HTMLAnchorElement) SetUsername(val js.String) bool {
 
 // Password returns the value of property "HTMLAnchorElement.password".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Password() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementPassword(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Password() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementPassword(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Password sets the value of property "HTMLAnchorElement.password" to val.
+// SetPassword sets the value of property "HTMLAnchorElement.password" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPassword(val js.String) bool {
@@ -2460,16 +2446,15 @@ func (this HTMLAnchorElement) SetPassword(val js.String) bool {
 
 // Host returns the value of property "HTMLAnchorElement.host".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Host() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementHost(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Host() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementHost(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Host sets the value of property "HTMLAnchorElement.host" to val.
+// SetHost sets the value of property "HTMLAnchorElement.host" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHost(val js.String) bool {
@@ -2481,16 +2466,15 @@ func (this HTMLAnchorElement) SetHost(val js.String) bool {
 
 // Hostname returns the value of property "HTMLAnchorElement.hostname".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Hostname() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementHostname(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Hostname() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementHostname(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Hostname sets the value of property "HTMLAnchorElement.hostname" to val.
+// SetHostname sets the value of property "HTMLAnchorElement.hostname" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHostname(val js.String) bool {
@@ -2502,16 +2486,15 @@ func (this HTMLAnchorElement) SetHostname(val js.String) bool {
 
 // Port returns the value of property "HTMLAnchorElement.port".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Port() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementPort(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Port() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementPort(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Port sets the value of property "HTMLAnchorElement.port" to val.
+// SetPort sets the value of property "HTMLAnchorElement.port" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPort(val js.String) bool {
@@ -2523,16 +2506,15 @@ func (this HTMLAnchorElement) SetPort(val js.String) bool {
 
 // Pathname returns the value of property "HTMLAnchorElement.pathname".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Pathname() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementPathname(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Pathname() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementPathname(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Pathname sets the value of property "HTMLAnchorElement.pathname" to val.
+// SetPathname sets the value of property "HTMLAnchorElement.pathname" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetPathname(val js.String) bool {
@@ -2544,16 +2526,15 @@ func (this HTMLAnchorElement) SetPathname(val js.String) bool {
 
 // Search returns the value of property "HTMLAnchorElement.search".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Search() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementSearch(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Search() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementSearch(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Search sets the value of property "HTMLAnchorElement.search" to val.
+// SetSearch sets the value of property "HTMLAnchorElement.search" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetSearch(val js.String) bool {
@@ -2565,16 +2546,15 @@ func (this HTMLAnchorElement) SetSearch(val js.String) bool {
 
 // Hash returns the value of property "HTMLAnchorElement.hash".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) Hash() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementHash(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) Hash() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementHash(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Hash sets the value of property "HTMLAnchorElement.hash" to val.
+// SetHash sets the value of property "HTMLAnchorElement.hash" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetHash(val js.String) bool {
@@ -2586,16 +2566,15 @@ func (this HTMLAnchorElement) SetHash(val js.String) bool {
 
 // AttributionSrc returns the value of property "HTMLAnchorElement.attributionSrc".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAnchorElement) AttributionSrc() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAnchorElementAttributionSrc(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAnchorElement) AttributionSrc() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAnchorElementAttributionSrc(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// AttributionSrc sets the value of property "HTMLAnchorElement.attributionSrc" to val.
+// SetAttributionSrc sets the value of property "HTMLAnchorElement.attributionSrc" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAnchorElement) SetAttributionSrc(val js.String) bool {
@@ -2605,10 +2584,9 @@ func (this HTMLAnchorElement) SetAttributionSrc(val js.String) bool {
 	)
 }
 
-func NewHTMLAreaElement() HTMLAreaElement {
-	return HTMLAreaElement{}.FromRef(
-		bindings.NewHTMLAreaElementByHTMLAreaElement(),
-	)
+func NewHTMLAreaElement() (ret HTMLAreaElement) {
+	ret.ref = bindings.NewHTMLAreaElementByHTMLAreaElement()
+	return
 }
 
 type HTMLAreaElement struct {
@@ -2635,16 +2613,15 @@ func (this HTMLAreaElement) Free() {
 
 // Alt returns the value of property "HTMLAreaElement.alt".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Alt() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementAlt(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Alt() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementAlt(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Alt sets the value of property "HTMLAreaElement.alt" to val.
+// SetAlt sets the value of property "HTMLAreaElement.alt" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetAlt(val js.String) bool {
@@ -2656,16 +2633,15 @@ func (this HTMLAreaElement) SetAlt(val js.String) bool {
 
 // Coords returns the value of property "HTMLAreaElement.coords".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Coords() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementCoords(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Coords() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementCoords(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Coords sets the value of property "HTMLAreaElement.coords" to val.
+// SetCoords sets the value of property "HTMLAreaElement.coords" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetCoords(val js.String) bool {
@@ -2677,16 +2653,15 @@ func (this HTMLAreaElement) SetCoords(val js.String) bool {
 
 // Shape returns the value of property "HTMLAreaElement.shape".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Shape() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementShape(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Shape() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementShape(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Shape sets the value of property "HTMLAreaElement.shape" to val.
+// SetShape sets the value of property "HTMLAreaElement.shape" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetShape(val js.String) bool {
@@ -2698,16 +2673,15 @@ func (this HTMLAreaElement) SetShape(val js.String) bool {
 
 // Target returns the value of property "HTMLAreaElement.target".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Target() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Target() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Target sets the value of property "HTMLAreaElement.target" to val.
+// SetTarget sets the value of property "HTMLAreaElement.target" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetTarget(val js.String) bool {
@@ -2719,16 +2693,15 @@ func (this HTMLAreaElement) SetTarget(val js.String) bool {
 
 // Download returns the value of property "HTMLAreaElement.download".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Download() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementDownload(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Download() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementDownload(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Download sets the value of property "HTMLAreaElement.download" to val.
+// SetDownload sets the value of property "HTMLAreaElement.download" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetDownload(val js.String) bool {
@@ -2740,16 +2713,15 @@ func (this HTMLAreaElement) SetDownload(val js.String) bool {
 
 // Ping returns the value of property "HTMLAreaElement.ping".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Ping() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementPing(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Ping() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementPing(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Ping sets the value of property "HTMLAreaElement.ping" to val.
+// SetPing sets the value of property "HTMLAreaElement.ping" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPing(val js.String) bool {
@@ -2761,16 +2733,15 @@ func (this HTMLAreaElement) SetPing(val js.String) bool {
 
 // Rel returns the value of property "HTMLAreaElement.rel".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Rel() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementRel(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Rel() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementRel(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Rel sets the value of property "HTMLAreaElement.rel" to val.
+// SetRel sets the value of property "HTMLAreaElement.rel" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetRel(val js.String) bool {
@@ -2782,27 +2753,25 @@ func (this HTMLAreaElement) SetRel(val js.String) bool {
 
 // RelList returns the value of property "HTMLAreaElement.relList".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) RelList() (DOMTokenList, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementRelList(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) RelList() (ret DOMTokenList, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementRelList(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMTokenList{}.FromRef(_ret), _ok
+	return
 }
 
 // ReferrerPolicy returns the value of property "HTMLAreaElement.referrerPolicy".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) ReferrerPolicy() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementReferrerPolicy(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) ReferrerPolicy() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementReferrerPolicy(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ReferrerPolicy sets the value of property "HTMLAreaElement.referrerPolicy" to val.
+// SetReferrerPolicy sets the value of property "HTMLAreaElement.referrerPolicy" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetReferrerPolicy(val js.String) bool {
@@ -2814,16 +2783,15 @@ func (this HTMLAreaElement) SetReferrerPolicy(val js.String) bool {
 
 // NoHref returns the value of property "HTMLAreaElement.noHref".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) NoHref() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementNoHref(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) NoHref() (ret bool, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementNoHref(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// NoHref sets the value of property "HTMLAreaElement.noHref" to val.
+// SetNoHref sets the value of property "HTMLAreaElement.noHref" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetNoHref(val bool) bool {
@@ -2835,16 +2803,15 @@ func (this HTMLAreaElement) SetNoHref(val bool) bool {
 
 // Href returns the value of property "HTMLAreaElement.href".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Href() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementHref(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Href() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementHref(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Href sets the value of property "HTMLAreaElement.href" to val.
+// SetHref sets the value of property "HTMLAreaElement.href" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHref(val js.String) bool {
@@ -2856,27 +2823,25 @@ func (this HTMLAreaElement) SetHref(val js.String) bool {
 
 // Origin returns the value of property "HTMLAreaElement.origin".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Origin() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementOrigin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Origin() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementOrigin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Protocol returns the value of property "HTMLAreaElement.protocol".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Protocol() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementProtocol(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Protocol() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementProtocol(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Protocol sets the value of property "HTMLAreaElement.protocol" to val.
+// SetProtocol sets the value of property "HTMLAreaElement.protocol" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetProtocol(val js.String) bool {
@@ -2888,16 +2853,15 @@ func (this HTMLAreaElement) SetProtocol(val js.String) bool {
 
 // Username returns the value of property "HTMLAreaElement.username".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Username() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementUsername(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Username() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementUsername(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Username sets the value of property "HTMLAreaElement.username" to val.
+// SetUsername sets the value of property "HTMLAreaElement.username" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetUsername(val js.String) bool {
@@ -2909,16 +2873,15 @@ func (this HTMLAreaElement) SetUsername(val js.String) bool {
 
 // Password returns the value of property "HTMLAreaElement.password".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Password() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementPassword(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Password() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementPassword(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Password sets the value of property "HTMLAreaElement.password" to val.
+// SetPassword sets the value of property "HTMLAreaElement.password" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPassword(val js.String) bool {
@@ -2930,16 +2893,15 @@ func (this HTMLAreaElement) SetPassword(val js.String) bool {
 
 // Host returns the value of property "HTMLAreaElement.host".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Host() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementHost(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Host() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementHost(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Host sets the value of property "HTMLAreaElement.host" to val.
+// SetHost sets the value of property "HTMLAreaElement.host" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHost(val js.String) bool {
@@ -2951,16 +2913,15 @@ func (this HTMLAreaElement) SetHost(val js.String) bool {
 
 // Hostname returns the value of property "HTMLAreaElement.hostname".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Hostname() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementHostname(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Hostname() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementHostname(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Hostname sets the value of property "HTMLAreaElement.hostname" to val.
+// SetHostname sets the value of property "HTMLAreaElement.hostname" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHostname(val js.String) bool {
@@ -2972,16 +2933,15 @@ func (this HTMLAreaElement) SetHostname(val js.String) bool {
 
 // Port returns the value of property "HTMLAreaElement.port".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Port() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementPort(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Port() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementPort(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Port sets the value of property "HTMLAreaElement.port" to val.
+// SetPort sets the value of property "HTMLAreaElement.port" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPort(val js.String) bool {
@@ -2993,16 +2953,15 @@ func (this HTMLAreaElement) SetPort(val js.String) bool {
 
 // Pathname returns the value of property "HTMLAreaElement.pathname".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Pathname() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementPathname(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Pathname() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementPathname(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Pathname sets the value of property "HTMLAreaElement.pathname" to val.
+// SetPathname sets the value of property "HTMLAreaElement.pathname" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetPathname(val js.String) bool {
@@ -3014,16 +2973,15 @@ func (this HTMLAreaElement) SetPathname(val js.String) bool {
 
 // Search returns the value of property "HTMLAreaElement.search".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Search() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementSearch(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Search() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementSearch(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Search sets the value of property "HTMLAreaElement.search" to val.
+// SetSearch sets the value of property "HTMLAreaElement.search" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetSearch(val js.String) bool {
@@ -3035,16 +2993,15 @@ func (this HTMLAreaElement) SetSearch(val js.String) bool {
 
 // Hash returns the value of property "HTMLAreaElement.hash".
 //
-// The returned bool will be false if there is no such property.
-func (this HTMLAreaElement) Hash() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetHTMLAreaElementHash(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this HTMLAreaElement) Hash() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetHTMLAreaElementHash(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Hash sets the value of property "HTMLAreaElement.hash" to val.
+// SetHash sets the value of property "HTMLAreaElement.hash" to val.
 //
 // It returns false if the property cannot be set.
 func (this HTMLAreaElement) SetHash(val js.String) bool {

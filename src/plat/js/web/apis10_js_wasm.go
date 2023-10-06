@@ -254,14 +254,20 @@ type AudioEncoderConfig struct {
 	// Flac is "AudioEncoderConfig.flac"
 	//
 	// Optional
+	//
+	// NOTE: Flac.FFI_USE MUST be set to true to get Flac used.
 	Flac FlacEncoderConfig
 	// Opus is "AudioEncoderConfig.opus"
 	//
 	// Optional
+	//
+	// NOTE: Opus.FFI_USE MUST be set to true to get Opus used.
 	Opus OpusEncoderConfig
 	// Aac is "AudioEncoderConfig.aac"
 	//
 	// Optional
+	//
+	// NOTE: Aac.FFI_USE MUST be set to true to get Aac used.
 	Aac AacEncoderConfig
 
 	FFI_USE_SampleRate       bool // for SampleRate.
@@ -308,6 +314,8 @@ type AudioEncoderSupport struct {
 	// Config is "AudioEncoderSupport.config"
 	//
 	// Optional
+	//
+	// NOTE: Config.FFI_USE MUST be set to true to get Config used.
 	Config AudioEncoderConfig
 
 	FFI_USE_Supported bool // for Supported.
@@ -342,11 +350,10 @@ func (p AudioEncoderSupport) Update(ref js.Ref) {
 	)
 }
 
-func NewAudioEncoder(init AudioEncoderInit) AudioEncoder {
-	return AudioEncoder{}.FromRef(
-		bindings.NewAudioEncoderByAudioEncoder(
-			js.Pointer(&init)),
-	)
+func NewAudioEncoder(init AudioEncoderInit) (ret AudioEncoder) {
+	ret.ref = bindings.NewAudioEncoderByAudioEncoder(
+		js.Pointer(&init))
+	return
 }
 
 type AudioEncoder struct {
@@ -373,43 +380,32 @@ func (this AudioEncoder) Free() {
 
 // State returns the value of property "AudioEncoder.state".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioEncoder) State() (CodecState, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioEncoderState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioEncoder) State() (ret CodecState, ok bool) {
+	ok = js.True == bindings.GetAudioEncoderState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CodecState(_ret), _ok
+	return
 }
 
 // EncodeQueueSize returns the value of property "AudioEncoder.encodeQueueSize".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioEncoder) EncodeQueueSize() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioEncoderEncodeQueueSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioEncoder) EncodeQueueSize() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetAudioEncoderEncodeQueueSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Configure calls the method "AudioEncoder.configure".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioEncoder) Configure(config AudioEncoderConfig) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioEncoderConfigure(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&config),
+// HasConfigure returns true if the method "AudioEncoder.configure" exists.
+func (this AudioEncoder) HasConfigure() bool {
+	return js.True == bindings.HasAudioEncoderConfigure(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ConfigureFunc returns the method "AudioEncoder.configure".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioEncoder) ConfigureFunc() (fn js.Func[func(config AudioEncoderConfig)]) {
 	return fn.FromRef(
 		bindings.AudioEncoderConfigureFunc(
@@ -418,23 +414,36 @@ func (this AudioEncoder) ConfigureFunc() (fn js.Func[func(config AudioEncoderCon
 	)
 }
 
-// Encode calls the method "AudioEncoder.encode".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioEncoder) Encode(data AudioData) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioEncoderEncode(
-		this.Ref(), js.Pointer(&_ok),
-		data.Ref(),
+// Configure calls the method "AudioEncoder.configure".
+func (this AudioEncoder) Configure(config AudioEncoderConfig) (ret js.Void) {
+	bindings.CallAudioEncoderConfigure(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&config),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryConfigure calls the method "AudioEncoder.configure"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioEncoder) TryConfigure(config AudioEncoderConfig) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioEncoderConfigure(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&config),
+	)
+
+	return
+}
+
+// HasEncode returns true if the method "AudioEncoder.encode" exists.
+func (this AudioEncoder) HasEncode() bool {
+	return js.True == bindings.HasAudioEncoderEncode(
+		this.Ref(),
+	)
 }
 
 // EncodeFunc returns the method "AudioEncoder.encode".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioEncoder) EncodeFunc() (fn js.Func[func(data AudioData)]) {
 	return fn.FromRef(
 		bindings.AudioEncoderEncodeFunc(
@@ -443,21 +452,36 @@ func (this AudioEncoder) EncodeFunc() (fn js.Func[func(data AudioData)]) {
 	)
 }
 
-// Flush calls the method "AudioEncoder.flush".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioEncoder) Flush() (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallAudioEncoderFlush(
-		this.Ref(), js.Pointer(&_ok),
+// Encode calls the method "AudioEncoder.encode".
+func (this AudioEncoder) Encode(data AudioData) (ret js.Void) {
+	bindings.CallAudioEncoderEncode(
+		this.Ref(), js.Pointer(&ret),
+		data.Ref(),
 	)
 
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryEncode calls the method "AudioEncoder.encode"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioEncoder) TryEncode(data AudioData) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioEncoderEncode(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
+}
+
+// HasFlush returns true if the method "AudioEncoder.flush" exists.
+func (this AudioEncoder) HasFlush() bool {
+	return js.True == bindings.HasAudioEncoderFlush(
+		this.Ref(),
+	)
 }
 
 // FlushFunc returns the method "AudioEncoder.flush".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioEncoder) FlushFunc() (fn js.Func[func() js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.AudioEncoderFlushFunc(
@@ -466,22 +490,34 @@ func (this AudioEncoder) FlushFunc() (fn js.Func[func() js.Promise[js.Void]]) {
 	)
 }
 
-// Reset calls the method "AudioEncoder.reset".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioEncoder) Reset() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioEncoderReset(
-		this.Ref(), js.Pointer(&_ok),
+// Flush calls the method "AudioEncoder.flush".
+func (this AudioEncoder) Flush() (ret js.Promise[js.Void]) {
+	bindings.CallAudioEncoderFlush(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFlush calls the method "AudioEncoder.flush"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioEncoder) TryFlush() (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioEncoderFlush(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReset returns true if the method "AudioEncoder.reset" exists.
+func (this AudioEncoder) HasReset() bool {
+	return js.True == bindings.HasAudioEncoderReset(
+		this.Ref(),
+	)
 }
 
 // ResetFunc returns the method "AudioEncoder.reset".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioEncoder) ResetFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.AudioEncoderResetFunc(
@@ -490,22 +526,34 @@ func (this AudioEncoder) ResetFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Close calls the method "AudioEncoder.close".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioEncoder) Close() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioEncoderClose(
-		this.Ref(), js.Pointer(&_ok),
+// Reset calls the method "AudioEncoder.reset".
+func (this AudioEncoder) Reset() (ret js.Void) {
+	bindings.CallAudioEncoderReset(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReset calls the method "AudioEncoder.reset"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioEncoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioEncoderReset(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasClose returns true if the method "AudioEncoder.close" exists.
+func (this AudioEncoder) HasClose() bool {
+	return js.True == bindings.HasAudioEncoderClose(
+		this.Ref(),
+	)
 }
 
 // CloseFunc returns the method "AudioEncoder.close".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioEncoder) CloseFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.AudioEncoderCloseFunc(
@@ -514,28 +562,62 @@ func (this AudioEncoder) CloseFunc() (fn js.Func[func()]) {
 	)
 }
 
-// IsConfigSupported calls the staticmethod "AudioEncoder.isConfigSupported".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioEncoder) IsConfigSupported(config AudioEncoderConfig) (js.Promise[AudioEncoderSupport], bool) {
-	var _ok bool
-	_ret := bindings.CallAudioEncoderIsConfigSupported(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&config),
+// Close calls the method "AudioEncoder.close".
+func (this AudioEncoder) Close() (ret js.Void) {
+	bindings.CallAudioEncoderClose(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[AudioEncoderSupport]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryClose calls the method "AudioEncoder.close"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioEncoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioEncoderClose(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasIsConfigSupported returns true if the staticmethod "AudioEncoder.isConfigSupported" exists.
+func (this AudioEncoder) HasIsConfigSupported() bool {
+	return js.True == bindings.HasAudioEncoderIsConfigSupported(
+		this.Ref(),
+	)
 }
 
 // IsConfigSupportedFunc returns the staticmethod "AudioEncoder.isConfigSupported".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioEncoder) IsConfigSupportedFunc() (fn js.Func[func(config AudioEncoderConfig) js.Promise[AudioEncoderSupport]]) {
 	return fn.FromRef(
 		bindings.AudioEncoderIsConfigSupportedFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// IsConfigSupported calls the staticmethod "AudioEncoder.isConfigSupported".
+func (this AudioEncoder) IsConfigSupported(config AudioEncoderConfig) (ret js.Promise[AudioEncoderSupport]) {
+	bindings.CallAudioEncoderIsConfigSupported(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&config),
+	)
+
+	return
+}
+
+// TryIsConfigSupported calls the staticmethod "AudioEncoder.isConfigSupported"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioEncoder) TryIsConfigSupported(config AudioEncoderConfig) (ret js.Promise[AudioEncoderSupport], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioEncoderIsConfigSupported(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&config),
+	)
+
+	return
 }
 
 type AudioNode struct {
@@ -562,49 +644,45 @@ func (this AudioNode) Free() {
 
 // Context returns the value of property "AudioNode.context".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioNode) Context() (BaseAudioContext, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioNodeContext(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioNode) Context() (ret BaseAudioContext, ok bool) {
+	ok = js.True == bindings.GetAudioNodeContext(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return BaseAudioContext{}.FromRef(_ret), _ok
+	return
 }
 
 // NumberOfInputs returns the value of property "AudioNode.numberOfInputs".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioNode) NumberOfInputs() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioNodeNumberOfInputs(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioNode) NumberOfInputs() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetAudioNodeNumberOfInputs(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // NumberOfOutputs returns the value of property "AudioNode.numberOfOutputs".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioNode) NumberOfOutputs() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioNodeNumberOfOutputs(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioNode) NumberOfOutputs() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetAudioNodeNumberOfOutputs(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // ChannelCount returns the value of property "AudioNode.channelCount".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioNode) ChannelCount() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioNodeChannelCount(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioNode) ChannelCount() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetAudioNodeChannelCount(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// ChannelCount sets the value of property "AudioNode.channelCount" to val.
+// SetChannelCount sets the value of property "AudioNode.channelCount" to val.
 //
 // It returns false if the property cannot be set.
 func (this AudioNode) SetChannelCount(val uint32) bool {
@@ -616,16 +694,15 @@ func (this AudioNode) SetChannelCount(val uint32) bool {
 
 // ChannelCountMode returns the value of property "AudioNode.channelCountMode".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioNode) ChannelCountMode() (ChannelCountMode, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioNodeChannelCountMode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioNode) ChannelCountMode() (ret ChannelCountMode, ok bool) {
+	ok = js.True == bindings.GetAudioNodeChannelCountMode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ChannelCountMode(_ret), _ok
+	return
 }
 
-// ChannelCountMode sets the value of property "AudioNode.channelCountMode" to val.
+// SetChannelCountMode sets the value of property "AudioNode.channelCountMode" to val.
 //
 // It returns false if the property cannot be set.
 func (this AudioNode) SetChannelCountMode(val ChannelCountMode) bool {
@@ -637,16 +714,15 @@ func (this AudioNode) SetChannelCountMode(val ChannelCountMode) bool {
 
 // ChannelInterpretation returns the value of property "AudioNode.channelInterpretation".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioNode) ChannelInterpretation() (ChannelInterpretation, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioNodeChannelInterpretation(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioNode) ChannelInterpretation() (ret ChannelInterpretation, ok bool) {
+	ok = js.True == bindings.GetAudioNodeChannelInterpretation(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ChannelInterpretation(_ret), _ok
+	return
 }
 
-// ChannelInterpretation sets the value of property "AudioNode.channelInterpretation" to val.
+// SetChannelInterpretation sets the value of property "AudioNode.channelInterpretation" to val.
 //
 // It returns false if the property cannot be set.
 func (this AudioNode) SetChannelInterpretation(val ChannelInterpretation) bool {
@@ -656,24 +732,14 @@ func (this AudioNode) SetChannelInterpretation(val ChannelInterpretation) bool {
 	)
 }
 
-// Connect calls the method "AudioNode.connect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Connect(destinationNode AudioNode, output uint32, input uint32) (AudioNode, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeConnect(
-		this.Ref(), js.Pointer(&_ok),
-		destinationNode.Ref(),
-		uint32(output),
-		uint32(input),
+// HasConnect returns true if the method "AudioNode.connect" exists.
+func (this AudioNode) HasConnect() bool {
+	return js.True == bindings.HasAudioNodeConnect(
+		this.Ref(),
 	)
-
-	return AudioNode{}.FromRef(_ret), _ok
 }
 
 // ConnectFunc returns the method "AudioNode.connect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) ConnectFunc() (fn js.Func[func(destinationNode AudioNode, output uint32, input uint32) AudioNode]) {
 	return fn.FromRef(
 		bindings.AudioNodeConnectFunc(
@@ -682,23 +748,40 @@ func (this AudioNode) ConnectFunc() (fn js.Func[func(destinationNode AudioNode, 
 	)
 }
 
-// Connect1 calls the method "AudioNode.connect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Connect1(destinationNode AudioNode, output uint32) (AudioNode, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeConnect1(
-		this.Ref(), js.Pointer(&_ok),
+// Connect calls the method "AudioNode.connect".
+func (this AudioNode) Connect(destinationNode AudioNode, output uint32, input uint32) (ret AudioNode) {
+	bindings.CallAudioNodeConnect(
+		this.Ref(), js.Pointer(&ret),
 		destinationNode.Ref(),
 		uint32(output),
+		uint32(input),
 	)
 
-	return AudioNode{}.FromRef(_ret), _ok
+	return
+}
+
+// TryConnect calls the method "AudioNode.connect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryConnect(destinationNode AudioNode, output uint32, input uint32) (ret AudioNode, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeConnect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationNode.Ref(),
+		uint32(output),
+		uint32(input),
+	)
+
+	return
+}
+
+// HasConnect1 returns true if the method "AudioNode.connect" exists.
+func (this AudioNode) HasConnect1() bool {
+	return js.True == bindings.HasAudioNodeConnect1(
+		this.Ref(),
+	)
 }
 
 // Connect1Func returns the method "AudioNode.connect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Connect1Func() (fn js.Func[func(destinationNode AudioNode, output uint32) AudioNode]) {
 	return fn.FromRef(
 		bindings.AudioNodeConnect1Func(
@@ -707,22 +790,38 @@ func (this AudioNode) Connect1Func() (fn js.Func[func(destinationNode AudioNode,
 	)
 }
 
-// Connect2 calls the method "AudioNode.connect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Connect2(destinationNode AudioNode) (AudioNode, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeConnect2(
-		this.Ref(), js.Pointer(&_ok),
+// Connect1 calls the method "AudioNode.connect".
+func (this AudioNode) Connect1(destinationNode AudioNode, output uint32) (ret AudioNode) {
+	bindings.CallAudioNodeConnect1(
+		this.Ref(), js.Pointer(&ret),
 		destinationNode.Ref(),
+		uint32(output),
 	)
 
-	return AudioNode{}.FromRef(_ret), _ok
+	return
+}
+
+// TryConnect1 calls the method "AudioNode.connect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryConnect1(destinationNode AudioNode, output uint32) (ret AudioNode, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeConnect1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationNode.Ref(),
+		uint32(output),
+	)
+
+	return
+}
+
+// HasConnect2 returns true if the method "AudioNode.connect" exists.
+func (this AudioNode) HasConnect2() bool {
+	return js.True == bindings.HasAudioNodeConnect2(
+		this.Ref(),
+	)
 }
 
 // Connect2Func returns the method "AudioNode.connect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Connect2Func() (fn js.Func[func(destinationNode AudioNode) AudioNode]) {
 	return fn.FromRef(
 		bindings.AudioNodeConnect2Func(
@@ -731,24 +830,36 @@ func (this AudioNode) Connect2Func() (fn js.Func[func(destinationNode AudioNode)
 	)
 }
 
-// Connect3 calls the method "AudioNode.connect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Connect3(destinationParam AudioParam, output uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeConnect3(
-		this.Ref(), js.Pointer(&_ok),
-		destinationParam.Ref(),
-		uint32(output),
+// Connect2 calls the method "AudioNode.connect".
+func (this AudioNode) Connect2(destinationNode AudioNode) (ret AudioNode) {
+	bindings.CallAudioNodeConnect2(
+		this.Ref(), js.Pointer(&ret),
+		destinationNode.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryConnect2 calls the method "AudioNode.connect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryConnect2(destinationNode AudioNode) (ret AudioNode, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeConnect2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationNode.Ref(),
+	)
+
+	return
+}
+
+// HasConnect3 returns true if the method "AudioNode.connect" exists.
+func (this AudioNode) HasConnect3() bool {
+	return js.True == bindings.HasAudioNodeConnect3(
+		this.Ref(),
+	)
 }
 
 // Connect3Func returns the method "AudioNode.connect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Connect3Func() (fn js.Func[func(destinationParam AudioParam, output uint32)]) {
 	return fn.FromRef(
 		bindings.AudioNodeConnect3Func(
@@ -757,23 +868,38 @@ func (this AudioNode) Connect3Func() (fn js.Func[func(destinationParam AudioPara
 	)
 }
 
-// Connect4 calls the method "AudioNode.connect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Connect4(destinationParam AudioParam) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeConnect4(
-		this.Ref(), js.Pointer(&_ok),
+// Connect3 calls the method "AudioNode.connect".
+func (this AudioNode) Connect3(destinationParam AudioParam, output uint32) (ret js.Void) {
+	bindings.CallAudioNodeConnect3(
+		this.Ref(), js.Pointer(&ret),
 		destinationParam.Ref(),
+		uint32(output),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryConnect3 calls the method "AudioNode.connect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryConnect3(destinationParam AudioParam, output uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeConnect3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationParam.Ref(),
+		uint32(output),
+	)
+
+	return
+}
+
+// HasConnect4 returns true if the method "AudioNode.connect" exists.
+func (this AudioNode) HasConnect4() bool {
+	return js.True == bindings.HasAudioNodeConnect4(
+		this.Ref(),
+	)
 }
 
 // Connect4Func returns the method "AudioNode.connect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Connect4Func() (fn js.Func[func(destinationParam AudioParam)]) {
 	return fn.FromRef(
 		bindings.AudioNodeConnect4Func(
@@ -782,22 +908,36 @@ func (this AudioNode) Connect4Func() (fn js.Func[func(destinationParam AudioPara
 	)
 }
 
-// Disconnect calls the method "AudioNode.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Disconnect() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeDisconnect(
-		this.Ref(), js.Pointer(&_ok),
+// Connect4 calls the method "AudioNode.connect".
+func (this AudioNode) Connect4(destinationParam AudioParam) (ret js.Void) {
+	bindings.CallAudioNodeConnect4(
+		this.Ref(), js.Pointer(&ret),
+		destinationParam.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryConnect4 calls the method "AudioNode.connect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryConnect4(destinationParam AudioParam) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeConnect4(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationParam.Ref(),
+	)
+
+	return
+}
+
+// HasDisconnect returns true if the method "AudioNode.disconnect" exists.
+func (this AudioNode) HasDisconnect() bool {
+	return js.True == bindings.HasAudioNodeDisconnect(
+		this.Ref(),
+	)
 }
 
 // DisconnectFunc returns the method "AudioNode.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) DisconnectFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.AudioNodeDisconnectFunc(
@@ -806,23 +946,34 @@ func (this AudioNode) DisconnectFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Disconnect1 calls the method "AudioNode.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Disconnect1(output uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeDisconnect1(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(output),
+// Disconnect calls the method "AudioNode.disconnect".
+func (this AudioNode) Disconnect() (ret js.Void) {
+	bindings.CallAudioNodeDisconnect(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDisconnect calls the method "AudioNode.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeDisconnect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasDisconnect1 returns true if the method "AudioNode.disconnect" exists.
+func (this AudioNode) HasDisconnect1() bool {
+	return js.True == bindings.HasAudioNodeDisconnect1(
+		this.Ref(),
+	)
 }
 
 // Disconnect1Func returns the method "AudioNode.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Disconnect1Func() (fn js.Func[func(output uint32)]) {
 	return fn.FromRef(
 		bindings.AudioNodeDisconnect1Func(
@@ -831,23 +982,36 @@ func (this AudioNode) Disconnect1Func() (fn js.Func[func(output uint32)]) {
 	)
 }
 
-// Disconnect2 calls the method "AudioNode.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Disconnect2(destinationNode AudioNode) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeDisconnect2(
-		this.Ref(), js.Pointer(&_ok),
-		destinationNode.Ref(),
+// Disconnect1 calls the method "AudioNode.disconnect".
+func (this AudioNode) Disconnect1(output uint32) (ret js.Void) {
+	bindings.CallAudioNodeDisconnect1(
+		this.Ref(), js.Pointer(&ret),
+		uint32(output),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDisconnect1 calls the method "AudioNode.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryDisconnect1(output uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeDisconnect1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(output),
+	)
+
+	return
+}
+
+// HasDisconnect2 returns true if the method "AudioNode.disconnect" exists.
+func (this AudioNode) HasDisconnect2() bool {
+	return js.True == bindings.HasAudioNodeDisconnect2(
+		this.Ref(),
+	)
 }
 
 // Disconnect2Func returns the method "AudioNode.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Disconnect2Func() (fn js.Func[func(destinationNode AudioNode)]) {
 	return fn.FromRef(
 		bindings.AudioNodeDisconnect2Func(
@@ -856,24 +1020,36 @@ func (this AudioNode) Disconnect2Func() (fn js.Func[func(destinationNode AudioNo
 	)
 }
 
-// Disconnect3 calls the method "AudioNode.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Disconnect3(destinationNode AudioNode, output uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeDisconnect3(
-		this.Ref(), js.Pointer(&_ok),
+// Disconnect2 calls the method "AudioNode.disconnect".
+func (this AudioNode) Disconnect2(destinationNode AudioNode) (ret js.Void) {
+	bindings.CallAudioNodeDisconnect2(
+		this.Ref(), js.Pointer(&ret),
 		destinationNode.Ref(),
-		uint32(output),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDisconnect2 calls the method "AudioNode.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryDisconnect2(destinationNode AudioNode) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeDisconnect2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationNode.Ref(),
+	)
+
+	return
+}
+
+// HasDisconnect3 returns true if the method "AudioNode.disconnect" exists.
+func (this AudioNode) HasDisconnect3() bool {
+	return js.True == bindings.HasAudioNodeDisconnect3(
+		this.Ref(),
+	)
 }
 
 // Disconnect3Func returns the method "AudioNode.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Disconnect3Func() (fn js.Func[func(destinationNode AudioNode, output uint32)]) {
 	return fn.FromRef(
 		bindings.AudioNodeDisconnect3Func(
@@ -882,25 +1058,38 @@ func (this AudioNode) Disconnect3Func() (fn js.Func[func(destinationNode AudioNo
 	)
 }
 
-// Disconnect4 calls the method "AudioNode.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Disconnect4(destinationNode AudioNode, output uint32, input uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeDisconnect4(
-		this.Ref(), js.Pointer(&_ok),
+// Disconnect3 calls the method "AudioNode.disconnect".
+func (this AudioNode) Disconnect3(destinationNode AudioNode, output uint32) (ret js.Void) {
+	bindings.CallAudioNodeDisconnect3(
+		this.Ref(), js.Pointer(&ret),
 		destinationNode.Ref(),
 		uint32(output),
-		uint32(input),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDisconnect3 calls the method "AudioNode.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryDisconnect3(destinationNode AudioNode, output uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeDisconnect3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationNode.Ref(),
+		uint32(output),
+	)
+
+	return
+}
+
+// HasDisconnect4 returns true if the method "AudioNode.disconnect" exists.
+func (this AudioNode) HasDisconnect4() bool {
+	return js.True == bindings.HasAudioNodeDisconnect4(
+		this.Ref(),
+	)
 }
 
 // Disconnect4Func returns the method "AudioNode.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Disconnect4Func() (fn js.Func[func(destinationNode AudioNode, output uint32, input uint32)]) {
 	return fn.FromRef(
 		bindings.AudioNodeDisconnect4Func(
@@ -909,23 +1098,40 @@ func (this AudioNode) Disconnect4Func() (fn js.Func[func(destinationNode AudioNo
 	)
 }
 
-// Disconnect5 calls the method "AudioNode.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Disconnect5(destinationParam AudioParam) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeDisconnect5(
-		this.Ref(), js.Pointer(&_ok),
-		destinationParam.Ref(),
+// Disconnect4 calls the method "AudioNode.disconnect".
+func (this AudioNode) Disconnect4(destinationNode AudioNode, output uint32, input uint32) (ret js.Void) {
+	bindings.CallAudioNodeDisconnect4(
+		this.Ref(), js.Pointer(&ret),
+		destinationNode.Ref(),
+		uint32(output),
+		uint32(input),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDisconnect4 calls the method "AudioNode.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryDisconnect4(destinationNode AudioNode, output uint32, input uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeDisconnect4(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationNode.Ref(),
+		uint32(output),
+		uint32(input),
+	)
+
+	return
+}
+
+// HasDisconnect5 returns true if the method "AudioNode.disconnect" exists.
+func (this AudioNode) HasDisconnect5() bool {
+	return js.True == bindings.HasAudioNodeDisconnect5(
+		this.Ref(),
+	)
 }
 
 // Disconnect5Func returns the method "AudioNode.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Disconnect5Func() (fn js.Func[func(destinationParam AudioParam)]) {
 	return fn.FromRef(
 		bindings.AudioNodeDisconnect5Func(
@@ -934,30 +1140,66 @@ func (this AudioNode) Disconnect5Func() (fn js.Func[func(destinationParam AudioP
 	)
 }
 
-// Disconnect6 calls the method "AudioNode.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioNode) Disconnect6(destinationParam AudioParam, output uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioNodeDisconnect6(
-		this.Ref(), js.Pointer(&_ok),
+// Disconnect5 calls the method "AudioNode.disconnect".
+func (this AudioNode) Disconnect5(destinationParam AudioParam) (ret js.Void) {
+	bindings.CallAudioNodeDisconnect5(
+		this.Ref(), js.Pointer(&ret),
 		destinationParam.Ref(),
-		uint32(output),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDisconnect5 calls the method "AudioNode.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryDisconnect5(destinationParam AudioParam) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeDisconnect5(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationParam.Ref(),
+	)
+
+	return
+}
+
+// HasDisconnect6 returns true if the method "AudioNode.disconnect" exists.
+func (this AudioNode) HasDisconnect6() bool {
+	return js.True == bindings.HasAudioNodeDisconnect6(
+		this.Ref(),
+	)
 }
 
 // Disconnect6Func returns the method "AudioNode.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioNode) Disconnect6Func() (fn js.Func[func(destinationParam AudioParam, output uint32)]) {
 	return fn.FromRef(
 		bindings.AudioNodeDisconnect6Func(
 			this.Ref(),
 		),
 	)
+}
+
+// Disconnect6 calls the method "AudioNode.disconnect".
+func (this AudioNode) Disconnect6(destinationParam AudioParam, output uint32) (ret js.Void) {
+	bindings.CallAudioNodeDisconnect6(
+		this.Ref(), js.Pointer(&ret),
+		destinationParam.Ref(),
+		uint32(output),
+	)
+
+	return
+}
+
+// TryDisconnect6 calls the method "AudioNode.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioNode) TryDisconnect6(destinationParam AudioParam, output uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioNodeDisconnect6(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		destinationParam.Ref(),
+		uint32(output),
+	)
+
+	return
 }
 
 type AudioOutputOptions struct {
@@ -1146,12 +1388,11 @@ func (p AudioProcessingEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewAudioProcessingEvent(typ js.String, eventInitDict AudioProcessingEventInit) AudioProcessingEvent {
-	return AudioProcessingEvent{}.FromRef(
-		bindings.NewAudioProcessingEventByAudioProcessingEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewAudioProcessingEvent(typ js.String, eventInitDict AudioProcessingEventInit) (ret AudioProcessingEvent) {
+	ret.ref = bindings.NewAudioProcessingEventByAudioProcessingEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type AudioProcessingEvent struct {
@@ -1178,35 +1419,32 @@ func (this AudioProcessingEvent) Free() {
 
 // PlaybackTime returns the value of property "AudioProcessingEvent.playbackTime".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioProcessingEvent) PlaybackTime() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioProcessingEventPlaybackTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioProcessingEvent) PlaybackTime() (ret float64, ok bool) {
+	ok = js.True == bindings.GetAudioProcessingEventPlaybackTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // InputBuffer returns the value of property "AudioProcessingEvent.inputBuffer".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioProcessingEvent) InputBuffer() (AudioBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioProcessingEventInputBuffer(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioProcessingEvent) InputBuffer() (ret AudioBuffer, ok bool) {
+	ok = js.True == bindings.GetAudioProcessingEventInputBuffer(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return AudioBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 // OutputBuffer returns the value of property "AudioProcessingEvent.outputBuffer".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioProcessingEvent) OutputBuffer() (AudioBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioProcessingEventOutputBuffer(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioProcessingEvent) OutputBuffer() (ret AudioBuffer, ok bool) {
+	ok = js.True == bindings.GetAudioProcessingEventOutputBuffer(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return AudioBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 type AudioRenderCapacityEventInit struct {
@@ -1291,19 +1529,17 @@ func (p AudioRenderCapacityEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewAudioRenderCapacityEvent(typ js.String, eventInitDict AudioRenderCapacityEventInit) AudioRenderCapacityEvent {
-	return AudioRenderCapacityEvent{}.FromRef(
-		bindings.NewAudioRenderCapacityEventByAudioRenderCapacityEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewAudioRenderCapacityEvent(typ js.String, eventInitDict AudioRenderCapacityEventInit) (ret AudioRenderCapacityEvent) {
+	ret.ref = bindings.NewAudioRenderCapacityEventByAudioRenderCapacityEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewAudioRenderCapacityEventByAudioRenderCapacityEvent1(typ js.String) AudioRenderCapacityEvent {
-	return AudioRenderCapacityEvent{}.FromRef(
-		bindings.NewAudioRenderCapacityEventByAudioRenderCapacityEvent1(
-			typ.Ref()),
-	)
+func NewAudioRenderCapacityEventByAudioRenderCapacityEvent1(typ js.String) (ret AudioRenderCapacityEvent) {
+	ret.ref = bindings.NewAudioRenderCapacityEventByAudioRenderCapacityEvent1(
+		typ.Ref())
+	return
 }
 
 type AudioRenderCapacityEvent struct {
@@ -1330,46 +1566,42 @@ func (this AudioRenderCapacityEvent) Free() {
 
 // Timestamp returns the value of property "AudioRenderCapacityEvent.timestamp".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioRenderCapacityEvent) Timestamp() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioRenderCapacityEventTimestamp(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioRenderCapacityEvent) Timestamp() (ret float64, ok bool) {
+	ok = js.True == bindings.GetAudioRenderCapacityEventTimestamp(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // AverageLoad returns the value of property "AudioRenderCapacityEvent.averageLoad".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioRenderCapacityEvent) AverageLoad() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioRenderCapacityEventAverageLoad(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioRenderCapacityEvent) AverageLoad() (ret float64, ok bool) {
+	ok = js.True == bindings.GetAudioRenderCapacityEventAverageLoad(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // PeakLoad returns the value of property "AudioRenderCapacityEvent.peakLoad".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioRenderCapacityEvent) PeakLoad() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioRenderCapacityEventPeakLoad(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioRenderCapacityEvent) PeakLoad() (ret float64, ok bool) {
+	ok = js.True == bindings.GetAudioRenderCapacityEventPeakLoad(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // UnderrunRatio returns the value of property "AudioRenderCapacityEvent.underrunRatio".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioRenderCapacityEvent) UnderrunRatio() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioRenderCapacityEventUnderrunRatio(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioRenderCapacityEvent) UnderrunRatio() (ret float64, ok bool) {
+	ok = js.True == bindings.GetAudioRenderCapacityEventUnderrunRatio(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 type AudioScheduledSourceNode struct {
@@ -1394,23 +1626,14 @@ func (this AudioScheduledSourceNode) Free() {
 	this.Ref().Free()
 }
 
-// Start calls the method "AudioScheduledSourceNode.start".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioScheduledSourceNode) Start(when float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioScheduledSourceNodeStart(
-		this.Ref(), js.Pointer(&_ok),
-		float64(when),
+// HasStart returns true if the method "AudioScheduledSourceNode.start" exists.
+func (this AudioScheduledSourceNode) HasStart() bool {
+	return js.True == bindings.HasAudioScheduledSourceNodeStart(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // StartFunc returns the method "AudioScheduledSourceNode.start".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioScheduledSourceNode) StartFunc() (fn js.Func[func(when float64)]) {
 	return fn.FromRef(
 		bindings.AudioScheduledSourceNodeStartFunc(
@@ -1419,22 +1642,36 @@ func (this AudioScheduledSourceNode) StartFunc() (fn js.Func[func(when float64)]
 	)
 }
 
-// Start1 calls the method "AudioScheduledSourceNode.start".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioScheduledSourceNode) Start1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioScheduledSourceNodeStart1(
-		this.Ref(), js.Pointer(&_ok),
+// Start calls the method "AudioScheduledSourceNode.start".
+func (this AudioScheduledSourceNode) Start(when float64) (ret js.Void) {
+	bindings.CallAudioScheduledSourceNodeStart(
+		this.Ref(), js.Pointer(&ret),
+		float64(when),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStart calls the method "AudioScheduledSourceNode.start"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioScheduledSourceNode) TryStart(when float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioScheduledSourceNodeStart(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(when),
+	)
+
+	return
+}
+
+// HasStart1 returns true if the method "AudioScheduledSourceNode.start" exists.
+func (this AudioScheduledSourceNode) HasStart1() bool {
+	return js.True == bindings.HasAudioScheduledSourceNodeStart1(
+		this.Ref(),
+	)
 }
 
 // Start1Func returns the method "AudioScheduledSourceNode.start".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioScheduledSourceNode) Start1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.AudioScheduledSourceNodeStart1Func(
@@ -1443,23 +1680,34 @@ func (this AudioScheduledSourceNode) Start1Func() (fn js.Func[func()]) {
 	)
 }
 
-// Stop calls the method "AudioScheduledSourceNode.stop".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioScheduledSourceNode) Stop(when float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioScheduledSourceNodeStop(
-		this.Ref(), js.Pointer(&_ok),
-		float64(when),
+// Start1 calls the method "AudioScheduledSourceNode.start".
+func (this AudioScheduledSourceNode) Start1() (ret js.Void) {
+	bindings.CallAudioScheduledSourceNodeStart1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStart1 calls the method "AudioScheduledSourceNode.start"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioScheduledSourceNode) TryStart1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioScheduledSourceNodeStart1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasStop returns true if the method "AudioScheduledSourceNode.stop" exists.
+func (this AudioScheduledSourceNode) HasStop() bool {
+	return js.True == bindings.HasAudioScheduledSourceNodeStop(
+		this.Ref(),
+	)
 }
 
 // StopFunc returns the method "AudioScheduledSourceNode.stop".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioScheduledSourceNode) StopFunc() (fn js.Func[func(when float64)]) {
 	return fn.FromRef(
 		bindings.AudioScheduledSourceNodeStopFunc(
@@ -1468,28 +1716,62 @@ func (this AudioScheduledSourceNode) StopFunc() (fn js.Func[func(when float64)])
 	)
 }
 
-// Stop1 calls the method "AudioScheduledSourceNode.stop".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioScheduledSourceNode) Stop1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioScheduledSourceNodeStop1(
-		this.Ref(), js.Pointer(&_ok),
+// Stop calls the method "AudioScheduledSourceNode.stop".
+func (this AudioScheduledSourceNode) Stop(when float64) (ret js.Void) {
+	bindings.CallAudioScheduledSourceNodeStop(
+		this.Ref(), js.Pointer(&ret),
+		float64(when),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStop calls the method "AudioScheduledSourceNode.stop"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioScheduledSourceNode) TryStop(when float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioScheduledSourceNodeStop(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(when),
+	)
+
+	return
+}
+
+// HasStop1 returns true if the method "AudioScheduledSourceNode.stop" exists.
+func (this AudioScheduledSourceNode) HasStop1() bool {
+	return js.True == bindings.HasAudioScheduledSourceNodeStop1(
+		this.Ref(),
+	)
 }
 
 // Stop1Func returns the method "AudioScheduledSourceNode.stop".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioScheduledSourceNode) Stop1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.AudioScheduledSourceNodeStop1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// Stop1 calls the method "AudioScheduledSourceNode.stop".
+func (this AudioScheduledSourceNode) Stop1() (ret js.Void) {
+	bindings.CallAudioScheduledSourceNodeStop1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryStop1 calls the method "AudioScheduledSourceNode.stop"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioScheduledSourceNode) TryStop1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioScheduledSourceNodeStop1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type AudioWorkletProcessorConstructorFunc func(this js.Ref, options js.Object) js.Ref
@@ -1576,13 +1858,12 @@ func (this AudioWorkletProcessor) Free() {
 
 // Port returns the value of property "AudioWorkletProcessor.port".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioWorkletProcessor) Port() (MessagePort, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioWorkletProcessorPort(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioWorkletProcessor) Port() (ret MessagePort, ok bool) {
+	ok = js.True == bindings.GetAudioWorkletProcessorPort(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return MessagePort{}.FromRef(_ret), _ok
+	return
 }
 
 type AudioWorkletGlobalScope struct {
@@ -1609,72 +1890,82 @@ func (this AudioWorkletGlobalScope) Free() {
 
 // CurrentFrame returns the value of property "AudioWorkletGlobalScope.currentFrame".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioWorkletGlobalScope) CurrentFrame() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioWorkletGlobalScopeCurrentFrame(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioWorkletGlobalScope) CurrentFrame() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetAudioWorkletGlobalScopeCurrentFrame(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 // CurrentTime returns the value of property "AudioWorkletGlobalScope.currentTime".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioWorkletGlobalScope) CurrentTime() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioWorkletGlobalScopeCurrentTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioWorkletGlobalScope) CurrentTime() (ret float64, ok bool) {
+	ok = js.True == bindings.GetAudioWorkletGlobalScopeCurrentTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // SampleRate returns the value of property "AudioWorkletGlobalScope.sampleRate".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioWorkletGlobalScope) SampleRate() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioWorkletGlobalScopeSampleRate(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioWorkletGlobalScope) SampleRate() (ret float32, ok bool) {
+	ok = js.True == bindings.GetAudioWorkletGlobalScopeSampleRate(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // Port returns the value of property "AudioWorkletGlobalScope.port".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioWorkletGlobalScope) Port() (MessagePort, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioWorkletGlobalScopePort(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioWorkletGlobalScope) Port() (ret MessagePort, ok bool) {
+	ok = js.True == bindings.GetAudioWorkletGlobalScopePort(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return MessagePort{}.FromRef(_ret), _ok
+	return
 }
 
-// RegisterProcessor calls the method "AudioWorkletGlobalScope.registerProcessor".
-//
-// The returned bool will be false if there is no such method.
-func (this AudioWorkletGlobalScope) RegisterProcessor(name js.String, processorCtor js.Func[func(options js.Object) AudioWorkletProcessor]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallAudioWorkletGlobalScopeRegisterProcessor(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
-		processorCtor.Ref(),
+// HasRegisterProcessor returns true if the method "AudioWorkletGlobalScope.registerProcessor" exists.
+func (this AudioWorkletGlobalScope) HasRegisterProcessor() bool {
+	return js.True == bindings.HasAudioWorkletGlobalScopeRegisterProcessor(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // RegisterProcessorFunc returns the method "AudioWorkletGlobalScope.registerProcessor".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this AudioWorkletGlobalScope) RegisterProcessorFunc() (fn js.Func[func(name js.String, processorCtor js.Func[func(options js.Object) AudioWorkletProcessor])]) {
 	return fn.FromRef(
 		bindings.AudioWorkletGlobalScopeRegisterProcessorFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// RegisterProcessor calls the method "AudioWorkletGlobalScope.registerProcessor".
+func (this AudioWorkletGlobalScope) RegisterProcessor(name js.String, processorCtor js.Func[func(options js.Object) AudioWorkletProcessor]) (ret js.Void) {
+	bindings.CallAudioWorkletGlobalScopeRegisterProcessor(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+		processorCtor.Ref(),
+	)
+
+	return
+}
+
+// TryRegisterProcessor calls the method "AudioWorkletGlobalScope.registerProcessor"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this AudioWorkletGlobalScope) TryRegisterProcessor(name js.String, processorCtor js.Func[func(options js.Object) AudioWorkletProcessor]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryAudioWorkletGlobalScopeRegisterProcessor(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		processorCtor.Ref(),
+	)
+
+	return
 }
 
 type AudioWorkletNodeOptions struct {
@@ -1751,21 +2042,19 @@ func (p AudioWorkletNodeOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewAudioWorkletNode(context BaseAudioContext, name js.String, options AudioWorkletNodeOptions) AudioWorkletNode {
-	return AudioWorkletNode{}.FromRef(
-		bindings.NewAudioWorkletNodeByAudioWorkletNode(
-			context.Ref(),
-			name.Ref(),
-			js.Pointer(&options)),
-	)
+func NewAudioWorkletNode(context BaseAudioContext, name js.String, options AudioWorkletNodeOptions) (ret AudioWorkletNode) {
+	ret.ref = bindings.NewAudioWorkletNodeByAudioWorkletNode(
+		context.Ref(),
+		name.Ref(),
+		js.Pointer(&options))
+	return
 }
 
-func NewAudioWorkletNodeByAudioWorkletNode1(context BaseAudioContext, name js.String) AudioWorkletNode {
-	return AudioWorkletNode{}.FromRef(
-		bindings.NewAudioWorkletNodeByAudioWorkletNode1(
-			context.Ref(),
-			name.Ref()),
-	)
+func NewAudioWorkletNodeByAudioWorkletNode1(context BaseAudioContext, name js.String) (ret AudioWorkletNode) {
+	ret.ref = bindings.NewAudioWorkletNodeByAudioWorkletNode1(
+		context.Ref(),
+		name.Ref())
+	return
 }
 
 type AudioWorkletNode struct {
@@ -1792,24 +2081,22 @@ func (this AudioWorkletNode) Free() {
 
 // Parameters returns the value of property "AudioWorkletNode.parameters".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioWorkletNode) Parameters() (AudioParamMap, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioWorkletNodeParameters(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioWorkletNode) Parameters() (ret AudioParamMap, ok bool) {
+	ok = js.True == bindings.GetAudioWorkletNodeParameters(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return AudioParamMap{}.FromRef(_ret), _ok
+	return
 }
 
 // Port returns the value of property "AudioWorkletNode.port".
 //
-// The returned bool will be false if there is no such property.
-func (this AudioWorkletNode) Port() (MessagePort, bool) {
-	var _ok bool
-	_ret := bindings.GetAudioWorkletNodePort(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AudioWorkletNode) Port() (ret MessagePort, ok bool) {
+	ok = js.True == bindings.GetAudioWorkletNodePort(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return MessagePort{}.FromRef(_ret), _ok
+	return
 }
 
 type AudioWorkletProcessCallbackFunc func(this js.Ref, inputs js.FrozenArray[js.FrozenArray[js.TypedArray[float32]]], outputs js.FrozenArray[js.FrozenArray[js.TypedArray[float32]]], parameters js.Object) js.Ref
@@ -1920,6 +2207,8 @@ type AuthenticationExtensionsPRFInputs struct {
 	// Eval is "AuthenticationExtensionsPRFInputs.eval"
 	//
 	// Optional
+	//
+	// NOTE: Eval.FFI_USE MUST be set to true to get Eval used.
 	Eval AuthenticationExtensionsPRFValues
 	// EvalByCredential is "AuthenticationExtensionsPRFInputs.evalByCredential"
 	//
@@ -2070,10 +2359,14 @@ type AuthenticationExtensionsPaymentInputs struct {
 	// Total is "AuthenticationExtensionsPaymentInputs.total"
 	//
 	// Optional
+	//
+	// NOTE: Total.FFI_USE MUST be set to true to get Total used.
 	Total PaymentCurrencyAmount
 	// Instrument is "AuthenticationExtensionsPaymentInputs.instrument"
 	//
 	// Optional
+	//
+	// NOTE: Instrument.FFI_USE MUST be set to true to get Instrument used.
 	Instrument PaymentCredentialInstrument
 
 	FFI_USE_IsPayment bool // for IsPayment.
@@ -2246,6 +2539,8 @@ type AuthenticationExtensionsClientInputs struct {
 	// Prf is "AuthenticationExtensionsClientInputs.prf"
 	//
 	// Optional
+	//
+	// NOTE: Prf.FFI_USE MUST be set to true to get Prf used.
 	Prf AuthenticationExtensionsPRFInputs
 	// Appid is "AuthenticationExtensionsClientInputs.appid"
 	//
@@ -2276,14 +2571,20 @@ type AuthenticationExtensionsClientInputs struct {
 	// Payment is "AuthenticationExtensionsClientInputs.payment"
 	//
 	// Optional
+	//
+	// NOTE: Payment.FFI_USE MUST be set to true to get Payment used.
 	Payment AuthenticationExtensionsPaymentInputs
 	// HmacGetSecret is "AuthenticationExtensionsClientInputs.hmacGetSecret"
 	//
 	// Optional
+	//
+	// NOTE: HmacGetSecret.FFI_USE MUST be set to true to get HmacGetSecret used.
 	HmacGetSecret HMACGetSecretInput
 	// LargeBlob is "AuthenticationExtensionsClientInputs.largeBlob"
 	//
 	// Optional
+	//
+	// NOTE: LargeBlob.FFI_USE MUST be set to true to get LargeBlob used.
 	LargeBlob AuthenticationExtensionsLargeBlobInputs
 	// CredBlob is "AuthenticationExtensionsClientInputs.credBlob"
 	//
@@ -2308,6 +2609,8 @@ type AuthenticationExtensionsClientInputs struct {
 	// DevicePubKey is "AuthenticationExtensionsClientInputs.devicePubKey"
 	//
 	// Optional
+	//
+	// NOTE: DevicePubKey.FFI_USE MUST be set to true to get DevicePubKey used.
 	DevicePubKey AuthenticationExtensionsDevicePublicKeyInputs
 
 	FFI_USE_MinPinLength                      bool // for MinPinLength.
@@ -2559,6 +2862,8 @@ type AuthenticationExtensionsPRFOutputs struct {
 	// Results is "AuthenticationExtensionsPRFOutputs.results"
 	//
 	// Optional
+	//
+	// NOTE: Results.FFI_USE MUST be set to true to get Results used.
 	Results AuthenticationExtensionsPRFValues
 
 	FFI_USE_Enabled bool // for Enabled.
@@ -2597,6 +2902,8 @@ type AuthenticationExtensionsClientOutputs struct {
 	// DevicePubKey is "AuthenticationExtensionsClientOutputs.devicePubKey"
 	//
 	// Optional
+	//
+	// NOTE: DevicePubKey.FFI_USE MUST be set to true to get DevicePubKey used.
 	DevicePubKey AuthenticationExtensionsDevicePublicKeyOutputs
 	// Appid is "AuthenticationExtensionsClientOutputs.appid"
 	//
@@ -2617,18 +2924,26 @@ type AuthenticationExtensionsClientOutputs struct {
 	// CredProps is "AuthenticationExtensionsClientOutputs.credProps"
 	//
 	// Optional
+	//
+	// NOTE: CredProps.FFI_USE MUST be set to true to get CredProps used.
 	CredProps CredentialPropertiesOutput
 	// LargeBlob is "AuthenticationExtensionsClientOutputs.largeBlob"
 	//
 	// Optional
+	//
+	// NOTE: LargeBlob.FFI_USE MUST be set to true to get LargeBlob used.
 	LargeBlob AuthenticationExtensionsLargeBlobOutputs
 	// HmacGetSecret is "AuthenticationExtensionsClientOutputs.hmacGetSecret"
 	//
 	// Optional
+	//
+	// NOTE: HmacGetSecret.FFI_USE MUST be set to true to get HmacGetSecret used.
 	HmacGetSecret HMACGetSecretOutput
 	// Prf is "AuthenticationExtensionsClientOutputs.prf"
 	//
 	// Optional
+	//
+	// NOTE: Prf.FFI_USE MUST be set to true to get Prf used.
 	Prf AuthenticationExtensionsPRFOutputs
 	// HmacCreateSecret is "AuthenticationExtensionsClientOutputs.hmacCreateSecret"
 	//
@@ -2768,6 +3083,8 @@ type AuthenticationResponseJSON struct {
 	// Response is "AuthenticationResponseJSON.response"
 	//
 	// Required
+	//
+	// NOTE: Response.FFI_USE MUST be set to true to get Response used.
 	Response AuthenticatorAssertionResponseJSON
 	// AuthenticatorAttachment is "AuthenticationResponseJSON.authenticatorAttachment"
 	//
@@ -2776,6 +3093,8 @@ type AuthenticationResponseJSON struct {
 	// ClientExtensionResults is "AuthenticationResponseJSON.clientExtensionResults"
 	//
 	// Required
+	//
+	// NOTE: ClientExtensionResults.FFI_USE MUST be set to true to get ClientExtensionResults used.
 	ClientExtensionResults AuthenticationExtensionsClientOutputsJSON
 	// Type is "AuthenticationResponseJSON.type"
 	//
@@ -2836,46 +3155,42 @@ func (this AuthenticatorAssertionResponse) Free() {
 
 // AuthenticatorData returns the value of property "AuthenticatorAssertionResponse.authenticatorData".
 //
-// The returned bool will be false if there is no such property.
-func (this AuthenticatorAssertionResponse) AuthenticatorData() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAuthenticatorAssertionResponseAuthenticatorData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AuthenticatorAssertionResponse) AuthenticatorData() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetAuthenticatorAssertionResponseAuthenticatorData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 // Signature returns the value of property "AuthenticatorAssertionResponse.signature".
 //
-// The returned bool will be false if there is no such property.
-func (this AuthenticatorAssertionResponse) Signature() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAuthenticatorAssertionResponseSignature(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AuthenticatorAssertionResponse) Signature() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetAuthenticatorAssertionResponseSignature(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 // UserHandle returns the value of property "AuthenticatorAssertionResponse.userHandle".
 //
-// The returned bool will be false if there is no such property.
-func (this AuthenticatorAssertionResponse) UserHandle() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAuthenticatorAssertionResponseUserHandle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AuthenticatorAssertionResponse) UserHandle() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetAuthenticatorAssertionResponseUserHandle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 // AttestationObject returns the value of property "AuthenticatorAssertionResponse.attestationObject".
 //
-// The returned bool will be false if there is no such property.
-func (this AuthenticatorAssertionResponse) AttestationObject() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetAuthenticatorAssertionResponseAttestationObject(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this AuthenticatorAssertionResponse) AttestationObject() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetAuthenticatorAssertionResponseAttestationObject(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 type AuthenticatorAttachment uint32

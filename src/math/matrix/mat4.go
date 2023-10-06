@@ -1,6 +1,11 @@
 // SPDX-License-Identifier: Apache-2.0
 // Copyright 2023 The Prime Citizens
 
+// Code adapted from https://github.com/greggman/wgpu-matrix
+//
+// Copyright (c) 2022 Gregg Tavares
+// SPDX-License-Identifier: MIT
+
 package matrix
 
 import (

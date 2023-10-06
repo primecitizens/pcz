@@ -33,7 +33,7 @@ func (fn Func[T]) Ref() Ref {
 }
 
 func (fn Func[T]) Once() Func[T] {
-	Ref(fn.ref).Once()
+	bindings.Once(fn.ref)
 	return fn
 }
 

@@ -101,6 +101,25 @@ func NewRejectedPromise[
 	}
 }
 
+// TryAwait is a helper function to consume Promises returned
+// from TryXxx functions.
+//
+// It calls p.Await(true) when ok is true.
+func TryAwait[
+	T interface{ FromRef(Ref) T },
+](
+	p Promise[T], exception Any, ok bool,
+) (
+	value T, err Any, fulfilled bool,
+) {
+	if !ok {
+		err = exception
+		return
+	}
+
+	return p.Await(true)
+}
+
 type Promise[T interface{ FromRef(Ref) T }] struct {
 	ref bindings.Ref
 }

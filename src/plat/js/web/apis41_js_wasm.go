@@ -41,91 +41,98 @@ func (this LargestContentfulPaint) Free() {
 
 // RenderTime returns the value of property "LargestContentfulPaint.renderTime".
 //
-// The returned bool will be false if there is no such property.
-func (this LargestContentfulPaint) RenderTime() (DOMHighResTimeStamp, bool) {
-	var _ok bool
-	_ret := bindings.GetLargestContentfulPaintRenderTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LargestContentfulPaint) RenderTime() (ret DOMHighResTimeStamp, ok bool) {
+	ok = js.True == bindings.GetLargestContentfulPaintRenderTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMHighResTimeStamp(_ret), _ok
+	return
 }
 
 // LoadTime returns the value of property "LargestContentfulPaint.loadTime".
 //
-// The returned bool will be false if there is no such property.
-func (this LargestContentfulPaint) LoadTime() (DOMHighResTimeStamp, bool) {
-	var _ok bool
-	_ret := bindings.GetLargestContentfulPaintLoadTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LargestContentfulPaint) LoadTime() (ret DOMHighResTimeStamp, ok bool) {
+	ok = js.True == bindings.GetLargestContentfulPaintLoadTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMHighResTimeStamp(_ret), _ok
+	return
 }
 
 // Size returns the value of property "LargestContentfulPaint.size".
 //
-// The returned bool will be false if there is no such property.
-func (this LargestContentfulPaint) Size() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetLargestContentfulPaintSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LargestContentfulPaint) Size() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetLargestContentfulPaintSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Id returns the value of property "LargestContentfulPaint.id".
 //
-// The returned bool will be false if there is no such property.
-func (this LargestContentfulPaint) Id() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetLargestContentfulPaintId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LargestContentfulPaint) Id() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetLargestContentfulPaintId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Url returns the value of property "LargestContentfulPaint.url".
 //
-// The returned bool will be false if there is no such property.
-func (this LargestContentfulPaint) Url() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetLargestContentfulPaintUrl(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LargestContentfulPaint) Url() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetLargestContentfulPaintUrl(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Element returns the value of property "LargestContentfulPaint.element".
 //
-// The returned bool will be false if there is no such property.
-func (this LargestContentfulPaint) Element() (Element, bool) {
-	var _ok bool
-	_ret := bindings.GetLargestContentfulPaintElement(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LargestContentfulPaint) Element() (ret Element, ok bool) {
+	ok = js.True == bindings.GetLargestContentfulPaintElement(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Element{}.FromRef(_ret), _ok
+	return
 }
 
-// ToJSON calls the method "LargestContentfulPaint.toJSON".
-//
-// The returned bool will be false if there is no such method.
-func (this LargestContentfulPaint) ToJSON() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.CallLargestContentfulPaintToJSON(
-		this.Ref(), js.Pointer(&_ok),
+// HasToJSON returns true if the method "LargestContentfulPaint.toJSON" exists.
+func (this LargestContentfulPaint) HasToJSON() bool {
+	return js.True == bindings.HasLargestContentfulPaintToJSON(
+		this.Ref(),
 	)
-
-	return js.Object{}.FromRef(_ret), _ok
 }
 
 // ToJSONFunc returns the method "LargestContentfulPaint.toJSON".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this LargestContentfulPaint) ToJSONFunc() (fn js.Func[func() js.Object]) {
 	return fn.FromRef(
 		bindings.LargestContentfulPaintToJSONFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// ToJSON calls the method "LargestContentfulPaint.toJSON".
+func (this LargestContentfulPaint) ToJSON() (ret js.Object) {
+	bindings.CallLargestContentfulPaintToJSON(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryToJSON calls the method "LargestContentfulPaint.toJSON"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this LargestContentfulPaint) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryLargestContentfulPaintToJSON(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type LatencyMode uint32
@@ -176,101 +183,92 @@ func (this LayoutConstraints) Free() {
 
 // AvailableInlineSize returns the value of property "LayoutConstraints.availableInlineSize".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) AvailableInlineSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsAvailableInlineSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) AvailableInlineSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsAvailableInlineSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // AvailableBlockSize returns the value of property "LayoutConstraints.availableBlockSize".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) AvailableBlockSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsAvailableBlockSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) AvailableBlockSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsAvailableBlockSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // FixedInlineSize returns the value of property "LayoutConstraints.fixedInlineSize".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) FixedInlineSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsFixedInlineSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) FixedInlineSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsFixedInlineSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // FixedBlockSize returns the value of property "LayoutConstraints.fixedBlockSize".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) FixedBlockSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsFixedBlockSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) FixedBlockSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsFixedBlockSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // PercentageInlineSize returns the value of property "LayoutConstraints.percentageInlineSize".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) PercentageInlineSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsPercentageInlineSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) PercentageInlineSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsPercentageInlineSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // PercentageBlockSize returns the value of property "LayoutConstraints.percentageBlockSize".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) PercentageBlockSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsPercentageBlockSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) PercentageBlockSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsPercentageBlockSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // BlockFragmentationOffset returns the value of property "LayoutConstraints.blockFragmentationOffset".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) BlockFragmentationOffset() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsBlockFragmentationOffset(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) BlockFragmentationOffset() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsBlockFragmentationOffset(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // BlockFragmentationType returns the value of property "LayoutConstraints.blockFragmentationType".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) BlockFragmentationType() (BlockFragmentationType, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsBlockFragmentationType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) BlockFragmentationType() (ret BlockFragmentationType, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsBlockFragmentationType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return BlockFragmentationType(_ret), _ok
+	return
 }
 
 // Data returns the value of property "LayoutConstraints.data".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutConstraints) Data() (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutConstraintsData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutConstraints) Data() (ret js.Any, ok bool) {
+	ok = js.True == bindings.GetLayoutConstraintsData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Any{}.FromRef(_ret), _ok
+	return
 }
 
 type LayoutEdges struct {
@@ -297,68 +295,62 @@ func (this LayoutEdges) Free() {
 
 // InlineStart returns the value of property "LayoutEdges.inlineStart".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutEdges) InlineStart() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutEdgesInlineStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutEdges) InlineStart() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutEdgesInlineStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // InlineEnd returns the value of property "LayoutEdges.inlineEnd".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutEdges) InlineEnd() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutEdgesInlineEnd(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutEdges) InlineEnd() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutEdgesInlineEnd(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // BlockStart returns the value of property "LayoutEdges.blockStart".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutEdges) BlockStart() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutEdgesBlockStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutEdges) BlockStart() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutEdgesBlockStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // BlockEnd returns the value of property "LayoutEdges.blockEnd".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutEdges) BlockEnd() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutEdgesBlockEnd(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutEdges) BlockEnd() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutEdgesBlockEnd(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Inline returns the value of property "LayoutEdges.inline".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutEdges) Inline() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutEdgesInline(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutEdges) Inline() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutEdgesInline(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Block returns the value of property "LayoutEdges.block".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutEdges) Block() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutEdgesBlock(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutEdges) Block() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutEdgesBlock(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 type LayoutSizingMode uint32
@@ -449,35 +441,32 @@ func (this LayoutShiftAttribution) Free() {
 
 // Node returns the value of property "LayoutShiftAttribution.node".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutShiftAttribution) Node() (Node, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutShiftAttributionNode(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutShiftAttribution) Node() (ret Node, ok bool) {
+	ok = js.True == bindings.GetLayoutShiftAttributionNode(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Node{}.FromRef(_ret), _ok
+	return
 }
 
 // PreviousRect returns the value of property "LayoutShiftAttribution.previousRect".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutShiftAttribution) PreviousRect() (DOMRectReadOnly, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutShiftAttributionPreviousRect(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutShiftAttribution) PreviousRect() (ret DOMRectReadOnly, ok bool) {
+	ok = js.True == bindings.GetLayoutShiftAttributionPreviousRect(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMRectReadOnly{}.FromRef(_ret), _ok
+	return
 }
 
 // CurrentRect returns the value of property "LayoutShiftAttribution.currentRect".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutShiftAttribution) CurrentRect() (DOMRectReadOnly, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutShiftAttributionCurrentRect(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutShiftAttribution) CurrentRect() (ret DOMRectReadOnly, ok bool) {
+	ok = js.True == bindings.GetLayoutShiftAttributionCurrentRect(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMRectReadOnly{}.FromRef(_ret), _ok
+	return
 }
 
 type LayoutShift struct {
@@ -504,69 +493,78 @@ func (this LayoutShift) Free() {
 
 // Value returns the value of property "LayoutShift.value".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutShift) Value() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutShiftValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutShift) Value() (ret float64, ok bool) {
+	ok = js.True == bindings.GetLayoutShiftValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // HadRecentInput returns the value of property "LayoutShift.hadRecentInput".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutShift) HadRecentInput() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutShiftHadRecentInput(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutShift) HadRecentInput() (ret bool, ok bool) {
+	ok = js.True == bindings.GetLayoutShiftHadRecentInput(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // LastInputTime returns the value of property "LayoutShift.lastInputTime".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutShift) LastInputTime() (DOMHighResTimeStamp, bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutShiftLastInputTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutShift) LastInputTime() (ret DOMHighResTimeStamp, ok bool) {
+	ok = js.True == bindings.GetLayoutShiftLastInputTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMHighResTimeStamp(_ret), _ok
+	return
 }
 
 // Sources returns the value of property "LayoutShift.sources".
 //
-// The returned bool will be false if there is no such property.
-func (this LayoutShift) Sources() (js.FrozenArray[LayoutShiftAttribution], bool) {
-	var _ok bool
-	_ret := bindings.GetLayoutShiftSources(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this LayoutShift) Sources() (ret js.FrozenArray[LayoutShiftAttribution], ok bool) {
+	ok = js.True == bindings.GetLayoutShiftSources(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[LayoutShiftAttribution]{}.FromRef(_ret), _ok
+	return
 }
 
-// ToJSON calls the method "LayoutShift.toJSON".
-//
-// The returned bool will be false if there is no such method.
-func (this LayoutShift) ToJSON() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.CallLayoutShiftToJSON(
-		this.Ref(), js.Pointer(&_ok),
+// HasToJSON returns true if the method "LayoutShift.toJSON" exists.
+func (this LayoutShift) HasToJSON() bool {
+	return js.True == bindings.HasLayoutShiftToJSON(
+		this.Ref(),
 	)
-
-	return js.Object{}.FromRef(_ret), _ok
 }
 
 // ToJSONFunc returns the method "LayoutShift.toJSON".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this LayoutShift) ToJSONFunc() (fn js.Func[func() js.Object]) {
 	return fn.FromRef(
 		bindings.LayoutShiftToJSONFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// ToJSON calls the method "LayoutShift.toJSON".
+func (this LayoutShift) ToJSON() (ret js.Object) {
+	bindings.CallLayoutShiftToJSON(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryToJSON calls the method "LayoutShift.toJSON"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this LayoutShift) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryLayoutShiftToJSON(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type LayoutWorkletGlobalScope struct {
@@ -591,30 +589,44 @@ func (this LayoutWorkletGlobalScope) Free() {
 	this.Ref().Free()
 }
 
-// RegisterLayout calls the method "LayoutWorkletGlobalScope.registerLayout".
-//
-// The returned bool will be false if there is no such method.
-func (this LayoutWorkletGlobalScope) RegisterLayout(name js.String, layoutCtor js.Func[func()]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallLayoutWorkletGlobalScopeRegisterLayout(
-		this.Ref(), js.Pointer(&_ok),
-		name.Ref(),
-		layoutCtor.Ref(),
+// HasRegisterLayout returns true if the method "LayoutWorkletGlobalScope.registerLayout" exists.
+func (this LayoutWorkletGlobalScope) HasRegisterLayout() bool {
+	return js.True == bindings.HasLayoutWorkletGlobalScopeRegisterLayout(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // RegisterLayoutFunc returns the method "LayoutWorkletGlobalScope.registerLayout".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this LayoutWorkletGlobalScope) RegisterLayoutFunc() (fn js.Func[func(name js.String, layoutCtor js.Func[func()])]) {
 	return fn.FromRef(
 		bindings.LayoutWorkletGlobalScopeRegisterLayoutFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// RegisterLayout calls the method "LayoutWorkletGlobalScope.registerLayout".
+func (this LayoutWorkletGlobalScope) RegisterLayout(name js.String, layoutCtor js.Func[func()]) (ret js.Void) {
+	bindings.CallLayoutWorkletGlobalScopeRegisterLayout(
+		this.Ref(), js.Pointer(&ret),
+		name.Ref(),
+		layoutCtor.Ref(),
+	)
+
+	return
+}
+
+// TryRegisterLayout calls the method "LayoutWorkletGlobalScope.registerLayout"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this LayoutWorkletGlobalScope) TryRegisterLayout(name js.String, layoutCtor js.Func[func()]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryLayoutWorkletGlobalScopeRegisterLayout(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		name.Ref(),
+		layoutCtor.Ref(),
+	)
+
+	return
 }
 
 type LineAlignSetting uint32
@@ -716,17 +728,15 @@ func (p LinearAccelerationReadingValues) Update(ref js.Ref) {
 	)
 }
 
-func NewLinearAccelerationSensor(options AccelerometerSensorOptions) LinearAccelerationSensor {
-	return LinearAccelerationSensor{}.FromRef(
-		bindings.NewLinearAccelerationSensorByLinearAccelerationSensor(
-			js.Pointer(&options)),
-	)
+func NewLinearAccelerationSensor(options AccelerometerSensorOptions) (ret LinearAccelerationSensor) {
+	ret.ref = bindings.NewLinearAccelerationSensorByLinearAccelerationSensor(
+		js.Pointer(&options))
+	return
 }
 
-func NewLinearAccelerationSensorByLinearAccelerationSensor1() LinearAccelerationSensor {
-	return LinearAccelerationSensor{}.FromRef(
-		bindings.NewLinearAccelerationSensorByLinearAccelerationSensor1(),
-	)
+func NewLinearAccelerationSensorByLinearAccelerationSensor1() (ret LinearAccelerationSensor) {
+	ret.ref = bindings.NewLinearAccelerationSensorByLinearAccelerationSensor1()
+	return
 }
 
 type LinearAccelerationSensor struct {
@@ -850,96 +860,82 @@ func (this MIDIPort) Free() {
 
 // Id returns the value of property "MIDIPort.id".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIPort) Id() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIPortId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIPort) Id() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMIDIPortId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Manufacturer returns the value of property "MIDIPort.manufacturer".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIPort) Manufacturer() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIPortManufacturer(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIPort) Manufacturer() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMIDIPortManufacturer(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Name returns the value of property "MIDIPort.name".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIPort) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIPortName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIPort) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMIDIPortName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Type returns the value of property "MIDIPort.type".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIPort) Type() (MIDIPortType, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIPortType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIPort) Type() (ret MIDIPortType, ok bool) {
+	ok = js.True == bindings.GetMIDIPortType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return MIDIPortType(_ret), _ok
+	return
 }
 
 // Version returns the value of property "MIDIPort.version".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIPort) Version() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIPortVersion(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIPort) Version() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetMIDIPortVersion(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // State returns the value of property "MIDIPort.state".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIPort) State() (MIDIPortDeviceState, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIPortState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIPort) State() (ret MIDIPortDeviceState, ok bool) {
+	ok = js.True == bindings.GetMIDIPortState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return MIDIPortDeviceState(_ret), _ok
+	return
 }
 
 // Connection returns the value of property "MIDIPort.connection".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIPort) Connection() (MIDIPortConnectionState, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIPortConnection(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIPort) Connection() (ret MIDIPortConnectionState, ok bool) {
+	ok = js.True == bindings.GetMIDIPortConnection(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return MIDIPortConnectionState(_ret), _ok
+	return
 }
 
-// Open calls the method "MIDIPort.open".
-//
-// The returned bool will be false if there is no such method.
-func (this MIDIPort) Open() (js.Promise[MIDIPort], bool) {
-	var _ok bool
-	_ret := bindings.CallMIDIPortOpen(
-		this.Ref(), js.Pointer(&_ok),
+// HasOpen returns true if the method "MIDIPort.open" exists.
+func (this MIDIPort) HasOpen() bool {
+	return js.True == bindings.HasMIDIPortOpen(
+		this.Ref(),
 	)
-
-	return js.Promise[MIDIPort]{}.FromRef(_ret), _ok
 }
 
 // OpenFunc returns the method "MIDIPort.open".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MIDIPort) OpenFunc() (fn js.Func[func() js.Promise[MIDIPort]]) {
 	return fn.FromRef(
 		bindings.MIDIPortOpenFunc(
@@ -948,27 +944,60 @@ func (this MIDIPort) OpenFunc() (fn js.Func[func() js.Promise[MIDIPort]]) {
 	)
 }
 
-// Close calls the method "MIDIPort.close".
-//
-// The returned bool will be false if there is no such method.
-func (this MIDIPort) Close() (js.Promise[MIDIPort], bool) {
-	var _ok bool
-	_ret := bindings.CallMIDIPortClose(
-		this.Ref(), js.Pointer(&_ok),
+// Open calls the method "MIDIPort.open".
+func (this MIDIPort) Open() (ret js.Promise[MIDIPort]) {
+	bindings.CallMIDIPortOpen(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[MIDIPort]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryOpen calls the method "MIDIPort.open"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MIDIPort) TryOpen() (ret js.Promise[MIDIPort], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMIDIPortOpen(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasClose returns true if the method "MIDIPort.close" exists.
+func (this MIDIPort) HasClose() bool {
+	return js.True == bindings.HasMIDIPortClose(
+		this.Ref(),
+	)
 }
 
 // CloseFunc returns the method "MIDIPort.close".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MIDIPort) CloseFunc() (fn js.Func[func() js.Promise[MIDIPort]]) {
 	return fn.FromRef(
 		bindings.MIDIPortCloseFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Close calls the method "MIDIPort.close".
+func (this MIDIPort) Close() (ret js.Promise[MIDIPort]) {
+	bindings.CallMIDIPortClose(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryClose calls the method "MIDIPort.close"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MIDIPort) TryClose() (ret js.Promise[MIDIPort], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMIDIPortClose(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type MIDIConnectionEventInit struct {
@@ -1029,19 +1058,17 @@ func (p MIDIConnectionEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewMIDIConnectionEvent(typ js.String, eventInitDict MIDIConnectionEventInit) MIDIConnectionEvent {
-	return MIDIConnectionEvent{}.FromRef(
-		bindings.NewMIDIConnectionEventByMIDIConnectionEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewMIDIConnectionEvent(typ js.String, eventInitDict MIDIConnectionEventInit) (ret MIDIConnectionEvent) {
+	ret.ref = bindings.NewMIDIConnectionEventByMIDIConnectionEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewMIDIConnectionEventByMIDIConnectionEvent1(typ js.String) MIDIConnectionEvent {
-	return MIDIConnectionEvent{}.FromRef(
-		bindings.NewMIDIConnectionEventByMIDIConnectionEvent1(
-			typ.Ref()),
-	)
+func NewMIDIConnectionEventByMIDIConnectionEvent1(typ js.String) (ret MIDIConnectionEvent) {
+	ret.ref = bindings.NewMIDIConnectionEventByMIDIConnectionEvent1(
+		typ.Ref())
+	return
 }
 
 type MIDIConnectionEvent struct {
@@ -1068,13 +1095,12 @@ func (this MIDIConnectionEvent) Free() {
 
 // Port returns the value of property "MIDIConnectionEvent.port".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIConnectionEvent) Port() (MIDIPort, bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIConnectionEventPort(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIConnectionEvent) Port() (ret MIDIPort, ok bool) {
+	ok = js.True == bindings.GetMIDIConnectionEventPort(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return MIDIPort{}.FromRef(_ret), _ok
+	return
 }
 
 type MIDIInput struct {
@@ -1157,19 +1183,17 @@ func (p MIDIMessageEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewMIDIMessageEvent(typ js.String, eventInitDict MIDIMessageEventInit) MIDIMessageEvent {
-	return MIDIMessageEvent{}.FromRef(
-		bindings.NewMIDIMessageEventByMIDIMessageEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewMIDIMessageEvent(typ js.String, eventInitDict MIDIMessageEventInit) (ret MIDIMessageEvent) {
+	ret.ref = bindings.NewMIDIMessageEventByMIDIMessageEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewMIDIMessageEventByMIDIMessageEvent1(typ js.String) MIDIMessageEvent {
-	return MIDIMessageEvent{}.FromRef(
-		bindings.NewMIDIMessageEventByMIDIMessageEvent1(
-			typ.Ref()),
-	)
+func NewMIDIMessageEventByMIDIMessageEvent1(typ js.String) (ret MIDIMessageEvent) {
+	ret.ref = bindings.NewMIDIMessageEventByMIDIMessageEvent1(
+		typ.Ref())
+	return
 }
 
 type MIDIMessageEvent struct {
@@ -1196,13 +1220,12 @@ func (this MIDIMessageEvent) Free() {
 
 // Data returns the value of property "MIDIMessageEvent.data".
 //
-// The returned bool will be false if there is no such property.
-func (this MIDIMessageEvent) Data() (js.TypedArray[uint8], bool) {
-	var _ok bool
-	_ret := bindings.GetMIDIMessageEventData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this MIDIMessageEvent) Data() (ret js.TypedArray[uint8], ok bool) {
+	ok = js.True == bindings.GetMIDIMessageEventData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.TypedArray[uint8]{}.FromRef(_ret), _ok
+	return
 }
 
 type MIDIOutput struct {
@@ -1227,24 +1250,14 @@ func (this MIDIOutput) Free() {
 	this.Ref().Free()
 }
 
-// Send calls the method "MIDIOutput.send".
-//
-// The returned bool will be false if there is no such method.
-func (this MIDIOutput) Send(data js.Array[uint8], timestamp DOMHighResTimeStamp) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallMIDIOutputSend(
-		this.Ref(), js.Pointer(&_ok),
-		data.Ref(),
-		float64(timestamp),
+// HasSend returns true if the method "MIDIOutput.send" exists.
+func (this MIDIOutput) HasSend() bool {
+	return js.True == bindings.HasMIDIOutputSend(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SendFunc returns the method "MIDIOutput.send".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MIDIOutput) SendFunc() (fn js.Func[func(data js.Array[uint8], timestamp DOMHighResTimeStamp)]) {
 	return fn.FromRef(
 		bindings.MIDIOutputSendFunc(
@@ -1253,23 +1266,38 @@ func (this MIDIOutput) SendFunc() (fn js.Func[func(data js.Array[uint8], timesta
 	)
 }
 
-// Send1 calls the method "MIDIOutput.send".
-//
-// The returned bool will be false if there is no such method.
-func (this MIDIOutput) Send1(data js.Array[uint8]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallMIDIOutputSend1(
-		this.Ref(), js.Pointer(&_ok),
+// Send calls the method "MIDIOutput.send".
+func (this MIDIOutput) Send(data js.Array[uint8], timestamp DOMHighResTimeStamp) (ret js.Void) {
+	bindings.CallMIDIOutputSend(
+		this.Ref(), js.Pointer(&ret),
 		data.Ref(),
+		float64(timestamp),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySend calls the method "MIDIOutput.send"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MIDIOutput) TrySend(data js.Array[uint8], timestamp DOMHighResTimeStamp) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMIDIOutputSend(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+		float64(timestamp),
+	)
+
+	return
+}
+
+// HasSend1 returns true if the method "MIDIOutput.send" exists.
+func (this MIDIOutput) HasSend1() bool {
+	return js.True == bindings.HasMIDIOutputSend1(
+		this.Ref(),
+	)
 }
 
 // Send1Func returns the method "MIDIOutput.send".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MIDIOutput) Send1Func() (fn js.Func[func(data js.Array[uint8])]) {
 	return fn.FromRef(
 		bindings.MIDIOutputSend1Func(
@@ -1278,28 +1306,62 @@ func (this MIDIOutput) Send1Func() (fn js.Func[func(data js.Array[uint8])]) {
 	)
 }
 
-// Clear calls the method "MIDIOutput.clear".
-//
-// The returned bool will be false if there is no such method.
-func (this MIDIOutput) Clear() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallMIDIOutputClear(
-		this.Ref(), js.Pointer(&_ok),
+// Send1 calls the method "MIDIOutput.send".
+func (this MIDIOutput) Send1(data js.Array[uint8]) (ret js.Void) {
+	bindings.CallMIDIOutputSend1(
+		this.Ref(), js.Pointer(&ret),
+		data.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySend1 calls the method "MIDIOutput.send"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MIDIOutput) TrySend1(data js.Array[uint8]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMIDIOutputSend1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		data.Ref(),
+	)
+
+	return
+}
+
+// HasClear returns true if the method "MIDIOutput.clear" exists.
+func (this MIDIOutput) HasClear() bool {
+	return js.True == bindings.HasMIDIOutputClear(
+		this.Ref(),
+	)
 }
 
 // ClearFunc returns the method "MIDIOutput.clear".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this MIDIOutput) ClearFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.MIDIOutputClearFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Clear calls the method "MIDIOutput.clear".
+func (this MIDIOutput) Clear() (ret js.Void) {
+	bindings.CallMIDIOutputClear(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryClear calls the method "MIDIOutput.clear"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this MIDIOutput) TryClear() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryMIDIOutputClear(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type MLActivation struct {

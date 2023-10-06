@@ -21,10 +21,14 @@ type EncodedVideoChunkMetadata struct {
 	// DecoderConfig is "EncodedVideoChunkMetadata.decoderConfig"
 	//
 	// Optional
+	//
+	// NOTE: DecoderConfig.FFI_USE MUST be set to true to get DecoderConfig used.
 	DecoderConfig VideoDecoderConfig
 	// Svc is "EncodedVideoChunkMetadata.svc"
 	//
 	// Optional
+	//
+	// NOTE: Svc.FFI_USE MUST be set to true to get Svc used.
 	Svc SvcOutputMetadata
 	// AlphaSideData is "EncodedVideoChunkMetadata.alphaSideData"
 	//
@@ -203,19 +207,17 @@ func (p ErrorEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewErrorEvent(typ js.String, eventInitDict ErrorEventInit) ErrorEvent {
-	return ErrorEvent{}.FromRef(
-		bindings.NewErrorEventByErrorEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewErrorEvent(typ js.String, eventInitDict ErrorEventInit) (ret ErrorEvent) {
+	ret.ref = bindings.NewErrorEventByErrorEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewErrorEventByErrorEvent1(typ js.String) ErrorEvent {
-	return ErrorEvent{}.FromRef(
-		bindings.NewErrorEventByErrorEvent1(
-			typ.Ref()),
-	)
+func NewErrorEventByErrorEvent1(typ js.String) (ret ErrorEvent) {
+	ret.ref = bindings.NewErrorEventByErrorEvent1(
+		typ.Ref())
+	return
 }
 
 type ErrorEvent struct {
@@ -242,57 +244,52 @@ func (this ErrorEvent) Free() {
 
 // Message returns the value of property "ErrorEvent.message".
 //
-// The returned bool will be false if there is no such property.
-func (this ErrorEvent) Message() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetErrorEventMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ErrorEvent) Message() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetErrorEventMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Filename returns the value of property "ErrorEvent.filename".
 //
-// The returned bool will be false if there is no such property.
-func (this ErrorEvent) Filename() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetErrorEventFilename(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ErrorEvent) Filename() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetErrorEventFilename(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Lineno returns the value of property "ErrorEvent.lineno".
 //
-// The returned bool will be false if there is no such property.
-func (this ErrorEvent) Lineno() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetErrorEventLineno(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ErrorEvent) Lineno() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetErrorEventLineno(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Colno returns the value of property "ErrorEvent.colno".
 //
-// The returned bool will be false if there is no such property.
-func (this ErrorEvent) Colno() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetErrorEventColno(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ErrorEvent) Colno() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetErrorEventColno(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Error returns the value of property "ErrorEvent.error".
 //
-// The returned bool will be false if there is no such property.
-func (this ErrorEvent) Error() (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.GetErrorEventError(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ErrorEvent) Error() (ret js.Any, ok bool) {
+	ok = js.True == bindings.GetErrorEventError(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Any{}.FromRef(_ret), _ok
+	return
 }
 
 type EventModifierInit struct {
@@ -504,19 +501,17 @@ func (p EventSourceInit) Update(ref js.Ref) {
 	)
 }
 
-func NewEventSource(url js.String, eventSourceInitDict EventSourceInit) EventSource {
-	return EventSource{}.FromRef(
-		bindings.NewEventSourceByEventSource(
-			url.Ref(),
-			js.Pointer(&eventSourceInitDict)),
-	)
+func NewEventSource(url js.String, eventSourceInitDict EventSourceInit) (ret EventSource) {
+	ret.ref = bindings.NewEventSourceByEventSource(
+		url.Ref(),
+		js.Pointer(&eventSourceInitDict))
+	return
 }
 
-func NewEventSourceByEventSource1(url js.String) EventSource {
-	return EventSource{}.FromRef(
-		bindings.NewEventSourceByEventSource1(
-			url.Ref()),
-	)
+func NewEventSourceByEventSource1(url js.String) (ret EventSource) {
+	ret.ref = bindings.NewEventSourceByEventSource1(
+		url.Ref())
+	return
 }
 
 type EventSource struct {
@@ -543,59 +538,68 @@ func (this EventSource) Free() {
 
 // Url returns the value of property "EventSource.url".
 //
-// The returned bool will be false if there is no such property.
-func (this EventSource) Url() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetEventSourceUrl(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this EventSource) Url() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetEventSourceUrl(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // WithCredentials returns the value of property "EventSource.withCredentials".
 //
-// The returned bool will be false if there is no such property.
-func (this EventSource) WithCredentials() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetEventSourceWithCredentials(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this EventSource) WithCredentials() (ret bool, ok bool) {
+	ok = js.True == bindings.GetEventSourceWithCredentials(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // ReadyState returns the value of property "EventSource.readyState".
 //
-// The returned bool will be false if there is no such property.
-func (this EventSource) ReadyState() (uint16, bool) {
-	var _ok bool
-	_ret := bindings.GetEventSourceReadyState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this EventSource) ReadyState() (ret uint16, ok bool) {
+	ok = js.True == bindings.GetEventSourceReadyState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint16(_ret), _ok
+	return
 }
 
-// Close calls the method "EventSource.close".
-//
-// The returned bool will be false if there is no such method.
-func (this EventSource) Close() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallEventSourceClose(
-		this.Ref(), js.Pointer(&_ok),
+// HasClose returns true if the method "EventSource.close" exists.
+func (this EventSource) HasClose() bool {
+	return js.True == bindings.HasEventSourceClose(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // CloseFunc returns the method "EventSource.close".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EventSource) CloseFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.EventSourceCloseFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Close calls the method "EventSource.close".
+func (this EventSource) Close() (ret js.Void) {
+	bindings.CallEventSourceClose(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryClose calls the method "EventSource.close"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EventSource) TryClose() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEventSourceClose(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type ExtendableCookieChangeEventInit struct {
@@ -660,19 +664,17 @@ func (p ExtendableCookieChangeEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewExtendableCookieChangeEvent(typ js.String, eventInitDict ExtendableCookieChangeEventInit) ExtendableCookieChangeEvent {
-	return ExtendableCookieChangeEvent{}.FromRef(
-		bindings.NewExtendableCookieChangeEventByExtendableCookieChangeEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewExtendableCookieChangeEvent(typ js.String, eventInitDict ExtendableCookieChangeEventInit) (ret ExtendableCookieChangeEvent) {
+	ret.ref = bindings.NewExtendableCookieChangeEventByExtendableCookieChangeEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewExtendableCookieChangeEventByExtendableCookieChangeEvent1(typ js.String) ExtendableCookieChangeEvent {
-	return ExtendableCookieChangeEvent{}.FromRef(
-		bindings.NewExtendableCookieChangeEventByExtendableCookieChangeEvent1(
-			typ.Ref()),
-	)
+func NewExtendableCookieChangeEventByExtendableCookieChangeEvent1(typ js.String) (ret ExtendableCookieChangeEvent) {
+	ret.ref = bindings.NewExtendableCookieChangeEventByExtendableCookieChangeEvent1(
+		typ.Ref())
+	return
 }
 
 type ExtendableCookieChangeEvent struct {
@@ -699,24 +701,22 @@ func (this ExtendableCookieChangeEvent) Free() {
 
 // Changed returns the value of property "ExtendableCookieChangeEvent.changed".
 //
-// The returned bool will be false if there is no such property.
-func (this ExtendableCookieChangeEvent) Changed() (js.FrozenArray[CookieListItem], bool) {
-	var _ok bool
-	_ret := bindings.GetExtendableCookieChangeEventChanged(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ExtendableCookieChangeEvent) Changed() (ret js.FrozenArray[CookieListItem], ok bool) {
+	ok = js.True == bindings.GetExtendableCookieChangeEventChanged(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[CookieListItem]{}.FromRef(_ret), _ok
+	return
 }
 
 // Deleted returns the value of property "ExtendableCookieChangeEvent.deleted".
 //
-// The returned bool will be false if there is no such property.
-func (this ExtendableCookieChangeEvent) Deleted() (js.FrozenArray[CookieListItem], bool) {
-	var _ok bool
-	_ret := bindings.GetExtendableCookieChangeEventDeleted(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ExtendableCookieChangeEvent) Deleted() (ret js.FrozenArray[CookieListItem], ok bool) {
+	ok = js.True == bindings.GetExtendableCookieChangeEventDeleted(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[CookieListItem]{}.FromRef(_ret), _ok
+	return
 }
 
 type ExtendableEventInit struct {
@@ -773,19 +773,17 @@ func (p ExtendableEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewExtendableEvent(typ js.String, eventInitDict ExtendableEventInit) ExtendableEvent {
-	return ExtendableEvent{}.FromRef(
-		bindings.NewExtendableEventByExtendableEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewExtendableEvent(typ js.String, eventInitDict ExtendableEventInit) (ret ExtendableEvent) {
+	ret.ref = bindings.NewExtendableEventByExtendableEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewExtendableEventByExtendableEvent1(typ js.String) ExtendableEvent {
-	return ExtendableEvent{}.FromRef(
-		bindings.NewExtendableEventByExtendableEvent1(
-			typ.Ref()),
-	)
+func NewExtendableEventByExtendableEvent1(typ js.String) (ret ExtendableEvent) {
+	ret.ref = bindings.NewExtendableEventByExtendableEvent1(
+		typ.Ref())
+	return
 }
 
 type ExtendableEvent struct {
@@ -810,29 +808,42 @@ func (this ExtendableEvent) Free() {
 	this.Ref().Free()
 }
 
-// WaitUntil calls the method "ExtendableEvent.waitUntil".
-//
-// The returned bool will be false if there is no such method.
-func (this ExtendableEvent) WaitUntil(f js.Promise[js.Any]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallExtendableEventWaitUntil(
-		this.Ref(), js.Pointer(&_ok),
-		f.Ref(),
+// HasWaitUntil returns true if the method "ExtendableEvent.waitUntil" exists.
+func (this ExtendableEvent) HasWaitUntil() bool {
+	return js.True == bindings.HasExtendableEventWaitUntil(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // WaitUntilFunc returns the method "ExtendableEvent.waitUntil".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this ExtendableEvent) WaitUntilFunc() (fn js.Func[func(f js.Promise[js.Any])]) {
 	return fn.FromRef(
 		bindings.ExtendableEventWaitUntilFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// WaitUntil calls the method "ExtendableEvent.waitUntil".
+func (this ExtendableEvent) WaitUntil(f js.Promise[js.Any]) (ret js.Void) {
+	bindings.CallExtendableEventWaitUntil(
+		this.Ref(), js.Pointer(&ret),
+		f.Ref(),
+	)
+
+	return
+}
+
+// TryWaitUntil calls the method "ExtendableEvent.waitUntil"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this ExtendableEvent) TryWaitUntil(f js.Promise[js.Any]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryExtendableEventWaitUntil(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		f.Ref(),
+	)
+
+	return
 }
 
 type OneOf_Client_ServiceWorker_MessagePort struct {
@@ -939,19 +950,17 @@ func (p ExtendableMessageEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewExtendableMessageEvent(typ js.String, eventInitDict ExtendableMessageEventInit) ExtendableMessageEvent {
-	return ExtendableMessageEvent{}.FromRef(
-		bindings.NewExtendableMessageEventByExtendableMessageEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewExtendableMessageEvent(typ js.String, eventInitDict ExtendableMessageEventInit) (ret ExtendableMessageEvent) {
+	ret.ref = bindings.NewExtendableMessageEventByExtendableMessageEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewExtendableMessageEventByExtendableMessageEvent1(typ js.String) ExtendableMessageEvent {
-	return ExtendableMessageEvent{}.FromRef(
-		bindings.NewExtendableMessageEventByExtendableMessageEvent1(
-			typ.Ref()),
-	)
+func NewExtendableMessageEventByExtendableMessageEvent1(typ js.String) (ret ExtendableMessageEvent) {
+	ret.ref = bindings.NewExtendableMessageEventByExtendableMessageEvent1(
+		typ.Ref())
+	return
 }
 
 type ExtendableMessageEvent struct {
@@ -978,57 +987,52 @@ func (this ExtendableMessageEvent) Free() {
 
 // Data returns the value of property "ExtendableMessageEvent.data".
 //
-// The returned bool will be false if there is no such property.
-func (this ExtendableMessageEvent) Data() (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.GetExtendableMessageEventData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ExtendableMessageEvent) Data() (ret js.Any, ok bool) {
+	ok = js.True == bindings.GetExtendableMessageEventData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Any{}.FromRef(_ret), _ok
+	return
 }
 
 // Origin returns the value of property "ExtendableMessageEvent.origin".
 //
-// The returned bool will be false if there is no such property.
-func (this ExtendableMessageEvent) Origin() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetExtendableMessageEventOrigin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ExtendableMessageEvent) Origin() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetExtendableMessageEventOrigin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // LastEventId returns the value of property "ExtendableMessageEvent.lastEventId".
 //
-// The returned bool will be false if there is no such property.
-func (this ExtendableMessageEvent) LastEventId() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetExtendableMessageEventLastEventId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ExtendableMessageEvent) LastEventId() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetExtendableMessageEventLastEventId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Source returns the value of property "ExtendableMessageEvent.source".
 //
-// The returned bool will be false if there is no such property.
-func (this ExtendableMessageEvent) Source() (OneOf_Client_ServiceWorker_MessagePort, bool) {
-	var _ok bool
-	_ret := bindings.GetExtendableMessageEventSource(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ExtendableMessageEvent) Source() (ret OneOf_Client_ServiceWorker_MessagePort, ok bool) {
+	ok = js.True == bindings.GetExtendableMessageEventSource(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return OneOf_Client_ServiceWorker_MessagePort{}.FromRef(_ret), _ok
+	return
 }
 
 // Ports returns the value of property "ExtendableMessageEvent.ports".
 //
-// The returned bool will be false if there is no such property.
-func (this ExtendableMessageEvent) Ports() (js.FrozenArray[MessagePort], bool) {
-	var _ok bool
-	_ret := bindings.GetExtendableMessageEventPorts(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ExtendableMessageEvent) Ports() (ret js.FrozenArray[MessagePort], ok bool) {
+	ok = js.True == bindings.GetExtendableMessageEventPorts(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[MessagePort]{}.FromRef(_ret), _ok
+	return
 }
 
 type EyeDropper struct {
@@ -1053,22 +1057,14 @@ func (this EyeDropper) Free() {
 	this.Ref().Free()
 }
 
-// Open calls the method "EyeDropper.open".
-//
-// The returned bool will be false if there is no such method.
-func (this EyeDropper) Open(options ColorSelectionOptions) (js.Promise[ColorSelectionResult], bool) {
-	var _ok bool
-	_ret := bindings.CallEyeDropperOpen(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&options),
+// HasOpen returns true if the method "EyeDropper.open" exists.
+func (this EyeDropper) HasOpen() bool {
+	return js.True == bindings.HasEyeDropperOpen(
+		this.Ref(),
 	)
-
-	return js.Promise[ColorSelectionResult]{}.FromRef(_ret), _ok
 }
 
 // OpenFunc returns the method "EyeDropper.open".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EyeDropper) OpenFunc() (fn js.Func[func(options ColorSelectionOptions) js.Promise[ColorSelectionResult]]) {
 	return fn.FromRef(
 		bindings.EyeDropperOpenFunc(
@@ -1077,27 +1073,62 @@ func (this EyeDropper) OpenFunc() (fn js.Func[func(options ColorSelectionOptions
 	)
 }
 
-// Open1 calls the method "EyeDropper.open".
-//
-// The returned bool will be false if there is no such method.
-func (this EyeDropper) Open1() (js.Promise[ColorSelectionResult], bool) {
-	var _ok bool
-	_ret := bindings.CallEyeDropperOpen1(
-		this.Ref(), js.Pointer(&_ok),
+// Open calls the method "EyeDropper.open".
+func (this EyeDropper) Open(options ColorSelectionOptions) (ret js.Promise[ColorSelectionResult]) {
+	bindings.CallEyeDropperOpen(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&options),
 	)
 
-	return js.Promise[ColorSelectionResult]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryOpen calls the method "EyeDropper.open"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EyeDropper) TryOpen(options ColorSelectionOptions) (ret js.Promise[ColorSelectionResult], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEyeDropperOpen(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasOpen1 returns true if the method "EyeDropper.open" exists.
+func (this EyeDropper) HasOpen1() bool {
+	return js.True == bindings.HasEyeDropperOpen1(
+		this.Ref(),
+	)
 }
 
 // Open1Func returns the method "EyeDropper.open".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this EyeDropper) Open1Func() (fn js.Func[func() js.Promise[ColorSelectionResult]]) {
 	return fn.FromRef(
 		bindings.EyeDropperOpen1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// Open1 calls the method "EyeDropper.open".
+func (this EyeDropper) Open1() (ret js.Promise[ColorSelectionResult]) {
+	bindings.CallEyeDropperOpen1(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryOpen1 calls the method "EyeDropper.open"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this EyeDropper) TryOpen1() (ret js.Promise[ColorSelectionResult], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryEyeDropperOpen1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type FaceDetectorOptions struct {
@@ -1147,17 +1178,15 @@ func (p FaceDetectorOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewFaceDetector(faceDetectorOptions FaceDetectorOptions) FaceDetector {
-	return FaceDetector{}.FromRef(
-		bindings.NewFaceDetectorByFaceDetector(
-			js.Pointer(&faceDetectorOptions)),
-	)
+func NewFaceDetector(faceDetectorOptions FaceDetectorOptions) (ret FaceDetector) {
+	ret.ref = bindings.NewFaceDetectorByFaceDetector(
+		js.Pointer(&faceDetectorOptions))
+	return
 }
 
-func NewFaceDetectorByFaceDetector1() FaceDetector {
-	return FaceDetector{}.FromRef(
-		bindings.NewFaceDetectorByFaceDetector1(),
-	)
+func NewFaceDetectorByFaceDetector1() (ret FaceDetector) {
+	ret.ref = bindings.NewFaceDetectorByFaceDetector1()
+	return
 }
 
 type FaceDetector struct {
@@ -1182,22 +1211,14 @@ func (this FaceDetector) Free() {
 	this.Ref().Free()
 }
 
-// Detect calls the method "FaceDetector.detect".
-//
-// The returned bool will be false if there is no such method.
-func (this FaceDetector) Detect(image ImageBitmapSource) (js.Promise[js.Array[DetectedFace]], bool) {
-	var _ok bool
-	_ret := bindings.CallFaceDetectorDetect(
-		this.Ref(), js.Pointer(&_ok),
-		image.Ref(),
+// HasDetect returns true if the method "FaceDetector.detect" exists.
+func (this FaceDetector) HasDetect() bool {
+	return js.True == bindings.HasFaceDetectorDetect(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Array[DetectedFace]]{}.FromRef(_ret), _ok
 }
 
 // DetectFunc returns the method "FaceDetector.detect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FaceDetector) DetectFunc() (fn js.Func[func(image ImageBitmapSource) js.Promise[js.Array[DetectedFace]]]) {
 	return fn.FromRef(
 		bindings.FaceDetectorDetectFunc(
@@ -1206,11 +1227,32 @@ func (this FaceDetector) DetectFunc() (fn js.Func[func(image ImageBitmapSource) 
 	)
 }
 
-func NewFederatedCredential(data FederatedCredentialInit) FederatedCredential {
-	return FederatedCredential{}.FromRef(
-		bindings.NewFederatedCredentialByFederatedCredential(
-			js.Pointer(&data)),
+// Detect calls the method "FaceDetector.detect".
+func (this FaceDetector) Detect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedFace]]) {
+	bindings.CallFaceDetectorDetect(
+		this.Ref(), js.Pointer(&ret),
+		image.Ref(),
 	)
+
+	return
+}
+
+// TryDetect calls the method "FaceDetector.detect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FaceDetector) TryDetect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedFace]], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFaceDetectorDetect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		image.Ref(),
+	)
+
+	return
+}
+
+func NewFederatedCredential(data FederatedCredentialInit) (ret FederatedCredential) {
+	ret.ref = bindings.NewFederatedCredentialByFederatedCredential(
+		js.Pointer(&data))
+	return
 }
 
 type FederatedCredential struct {
@@ -1237,46 +1279,42 @@ func (this FederatedCredential) Free() {
 
 // Provider returns the value of property "FederatedCredential.provider".
 //
-// The returned bool will be false if there is no such property.
-func (this FederatedCredential) Provider() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFederatedCredentialProvider(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FederatedCredential) Provider() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFederatedCredentialProvider(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Protocol returns the value of property "FederatedCredential.protocol".
 //
-// The returned bool will be false if there is no such property.
-func (this FederatedCredential) Protocol() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFederatedCredentialProtocol(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FederatedCredential) Protocol() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFederatedCredentialProtocol(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Name returns the value of property "FederatedCredential.name".
 //
-// The returned bool will be false if there is no such property.
-func (this FederatedCredential) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFederatedCredentialName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FederatedCredential) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFederatedCredentialName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // IconURL returns the value of property "FederatedCredential.iconURL".
 //
-// The returned bool will be false if there is no such property.
-func (this FederatedCredential) IconURL() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFederatedCredentialIconURL(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FederatedCredential) IconURL() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFederatedCredentialIconURL(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 type FencedFrameConfigURL = js.String
@@ -1359,12 +1397,11 @@ func (p FetchEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewFetchEvent(typ js.String, eventInitDict FetchEventInit) FetchEvent {
-	return FetchEvent{}.FromRef(
-		bindings.NewFetchEventByFetchEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewFetchEvent(typ js.String, eventInitDict FetchEventInit) (ret FetchEvent) {
+	ret.ref = bindings.NewFetchEventByFetchEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type FetchEvent struct {
@@ -1391,93 +1428,100 @@ func (this FetchEvent) Free() {
 
 // Request returns the value of property "FetchEvent.request".
 //
-// The returned bool will be false if there is no such property.
-func (this FetchEvent) Request() (Request, bool) {
-	var _ok bool
-	_ret := bindings.GetFetchEventRequest(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FetchEvent) Request() (ret Request, ok bool) {
+	ok = js.True == bindings.GetFetchEventRequest(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return Request{}.FromRef(_ret), _ok
+	return
 }
 
 // PreloadResponse returns the value of property "FetchEvent.preloadResponse".
 //
-// The returned bool will be false if there is no such property.
-func (this FetchEvent) PreloadResponse() (js.Promise[js.Any], bool) {
-	var _ok bool
-	_ret := bindings.GetFetchEventPreloadResponse(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FetchEvent) PreloadResponse() (ret js.Promise[js.Any], ok bool) {
+	ok = js.True == bindings.GetFetchEventPreloadResponse(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Promise[js.Any]{}.FromRef(_ret), _ok
+	return
 }
 
 // ClientId returns the value of property "FetchEvent.clientId".
 //
-// The returned bool will be false if there is no such property.
-func (this FetchEvent) ClientId() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFetchEventClientId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FetchEvent) ClientId() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFetchEventClientId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // ResultingClientId returns the value of property "FetchEvent.resultingClientId".
 //
-// The returned bool will be false if there is no such property.
-func (this FetchEvent) ResultingClientId() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFetchEventResultingClientId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FetchEvent) ResultingClientId() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFetchEventResultingClientId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // ReplacesClientId returns the value of property "FetchEvent.replacesClientId".
 //
-// The returned bool will be false if there is no such property.
-func (this FetchEvent) ReplacesClientId() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFetchEventReplacesClientId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FetchEvent) ReplacesClientId() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFetchEventReplacesClientId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Handled returns the value of property "FetchEvent.handled".
 //
-// The returned bool will be false if there is no such property.
-func (this FetchEvent) Handled() (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.GetFetchEventHandled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FetchEvent) Handled() (ret js.Promise[js.Void], ok bool) {
+	ok = js.True == bindings.GetFetchEventHandled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
 }
 
-// RespondWith calls the method "FetchEvent.respondWith".
-//
-// The returned bool will be false if there is no such method.
-func (this FetchEvent) RespondWith(r js.Promise[Response]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFetchEventRespondWith(
-		this.Ref(), js.Pointer(&_ok),
-		r.Ref(),
+// HasRespondWith returns true if the method "FetchEvent.respondWith" exists.
+func (this FetchEvent) HasRespondWith() bool {
+	return js.True == bindings.HasFetchEventRespondWith(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // RespondWithFunc returns the method "FetchEvent.respondWith".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FetchEvent) RespondWithFunc() (fn js.Func[func(r js.Promise[Response])]) {
 	return fn.FromRef(
 		bindings.FetchEventRespondWithFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// RespondWith calls the method "FetchEvent.respondWith".
+func (this FetchEvent) RespondWith(r js.Promise[Response]) (ret js.Void) {
+	bindings.CallFetchEventRespondWith(
+		this.Ref(), js.Pointer(&ret),
+		r.Ref(),
+	)
+
+	return
+}
+
+// TryRespondWith calls the method "FetchEvent.respondWith"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FetchEvent) TryRespondWith(r js.Promise[Response]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFetchEventRespondWith(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		r.Ref(),
+	)
+
+	return
 }
 
 type FileCallbackFunc func(this js.Ref, file File) js.Ref
@@ -1648,54 +1692,42 @@ func (this FileReader) Free() {
 
 // ReadyState returns the value of property "FileReader.readyState".
 //
-// The returned bool will be false if there is no such property.
-func (this FileReader) ReadyState() (uint16, bool) {
-	var _ok bool
-	_ret := bindings.GetFileReaderReadyState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileReader) ReadyState() (ret uint16, ok bool) {
+	ok = js.True == bindings.GetFileReaderReadyState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint16(_ret), _ok
+	return
 }
 
 // Result returns the value of property "FileReader.result".
 //
-// The returned bool will be false if there is no such property.
-func (this FileReader) Result() (OneOf_String_ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetFileReaderResult(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileReader) Result() (ret OneOf_String_ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetFileReaderResult(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return OneOf_String_ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 // Error returns the value of property "FileReader.error".
 //
-// The returned bool will be false if there is no such property.
-func (this FileReader) Error() (DOMException, bool) {
-	var _ok bool
-	_ret := bindings.GetFileReaderError(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FileReader) Error() (ret DOMException, ok bool) {
+	ok = js.True == bindings.GetFileReaderError(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMException{}.FromRef(_ret), _ok
+	return
 }
 
-// ReadAsArrayBuffer calls the method "FileReader.readAsArrayBuffer".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReader) ReadAsArrayBuffer(blob Blob) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderReadAsArrayBuffer(
-		this.Ref(), js.Pointer(&_ok),
-		blob.Ref(),
+// HasReadAsArrayBuffer returns true if the method "FileReader.readAsArrayBuffer" exists.
+func (this FileReader) HasReadAsArrayBuffer() bool {
+	return js.True == bindings.HasFileReaderReadAsArrayBuffer(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // ReadAsArrayBufferFunc returns the method "FileReader.readAsArrayBuffer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReader) ReadAsArrayBufferFunc() (fn js.Func[func(blob Blob)]) {
 	return fn.FromRef(
 		bindings.FileReaderReadAsArrayBufferFunc(
@@ -1704,23 +1736,36 @@ func (this FileReader) ReadAsArrayBufferFunc() (fn js.Func[func(blob Blob)]) {
 	)
 }
 
-// ReadAsBinaryString calls the method "FileReader.readAsBinaryString".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReader) ReadAsBinaryString(blob Blob) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderReadAsBinaryString(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsArrayBuffer calls the method "FileReader.readAsArrayBuffer".
+func (this FileReader) ReadAsArrayBuffer(blob Blob) (ret js.Void) {
+	bindings.CallFileReaderReadAsArrayBuffer(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReadAsArrayBuffer calls the method "FileReader.readAsArrayBuffer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReader) TryReadAsArrayBuffer(blob Blob) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderReadAsArrayBuffer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsBinaryString returns true if the method "FileReader.readAsBinaryString" exists.
+func (this FileReader) HasReadAsBinaryString() bool {
+	return js.True == bindings.HasFileReaderReadAsBinaryString(
+		this.Ref(),
+	)
 }
 
 // ReadAsBinaryStringFunc returns the method "FileReader.readAsBinaryString".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReader) ReadAsBinaryStringFunc() (fn js.Func[func(blob Blob)]) {
 	return fn.FromRef(
 		bindings.FileReaderReadAsBinaryStringFunc(
@@ -1729,24 +1774,36 @@ func (this FileReader) ReadAsBinaryStringFunc() (fn js.Func[func(blob Blob)]) {
 	)
 }
 
-// ReadAsText calls the method "FileReader.readAsText".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReader) ReadAsText(blob Blob, encoding js.String) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderReadAsText(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsBinaryString calls the method "FileReader.readAsBinaryString".
+func (this FileReader) ReadAsBinaryString(blob Blob) (ret js.Void) {
+	bindings.CallFileReaderReadAsBinaryString(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
-		encoding.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReadAsBinaryString calls the method "FileReader.readAsBinaryString"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReader) TryReadAsBinaryString(blob Blob) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderReadAsBinaryString(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsText returns true if the method "FileReader.readAsText" exists.
+func (this FileReader) HasReadAsText() bool {
+	return js.True == bindings.HasFileReaderReadAsText(
+		this.Ref(),
+	)
 }
 
 // ReadAsTextFunc returns the method "FileReader.readAsText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReader) ReadAsTextFunc() (fn js.Func[func(blob Blob, encoding js.String)]) {
 	return fn.FromRef(
 		bindings.FileReaderReadAsTextFunc(
@@ -1755,23 +1812,38 @@ func (this FileReader) ReadAsTextFunc() (fn js.Func[func(blob Blob, encoding js.
 	)
 }
 
-// ReadAsText1 calls the method "FileReader.readAsText".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReader) ReadAsText1(blob Blob) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderReadAsText1(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsText calls the method "FileReader.readAsText".
+func (this FileReader) ReadAsText(blob Blob, encoding js.String) (ret js.Void) {
+	bindings.CallFileReaderReadAsText(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
+		encoding.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReadAsText calls the method "FileReader.readAsText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReader) TryReadAsText(blob Blob, encoding js.String) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderReadAsText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+		encoding.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsText1 returns true if the method "FileReader.readAsText" exists.
+func (this FileReader) HasReadAsText1() bool {
+	return js.True == bindings.HasFileReaderReadAsText1(
+		this.Ref(),
+	)
 }
 
 // ReadAsText1Func returns the method "FileReader.readAsText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReader) ReadAsText1Func() (fn js.Func[func(blob Blob)]) {
 	return fn.FromRef(
 		bindings.FileReaderReadAsText1Func(
@@ -1780,23 +1852,36 @@ func (this FileReader) ReadAsText1Func() (fn js.Func[func(blob Blob)]) {
 	)
 }
 
-// ReadAsDataURL calls the method "FileReader.readAsDataURL".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReader) ReadAsDataURL(blob Blob) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderReadAsDataURL(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsText1 calls the method "FileReader.readAsText".
+func (this FileReader) ReadAsText1(blob Blob) (ret js.Void) {
+	bindings.CallFileReaderReadAsText1(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReadAsText1 calls the method "FileReader.readAsText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReader) TryReadAsText1(blob Blob) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderReadAsText1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsDataURL returns true if the method "FileReader.readAsDataURL" exists.
+func (this FileReader) HasReadAsDataURL() bool {
+	return js.True == bindings.HasFileReaderReadAsDataURL(
+		this.Ref(),
+	)
 }
 
 // ReadAsDataURLFunc returns the method "FileReader.readAsDataURL".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReader) ReadAsDataURLFunc() (fn js.Func[func(blob Blob)]) {
 	return fn.FromRef(
 		bindings.FileReaderReadAsDataURLFunc(
@@ -1805,28 +1890,62 @@ func (this FileReader) ReadAsDataURLFunc() (fn js.Func[func(blob Blob)]) {
 	)
 }
 
-// Abort calls the method "FileReader.abort".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReader) Abort() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderAbort(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsDataURL calls the method "FileReader.readAsDataURL".
+func (this FileReader) ReadAsDataURL(blob Blob) (ret js.Void) {
+	bindings.CallFileReaderReadAsDataURL(
+		this.Ref(), js.Pointer(&ret),
+		blob.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryReadAsDataURL calls the method "FileReader.readAsDataURL"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReader) TryReadAsDataURL(blob Blob) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderReadAsDataURL(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// HasAbort returns true if the method "FileReader.abort" exists.
+func (this FileReader) HasAbort() bool {
+	return js.True == bindings.HasFileReaderAbort(
+		this.Ref(),
+	)
 }
 
 // AbortFunc returns the method "FileReader.abort".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReader) AbortFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.FileReaderAbortFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Abort calls the method "FileReader.abort".
+func (this FileReader) Abort() (ret js.Void) {
+	bindings.CallFileReaderAbort(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryAbort calls the method "FileReader.abort"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReader) TryAbort() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderAbort(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type FileReaderSync struct {
@@ -1851,22 +1970,14 @@ func (this FileReaderSync) Free() {
 	this.Ref().Free()
 }
 
-// ReadAsArrayBuffer calls the method "FileReaderSync.readAsArrayBuffer".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReaderSync) ReadAsArrayBuffer(blob Blob) (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderSyncReadAsArrayBuffer(
-		this.Ref(), js.Pointer(&_ok),
-		blob.Ref(),
+// HasReadAsArrayBuffer returns true if the method "FileReaderSync.readAsArrayBuffer" exists.
+func (this FileReaderSync) HasReadAsArrayBuffer() bool {
+	return js.True == bindings.HasFileReaderSyncReadAsArrayBuffer(
+		this.Ref(),
 	)
-
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
 }
 
 // ReadAsArrayBufferFunc returns the method "FileReaderSync.readAsArrayBuffer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReaderSync) ReadAsArrayBufferFunc() (fn js.Func[func(blob Blob) js.ArrayBuffer]) {
 	return fn.FromRef(
 		bindings.FileReaderSyncReadAsArrayBufferFunc(
@@ -1875,22 +1986,36 @@ func (this FileReaderSync) ReadAsArrayBufferFunc() (fn js.Func[func(blob Blob) j
 	)
 }
 
-// ReadAsBinaryString calls the method "FileReaderSync.readAsBinaryString".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReaderSync) ReadAsBinaryString(blob Blob) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderSyncReadAsBinaryString(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsArrayBuffer calls the method "FileReaderSync.readAsArrayBuffer".
+func (this FileReaderSync) ReadAsArrayBuffer(blob Blob) (ret js.ArrayBuffer) {
+	bindings.CallFileReaderSyncReadAsArrayBuffer(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReadAsArrayBuffer calls the method "FileReaderSync.readAsArrayBuffer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReaderSync) TryReadAsArrayBuffer(blob Blob) (ret js.ArrayBuffer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderSyncReadAsArrayBuffer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsBinaryString returns true if the method "FileReaderSync.readAsBinaryString" exists.
+func (this FileReaderSync) HasReadAsBinaryString() bool {
+	return js.True == bindings.HasFileReaderSyncReadAsBinaryString(
+		this.Ref(),
+	)
 }
 
 // ReadAsBinaryStringFunc returns the method "FileReaderSync.readAsBinaryString".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReaderSync) ReadAsBinaryStringFunc() (fn js.Func[func(blob Blob) js.String]) {
 	return fn.FromRef(
 		bindings.FileReaderSyncReadAsBinaryStringFunc(
@@ -1899,23 +2024,36 @@ func (this FileReaderSync) ReadAsBinaryStringFunc() (fn js.Func[func(blob Blob) 
 	)
 }
 
-// ReadAsText calls the method "FileReaderSync.readAsText".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReaderSync) ReadAsText(blob Blob, encoding js.String) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderSyncReadAsText(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsBinaryString calls the method "FileReaderSync.readAsBinaryString".
+func (this FileReaderSync) ReadAsBinaryString(blob Blob) (ret js.String) {
+	bindings.CallFileReaderSyncReadAsBinaryString(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
-		encoding.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReadAsBinaryString calls the method "FileReaderSync.readAsBinaryString"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReaderSync) TryReadAsBinaryString(blob Blob) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderSyncReadAsBinaryString(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsText returns true if the method "FileReaderSync.readAsText" exists.
+func (this FileReaderSync) HasReadAsText() bool {
+	return js.True == bindings.HasFileReaderSyncReadAsText(
+		this.Ref(),
+	)
 }
 
 // ReadAsTextFunc returns the method "FileReaderSync.readAsText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReaderSync) ReadAsTextFunc() (fn js.Func[func(blob Blob, encoding js.String) js.String]) {
 	return fn.FromRef(
 		bindings.FileReaderSyncReadAsTextFunc(
@@ -1924,22 +2062,38 @@ func (this FileReaderSync) ReadAsTextFunc() (fn js.Func[func(blob Blob, encoding
 	)
 }
 
-// ReadAsText1 calls the method "FileReaderSync.readAsText".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReaderSync) ReadAsText1(blob Blob) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderSyncReadAsText1(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsText calls the method "FileReaderSync.readAsText".
+func (this FileReaderSync) ReadAsText(blob Blob, encoding js.String) (ret js.String) {
+	bindings.CallFileReaderSyncReadAsText(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
+		encoding.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReadAsText calls the method "FileReaderSync.readAsText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReaderSync) TryReadAsText(blob Blob, encoding js.String) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderSyncReadAsText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+		encoding.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsText1 returns true if the method "FileReaderSync.readAsText" exists.
+func (this FileReaderSync) HasReadAsText1() bool {
+	return js.True == bindings.HasFileReaderSyncReadAsText1(
+		this.Ref(),
+	)
 }
 
 // ReadAsText1Func returns the method "FileReaderSync.readAsText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReaderSync) ReadAsText1Func() (fn js.Func[func(blob Blob) js.String]) {
 	return fn.FromRef(
 		bindings.FileReaderSyncReadAsText1Func(
@@ -1948,28 +2102,64 @@ func (this FileReaderSync) ReadAsText1Func() (fn js.Func[func(blob Blob) js.Stri
 	)
 }
 
-// ReadAsDataURL calls the method "FileReaderSync.readAsDataURL".
-//
-// The returned bool will be false if there is no such method.
-func (this FileReaderSync) ReadAsDataURL(blob Blob) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallFileReaderSyncReadAsDataURL(
-		this.Ref(), js.Pointer(&_ok),
+// ReadAsText1 calls the method "FileReaderSync.readAsText".
+func (this FileReaderSync) ReadAsText1(blob Blob) (ret js.String) {
+	bindings.CallFileReaderSyncReadAsText1(
+		this.Ref(), js.Pointer(&ret),
 		blob.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryReadAsText1 calls the method "FileReaderSync.readAsText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReaderSync) TryReadAsText1(blob Blob) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderSyncReadAsText1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// HasReadAsDataURL returns true if the method "FileReaderSync.readAsDataURL" exists.
+func (this FileReaderSync) HasReadAsDataURL() bool {
+	return js.True == bindings.HasFileReaderSyncReadAsDataURL(
+		this.Ref(),
+	)
 }
 
 // ReadAsDataURLFunc returns the method "FileReaderSync.readAsDataURL".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileReaderSync) ReadAsDataURLFunc() (fn js.Func[func(blob Blob) js.String]) {
 	return fn.FromRef(
 		bindings.FileReaderSyncReadAsDataURLFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// ReadAsDataURL calls the method "FileReaderSync.readAsDataURL".
+func (this FileReaderSync) ReadAsDataURL(blob Blob) (ret js.String) {
+	bindings.CallFileReaderSyncReadAsDataURL(
+		this.Ref(), js.Pointer(&ret),
+		blob.Ref(),
+	)
+
+	return
+}
+
+// TryReadAsDataURL calls the method "FileReaderSync.readAsDataURL"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileReaderSync) TryReadAsDataURL(blob Blob) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileReaderSyncReadAsDataURL(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		blob.Ref(),
+	)
+
+	return
 }
 
 type FileSystemFileEntry struct {
@@ -1994,24 +2184,14 @@ func (this FileSystemFileEntry) Free() {
 	this.Ref().Free()
 }
 
-// File calls the method "FileSystemFileEntry.file".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemFileEntry) File(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemFileEntryFile(
-		this.Ref(), js.Pointer(&_ok),
-		successCallback.Ref(),
-		errorCallback.Ref(),
+// HasFile returns true if the method "FileSystemFileEntry.file" exists.
+func (this FileSystemFileEntry) HasFile() bool {
+	return js.True == bindings.HasFileSystemFileEntryFile(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // FileFunc returns the method "FileSystemFileEntry.file".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemFileEntry) FileFunc() (fn js.Func[func(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)])]) {
 	return fn.FromRef(
 		bindings.FileSystemFileEntryFileFunc(
@@ -2020,29 +2200,66 @@ func (this FileSystemFileEntry) FileFunc() (fn js.Func[func(successCallback js.F
 	)
 }
 
-// File1 calls the method "FileSystemFileEntry.file".
-//
-// The returned bool will be false if there is no such method.
-func (this FileSystemFileEntry) File1(successCallback js.Func[func(file File)]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallFileSystemFileEntryFile1(
-		this.Ref(), js.Pointer(&_ok),
+// File calls the method "FileSystemFileEntry.file".
+func (this FileSystemFileEntry) File(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)]) (ret js.Void) {
+	bindings.CallFileSystemFileEntryFile(
+		this.Ref(), js.Pointer(&ret),
 		successCallback.Ref(),
+		errorCallback.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFile calls the method "FileSystemFileEntry.file"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemFileEntry) TryFile(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemFileEntryFile(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		successCallback.Ref(),
+		errorCallback.Ref(),
+	)
+
+	return
+}
+
+// HasFile1 returns true if the method "FileSystemFileEntry.file" exists.
+func (this FileSystemFileEntry) HasFile1() bool {
+	return js.True == bindings.HasFileSystemFileEntryFile1(
+		this.Ref(),
+	)
 }
 
 // File1Func returns the method "FileSystemFileEntry.file".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this FileSystemFileEntry) File1Func() (fn js.Func[func(successCallback js.Func[func(file File)])]) {
 	return fn.FromRef(
 		bindings.FileSystemFileEntryFile1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// File1 calls the method "FileSystemFileEntry.file".
+func (this FileSystemFileEntry) File1(successCallback js.Func[func(file File)]) (ret js.Void) {
+	bindings.CallFileSystemFileEntryFile1(
+		this.Ref(), js.Pointer(&ret),
+		successCallback.Ref(),
+	)
+
+	return
+}
+
+// TryFile1 calls the method "FileSystemFileEntry.file"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this FileSystemFileEntry) TryFile1(successCallback js.Func[func(file File)]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryFileSystemFileEntryFile1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		successCallback.Ref(),
+	)
+
+	return
 }
 
 type FileSystemPermissionDescriptor struct {
@@ -2185,19 +2402,17 @@ func (p FocusEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewFocusEvent(typ js.String, eventInitDict FocusEventInit) FocusEvent {
-	return FocusEvent{}.FromRef(
-		bindings.NewFocusEventByFocusEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewFocusEvent(typ js.String, eventInitDict FocusEventInit) (ret FocusEvent) {
+	ret.ref = bindings.NewFocusEventByFocusEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewFocusEventByFocusEvent1(typ js.String) FocusEvent {
-	return FocusEvent{}.FromRef(
-		bindings.NewFocusEventByFocusEvent1(
-			typ.Ref()),
-	)
+func NewFocusEventByFocusEvent1(typ js.String) (ret FocusEvent) {
+	ret.ref = bindings.NewFocusEventByFocusEvent1(
+		typ.Ref())
+	return
 }
 
 type FocusEvent struct {
@@ -2224,13 +2439,12 @@ func (this FocusEvent) Free() {
 
 // RelatedTarget returns the value of property "FocusEvent.relatedTarget".
 //
-// The returned bool will be false if there is no such property.
-func (this FocusEvent) RelatedTarget() (EventTarget, bool) {
-	var _ok bool
-	_ret := bindings.GetFocusEventRelatedTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FocusEvent) RelatedTarget() (ret EventTarget, ok bool) {
+	ok = js.True == bindings.GetFocusEventRelatedTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return EventTarget{}.FromRef(_ret), _ok
+	return
 }
 
 type FontFaceSetLoadEventInit struct {
@@ -2291,19 +2505,17 @@ func (p FontFaceSetLoadEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewFontFaceSetLoadEvent(typ js.String, eventInitDict FontFaceSetLoadEventInit) FontFaceSetLoadEvent {
-	return FontFaceSetLoadEvent{}.FromRef(
-		bindings.NewFontFaceSetLoadEventByFontFaceSetLoadEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewFontFaceSetLoadEvent(typ js.String, eventInitDict FontFaceSetLoadEventInit) (ret FontFaceSetLoadEvent) {
+	ret.ref = bindings.NewFontFaceSetLoadEventByFontFaceSetLoadEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewFontFaceSetLoadEventByFontFaceSetLoadEvent1(typ js.String) FontFaceSetLoadEvent {
-	return FontFaceSetLoadEvent{}.FromRef(
-		bindings.NewFontFaceSetLoadEventByFontFaceSetLoadEvent1(
-			typ.Ref()),
-	)
+func NewFontFaceSetLoadEventByFontFaceSetLoadEvent1(typ js.String) (ret FontFaceSetLoadEvent) {
+	ret.ref = bindings.NewFontFaceSetLoadEventByFontFaceSetLoadEvent1(
+		typ.Ref())
+	return
 }
 
 type FontFaceSetLoadEvent struct {
@@ -2330,13 +2542,12 @@ func (this FontFaceSetLoadEvent) Free() {
 
 // Fontfaces returns the value of property "FontFaceSetLoadEvent.fontfaces".
 //
-// The returned bool will be false if there is no such property.
-func (this FontFaceSetLoadEvent) Fontfaces() (js.FrozenArray[FontFace], bool) {
-	var _ok bool
-	_ret := bindings.GetFontFaceSetLoadEventFontfaces(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FontFaceSetLoadEvent) Fontfaces() (ret js.FrozenArray[FontFace], ok bool) {
+	ok = js.True == bindings.GetFontFaceSetLoadEventFontfaces(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[FontFace]{}.FromRef(_ret), _ok
+	return
 }
 
 type FontFaceVariationAxis struct {
@@ -2363,57 +2574,52 @@ func (this FontFaceVariationAxis) Free() {
 
 // Name returns the value of property "FontFaceVariationAxis.name".
 //
-// The returned bool will be false if there is no such property.
-func (this FontFaceVariationAxis) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFontFaceVariationAxisName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FontFaceVariationAxis) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFontFaceVariationAxisName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // AxisTag returns the value of property "FontFaceVariationAxis.axisTag".
 //
-// The returned bool will be false if there is no such property.
-func (this FontFaceVariationAxis) AxisTag() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetFontFaceVariationAxisAxisTag(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FontFaceVariationAxis) AxisTag() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetFontFaceVariationAxisAxisTag(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // MinimumValue returns the value of property "FontFaceVariationAxis.minimumValue".
 //
-// The returned bool will be false if there is no such property.
-func (this FontFaceVariationAxis) MinimumValue() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetFontFaceVariationAxisMinimumValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FontFaceVariationAxis) MinimumValue() (ret float64, ok bool) {
+	ok = js.True == bindings.GetFontFaceVariationAxisMinimumValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // MaximumValue returns the value of property "FontFaceVariationAxis.maximumValue".
 //
-// The returned bool will be false if there is no such property.
-func (this FontFaceVariationAxis) MaximumValue() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetFontFaceVariationAxisMaximumValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FontFaceVariationAxis) MaximumValue() (ret float64, ok bool) {
+	ok = js.True == bindings.GetFontFaceVariationAxisMaximumValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // DefaultValue returns the value of property "FontFaceVariationAxis.defaultValue".
 //
-// The returned bool will be false if there is no such property.
-func (this FontFaceVariationAxis) DefaultValue() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetFontFaceVariationAxisDefaultValue(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FontFaceVariationAxis) DefaultValue() (ret float64, ok bool) {
+	ok = js.True == bindings.GetFontFaceVariationAxisDefaultValue(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 type FormDataEventInit struct {
@@ -2474,12 +2680,11 @@ func (p FormDataEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewFormDataEvent(typ js.String, eventInitDict FormDataEventInit) FormDataEvent {
-	return FormDataEvent{}.FromRef(
-		bindings.NewFormDataEventByFormDataEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewFormDataEvent(typ js.String, eventInitDict FormDataEventInit) (ret FormDataEvent) {
+	ret.ref = bindings.NewFormDataEventByFormDataEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type FormDataEvent struct {
@@ -2506,13 +2711,12 @@ func (this FormDataEvent) Free() {
 
 // FormData returns the value of property "FormDataEvent.formData".
 //
-// The returned bool will be false if there is no such property.
-func (this FormDataEvent) FormData() (FormData, bool) {
-	var _ok bool
-	_ret := bindings.GetFormDataEventFormData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FormDataEvent) FormData() (ret FormData, ok bool) {
+	ok = js.True == bindings.GetFormDataEventFormData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return FormData{}.FromRef(_ret), _ok
+	return
 }
 
 type FragmentResultOptions struct {
@@ -2545,6 +2749,8 @@ type FragmentResultOptions struct {
 	// BreakToken is "FragmentResultOptions.breakToken"
 	//
 	// Optional, defaults to null.
+	//
+	// NOTE: BreakToken.FFI_USE MUST be set to true to get BreakToken used.
 	BreakToken BreakTokenOptions
 
 	FFI_USE_InlineSize    bool // for InlineSize.
@@ -2581,17 +2787,15 @@ func (p FragmentResultOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewFragmentResult(options FragmentResultOptions) FragmentResult {
-	return FragmentResult{}.FromRef(
-		bindings.NewFragmentResultByFragmentResult(
-			js.Pointer(&options)),
-	)
+func NewFragmentResult(options FragmentResultOptions) (ret FragmentResult) {
+	ret.ref = bindings.NewFragmentResultByFragmentResult(
+		js.Pointer(&options))
+	return
 }
 
-func NewFragmentResultByFragmentResult1() FragmentResult {
-	return FragmentResult{}.FromRef(
-		bindings.NewFragmentResultByFragmentResult1(),
-	)
+func NewFragmentResultByFragmentResult1() (ret FragmentResult) {
+	ret.ref = bindings.NewFragmentResultByFragmentResult1()
+	return
 }
 
 type FragmentResult struct {
@@ -2618,24 +2822,22 @@ func (this FragmentResult) Free() {
 
 // InlineSize returns the value of property "FragmentResult.inlineSize".
 //
-// The returned bool will be false if there is no such property.
-func (this FragmentResult) InlineSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetFragmentResultInlineSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FragmentResult) InlineSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetFragmentResultInlineSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // BlockSize returns the value of property "FragmentResult.blockSize".
 //
-// The returned bool will be false if there is no such property.
-func (this FragmentResult) BlockSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetFragmentResultBlockSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this FragmentResult) BlockSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetFragmentResultBlockSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 type GLbyte int8

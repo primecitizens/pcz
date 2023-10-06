@@ -17,12 +17,11 @@ func _() {
 	assert.TODO()
 }
 
-func NewPresentationConnectionAvailableEvent(typ js.String, eventInitDict PresentationConnectionAvailableEventInit) PresentationConnectionAvailableEvent {
-	return PresentationConnectionAvailableEvent{}.FromRef(
-		bindings.NewPresentationConnectionAvailableEventByPresentationConnectionAvailableEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewPresentationConnectionAvailableEvent(typ js.String, eventInitDict PresentationConnectionAvailableEventInit) (ret PresentationConnectionAvailableEvent) {
+	ret.ref = bindings.NewPresentationConnectionAvailableEventByPresentationConnectionAvailableEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type PresentationConnectionAvailableEvent struct {
@@ -49,13 +48,12 @@ func (this PresentationConnectionAvailableEvent) Free() {
 
 // Connection returns the value of property "PresentationConnectionAvailableEvent.connection".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnectionAvailableEvent) Connection() (PresentationConnection, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionAvailableEventConnection(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnectionAvailableEvent) Connection() (ret PresentationConnection, ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionAvailableEventConnection(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PresentationConnection{}.FromRef(_ret), _ok
+	return
 }
 
 type PresentationConnectionCloseReason uint32
@@ -147,12 +145,11 @@ func (p PresentationConnectionCloseEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewPresentationConnectionCloseEvent(typ js.String, eventInitDict PresentationConnectionCloseEventInit) PresentationConnectionCloseEvent {
-	return PresentationConnectionCloseEvent{}.FromRef(
-		bindings.NewPresentationConnectionCloseEventByPresentationConnectionCloseEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewPresentationConnectionCloseEvent(typ js.String, eventInitDict PresentationConnectionCloseEventInit) (ret PresentationConnectionCloseEvent) {
+	ret.ref = bindings.NewPresentationConnectionCloseEventByPresentationConnectionCloseEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type PresentationConnectionCloseEvent struct {
@@ -179,24 +176,22 @@ func (this PresentationConnectionCloseEvent) Free() {
 
 // Reason returns the value of property "PresentationConnectionCloseEvent.reason".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnectionCloseEvent) Reason() (PresentationConnectionCloseReason, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionCloseEventReason(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnectionCloseEvent) Reason() (ret PresentationConnectionCloseReason, ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionCloseEventReason(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PresentationConnectionCloseReason(_ret), _ok
+	return
 }
 
 // Message returns the value of property "PresentationConnectionCloseEvent.message".
 //
-// The returned bool will be false if there is no such property.
-func (this PresentationConnectionCloseEvent) Message() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPresentationConnectionCloseEventMessage(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PresentationConnectionCloseEvent) Message() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPresentationConnectionCloseEventMessage(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 type PressureUpdateCallbackFunc func(this js.Ref, changes js.Array[PressureRecord], observer PressureObserver) js.Ref
@@ -339,58 +334,68 @@ func (this PressureRecord) Free() {
 
 // Source returns the value of property "PressureRecord.source".
 //
-// The returned bool will be false if there is no such property.
-func (this PressureRecord) Source() (PressureSource, bool) {
-	var _ok bool
-	_ret := bindings.GetPressureRecordSource(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PressureRecord) Source() (ret PressureSource, ok bool) {
+	ok = js.True == bindings.GetPressureRecordSource(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PressureSource(_ret), _ok
+	return
 }
 
 // State returns the value of property "PressureRecord.state".
 //
-// The returned bool will be false if there is no such property.
-func (this PressureRecord) State() (PressureState, bool) {
-	var _ok bool
-	_ret := bindings.GetPressureRecordState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PressureRecord) State() (ret PressureState, ok bool) {
+	ok = js.True == bindings.GetPressureRecordState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PressureState(_ret), _ok
+	return
 }
 
 // Time returns the value of property "PressureRecord.time".
 //
-// The returned bool will be false if there is no such property.
-func (this PressureRecord) Time() (DOMHighResTimeStamp, bool) {
-	var _ok bool
-	_ret := bindings.GetPressureRecordTime(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PressureRecord) Time() (ret DOMHighResTimeStamp, ok bool) {
+	ok = js.True == bindings.GetPressureRecordTime(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMHighResTimeStamp(_ret), _ok
+	return
 }
 
-// ToJSON calls the method "PressureRecord.toJSON".
-//
-// The returned bool will be false if there is no such method.
-func (this PressureRecord) ToJSON() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.CallPressureRecordToJSON(
-		this.Ref(), js.Pointer(&_ok),
+// HasToJSON returns true if the method "PressureRecord.toJSON" exists.
+func (this PressureRecord) HasToJSON() bool {
+	return js.True == bindings.HasPressureRecordToJSON(
+		this.Ref(),
 	)
-
-	return js.Object{}.FromRef(_ret), _ok
 }
 
 // ToJSONFunc returns the method "PressureRecord.toJSON".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PressureRecord) ToJSONFunc() (fn js.Func[func() js.Object]) {
 	return fn.FromRef(
 		bindings.PressureRecordToJSONFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// ToJSON calls the method "PressureRecord.toJSON".
+func (this PressureRecord) ToJSON() (ret js.Object) {
+	bindings.CallPressureRecordToJSON(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryToJSON calls the method "PressureRecord.toJSON"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PressureRecord) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPressureRecordToJSON(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type PressureObserverOptions struct {
@@ -433,19 +438,17 @@ func (p PressureObserverOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewPressureObserver(callback js.Func[func(changes js.Array[PressureRecord], observer PressureObserver)], options PressureObserverOptions) PressureObserver {
-	return PressureObserver{}.FromRef(
-		bindings.NewPressureObserverByPressureObserver(
-			callback.Ref(),
-			js.Pointer(&options)),
-	)
+func NewPressureObserver(callback js.Func[func(changes js.Array[PressureRecord], observer PressureObserver)], options PressureObserverOptions) (ret PressureObserver) {
+	ret.ref = bindings.NewPressureObserverByPressureObserver(
+		callback.Ref(),
+		js.Pointer(&options))
+	return
 }
 
-func NewPressureObserverByPressureObserver1(callback js.Func[func(changes js.Array[PressureRecord], observer PressureObserver)]) PressureObserver {
-	return PressureObserver{}.FromRef(
-		bindings.NewPressureObserverByPressureObserver1(
-			callback.Ref()),
-	)
+func NewPressureObserverByPressureObserver1(callback js.Func[func(changes js.Array[PressureRecord], observer PressureObserver)]) (ret PressureObserver) {
+	ret.ref = bindings.NewPressureObserverByPressureObserver1(
+		callback.Ref())
+	return
 }
 
 type PressureObserver struct {
@@ -472,31 +475,22 @@ func (this PressureObserver) Free() {
 
 // SupportedSources returns the value of property "PressureObserver.supportedSources".
 //
-// The returned bool will be false if there is no such property.
-func (this PressureObserver) SupportedSources() (js.FrozenArray[PressureSource], bool) {
-	var _ok bool
-	_ret := bindings.GetPressureObserverSupportedSources(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PressureObserver) SupportedSources() (ret js.FrozenArray[PressureSource], ok bool) {
+	ok = js.True == bindings.GetPressureObserverSupportedSources(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.FrozenArray[PressureSource]{}.FromRef(_ret), _ok
+	return
 }
 
-// Observe calls the method "PressureObserver.observe".
-//
-// The returned bool will be false if there is no such method.
-func (this PressureObserver) Observe(source PressureSource) (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallPressureObserverObserve(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(source),
+// HasObserve returns true if the method "PressureObserver.observe" exists.
+func (this PressureObserver) HasObserve() bool {
+	return js.True == bindings.HasPressureObserverObserve(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
 }
 
 // ObserveFunc returns the method "PressureObserver.observe".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PressureObserver) ObserveFunc() (fn js.Func[func(source PressureSource) js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.PressureObserverObserveFunc(
@@ -505,23 +499,36 @@ func (this PressureObserver) ObserveFunc() (fn js.Func[func(source PressureSourc
 	)
 }
 
-// Unobserve calls the method "PressureObserver.unobserve".
-//
-// The returned bool will be false if there is no such method.
-func (this PressureObserver) Unobserve(source PressureSource) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPressureObserverUnobserve(
-		this.Ref(), js.Pointer(&_ok),
+// Observe calls the method "PressureObserver.observe".
+func (this PressureObserver) Observe(source PressureSource) (ret js.Promise[js.Void]) {
+	bindings.CallPressureObserverObserve(
+		this.Ref(), js.Pointer(&ret),
 		uint32(source),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryObserve calls the method "PressureObserver.observe"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PressureObserver) TryObserve(source PressureSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPressureObserverObserve(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(source),
+	)
+
+	return
+}
+
+// HasUnobserve returns true if the method "PressureObserver.unobserve" exists.
+func (this PressureObserver) HasUnobserve() bool {
+	return js.True == bindings.HasPressureObserverUnobserve(
+		this.Ref(),
+	)
 }
 
 // UnobserveFunc returns the method "PressureObserver.unobserve".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PressureObserver) UnobserveFunc() (fn js.Func[func(source PressureSource)]) {
 	return fn.FromRef(
 		bindings.PressureObserverUnobserveFunc(
@@ -530,22 +537,36 @@ func (this PressureObserver) UnobserveFunc() (fn js.Func[func(source PressureSou
 	)
 }
 
-// Disconnect calls the method "PressureObserver.disconnect".
-//
-// The returned bool will be false if there is no such method.
-func (this PressureObserver) Disconnect() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallPressureObserverDisconnect(
-		this.Ref(), js.Pointer(&_ok),
+// Unobserve calls the method "PressureObserver.unobserve".
+func (this PressureObserver) Unobserve(source PressureSource) (ret js.Void) {
+	bindings.CallPressureObserverUnobserve(
+		this.Ref(), js.Pointer(&ret),
+		uint32(source),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryUnobserve calls the method "PressureObserver.unobserve"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PressureObserver) TryUnobserve(source PressureSource) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPressureObserverUnobserve(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(source),
+	)
+
+	return
+}
+
+// HasDisconnect returns true if the method "PressureObserver.disconnect" exists.
+func (this PressureObserver) HasDisconnect() bool {
+	return js.True == bindings.HasPressureObserverDisconnect(
+		this.Ref(),
+	)
 }
 
 // DisconnectFunc returns the method "PressureObserver.disconnect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PressureObserver) DisconnectFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.PressureObserverDisconnectFunc(
@@ -554,27 +575,60 @@ func (this PressureObserver) DisconnectFunc() (fn js.Func[func()]) {
 	)
 }
 
-// TakeRecords calls the method "PressureObserver.takeRecords".
-//
-// The returned bool will be false if there is no such method.
-func (this PressureObserver) TakeRecords() (js.Array[PressureRecord], bool) {
-	var _ok bool
-	_ret := bindings.CallPressureObserverTakeRecords(
-		this.Ref(), js.Pointer(&_ok),
+// Disconnect calls the method "PressureObserver.disconnect".
+func (this PressureObserver) Disconnect() (ret js.Void) {
+	bindings.CallPressureObserverDisconnect(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Array[PressureRecord]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryDisconnect calls the method "PressureObserver.disconnect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PressureObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPressureObserverDisconnect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasTakeRecords returns true if the method "PressureObserver.takeRecords" exists.
+func (this PressureObserver) HasTakeRecords() bool {
+	return js.True == bindings.HasPressureObserverTakeRecords(
+		this.Ref(),
+	)
 }
 
 // TakeRecordsFunc returns the method "PressureObserver.takeRecords".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PressureObserver) TakeRecordsFunc() (fn js.Func[func() js.Array[PressureRecord]]) {
 	return fn.FromRef(
 		bindings.PressureObserverTakeRecordsFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// TakeRecords calls the method "PressureObserver.takeRecords".
+func (this PressureObserver) TakeRecords() (ret js.Array[PressureRecord]) {
+	bindings.CallPressureObserverTakeRecords(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryTakeRecords calls the method "PressureObserver.takeRecords"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PressureObserver) TryTakeRecords() (ret js.Array[PressureRecord], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPressureObserverTakeRecords(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type PrivateNetworkAccessPermissionDescriptor struct {
@@ -853,11 +907,10 @@ func (p ProfilerTrace) Update(ref js.Ref) {
 	)
 }
 
-func NewProfiler(options ProfilerInitOptions) Profiler {
-	return Profiler{}.FromRef(
-		bindings.NewProfilerByProfiler(
-			js.Pointer(&options)),
-	)
+func NewProfiler(options ProfilerInitOptions) (ret Profiler) {
+	ret.ref = bindings.NewProfilerByProfiler(
+		js.Pointer(&options))
+	return
 }
 
 type Profiler struct {
@@ -884,47 +937,58 @@ func (this Profiler) Free() {
 
 // SampleInterval returns the value of property "Profiler.sampleInterval".
 //
-// The returned bool will be false if there is no such property.
-func (this Profiler) SampleInterval() (DOMHighResTimeStamp, bool) {
-	var _ok bool
-	_ret := bindings.GetProfilerSampleInterval(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Profiler) SampleInterval() (ret DOMHighResTimeStamp, ok bool) {
+	ok = js.True == bindings.GetProfilerSampleInterval(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return DOMHighResTimeStamp(_ret), _ok
+	return
 }
 
 // Stopped returns the value of property "Profiler.stopped".
 //
-// The returned bool will be false if there is no such property.
-func (this Profiler) Stopped() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetProfilerStopped(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Profiler) Stopped() (ret bool, ok bool) {
+	ok = js.True == bindings.GetProfilerStopped(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Stop calls the method "Profiler.stop".
-//
-// The returned bool will be false if there is no such method.
-func (this Profiler) Stop() (js.Promise[ProfilerTrace], bool) {
-	var _ok bool
-	_ret := bindings.CallProfilerStop(
-		this.Ref(), js.Pointer(&_ok),
+// HasStop returns true if the method "Profiler.stop" exists.
+func (this Profiler) HasStop() bool {
+	return js.True == bindings.HasProfilerStop(
+		this.Ref(),
 	)
-
-	return js.Promise[ProfilerTrace]{}.FromRef(_ret), _ok
 }
 
 // StopFunc returns the method "Profiler.stop".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Profiler) StopFunc() (fn js.Func[func() js.Promise[ProfilerTrace]]) {
 	return fn.FromRef(
 		bindings.ProfilerStopFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Stop calls the method "Profiler.stop".
+func (this Profiler) Stop() (ret js.Promise[ProfilerTrace]) {
+	bindings.CallProfilerStop(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryStop calls the method "Profiler.stop"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Profiler) TryStop() (ret js.Promise[ProfilerTrace], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryProfilerStop(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type ProgressEventInit struct {
@@ -1002,19 +1066,17 @@ func (p ProgressEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewProgressEvent(typ js.String, eventInitDict ProgressEventInit) ProgressEvent {
-	return ProgressEvent{}.FromRef(
-		bindings.NewProgressEventByProgressEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewProgressEvent(typ js.String, eventInitDict ProgressEventInit) (ret ProgressEvent) {
+	ret.ref = bindings.NewProgressEventByProgressEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewProgressEventByProgressEvent1(typ js.String) ProgressEvent {
-	return ProgressEvent{}.FromRef(
-		bindings.NewProgressEventByProgressEvent1(
-			typ.Ref()),
-	)
+func NewProgressEventByProgressEvent1(typ js.String) (ret ProgressEvent) {
+	ret.ref = bindings.NewProgressEventByProgressEvent1(
+		typ.Ref())
+	return
 }
 
 type ProgressEvent struct {
@@ -1041,35 +1103,32 @@ func (this ProgressEvent) Free() {
 
 // LengthComputable returns the value of property "ProgressEvent.lengthComputable".
 //
-// The returned bool will be false if there is no such property.
-func (this ProgressEvent) LengthComputable() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetProgressEventLengthComputable(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ProgressEvent) LengthComputable() (ret bool, ok bool) {
+	ok = js.True == bindings.GetProgressEventLengthComputable(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Loaded returns the value of property "ProgressEvent.loaded".
 //
-// The returned bool will be false if there is no such property.
-func (this ProgressEvent) Loaded() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetProgressEventLoaded(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ProgressEvent) Loaded() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetProgressEventLoaded(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 // Total returns the value of property "ProgressEvent.total".
 //
-// The returned bool will be false if there is no such property.
-func (this ProgressEvent) Total() (uint64, bool) {
-	var _ok bool
-	_ret := bindings.GetProgressEventTotal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ProgressEvent) Total() (ret uint64, ok bool) {
+	ok = js.True == bindings.GetProgressEventTotal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint64(_ret), _ok
+	return
 }
 
 type PromiseRejectionEventInit struct {
@@ -1134,12 +1193,11 @@ func (p PromiseRejectionEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewPromiseRejectionEvent(typ js.String, eventInitDict PromiseRejectionEventInit) PromiseRejectionEvent {
-	return PromiseRejectionEvent{}.FromRef(
-		bindings.NewPromiseRejectionEventByPromiseRejectionEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewPromiseRejectionEvent(typ js.String, eventInitDict PromiseRejectionEventInit) (ret PromiseRejectionEvent) {
+	ret.ref = bindings.NewPromiseRejectionEventByPromiseRejectionEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
 type PromiseRejectionEvent struct {
@@ -1166,24 +1224,22 @@ func (this PromiseRejectionEvent) Free() {
 
 // Promise returns the value of property "PromiseRejectionEvent.promise".
 //
-// The returned bool will be false if there is no such property.
-func (this PromiseRejectionEvent) Promise() (js.Promise[js.Any], bool) {
-	var _ok bool
-	_ret := bindings.GetPromiseRejectionEventPromise(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PromiseRejectionEvent) Promise() (ret js.Promise[js.Any], ok bool) {
+	ok = js.True == bindings.GetPromiseRejectionEventPromise(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Promise[js.Any]{}.FromRef(_ret), _ok
+	return
 }
 
 // Reason returns the value of property "PromiseRejectionEvent.reason".
 //
-// The returned bool will be false if there is no such property.
-func (this PromiseRejectionEvent) Reason() (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.GetPromiseRejectionEventReason(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PromiseRejectionEvent) Reason() (ret js.Any, ok bool) {
+	ok = js.True == bindings.GetPromiseRejectionEventReason(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Any{}.FromRef(_ret), _ok
+	return
 }
 
 type ProximityReadingValues struct {
@@ -1230,17 +1286,15 @@ func (p ProximityReadingValues) Update(ref js.Ref) {
 	)
 }
 
-func NewProximitySensor(sensorOptions SensorOptions) ProximitySensor {
-	return ProximitySensor{}.FromRef(
-		bindings.NewProximitySensorByProximitySensor(
-			js.Pointer(&sensorOptions)),
-	)
+func NewProximitySensor(sensorOptions SensorOptions) (ret ProximitySensor) {
+	ret.ref = bindings.NewProximitySensorByProximitySensor(
+		js.Pointer(&sensorOptions))
+	return
 }
 
-func NewProximitySensorByProximitySensor1() ProximitySensor {
-	return ProximitySensor{}.FromRef(
-		bindings.NewProximitySensorByProximitySensor1(),
-	)
+func NewProximitySensorByProximitySensor1() (ret ProximitySensor) {
+	ret.ref = bindings.NewProximitySensorByProximitySensor1()
+	return
 }
 
 type ProximitySensor struct {
@@ -1267,35 +1321,32 @@ func (this ProximitySensor) Free() {
 
 // Distance returns the value of property "ProximitySensor.distance".
 //
-// The returned bool will be false if there is no such property.
-func (this ProximitySensor) Distance() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetProximitySensorDistance(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ProximitySensor) Distance() (ret float64, ok bool) {
+	ok = js.True == bindings.GetProximitySensorDistance(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Max returns the value of property "ProximitySensor.max".
 //
-// The returned bool will be false if there is no such property.
-func (this ProximitySensor) Max() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetProximitySensorMax(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ProximitySensor) Max() (ret float64, ok bool) {
+	ok = js.True == bindings.GetProximitySensorMax(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // Near returns the value of property "ProximitySensor.near".
 //
-// The returned bool will be false if there is no such property.
-func (this ProximitySensor) Near() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetProximitySensorNear(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ProximitySensor) Near() (ret bool, ok bool) {
+	ok = js.True == bindings.GetProximitySensorNear(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 type RegistrationResponseJSON struct {
@@ -1310,6 +1361,8 @@ type RegistrationResponseJSON struct {
 	// Response is "RegistrationResponseJSON.response"
 	//
 	// Required
+	//
+	// NOTE: Response.FFI_USE MUST be set to true to get Response used.
 	Response AuthenticatorAttestationResponseJSON
 	// AuthenticatorAttachment is "RegistrationResponseJSON.authenticatorAttachment"
 	//
@@ -1318,6 +1371,8 @@ type RegistrationResponseJSON struct {
 	// ClientExtensionResults is "RegistrationResponseJSON.clientExtensionResults"
 	//
 	// Required
+	//
+	// NOTE: ClientExtensionResults.FFI_USE MUST be set to true to get ClientExtensionResults used.
 	ClientExtensionResults AuthenticationExtensionsClientOutputsJSON
 	// Type is "RegistrationResponseJSON.type"
 	//
@@ -1468,6 +1523,8 @@ type PublicKeyCredentialRequestOptionsJSON struct {
 	// Extensions is "PublicKeyCredentialRequestOptionsJSON.extensions"
 	//
 	// Optional
+	//
+	// NOTE: Extensions.FFI_USE MUST be set to true to get Extensions used.
 	Extensions AuthenticationExtensionsClientInputsJSON
 
 	FFI_USE_Timeout bool // for Timeout.
@@ -1550,10 +1607,14 @@ type PublicKeyCredentialCreationOptionsJSON struct {
 	// Rp is "PublicKeyCredentialCreationOptionsJSON.rp"
 	//
 	// Required
+	//
+	// NOTE: Rp.FFI_USE MUST be set to true to get Rp used.
 	Rp PublicKeyCredentialRpEntity
 	// User is "PublicKeyCredentialCreationOptionsJSON.user"
 	//
 	// Required
+	//
+	// NOTE: User.FFI_USE MUST be set to true to get User used.
 	User PublicKeyCredentialUserEntityJSON
 	// Challenge is "PublicKeyCredentialCreationOptionsJSON.challenge"
 	//
@@ -1576,6 +1637,8 @@ type PublicKeyCredentialCreationOptionsJSON struct {
 	// AuthenticatorSelection is "PublicKeyCredentialCreationOptionsJSON.authenticatorSelection"
 	//
 	// Optional
+	//
+	// NOTE: AuthenticatorSelection.FFI_USE MUST be set to true to get AuthenticatorSelection used.
 	AuthenticatorSelection AuthenticatorSelectionCriteria
 	// Hints is "PublicKeyCredentialCreationOptionsJSON.hints"
 	//
@@ -1592,6 +1655,8 @@ type PublicKeyCredentialCreationOptionsJSON struct {
 	// Extensions is "PublicKeyCredentialCreationOptionsJSON.extensions"
 	//
 	// Optional
+	//
+	// NOTE: Extensions.FFI_USE MUST be set to true to get Extensions used.
 	Extensions AuthenticationExtensionsClientInputsJSON
 
 	FFI_USE_Timeout bool // for Timeout.
@@ -1650,52 +1715,42 @@ func (this PublicKeyCredential) Free() {
 
 // RawId returns the value of property "PublicKeyCredential.rawId".
 //
-// The returned bool will be false if there is no such property.
-func (this PublicKeyCredential) RawId() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.GetPublicKeyCredentialRawId(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PublicKeyCredential) RawId() (ret js.ArrayBuffer, ok bool) {
+	ok = js.True == bindings.GetPublicKeyCredentialRawId(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
+	return
 }
 
 // Response returns the value of property "PublicKeyCredential.response".
 //
-// The returned bool will be false if there is no such property.
-func (this PublicKeyCredential) Response() (AuthenticatorResponse, bool) {
-	var _ok bool
-	_ret := bindings.GetPublicKeyCredentialResponse(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PublicKeyCredential) Response() (ret AuthenticatorResponse, ok bool) {
+	ok = js.True == bindings.GetPublicKeyCredentialResponse(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return AuthenticatorResponse{}.FromRef(_ret), _ok
+	return
 }
 
 // AuthenticatorAttachment returns the value of property "PublicKeyCredential.authenticatorAttachment".
 //
-// The returned bool will be false if there is no such property.
-func (this PublicKeyCredential) AuthenticatorAttachment() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetPublicKeyCredentialAuthenticatorAttachment(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PublicKeyCredential) AuthenticatorAttachment() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetPublicKeyCredentialAuthenticatorAttachment(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// GetClientExtensionResults calls the method "PublicKeyCredential.getClientExtensionResults".
-//
-// The returned bool will be false if there is no such method.
-func (this PublicKeyCredential) GetClientExtensionResults() (AuthenticationExtensionsClientOutputs, bool) {
-	var _ret AuthenticationExtensionsClientOutputs
-	_ok := js.True == bindings.CallPublicKeyCredentialGetClientExtensionResults(
-		this.Ref(), js.Pointer(&_ret),
+// HasGetClientExtensionResults returns true if the method "PublicKeyCredential.getClientExtensionResults" exists.
+func (this PublicKeyCredential) HasGetClientExtensionResults() bool {
+	return js.True == bindings.HasPublicKeyCredentialGetClientExtensionResults(
+		this.Ref(),
 	)
-
-	return _ret, _ok
 }
 
 // GetClientExtensionResultsFunc returns the method "PublicKeyCredential.getClientExtensionResults".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PublicKeyCredential) GetClientExtensionResultsFunc() (fn js.Func[func() AuthenticationExtensionsClientOutputs]) {
 	return fn.FromRef(
 		bindings.PublicKeyCredentialGetClientExtensionResultsFunc(
@@ -1704,21 +1759,34 @@ func (this PublicKeyCredential) GetClientExtensionResultsFunc() (fn js.Func[func
 	)
 }
 
-// IsConditionalMediationAvailable calls the staticmethod "PublicKeyCredential.isConditionalMediationAvailable".
-//
-// The returned bool will be false if there is no such method.
-func (this PublicKeyCredential) IsConditionalMediationAvailable() (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallPublicKeyCredentialIsConditionalMediationAvailable(
-		this.Ref(), js.Pointer(&_ok),
+// GetClientExtensionResults calls the method "PublicKeyCredential.getClientExtensionResults".
+func (this PublicKeyCredential) GetClientExtensionResults() (ret AuthenticationExtensionsClientOutputs) {
+	bindings.CallPublicKeyCredentialGetClientExtensionResults(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetClientExtensionResults calls the method "PublicKeyCredential.getClientExtensionResults"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PublicKeyCredential) TryGetClientExtensionResults() (ret AuthenticationExtensionsClientOutputs, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPublicKeyCredentialGetClientExtensionResults(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasIsConditionalMediationAvailable returns true if the staticmethod "PublicKeyCredential.isConditionalMediationAvailable" exists.
+func (this PublicKeyCredential) HasIsConditionalMediationAvailable() bool {
+	return js.True == bindings.HasPublicKeyCredentialIsConditionalMediationAvailable(
+		this.Ref(),
+	)
 }
 
 // IsConditionalMediationAvailableFunc returns the staticmethod "PublicKeyCredential.isConditionalMediationAvailable".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PublicKeyCredential) IsConditionalMediationAvailableFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.PublicKeyCredentialIsConditionalMediationAvailableFunc(
@@ -1727,21 +1795,34 @@ func (this PublicKeyCredential) IsConditionalMediationAvailableFunc() (fn js.Fun
 	)
 }
 
-// ToJSON calls the method "PublicKeyCredential.toJSON".
-//
-// The returned bool will be false if there is no such method.
-func (this PublicKeyCredential) ToJSON() (PublicKeyCredentialJSON, bool) {
-	var _ok bool
-	_ret := bindings.CallPublicKeyCredentialToJSON(
-		this.Ref(), js.Pointer(&_ok),
+// IsConditionalMediationAvailable calls the staticmethod "PublicKeyCredential.isConditionalMediationAvailable".
+func (this PublicKeyCredential) IsConditionalMediationAvailable() (ret js.Promise[js.Boolean]) {
+	bindings.CallPublicKeyCredentialIsConditionalMediationAvailable(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return PublicKeyCredentialJSON{}.FromRef(_ret), _ok
+	return
+}
+
+// TryIsConditionalMediationAvailable calls the staticmethod "PublicKeyCredential.isConditionalMediationAvailable"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PublicKeyCredential) TryIsConditionalMediationAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPublicKeyCredentialIsConditionalMediationAvailable(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasToJSON returns true if the method "PublicKeyCredential.toJSON" exists.
+func (this PublicKeyCredential) HasToJSON() bool {
+	return js.True == bindings.HasPublicKeyCredentialToJSON(
+		this.Ref(),
+	)
 }
 
 // ToJSONFunc returns the method "PublicKeyCredential.toJSON".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PublicKeyCredential) ToJSONFunc() (fn js.Func[func() PublicKeyCredentialJSON]) {
 	return fn.FromRef(
 		bindings.PublicKeyCredentialToJSONFunc(
@@ -1750,22 +1831,34 @@ func (this PublicKeyCredential) ToJSONFunc() (fn js.Func[func() PublicKeyCredent
 	)
 }
 
-// ParseRequestOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON".
-//
-// The returned bool will be false if there is no such method.
-func (this PublicKeyCredential) ParseRequestOptionsFromJSON(options PublicKeyCredentialRequestOptionsJSON) (PublicKeyCredentialRequestOptions, bool) {
-	var _ret PublicKeyCredentialRequestOptions
-	_ok := js.True == bindings.CallPublicKeyCredentialParseRequestOptionsFromJSON(
-		this.Ref(), js.Pointer(&_ret),
-		js.Pointer(&options),
+// ToJSON calls the method "PublicKeyCredential.toJSON".
+func (this PublicKeyCredential) ToJSON() (ret PublicKeyCredentialJSON) {
+	bindings.CallPublicKeyCredentialToJSON(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret, _ok
+	return
+}
+
+// TryToJSON calls the method "PublicKeyCredential.toJSON"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PublicKeyCredential) TryToJSON() (ret PublicKeyCredentialJSON, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPublicKeyCredentialToJSON(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasParseRequestOptionsFromJSON returns true if the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON" exists.
+func (this PublicKeyCredential) HasParseRequestOptionsFromJSON() bool {
+	return js.True == bindings.HasPublicKeyCredentialParseRequestOptionsFromJSON(
+		this.Ref(),
+	)
 }
 
 // ParseRequestOptionsFromJSONFunc returns the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PublicKeyCredential) ParseRequestOptionsFromJSONFunc() (fn js.Func[func(options PublicKeyCredentialRequestOptionsJSON) PublicKeyCredentialRequestOptions]) {
 	return fn.FromRef(
 		bindings.PublicKeyCredentialParseRequestOptionsFromJSONFunc(
@@ -1774,21 +1867,36 @@ func (this PublicKeyCredential) ParseRequestOptionsFromJSONFunc() (fn js.Func[fu
 	)
 }
 
-// IsPasskeyPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable".
-//
-// The returned bool will be false if there is no such method.
-func (this PublicKeyCredential) IsPasskeyPlatformAuthenticatorAvailable() (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
-		this.Ref(), js.Pointer(&_ok),
+// ParseRequestOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON".
+func (this PublicKeyCredential) ParseRequestOptionsFromJSON(options PublicKeyCredentialRequestOptionsJSON) (ret PublicKeyCredentialRequestOptions) {
+	bindings.CallPublicKeyCredentialParseRequestOptionsFromJSON(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&options),
 	)
 
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryParseRequestOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PublicKeyCredential) TryParseRequestOptionsFromJSON(options PublicKeyCredentialRequestOptionsJSON) (ret PublicKeyCredentialRequestOptions, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPublicKeyCredentialParseRequestOptionsFromJSON(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasIsPasskeyPlatformAuthenticatorAvailable returns true if the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable" exists.
+func (this PublicKeyCredential) HasIsPasskeyPlatformAuthenticatorAvailable() bool {
+	return js.True == bindings.HasPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
+		this.Ref(),
+	)
 }
 
 // IsPasskeyPlatformAuthenticatorAvailableFunc returns the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PublicKeyCredential) IsPasskeyPlatformAuthenticatorAvailableFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.PublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailableFunc(
@@ -1797,22 +1905,34 @@ func (this PublicKeyCredential) IsPasskeyPlatformAuthenticatorAvailableFunc() (f
 	)
 }
 
-// ParseCreationOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON".
-//
-// The returned bool will be false if there is no such method.
-func (this PublicKeyCredential) ParseCreationOptionsFromJSON(options PublicKeyCredentialCreationOptionsJSON) (PublicKeyCredentialCreationOptions, bool) {
-	var _ret PublicKeyCredentialCreationOptions
-	_ok := js.True == bindings.CallPublicKeyCredentialParseCreationOptionsFromJSON(
-		this.Ref(), js.Pointer(&_ret),
-		js.Pointer(&options),
+// IsPasskeyPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable".
+func (this PublicKeyCredential) IsPasskeyPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean]) {
+	bindings.CallPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret, _ok
+	return
+}
+
+// TryIsPasskeyPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PublicKeyCredential) TryIsPasskeyPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasParseCreationOptionsFromJSON returns true if the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON" exists.
+func (this PublicKeyCredential) HasParseCreationOptionsFromJSON() bool {
+	return js.True == bindings.HasPublicKeyCredentialParseCreationOptionsFromJSON(
+		this.Ref(),
+	)
 }
 
 // ParseCreationOptionsFromJSONFunc returns the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PublicKeyCredential) ParseCreationOptionsFromJSONFunc() (fn js.Func[func(options PublicKeyCredentialCreationOptionsJSON) PublicKeyCredentialCreationOptions]) {
 	return fn.FromRef(
 		bindings.PublicKeyCredentialParseCreationOptionsFromJSONFunc(
@@ -1821,27 +1941,62 @@ func (this PublicKeyCredential) ParseCreationOptionsFromJSONFunc() (fn js.Func[f
 	)
 }
 
-// IsUserVerifyingPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable".
-//
-// The returned bool will be false if there is no such method.
-func (this PublicKeyCredential) IsUserVerifyingPlatformAuthenticatorAvailable() (js.Promise[js.Boolean], bool) {
-	var _ok bool
-	_ret := bindings.CallPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
-		this.Ref(), js.Pointer(&_ok),
+// ParseCreationOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON".
+func (this PublicKeyCredential) ParseCreationOptionsFromJSON(options PublicKeyCredentialCreationOptionsJSON) (ret PublicKeyCredentialCreationOptions) {
+	bindings.CallPublicKeyCredentialParseCreationOptionsFromJSON(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&options),
 	)
 
-	return js.Promise[js.Boolean]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryParseCreationOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PublicKeyCredential) TryParseCreationOptionsFromJSON(options PublicKeyCredentialCreationOptionsJSON) (ret PublicKeyCredentialCreationOptions, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPublicKeyCredentialParseCreationOptionsFromJSON(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasIsUserVerifyingPlatformAuthenticatorAvailable returns true if the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable" exists.
+func (this PublicKeyCredential) HasIsUserVerifyingPlatformAuthenticatorAvailable() bool {
+	return js.True == bindings.HasPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
+		this.Ref(),
+	)
 }
 
 // IsUserVerifyingPlatformAuthenticatorAvailableFunc returns the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PublicKeyCredential) IsUserVerifyingPlatformAuthenticatorAvailableFunc() (fn js.Func[func() js.Promise[js.Boolean]]) {
 	return fn.FromRef(
 		bindings.PublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailableFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// IsUserVerifyingPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable".
+func (this PublicKeyCredential) IsUserVerifyingPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean]) {
+	bindings.CallPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryIsUserVerifyingPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PublicKeyCredential) TryIsUserVerifyingPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type PublicKeyCredentialEntity struct {
@@ -2010,21 +2165,14 @@ func (this PushMessageData) Free() {
 	this.Ref().Free()
 }
 
-// ArrayBuffer calls the method "PushMessageData.arrayBuffer".
-//
-// The returned bool will be false if there is no such method.
-func (this PushMessageData) ArrayBuffer() (js.ArrayBuffer, bool) {
-	var _ok bool
-	_ret := bindings.CallPushMessageDataArrayBuffer(
-		this.Ref(), js.Pointer(&_ok),
+// HasArrayBuffer returns true if the method "PushMessageData.arrayBuffer" exists.
+func (this PushMessageData) HasArrayBuffer() bool {
+	return js.True == bindings.HasPushMessageDataArrayBuffer(
+		this.Ref(),
 	)
-
-	return js.ArrayBuffer{}.FromRef(_ret), _ok
 }
 
 // ArrayBufferFunc returns the method "PushMessageData.arrayBuffer".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PushMessageData) ArrayBufferFunc() (fn js.Func[func() js.ArrayBuffer]) {
 	return fn.FromRef(
 		bindings.PushMessageDataArrayBufferFunc(
@@ -2033,21 +2181,34 @@ func (this PushMessageData) ArrayBufferFunc() (fn js.Func[func() js.ArrayBuffer]
 	)
 }
 
-// Blob calls the method "PushMessageData.blob".
-//
-// The returned bool will be false if there is no such method.
-func (this PushMessageData) Blob() (Blob, bool) {
-	var _ok bool
-	_ret := bindings.CallPushMessageDataBlob(
-		this.Ref(), js.Pointer(&_ok),
+// ArrayBuffer calls the method "PushMessageData.arrayBuffer".
+func (this PushMessageData) ArrayBuffer() (ret js.ArrayBuffer) {
+	bindings.CallPushMessageDataArrayBuffer(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return Blob{}.FromRef(_ret), _ok
+	return
+}
+
+// TryArrayBuffer calls the method "PushMessageData.arrayBuffer"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PushMessageData) TryArrayBuffer() (ret js.ArrayBuffer, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPushMessageDataArrayBuffer(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasBlob returns true if the method "PushMessageData.blob" exists.
+func (this PushMessageData) HasBlob() bool {
+	return js.True == bindings.HasPushMessageDataBlob(
+		this.Ref(),
+	)
 }
 
 // BlobFunc returns the method "PushMessageData.blob".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PushMessageData) BlobFunc() (fn js.Func[func() Blob]) {
 	return fn.FromRef(
 		bindings.PushMessageDataBlobFunc(
@@ -2056,21 +2217,34 @@ func (this PushMessageData) BlobFunc() (fn js.Func[func() Blob]) {
 	)
 }
 
-// Json calls the method "PushMessageData.json".
-//
-// The returned bool will be false if there is no such method.
-func (this PushMessageData) Json() (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.CallPushMessageDataJson(
-		this.Ref(), js.Pointer(&_ok),
+// Blob calls the method "PushMessageData.blob".
+func (this PushMessageData) Blob() (ret Blob) {
+	bindings.CallPushMessageDataBlob(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.Any{}.FromRef(_ret), _ok
+	return
+}
+
+// TryBlob calls the method "PushMessageData.blob"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PushMessageData) TryBlob() (ret Blob, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPushMessageDataBlob(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasJson returns true if the method "PushMessageData.json" exists.
+func (this PushMessageData) HasJson() bool {
+	return js.True == bindings.HasPushMessageDataJson(
+		this.Ref(),
+	)
 }
 
 // JsonFunc returns the method "PushMessageData.json".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PushMessageData) JsonFunc() (fn js.Func[func() js.Any]) {
 	return fn.FromRef(
 		bindings.PushMessageDataJsonFunc(
@@ -2079,21 +2253,34 @@ func (this PushMessageData) JsonFunc() (fn js.Func[func() js.Any]) {
 	)
 }
 
-// Text calls the method "PushMessageData.text".
-//
-// The returned bool will be false if there is no such method.
-func (this PushMessageData) Text() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallPushMessageDataText(
-		this.Ref(), js.Pointer(&_ok),
+// Json calls the method "PushMessageData.json".
+func (this PushMessageData) Json() (ret js.Any) {
+	bindings.CallPushMessageDataJson(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryJson calls the method "PushMessageData.json"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PushMessageData) TryJson() (ret js.Any, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPushMessageDataJson(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasText returns true if the method "PushMessageData.text" exists.
+func (this PushMessageData) HasText() bool {
+	return js.True == bindings.HasPushMessageDataText(
+		this.Ref(),
+	)
 }
 
 // TextFunc returns the method "PushMessageData.text".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this PushMessageData) TextFunc() (fn js.Func[func() js.String]) {
 	return fn.FromRef(
 		bindings.PushMessageDataTextFunc(
@@ -2102,19 +2289,37 @@ func (this PushMessageData) TextFunc() (fn js.Func[func() js.String]) {
 	)
 }
 
-func NewPushEvent(typ js.String, eventInitDict PushEventInit) PushEvent {
-	return PushEvent{}.FromRef(
-		bindings.NewPushEventByPushEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
+// Text calls the method "PushMessageData.text".
+func (this PushMessageData) Text() (ret js.String) {
+	bindings.CallPushMessageDataText(
+		this.Ref(), js.Pointer(&ret),
 	)
+
+	return
 }
 
-func NewPushEventByPushEvent1(typ js.String) PushEvent {
-	return PushEvent{}.FromRef(
-		bindings.NewPushEventByPushEvent1(
-			typ.Ref()),
+// TryText calls the method "PushMessageData.text"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this PushMessageData) TryText() (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryPushMessageDataText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
 	)
+
+	return
+}
+
+func NewPushEvent(typ js.String, eventInitDict PushEventInit) (ret PushEvent) {
+	ret.ref = bindings.NewPushEventByPushEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
+}
+
+func NewPushEventByPushEvent1(typ js.String) (ret PushEvent) {
+	ret.ref = bindings.NewPushEventByPushEvent1(
+		typ.Ref())
+	return
 }
 
 type PushEvent struct {
@@ -2141,13 +2346,12 @@ func (this PushEvent) Free() {
 
 // Data returns the value of property "PushEvent.data".
 //
-// The returned bool will be false if there is no such property.
-func (this PushEvent) Data() (PushMessageData, bool) {
-	var _ok bool
-	_ret := bindings.GetPushEventData(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PushEvent) Data() (ret PushMessageData, ok bool) {
+	ok = js.True == bindings.GetPushEventData(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PushMessageData{}.FromRef(_ret), _ok
+	return
 }
 
 type PushPermissionDescriptor struct {
@@ -2256,19 +2460,17 @@ func (p PushSubscriptionChangeEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewPushSubscriptionChangeEvent(typ js.String, eventInitDict PushSubscriptionChangeEventInit) PushSubscriptionChangeEvent {
-	return PushSubscriptionChangeEvent{}.FromRef(
-		bindings.NewPushSubscriptionChangeEventByPushSubscriptionChangeEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewPushSubscriptionChangeEvent(typ js.String, eventInitDict PushSubscriptionChangeEventInit) (ret PushSubscriptionChangeEvent) {
+	ret.ref = bindings.NewPushSubscriptionChangeEventByPushSubscriptionChangeEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewPushSubscriptionChangeEventByPushSubscriptionChangeEvent1(typ js.String) PushSubscriptionChangeEvent {
-	return PushSubscriptionChangeEvent{}.FromRef(
-		bindings.NewPushSubscriptionChangeEventByPushSubscriptionChangeEvent1(
-			typ.Ref()),
-	)
+func NewPushSubscriptionChangeEventByPushSubscriptionChangeEvent1(typ js.String) (ret PushSubscriptionChangeEvent) {
+	ret.ref = bindings.NewPushSubscriptionChangeEventByPushSubscriptionChangeEvent1(
+		typ.Ref())
+	return
 }
 
 type PushSubscriptionChangeEvent struct {
@@ -2295,24 +2497,22 @@ func (this PushSubscriptionChangeEvent) Free() {
 
 // NewSubscription returns the value of property "PushSubscriptionChangeEvent.newSubscription".
 //
-// The returned bool will be false if there is no such property.
-func (this PushSubscriptionChangeEvent) NewSubscription() (PushSubscription, bool) {
-	var _ok bool
-	_ret := bindings.GetPushSubscriptionChangeEventNewSubscription(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PushSubscriptionChangeEvent) NewSubscription() (ret PushSubscription, ok bool) {
+	ok = js.True == bindings.GetPushSubscriptionChangeEventNewSubscription(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PushSubscription{}.FromRef(_ret), _ok
+	return
 }
 
 // OldSubscription returns the value of property "PushSubscriptionChangeEvent.oldSubscription".
 //
-// The returned bool will be false if there is no such property.
-func (this PushSubscriptionChangeEvent) OldSubscription() (PushSubscription, bool) {
-	var _ok bool
-	_ret := bindings.GetPushSubscriptionChangeEventOldSubscription(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this PushSubscriptionChangeEvent) OldSubscription() (ret PushSubscription, ok bool) {
+	ok = js.True == bindings.GetPushSubscriptionChangeEventOldSubscription(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return PushSubscription{}.FromRef(_ret), _ok
+	return
 }
 
 type RTCAnswerOptions struct {

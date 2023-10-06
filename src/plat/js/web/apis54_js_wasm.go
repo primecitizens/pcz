@@ -82,12 +82,11 @@ func (p SyncEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewSyncEvent(typ js.String, init SyncEventInit) SyncEvent {
-	return SyncEvent{}.FromRef(
-		bindings.NewSyncEventBySyncEvent(
-			typ.Ref(),
-			js.Pointer(&init)),
-	)
+func NewSyncEvent(typ js.String, init SyncEventInit) (ret SyncEvent) {
+	ret.ref = bindings.NewSyncEventBySyncEvent(
+		typ.Ref(),
+		js.Pointer(&init))
+	return
 }
 
 type SyncEvent struct {
@@ -114,24 +113,22 @@ func (this SyncEvent) Free() {
 
 // Tag returns the value of property "SyncEvent.tag".
 //
-// The returned bool will be false if there is no such property.
-func (this SyncEvent) Tag() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetSyncEventTag(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SyncEvent) Tag() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetSyncEventTag(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // LastChance returns the value of property "SyncEvent.lastChance".
 //
-// The returned bool will be false if there is no such property.
-func (this SyncEvent) LastChance() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetSyncEventLastChance(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this SyncEvent) LastChance() (ret bool, ok bool) {
+	ok = js.True == bindings.GetSyncEventLastChance(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 type TableKind uint32
@@ -206,19 +203,17 @@ func (p TableDescriptor) Update(ref js.Ref) {
 	)
 }
 
-func NewTable(descriptor TableDescriptor, value js.Any) Table {
-	return Table{}.FromRef(
-		bindings.NewTableByTable(
-			js.Pointer(&descriptor),
-			value.Ref()),
-	)
+func NewTable(descriptor TableDescriptor, value js.Any) (ret Table) {
+	ret.ref = bindings.NewTableByTable(
+		js.Pointer(&descriptor),
+		value.Ref())
+	return
 }
 
-func NewTableByTable1(descriptor TableDescriptor) Table {
-	return Table{}.FromRef(
-		bindings.NewTableByTable1(
-			js.Pointer(&descriptor)),
-	)
+func NewTableByTable1(descriptor TableDescriptor) (ret Table) {
+	ret.ref = bindings.NewTableByTable1(
+		js.Pointer(&descriptor))
+	return
 }
 
 type Table struct {
@@ -245,32 +240,22 @@ func (this Table) Free() {
 
 // Length returns the value of property "Table.length".
 //
-// The returned bool will be false if there is no such property.
-func (this Table) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTableLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Table) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTableLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Grow calls the method "Table.grow".
-//
-// The returned bool will be false if there is no such method.
-func (this Table) Grow(delta uint32, value js.Any) (uint32, bool) {
-	var _ok bool
-	_ret := bindings.CallTableGrow(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(delta),
-		value.Ref(),
+// HasGrow returns true if the method "Table.grow" exists.
+func (this Table) HasGrow() bool {
+	return js.True == bindings.HasTableGrow(
+		this.Ref(),
 	)
-
-	return uint32(_ret), _ok
 }
 
 // GrowFunc returns the method "Table.grow".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Table) GrowFunc() (fn js.Func[func(delta uint32, value js.Any) uint32]) {
 	return fn.FromRef(
 		bindings.TableGrowFunc(
@@ -279,22 +264,38 @@ func (this Table) GrowFunc() (fn js.Func[func(delta uint32, value js.Any) uint32
 	)
 }
 
-// Grow1 calls the method "Table.grow".
-//
-// The returned bool will be false if there is no such method.
-func (this Table) Grow1(delta uint32) (uint32, bool) {
-	var _ok bool
-	_ret := bindings.CallTableGrow1(
-		this.Ref(), js.Pointer(&_ok),
+// Grow calls the method "Table.grow".
+func (this Table) Grow(delta uint32, value js.Any) (ret uint32) {
+	bindings.CallTableGrow(
+		this.Ref(), js.Pointer(&ret),
 		uint32(delta),
+		value.Ref(),
 	)
 
-	return uint32(_ret), _ok
+	return
+}
+
+// TryGrow calls the method "Table.grow"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Table) TryGrow(delta uint32, value js.Any) (ret uint32, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTableGrow(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(delta),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasGrow1 returns true if the method "Table.grow" exists.
+func (this Table) HasGrow1() bool {
+	return js.True == bindings.HasTableGrow1(
+		this.Ref(),
+	)
 }
 
 // Grow1Func returns the method "Table.grow".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Table) Grow1Func() (fn js.Func[func(delta uint32) uint32]) {
 	return fn.FromRef(
 		bindings.TableGrow1Func(
@@ -303,22 +304,36 @@ func (this Table) Grow1Func() (fn js.Func[func(delta uint32) uint32]) {
 	)
 }
 
-// Get calls the method "Table.get".
-//
-// The returned bool will be false if there is no such method.
-func (this Table) Get(index uint32) (js.Any, bool) {
-	var _ok bool
-	_ret := bindings.CallTableGet(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// Grow1 calls the method "Table.grow".
+func (this Table) Grow1(delta uint32) (ret uint32) {
+	bindings.CallTableGrow1(
+		this.Ref(), js.Pointer(&ret),
+		uint32(delta),
 	)
 
-	return js.Any{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGrow1 calls the method "Table.grow"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Table) TryGrow1(delta uint32) (ret uint32, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTableGrow1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(delta),
+	)
+
+	return
+}
+
+// HasGet returns true if the method "Table.get" exists.
+func (this Table) HasGet() bool {
+	return js.True == bindings.HasTableGet(
+		this.Ref(),
+	)
 }
 
 // GetFunc returns the method "Table.get".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Table) GetFunc() (fn js.Func[func(index uint32) js.Any]) {
 	return fn.FromRef(
 		bindings.TableGetFunc(
@@ -327,24 +342,36 @@ func (this Table) GetFunc() (fn js.Func[func(index uint32) js.Any]) {
 	)
 }
 
-// Set calls the method "Table.set".
-//
-// The returned bool will be false if there is no such method.
-func (this Table) Set(index uint32, value js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTableSet(
-		this.Ref(), js.Pointer(&_ok),
+// Get calls the method "Table.get".
+func (this Table) Get(index uint32) (ret js.Any) {
+	bindings.CallTableGet(
+		this.Ref(), js.Pointer(&ret),
 		uint32(index),
-		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGet calls the method "Table.get"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Table) TryGet(index uint32) (ret js.Any, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTableGet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
+}
+
+// HasSet returns true if the method "Table.set" exists.
+func (this Table) HasSet() bool {
+	return js.True == bindings.HasTableSet(
+		this.Ref(),
+	)
 }
 
 // SetFunc returns the method "Table.set".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Table) SetFunc() (fn js.Func[func(index uint32, value js.Any)]) {
 	return fn.FromRef(
 		bindings.TableSetFunc(
@@ -353,29 +380,66 @@ func (this Table) SetFunc() (fn js.Func[func(index uint32, value js.Any)]) {
 	)
 }
 
-// Set1 calls the method "Table.set".
-//
-// The returned bool will be false if there is no such method.
-func (this Table) Set1(index uint32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTableSet1(
-		this.Ref(), js.Pointer(&_ok),
+// Set calls the method "Table.set".
+func (this Table) Set(index uint32, value js.Any) (ret js.Void) {
+	bindings.CallTableSet(
+		this.Ref(), js.Pointer(&ret),
 		uint32(index),
+		value.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySet calls the method "Table.set"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Table) TrySet(index uint32, value js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTableSet(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+		value.Ref(),
+	)
+
+	return
+}
+
+// HasSet1 returns true if the method "Table.set" exists.
+func (this Table) HasSet1() bool {
+	return js.True == bindings.HasTableSet1(
+		this.Ref(),
+	)
 }
 
 // Set1Func returns the method "Table.set".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this Table) Set1Func() (fn js.Func[func(index uint32)]) {
 	return fn.FromRef(
 		bindings.TableSet1Func(
 			this.Ref(),
 		),
 	)
+}
+
+// Set1 calls the method "Table.set".
+func (this Table) Set1(index uint32) (ret js.Void) {
+	bindings.CallTableSet1(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
+	)
+
+	return
+}
+
+// TrySet1 calls the method "Table.set"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this Table) TrySet1(index uint32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTableSet1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
+	)
+
+	return
 }
 
 type TaskControllerInit struct {
@@ -414,17 +478,15 @@ func (p TaskControllerInit) Update(ref js.Ref) {
 	)
 }
 
-func NewTaskController(init TaskControllerInit) TaskController {
-	return TaskController{}.FromRef(
-		bindings.NewTaskControllerByTaskController(
-			js.Pointer(&init)),
-	)
+func NewTaskController(init TaskControllerInit) (ret TaskController) {
+	ret.ref = bindings.NewTaskControllerByTaskController(
+		js.Pointer(&init))
+	return
 }
 
-func NewTaskControllerByTaskController1() TaskController {
-	return TaskController{}.FromRef(
-		bindings.NewTaskControllerByTaskController1(),
-	)
+func NewTaskControllerByTaskController1() (ret TaskController) {
+	ret.ref = bindings.NewTaskControllerByTaskController1()
+	return
 }
 
 type TaskController struct {
@@ -449,29 +511,42 @@ func (this TaskController) Free() {
 	this.Ref().Free()
 }
 
-// SetPriority calls the method "TaskController.setPriority".
-//
-// The returned bool will be false if there is no such method.
-func (this TaskController) SetPriority(priority TaskPriority) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTaskControllerSetPriority(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(priority),
+// HasSetPriority returns true if the method "TaskController.setPriority" exists.
+func (this TaskController) HasSetPriority() bool {
+	return js.True == bindings.HasTaskControllerSetPriority(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SetPriorityFunc returns the method "TaskController.setPriority".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TaskController) SetPriorityFunc() (fn js.Func[func(priority TaskPriority)]) {
 	return fn.FromRef(
 		bindings.TaskControllerSetPriorityFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// SetPriority calls the method "TaskController.setPriority".
+func (this TaskController) SetPriority(priority TaskPriority) (ret js.Void) {
+	bindings.CallTaskControllerSetPriority(
+		this.Ref(), js.Pointer(&ret),
+		uint32(priority),
+	)
+
+	return
+}
+
+// TrySetPriority calls the method "TaskController.setPriority"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TaskController) TrySetPriority(priority TaskPriority) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTaskControllerSetPriority(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(priority),
+	)
+
+	return
 }
 
 type TaskPriorityChangeEventInit struct {
@@ -532,12 +607,11 @@ func (p TaskPriorityChangeEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewTaskPriorityChangeEvent(typ js.String, priorityChangeEventInitDict TaskPriorityChangeEventInit) TaskPriorityChangeEvent {
-	return TaskPriorityChangeEvent{}.FromRef(
-		bindings.NewTaskPriorityChangeEventByTaskPriorityChangeEvent(
-			typ.Ref(),
-			js.Pointer(&priorityChangeEventInitDict)),
-	)
+func NewTaskPriorityChangeEvent(typ js.String, priorityChangeEventInitDict TaskPriorityChangeEventInit) (ret TaskPriorityChangeEvent) {
+	ret.ref = bindings.NewTaskPriorityChangeEventByTaskPriorityChangeEvent(
+		typ.Ref(),
+		js.Pointer(&priorityChangeEventInitDict))
+	return
 }
 
 type TaskPriorityChangeEvent struct {
@@ -564,13 +638,12 @@ func (this TaskPriorityChangeEvent) Free() {
 
 // PreviousPriority returns the value of property "TaskPriorityChangeEvent.previousPriority".
 //
-// The returned bool will be false if there is no such property.
-func (this TaskPriorityChangeEvent) PreviousPriority() (TaskPriority, bool) {
-	var _ok bool
-	_ret := bindings.GetTaskPriorityChangeEventPreviousPriority(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TaskPriorityChangeEvent) PreviousPriority() (ret TaskPriority, ok bool) {
+	ok = js.True == bindings.GetTaskPriorityChangeEventPreviousPriority(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return TaskPriority(_ret), _ok
+	return
 }
 
 type OneOf_TaskPriority_TaskSignal struct {
@@ -659,32 +732,22 @@ func (this TaskSignal) Free() {
 
 // Priority returns the value of property "TaskSignal.priority".
 //
-// The returned bool will be false if there is no such property.
-func (this TaskSignal) Priority() (TaskPriority, bool) {
-	var _ok bool
-	_ret := bindings.GetTaskSignalPriority(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TaskSignal) Priority() (ret TaskPriority, ok bool) {
+	ok = js.True == bindings.GetTaskSignalPriority(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return TaskPriority(_ret), _ok
+	return
 }
 
-// Any calls the staticmethod "TaskSignal.any".
-//
-// The returned bool will be false if there is no such method.
-func (this TaskSignal) Any(signals js.Array[AbortSignal], init TaskSignalAnyInit) (TaskSignal, bool) {
-	var _ok bool
-	_ret := bindings.CallTaskSignalAny(
-		this.Ref(), js.Pointer(&_ok),
-		signals.Ref(),
-		js.Pointer(&init),
+// HasAny returns true if the staticmethod "TaskSignal.any" exists.
+func (this TaskSignal) HasAny() bool {
+	return js.True == bindings.HasTaskSignalAny(
+		this.Ref(),
 	)
-
-	return TaskSignal{}.FromRef(_ret), _ok
 }
 
 // AnyFunc returns the staticmethod "TaskSignal.any".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TaskSignal) AnyFunc() (fn js.Func[func(signals js.Array[AbortSignal], init TaskSignalAnyInit) TaskSignal]) {
 	return fn.FromRef(
 		bindings.TaskSignalAnyFunc(
@@ -693,22 +756,38 @@ func (this TaskSignal) AnyFunc() (fn js.Func[func(signals js.Array[AbortSignal],
 	)
 }
 
-// Any1 calls the staticmethod "TaskSignal.any".
-//
-// The returned bool will be false if there is no such method.
-func (this TaskSignal) Any1(signals js.Array[AbortSignal]) (TaskSignal, bool) {
-	var _ok bool
-	_ret := bindings.CallTaskSignalAny1(
-		this.Ref(), js.Pointer(&_ok),
+// Any calls the staticmethod "TaskSignal.any".
+func (this TaskSignal) Any(signals js.Array[AbortSignal], init TaskSignalAnyInit) (ret TaskSignal) {
+	bindings.CallTaskSignalAny(
+		this.Ref(), js.Pointer(&ret),
 		signals.Ref(),
+		js.Pointer(&init),
 	)
 
-	return TaskSignal{}.FromRef(_ret), _ok
+	return
+}
+
+// TryAny calls the staticmethod "TaskSignal.any"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TaskSignal) TryAny(signals js.Array[AbortSignal], init TaskSignalAnyInit) (ret TaskSignal, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTaskSignalAny(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		signals.Ref(),
+		js.Pointer(&init),
+	)
+
+	return
+}
+
+// HasAny1 returns true if the staticmethod "TaskSignal.any" exists.
+func (this TaskSignal) HasAny1() bool {
+	return js.True == bindings.HasTaskSignalAny1(
+		this.Ref(),
+	)
 }
 
 // Any1Func returns the staticmethod "TaskSignal.any".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TaskSignal) Any1Func() (fn js.Func[func(signals js.Array[AbortSignal]) TaskSignal]) {
 	return fn.FromRef(
 		bindings.TaskSignalAny1Func(
@@ -717,27 +796,58 @@ func (this TaskSignal) Any1Func() (fn js.Func[func(signals js.Array[AbortSignal]
 	)
 }
 
-type TestUtils struct{}
-
-// Gc calls the function "TestUtils.gc".
-//
-// The returned bool will be false if there is no such method.
-func (TestUtils) Gc() (js.Promise[js.Void], bool) {
-	var _ok bool
-	_ret := bindings.CallTestUtilsGc(
-		js.Pointer(&_ok),
+// Any1 calls the staticmethod "TaskSignal.any".
+func (this TaskSignal) Any1(signals js.Array[AbortSignal]) (ret TaskSignal) {
+	bindings.CallTaskSignalAny1(
+		this.Ref(), js.Pointer(&ret),
+		signals.Ref(),
 	)
 
-	return js.Promise[js.Void]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryAny1 calls the staticmethod "TaskSignal.any"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TaskSignal) TryAny1(signals js.Array[AbortSignal]) (ret TaskSignal, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTaskSignalAny1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		signals.Ref(),
+	)
+
+	return
+}
+
+type TestUtils struct{}
+
+// HasGc returns ture if the function "TestUtils.gc" exists.
+func (TestUtils) HasGc() bool {
+	return js.True == bindings.HasTestUtilsGc()
 }
 
 // GcFunc returns the function "TestUtils.gc".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this TestUtils) GcFunc() (fn js.Func[func() js.Promise[js.Void]]) {
+func (TestUtils) GcFunc() (fn js.Func[func() js.Promise[js.Void]]) {
 	return fn.FromRef(
 		bindings.TestUtilsGcFunc(),
 	)
+}
+
+// Gc calls the function "TestUtils.gc".
+func (TestUtils) Gc() (ret js.Promise[js.Void]) {
+	bindings.CallTestUtilsGc(
+		js.Pointer(&ret),
+	)
+	return
+}
+
+// TryGc calls the function "TestUtils.gc"
+// in a try/catch block and returns (_, err, ok = true) when it went though
+// the catch clause.
+func (TestUtils) TryGc() (ret js.Promise[js.Void], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTestUtilsGc(
+		js.Pointer(&ret), js.Pointer(&exception),
+	)
+	return
 }
 
 type TextDecodeOptions struct {
@@ -827,25 +937,22 @@ func (p TextDecoderOptions) Update(ref js.Ref) {
 	)
 }
 
-func NewTextDecoder(label js.String, options TextDecoderOptions) TextDecoder {
-	return TextDecoder{}.FromRef(
-		bindings.NewTextDecoderByTextDecoder(
-			label.Ref(),
-			js.Pointer(&options)),
-	)
+func NewTextDecoder(label js.String, options TextDecoderOptions) (ret TextDecoder) {
+	ret.ref = bindings.NewTextDecoderByTextDecoder(
+		label.Ref(),
+		js.Pointer(&options))
+	return
 }
 
-func NewTextDecoderByTextDecoder1(label js.String) TextDecoder {
-	return TextDecoder{}.FromRef(
-		bindings.NewTextDecoderByTextDecoder1(
-			label.Ref()),
-	)
+func NewTextDecoderByTextDecoder1(label js.String) (ret TextDecoder) {
+	ret.ref = bindings.NewTextDecoderByTextDecoder1(
+		label.Ref())
+	return
 }
 
-func NewTextDecoderByTextDecoder2() TextDecoder {
-	return TextDecoder{}.FromRef(
-		bindings.NewTextDecoderByTextDecoder2(),
-	)
+func NewTextDecoderByTextDecoder2() (ret TextDecoder) {
+	ret.ref = bindings.NewTextDecoderByTextDecoder2()
+	return
 }
 
 type TextDecoder struct {
@@ -872,54 +979,42 @@ func (this TextDecoder) Free() {
 
 // Encoding returns the value of property "TextDecoder.encoding".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoder) Encoding() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderEncoding(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoder) Encoding() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetTextDecoderEncoding(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Fatal returns the value of property "TextDecoder.fatal".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoder) Fatal() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderFatal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoder) Fatal() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTextDecoderFatal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // IgnoreBOM returns the value of property "TextDecoder.ignoreBOM".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoder) IgnoreBOM() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderIgnoreBOM(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoder) IgnoreBOM() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTextDecoderIgnoreBOM(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// Decode calls the method "TextDecoder.decode".
-//
-// The returned bool will be false if there is no such method.
-func (this TextDecoder) Decode(input AllowSharedBufferSource, options TextDecodeOptions) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallTextDecoderDecode(
-		this.Ref(), js.Pointer(&_ok),
-		input.Ref(),
-		js.Pointer(&options),
+// HasDecode returns true if the method "TextDecoder.decode" exists.
+func (this TextDecoder) HasDecode() bool {
+	return js.True == bindings.HasTextDecoderDecode(
+		this.Ref(),
 	)
-
-	return js.String{}.FromRef(_ret), _ok
 }
 
 // DecodeFunc returns the method "TextDecoder.decode".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextDecoder) DecodeFunc() (fn js.Func[func(input AllowSharedBufferSource, options TextDecodeOptions) js.String]) {
 	return fn.FromRef(
 		bindings.TextDecoderDecodeFunc(
@@ -928,22 +1023,38 @@ func (this TextDecoder) DecodeFunc() (fn js.Func[func(input AllowSharedBufferSou
 	)
 }
 
-// Decode1 calls the method "TextDecoder.decode".
-//
-// The returned bool will be false if there is no such method.
-func (this TextDecoder) Decode1(input AllowSharedBufferSource) (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallTextDecoderDecode1(
-		this.Ref(), js.Pointer(&_ok),
+// Decode calls the method "TextDecoder.decode".
+func (this TextDecoder) Decode(input AllowSharedBufferSource, options TextDecodeOptions) (ret js.String) {
+	bindings.CallTextDecoderDecode(
+		this.Ref(), js.Pointer(&ret),
 		input.Ref(),
+		js.Pointer(&options),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryDecode calls the method "TextDecoder.decode"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextDecoder) TryDecode(input AllowSharedBufferSource, options TextDecodeOptions) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextDecoderDecode(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		input.Ref(),
+		js.Pointer(&options),
+	)
+
+	return
+}
+
+// HasDecode1 returns true if the method "TextDecoder.decode" exists.
+func (this TextDecoder) HasDecode1() bool {
+	return js.True == bindings.HasTextDecoderDecode1(
+		this.Ref(),
+	)
 }
 
 // Decode1Func returns the method "TextDecoder.decode".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextDecoder) Decode1Func() (fn js.Func[func(input AllowSharedBufferSource) js.String]) {
 	return fn.FromRef(
 		bindings.TextDecoderDecode1Func(
@@ -952,21 +1063,36 @@ func (this TextDecoder) Decode1Func() (fn js.Func[func(input AllowSharedBufferSo
 	)
 }
 
-// Decode2 calls the method "TextDecoder.decode".
-//
-// The returned bool will be false if there is no such method.
-func (this TextDecoder) Decode2() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.CallTextDecoderDecode2(
-		this.Ref(), js.Pointer(&_ok),
+// Decode1 calls the method "TextDecoder.decode".
+func (this TextDecoder) Decode1(input AllowSharedBufferSource) (ret js.String) {
+	bindings.CallTextDecoderDecode1(
+		this.Ref(), js.Pointer(&ret),
+		input.Ref(),
 	)
 
-	return js.String{}.FromRef(_ret), _ok
+	return
+}
+
+// TryDecode1 calls the method "TextDecoder.decode"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextDecoder) TryDecode1(input AllowSharedBufferSource) (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextDecoderDecode1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		input.Ref(),
+	)
+
+	return
+}
+
+// HasDecode2 returns true if the method "TextDecoder.decode" exists.
+func (this TextDecoder) HasDecode2() bool {
+	return js.True == bindings.HasTextDecoderDecode2(
+		this.Ref(),
+	)
 }
 
 // Decode2Func returns the method "TextDecoder.decode".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextDecoder) Decode2Func() (fn js.Func[func() js.String]) {
 	return fn.FromRef(
 		bindings.TextDecoderDecode2Func(
@@ -975,25 +1101,42 @@ func (this TextDecoder) Decode2Func() (fn js.Func[func() js.String]) {
 	)
 }
 
-func NewTextDecoderStream(label js.String, options TextDecoderOptions) TextDecoderStream {
-	return TextDecoderStream{}.FromRef(
-		bindings.NewTextDecoderStreamByTextDecoderStream(
-			label.Ref(),
-			js.Pointer(&options)),
+// Decode2 calls the method "TextDecoder.decode".
+func (this TextDecoder) Decode2() (ret js.String) {
+	bindings.CallTextDecoderDecode2(
+		this.Ref(), js.Pointer(&ret),
 	)
+
+	return
 }
 
-func NewTextDecoderStreamByTextDecoderStream1(label js.String) TextDecoderStream {
-	return TextDecoderStream{}.FromRef(
-		bindings.NewTextDecoderStreamByTextDecoderStream1(
-			label.Ref()),
+// TryDecode2 calls the method "TextDecoder.decode"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextDecoder) TryDecode2() (ret js.String, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextDecoderDecode2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
 	)
+
+	return
 }
 
-func NewTextDecoderStreamByTextDecoderStream2() TextDecoderStream {
-	return TextDecoderStream{}.FromRef(
-		bindings.NewTextDecoderStreamByTextDecoderStream2(),
-	)
+func NewTextDecoderStream(label js.String, options TextDecoderOptions) (ret TextDecoderStream) {
+	ret.ref = bindings.NewTextDecoderStreamByTextDecoderStream(
+		label.Ref(),
+		js.Pointer(&options))
+	return
+}
+
+func NewTextDecoderStreamByTextDecoderStream1(label js.String) (ret TextDecoderStream) {
+	ret.ref = bindings.NewTextDecoderStreamByTextDecoderStream1(
+		label.Ref())
+	return
+}
+
+func NewTextDecoderStreamByTextDecoderStream2() (ret TextDecoderStream) {
+	ret.ref = bindings.NewTextDecoderStreamByTextDecoderStream2()
+	return
 }
 
 type TextDecoderStream struct {
@@ -1020,57 +1163,52 @@ func (this TextDecoderStream) Free() {
 
 // Encoding returns the value of property "TextDecoderStream.encoding".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoderStream) Encoding() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderStreamEncoding(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoderStream) Encoding() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetTextDecoderStreamEncoding(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Fatal returns the value of property "TextDecoderStream.fatal".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoderStream) Fatal() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderStreamFatal(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoderStream) Fatal() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTextDecoderStreamFatal(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // IgnoreBOM returns the value of property "TextDecoderStream.ignoreBOM".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoderStream) IgnoreBOM() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderStreamIgnoreBOM(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoderStream) IgnoreBOM() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTextDecoderStreamIgnoreBOM(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // Readable returns the value of property "TextDecoderStream.readable".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoderStream) Readable() (ReadableStream, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderStreamReadable(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoderStream) Readable() (ret ReadableStream, ok bool) {
+	ok = js.True == bindings.GetTextDecoderStreamReadable(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ReadableStream{}.FromRef(_ret), _ok
+	return
 }
 
 // Writable returns the value of property "TextDecoderStream.writable".
 //
-// The returned bool will be false if there is no such property.
-func (this TextDecoderStream) Writable() (WritableStream, bool) {
-	var _ok bool
-	_ret := bindings.GetTextDecoderStreamWritable(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextDecoderStream) Writable() (ret WritableStream, ok bool) {
+	ok = js.True == bindings.GetTextDecoderStreamWritable(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WritableStream{}.FromRef(_ret), _ok
+	return
 }
 
 type TextDetector struct {
@@ -1095,28 +1233,42 @@ func (this TextDetector) Free() {
 	this.Ref().Free()
 }
 
-// Detect calls the method "TextDetector.detect".
-//
-// The returned bool will be false if there is no such method.
-func (this TextDetector) Detect(image ImageBitmapSource) (js.Promise[js.Array[DetectedText]], bool) {
-	var _ok bool
-	_ret := bindings.CallTextDetectorDetect(
-		this.Ref(), js.Pointer(&_ok),
-		image.Ref(),
+// HasDetect returns true if the method "TextDetector.detect" exists.
+func (this TextDetector) HasDetect() bool {
+	return js.True == bindings.HasTextDetectorDetect(
+		this.Ref(),
 	)
-
-	return js.Promise[js.Array[DetectedText]]{}.FromRef(_ret), _ok
 }
 
 // DetectFunc returns the method "TextDetector.detect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextDetector) DetectFunc() (fn js.Func[func(image ImageBitmapSource) js.Promise[js.Array[DetectedText]]]) {
 	return fn.FromRef(
 		bindings.TextDetectorDetectFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Detect calls the method "TextDetector.detect".
+func (this TextDetector) Detect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedText]]) {
+	bindings.CallTextDetectorDetect(
+		this.Ref(), js.Pointer(&ret),
+		image.Ref(),
+	)
+
+	return
+}
+
+// TryDetect calls the method "TextDetector.detect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextDetector) TryDetect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedText]], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextDetectorDetect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		image.Ref(),
+	)
+
+	return
 }
 
 type TextEncoderEncodeIntoResult struct {
@@ -1190,31 +1342,22 @@ func (this TextEncoder) Free() {
 
 // Encoding returns the value of property "TextEncoder.encoding".
 //
-// The returned bool will be false if there is no such property.
-func (this TextEncoder) Encoding() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetTextEncoderEncoding(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextEncoder) Encoding() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetTextEncoderEncoding(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Encode calls the method "TextEncoder.encode".
-//
-// The returned bool will be false if there is no such method.
-func (this TextEncoder) Encode(input js.String) (js.TypedArray[uint8], bool) {
-	var _ok bool
-	_ret := bindings.CallTextEncoderEncode(
-		this.Ref(), js.Pointer(&_ok),
-		input.Ref(),
+// HasEncode returns true if the method "TextEncoder.encode" exists.
+func (this TextEncoder) HasEncode() bool {
+	return js.True == bindings.HasTextEncoderEncode(
+		this.Ref(),
 	)
-
-	return js.TypedArray[uint8]{}.FromRef(_ret), _ok
 }
 
 // EncodeFunc returns the method "TextEncoder.encode".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextEncoder) EncodeFunc() (fn js.Func[func(input js.String) js.TypedArray[uint8]]) {
 	return fn.FromRef(
 		bindings.TextEncoderEncodeFunc(
@@ -1223,21 +1366,36 @@ func (this TextEncoder) EncodeFunc() (fn js.Func[func(input js.String) js.TypedA
 	)
 }
 
-// Encode1 calls the method "TextEncoder.encode".
-//
-// The returned bool will be false if there is no such method.
-func (this TextEncoder) Encode1() (js.TypedArray[uint8], bool) {
-	var _ok bool
-	_ret := bindings.CallTextEncoderEncode1(
-		this.Ref(), js.Pointer(&_ok),
+// Encode calls the method "TextEncoder.encode".
+func (this TextEncoder) Encode(input js.String) (ret js.TypedArray[uint8]) {
+	bindings.CallTextEncoderEncode(
+		this.Ref(), js.Pointer(&ret),
+		input.Ref(),
 	)
 
-	return js.TypedArray[uint8]{}.FromRef(_ret), _ok
+	return
+}
+
+// TryEncode calls the method "TextEncoder.encode"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextEncoder) TryEncode(input js.String) (ret js.TypedArray[uint8], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextEncoderEncode(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		input.Ref(),
+	)
+
+	return
+}
+
+// HasEncode1 returns true if the method "TextEncoder.encode" exists.
+func (this TextEncoder) HasEncode1() bool {
+	return js.True == bindings.HasTextEncoderEncode1(
+		this.Ref(),
+	)
 }
 
 // Encode1Func returns the method "TextEncoder.encode".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextEncoder) Encode1Func() (fn js.Func[func() js.TypedArray[uint8]]) {
 	return fn.FromRef(
 		bindings.TextEncoderEncode1Func(
@@ -1246,29 +1404,64 @@ func (this TextEncoder) Encode1Func() (fn js.Func[func() js.TypedArray[uint8]]) 
 	)
 }
 
-// EncodeInto calls the method "TextEncoder.encodeInto".
-//
-// The returned bool will be false if there is no such method.
-func (this TextEncoder) EncodeInto(source js.String, destination js.TypedArray[uint8]) (TextEncoderEncodeIntoResult, bool) {
-	var _ret TextEncoderEncodeIntoResult
-	_ok := js.True == bindings.CallTextEncoderEncodeInto(
-		this.Ref(), js.Pointer(&_ret),
-		source.Ref(),
-		destination.Ref(),
+// Encode1 calls the method "TextEncoder.encode".
+func (this TextEncoder) Encode1() (ret js.TypedArray[uint8]) {
+	bindings.CallTextEncoderEncode1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret, _ok
+	return
+}
+
+// TryEncode1 calls the method "TextEncoder.encode"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextEncoder) TryEncode1() (ret js.TypedArray[uint8], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextEncoderEncode1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasEncodeInto returns true if the method "TextEncoder.encodeInto" exists.
+func (this TextEncoder) HasEncodeInto() bool {
+	return js.True == bindings.HasTextEncoderEncodeInto(
+		this.Ref(),
+	)
 }
 
 // EncodeIntoFunc returns the method "TextEncoder.encodeInto".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextEncoder) EncodeIntoFunc() (fn js.Func[func(source js.String, destination js.TypedArray[uint8]) TextEncoderEncodeIntoResult]) {
 	return fn.FromRef(
 		bindings.TextEncoderEncodeIntoFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// EncodeInto calls the method "TextEncoder.encodeInto".
+func (this TextEncoder) EncodeInto(source js.String, destination js.TypedArray[uint8]) (ret TextEncoderEncodeIntoResult) {
+	bindings.CallTextEncoderEncodeInto(
+		this.Ref(), js.Pointer(&ret),
+		source.Ref(),
+		destination.Ref(),
+	)
+
+	return
+}
+
+// TryEncodeInto calls the method "TextEncoder.encodeInto"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextEncoder) TryEncodeInto(source js.String, destination js.TypedArray[uint8]) (ret TextEncoderEncodeIntoResult, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextEncoderEncodeInto(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		source.Ref(),
+		destination.Ref(),
+	)
+
+	return
 }
 
 type TextEncoderStream struct {
@@ -1295,35 +1488,32 @@ func (this TextEncoderStream) Free() {
 
 // Encoding returns the value of property "TextEncoderStream.encoding".
 //
-// The returned bool will be false if there is no such property.
-func (this TextEncoderStream) Encoding() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetTextEncoderStreamEncoding(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextEncoderStream) Encoding() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetTextEncoderStreamEncoding(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // Readable returns the value of property "TextEncoderStream.readable".
 //
-// The returned bool will be false if there is no such property.
-func (this TextEncoderStream) Readable() (ReadableStream, bool) {
-	var _ok bool
-	_ret := bindings.GetTextEncoderStreamReadable(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextEncoderStream) Readable() (ret ReadableStream, ok bool) {
+	ok = js.True == bindings.GetTextEncoderStreamReadable(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ReadableStream{}.FromRef(_ret), _ok
+	return
 }
 
 // Writable returns the value of property "TextEncoderStream.writable".
 //
-// The returned bool will be false if there is no such property.
-func (this TextEncoderStream) Writable() (WritableStream, bool) {
-	var _ok bool
-	_ret := bindings.GetTextEncoderStreamWritable(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextEncoderStream) Writable() (ret WritableStream, ok bool) {
+	ok = js.True == bindings.GetTextEncoderStreamWritable(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WritableStream{}.FromRef(_ret), _ok
+	return
 }
 
 type TextFormatInit struct {
@@ -1381,17 +1571,15 @@ func (p TextFormatInit) Update(ref js.Ref) {
 	)
 }
 
-func NewTextFormat(options TextFormatInit) TextFormat {
-	return TextFormat{}.FromRef(
-		bindings.NewTextFormatByTextFormat(
-			js.Pointer(&options)),
-	)
+func NewTextFormat(options TextFormatInit) (ret TextFormat) {
+	ret.ref = bindings.NewTextFormatByTextFormat(
+		js.Pointer(&options))
+	return
 }
 
-func NewTextFormatByTextFormat1() TextFormat {
-	return TextFormat{}.FromRef(
-		bindings.NewTextFormatByTextFormat1(),
-	)
+func NewTextFormatByTextFormat1() (ret TextFormat) {
+	ret.ref = bindings.NewTextFormatByTextFormat1()
+	return
 }
 
 type TextFormat struct {
@@ -1418,46 +1606,42 @@ func (this TextFormat) Free() {
 
 // RangeStart returns the value of property "TextFormat.rangeStart".
 //
-// The returned bool will be false if there is no such property.
-func (this TextFormat) RangeStart() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextFormatRangeStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextFormat) RangeStart() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextFormatRangeStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // RangeEnd returns the value of property "TextFormat.rangeEnd".
 //
-// The returned bool will be false if there is no such property.
-func (this TextFormat) RangeEnd() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextFormatRangeEnd(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextFormat) RangeEnd() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextFormatRangeEnd(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // UnderlineStyle returns the value of property "TextFormat.underlineStyle".
 //
-// The returned bool will be false if there is no such property.
-func (this TextFormat) UnderlineStyle() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetTextFormatUnderlineStyle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextFormat) UnderlineStyle() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetTextFormatUnderlineStyle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // UnderlineThickness returns the value of property "TextFormat.underlineThickness".
 //
-// The returned bool will be false if there is no such property.
-func (this TextFormat) UnderlineThickness() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetTextFormatUnderlineThickness(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextFormat) UnderlineThickness() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetTextFormatUnderlineThickness(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 type TextFormatUpdateEventInit struct {
@@ -1518,19 +1702,17 @@ func (p TextFormatUpdateEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewTextFormatUpdateEvent(typ js.String, options TextFormatUpdateEventInit) TextFormatUpdateEvent {
-	return TextFormatUpdateEvent{}.FromRef(
-		bindings.NewTextFormatUpdateEventByTextFormatUpdateEvent(
-			typ.Ref(),
-			js.Pointer(&options)),
-	)
+func NewTextFormatUpdateEvent(typ js.String, options TextFormatUpdateEventInit) (ret TextFormatUpdateEvent) {
+	ret.ref = bindings.NewTextFormatUpdateEventByTextFormatUpdateEvent(
+		typ.Ref(),
+		js.Pointer(&options))
+	return
 }
 
-func NewTextFormatUpdateEventByTextFormatUpdateEvent1(typ js.String) TextFormatUpdateEvent {
-	return TextFormatUpdateEvent{}.FromRef(
-		bindings.NewTextFormatUpdateEventByTextFormatUpdateEvent1(
-			typ.Ref()),
-	)
+func NewTextFormatUpdateEventByTextFormatUpdateEvent1(typ js.String) (ret TextFormatUpdateEvent) {
+	ret.ref = bindings.NewTextFormatUpdateEventByTextFormatUpdateEvent1(
+		typ.Ref())
+	return
 }
 
 type TextFormatUpdateEvent struct {
@@ -1555,27 +1737,40 @@ func (this TextFormatUpdateEvent) Free() {
 	this.Ref().Free()
 }
 
-// GetTextFormats calls the method "TextFormatUpdateEvent.getTextFormats".
-//
-// The returned bool will be false if there is no such method.
-func (this TextFormatUpdateEvent) GetTextFormats() (js.Array[TextFormat], bool) {
-	var _ok bool
-	_ret := bindings.CallTextFormatUpdateEventGetTextFormats(
-		this.Ref(), js.Pointer(&_ok),
+// HasGetTextFormats returns true if the method "TextFormatUpdateEvent.getTextFormats" exists.
+func (this TextFormatUpdateEvent) HasGetTextFormats() bool {
+	return js.True == bindings.HasTextFormatUpdateEventGetTextFormats(
+		this.Ref(),
 	)
-
-	return js.Array[TextFormat]{}.FromRef(_ret), _ok
 }
 
 // GetTextFormatsFunc returns the method "TextFormatUpdateEvent.getTextFormats".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TextFormatUpdateEvent) GetTextFormatsFunc() (fn js.Func[func() js.Array[TextFormat]]) {
 	return fn.FromRef(
 		bindings.TextFormatUpdateEventGetTextFormatsFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetTextFormats calls the method "TextFormatUpdateEvent.getTextFormats".
+func (this TextFormatUpdateEvent) GetTextFormats() (ret js.Array[TextFormat]) {
+	bindings.CallTextFormatUpdateEventGetTextFormats(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetTextFormats calls the method "TextFormatUpdateEvent.getTextFormats"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TextFormatUpdateEvent) TryGetTextFormats() (ret js.Array[TextFormat], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTextFormatUpdateEventGetTextFormats(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type TextUpdateEventInit struct {
@@ -1678,19 +1873,17 @@ func (p TextUpdateEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewTextUpdateEvent(typ js.String, options TextUpdateEventInit) TextUpdateEvent {
-	return TextUpdateEvent{}.FromRef(
-		bindings.NewTextUpdateEventByTextUpdateEvent(
-			typ.Ref(),
-			js.Pointer(&options)),
-	)
+func NewTextUpdateEvent(typ js.String, options TextUpdateEventInit) (ret TextUpdateEvent) {
+	ret.ref = bindings.NewTextUpdateEventByTextUpdateEvent(
+		typ.Ref(),
+		js.Pointer(&options))
+	return
 }
 
-func NewTextUpdateEventByTextUpdateEvent1(typ js.String) TextUpdateEvent {
-	return TextUpdateEvent{}.FromRef(
-		bindings.NewTextUpdateEventByTextUpdateEvent1(
-			typ.Ref()),
-	)
+func NewTextUpdateEventByTextUpdateEvent1(typ js.String) (ret TextUpdateEvent) {
+	ret.ref = bindings.NewTextUpdateEventByTextUpdateEvent1(
+		typ.Ref())
+	return
 }
 
 type TextUpdateEvent struct {
@@ -1717,94 +1910,85 @@ func (this TextUpdateEvent) Free() {
 
 // UpdateRangeStart returns the value of property "TextUpdateEvent.updateRangeStart".
 //
-// The returned bool will be false if there is no such property.
-func (this TextUpdateEvent) UpdateRangeStart() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextUpdateEventUpdateRangeStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextUpdateEvent) UpdateRangeStart() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextUpdateEventUpdateRangeStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // UpdateRangeEnd returns the value of property "TextUpdateEvent.updateRangeEnd".
 //
-// The returned bool will be false if there is no such property.
-func (this TextUpdateEvent) UpdateRangeEnd() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextUpdateEventUpdateRangeEnd(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextUpdateEvent) UpdateRangeEnd() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextUpdateEventUpdateRangeEnd(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // Text returns the value of property "TextUpdateEvent.text".
 //
-// The returned bool will be false if there is no such property.
-func (this TextUpdateEvent) Text() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetTextUpdateEventText(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextUpdateEvent) Text() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetTextUpdateEventText(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // SelectionStart returns the value of property "TextUpdateEvent.selectionStart".
 //
-// The returned bool will be false if there is no such property.
-func (this TextUpdateEvent) SelectionStart() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextUpdateEventSelectionStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextUpdateEvent) SelectionStart() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextUpdateEventSelectionStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // SelectionEnd returns the value of property "TextUpdateEvent.selectionEnd".
 //
-// The returned bool will be false if there is no such property.
-func (this TextUpdateEvent) SelectionEnd() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextUpdateEventSelectionEnd(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextUpdateEvent) SelectionEnd() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextUpdateEventSelectionEnd(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // CompositionStart returns the value of property "TextUpdateEvent.compositionStart".
 //
-// The returned bool will be false if there is no such property.
-func (this TextUpdateEvent) CompositionStart() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextUpdateEventCompositionStart(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextUpdateEvent) CompositionStart() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextUpdateEventCompositionStart(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
 // CompositionEnd returns the value of property "TextUpdateEvent.compositionEnd".
 //
-// The returned bool will be false if there is no such property.
-func (this TextUpdateEvent) CompositionEnd() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTextUpdateEventCompositionEnd(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TextUpdateEvent) CompositionEnd() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTextUpdateEventCompositionEnd(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-func NewTimeEvent(typ js.String, eventInitDict EventInit) TimeEvent {
-	return TimeEvent{}.FromRef(
-		bindings.NewTimeEventByTimeEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewTimeEvent(typ js.String, eventInitDict EventInit) (ret TimeEvent) {
+	ret.ref = bindings.NewTimeEventByTimeEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewTimeEventByTimeEvent1(typ js.String) TimeEvent {
-	return TimeEvent{}.FromRef(
-		bindings.NewTimeEventByTimeEvent1(
-			typ.Ref()),
-	)
+func NewTimeEventByTimeEvent1(typ js.String) (ret TimeEvent) {
+	ret.ref = bindings.NewTimeEventByTimeEvent1(
+		typ.Ref())
+	return
 }
 
 type TimeEvent struct {
@@ -1831,51 +2015,64 @@ func (this TimeEvent) Free() {
 
 // View returns the value of property "TimeEvent.view".
 //
-// The returned bool will be false if there is no such property.
-func (this TimeEvent) View() (js.Object, bool) {
-	var _ok bool
-	_ret := bindings.GetTimeEventView(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TimeEvent) View() (ret js.Object, ok bool) {
+	ok = js.True == bindings.GetTimeEventView(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.Object{}.FromRef(_ret), _ok
+	return
 }
 
 // Detail returns the value of property "TimeEvent.detail".
 //
-// The returned bool will be false if there is no such property.
-func (this TimeEvent) Detail() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetTimeEventDetail(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TimeEvent) Detail() (ret int32, ok bool) {
+	ok = js.True == bindings.GetTimeEventDetail(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
-// InitTimeEvent calls the method "TimeEvent.initTimeEvent".
-//
-// The returned bool will be false if there is no such method.
-func (this TimeEvent) InitTimeEvent(typeArg js.String, viewArg Window, detailArg int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTimeEventInitTimeEvent(
-		this.Ref(), js.Pointer(&_ok),
-		typeArg.Ref(),
-		viewArg.Ref(),
-		int32(detailArg),
+// HasInitTimeEvent returns true if the method "TimeEvent.initTimeEvent" exists.
+func (this TimeEvent) HasInitTimeEvent() bool {
+	return js.True == bindings.HasTimeEventInitTimeEvent(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // InitTimeEventFunc returns the method "TimeEvent.initTimeEvent".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TimeEvent) InitTimeEventFunc() (fn js.Func[func(typeArg js.String, viewArg Window, detailArg int32)]) {
 	return fn.FromRef(
 		bindings.TimeEventInitTimeEventFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// InitTimeEvent calls the method "TimeEvent.initTimeEvent".
+func (this TimeEvent) InitTimeEvent(typeArg js.String, viewArg Window, detailArg int32) (ret js.Void) {
+	bindings.CallTimeEventInitTimeEvent(
+		this.Ref(), js.Pointer(&ret),
+		typeArg.Ref(),
+		viewArg.Ref(),
+		int32(detailArg),
+	)
+
+	return
+}
+
+// TryInitTimeEvent calls the method "TimeEvent.initTimeEvent"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TimeEvent) TryInitTimeEvent(typeArg js.String, viewArg Window, detailArg int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTimeEventInitTimeEvent(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		typeArg.Ref(),
+		viewArg.Ref(),
+		int32(detailArg),
+	)
+
+	return
 }
 
 type ToggleEventInit struct {
@@ -1940,19 +2137,17 @@ func (p ToggleEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewToggleEvent(typ js.String, eventInitDict ToggleEventInit) ToggleEvent {
-	return ToggleEvent{}.FromRef(
-		bindings.NewToggleEventByToggleEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewToggleEvent(typ js.String, eventInitDict ToggleEventInit) (ret ToggleEvent) {
+	ret.ref = bindings.NewToggleEventByToggleEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewToggleEventByToggleEvent1(typ js.String) ToggleEvent {
-	return ToggleEvent{}.FromRef(
-		bindings.NewToggleEventByToggleEvent1(
-			typ.Ref()),
-	)
+func NewToggleEventByToggleEvent1(typ js.String) (ret ToggleEvent) {
+	ret.ref = bindings.NewToggleEventByToggleEvent1(
+		typ.Ref())
+	return
 }
 
 type ToggleEvent struct {
@@ -1979,24 +2174,22 @@ func (this ToggleEvent) Free() {
 
 // OldState returns the value of property "ToggleEvent.oldState".
 //
-// The returned bool will be false if there is no such property.
-func (this ToggleEvent) OldState() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetToggleEventOldState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ToggleEvent) OldState() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetToggleEventOldState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 // NewState returns the value of property "ToggleEvent.newState".
 //
-// The returned bool will be false if there is no such property.
-func (this ToggleEvent) NewState() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetToggleEventNewState(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ToggleEvent) NewState() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetToggleEventNewState(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 type TokenBinding struct {
@@ -2256,11 +2449,10 @@ func (p TouchInit) Update(ref js.Ref) {
 	)
 }
 
-func NewTouch(touchInitDict TouchInit) Touch {
-	return Touch{}.FromRef(
-		bindings.NewTouchByTouch(
-			js.Pointer(&touchInitDict)),
-	)
+func NewTouch(touchInitDict TouchInit) (ret Touch) {
+	ret.ref = bindings.NewTouchByTouch(
+		js.Pointer(&touchInitDict))
+	return
 }
 
 type Touch struct {
@@ -2287,167 +2479,152 @@ func (this Touch) Free() {
 
 // Identifier returns the value of property "Touch.identifier".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) Identifier() (int32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchIdentifier(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) Identifier() (ret int32, ok bool) {
+	ok = js.True == bindings.GetTouchIdentifier(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return int32(_ret), _ok
+	return
 }
 
 // Target returns the value of property "Touch.target".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) Target() (EventTarget, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchTarget(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) Target() (ret EventTarget, ok bool) {
+	ok = js.True == bindings.GetTouchTarget(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return EventTarget{}.FromRef(_ret), _ok
+	return
 }
 
 // ScreenX returns the value of property "Touch.screenX".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) ScreenX() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchScreenX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) ScreenX() (ret float64, ok bool) {
+	ok = js.True == bindings.GetTouchScreenX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // ScreenY returns the value of property "Touch.screenY".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) ScreenY() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchScreenY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) ScreenY() (ret float64, ok bool) {
+	ok = js.True == bindings.GetTouchScreenY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // ClientX returns the value of property "Touch.clientX".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) ClientX() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchClientX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) ClientX() (ret float64, ok bool) {
+	ok = js.True == bindings.GetTouchClientX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // ClientY returns the value of property "Touch.clientY".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) ClientY() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchClientY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) ClientY() (ret float64, ok bool) {
+	ok = js.True == bindings.GetTouchClientY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // PageX returns the value of property "Touch.pageX".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) PageX() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchPageX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) PageX() (ret float64, ok bool) {
+	ok = js.True == bindings.GetTouchPageX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // PageY returns the value of property "Touch.pageY".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) PageY() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchPageY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) PageY() (ret float64, ok bool) {
+	ok = js.True == bindings.GetTouchPageY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
 // RadiusX returns the value of property "Touch.radiusX".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) RadiusX() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchRadiusX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) RadiusX() (ret float32, ok bool) {
+	ok = js.True == bindings.GetTouchRadiusX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // RadiusY returns the value of property "Touch.radiusY".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) RadiusY() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchRadiusY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) RadiusY() (ret float32, ok bool) {
+	ok = js.True == bindings.GetTouchRadiusY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // RotationAngle returns the value of property "Touch.rotationAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) RotationAngle() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchRotationAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) RotationAngle() (ret float32, ok bool) {
+	ok = js.True == bindings.GetTouchRotationAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // Force returns the value of property "Touch.force".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) Force() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchForce(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) Force() (ret float32, ok bool) {
+	ok = js.True == bindings.GetTouchForce(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // AltitudeAngle returns the value of property "Touch.altitudeAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) AltitudeAngle() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchAltitudeAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) AltitudeAngle() (ret float32, ok bool) {
+	ok = js.True == bindings.GetTouchAltitudeAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // AzimuthAngle returns the value of property "Touch.azimuthAngle".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) AzimuthAngle() (float32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchAzimuthAngle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) AzimuthAngle() (ret float32, ok bool) {
+	ok = js.True == bindings.GetTouchAzimuthAngle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float32(_ret), _ok
+	return
 }
 
 // TouchType returns the value of property "Touch.touchType".
 //
-// The returned bool will be false if there is no such property.
-func (this Touch) TouchType() (TouchType, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchTouchType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this Touch) TouchType() (ret TouchType, ok bool) {
+	ok = js.True == bindings.GetTouchTouchType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return TouchType(_ret), _ok
+	return
 }
 
 type TouchEventInit struct {
@@ -2649,31 +2826,22 @@ func (this TouchList) Free() {
 
 // Length returns the value of property "TouchList.length".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchList) Length() (uint32, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchListLength(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchList) Length() (ret uint32, ok bool) {
+	ok = js.True == bindings.GetTouchListLength(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return uint32(_ret), _ok
+	return
 }
 
-// Item calls the method "TouchList.item".
-//
-// The returned bool will be false if there is no such method.
-func (this TouchList) Item(index uint32) (Touch, bool) {
-	var _ok bool
-	_ret := bindings.CallTouchListItem(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(index),
+// HasItem returns true if the method "TouchList.item" exists.
+func (this TouchList) HasItem() bool {
+	return js.True == bindings.HasTouchListItem(
+		this.Ref(),
 	)
-
-	return Touch{}.FromRef(_ret), _ok
 }
 
 // ItemFunc returns the method "TouchList.item".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TouchList) ItemFunc() (fn js.Func[func(index uint32) Touch]) {
 	return fn.FromRef(
 		bindings.TouchListItemFunc(
@@ -2682,19 +2850,39 @@ func (this TouchList) ItemFunc() (fn js.Func[func(index uint32) Touch]) {
 	)
 }
 
-func NewTouchEvent(typ js.String, eventInitDict TouchEventInit) TouchEvent {
-	return TouchEvent{}.FromRef(
-		bindings.NewTouchEventByTouchEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
+// Item calls the method "TouchList.item".
+func (this TouchList) Item(index uint32) (ret Touch) {
+	bindings.CallTouchListItem(
+		this.Ref(), js.Pointer(&ret),
+		uint32(index),
 	)
+
+	return
 }
 
-func NewTouchEventByTouchEvent1(typ js.String) TouchEvent {
-	return TouchEvent{}.FromRef(
-		bindings.NewTouchEventByTouchEvent1(
-			typ.Ref()),
+// TryItem calls the method "TouchList.item"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TouchList) TryItem(index uint32) (ret Touch, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTouchListItem(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(index),
 	)
+
+	return
+}
+
+func NewTouchEvent(typ js.String, eventInitDict TouchEventInit) (ret TouchEvent) {
+	ret.ref = bindings.NewTouchEventByTouchEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
+}
+
+func NewTouchEventByTouchEvent1(typ js.String) (ret TouchEvent) {
+	ret.ref = bindings.NewTouchEventByTouchEvent1(
+		typ.Ref())
+	return
 }
 
 type TouchEvent struct {
@@ -2721,103 +2909,110 @@ func (this TouchEvent) Free() {
 
 // Touches returns the value of property "TouchEvent.touches".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchEvent) Touches() (TouchList, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchEventTouches(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchEvent) Touches() (ret TouchList, ok bool) {
+	ok = js.True == bindings.GetTouchEventTouches(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return TouchList{}.FromRef(_ret), _ok
+	return
 }
 
 // TargetTouches returns the value of property "TouchEvent.targetTouches".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchEvent) TargetTouches() (TouchList, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchEventTargetTouches(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchEvent) TargetTouches() (ret TouchList, ok bool) {
+	ok = js.True == bindings.GetTouchEventTargetTouches(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return TouchList{}.FromRef(_ret), _ok
+	return
 }
 
 // ChangedTouches returns the value of property "TouchEvent.changedTouches".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchEvent) ChangedTouches() (TouchList, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchEventChangedTouches(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchEvent) ChangedTouches() (ret TouchList, ok bool) {
+	ok = js.True == bindings.GetTouchEventChangedTouches(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return TouchList{}.FromRef(_ret), _ok
+	return
 }
 
 // AltKey returns the value of property "TouchEvent.altKey".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchEvent) AltKey() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchEventAltKey(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchEvent) AltKey() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTouchEventAltKey(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // MetaKey returns the value of property "TouchEvent.metaKey".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchEvent) MetaKey() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchEventMetaKey(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchEvent) MetaKey() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTouchEventMetaKey(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // CtrlKey returns the value of property "TouchEvent.ctrlKey".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchEvent) CtrlKey() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchEventCtrlKey(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchEvent) CtrlKey() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTouchEventCtrlKey(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
 // ShiftKey returns the value of property "TouchEvent.shiftKey".
 //
-// The returned bool will be false if there is no such property.
-func (this TouchEvent) ShiftKey() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetTouchEventShiftKey(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TouchEvent) ShiftKey() (ret bool, ok bool) {
+	ok = js.True == bindings.GetTouchEventShiftKey(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// GetModifierState calls the method "TouchEvent.getModifierState".
-//
-// The returned bool will be false if there is no such method.
-func (this TouchEvent) GetModifierState(keyArg js.String) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallTouchEventGetModifierState(
-		this.Ref(), js.Pointer(&_ok),
-		keyArg.Ref(),
+// HasGetModifierState returns true if the method "TouchEvent.getModifierState" exists.
+func (this TouchEvent) HasGetModifierState() bool {
+	return js.True == bindings.HasTouchEventGetModifierState(
+		this.Ref(),
 	)
-
-	return _ret == js.True, _ok
 }
 
 // GetModifierStateFunc returns the method "TouchEvent.getModifierState".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TouchEvent) GetModifierStateFunc() (fn js.Func[func(keyArg js.String) bool]) {
 	return fn.FromRef(
 		bindings.TouchEventGetModifierStateFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// GetModifierState calls the method "TouchEvent.getModifierState".
+func (this TouchEvent) GetModifierState(keyArg js.String) (ret bool) {
+	bindings.CallTouchEventGetModifierState(
+		this.Ref(), js.Pointer(&ret),
+		keyArg.Ref(),
+	)
+
+	return
+}
+
+// TryGetModifierState calls the method "TouchEvent.getModifierState"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TouchEvent) TryGetModifierState(keyArg js.String) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTouchEventGetModifierState(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		keyArg.Ref(),
+	)
+
+	return
 }
 
 type OneOf_VideoTrack_AudioTrack_TextTrack struct {
@@ -2908,19 +3103,17 @@ func (p TrackEventInit) Update(ref js.Ref) {
 	)
 }
 
-func NewTrackEvent(typ js.String, eventInitDict TrackEventInit) TrackEvent {
-	return TrackEvent{}.FromRef(
-		bindings.NewTrackEventByTrackEvent(
-			typ.Ref(),
-			js.Pointer(&eventInitDict)),
-	)
+func NewTrackEvent(typ js.String, eventInitDict TrackEventInit) (ret TrackEvent) {
+	ret.ref = bindings.NewTrackEventByTrackEvent(
+		typ.Ref(),
+		js.Pointer(&eventInitDict))
+	return
 }
 
-func NewTrackEventByTrackEvent1(typ js.String) TrackEvent {
-	return TrackEvent{}.FromRef(
-		bindings.NewTrackEventByTrackEvent1(
-			typ.Ref()),
-	)
+func NewTrackEventByTrackEvent1(typ js.String) (ret TrackEvent) {
+	ret.ref = bindings.NewTrackEventByTrackEvent1(
+		typ.Ref())
+	return
 }
 
 type TrackEvent struct {
@@ -2947,43 +3140,38 @@ func (this TrackEvent) Free() {
 
 // Track returns the value of property "TrackEvent.track".
 //
-// The returned bool will be false if there is no such property.
-func (this TrackEvent) Track() (OneOf_VideoTrack_AudioTrack_TextTrack, bool) {
-	var _ok bool
-	_ret := bindings.GetTrackEventTrack(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TrackEvent) Track() (ret OneOf_VideoTrack_AudioTrack_TextTrack, ok bool) {
+	ok = js.True == bindings.GetTrackEventTrack(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return OneOf_VideoTrack_AudioTrack_TextTrack{}.FromRef(_ret), _ok
+	return
 }
 
-func NewTransformStream(transformer js.Object, writableStrategy QueuingStrategy, readableStrategy QueuingStrategy) TransformStream {
-	return TransformStream{}.FromRef(
-		bindings.NewTransformStreamByTransformStream(
-			transformer.Ref(),
-			js.Pointer(&writableStrategy),
-			js.Pointer(&readableStrategy)),
-	)
+func NewTransformStream(transformer js.Object, writableStrategy QueuingStrategy, readableStrategy QueuingStrategy) (ret TransformStream) {
+	ret.ref = bindings.NewTransformStreamByTransformStream(
+		transformer.Ref(),
+		js.Pointer(&writableStrategy),
+		js.Pointer(&readableStrategy))
+	return
 }
 
-func NewTransformStreamByTransformStream1(transformer js.Object, writableStrategy QueuingStrategy) TransformStream {
-	return TransformStream{}.FromRef(
-		bindings.NewTransformStreamByTransformStream1(
-			transformer.Ref(),
-			js.Pointer(&writableStrategy)),
-	)
+func NewTransformStreamByTransformStream1(transformer js.Object, writableStrategy QueuingStrategy) (ret TransformStream) {
+	ret.ref = bindings.NewTransformStreamByTransformStream1(
+		transformer.Ref(),
+		js.Pointer(&writableStrategy))
+	return
 }
 
-func NewTransformStreamByTransformStream2(transformer js.Object) TransformStream {
-	return TransformStream{}.FromRef(
-		bindings.NewTransformStreamByTransformStream2(
-			transformer.Ref()),
-	)
+func NewTransformStreamByTransformStream2(transformer js.Object) (ret TransformStream) {
+	ret.ref = bindings.NewTransformStreamByTransformStream2(
+		transformer.Ref())
+	return
 }
 
-func NewTransformStreamByTransformStream3() TransformStream {
-	return TransformStream{}.FromRef(
-		bindings.NewTransformStreamByTransformStream3(),
-	)
+func NewTransformStreamByTransformStream3() (ret TransformStream) {
+	ret.ref = bindings.NewTransformStreamByTransformStream3()
+	return
 }
 
 type TransformStream struct {
@@ -3010,24 +3198,22 @@ func (this TransformStream) Free() {
 
 // Readable returns the value of property "TransformStream.readable".
 //
-// The returned bool will be false if there is no such property.
-func (this TransformStream) Readable() (ReadableStream, bool) {
-	var _ok bool
-	_ret := bindings.GetTransformStreamReadable(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TransformStream) Readable() (ret ReadableStream, ok bool) {
+	ok = js.True == bindings.GetTransformStreamReadable(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ReadableStream{}.FromRef(_ret), _ok
+	return
 }
 
 // Writable returns the value of property "TransformStream.writable".
 //
-// The returned bool will be false if there is no such property.
-func (this TransformStream) Writable() (WritableStream, bool) {
-	var _ok bool
-	_ret := bindings.GetTransformStreamWritable(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TransformStream) Writable() (ret WritableStream, ok bool) {
+	ok = js.True == bindings.GetTransformStreamWritable(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return WritableStream{}.FromRef(_ret), _ok
+	return
 }
 
 type TransformStreamDefaultController struct {
@@ -3054,32 +3240,22 @@ func (this TransformStreamDefaultController) Free() {
 
 // DesiredSize returns the value of property "TransformStreamDefaultController.desiredSize".
 //
-// The returned bool will be false if there is no such property.
-func (this TransformStreamDefaultController) DesiredSize() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetTransformStreamDefaultControllerDesiredSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this TransformStreamDefaultController) DesiredSize() (ret float64, ok bool) {
+	ok = js.True == bindings.GetTransformStreamDefaultControllerDesiredSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// Enqueue calls the method "TransformStreamDefaultController.enqueue".
-//
-// The returned bool will be false if there is no such method.
-func (this TransformStreamDefaultController) Enqueue(chunk js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTransformStreamDefaultControllerEnqueue(
-		this.Ref(), js.Pointer(&_ok),
-		chunk.Ref(),
+// HasEnqueue returns true if the method "TransformStreamDefaultController.enqueue" exists.
+func (this TransformStreamDefaultController) HasEnqueue() bool {
+	return js.True == bindings.HasTransformStreamDefaultControllerEnqueue(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // EnqueueFunc returns the method "TransformStreamDefaultController.enqueue".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TransformStreamDefaultController) EnqueueFunc() (fn js.Func[func(chunk js.Any)]) {
 	return fn.FromRef(
 		bindings.TransformStreamDefaultControllerEnqueueFunc(
@@ -3088,22 +3264,36 @@ func (this TransformStreamDefaultController) EnqueueFunc() (fn js.Func[func(chun
 	)
 }
 
-// Enqueue1 calls the method "TransformStreamDefaultController.enqueue".
-//
-// The returned bool will be false if there is no such method.
-func (this TransformStreamDefaultController) Enqueue1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTransformStreamDefaultControllerEnqueue1(
-		this.Ref(), js.Pointer(&_ok),
+// Enqueue calls the method "TransformStreamDefaultController.enqueue".
+func (this TransformStreamDefaultController) Enqueue(chunk js.Any) (ret js.Void) {
+	bindings.CallTransformStreamDefaultControllerEnqueue(
+		this.Ref(), js.Pointer(&ret),
+		chunk.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryEnqueue calls the method "TransformStreamDefaultController.enqueue"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TransformStreamDefaultController) TryEnqueue(chunk js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTransformStreamDefaultControllerEnqueue(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		chunk.Ref(),
+	)
+
+	return
+}
+
+// HasEnqueue1 returns true if the method "TransformStreamDefaultController.enqueue" exists.
+func (this TransformStreamDefaultController) HasEnqueue1() bool {
+	return js.True == bindings.HasTransformStreamDefaultControllerEnqueue1(
+		this.Ref(),
+	)
 }
 
 // Enqueue1Func returns the method "TransformStreamDefaultController.enqueue".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TransformStreamDefaultController) Enqueue1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.TransformStreamDefaultControllerEnqueue1Func(
@@ -3112,23 +3302,34 @@ func (this TransformStreamDefaultController) Enqueue1Func() (fn js.Func[func()])
 	)
 }
 
-// Error calls the method "TransformStreamDefaultController.error".
-//
-// The returned bool will be false if there is no such method.
-func (this TransformStreamDefaultController) Error(reason js.Any) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTransformStreamDefaultControllerError(
-		this.Ref(), js.Pointer(&_ok),
-		reason.Ref(),
+// Enqueue1 calls the method "TransformStreamDefaultController.enqueue".
+func (this TransformStreamDefaultController) Enqueue1() (ret js.Void) {
+	bindings.CallTransformStreamDefaultControllerEnqueue1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryEnqueue1 calls the method "TransformStreamDefaultController.enqueue"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TransformStreamDefaultController) TryEnqueue1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTransformStreamDefaultControllerEnqueue1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasError returns true if the method "TransformStreamDefaultController.error" exists.
+func (this TransformStreamDefaultController) HasError() bool {
+	return js.True == bindings.HasTransformStreamDefaultControllerError(
+		this.Ref(),
+	)
 }
 
 // ErrorFunc returns the method "TransformStreamDefaultController.error".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TransformStreamDefaultController) ErrorFunc() (fn js.Func[func(reason js.Any)]) {
 	return fn.FromRef(
 		bindings.TransformStreamDefaultControllerErrorFunc(
@@ -3137,22 +3338,36 @@ func (this TransformStreamDefaultController) ErrorFunc() (fn js.Func[func(reason
 	)
 }
 
-// Error1 calls the method "TransformStreamDefaultController.error".
-//
-// The returned bool will be false if there is no such method.
-func (this TransformStreamDefaultController) Error1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTransformStreamDefaultControllerError1(
-		this.Ref(), js.Pointer(&_ok),
+// Error calls the method "TransformStreamDefaultController.error".
+func (this TransformStreamDefaultController) Error(reason js.Any) (ret js.Void) {
+	bindings.CallTransformStreamDefaultControllerError(
+		this.Ref(), js.Pointer(&ret),
+		reason.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryError calls the method "TransformStreamDefaultController.error"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TransformStreamDefaultController) TryError(reason js.Any) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTransformStreamDefaultControllerError(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		reason.Ref(),
+	)
+
+	return
+}
+
+// HasError1 returns true if the method "TransformStreamDefaultController.error" exists.
+func (this TransformStreamDefaultController) HasError1() bool {
+	return js.True == bindings.HasTransformStreamDefaultControllerError1(
+		this.Ref(),
+	)
 }
 
 // Error1Func returns the method "TransformStreamDefaultController.error".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TransformStreamDefaultController) Error1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.TransformStreamDefaultControllerError1Func(
@@ -3161,28 +3376,60 @@ func (this TransformStreamDefaultController) Error1Func() (fn js.Func[func()]) {
 	)
 }
 
-// Terminate calls the method "TransformStreamDefaultController.terminate".
-//
-// The returned bool will be false if there is no such method.
-func (this TransformStreamDefaultController) Terminate() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallTransformStreamDefaultControllerTerminate(
-		this.Ref(), js.Pointer(&_ok),
+// Error1 calls the method "TransformStreamDefaultController.error".
+func (this TransformStreamDefaultController) Error1() (ret js.Void) {
+	bindings.CallTransformStreamDefaultControllerError1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryError1 calls the method "TransformStreamDefaultController.error"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TransformStreamDefaultController) TryError1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTransformStreamDefaultControllerError1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasTerminate returns true if the method "TransformStreamDefaultController.terminate" exists.
+func (this TransformStreamDefaultController) HasTerminate() bool {
+	return js.True == bindings.HasTransformStreamDefaultControllerTerminate(
+		this.Ref(),
+	)
 }
 
 // TerminateFunc returns the method "TransformStreamDefaultController.terminate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this TransformStreamDefaultController) TerminateFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.TransformStreamDefaultControllerTerminateFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// Terminate calls the method "TransformStreamDefaultController.terminate".
+func (this TransformStreamDefaultController) Terminate() (ret js.Void) {
+	bindings.CallTransformStreamDefaultControllerTerminate(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryTerminate calls the method "TransformStreamDefaultController.terminate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this TransformStreamDefaultController) TryTerminate() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryTransformStreamDefaultControllerTerminate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type TransformerStartCallbackFunc func(this js.Ref, controller TransformStreamDefaultController) js.Ref

@@ -16,6 +16,7 @@ import (
 	"github.com/primecitizens/std/math"
 	"github.com/primecitizens/std/math/matrix"
 	"github.com/primecitizens/std/plat/js/web"
+	"github.com/primecitizens/std/time"
 	"github.com/primecitizens/std/ui/html"
 )
 
@@ -66,7 +67,7 @@ type ExampleWebGPU struct {
 	fps     web.HTMLSpanElement
 	canvas  web.HTMLCanvasElement
 
-	frames        int
+	frames        float64
 	lastFPSUpdate web.DOMHighResTimeStamp
 	fpsBuilder    html.Builder
 }
@@ -93,8 +94,10 @@ func (x *ExampleWebGPU) Run() {
 	}
 
 	x.running = true
-	displayArea.AppendChild(x.fpsLine.Node)
-	displayArea.AppendChild(x.canvas.Node)
+	js.Free(
+		displayArea.AppendChild(x.fpsLine.Node).Ref(),
+		displayArea.AppendChild(x.canvas.Node).Ref(),
+	)
 	x.animate()
 }
 
@@ -107,23 +110,23 @@ func (x *ExampleWebGPU) Stop() {
 }
 
 func (x *ExampleWebGPU) init() bool {
-	adapter, err, ok := js.Must(webgpu.RequestAdapter1()).Await(true)
+	adapter, err, ok := js.TryAwait(webgpu.TryRequestAdapter1())
 	if !ok {
 		displayBuffer.Discard().
 			TextBlock("<p>", "</p>",
 				"no gpu adapter available 😭, please see console log for error information.",
 			).Flush(false)
-		console.Log(err)
+		console.Log(err.Once())
 		return false
 	}
 
-	x.dev, err, ok = js.Must(adapter.Once().RequestDevice1()).Await(true)
+	x.dev, err, ok = js.TryAwait(adapter.Once().TryRequestDevice1())
 	if !ok {
 		displayBuffer.Discard().
 			TextBlock("<p>", "</p>",
 				"no gpu device available 😭, please see console log for error information.",
 			).Flush(false)
-		console.Log(err)
+		console.Log(err.Once())
 		return false
 	}
 
@@ -133,7 +136,7 @@ func (x *ExampleWebGPU) init() bool {
 	}
 	x.frameHandler = x.callbackContext.Register()
 
-	x.fpsLine = web.HTMLElement{}.FromRef(js.Must(document.CreateElement1(js.NewString("p").Once())).Ref())
+	x.fpsLine = web.HTMLElement{}.FromRef(document.CreateElement1(js.NewString("p").Once()).Ref())
 	x.fps = web.NewHTMLSpanElement()
 	x.canvas = web.NewHTMLCanvasElement()
 
@@ -142,7 +145,7 @@ func (x *ExampleWebGPU) init() bool {
 	x.fpsBuilder.Reset(x.fps.Ref()).Text("0").Flush(false)
 
 	x.context = web.GPUCanvasContext{}.FromRef(
-		js.Must(x.canvas.GetContext1(js.NewString("webgpu").Once())).Ref(),
+		x.canvas.GetContext1(js.NewString("webgpu").Once()).Ref(),
 	)
 	if x.context.Ref().Undefined() {
 		displayBuffer.Discard().
@@ -158,18 +161,18 @@ func (x *ExampleWebGPU) init() bool {
 	}
 
 	// TODO: adjust width and height automatically
-	width := uint32(800)  // uint32(float64(js.Must(displayArea.ClientWidth())) * devicePixelRatio)
-	height := uint32(600) // uint32(float64(js.Must(window.InnerHeight())-js.Must(x.fpsLine.ClientHeight())) * devicePixelRatio)
+	width := uint32(800)  // uint32(float64(displayArea.ClientWidth()) * devicePixelRatio)
+	height := uint32(600) // uint32(float64(window.InnerHeight()-x.fpsLine.ClientHeight()) * devicePixelRatio)
 	x.canvas.SetWidth(width)
 	x.canvas.SetHeight(height)
 
-	presentationFormat := js.Must(webgpu.GetPreferredCanvasFormat())
+	presentationFormat := webgpu.GetPreferredCanvasFormat()
 
-	js.Must(x.context.Configure(web.GPUCanvasConfiguration{
+	x.context.Configure(web.GPUCanvasConfiguration{
 		Device:    x.dev,
 		Format:    presentationFormat,
 		AlphaMode: web.GPUCanvasAlphaMode_PREMULTIPLIED,
-	}))
+	})
 
 	cubeVertexArray := js.NewTypedArrayOf[float32](
 		// float4 position, float4 color, float2 uv,
@@ -215,15 +218,15 @@ func (x *ExampleWebGPU) init() bool {
 		1, -1, -1, 1, 1, 0, 0, 1, 0, 1,
 		-1, 1, -1, 1, 0, 1, 0, 1, 1, 0,
 	)
-	x.verticesBuffer = js.Must(x.dev.CreateBuffer(web.GPUBufferDescriptor{
+	x.verticesBuffer = x.dev.CreateBuffer(web.GPUBufferDescriptor{
 		Size:  web.GPUSize64(cubeVertexArray.ByteLength()),
 		Usage: web.GPUBufferUsageFlags(web.GPUBufferUsage_VERTEX),
 
 		FFI_USE_MappedAtCreation: true,
 		MappedAtCreation:         true,
-	}))
+	})
 
-	js.TypedArray[float32]{}.FromArrayBuffer(true, js.Must(x.verticesBuffer.GetMappedRange2())).
+	js.TypedArray[float32]{}.FromArrayBuffer(true, x.verticesBuffer.GetMappedRange2()).
 		Once().Set(cubeVertexArray)
 	x.verticesBuffer.Unmap()
 
@@ -235,18 +238,16 @@ func (x *ExampleWebGPU) init() bool {
 		cubeVertexCount    = 36
 	)
 
-	x.pipeline = js.Must(x.dev.CreateRenderPipeline(web.GPURenderPipelineDescriptor{
+	x.pipeline = x.dev.CreateRenderPipeline(web.GPURenderPipelineDescriptor{
 		Layout: web.OneOf_GPUPipelineLayout_GPUAutoLayoutMode{}.FromRef(
 			js.NewString(js.Must(web.GPUAutoLayoutMode_AUTO.String())).Ref(),
 		),
 		Vertex: web.GPUVertexState{
 			FFI_USE: true,
 
-			Module: js.Must(
-				x.dev.CreateShaderModule(web.GPUShaderModuleDescriptor{
-					Code: js.NewString(vertexWGSL).Once(),
-				}),
-			),
+			Module: x.dev.CreateShaderModule(web.GPUShaderModuleDescriptor{
+				Code: js.NewString(vertexWGSL).Once(),
+			}),
 			EntryPoint: strMain,
 			Buffers: js.NewArrayOf[web.GPUVertexBufferLayout](true,
 				web.GPUVertexBufferLayout{
@@ -269,9 +270,9 @@ func (x *ExampleWebGPU) init() bool {
 		Fragment: web.GPUFragmentState{
 			FFI_USE: true,
 
-			Module: js.Must(x.dev.CreateShaderModule(web.GPUShaderModuleDescriptor{
+			Module: x.dev.CreateShaderModule(web.GPUShaderModuleDescriptor{
 				Code: js.NewString(vertexPosColorWGSL).Once(),
-			})),
+			}),
 			EntryPoint: strMain,
 			Targets: js.NewArrayOf[web.GPUColorTargetState](true,
 				web.GPUColorTargetState{
@@ -292,9 +293,9 @@ func (x *ExampleWebGPU) init() bool {
 			DepthWriteEnabled: true,
 			DepthCompare:      web.GPUCompareFunction_LESS,
 		},
-	}))
+	})
 
-	depthTexture := js.Must(x.dev.CreateTexture(web.GPUTextureDescriptor{
+	depthTexture := x.dev.CreateTexture(web.GPUTextureDescriptor{
 		Size: web.GPUExtent3D{}.FromRef(
 			web.GPUExtent3DDict{
 				Width:          web.GPUIntegerCoordinate(width),
@@ -304,18 +305,18 @@ func (x *ExampleWebGPU) init() bool {
 		),
 		Format: web.GPUTextureFormat_DEPTH_24PLUS,
 		Usage:  web.GPUTextureUsageFlags(web.GPUTextureUsage_RENDER_ATTACHMENT),
-	}))
+	})
 
 	const uniformBufferSize = 4 * 16 // 4x4 matrix
-	x.uniformBuffer = js.Must(x.dev.CreateBuffer(web.GPUBufferDescriptor{
+	x.uniformBuffer = x.dev.CreateBuffer(web.GPUBufferDescriptor{
 		Size: uniformBufferSize,
 		Usage: web.GPUBufferUsageFlags(
 			web.GPUBufferUsage_UNIFORM | web.GPUBufferUsage_COPY_DST,
 		),
-	}))
+	})
 
-	x.uniformBindGroup = js.Must(x.dev.CreateBindGroup(web.GPUBindGroupDescriptor{
-		Layout: js.Must(x.pipeline.GetBindGroupLayout(0)),
+	x.uniformBindGroup = x.dev.CreateBindGroup(web.GPUBindGroupDescriptor{
+		Layout: x.pipeline.GetBindGroupLayout(0),
 		Entries: js.NewArrayOf[web.GPUBindGroupEntry](true,
 			web.GPUBindGroupEntry{
 				Binding: 0,
@@ -327,7 +328,7 @@ func (x *ExampleWebGPU) init() bool {
 					),
 			}.New(),
 		),
-	}))
+	})
 
 	x.colorAttachment = web.GPURenderPassColorAttachment{
 		View:          web.GPUTextureView{},
@@ -351,7 +352,7 @@ func (x *ExampleWebGPU) init() bool {
 		DepthStencilAttachment: web.GPURenderPassDepthStencilAttachment{
 			FFI_USE: true,
 
-			View:                    js.Must(depthTexture.CreateView1()),
+			View:                    depthTexture.CreateView1(),
 			FFI_USE_DepthClearValue: true,
 			DepthClearValue:         1.0,
 			DepthLoadOp:             web.GPULoadOp_CLEAR,
@@ -387,39 +388,44 @@ func (x *ExampleWebGPU) getTransformationMatrix(now float64) js.TypedArray[float
 	return x.modelViewProjectionMatrix.MustFill(0, projectionMat.Mul(viewMat)[:]...)
 }
 
-func (x *ExampleWebGPU) updateFrame(this js.Ref, time web.DOMHighResTimeStamp) js.Ref {
+func (x *ExampleWebGPU) updateFrame(this js.Ref, now web.DOMHighResTimeStamp) js.Ref {
 	if !x.running {
 		return js.Undefined
 	}
 
-	if time-x.lastFPSUpdate >= 1000 {
-		x.fpsBuilder.Int(int64(x.frames), 10).Flush(false)
+	if now-x.lastFPSUpdate >= 1000 {
+		x.fpsBuilder.Float((x.frames + 1) / (float64(now-x.lastFPSUpdate) / time.Microsecond)).Flush(false)
 		x.frames = 0
-		x.lastFPSUpdate = time
+		x.lastFPSUpdate = now
 	} else {
 		x.frames++
 	}
 
-	txMat := x.getTransformationMatrix(float64(time))
+	txMat := x.getTransformationMatrix(float64(now))
 
 	x.q.WriteBuffer(
 		x.uniformBuffer,
 		0,
-		web.AllowSharedBufferSource{}.FromRef(txMat.Buffer(false)),
+		web.AllowSharedBufferSource{}.FromRef(txMat.Buffer(false).Once()),
 		web.GPUSize64(txMat.ByteOffset()),
 		web.GPUSize64(txMat.ByteLength()),
 	)
-	x.colorAttachment.View = js.Must(js.Must(x.context.GetCurrentTexture()).Once().CreateView1()).Once()
+	x.colorAttachment.View = x.context.GetCurrentTexture().Once().CreateView1().Once()
 	x.colorAttachment.Update(x.colorAttachmentRef)
 
-	cmdEnc := js.Must(x.dev.CreateCommandEncoder1())
-	enc := js.Must(cmdEnc.BeginRenderPass(x.renderPassDescriptor))
+	cmdEnc := x.dev.CreateCommandEncoder1()
+	enc := cmdEnc.BeginRenderPass(x.renderPassDescriptor)
+
 	enc.SetPipeline(x.pipeline)
 	enc.SetBindGroup1(0, x.uniformBindGroup)
 	enc.SetVertexBuffer2(0, x.verticesBuffer)
 	enc.Draw3(36)
-	enc.End()
-	x.q.Submit(js.NewArrayOf[web.GPUCommandBuffer](true, js.Must(cmdEnc.Finish1()).Ref()).Once())
+	enc.Once().End()
+	x.q.Submit(
+		js.NewArrayOf[web.GPUCommandBuffer](true,
+			cmdEnc.Once().Finish1().Ref().Once(),
+		).Once(),
+	)
 
 	x.animate()
 
@@ -427,5 +433,5 @@ func (x *ExampleWebGPU) updateFrame(this js.Ref, time web.DOMHighResTimeStamp) j
 }
 
 func (x *ExampleWebGPU) animate() {
-	x.animationID = js.Must(window.RequestAnimationFrame(x.frameHandler))
+	x.animationID = window.RequestAnimationFrame(x.frameHandler)
 }

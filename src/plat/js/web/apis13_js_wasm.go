@@ -387,27 +387,25 @@ func (this OffscreenCanvasRenderingContext2D) Free() {
 
 // Canvas returns the value of property "OffscreenCanvasRenderingContext2D.canvas".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) Canvas() (OffscreenCanvas, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DCanvas(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) Canvas() (ret OffscreenCanvas, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DCanvas(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return OffscreenCanvas{}.FromRef(_ret), _ok
+	return
 }
 
 // GlobalAlpha returns the value of property "OffscreenCanvasRenderingContext2D.globalAlpha".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) GlobalAlpha() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DGlobalAlpha(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) GlobalAlpha() (ret float64, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DGlobalAlpha(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// GlobalAlpha sets the value of property "OffscreenCanvasRenderingContext2D.globalAlpha" to val.
+// SetGlobalAlpha sets the value of property "OffscreenCanvasRenderingContext2D.globalAlpha" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetGlobalAlpha(val float64) bool {
@@ -419,16 +417,15 @@ func (this OffscreenCanvasRenderingContext2D) SetGlobalAlpha(val float64) bool {
 
 // GlobalCompositeOperation returns the value of property "OffscreenCanvasRenderingContext2D.globalCompositeOperation".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) GlobalCompositeOperation() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DGlobalCompositeOperation(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) GlobalCompositeOperation() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DGlobalCompositeOperation(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// GlobalCompositeOperation sets the value of property "OffscreenCanvasRenderingContext2D.globalCompositeOperation" to val.
+// SetGlobalCompositeOperation sets the value of property "OffscreenCanvasRenderingContext2D.globalCompositeOperation" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetGlobalCompositeOperation(val js.String) bool {
@@ -440,16 +437,15 @@ func (this OffscreenCanvasRenderingContext2D) SetGlobalCompositeOperation(val js
 
 // ImageSmoothingEnabled returns the value of property "OffscreenCanvasRenderingContext2D.imageSmoothingEnabled".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) ImageSmoothingEnabled() (bool, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DImageSmoothingEnabled(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) ImageSmoothingEnabled() (ret bool, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DImageSmoothingEnabled(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return _ret == js.True, _ok
+	return
 }
 
-// ImageSmoothingEnabled sets the value of property "OffscreenCanvasRenderingContext2D.imageSmoothingEnabled" to val.
+// SetImageSmoothingEnabled sets the value of property "OffscreenCanvasRenderingContext2D.imageSmoothingEnabled" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetImageSmoothingEnabled(val bool) bool {
@@ -461,16 +457,15 @@ func (this OffscreenCanvasRenderingContext2D) SetImageSmoothingEnabled(val bool)
 
 // ImageSmoothingQuality returns the value of property "OffscreenCanvasRenderingContext2D.imageSmoothingQuality".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) ImageSmoothingQuality() (ImageSmoothingQuality, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DImageSmoothingQuality(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) ImageSmoothingQuality() (ret ImageSmoothingQuality, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DImageSmoothingQuality(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return ImageSmoothingQuality(_ret), _ok
+	return
 }
 
-// ImageSmoothingQuality sets the value of property "OffscreenCanvasRenderingContext2D.imageSmoothingQuality" to val.
+// SetImageSmoothingQuality sets the value of property "OffscreenCanvasRenderingContext2D.imageSmoothingQuality" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetImageSmoothingQuality(val ImageSmoothingQuality) bool {
@@ -482,16 +477,15 @@ func (this OffscreenCanvasRenderingContext2D) SetImageSmoothingQuality(val Image
 
 // StrokeStyle returns the value of property "OffscreenCanvasRenderingContext2D.strokeStyle".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) StrokeStyle() (OneOf_String_CanvasGradient_CanvasPattern, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DStrokeStyle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) StrokeStyle() (ret OneOf_String_CanvasGradient_CanvasPattern, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DStrokeStyle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return OneOf_String_CanvasGradient_CanvasPattern{}.FromRef(_ret), _ok
+	return
 }
 
-// StrokeStyle sets the value of property "OffscreenCanvasRenderingContext2D.strokeStyle" to val.
+// SetStrokeStyle sets the value of property "OffscreenCanvasRenderingContext2D.strokeStyle" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetStrokeStyle(val OneOf_String_CanvasGradient_CanvasPattern) bool {
@@ -503,16 +497,15 @@ func (this OffscreenCanvasRenderingContext2D) SetStrokeStyle(val OneOf_String_Ca
 
 // FillStyle returns the value of property "OffscreenCanvasRenderingContext2D.fillStyle".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) FillStyle() (OneOf_String_CanvasGradient_CanvasPattern, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DFillStyle(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) FillStyle() (ret OneOf_String_CanvasGradient_CanvasPattern, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DFillStyle(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return OneOf_String_CanvasGradient_CanvasPattern{}.FromRef(_ret), _ok
+	return
 }
 
-// FillStyle sets the value of property "OffscreenCanvasRenderingContext2D.fillStyle" to val.
+// SetFillStyle sets the value of property "OffscreenCanvasRenderingContext2D.fillStyle" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetFillStyle(val OneOf_String_CanvasGradient_CanvasPattern) bool {
@@ -524,16 +517,15 @@ func (this OffscreenCanvasRenderingContext2D) SetFillStyle(val OneOf_String_Canv
 
 // ShadowOffsetX returns the value of property "OffscreenCanvasRenderingContext2D.shadowOffsetX".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) ShadowOffsetX() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DShadowOffsetX(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) ShadowOffsetX() (ret float64, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DShadowOffsetX(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// ShadowOffsetX sets the value of property "OffscreenCanvasRenderingContext2D.shadowOffsetX" to val.
+// SetShadowOffsetX sets the value of property "OffscreenCanvasRenderingContext2D.shadowOffsetX" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetShadowOffsetX(val float64) bool {
@@ -545,16 +537,15 @@ func (this OffscreenCanvasRenderingContext2D) SetShadowOffsetX(val float64) bool
 
 // ShadowOffsetY returns the value of property "OffscreenCanvasRenderingContext2D.shadowOffsetY".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) ShadowOffsetY() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DShadowOffsetY(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) ShadowOffsetY() (ret float64, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DShadowOffsetY(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// ShadowOffsetY sets the value of property "OffscreenCanvasRenderingContext2D.shadowOffsetY" to val.
+// SetShadowOffsetY sets the value of property "OffscreenCanvasRenderingContext2D.shadowOffsetY" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetShadowOffsetY(val float64) bool {
@@ -566,16 +557,15 @@ func (this OffscreenCanvasRenderingContext2D) SetShadowOffsetY(val float64) bool
 
 // ShadowBlur returns the value of property "OffscreenCanvasRenderingContext2D.shadowBlur".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) ShadowBlur() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DShadowBlur(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) ShadowBlur() (ret float64, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DShadowBlur(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// ShadowBlur sets the value of property "OffscreenCanvasRenderingContext2D.shadowBlur" to val.
+// SetShadowBlur sets the value of property "OffscreenCanvasRenderingContext2D.shadowBlur" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetShadowBlur(val float64) bool {
@@ -587,16 +577,15 @@ func (this OffscreenCanvasRenderingContext2D) SetShadowBlur(val float64) bool {
 
 // ShadowColor returns the value of property "OffscreenCanvasRenderingContext2D.shadowColor".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) ShadowColor() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DShadowColor(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) ShadowColor() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DShadowColor(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// ShadowColor sets the value of property "OffscreenCanvasRenderingContext2D.shadowColor" to val.
+// SetShadowColor sets the value of property "OffscreenCanvasRenderingContext2D.shadowColor" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetShadowColor(val js.String) bool {
@@ -608,16 +597,15 @@ func (this OffscreenCanvasRenderingContext2D) SetShadowColor(val js.String) bool
 
 // Filter returns the value of property "OffscreenCanvasRenderingContext2D.filter".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) Filter() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DFilter(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) Filter() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DFilter(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Filter sets the value of property "OffscreenCanvasRenderingContext2D.filter" to val.
+// SetFilter sets the value of property "OffscreenCanvasRenderingContext2D.filter" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetFilter(val js.String) bool {
@@ -629,16 +617,15 @@ func (this OffscreenCanvasRenderingContext2D) SetFilter(val js.String) bool {
 
 // LineWidth returns the value of property "OffscreenCanvasRenderingContext2D.lineWidth".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) LineWidth() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DLineWidth(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) LineWidth() (ret float64, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DLineWidth(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// LineWidth sets the value of property "OffscreenCanvasRenderingContext2D.lineWidth" to val.
+// SetLineWidth sets the value of property "OffscreenCanvasRenderingContext2D.lineWidth" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetLineWidth(val float64) bool {
@@ -650,16 +637,15 @@ func (this OffscreenCanvasRenderingContext2D) SetLineWidth(val float64) bool {
 
 // LineCap returns the value of property "OffscreenCanvasRenderingContext2D.lineCap".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) LineCap() (CanvasLineCap, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DLineCap(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) LineCap() (ret CanvasLineCap, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DLineCap(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasLineCap(_ret), _ok
+	return
 }
 
-// LineCap sets the value of property "OffscreenCanvasRenderingContext2D.lineCap" to val.
+// SetLineCap sets the value of property "OffscreenCanvasRenderingContext2D.lineCap" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetLineCap(val CanvasLineCap) bool {
@@ -671,16 +657,15 @@ func (this OffscreenCanvasRenderingContext2D) SetLineCap(val CanvasLineCap) bool
 
 // LineJoin returns the value of property "OffscreenCanvasRenderingContext2D.lineJoin".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) LineJoin() (CanvasLineJoin, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DLineJoin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) LineJoin() (ret CanvasLineJoin, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DLineJoin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasLineJoin(_ret), _ok
+	return
 }
 
-// LineJoin sets the value of property "OffscreenCanvasRenderingContext2D.lineJoin" to val.
+// SetLineJoin sets the value of property "OffscreenCanvasRenderingContext2D.lineJoin" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetLineJoin(val CanvasLineJoin) bool {
@@ -692,16 +677,15 @@ func (this OffscreenCanvasRenderingContext2D) SetLineJoin(val CanvasLineJoin) bo
 
 // MiterLimit returns the value of property "OffscreenCanvasRenderingContext2D.miterLimit".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) MiterLimit() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DMiterLimit(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) MiterLimit() (ret float64, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DMiterLimit(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// MiterLimit sets the value of property "OffscreenCanvasRenderingContext2D.miterLimit" to val.
+// SetMiterLimit sets the value of property "OffscreenCanvasRenderingContext2D.miterLimit" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetMiterLimit(val float64) bool {
@@ -713,16 +697,15 @@ func (this OffscreenCanvasRenderingContext2D) SetMiterLimit(val float64) bool {
 
 // LineDashOffset returns the value of property "OffscreenCanvasRenderingContext2D.lineDashOffset".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) LineDashOffset() (float64, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DLineDashOffset(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) LineDashOffset() (ret float64, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DLineDashOffset(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return float64(_ret), _ok
+	return
 }
 
-// LineDashOffset sets the value of property "OffscreenCanvasRenderingContext2D.lineDashOffset" to val.
+// SetLineDashOffset sets the value of property "OffscreenCanvasRenderingContext2D.lineDashOffset" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetLineDashOffset(val float64) bool {
@@ -734,16 +717,15 @@ func (this OffscreenCanvasRenderingContext2D) SetLineDashOffset(val float64) boo
 
 // Font returns the value of property "OffscreenCanvasRenderingContext2D.font".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) Font() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DFont(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) Font() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DFont(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// Font sets the value of property "OffscreenCanvasRenderingContext2D.font" to val.
+// SetFont sets the value of property "OffscreenCanvasRenderingContext2D.font" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetFont(val js.String) bool {
@@ -755,16 +737,15 @@ func (this OffscreenCanvasRenderingContext2D) SetFont(val js.String) bool {
 
 // TextAlign returns the value of property "OffscreenCanvasRenderingContext2D.textAlign".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) TextAlign() (CanvasTextAlign, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DTextAlign(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) TextAlign() (ret CanvasTextAlign, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DTextAlign(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasTextAlign(_ret), _ok
+	return
 }
 
-// TextAlign sets the value of property "OffscreenCanvasRenderingContext2D.textAlign" to val.
+// SetTextAlign sets the value of property "OffscreenCanvasRenderingContext2D.textAlign" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetTextAlign(val CanvasTextAlign) bool {
@@ -776,16 +757,15 @@ func (this OffscreenCanvasRenderingContext2D) SetTextAlign(val CanvasTextAlign) 
 
 // TextBaseline returns the value of property "OffscreenCanvasRenderingContext2D.textBaseline".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) TextBaseline() (CanvasTextBaseline, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DTextBaseline(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) TextBaseline() (ret CanvasTextBaseline, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DTextBaseline(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasTextBaseline(_ret), _ok
+	return
 }
 
-// TextBaseline sets the value of property "OffscreenCanvasRenderingContext2D.textBaseline" to val.
+// SetTextBaseline sets the value of property "OffscreenCanvasRenderingContext2D.textBaseline" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetTextBaseline(val CanvasTextBaseline) bool {
@@ -797,16 +777,15 @@ func (this OffscreenCanvasRenderingContext2D) SetTextBaseline(val CanvasTextBase
 
 // Direction returns the value of property "OffscreenCanvasRenderingContext2D.direction".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) Direction() (CanvasDirection, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DDirection(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) Direction() (ret CanvasDirection, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DDirection(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasDirection(_ret), _ok
+	return
 }
 
-// Direction sets the value of property "OffscreenCanvasRenderingContext2D.direction" to val.
+// SetDirection sets the value of property "OffscreenCanvasRenderingContext2D.direction" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetDirection(val CanvasDirection) bool {
@@ -818,16 +797,15 @@ func (this OffscreenCanvasRenderingContext2D) SetDirection(val CanvasDirection) 
 
 // LetterSpacing returns the value of property "OffscreenCanvasRenderingContext2D.letterSpacing".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) LetterSpacing() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DLetterSpacing(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) LetterSpacing() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DLetterSpacing(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// LetterSpacing sets the value of property "OffscreenCanvasRenderingContext2D.letterSpacing" to val.
+// SetLetterSpacing sets the value of property "OffscreenCanvasRenderingContext2D.letterSpacing" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetLetterSpacing(val js.String) bool {
@@ -839,16 +817,15 @@ func (this OffscreenCanvasRenderingContext2D) SetLetterSpacing(val js.String) bo
 
 // FontKerning returns the value of property "OffscreenCanvasRenderingContext2D.fontKerning".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) FontKerning() (CanvasFontKerning, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DFontKerning(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) FontKerning() (ret CanvasFontKerning, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DFontKerning(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasFontKerning(_ret), _ok
+	return
 }
 
-// FontKerning sets the value of property "OffscreenCanvasRenderingContext2D.fontKerning" to val.
+// SetFontKerning sets the value of property "OffscreenCanvasRenderingContext2D.fontKerning" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetFontKerning(val CanvasFontKerning) bool {
@@ -860,16 +837,15 @@ func (this OffscreenCanvasRenderingContext2D) SetFontKerning(val CanvasFontKerni
 
 // FontStretch returns the value of property "OffscreenCanvasRenderingContext2D.fontStretch".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) FontStretch() (CanvasFontStretch, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DFontStretch(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) FontStretch() (ret CanvasFontStretch, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DFontStretch(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasFontStretch(_ret), _ok
+	return
 }
 
-// FontStretch sets the value of property "OffscreenCanvasRenderingContext2D.fontStretch" to val.
+// SetFontStretch sets the value of property "OffscreenCanvasRenderingContext2D.fontStretch" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetFontStretch(val CanvasFontStretch) bool {
@@ -881,16 +857,15 @@ func (this OffscreenCanvasRenderingContext2D) SetFontStretch(val CanvasFontStret
 
 // FontVariantCaps returns the value of property "OffscreenCanvasRenderingContext2D.fontVariantCaps".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) FontVariantCaps() (CanvasFontVariantCaps, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DFontVariantCaps(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) FontVariantCaps() (ret CanvasFontVariantCaps, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DFontVariantCaps(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasFontVariantCaps(_ret), _ok
+	return
 }
 
-// FontVariantCaps sets the value of property "OffscreenCanvasRenderingContext2D.fontVariantCaps" to val.
+// SetFontVariantCaps sets the value of property "OffscreenCanvasRenderingContext2D.fontVariantCaps" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetFontVariantCaps(val CanvasFontVariantCaps) bool {
@@ -902,16 +877,15 @@ func (this OffscreenCanvasRenderingContext2D) SetFontVariantCaps(val CanvasFontV
 
 // TextRendering returns the value of property "OffscreenCanvasRenderingContext2D.textRendering".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) TextRendering() (CanvasTextRendering, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DTextRendering(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) TextRendering() (ret CanvasTextRendering, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DTextRendering(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return CanvasTextRendering(_ret), _ok
+	return
 }
 
-// TextRendering sets the value of property "OffscreenCanvasRenderingContext2D.textRendering" to val.
+// SetTextRendering sets the value of property "OffscreenCanvasRenderingContext2D.textRendering" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetTextRendering(val CanvasTextRendering) bool {
@@ -923,16 +897,15 @@ func (this OffscreenCanvasRenderingContext2D) SetTextRendering(val CanvasTextRen
 
 // WordSpacing returns the value of property "OffscreenCanvasRenderingContext2D.wordSpacing".
 //
-// The returned bool will be false if there is no such property.
-func (this OffscreenCanvasRenderingContext2D) WordSpacing() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetOffscreenCanvasRenderingContext2DWordSpacing(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this OffscreenCanvasRenderingContext2D) WordSpacing() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetOffscreenCanvasRenderingContext2DWordSpacing(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
-// WordSpacing sets the value of property "OffscreenCanvasRenderingContext2D.wordSpacing" to val.
+// SetWordSpacing sets the value of property "OffscreenCanvasRenderingContext2D.wordSpacing" to val.
 //
 // It returns false if the property cannot be set.
 func (this OffscreenCanvasRenderingContext2D) SetWordSpacing(val js.String) bool {
@@ -942,22 +915,14 @@ func (this OffscreenCanvasRenderingContext2D) SetWordSpacing(val js.String) bool
 	)
 }
 
-// Commit calls the method "OffscreenCanvasRenderingContext2D.commit".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Commit() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCommit(
-		this.Ref(), js.Pointer(&_ok),
+// HasCommit returns true if the method "OffscreenCanvasRenderingContext2D.commit" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCommit() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCommit(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // CommitFunc returns the method "OffscreenCanvasRenderingContext2D.commit".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CommitFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCommitFunc(
@@ -966,24 +931,34 @@ func (this OffscreenCanvasRenderingContext2D) CommitFunc() (fn js.Func[func()]) 
 	)
 }
 
-// Scale calls the method "OffscreenCanvasRenderingContext2D.scale".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Scale(x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DScale(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x),
-		float64(y),
+// Commit calls the method "OffscreenCanvasRenderingContext2D.commit".
+func (this OffscreenCanvasRenderingContext2D) Commit() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DCommit(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryCommit calls the method "OffscreenCanvasRenderingContext2D.commit"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCommit() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCommit(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasScale returns true if the method "OffscreenCanvasRenderingContext2D.scale" exists.
+func (this OffscreenCanvasRenderingContext2D) HasScale() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DScale(
+		this.Ref(),
+	)
 }
 
 // ScaleFunc returns the method "OffscreenCanvasRenderingContext2D.scale".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ScaleFunc() (fn js.Func[func(x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DScaleFunc(
@@ -992,23 +967,38 @@ func (this OffscreenCanvasRenderingContext2D) ScaleFunc() (fn js.Func[func(x flo
 	)
 }
 
-// Rotate calls the method "OffscreenCanvasRenderingContext2D.rotate".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Rotate(angle float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DRotate(
-		this.Ref(), js.Pointer(&_ok),
-		float64(angle),
+// Scale calls the method "OffscreenCanvasRenderingContext2D.scale".
+func (this OffscreenCanvasRenderingContext2D) Scale(x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DScale(
+		this.Ref(), js.Pointer(&ret),
+		float64(x),
+		float64(y),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryScale calls the method "OffscreenCanvasRenderingContext2D.scale"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryScale(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DScale(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasRotate returns true if the method "OffscreenCanvasRenderingContext2D.rotate" exists.
+func (this OffscreenCanvasRenderingContext2D) HasRotate() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DRotate(
+		this.Ref(),
+	)
 }
 
 // RotateFunc returns the method "OffscreenCanvasRenderingContext2D.rotate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) RotateFunc() (fn js.Func[func(angle float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DRotateFunc(
@@ -1017,24 +1007,36 @@ func (this OffscreenCanvasRenderingContext2D) RotateFunc() (fn js.Func[func(angl
 	)
 }
 
-// Translate calls the method "OffscreenCanvasRenderingContext2D.translate".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Translate(x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DTranslate(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x),
-		float64(y),
+// Rotate calls the method "OffscreenCanvasRenderingContext2D.rotate".
+func (this OffscreenCanvasRenderingContext2D) Rotate(angle float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DRotate(
+		this.Ref(), js.Pointer(&ret),
+		float64(angle),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryRotate calls the method "OffscreenCanvasRenderingContext2D.rotate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryRotate(angle float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRotate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(angle),
+	)
+
+	return
+}
+
+// HasTranslate returns true if the method "OffscreenCanvasRenderingContext2D.translate" exists.
+func (this OffscreenCanvasRenderingContext2D) HasTranslate() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DTranslate(
+		this.Ref(),
+	)
 }
 
 // TranslateFunc returns the method "OffscreenCanvasRenderingContext2D.translate".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) TranslateFunc() (fn js.Func[func(x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DTranslateFunc(
@@ -1043,28 +1045,38 @@ func (this OffscreenCanvasRenderingContext2D) TranslateFunc() (fn js.Func[func(x
 	)
 }
 
-// Transform calls the method "OffscreenCanvasRenderingContext2D.transform".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Transform(a float64, b float64, c float64, d float64, e float64, f float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DTransform(
-		this.Ref(), js.Pointer(&_ok),
-		float64(a),
-		float64(b),
-		float64(c),
-		float64(d),
-		float64(e),
-		float64(f),
+// Translate calls the method "OffscreenCanvasRenderingContext2D.translate".
+func (this OffscreenCanvasRenderingContext2D) Translate(x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DTranslate(
+		this.Ref(), js.Pointer(&ret),
+		float64(x),
+		float64(y),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryTranslate calls the method "OffscreenCanvasRenderingContext2D.translate"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryTranslate(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DTranslate(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasTransform returns true if the method "OffscreenCanvasRenderingContext2D.transform" exists.
+func (this OffscreenCanvasRenderingContext2D) HasTransform() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DTransform(
+		this.Ref(),
+	)
 }
 
 // TransformFunc returns the method "OffscreenCanvasRenderingContext2D.transform".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) TransformFunc() (fn js.Func[func(a float64, b float64, c float64, d float64, e float64, f float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DTransformFunc(
@@ -1073,36 +1085,10 @@ func (this OffscreenCanvasRenderingContext2D) TransformFunc() (fn js.Func[func(a
 	)
 }
 
-// GetTransform calls the method "OffscreenCanvasRenderingContext2D.getTransform".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) GetTransform() (DOMMatrix, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DGetTransform(
-		this.Ref(), js.Pointer(&_ok),
-	)
-
-	return DOMMatrix{}.FromRef(_ret), _ok
-}
-
-// GetTransformFunc returns the method "OffscreenCanvasRenderingContext2D.getTransform".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) GetTransformFunc() (fn js.Func[func() DOMMatrix]) {
-	return fn.FromRef(
-		bindings.OffscreenCanvasRenderingContext2DGetTransformFunc(
-			this.Ref(),
-		),
-	)
-}
-
-// SetTransform calls the method "OffscreenCanvasRenderingContext2D.setTransform".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) SetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DSetTransform(
-		this.Ref(), js.Pointer(&_ok),
+// Transform calls the method "OffscreenCanvasRenderingContext2D.transform".
+func (this OffscreenCanvasRenderingContext2D) Transform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DTransform(
+		this.Ref(), js.Pointer(&ret),
 		float64(a),
 		float64(b),
 		float64(c),
@@ -1111,13 +1097,70 @@ func (this OffscreenCanvasRenderingContext2D) SetTransform(a float64, b float64,
 		float64(f),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryTransform calls the method "OffscreenCanvasRenderingContext2D.transform"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DTransform(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(a),
+		float64(b),
+		float64(c),
+		float64(d),
+		float64(e),
+		float64(f),
+	)
+
+	return
+}
+
+// HasGetTransform returns true if the method "OffscreenCanvasRenderingContext2D.getTransform" exists.
+func (this OffscreenCanvasRenderingContext2D) HasGetTransform() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DGetTransform(
+		this.Ref(),
+	)
+}
+
+// GetTransformFunc returns the method "OffscreenCanvasRenderingContext2D.getTransform".
+func (this OffscreenCanvasRenderingContext2D) GetTransformFunc() (fn js.Func[func() DOMMatrix]) {
+	return fn.FromRef(
+		bindings.OffscreenCanvasRenderingContext2DGetTransformFunc(
+			this.Ref(),
+		),
+	)
+}
+
+// GetTransform calls the method "OffscreenCanvasRenderingContext2D.getTransform".
+func (this OffscreenCanvasRenderingContext2D) GetTransform() (ret DOMMatrix) {
+	bindings.CallOffscreenCanvasRenderingContext2DGetTransform(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryGetTransform calls the method "OffscreenCanvasRenderingContext2D.getTransform"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryGetTransform() (ret DOMMatrix, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetTransform(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasSetTransform returns true if the method "OffscreenCanvasRenderingContext2D.setTransform" exists.
+func (this OffscreenCanvasRenderingContext2D) HasSetTransform() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DSetTransform(
+		this.Ref(),
+	)
 }
 
 // SetTransformFunc returns the method "OffscreenCanvasRenderingContext2D.setTransform".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) SetTransformFunc() (fn js.Func[func(a float64, b float64, c float64, d float64, e float64, f float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DSetTransformFunc(
@@ -1126,23 +1169,46 @@ func (this OffscreenCanvasRenderingContext2D) SetTransformFunc() (fn js.Func[fun
 	)
 }
 
-// SetTransform1 calls the method "OffscreenCanvasRenderingContext2D.setTransform".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) SetTransform1(transform DOMMatrix2DInit) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DSetTransform1(
-		this.Ref(), js.Pointer(&_ok),
-		js.Pointer(&transform),
+// SetTransform calls the method "OffscreenCanvasRenderingContext2D.setTransform".
+func (this OffscreenCanvasRenderingContext2D) SetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DSetTransform(
+		this.Ref(), js.Pointer(&ret),
+		float64(a),
+		float64(b),
+		float64(c),
+		float64(d),
+		float64(e),
+		float64(f),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetTransform calls the method "OffscreenCanvasRenderingContext2D.setTransform"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TrySetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetTransform(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(a),
+		float64(b),
+		float64(c),
+		float64(d),
+		float64(e),
+		float64(f),
+	)
+
+	return
+}
+
+// HasSetTransform1 returns true if the method "OffscreenCanvasRenderingContext2D.setTransform" exists.
+func (this OffscreenCanvasRenderingContext2D) HasSetTransform1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DSetTransform1(
+		this.Ref(),
+	)
 }
 
 // SetTransform1Func returns the method "OffscreenCanvasRenderingContext2D.setTransform".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) SetTransform1Func() (fn js.Func[func(transform DOMMatrix2DInit)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DSetTransform1Func(
@@ -1151,22 +1217,36 @@ func (this OffscreenCanvasRenderingContext2D) SetTransform1Func() (fn js.Func[fu
 	)
 }
 
-// SetTransform2 calls the method "OffscreenCanvasRenderingContext2D.setTransform".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) SetTransform2() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DSetTransform2(
-		this.Ref(), js.Pointer(&_ok),
+// SetTransform1 calls the method "OffscreenCanvasRenderingContext2D.setTransform".
+func (this OffscreenCanvasRenderingContext2D) SetTransform1(transform DOMMatrix2DInit) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DSetTransform1(
+		this.Ref(), js.Pointer(&ret),
+		js.Pointer(&transform),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetTransform1 calls the method "OffscreenCanvasRenderingContext2D.setTransform"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TrySetTransform1(transform DOMMatrix2DInit) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetTransform1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		js.Pointer(&transform),
+	)
+
+	return
+}
+
+// HasSetTransform2 returns true if the method "OffscreenCanvasRenderingContext2D.setTransform" exists.
+func (this OffscreenCanvasRenderingContext2D) HasSetTransform2() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DSetTransform2(
+		this.Ref(),
+	)
 }
 
 // SetTransform2Func returns the method "OffscreenCanvasRenderingContext2D.setTransform".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) SetTransform2Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DSetTransform2Func(
@@ -1175,22 +1255,34 @@ func (this OffscreenCanvasRenderingContext2D) SetTransform2Func() (fn js.Func[fu
 	)
 }
 
-// ResetTransform calls the method "OffscreenCanvasRenderingContext2D.resetTransform".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) ResetTransform() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DResetTransform(
-		this.Ref(), js.Pointer(&_ok),
+// SetTransform2 calls the method "OffscreenCanvasRenderingContext2D.setTransform".
+func (this OffscreenCanvasRenderingContext2D) SetTransform2() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DSetTransform2(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySetTransform2 calls the method "OffscreenCanvasRenderingContext2D.setTransform"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TrySetTransform2() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetTransform2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasResetTransform returns true if the method "OffscreenCanvasRenderingContext2D.resetTransform" exists.
+func (this OffscreenCanvasRenderingContext2D) HasResetTransform() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DResetTransform(
+		this.Ref(),
+	)
 }
 
 // ResetTransformFunc returns the method "OffscreenCanvasRenderingContext2D.resetTransform".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ResetTransformFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DResetTransformFunc(
@@ -1199,25 +1291,34 @@ func (this OffscreenCanvasRenderingContext2D) ResetTransformFunc() (fn js.Func[f
 	)
 }
 
-// CreateLinearGradient calls the method "OffscreenCanvasRenderingContext2D.createLinearGradient".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) CreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (CanvasGradient, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCreateLinearGradient(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x0),
-		float64(y0),
-		float64(x1),
-		float64(y1),
+// ResetTransform calls the method "OffscreenCanvasRenderingContext2D.resetTransform".
+func (this OffscreenCanvasRenderingContext2D) ResetTransform() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DResetTransform(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return CanvasGradient{}.FromRef(_ret), _ok
+	return
+}
+
+// TryResetTransform calls the method "OffscreenCanvasRenderingContext2D.resetTransform"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryResetTransform() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DResetTransform(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasCreateLinearGradient returns true if the method "OffscreenCanvasRenderingContext2D.createLinearGradient" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCreateLinearGradient() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCreateLinearGradient(
+		this.Ref(),
+	)
 }
 
 // CreateLinearGradientFunc returns the method "OffscreenCanvasRenderingContext2D.createLinearGradient".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CreateLinearGradientFunc() (fn js.Func[func(x0 float64, y0 float64, x1 float64, y1 float64) CanvasGradient]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCreateLinearGradientFunc(
@@ -1226,27 +1327,42 @@ func (this OffscreenCanvasRenderingContext2D) CreateLinearGradientFunc() (fn js.
 	)
 }
 
-// CreateRadialGradient calls the method "OffscreenCanvasRenderingContext2D.createRadialGradient".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) CreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (CanvasGradient, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCreateRadialGradient(
-		this.Ref(), js.Pointer(&_ok),
+// CreateLinearGradient calls the method "OffscreenCanvasRenderingContext2D.createLinearGradient".
+func (this OffscreenCanvasRenderingContext2D) CreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (ret CanvasGradient) {
+	bindings.CallOffscreenCanvasRenderingContext2DCreateLinearGradient(
+		this.Ref(), js.Pointer(&ret),
 		float64(x0),
 		float64(y0),
-		float64(r0),
 		float64(x1),
 		float64(y1),
-		float64(r1),
 	)
 
-	return CanvasGradient{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateLinearGradient calls the method "OffscreenCanvasRenderingContext2D.createLinearGradient"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateLinearGradient(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x0),
+		float64(y0),
+		float64(x1),
+		float64(y1),
+	)
+
+	return
+}
+
+// HasCreateRadialGradient returns true if the method "OffscreenCanvasRenderingContext2D.createRadialGradient" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCreateRadialGradient() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCreateRadialGradient(
+		this.Ref(),
+	)
 }
 
 // CreateRadialGradientFunc returns the method "OffscreenCanvasRenderingContext2D.createRadialGradient".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CreateRadialGradientFunc() (fn js.Func[func(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) CanvasGradient]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCreateRadialGradientFunc(
@@ -1255,24 +1371,46 @@ func (this OffscreenCanvasRenderingContext2D) CreateRadialGradientFunc() (fn js.
 	)
 }
 
-// CreateConicGradient calls the method "OffscreenCanvasRenderingContext2D.createConicGradient".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) CreateConicGradient(startAngle float64, x float64, y float64) (CanvasGradient, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCreateConicGradient(
-		this.Ref(), js.Pointer(&_ok),
-		float64(startAngle),
-		float64(x),
-		float64(y),
+// CreateRadialGradient calls the method "OffscreenCanvasRenderingContext2D.createRadialGradient".
+func (this OffscreenCanvasRenderingContext2D) CreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (ret CanvasGradient) {
+	bindings.CallOffscreenCanvasRenderingContext2DCreateRadialGradient(
+		this.Ref(), js.Pointer(&ret),
+		float64(x0),
+		float64(y0),
+		float64(r0),
+		float64(x1),
+		float64(y1),
+		float64(r1),
 	)
 
-	return CanvasGradient{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateRadialGradient calls the method "OffscreenCanvasRenderingContext2D.createRadialGradient"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateRadialGradient(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x0),
+		float64(y0),
+		float64(r0),
+		float64(x1),
+		float64(y1),
+		float64(r1),
+	)
+
+	return
+}
+
+// HasCreateConicGradient returns true if the method "OffscreenCanvasRenderingContext2D.createConicGradient" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCreateConicGradient() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCreateConicGradient(
+		this.Ref(),
+	)
 }
 
 // CreateConicGradientFunc returns the method "OffscreenCanvasRenderingContext2D.createConicGradient".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CreateConicGradientFunc() (fn js.Func[func(startAngle float64, x float64, y float64) CanvasGradient]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCreateConicGradientFunc(
@@ -1281,23 +1419,40 @@ func (this OffscreenCanvasRenderingContext2D) CreateConicGradientFunc() (fn js.F
 	)
 }
 
-// CreatePattern calls the method "OffscreenCanvasRenderingContext2D.createPattern".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) CreatePattern(image CanvasImageSource, repetition js.String) (CanvasPattern, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCreatePattern(
-		this.Ref(), js.Pointer(&_ok),
-		image.Ref(),
-		repetition.Ref(),
+// CreateConicGradient calls the method "OffscreenCanvasRenderingContext2D.createConicGradient".
+func (this OffscreenCanvasRenderingContext2D) CreateConicGradient(startAngle float64, x float64, y float64) (ret CanvasGradient) {
+	bindings.CallOffscreenCanvasRenderingContext2DCreateConicGradient(
+		this.Ref(), js.Pointer(&ret),
+		float64(startAngle),
+		float64(x),
+		float64(y),
 	)
 
-	return CanvasPattern{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateConicGradient calls the method "OffscreenCanvasRenderingContext2D.createConicGradient"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCreateConicGradient(startAngle float64, x float64, y float64) (ret CanvasGradient, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateConicGradient(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(startAngle),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasCreatePattern returns true if the method "OffscreenCanvasRenderingContext2D.createPattern" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCreatePattern() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCreatePattern(
+		this.Ref(),
+	)
 }
 
 // CreatePatternFunc returns the method "OffscreenCanvasRenderingContext2D.createPattern".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CreatePatternFunc() (fn js.Func[func(image CanvasImageSource, repetition js.String) CanvasPattern]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCreatePatternFunc(
@@ -1306,26 +1461,38 @@ func (this OffscreenCanvasRenderingContext2D) CreatePatternFunc() (fn js.Func[fu
 	)
 }
 
-// ClearRect calls the method "OffscreenCanvasRenderingContext2D.clearRect".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) ClearRect(x float64, y float64, w float64, h float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DClearRect(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x),
-		float64(y),
-		float64(w),
-		float64(h),
+// CreatePattern calls the method "OffscreenCanvasRenderingContext2D.createPattern".
+func (this OffscreenCanvasRenderingContext2D) CreatePattern(image CanvasImageSource, repetition js.String) (ret CanvasPattern) {
+	bindings.CallOffscreenCanvasRenderingContext2DCreatePattern(
+		this.Ref(), js.Pointer(&ret),
+		image.Ref(),
+		repetition.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryCreatePattern calls the method "OffscreenCanvasRenderingContext2D.createPattern"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCreatePattern(image CanvasImageSource, repetition js.String) (ret CanvasPattern, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreatePattern(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		image.Ref(),
+		repetition.Ref(),
+	)
+
+	return
+}
+
+// HasClearRect returns true if the method "OffscreenCanvasRenderingContext2D.clearRect" exists.
+func (this OffscreenCanvasRenderingContext2D) HasClearRect() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DClearRect(
+		this.Ref(),
+	)
 }
 
 // ClearRectFunc returns the method "OffscreenCanvasRenderingContext2D.clearRect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ClearRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DClearRectFunc(
@@ -1334,26 +1501,42 @@ func (this OffscreenCanvasRenderingContext2D) ClearRectFunc() (fn js.Func[func(x
 	)
 }
 
-// FillRect calls the method "OffscreenCanvasRenderingContext2D.fillRect".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) FillRect(x float64, y float64, w float64, h float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DFillRect(
-		this.Ref(), js.Pointer(&_ok),
+// ClearRect calls the method "OffscreenCanvasRenderingContext2D.clearRect".
+func (this OffscreenCanvasRenderingContext2D) ClearRect(x float64, y float64, w float64, h float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DClearRect(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
 		float64(h),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClearRect calls the method "OffscreenCanvasRenderingContext2D.clearRect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryClearRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClearRect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(w),
+		float64(h),
+	)
+
+	return
+}
+
+// HasFillRect returns true if the method "OffscreenCanvasRenderingContext2D.fillRect" exists.
+func (this OffscreenCanvasRenderingContext2D) HasFillRect() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DFillRect(
+		this.Ref(),
+	)
 }
 
 // FillRectFunc returns the method "OffscreenCanvasRenderingContext2D.fillRect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) FillRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DFillRectFunc(
@@ -1362,26 +1545,42 @@ func (this OffscreenCanvasRenderingContext2D) FillRectFunc() (fn js.Func[func(x 
 	)
 }
 
-// StrokeRect calls the method "OffscreenCanvasRenderingContext2D.strokeRect".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) StrokeRect(x float64, y float64, w float64, h float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DStrokeRect(
-		this.Ref(), js.Pointer(&_ok),
+// FillRect calls the method "OffscreenCanvasRenderingContext2D.fillRect".
+func (this OffscreenCanvasRenderingContext2D) FillRect(x float64, y float64, w float64, h float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DFillRect(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
 		float64(h),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFillRect calls the method "OffscreenCanvasRenderingContext2D.fillRect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryFillRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFillRect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(w),
+		float64(h),
+	)
+
+	return
+}
+
+// HasStrokeRect returns true if the method "OffscreenCanvasRenderingContext2D.strokeRect" exists.
+func (this OffscreenCanvasRenderingContext2D) HasStrokeRect() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DStrokeRect(
+		this.Ref(),
+	)
 }
 
 // StrokeRectFunc returns the method "OffscreenCanvasRenderingContext2D.strokeRect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) StrokeRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DStrokeRectFunc(
@@ -1390,22 +1589,42 @@ func (this OffscreenCanvasRenderingContext2D) StrokeRectFunc() (fn js.Func[func(
 	)
 }
 
-// BeginPath calls the method "OffscreenCanvasRenderingContext2D.beginPath".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) BeginPath() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DBeginPath(
-		this.Ref(), js.Pointer(&_ok),
+// StrokeRect calls the method "OffscreenCanvasRenderingContext2D.strokeRect".
+func (this OffscreenCanvasRenderingContext2D) StrokeRect(x float64, y float64, w float64, h float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DStrokeRect(
+		this.Ref(), js.Pointer(&ret),
+		float64(x),
+		float64(y),
+		float64(w),
+		float64(h),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStrokeRect calls the method "OffscreenCanvasRenderingContext2D.strokeRect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryStrokeRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStrokeRect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(w),
+		float64(h),
+	)
+
+	return
+}
+
+// HasBeginPath returns true if the method "OffscreenCanvasRenderingContext2D.beginPath" exists.
+func (this OffscreenCanvasRenderingContext2D) HasBeginPath() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DBeginPath(
+		this.Ref(),
+	)
 }
 
 // BeginPathFunc returns the method "OffscreenCanvasRenderingContext2D.beginPath".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) BeginPathFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DBeginPathFunc(
@@ -1414,23 +1633,34 @@ func (this OffscreenCanvasRenderingContext2D) BeginPathFunc() (fn js.Func[func()
 	)
 }
 
-// Fill calls the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Fill(fillRule CanvasFillRule) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DFill(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(fillRule),
+// BeginPath calls the method "OffscreenCanvasRenderingContext2D.beginPath".
+func (this OffscreenCanvasRenderingContext2D) BeginPath() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DBeginPath(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryBeginPath calls the method "OffscreenCanvasRenderingContext2D.beginPath"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryBeginPath() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DBeginPath(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasFill returns true if the method "OffscreenCanvasRenderingContext2D.fill" exists.
+func (this OffscreenCanvasRenderingContext2D) HasFill() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DFill(
+		this.Ref(),
+	)
 }
 
 // FillFunc returns the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) FillFunc() (fn js.Func[func(fillRule CanvasFillRule)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DFillFunc(
@@ -1439,22 +1669,36 @@ func (this OffscreenCanvasRenderingContext2D) FillFunc() (fn js.Func[func(fillRu
 	)
 }
 
-// Fill1 calls the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Fill1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DFill1(
-		this.Ref(), js.Pointer(&_ok),
+// Fill calls the method "OffscreenCanvasRenderingContext2D.fill".
+func (this OffscreenCanvasRenderingContext2D) Fill(fillRule CanvasFillRule) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DFill(
+		this.Ref(), js.Pointer(&ret),
+		uint32(fillRule),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFill calls the method "OffscreenCanvasRenderingContext2D.fill"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryFill(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(fillRule),
+	)
+
+	return
+}
+
+// HasFill1 returns true if the method "OffscreenCanvasRenderingContext2D.fill" exists.
+func (this OffscreenCanvasRenderingContext2D) HasFill1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DFill1(
+		this.Ref(),
+	)
 }
 
 // Fill1Func returns the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Fill1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DFill1Func(
@@ -1463,24 +1707,34 @@ func (this OffscreenCanvasRenderingContext2D) Fill1Func() (fn js.Func[func()]) {
 	)
 }
 
-// Fill2 calls the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Fill2(path Path2D, fillRule CanvasFillRule) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DFill2(
-		this.Ref(), js.Pointer(&_ok),
-		path.Ref(),
-		uint32(fillRule),
+// Fill1 calls the method "OffscreenCanvasRenderingContext2D.fill".
+func (this OffscreenCanvasRenderingContext2D) Fill1() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DFill1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFill1 calls the method "OffscreenCanvasRenderingContext2D.fill"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryFill1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasFill2 returns true if the method "OffscreenCanvasRenderingContext2D.fill" exists.
+func (this OffscreenCanvasRenderingContext2D) HasFill2() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DFill2(
+		this.Ref(),
+	)
 }
 
 // Fill2Func returns the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Fill2Func() (fn js.Func[func(path Path2D, fillRule CanvasFillRule)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DFill2Func(
@@ -1489,23 +1743,38 @@ func (this OffscreenCanvasRenderingContext2D) Fill2Func() (fn js.Func[func(path 
 	)
 }
 
-// Fill3 calls the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Fill3(path Path2D) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DFill3(
-		this.Ref(), js.Pointer(&_ok),
+// Fill2 calls the method "OffscreenCanvasRenderingContext2D.fill".
+func (this OffscreenCanvasRenderingContext2D) Fill2(path Path2D, fillRule CanvasFillRule) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DFill2(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
+		uint32(fillRule),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFill2 calls the method "OffscreenCanvasRenderingContext2D.fill"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryFill2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		uint32(fillRule),
+	)
+
+	return
+}
+
+// HasFill3 returns true if the method "OffscreenCanvasRenderingContext2D.fill" exists.
+func (this OffscreenCanvasRenderingContext2D) HasFill3() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DFill3(
+		this.Ref(),
+	)
 }
 
 // Fill3Func returns the method "OffscreenCanvasRenderingContext2D.fill".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Fill3Func() (fn js.Func[func(path Path2D)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DFill3Func(
@@ -1514,22 +1783,36 @@ func (this OffscreenCanvasRenderingContext2D) Fill3Func() (fn js.Func[func(path 
 	)
 }
 
-// Stroke calls the method "OffscreenCanvasRenderingContext2D.stroke".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Stroke() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DStroke(
-		this.Ref(), js.Pointer(&_ok),
+// Fill3 calls the method "OffscreenCanvasRenderingContext2D.fill".
+func (this OffscreenCanvasRenderingContext2D) Fill3(path Path2D) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DFill3(
+		this.Ref(), js.Pointer(&ret),
+		path.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFill3 calls the method "OffscreenCanvasRenderingContext2D.fill"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryFill3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+	)
+
+	return
+}
+
+// HasStroke returns true if the method "OffscreenCanvasRenderingContext2D.stroke" exists.
+func (this OffscreenCanvasRenderingContext2D) HasStroke() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DStroke(
+		this.Ref(),
+	)
 }
 
 // StrokeFunc returns the method "OffscreenCanvasRenderingContext2D.stroke".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) StrokeFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DStrokeFunc(
@@ -1538,23 +1821,34 @@ func (this OffscreenCanvasRenderingContext2D) StrokeFunc() (fn js.Func[func()]) 
 	)
 }
 
-// Stroke1 calls the method "OffscreenCanvasRenderingContext2D.stroke".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Stroke1(path Path2D) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DStroke1(
-		this.Ref(), js.Pointer(&_ok),
-		path.Ref(),
+// Stroke calls the method "OffscreenCanvasRenderingContext2D.stroke".
+func (this OffscreenCanvasRenderingContext2D) Stroke() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DStroke(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStroke calls the method "OffscreenCanvasRenderingContext2D.stroke"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryStroke() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStroke(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasStroke1 returns true if the method "OffscreenCanvasRenderingContext2D.stroke" exists.
+func (this OffscreenCanvasRenderingContext2D) HasStroke1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DStroke1(
+		this.Ref(),
+	)
 }
 
 // Stroke1Func returns the method "OffscreenCanvasRenderingContext2D.stroke".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Stroke1Func() (fn js.Func[func(path Path2D)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DStroke1Func(
@@ -1563,23 +1857,36 @@ func (this OffscreenCanvasRenderingContext2D) Stroke1Func() (fn js.Func[func(pat
 	)
 }
 
-// Clip calls the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Clip(fillRule CanvasFillRule) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DClip(
-		this.Ref(), js.Pointer(&_ok),
-		uint32(fillRule),
+// Stroke1 calls the method "OffscreenCanvasRenderingContext2D.stroke".
+func (this OffscreenCanvasRenderingContext2D) Stroke1(path Path2D) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DStroke1(
+		this.Ref(), js.Pointer(&ret),
+		path.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStroke1 calls the method "OffscreenCanvasRenderingContext2D.stroke"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryStroke1(path Path2D) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStroke1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+	)
+
+	return
+}
+
+// HasClip returns true if the method "OffscreenCanvasRenderingContext2D.clip" exists.
+func (this OffscreenCanvasRenderingContext2D) HasClip() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DClip(
+		this.Ref(),
+	)
 }
 
 // ClipFunc returns the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ClipFunc() (fn js.Func[func(fillRule CanvasFillRule)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DClipFunc(
@@ -1588,22 +1895,36 @@ func (this OffscreenCanvasRenderingContext2D) ClipFunc() (fn js.Func[func(fillRu
 	)
 }
 
-// Clip1 calls the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Clip1() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DClip1(
-		this.Ref(), js.Pointer(&_ok),
+// Clip calls the method "OffscreenCanvasRenderingContext2D.clip".
+func (this OffscreenCanvasRenderingContext2D) Clip(fillRule CanvasFillRule) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DClip(
+		this.Ref(), js.Pointer(&ret),
+		uint32(fillRule),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClip calls the method "OffscreenCanvasRenderingContext2D.clip"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryClip(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		uint32(fillRule),
+	)
+
+	return
+}
+
+// HasClip1 returns true if the method "OffscreenCanvasRenderingContext2D.clip" exists.
+func (this OffscreenCanvasRenderingContext2D) HasClip1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DClip1(
+		this.Ref(),
+	)
 }
 
 // Clip1Func returns the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Clip1Func() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DClip1Func(
@@ -1612,24 +1933,34 @@ func (this OffscreenCanvasRenderingContext2D) Clip1Func() (fn js.Func[func()]) {
 	)
 }
 
-// Clip2 calls the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Clip2(path Path2D, fillRule CanvasFillRule) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DClip2(
-		this.Ref(), js.Pointer(&_ok),
-		path.Ref(),
-		uint32(fillRule),
+// Clip1 calls the method "OffscreenCanvasRenderingContext2D.clip".
+func (this OffscreenCanvasRenderingContext2D) Clip1() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DClip1(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClip1 calls the method "OffscreenCanvasRenderingContext2D.clip"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryClip1() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasClip2 returns true if the method "OffscreenCanvasRenderingContext2D.clip" exists.
+func (this OffscreenCanvasRenderingContext2D) HasClip2() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DClip2(
+		this.Ref(),
+	)
 }
 
 // Clip2Func returns the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Clip2Func() (fn js.Func[func(path Path2D, fillRule CanvasFillRule)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DClip2Func(
@@ -1638,23 +1969,38 @@ func (this OffscreenCanvasRenderingContext2D) Clip2Func() (fn js.Func[func(path 
 	)
 }
 
-// Clip3 calls the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Clip3(path Path2D) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DClip3(
-		this.Ref(), js.Pointer(&_ok),
+// Clip2 calls the method "OffscreenCanvasRenderingContext2D.clip".
+func (this OffscreenCanvasRenderingContext2D) Clip2(path Path2D, fillRule CanvasFillRule) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DClip2(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
+		uint32(fillRule),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClip2 calls the method "OffscreenCanvasRenderingContext2D.clip"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryClip2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		uint32(fillRule),
+	)
+
+	return
+}
+
+// HasClip3 returns true if the method "OffscreenCanvasRenderingContext2D.clip" exists.
+func (this OffscreenCanvasRenderingContext2D) HasClip3() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DClip3(
+		this.Ref(),
+	)
 }
 
 // Clip3Func returns the method "OffscreenCanvasRenderingContext2D.clip".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Clip3Func() (fn js.Func[func(path Path2D)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DClip3Func(
@@ -1663,24 +2009,36 @@ func (this OffscreenCanvasRenderingContext2D) Clip3Func() (fn js.Func[func(path 
 	)
 }
 
-// IsPointInPath calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) IsPointInPath(x float64, y float64, fillRule CanvasFillRule) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x),
-		float64(y),
-		uint32(fillRule),
+// Clip3 calls the method "OffscreenCanvasRenderingContext2D.clip".
+func (this OffscreenCanvasRenderingContext2D) Clip3(path Path2D) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DClip3(
+		this.Ref(), js.Pointer(&ret),
+		path.Ref(),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryClip3 calls the method "OffscreenCanvasRenderingContext2D.clip"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryClip3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+	)
+
+	return
+}
+
+// HasIsPointInPath returns true if the method "OffscreenCanvasRenderingContext2D.isPointInPath" exists.
+func (this OffscreenCanvasRenderingContext2D) HasIsPointInPath() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DIsPointInPath(
+		this.Ref(),
+	)
 }
 
 // IsPointInPathFunc returns the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) IsPointInPathFunc() (fn js.Func[func(x float64, y float64, fillRule CanvasFillRule) bool]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DIsPointInPathFunc(
@@ -1689,23 +2047,40 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPathFunc() (fn js.Func[fu
 	)
 }
 
-// IsPointInPath1 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) IsPointInPath1(x float64, y float64) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath1(
-		this.Ref(), js.Pointer(&_ok),
+// IsPointInPath calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
+func (this OffscreenCanvasRenderingContext2D) IsPointInPath(x float64, y float64, fillRule CanvasFillRule) (ret bool) {
+	bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
+		uint32(fillRule),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryIsPointInPath calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath(x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		uint32(fillRule),
+	)
+
+	return
+}
+
+// HasIsPointInPath1 returns true if the method "OffscreenCanvasRenderingContext2D.isPointInPath" exists.
+func (this OffscreenCanvasRenderingContext2D) HasIsPointInPath1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DIsPointInPath1(
+		this.Ref(),
+	)
 }
 
 // IsPointInPath1Func returns the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) IsPointInPath1Func() (fn js.Func[func(x float64, y float64) bool]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DIsPointInPath1Func(
@@ -1714,25 +2089,38 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPath1Func() (fn js.Func[f
 	)
 }
 
-// IsPointInPath2 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) IsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath2(
-		this.Ref(), js.Pointer(&_ok),
-		path.Ref(),
+// IsPointInPath1 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
+func (this OffscreenCanvasRenderingContext2D) IsPointInPath1(x float64, y float64) (ret bool) {
+	bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath1(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
-		uint32(fillRule),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryIsPointInPath1 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath1(x float64, y float64) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasIsPointInPath2 returns true if the method "OffscreenCanvasRenderingContext2D.isPointInPath" exists.
+func (this OffscreenCanvasRenderingContext2D) HasIsPointInPath2() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DIsPointInPath2(
+		this.Ref(),
+	)
 }
 
 // IsPointInPath2Func returns the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) IsPointInPath2Func() (fn js.Func[func(path Path2D, x float64, y float64, fillRule CanvasFillRule) bool]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DIsPointInPath2Func(
@@ -1741,24 +2129,42 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPath2Func() (fn js.Func[f
 	)
 }
 
-// IsPointInPath3 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) IsPointInPath3(path Path2D, x float64, y float64) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath3(
-		this.Ref(), js.Pointer(&_ok),
+// IsPointInPath2 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
+func (this OffscreenCanvasRenderingContext2D) IsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (ret bool) {
+	bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath2(
+		this.Ref(), js.Pointer(&ret),
 		path.Ref(),
 		float64(x),
 		float64(y),
+		uint32(fillRule),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryIsPointInPath2 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		float64(x),
+		float64(y),
+		uint32(fillRule),
+	)
+
+	return
+}
+
+// HasIsPointInPath3 returns true if the method "OffscreenCanvasRenderingContext2D.isPointInPath" exists.
+func (this OffscreenCanvasRenderingContext2D) HasIsPointInPath3() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DIsPointInPath3(
+		this.Ref(),
+	)
 }
 
 // IsPointInPath3Func returns the method "OffscreenCanvasRenderingContext2D.isPointInPath".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) IsPointInPath3Func() (fn js.Func[func(path Path2D, x float64, y float64) bool]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DIsPointInPath3Func(
@@ -1767,23 +2173,40 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPath3Func() (fn js.Func[f
 	)
 }
 
-// IsPointInStroke calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) IsPointInStroke(x float64, y float64) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DIsPointInStroke(
-		this.Ref(), js.Pointer(&_ok),
+// IsPointInPath3 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath".
+func (this OffscreenCanvasRenderingContext2D) IsPointInPath3(path Path2D, x float64, y float64) (ret bool) {
+	bindings.CallOffscreenCanvasRenderingContext2DIsPointInPath3(
+		this.Ref(), js.Pointer(&ret),
+		path.Ref(),
 		float64(x),
 		float64(y),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryIsPointInPath3 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath3(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath3(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasIsPointInStroke returns true if the method "OffscreenCanvasRenderingContext2D.isPointInStroke" exists.
+func (this OffscreenCanvasRenderingContext2D) HasIsPointInStroke() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DIsPointInStroke(
+		this.Ref(),
+	)
 }
 
 // IsPointInStrokeFunc returns the method "OffscreenCanvasRenderingContext2D.isPointInStroke".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) IsPointInStrokeFunc() (fn js.Func[func(x float64, y float64) bool]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DIsPointInStrokeFunc(
@@ -1792,24 +2215,38 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInStrokeFunc() (fn js.Func[
 	)
 }
 
-// IsPointInStroke1 calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) IsPointInStroke1(path Path2D, x float64, y float64) (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DIsPointInStroke1(
-		this.Ref(), js.Pointer(&_ok),
-		path.Ref(),
+// IsPointInStroke calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke".
+func (this OffscreenCanvasRenderingContext2D) IsPointInStroke(x float64, y float64) (ret bool) {
+	bindings.CallOffscreenCanvasRenderingContext2DIsPointInStroke(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryIsPointInStroke calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryIsPointInStroke(x float64, y float64) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInStroke(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasIsPointInStroke1 returns true if the method "OffscreenCanvasRenderingContext2D.isPointInStroke" exists.
+func (this OffscreenCanvasRenderingContext2D) HasIsPointInStroke1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DIsPointInStroke1(
+		this.Ref(),
+	)
 }
 
 // IsPointInStroke1Func returns the method "OffscreenCanvasRenderingContext2D.isPointInStroke".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) IsPointInStroke1Func() (fn js.Func[func(path Path2D, x float64, y float64) bool]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DIsPointInStroke1Func(
@@ -1818,26 +2255,40 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInStroke1Func() (fn js.Func
 	)
 }
 
-// FillText calls the method "OffscreenCanvasRenderingContext2D.fillText".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) FillText(text js.String, x float64, y float64, maxWidth float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DFillText(
-		this.Ref(), js.Pointer(&_ok),
-		text.Ref(),
+// IsPointInStroke1 calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke".
+func (this OffscreenCanvasRenderingContext2D) IsPointInStroke1(path Path2D, x float64, y float64) (ret bool) {
+	bindings.CallOffscreenCanvasRenderingContext2DIsPointInStroke1(
+		this.Ref(), js.Pointer(&ret),
+		path.Ref(),
 		float64(x),
 		float64(y),
-		float64(maxWidth),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryIsPointInStroke1 calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryIsPointInStroke1(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInStroke1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		path.Ref(),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasFillText returns true if the method "OffscreenCanvasRenderingContext2D.fillText" exists.
+func (this OffscreenCanvasRenderingContext2D) HasFillText() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DFillText(
+		this.Ref(),
+	)
 }
 
 // FillTextFunc returns the method "OffscreenCanvasRenderingContext2D.fillText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) FillTextFunc() (fn js.Func[func(text js.String, x float64, y float64, maxWidth float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DFillTextFunc(
@@ -1846,25 +2297,42 @@ func (this OffscreenCanvasRenderingContext2D) FillTextFunc() (fn js.Func[func(te
 	)
 }
 
-// FillText1 calls the method "OffscreenCanvasRenderingContext2D.fillText".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) FillText1(text js.String, x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DFillText1(
-		this.Ref(), js.Pointer(&_ok),
+// FillText calls the method "OffscreenCanvasRenderingContext2D.fillText".
+func (this OffscreenCanvasRenderingContext2D) FillText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DFillText(
+		this.Ref(), js.Pointer(&ret),
 		text.Ref(),
 		float64(x),
 		float64(y),
+		float64(maxWidth),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFillText calls the method "OffscreenCanvasRenderingContext2D.fillText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryFillText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFillText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		text.Ref(),
+		float64(x),
+		float64(y),
+		float64(maxWidth),
+	)
+
+	return
+}
+
+// HasFillText1 returns true if the method "OffscreenCanvasRenderingContext2D.fillText" exists.
+func (this OffscreenCanvasRenderingContext2D) HasFillText1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DFillText1(
+		this.Ref(),
+	)
 }
 
 // FillText1Func returns the method "OffscreenCanvasRenderingContext2D.fillText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) FillText1Func() (fn js.Func[func(text js.String, x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DFillText1Func(
@@ -1873,26 +2341,40 @@ func (this OffscreenCanvasRenderingContext2D) FillText1Func() (fn js.Func[func(t
 	)
 }
 
-// StrokeText calls the method "OffscreenCanvasRenderingContext2D.strokeText".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) StrokeText(text js.String, x float64, y float64, maxWidth float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DStrokeText(
-		this.Ref(), js.Pointer(&_ok),
+// FillText1 calls the method "OffscreenCanvasRenderingContext2D.fillText".
+func (this OffscreenCanvasRenderingContext2D) FillText1(text js.String, x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DFillText1(
+		this.Ref(), js.Pointer(&ret),
 		text.Ref(),
 		float64(x),
 		float64(y),
-		float64(maxWidth),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryFillText1 calls the method "OffscreenCanvasRenderingContext2D.fillText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryFillText1(text js.String, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFillText1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		text.Ref(),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasStrokeText returns true if the method "OffscreenCanvasRenderingContext2D.strokeText" exists.
+func (this OffscreenCanvasRenderingContext2D) HasStrokeText() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DStrokeText(
+		this.Ref(),
+	)
 }
 
 // StrokeTextFunc returns the method "OffscreenCanvasRenderingContext2D.strokeText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) StrokeTextFunc() (fn js.Func[func(text js.String, x float64, y float64, maxWidth float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DStrokeTextFunc(
@@ -1901,25 +2383,42 @@ func (this OffscreenCanvasRenderingContext2D) StrokeTextFunc() (fn js.Func[func(
 	)
 }
 
-// StrokeText1 calls the method "OffscreenCanvasRenderingContext2D.strokeText".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) StrokeText1(text js.String, x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DStrokeText1(
-		this.Ref(), js.Pointer(&_ok),
+// StrokeText calls the method "OffscreenCanvasRenderingContext2D.strokeText".
+func (this OffscreenCanvasRenderingContext2D) StrokeText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DStrokeText(
+		this.Ref(), js.Pointer(&ret),
 		text.Ref(),
 		float64(x),
 		float64(y),
+		float64(maxWidth),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryStrokeText calls the method "OffscreenCanvasRenderingContext2D.strokeText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryStrokeText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStrokeText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		text.Ref(),
+		float64(x),
+		float64(y),
+		float64(maxWidth),
+	)
+
+	return
+}
+
+// HasStrokeText1 returns true if the method "OffscreenCanvasRenderingContext2D.strokeText" exists.
+func (this OffscreenCanvasRenderingContext2D) HasStrokeText1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DStrokeText1(
+		this.Ref(),
+	)
 }
 
 // StrokeText1Func returns the method "OffscreenCanvasRenderingContext2D.strokeText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) StrokeText1Func() (fn js.Func[func(text js.String, x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DStrokeText1Func(
@@ -1928,22 +2427,40 @@ func (this OffscreenCanvasRenderingContext2D) StrokeText1Func() (fn js.Func[func
 	)
 }
 
-// MeasureText calls the method "OffscreenCanvasRenderingContext2D.measureText".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) MeasureText(text js.String) (TextMetrics, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DMeasureText(
-		this.Ref(), js.Pointer(&_ok),
+// StrokeText1 calls the method "OffscreenCanvasRenderingContext2D.strokeText".
+func (this OffscreenCanvasRenderingContext2D) StrokeText1(text js.String, x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DStrokeText1(
+		this.Ref(), js.Pointer(&ret),
 		text.Ref(),
+		float64(x),
+		float64(y),
 	)
 
-	return TextMetrics{}.FromRef(_ret), _ok
+	return
+}
+
+// TryStrokeText1 calls the method "OffscreenCanvasRenderingContext2D.strokeText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryStrokeText1(text js.String, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStrokeText1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		text.Ref(),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasMeasureText returns true if the method "OffscreenCanvasRenderingContext2D.measureText" exists.
+func (this OffscreenCanvasRenderingContext2D) HasMeasureText() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DMeasureText(
+		this.Ref(),
+	)
 }
 
 // MeasureTextFunc returns the method "OffscreenCanvasRenderingContext2D.measureText".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) MeasureTextFunc() (fn js.Func[func(text js.String) TextMetrics]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DMeasureTextFunc(
@@ -1952,25 +2469,36 @@ func (this OffscreenCanvasRenderingContext2D) MeasureTextFunc() (fn js.Func[func
 	)
 }
 
-// DrawImage calls the method "OffscreenCanvasRenderingContext2D.drawImage".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) DrawImage(image CanvasImageSource, dx float64, dy float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DDrawImage(
-		this.Ref(), js.Pointer(&_ok),
-		image.Ref(),
-		float64(dx),
-		float64(dy),
+// MeasureText calls the method "OffscreenCanvasRenderingContext2D.measureText".
+func (this OffscreenCanvasRenderingContext2D) MeasureText(text js.String) (ret TextMetrics) {
+	bindings.CallOffscreenCanvasRenderingContext2DMeasureText(
+		this.Ref(), js.Pointer(&ret),
+		text.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryMeasureText calls the method "OffscreenCanvasRenderingContext2D.measureText"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryMeasureText(text js.String) (ret TextMetrics, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DMeasureText(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		text.Ref(),
+	)
+
+	return
+}
+
+// HasDrawImage returns true if the method "OffscreenCanvasRenderingContext2D.drawImage" exists.
+func (this OffscreenCanvasRenderingContext2D) HasDrawImage() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DDrawImage(
+		this.Ref(),
+	)
 }
 
 // DrawImageFunc returns the method "OffscreenCanvasRenderingContext2D.drawImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) DrawImageFunc() (fn js.Func[func(image CanvasImageSource, dx float64, dy float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DDrawImageFunc(
@@ -1979,27 +2507,40 @@ func (this OffscreenCanvasRenderingContext2D) DrawImageFunc() (fn js.Func[func(i
 	)
 }
 
-// DrawImage1 calls the method "OffscreenCanvasRenderingContext2D.drawImage".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) DrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DDrawImage1(
-		this.Ref(), js.Pointer(&_ok),
+// DrawImage calls the method "OffscreenCanvasRenderingContext2D.drawImage".
+func (this OffscreenCanvasRenderingContext2D) DrawImage(image CanvasImageSource, dx float64, dy float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DDrawImage(
+		this.Ref(), js.Pointer(&ret),
 		image.Ref(),
 		float64(dx),
 		float64(dy),
-		float64(dw),
-		float64(dh),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryDrawImage calls the method "OffscreenCanvasRenderingContext2D.drawImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryDrawImage(image CanvasImageSource, dx float64, dy float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DDrawImage(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		image.Ref(),
+		float64(dx),
+		float64(dy),
+	)
+
+	return
+}
+
+// HasDrawImage1 returns true if the method "OffscreenCanvasRenderingContext2D.drawImage" exists.
+func (this OffscreenCanvasRenderingContext2D) HasDrawImage1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DDrawImage1(
+		this.Ref(),
+	)
 }
 
 // DrawImage1Func returns the method "OffscreenCanvasRenderingContext2D.drawImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) DrawImage1Func() (fn js.Func[func(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DDrawImage1Func(
@@ -2008,13 +2549,56 @@ func (this OffscreenCanvasRenderingContext2D) DrawImage1Func() (fn js.Func[func(
 	)
 }
 
+// DrawImage1 calls the method "OffscreenCanvasRenderingContext2D.drawImage".
+func (this OffscreenCanvasRenderingContext2D) DrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DDrawImage1(
+		this.Ref(), js.Pointer(&ret),
+		image.Ref(),
+		float64(dx),
+		float64(dy),
+		float64(dw),
+		float64(dh),
+	)
+
+	return
+}
+
+// TryDrawImage1 calls the method "OffscreenCanvasRenderingContext2D.drawImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryDrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DDrawImage1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		image.Ref(),
+		float64(dx),
+		float64(dy),
+		float64(dw),
+		float64(dh),
+	)
+
+	return
+}
+
+// HasDrawImage2 returns true if the method "OffscreenCanvasRenderingContext2D.drawImage" exists.
+func (this OffscreenCanvasRenderingContext2D) HasDrawImage2() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DDrawImage2(
+		this.Ref(),
+	)
+}
+
+// DrawImage2Func returns the method "OffscreenCanvasRenderingContext2D.drawImage".
+func (this OffscreenCanvasRenderingContext2D) DrawImage2Func() (fn js.Func[func(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64)]) {
+	return fn.FromRef(
+		bindings.OffscreenCanvasRenderingContext2DDrawImage2Func(
+			this.Ref(),
+		),
+	)
+}
+
 // DrawImage2 calls the method "OffscreenCanvasRenderingContext2D.drawImage".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) DrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DDrawImage2(
-		this.Ref(), js.Pointer(&_ok),
+func (this OffscreenCanvasRenderingContext2D) DrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DDrawImage2(
+		this.Ref(), js.Pointer(&ret),
 		image.Ref(),
 		float64(sx),
 		float64(sy),
@@ -2026,39 +2610,37 @@ func (this OffscreenCanvasRenderingContext2D) DrawImage2(image CanvasImageSource
 		float64(dh),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
 }
 
-// DrawImage2Func returns the method "OffscreenCanvasRenderingContext2D.drawImage".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) DrawImage2Func() (fn js.Func[func(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64)]) {
-	return fn.FromRef(
-		bindings.OffscreenCanvasRenderingContext2DDrawImage2Func(
-			this.Ref(),
-		),
+// TryDrawImage2 calls the method "OffscreenCanvasRenderingContext2D.drawImage"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryDrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DDrawImage2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		image.Ref(),
+		float64(sx),
+		float64(sy),
+		float64(sw),
+		float64(sh),
+		float64(dx),
+		float64(dy),
+		float64(dw),
+		float64(dh),
 	)
+
+	return
 }
 
-// CreateImageData calls the method "OffscreenCanvasRenderingContext2D.createImageData".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) CreateImageData(sw int32, sh int32, settings ImageDataSettings) (ImageData, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCreateImageData(
-		this.Ref(), js.Pointer(&_ok),
-		int32(sw),
-		int32(sh),
-		js.Pointer(&settings),
+// HasCreateImageData returns true if the method "OffscreenCanvasRenderingContext2D.createImageData" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCreateImageData() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCreateImageData(
+		this.Ref(),
 	)
-
-	return ImageData{}.FromRef(_ret), _ok
 }
 
 // CreateImageDataFunc returns the method "OffscreenCanvasRenderingContext2D.createImageData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CreateImageDataFunc() (fn js.Func[func(sw int32, sh int32, settings ImageDataSettings) ImageData]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCreateImageDataFunc(
@@ -2067,23 +2649,40 @@ func (this OffscreenCanvasRenderingContext2D) CreateImageDataFunc() (fn js.Func[
 	)
 }
 
-// CreateImageData1 calls the method "OffscreenCanvasRenderingContext2D.createImageData".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) CreateImageData1(sw int32, sh int32) (ImageData, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCreateImageData1(
-		this.Ref(), js.Pointer(&_ok),
+// CreateImageData calls the method "OffscreenCanvasRenderingContext2D.createImageData".
+func (this OffscreenCanvasRenderingContext2D) CreateImageData(sw int32, sh int32, settings ImageDataSettings) (ret ImageData) {
+	bindings.CallOffscreenCanvasRenderingContext2DCreateImageData(
+		this.Ref(), js.Pointer(&ret),
 		int32(sw),
 		int32(sh),
+		js.Pointer(&settings),
 	)
 
-	return ImageData{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateImageData calls the method "OffscreenCanvasRenderingContext2D.createImageData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCreateImageData(sw int32, sh int32, settings ImageDataSettings) (ret ImageData, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateImageData(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		int32(sw),
+		int32(sh),
+		js.Pointer(&settings),
+	)
+
+	return
+}
+
+// HasCreateImageData1 returns true if the method "OffscreenCanvasRenderingContext2D.createImageData" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCreateImageData1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCreateImageData1(
+		this.Ref(),
+	)
 }
 
 // CreateImageData1Func returns the method "OffscreenCanvasRenderingContext2D.createImageData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CreateImageData1Func() (fn js.Func[func(sw int32, sh int32) ImageData]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCreateImageData1Func(
@@ -2092,22 +2691,38 @@ func (this OffscreenCanvasRenderingContext2D) CreateImageData1Func() (fn js.Func
 	)
 }
 
-// CreateImageData2 calls the method "OffscreenCanvasRenderingContext2D.createImageData".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) CreateImageData2(imagedata ImageData) (ImageData, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DCreateImageData2(
-		this.Ref(), js.Pointer(&_ok),
-		imagedata.Ref(),
+// CreateImageData1 calls the method "OffscreenCanvasRenderingContext2D.createImageData".
+func (this OffscreenCanvasRenderingContext2D) CreateImageData1(sw int32, sh int32) (ret ImageData) {
+	bindings.CallOffscreenCanvasRenderingContext2DCreateImageData1(
+		this.Ref(), js.Pointer(&ret),
+		int32(sw),
+		int32(sh),
 	)
 
-	return ImageData{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateImageData1 calls the method "OffscreenCanvasRenderingContext2D.createImageData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCreateImageData1(sw int32, sh int32) (ret ImageData, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateImageData1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		int32(sw),
+		int32(sh),
+	)
+
+	return
+}
+
+// HasCreateImageData2 returns true if the method "OffscreenCanvasRenderingContext2D.createImageData" exists.
+func (this OffscreenCanvasRenderingContext2D) HasCreateImageData2() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DCreateImageData2(
+		this.Ref(),
+	)
 }
 
 // CreateImageData2Func returns the method "OffscreenCanvasRenderingContext2D.createImageData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) CreateImageData2Func() (fn js.Func[func(imagedata ImageData) ImageData]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DCreateImageData2Func(
@@ -2116,26 +2731,36 @@ func (this OffscreenCanvasRenderingContext2D) CreateImageData2Func() (fn js.Func
 	)
 }
 
-// GetImageData calls the method "OffscreenCanvasRenderingContext2D.getImageData".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) GetImageData(sx int32, sy int32, sw int32, sh int32, settings ImageDataSettings) (ImageData, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DGetImageData(
-		this.Ref(), js.Pointer(&_ok),
-		int32(sx),
-		int32(sy),
-		int32(sw),
-		int32(sh),
-		js.Pointer(&settings),
+// CreateImageData2 calls the method "OffscreenCanvasRenderingContext2D.createImageData".
+func (this OffscreenCanvasRenderingContext2D) CreateImageData2(imagedata ImageData) (ret ImageData) {
+	bindings.CallOffscreenCanvasRenderingContext2DCreateImageData2(
+		this.Ref(), js.Pointer(&ret),
+		imagedata.Ref(),
 	)
 
-	return ImageData{}.FromRef(_ret), _ok
+	return
+}
+
+// TryCreateImageData2 calls the method "OffscreenCanvasRenderingContext2D.createImageData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryCreateImageData2(imagedata ImageData) (ret ImageData, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateImageData2(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		imagedata.Ref(),
+	)
+
+	return
+}
+
+// HasGetImageData returns true if the method "OffscreenCanvasRenderingContext2D.getImageData" exists.
+func (this OffscreenCanvasRenderingContext2D) HasGetImageData() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DGetImageData(
+		this.Ref(),
+	)
 }
 
 // GetImageDataFunc returns the method "OffscreenCanvasRenderingContext2D.getImageData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) GetImageDataFunc() (fn js.Func[func(sx int32, sy int32, sw int32, sh int32, settings ImageDataSettings) ImageData]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DGetImageDataFunc(
@@ -2144,25 +2769,44 @@ func (this OffscreenCanvasRenderingContext2D) GetImageDataFunc() (fn js.Func[fun
 	)
 }
 
-// GetImageData1 calls the method "OffscreenCanvasRenderingContext2D.getImageData".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) GetImageData1(sx int32, sy int32, sw int32, sh int32) (ImageData, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DGetImageData1(
-		this.Ref(), js.Pointer(&_ok),
+// GetImageData calls the method "OffscreenCanvasRenderingContext2D.getImageData".
+func (this OffscreenCanvasRenderingContext2D) GetImageData(sx int32, sy int32, sw int32, sh int32, settings ImageDataSettings) (ret ImageData) {
+	bindings.CallOffscreenCanvasRenderingContext2DGetImageData(
+		this.Ref(), js.Pointer(&ret),
 		int32(sx),
 		int32(sy),
 		int32(sw),
 		int32(sh),
+		js.Pointer(&settings),
 	)
 
-	return ImageData{}.FromRef(_ret), _ok
+	return
+}
+
+// TryGetImageData calls the method "OffscreenCanvasRenderingContext2D.getImageData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryGetImageData(sx int32, sy int32, sw int32, sh int32, settings ImageDataSettings) (ret ImageData, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetImageData(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		int32(sx),
+		int32(sy),
+		int32(sw),
+		int32(sh),
+		js.Pointer(&settings),
+	)
+
+	return
+}
+
+// HasGetImageData1 returns true if the method "OffscreenCanvasRenderingContext2D.getImageData" exists.
+func (this OffscreenCanvasRenderingContext2D) HasGetImageData1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DGetImageData1(
+		this.Ref(),
+	)
 }
 
 // GetImageData1Func returns the method "OffscreenCanvasRenderingContext2D.getImageData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) GetImageData1Func() (fn js.Func[func(sx int32, sy int32, sw int32, sh int32) ImageData]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DGetImageData1Func(
@@ -2171,25 +2815,42 @@ func (this OffscreenCanvasRenderingContext2D) GetImageData1Func() (fn js.Func[fu
 	)
 }
 
-// PutImageData calls the method "OffscreenCanvasRenderingContext2D.putImageData".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) PutImageData(imagedata ImageData, dx int32, dy int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DPutImageData(
-		this.Ref(), js.Pointer(&_ok),
-		imagedata.Ref(),
-		int32(dx),
-		int32(dy),
+// GetImageData1 calls the method "OffscreenCanvasRenderingContext2D.getImageData".
+func (this OffscreenCanvasRenderingContext2D) GetImageData1(sx int32, sy int32, sw int32, sh int32) (ret ImageData) {
+	bindings.CallOffscreenCanvasRenderingContext2DGetImageData1(
+		this.Ref(), js.Pointer(&ret),
+		int32(sx),
+		int32(sy),
+		int32(sw),
+		int32(sh),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetImageData1 calls the method "OffscreenCanvasRenderingContext2D.getImageData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryGetImageData1(sx int32, sy int32, sw int32, sh int32) (ret ImageData, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetImageData1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		int32(sx),
+		int32(sy),
+		int32(sw),
+		int32(sh),
+	)
+
+	return
+}
+
+// HasPutImageData returns true if the method "OffscreenCanvasRenderingContext2D.putImageData" exists.
+func (this OffscreenCanvasRenderingContext2D) HasPutImageData() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DPutImageData(
+		this.Ref(),
+	)
 }
 
 // PutImageDataFunc returns the method "OffscreenCanvasRenderingContext2D.putImageData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) PutImageDataFunc() (fn js.Func[func(imagedata ImageData, dx int32, dy int32)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DPutImageDataFunc(
@@ -2198,13 +2859,52 @@ func (this OffscreenCanvasRenderingContext2D) PutImageDataFunc() (fn js.Func[fun
 	)
 }
 
+// PutImageData calls the method "OffscreenCanvasRenderingContext2D.putImageData".
+func (this OffscreenCanvasRenderingContext2D) PutImageData(imagedata ImageData, dx int32, dy int32) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DPutImageData(
+		this.Ref(), js.Pointer(&ret),
+		imagedata.Ref(),
+		int32(dx),
+		int32(dy),
+	)
+
+	return
+}
+
+// TryPutImageData calls the method "OffscreenCanvasRenderingContext2D.putImageData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryPutImageData(imagedata ImageData, dx int32, dy int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DPutImageData(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		imagedata.Ref(),
+		int32(dx),
+		int32(dy),
+	)
+
+	return
+}
+
+// HasPutImageData1 returns true if the method "OffscreenCanvasRenderingContext2D.putImageData" exists.
+func (this OffscreenCanvasRenderingContext2D) HasPutImageData1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DPutImageData1(
+		this.Ref(),
+	)
+}
+
+// PutImageData1Func returns the method "OffscreenCanvasRenderingContext2D.putImageData".
+func (this OffscreenCanvasRenderingContext2D) PutImageData1Func() (fn js.Func[func(imagedata ImageData, dx int32, dy int32, dirtyX int32, dirtyY int32, dirtyWidth int32, dirtyHeight int32)]) {
+	return fn.FromRef(
+		bindings.OffscreenCanvasRenderingContext2DPutImageData1Func(
+			this.Ref(),
+		),
+	)
+}
+
 // PutImageData1 calls the method "OffscreenCanvasRenderingContext2D.putImageData".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) PutImageData1(imagedata ImageData, dx int32, dy int32, dirtyX int32, dirtyY int32, dirtyWidth int32, dirtyHeight int32) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DPutImageData1(
-		this.Ref(), js.Pointer(&_ok),
+func (this OffscreenCanvasRenderingContext2D) PutImageData1(imagedata ImageData, dx int32, dy int32, dirtyX int32, dirtyY int32, dirtyWidth int32, dirtyHeight int32) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DPutImageData1(
+		this.Ref(), js.Pointer(&ret),
 		imagedata.Ref(),
 		int32(dx),
 		int32(dy),
@@ -2214,38 +2914,35 @@ func (this OffscreenCanvasRenderingContext2D) PutImageData1(imagedata ImageData,
 		int32(dirtyHeight),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
 }
 
-// PutImageData1Func returns the method "OffscreenCanvasRenderingContext2D.putImageData".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) PutImageData1Func() (fn js.Func[func(imagedata ImageData, dx int32, dy int32, dirtyX int32, dirtyY int32, dirtyWidth int32, dirtyHeight int32)]) {
-	return fn.FromRef(
-		bindings.OffscreenCanvasRenderingContext2DPutImageData1Func(
-			this.Ref(),
-		),
+// TryPutImageData1 calls the method "OffscreenCanvasRenderingContext2D.putImageData"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryPutImageData1(imagedata ImageData, dx int32, dy int32, dirtyX int32, dirtyY int32, dirtyWidth int32, dirtyHeight int32) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DPutImageData1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		imagedata.Ref(),
+		int32(dx),
+		int32(dy),
+		int32(dirtyX),
+		int32(dirtyY),
+		int32(dirtyWidth),
+		int32(dirtyHeight),
 	)
+
+	return
 }
 
-// SetLineDash calls the method "OffscreenCanvasRenderingContext2D.setLineDash".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) SetLineDash(segments js.Array[float64]) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DSetLineDash(
-		this.Ref(), js.Pointer(&_ok),
-		segments.Ref(),
+// HasSetLineDash returns true if the method "OffscreenCanvasRenderingContext2D.setLineDash" exists.
+func (this OffscreenCanvasRenderingContext2D) HasSetLineDash() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DSetLineDash(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SetLineDashFunc returns the method "OffscreenCanvasRenderingContext2D.setLineDash".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) SetLineDashFunc() (fn js.Func[func(segments js.Array[float64])]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DSetLineDashFunc(
@@ -2254,21 +2951,36 @@ func (this OffscreenCanvasRenderingContext2D) SetLineDashFunc() (fn js.Func[func
 	)
 }
 
-// GetLineDash calls the method "OffscreenCanvasRenderingContext2D.getLineDash".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) GetLineDash() (js.Array[float64], bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DGetLineDash(
-		this.Ref(), js.Pointer(&_ok),
+// SetLineDash calls the method "OffscreenCanvasRenderingContext2D.setLineDash".
+func (this OffscreenCanvasRenderingContext2D) SetLineDash(segments js.Array[float64]) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DSetLineDash(
+		this.Ref(), js.Pointer(&ret),
+		segments.Ref(),
 	)
 
-	return js.Array[float64]{}.FromRef(_ret), _ok
+	return
+}
+
+// TrySetLineDash calls the method "OffscreenCanvasRenderingContext2D.setLineDash"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TrySetLineDash(segments js.Array[float64]) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetLineDash(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		segments.Ref(),
+	)
+
+	return
+}
+
+// HasGetLineDash returns true if the method "OffscreenCanvasRenderingContext2D.getLineDash" exists.
+func (this OffscreenCanvasRenderingContext2D) HasGetLineDash() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DGetLineDash(
+		this.Ref(),
+	)
 }
 
 // GetLineDashFunc returns the method "OffscreenCanvasRenderingContext2D.getLineDash".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) GetLineDashFunc() (fn js.Func[func() js.Array[float64]]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DGetLineDashFunc(
@@ -2277,22 +2989,34 @@ func (this OffscreenCanvasRenderingContext2D) GetLineDashFunc() (fn js.Func[func
 	)
 }
 
-// ClosePath calls the method "OffscreenCanvasRenderingContext2D.closePath".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) ClosePath() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DClosePath(
-		this.Ref(), js.Pointer(&_ok),
+// GetLineDash calls the method "OffscreenCanvasRenderingContext2D.getLineDash".
+func (this OffscreenCanvasRenderingContext2D) GetLineDash() (ret js.Array[float64]) {
+	bindings.CallOffscreenCanvasRenderingContext2DGetLineDash(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryGetLineDash calls the method "OffscreenCanvasRenderingContext2D.getLineDash"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryGetLineDash() (ret js.Array[float64], exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetLineDash(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasClosePath returns true if the method "OffscreenCanvasRenderingContext2D.closePath" exists.
+func (this OffscreenCanvasRenderingContext2D) HasClosePath() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DClosePath(
+		this.Ref(),
+	)
 }
 
 // ClosePathFunc returns the method "OffscreenCanvasRenderingContext2D.closePath".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ClosePathFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DClosePathFunc(
@@ -2301,24 +3025,34 @@ func (this OffscreenCanvasRenderingContext2D) ClosePathFunc() (fn js.Func[func()
 	)
 }
 
-// MoveTo calls the method "OffscreenCanvasRenderingContext2D.moveTo".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) MoveTo(x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DMoveTo(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x),
-		float64(y),
+// ClosePath calls the method "OffscreenCanvasRenderingContext2D.closePath".
+func (this OffscreenCanvasRenderingContext2D) ClosePath() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DClosePath(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryClosePath calls the method "OffscreenCanvasRenderingContext2D.closePath"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryClosePath() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClosePath(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasMoveTo returns true if the method "OffscreenCanvasRenderingContext2D.moveTo" exists.
+func (this OffscreenCanvasRenderingContext2D) HasMoveTo() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DMoveTo(
+		this.Ref(),
+	)
 }
 
 // MoveToFunc returns the method "OffscreenCanvasRenderingContext2D.moveTo".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) MoveToFunc() (fn js.Func[func(x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DMoveToFunc(
@@ -2327,24 +3061,38 @@ func (this OffscreenCanvasRenderingContext2D) MoveToFunc() (fn js.Func[func(x fl
 	)
 }
 
-// LineTo calls the method "OffscreenCanvasRenderingContext2D.lineTo".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) LineTo(x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DLineTo(
-		this.Ref(), js.Pointer(&_ok),
+// MoveTo calls the method "OffscreenCanvasRenderingContext2D.moveTo".
+func (this OffscreenCanvasRenderingContext2D) MoveTo(x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DMoveTo(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryMoveTo calls the method "OffscreenCanvasRenderingContext2D.moveTo"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryMoveTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DMoveTo(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasLineTo returns true if the method "OffscreenCanvasRenderingContext2D.lineTo" exists.
+func (this OffscreenCanvasRenderingContext2D) HasLineTo() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DLineTo(
+		this.Ref(),
+	)
 }
 
 // LineToFunc returns the method "OffscreenCanvasRenderingContext2D.lineTo".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) LineToFunc() (fn js.Func[func(x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DLineToFunc(
@@ -2353,26 +3101,38 @@ func (this OffscreenCanvasRenderingContext2D) LineToFunc() (fn js.Func[func(x fl
 	)
 }
 
-// QuadraticCurveTo calls the method "OffscreenCanvasRenderingContext2D.quadraticCurveTo".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) QuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DQuadraticCurveTo(
-		this.Ref(), js.Pointer(&_ok),
-		float64(cpx),
-		float64(cpy),
+// LineTo calls the method "OffscreenCanvasRenderingContext2D.lineTo".
+func (this OffscreenCanvasRenderingContext2D) LineTo(x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DLineTo(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryLineTo calls the method "OffscreenCanvasRenderingContext2D.lineTo"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryLineTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DLineTo(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasQuadraticCurveTo returns true if the method "OffscreenCanvasRenderingContext2D.quadraticCurveTo" exists.
+func (this OffscreenCanvasRenderingContext2D) HasQuadraticCurveTo() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DQuadraticCurveTo(
+		this.Ref(),
+	)
 }
 
 // QuadraticCurveToFunc returns the method "OffscreenCanvasRenderingContext2D.quadraticCurveTo".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) QuadraticCurveToFunc() (fn js.Func[func(cpx float64, cpy float64, x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DQuadraticCurveToFunc(
@@ -2381,28 +3141,42 @@ func (this OffscreenCanvasRenderingContext2D) QuadraticCurveToFunc() (fn js.Func
 	)
 }
 
-// BezierCurveTo calls the method "OffscreenCanvasRenderingContext2D.bezierCurveTo".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) BezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DBezierCurveTo(
-		this.Ref(), js.Pointer(&_ok),
-		float64(cp1x),
-		float64(cp1y),
-		float64(cp2x),
-		float64(cp2y),
+// QuadraticCurveTo calls the method "OffscreenCanvasRenderingContext2D.quadraticCurveTo".
+func (this OffscreenCanvasRenderingContext2D) QuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DQuadraticCurveTo(
+		this.Ref(), js.Pointer(&ret),
+		float64(cpx),
+		float64(cpy),
 		float64(x),
 		float64(y),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryQuadraticCurveTo calls the method "OffscreenCanvasRenderingContext2D.quadraticCurveTo"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryQuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DQuadraticCurveTo(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(cpx),
+		float64(cpy),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasBezierCurveTo returns true if the method "OffscreenCanvasRenderingContext2D.bezierCurveTo" exists.
+func (this OffscreenCanvasRenderingContext2D) HasBezierCurveTo() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DBezierCurveTo(
+		this.Ref(),
+	)
 }
 
 // BezierCurveToFunc returns the method "OffscreenCanvasRenderingContext2D.bezierCurveTo".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) BezierCurveToFunc() (fn js.Func[func(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DBezierCurveToFunc(
@@ -2411,27 +3185,46 @@ func (this OffscreenCanvasRenderingContext2D) BezierCurveToFunc() (fn js.Func[fu
 	)
 }
 
-// ArcTo calls the method "OffscreenCanvasRenderingContext2D.arcTo".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) ArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DArcTo(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x1),
-		float64(y1),
-		float64(x2),
-		float64(y2),
-		float64(radius),
+// BezierCurveTo calls the method "OffscreenCanvasRenderingContext2D.bezierCurveTo".
+func (this OffscreenCanvasRenderingContext2D) BezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DBezierCurveTo(
+		this.Ref(), js.Pointer(&ret),
+		float64(cp1x),
+		float64(cp1y),
+		float64(cp2x),
+		float64(cp2y),
+		float64(x),
+		float64(y),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryBezierCurveTo calls the method "OffscreenCanvasRenderingContext2D.bezierCurveTo"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryBezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DBezierCurveTo(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(cp1x),
+		float64(cp1y),
+		float64(cp2x),
+		float64(cp2y),
+		float64(x),
+		float64(y),
+	)
+
+	return
+}
+
+// HasArcTo returns true if the method "OffscreenCanvasRenderingContext2D.arcTo" exists.
+func (this OffscreenCanvasRenderingContext2D) HasArcTo() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DArcTo(
+		this.Ref(),
+	)
 }
 
 // ArcToFunc returns the method "OffscreenCanvasRenderingContext2D.arcTo".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ArcToFunc() (fn js.Func[func(x1 float64, y1 float64, x2 float64, y2 float64, radius float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DArcToFunc(
@@ -2440,26 +3233,44 @@ func (this OffscreenCanvasRenderingContext2D) ArcToFunc() (fn js.Func[func(x1 fl
 	)
 }
 
-// Rect calls the method "OffscreenCanvasRenderingContext2D.rect".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Rect(x float64, y float64, w float64, h float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DRect(
-		this.Ref(), js.Pointer(&_ok),
-		float64(x),
-		float64(y),
-		float64(w),
-		float64(h),
+// ArcTo calls the method "OffscreenCanvasRenderingContext2D.arcTo".
+func (this OffscreenCanvasRenderingContext2D) ArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DArcTo(
+		this.Ref(), js.Pointer(&ret),
+		float64(x1),
+		float64(y1),
+		float64(x2),
+		float64(y2),
+		float64(radius),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryArcTo calls the method "OffscreenCanvasRenderingContext2D.arcTo"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DArcTo(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x1),
+		float64(y1),
+		float64(x2),
+		float64(y2),
+		float64(radius),
+	)
+
+	return
+}
+
+// HasRect returns true if the method "OffscreenCanvasRenderingContext2D.rect" exists.
+func (this OffscreenCanvasRenderingContext2D) HasRect() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DRect(
+		this.Ref(),
+	)
 }
 
 // RectFunc returns the method "OffscreenCanvasRenderingContext2D.rect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) RectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DRectFunc(
@@ -2468,27 +3279,42 @@ func (this OffscreenCanvasRenderingContext2D) RectFunc() (fn js.Func[func(x floa
 	)
 }
 
-// RoundRect calls the method "OffscreenCanvasRenderingContext2D.roundRect".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) RoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DRoundRect(
-		this.Ref(), js.Pointer(&_ok),
+// Rect calls the method "OffscreenCanvasRenderingContext2D.rect".
+func (this OffscreenCanvasRenderingContext2D) Rect(x float64, y float64, w float64, h float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DRect(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
 		float64(h),
-		radii.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryRect calls the method "OffscreenCanvasRenderingContext2D.rect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(w),
+		float64(h),
+	)
+
+	return
+}
+
+// HasRoundRect returns true if the method "OffscreenCanvasRenderingContext2D.roundRect" exists.
+func (this OffscreenCanvasRenderingContext2D) HasRoundRect() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DRoundRect(
+		this.Ref(),
+	)
 }
 
 // RoundRectFunc returns the method "OffscreenCanvasRenderingContext2D.roundRect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) RoundRectFunc() (fn js.Func[func(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DRoundRectFunc(
@@ -2497,26 +3323,44 @@ func (this OffscreenCanvasRenderingContext2D) RoundRectFunc() (fn js.Func[func(x
 	)
 }
 
-// RoundRect1 calls the method "OffscreenCanvasRenderingContext2D.roundRect".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) RoundRect1(x float64, y float64, w float64, h float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DRoundRect1(
-		this.Ref(), js.Pointer(&_ok),
+// RoundRect calls the method "OffscreenCanvasRenderingContext2D.roundRect".
+func (this OffscreenCanvasRenderingContext2D) RoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DRoundRect(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(w),
 		float64(h),
+		radii.Ref(),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryRoundRect calls the method "OffscreenCanvasRenderingContext2D.roundRect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryRoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRoundRect(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(w),
+		float64(h),
+		radii.Ref(),
+	)
+
+	return
+}
+
+// HasRoundRect1 returns true if the method "OffscreenCanvasRenderingContext2D.roundRect" exists.
+func (this OffscreenCanvasRenderingContext2D) HasRoundRect1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DRoundRect1(
+		this.Ref(),
+	)
 }
 
 // RoundRect1Func returns the method "OffscreenCanvasRenderingContext2D.roundRect".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) RoundRect1Func() (fn js.Func[func(x float64, y float64, w float64, h float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DRoundRect1Func(
@@ -2525,28 +3369,42 @@ func (this OffscreenCanvasRenderingContext2D) RoundRect1Func() (fn js.Func[func(
 	)
 }
 
-// Arc calls the method "OffscreenCanvasRenderingContext2D.arc".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Arc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DArc(
-		this.Ref(), js.Pointer(&_ok),
+// RoundRect1 calls the method "OffscreenCanvasRenderingContext2D.roundRect".
+func (this OffscreenCanvasRenderingContext2D) RoundRect1(x float64, y float64, w float64, h float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DRoundRect1(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
-		float64(radius),
-		float64(startAngle),
-		float64(endAngle),
-		js.Bool(bool(counterclockwise)),
+		float64(w),
+		float64(h),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryRoundRect1 calls the method "OffscreenCanvasRenderingContext2D.roundRect"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryRoundRect1(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRoundRect1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(w),
+		float64(h),
+	)
+
+	return
+}
+
+// HasArc returns true if the method "OffscreenCanvasRenderingContext2D.arc" exists.
+func (this OffscreenCanvasRenderingContext2D) HasArc() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DArc(
+		this.Ref(),
+	)
 }
 
 // ArcFunc returns the method "OffscreenCanvasRenderingContext2D.arc".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ArcFunc() (fn js.Func[func(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DArcFunc(
@@ -2555,27 +3413,46 @@ func (this OffscreenCanvasRenderingContext2D) ArcFunc() (fn js.Func[func(x float
 	)
 }
 
-// Arc1 calls the method "OffscreenCanvasRenderingContext2D.arc".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Arc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DArc1(
-		this.Ref(), js.Pointer(&_ok),
+// Arc calls the method "OffscreenCanvasRenderingContext2D.arc".
+func (this OffscreenCanvasRenderingContext2D) Arc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DArc(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(radius),
 		float64(startAngle),
 		float64(endAngle),
+		js.Bool(bool(counterclockwise)),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryArc calls the method "OffscreenCanvasRenderingContext2D.arc"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryArc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DArc(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(radius),
+		float64(startAngle),
+		float64(endAngle),
+		js.Bool(bool(counterclockwise)),
+	)
+
+	return
+}
+
+// HasArc1 returns true if the method "OffscreenCanvasRenderingContext2D.arc" exists.
+func (this OffscreenCanvasRenderingContext2D) HasArc1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DArc1(
+		this.Ref(),
+	)
 }
 
 // Arc1Func returns the method "OffscreenCanvasRenderingContext2D.arc".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) Arc1Func() (fn js.Func[func(x float64, y float64, radius float64, startAngle float64, endAngle float64)]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DArc1Func(
@@ -2584,13 +3461,56 @@ func (this OffscreenCanvasRenderingContext2D) Arc1Func() (fn js.Func[func(x floa
 	)
 }
 
+// Arc1 calls the method "OffscreenCanvasRenderingContext2D.arc".
+func (this OffscreenCanvasRenderingContext2D) Arc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DArc1(
+		this.Ref(), js.Pointer(&ret),
+		float64(x),
+		float64(y),
+		float64(radius),
+		float64(startAngle),
+		float64(endAngle),
+	)
+
+	return
+}
+
+// TryArc1 calls the method "OffscreenCanvasRenderingContext2D.arc"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryArc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DArc1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(radius),
+		float64(startAngle),
+		float64(endAngle),
+	)
+
+	return
+}
+
+// HasEllipse returns true if the method "OffscreenCanvasRenderingContext2D.ellipse" exists.
+func (this OffscreenCanvasRenderingContext2D) HasEllipse() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DEllipse(
+		this.Ref(),
+	)
+}
+
+// EllipseFunc returns the method "OffscreenCanvasRenderingContext2D.ellipse".
+func (this OffscreenCanvasRenderingContext2D) EllipseFunc() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool)]) {
+	return fn.FromRef(
+		bindings.OffscreenCanvasRenderingContext2DEllipseFunc(
+			this.Ref(),
+		),
+	)
+}
+
 // Ellipse calls the method "OffscreenCanvasRenderingContext2D.ellipse".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Ellipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DEllipse(
-		this.Ref(), js.Pointer(&_ok),
+func (this OffscreenCanvasRenderingContext2D) Ellipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DEllipse(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(radiusX),
@@ -2601,28 +3521,48 @@ func (this OffscreenCanvasRenderingContext2D) Ellipse(x float64, y float64, radi
 		js.Bool(bool(counterclockwise)),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
 }
 
-// EllipseFunc returns the method "OffscreenCanvasRenderingContext2D.ellipse".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) EllipseFunc() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool)]) {
+// TryEllipse calls the method "OffscreenCanvasRenderingContext2D.ellipse"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryEllipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DEllipse(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(radiusX),
+		float64(radiusY),
+		float64(rotation),
+		float64(startAngle),
+		float64(endAngle),
+		js.Bool(bool(counterclockwise)),
+	)
+
+	return
+}
+
+// HasEllipse1 returns true if the method "OffscreenCanvasRenderingContext2D.ellipse" exists.
+func (this OffscreenCanvasRenderingContext2D) HasEllipse1() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DEllipse1(
+		this.Ref(),
+	)
+}
+
+// Ellipse1Func returns the method "OffscreenCanvasRenderingContext2D.ellipse".
+func (this OffscreenCanvasRenderingContext2D) Ellipse1Func() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64)]) {
 	return fn.FromRef(
-		bindings.OffscreenCanvasRenderingContext2DEllipseFunc(
+		bindings.OffscreenCanvasRenderingContext2DEllipse1Func(
 			this.Ref(),
 		),
 	)
 }
 
 // Ellipse1 calls the method "OffscreenCanvasRenderingContext2D.ellipse".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Ellipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DEllipse1(
-		this.Ref(), js.Pointer(&_ok),
+func (this OffscreenCanvasRenderingContext2D) Ellipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DEllipse1(
+		this.Ref(), js.Pointer(&ret),
 		float64(x),
 		float64(y),
 		float64(radiusX),
@@ -2632,37 +3572,35 @@ func (this OffscreenCanvasRenderingContext2D) Ellipse1(x float64, y float64, rad
 		float64(endAngle),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
 }
 
-// Ellipse1Func returns the method "OffscreenCanvasRenderingContext2D.ellipse".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Ellipse1Func() (fn js.Func[func(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64)]) {
-	return fn.FromRef(
-		bindings.OffscreenCanvasRenderingContext2DEllipse1Func(
-			this.Ref(),
-		),
+// TryEllipse1 calls the method "OffscreenCanvasRenderingContext2D.ellipse"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryEllipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DEllipse1(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		float64(x),
+		float64(y),
+		float64(radiusX),
+		float64(radiusY),
+		float64(rotation),
+		float64(startAngle),
+		float64(endAngle),
 	)
+
+	return
 }
 
-// Save calls the method "OffscreenCanvasRenderingContext2D.save".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Save() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DSave(
-		this.Ref(), js.Pointer(&_ok),
+// HasSave returns true if the method "OffscreenCanvasRenderingContext2D.save" exists.
+func (this OffscreenCanvasRenderingContext2D) HasSave() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DSave(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // SaveFunc returns the method "OffscreenCanvasRenderingContext2D.save".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) SaveFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DSaveFunc(
@@ -2671,22 +3609,34 @@ func (this OffscreenCanvasRenderingContext2D) SaveFunc() (fn js.Func[func()]) {
 	)
 }
 
-// Restore calls the method "OffscreenCanvasRenderingContext2D.restore".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Restore() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DRestore(
-		this.Ref(), js.Pointer(&_ok),
+// Save calls the method "OffscreenCanvasRenderingContext2D.save".
+func (this OffscreenCanvasRenderingContext2D) Save() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DSave(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TrySave calls the method "OffscreenCanvasRenderingContext2D.save"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TrySave() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSave(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasRestore returns true if the method "OffscreenCanvasRenderingContext2D.restore" exists.
+func (this OffscreenCanvasRenderingContext2D) HasRestore() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DRestore(
+		this.Ref(),
+	)
 }
 
 // RestoreFunc returns the method "OffscreenCanvasRenderingContext2D.restore".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) RestoreFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DRestoreFunc(
@@ -2695,22 +3645,34 @@ func (this OffscreenCanvasRenderingContext2D) RestoreFunc() (fn js.Func[func()])
 	)
 }
 
-// Reset calls the method "OffscreenCanvasRenderingContext2D.reset".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) Reset() (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DReset(
-		this.Ref(), js.Pointer(&_ok),
+// Restore calls the method "OffscreenCanvasRenderingContext2D.restore".
+func (this OffscreenCanvasRenderingContext2D) Restore() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DRestore(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	_ = _ret
-	return js.Void{}, _ok
+	return
+}
+
+// TryRestore calls the method "OffscreenCanvasRenderingContext2D.restore"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryRestore() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRestore(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasReset returns true if the method "OffscreenCanvasRenderingContext2D.reset" exists.
+func (this OffscreenCanvasRenderingContext2D) HasReset() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DReset(
+		this.Ref(),
+	)
 }
 
 // ResetFunc returns the method "OffscreenCanvasRenderingContext2D.reset".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) ResetFunc() (fn js.Func[func()]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DResetFunc(
@@ -2719,27 +3681,60 @@ func (this OffscreenCanvasRenderingContext2D) ResetFunc() (fn js.Func[func()]) {
 	)
 }
 
-// IsContextLost calls the method "OffscreenCanvasRenderingContext2D.isContextLost".
-//
-// The returned bool will be false if there is no such method.
-func (this OffscreenCanvasRenderingContext2D) IsContextLost() (bool, bool) {
-	var _ok bool
-	_ret := bindings.CallOffscreenCanvasRenderingContext2DIsContextLost(
-		this.Ref(), js.Pointer(&_ok),
+// Reset calls the method "OffscreenCanvasRenderingContext2D.reset".
+func (this OffscreenCanvasRenderingContext2D) Reset() (ret js.Void) {
+	bindings.CallOffscreenCanvasRenderingContext2DReset(
+		this.Ref(), js.Pointer(&ret),
 	)
 
-	return _ret == js.True, _ok
+	return
+}
+
+// TryReset calls the method "OffscreenCanvasRenderingContext2D.reset"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryReset() (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DReset(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
+}
+
+// HasIsContextLost returns true if the method "OffscreenCanvasRenderingContext2D.isContextLost" exists.
+func (this OffscreenCanvasRenderingContext2D) HasIsContextLost() bool {
+	return js.True == bindings.HasOffscreenCanvasRenderingContext2DIsContextLost(
+		this.Ref(),
+	)
 }
 
 // IsContextLostFunc returns the method "OffscreenCanvasRenderingContext2D.isContextLost".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this OffscreenCanvasRenderingContext2D) IsContextLostFunc() (fn js.Func[func() bool]) {
 	return fn.FromRef(
 		bindings.OffscreenCanvasRenderingContext2DIsContextLostFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// IsContextLost calls the method "OffscreenCanvasRenderingContext2D.isContextLost".
+func (this OffscreenCanvasRenderingContext2D) IsContextLost() (ret bool) {
+	bindings.CallOffscreenCanvasRenderingContext2DIsContextLost(
+		this.Ref(), js.Pointer(&ret),
+	)
+
+	return
+}
+
+// TryIsContextLost calls the method "OffscreenCanvasRenderingContext2D.isContextLost"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this OffscreenCanvasRenderingContext2D) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsContextLost(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+	)
+
+	return
 }
 
 type OneOf_HTMLCanvasElement_OffscreenCanvas struct {
@@ -2792,38 +3787,50 @@ func (this ImageBitmapRenderingContext) Free() {
 
 // Canvas returns the value of property "ImageBitmapRenderingContext.canvas".
 //
-// The returned bool will be false if there is no such property.
-func (this ImageBitmapRenderingContext) Canvas() (OneOf_HTMLCanvasElement_OffscreenCanvas, bool) {
-	var _ok bool
-	_ret := bindings.GetImageBitmapRenderingContextCanvas(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this ImageBitmapRenderingContext) Canvas() (ret OneOf_HTMLCanvasElement_OffscreenCanvas, ok bool) {
+	ok = js.True == bindings.GetImageBitmapRenderingContextCanvas(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return OneOf_HTMLCanvasElement_OffscreenCanvas{}.FromRef(_ret), _ok
+	return
 }
 
-// TransferFromImageBitmap calls the method "ImageBitmapRenderingContext.transferFromImageBitmap".
-//
-// The returned bool will be false if there is no such method.
-func (this ImageBitmapRenderingContext) TransferFromImageBitmap(bitmap ImageBitmap) (js.Void, bool) {
-	var _ok bool
-	_ret := bindings.CallImageBitmapRenderingContextTransferFromImageBitmap(
-		this.Ref(), js.Pointer(&_ok),
-		bitmap.Ref(),
+// HasTransferFromImageBitmap returns true if the method "ImageBitmapRenderingContext.transferFromImageBitmap" exists.
+func (this ImageBitmapRenderingContext) HasTransferFromImageBitmap() bool {
+	return js.True == bindings.HasImageBitmapRenderingContextTransferFromImageBitmap(
+		this.Ref(),
 	)
-
-	_ = _ret
-	return js.Void{}, _ok
 }
 
 // TransferFromImageBitmapFunc returns the method "ImageBitmapRenderingContext.transferFromImageBitmap".
-//
-// The ref value of the returned js.Func will be js.Undefined if there is no such method.
 func (this ImageBitmapRenderingContext) TransferFromImageBitmapFunc() (fn js.Func[func(bitmap ImageBitmap)]) {
 	return fn.FromRef(
 		bindings.ImageBitmapRenderingContextTransferFromImageBitmapFunc(
 			this.Ref(),
 		),
 	)
+}
+
+// TransferFromImageBitmap calls the method "ImageBitmapRenderingContext.transferFromImageBitmap".
+func (this ImageBitmapRenderingContext) TransferFromImageBitmap(bitmap ImageBitmap) (ret js.Void) {
+	bindings.CallImageBitmapRenderingContextTransferFromImageBitmap(
+		this.Ref(), js.Pointer(&ret),
+		bitmap.Ref(),
+	)
+
+	return
+}
+
+// TryTransferFromImageBitmap calls the method "ImageBitmapRenderingContext.transferFromImageBitmap"
+// in a try/catch block and returns (_, err, ok = false) when it went though
+// the catch clause.
+func (this ImageBitmapRenderingContext) TryTransferFromImageBitmap(bitmap ImageBitmap) (ret js.Void, exception js.Any, ok bool) {
+	ok = js.True == bindings.TryImageBitmapRenderingContextTransferFromImageBitmap(
+		this.Ref(), js.Pointer(&ret), js.Pointer(&exception),
+		bitmap.Ref(),
+	)
+
+	return
 }
 
 const (
@@ -3414,35 +4421,32 @@ func (this WebGLActiveInfo) Free() {
 
 // Size returns the value of property "WebGLActiveInfo.size".
 //
-// The returned bool will be false if there is no such property.
-func (this WebGLActiveInfo) Size() (GLint, bool) {
-	var _ok bool
-	_ret := bindings.GetWebGLActiveInfoSize(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WebGLActiveInfo) Size() (ret GLint, ok bool) {
+	ok = js.True == bindings.GetWebGLActiveInfoSize(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GLint(_ret), _ok
+	return
 }
 
 // Type returns the value of property "WebGLActiveInfo.type".
 //
-// The returned bool will be false if there is no such property.
-func (this WebGLActiveInfo) Type() (GLenum, bool) {
-	var _ok bool
-	_ret := bindings.GetWebGLActiveInfoType(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WebGLActiveInfo) Type() (ret GLenum, ok bool) {
+	ok = js.True == bindings.GetWebGLActiveInfoType(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GLenum(_ret), _ok
+	return
 }
 
 // Name returns the value of property "WebGLActiveInfo.name".
 //
-// The returned bool will be false if there is no such property.
-func (this WebGLActiveInfo) Name() (js.String, bool) {
-	var _ok bool
-	_ret := bindings.GetWebGLActiveInfoName(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WebGLActiveInfo) Name() (ret js.String, ok bool) {
+	ok = js.True == bindings.GetWebGLActiveInfoName(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return js.String{}.FromRef(_ret), _ok
+	return
 }
 
 type WebGLShaderPrecisionFormat struct {
@@ -3469,35 +4473,32 @@ func (this WebGLShaderPrecisionFormat) Free() {
 
 // RangeMin returns the value of property "WebGLShaderPrecisionFormat.rangeMin".
 //
-// The returned bool will be false if there is no such property.
-func (this WebGLShaderPrecisionFormat) RangeMin() (GLint, bool) {
-	var _ok bool
-	_ret := bindings.GetWebGLShaderPrecisionFormatRangeMin(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WebGLShaderPrecisionFormat) RangeMin() (ret GLint, ok bool) {
+	ok = js.True == bindings.GetWebGLShaderPrecisionFormatRangeMin(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GLint(_ret), _ok
+	return
 }
 
 // RangeMax returns the value of property "WebGLShaderPrecisionFormat.rangeMax".
 //
-// The returned bool will be false if there is no such property.
-func (this WebGLShaderPrecisionFormat) RangeMax() (GLint, bool) {
-	var _ok bool
-	_ret := bindings.GetWebGLShaderPrecisionFormatRangeMax(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WebGLShaderPrecisionFormat) RangeMax() (ret GLint, ok bool) {
+	ok = js.True == bindings.GetWebGLShaderPrecisionFormatRangeMax(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GLint(_ret), _ok
+	return
 }
 
 // Precision returns the value of property "WebGLShaderPrecisionFormat.precision".
 //
-// The returned bool will be false if there is no such property.
-func (this WebGLShaderPrecisionFormat) Precision() (GLint, bool) {
-	var _ok bool
-	_ret := bindings.GetWebGLShaderPrecisionFormatPrecision(
-		this.Ref(), js.Pointer(&_ok),
+// It returns ok=false if there is no such property.
+func (this WebGLShaderPrecisionFormat) Precision() (ret GLint, ok bool) {
+	ok = js.True == bindings.GetWebGLShaderPrecisionFormatPrecision(
+		this.Ref(), js.Pointer(&ret),
 	)
-	return GLint(_ret), _ok
+	return
 }
 
 type WebGLUniformLocation struct {
@@ -3605,6 +4606,8 @@ type VideoFrameInit struct {
 	// VisibleRect is "VideoFrameInit.visibleRect"
 	//
 	// Optional
+	//
+	// NOTE: VisibleRect.FFI_USE MUST be set to true to get VisibleRect used.
 	VisibleRect DOMRectInit
 	// DisplayWidth is "VideoFrameInit.displayWidth"
 	//
@@ -3621,6 +4624,8 @@ type VideoFrameInit struct {
 	// Metadata is "VideoFrameInit.metadata"
 	//
 	// Optional
+	//
+	// NOTE: Metadata.FFI_USE MUST be set to true to get Metadata used.
 	Metadata VideoFrameMetadata
 
 	FFI_USE_Duration      bool // for Duration.

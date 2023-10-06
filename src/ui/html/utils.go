@@ -11,7 +11,7 @@ import (
 )
 
 type ElementFinder interface {
-	GetElementById(id js.String) (web.Element, bool)
+	GetElementById(id js.String) web.Element
 }
 
 // FindElement by id.
@@ -19,7 +19,7 @@ func FindElement[
 	T interface{ FromRef(js.Ref) T },
 	F ElementFinder,
 ](out *T, root F, id string) bool {
-	ref := js.Must(root.GetElementById(js.NewString(id).Once())).Ref()
+	ref := root.GetElementById(js.NewString(id).Once()).Ref()
 	if ref.Undefined() {
 		return false
 	}
