@@ -6,12 +6,12 @@
 package rt0
 
 import (
-	_ "github.com/primecitizens/std/ffi/js" // import symbol "wasm_export_run" and "wasm_export_getsp"
+	_ "github.com/primecitizens/pcz/std/ffi/js" // import symbol "wasm_export_run" and "wasm_export_getsp"
 
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/alloc/sbrkalloc"
-	"github.com/primecitizens/std/core/yield"
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/alloc/sbrkalloc"
+	"github.com/primecitizens/pcz/std/core/yield"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 var _alloc sbrkalloc.T

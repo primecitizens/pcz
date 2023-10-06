@@ -8,8 +8,8 @@ package sys
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/sys/bindings"
-	"github.com/primecitizens/std/ffi/js"
+	"github.com/primecitizens/pcz/std/core/sys/bindings"
+	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
 var (

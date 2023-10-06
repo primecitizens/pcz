@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -282,7 +282,7 @@ func (this VideoEncoder) Configure(config VideoEncoderConfig) (ret js.Void) {
 }
 
 // TryConfigure calls the method "VideoEncoder.configure"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryConfigure(config VideoEncoderConfig) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderConfigure(
@@ -321,7 +321,7 @@ func (this VideoEncoder) Encode(frame VideoFrame, options VideoEncoderEncodeOpti
 }
 
 // TryEncode calls the method "VideoEncoder.encode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryEncode(frame VideoFrame, options VideoEncoderEncodeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderEncode(
@@ -360,7 +360,7 @@ func (this VideoEncoder) Encode1(frame VideoFrame) (ret js.Void) {
 }
 
 // TryEncode1 calls the method "VideoEncoder.encode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryEncode1(frame VideoFrame) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderEncode1(
@@ -397,7 +397,7 @@ func (this VideoEncoder) Flush() (ret js.Promise[js.Void]) {
 }
 
 // TryFlush calls the method "VideoEncoder.flush"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryFlush() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderFlush(
@@ -433,7 +433,7 @@ func (this VideoEncoder) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "VideoEncoder.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderReset(
@@ -469,7 +469,7 @@ func (this VideoEncoder) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "VideoEncoder.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderClose(
@@ -506,7 +506,7 @@ func (this VideoEncoder) IsConfigSupported(config VideoEncoderConfig) (ret js.Pr
 }
 
 // TryIsConfigSupported calls the staticmethod "VideoEncoder.isConfigSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoEncoder) TryIsConfigSupported(config VideoEncoderConfig) (ret js.Promise[VideoEncoderSupport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoEncoderIsConfigSupported(
@@ -1037,7 +1037,7 @@ func (this WEBGL_compressed_texture_astc) GetSupportedProfiles() (ret js.Array[j
 }
 
 // TryGetSupportedProfiles calls the method "WEBGL_compressed_texture_astc.getSupportedProfiles"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_compressed_texture_astc) TryGetSupportedProfiles() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_compressed_texture_astcGetSupportedProfiles(
@@ -1271,7 +1271,7 @@ func (this WEBGL_debug_shaders) GetTranslatedShaderSource(shader WebGLShader) (r
 }
 
 // TryGetTranslatedShaderSource calls the method "WEBGL_debug_shaders.getTranslatedShaderSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_debug_shaders) TryGetTranslatedShaderSource(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_debug_shadersGetTranslatedShaderSource(
@@ -1394,7 +1394,7 @@ func (this WEBGL_draw_buffers) DrawBuffersWEBGL(buffers js.Array[GLenum]) (ret j
 }
 
 // TryDrawBuffersWEBGL calls the method "WEBGL_draw_buffers.drawBuffersWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_draw_buffers) TryDrawBuffersWEBGL(buffers js.Array[GLenum]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_draw_buffersDrawBuffersWEBGL(
@@ -1458,7 +1458,7 @@ func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawArraysInstancedBa
 }
 
 // TryDrawArraysInstancedBaseInstanceWEBGL calls the method "WEBGL_draw_instanced_base_vertex_base_instance.drawArraysInstancedBaseInstanceWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_draw_instanced_base_vertex_base_instance) TryDrawArraysInstancedBaseInstanceWEBGL(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei, baseInstance GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_draw_instanced_base_vertex_base_instanceDrawArraysInstancedBaseInstanceWEBGL(
@@ -1506,7 +1506,7 @@ func (this WEBGL_draw_instanced_base_vertex_base_instance) DrawElementsInstanced
 }
 
 // TryDrawElementsInstancedBaseVertexBaseInstanceWEBGL calls the method "WEBGL_draw_instanced_base_vertex_base_instance.drawElementsInstancedBaseVertexBaseInstanceWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_draw_instanced_base_vertex_base_instance) TryDrawElementsInstancedBaseVertexBaseInstanceWEBGL(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei, baseVertex GLint, baseInstance GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_draw_instanced_base_vertex_base_instanceDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
@@ -1571,7 +1571,7 @@ func (this WEBGL_lose_context) LoseContext() (ret js.Void) {
 }
 
 // TryLoseContext calls the method "WEBGL_lose_context.loseContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_lose_context) TryLoseContext() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_lose_contextLoseContext(
@@ -1607,7 +1607,7 @@ func (this WEBGL_lose_context) RestoreContext() (ret js.Void) {
 }
 
 // TryRestoreContext calls the method "WEBGL_lose_context.restoreContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_lose_context) TryRestoreContext() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_lose_contextRestoreContext(
@@ -1697,7 +1697,7 @@ func (this WEBGL_multi_draw) MultiDrawArraysWEBGL(mode GLenum, firstsList OneOf_
 }
 
 // TryMultiDrawArraysWEBGL calls the method "WEBGL_multi_draw.multiDrawArraysWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawArraysWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawArraysWEBGL(
@@ -1746,7 +1746,7 @@ func (this WEBGL_multi_draw) MultiDrawElementsWEBGL(mode GLenum, countsList OneO
 }
 
 // TryMultiDrawElementsWEBGL calls the method "WEBGL_multi_draw.multiDrawElementsWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawElementsWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawElementsWEBGL(
@@ -1797,7 +1797,7 @@ func (this WEBGL_multi_draw) MultiDrawArraysInstancedWEBGL(mode GLenum, firstsLi
 }
 
 // TryMultiDrawArraysInstancedWEBGL calls the method "WEBGL_multi_draw.multiDrawArraysInstancedWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawArraysInstancedWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawArraysInstancedWEBGL(
@@ -1850,7 +1850,7 @@ func (this WEBGL_multi_draw) MultiDrawElementsInstancedWEBGL(mode GLenum, counts
 }
 
 // TryMultiDrawElementsInstancedWEBGL calls the method "WEBGL_multi_draw.multiDrawElementsInstancedWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_multi_draw) TryMultiDrawElementsInstancedWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_drawMultiDrawElementsInstancedWEBGL(
@@ -1927,7 +1927,7 @@ func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawArrays
 }
 
 // TryMultiDrawArraysInstancedBaseInstanceWEBGL calls the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawArraysInstancedBaseInstanceWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) TryMultiDrawArraysInstancedBaseInstanceWEBGL(mode GLenum, firstsList OneOf_TypedArrayInt32_ArrayGLint, firstsOffset GLuint, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawArraysInstancedBaseInstanceWEBGL(
@@ -1986,7 +1986,7 @@ func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) MultiDrawElemen
 }
 
 // TryMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL calls the method "WEBGL_multi_draw_instanced_base_vertex_base_instance.multiDrawElementsInstancedBaseVertexBaseInstanceWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_multi_draw_instanced_base_vertex_base_instance) TryMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(mode GLenum, countsList OneOf_TypedArrayInt32_ArrayGLsizei, countsOffset GLuint, typ GLenum, offsetsList OneOf_TypedArrayInt32_ArrayGLsizei, offsetsOffset GLuint, instanceCountsList OneOf_TypedArrayInt32_ArrayGLsizei, instanceCountsOffset GLuint, baseVerticesList OneOf_TypedArrayInt32_ArrayGLint, baseVerticesOffset GLuint, baseInstancesList OneOf_TypedArrayUint32_ArrayGLuint, baseInstancesOffset GLuint, drawcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_multi_draw_instanced_base_vertex_base_instanceMultiDrawElementsInstancedBaseVertexBaseInstanceWEBGL(
@@ -2064,7 +2064,7 @@ func (this WEBGL_provoking_vertex) ProvokingVertexWEBGL(provokeMode GLenum) (ret
 }
 
 // TryProvokingVertexWEBGL calls the method "WEBGL_provoking_vertex.provokingVertexWEBGL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WEBGL_provoking_vertex) TryProvokingVertexWEBGL(provokeMode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWEBGL_provoking_vertexProvokingVertexWEBGL(
@@ -2139,7 +2139,7 @@ func (WebAssembly) Validate(bytes BufferSource) (ret bool) {
 }
 
 // TryValidate calls the function "WebAssembly.validate"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryValidate(bytes BufferSource) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyValidate(
@@ -2171,7 +2171,7 @@ func (WebAssembly) Compile(bytes BufferSource) (ret js.Promise[Module]) {
 }
 
 // TryCompile calls the function "WebAssembly.compile"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryCompile(bytes BufferSource) (ret js.Promise[Module], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyCompile(
@@ -2204,7 +2204,7 @@ func (WebAssembly) Instantiate(bytes BufferSource, importObject js.Object) (ret 
 }
 
 // TryInstantiate calls the function "WebAssembly.instantiate"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryInstantiate(bytes BufferSource, importObject js.Object) (ret js.Promise[WebAssemblyInstantiatedSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyInstantiate(
@@ -2237,7 +2237,7 @@ func (WebAssembly) Instantiate1(bytes BufferSource) (ret js.Promise[WebAssemblyI
 }
 
 // TryInstantiate1 calls the function "WebAssembly.instantiate"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryInstantiate1(bytes BufferSource) (ret js.Promise[WebAssemblyInstantiatedSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyInstantiate1(
@@ -2270,7 +2270,7 @@ func (WebAssembly) Instantiate2(moduleObject Module, importObject js.Object) (re
 }
 
 // TryInstantiate2 calls the function "WebAssembly.instantiate"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryInstantiate2(moduleObject Module, importObject js.Object) (ret js.Promise[Instance], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyInstantiate2(
@@ -2303,7 +2303,7 @@ func (WebAssembly) Instantiate3(moduleObject Module) (ret js.Promise[Instance]) 
 }
 
 // TryInstantiate3 calls the function "WebAssembly.instantiate"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryInstantiate3(moduleObject Module) (ret js.Promise[Instance], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyInstantiate3(
@@ -2335,7 +2335,7 @@ func (WebAssembly) CompileStreaming(source js.Promise[Response]) (ret js.Promise
 }
 
 // TryCompileStreaming calls the function "WebAssembly.compileStreaming"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryCompileStreaming(source js.Promise[Response]) (ret js.Promise[Module], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyCompileStreaming(
@@ -2368,7 +2368,7 @@ func (WebAssembly) InstantiateStreaming(source js.Promise[Response], importObjec
 }
 
 // TryInstantiateStreaming calls the function "WebAssembly.instantiateStreaming"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryInstantiateStreaming(source js.Promise[Response], importObject js.Object) (ret js.Promise[WebAssemblyInstantiatedSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyInstantiateStreaming(
@@ -2401,7 +2401,7 @@ func (WebAssembly) InstantiateStreaming1(source js.Promise[Response]) (ret js.Pr
 }
 
 // TryInstantiateStreaming1 calls the function "WebAssembly.instantiateStreaming"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (WebAssembly) TryInstantiateStreaming1(source js.Promise[Response]) (ret js.Promise[WebAssemblyInstantiatedSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebAssemblyInstantiateStreaming1(

@@ -12,7 +12,7 @@ package atomic
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/cpu"
+	"github.com/primecitizens/pcz/std/core/cpu"
 )
 
 var (

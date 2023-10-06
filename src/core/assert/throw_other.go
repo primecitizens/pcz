@@ -6,7 +6,7 @@
 package assert
 
 import (
-	"github.com/primecitizens/std/core/debug"
+	"github.com/primecitizens/pcz/std/core/debug"
 )
 
 // Throw triggers a fatal error that dumps a stack trace and exits.

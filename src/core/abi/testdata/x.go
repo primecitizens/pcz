@@ -7,7 +7,7 @@
 
 package x
 
-import "github.com/primecitizens/std/core/abi"
+import "github.com/primecitizens/pcz/std/core/abi"
 
 func Fn0() // defined in assembly
 

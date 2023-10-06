@@ -12,9 +12,9 @@ import (
 	"strings"
 	"testing"
 
-	stdstring "github.com/primecitizens/std/builtin/string"
-	. "github.com/primecitizens/std/text/unicode/common"
-	. "github.com/primecitizens/std/text/unicode/utf8"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
+	. "github.com/primecitizens/pcz/std/text/unicode/utf8"
 )
 
 type Utf8Map struct {

@@ -13,9 +13,9 @@ import (
 	"testing"
 	"unsafe"
 
-	stdstring "github.com/primecitizens/std/builtin/string"
-	"github.com/primecitizens/std/text/unicode/utf16"
-	"github.com/primecitizens/std/text/unicode/utf8"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
+	"github.com/primecitizens/pcz/std/text/unicode/utf16"
+	"github.com/primecitizens/pcz/std/text/unicode/utf8"
 )
 
 var wtf8tests = []struct {

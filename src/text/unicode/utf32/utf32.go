@@ -4,7 +4,7 @@ import (
 	"math/bits"
 	"unsafe"
 
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 func AsString(s []uint32) String {

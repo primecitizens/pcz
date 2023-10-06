@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -257,7 +257,7 @@ func (this CSSColorValue) Parse(cssText js.String) (ret OneOf_CSSColorValue_CSSS
 }
 
 // TryParse calls the staticmethod "CSSColorValue.parse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSColorValue) TryParse(cssText js.String) (ret OneOf_CSSColorValue_CSSStyleValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSColorValueParse(
@@ -692,7 +692,7 @@ func (this CSSFontFeatureValuesMap) Set(featureValueName js.String, values OneOf
 }
 
 // TrySet calls the method "CSSFontFeatureValuesMap.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSFontFeatureValuesMap) TrySet(featureValueName js.String, values OneOf_Uint32_ArrayUint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSFontFeatureValuesMapSet(
@@ -928,7 +928,7 @@ func (this CSSGroupingRule) InsertRule(rule js.String, index uint32) (ret uint32
 }
 
 // TryInsertRule calls the method "CSSGroupingRule.insertRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSGroupingRule) TryInsertRule(rule js.String, index uint32) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSGroupingRuleInsertRule(
@@ -967,7 +967,7 @@ func (this CSSGroupingRule) InsertRule1(rule js.String) (ret uint32) {
 }
 
 // TryInsertRule1 calls the method "CSSGroupingRule.insertRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSGroupingRule) TryInsertRule1(rule js.String) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSGroupingRuleInsertRule1(
@@ -1005,7 +1005,7 @@ func (this CSSGroupingRule) DeleteRule(index uint32) (ret js.Void) {
 }
 
 // TryDeleteRule calls the method "CSSGroupingRule.deleteRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSGroupingRule) TryDeleteRule(index uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSGroupingRuleDeleteRule(
@@ -1489,7 +1489,7 @@ func (this CSSKeyframesRule) Get(index uint32) (ret CSSKeyframeRule) {
 }
 
 // TryGet calls the method "CSSKeyframesRule."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSKeyframesRule) TryGet(index uint32) (ret CSSKeyframeRule, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSKeyframesRuleGet(
@@ -1527,7 +1527,7 @@ func (this CSSKeyframesRule) AppendRule(rule js.String) (ret js.Void) {
 }
 
 // TryAppendRule calls the method "CSSKeyframesRule.appendRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSKeyframesRule) TryAppendRule(rule js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSKeyframesRuleAppendRule(
@@ -1565,7 +1565,7 @@ func (this CSSKeyframesRule) DeleteRule(sel js.String) (ret js.Void) {
 }
 
 // TryDeleteRule calls the method "CSSKeyframesRule.deleteRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSKeyframesRule) TryDeleteRule(sel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSKeyframesRuleDeleteRule(
@@ -1603,7 +1603,7 @@ func (this CSSKeyframesRule) FindRule(sel js.String) (ret CSSKeyframeRule) {
 }
 
 // TryFindRule calls the method "CSSKeyframesRule.findRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSKeyframesRule) TryFindRule(sel js.String) (ret CSSKeyframeRule, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSKeyframesRuleFindRule(
@@ -2582,7 +2582,7 @@ func (this DOMMatrixReadOnly) FromMatrix(other DOMMatrixInit) (ret DOMMatrixRead
 }
 
 // TryFromMatrix calls the staticmethod "DOMMatrixReadOnly.fromMatrix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryFromMatrix(other DOMMatrixInit) (ret DOMMatrixReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyFromMatrix(
@@ -2619,7 +2619,7 @@ func (this DOMMatrixReadOnly) FromMatrix1() (ret DOMMatrixReadOnly) {
 }
 
 // TryFromMatrix1 calls the staticmethod "DOMMatrixReadOnly.fromMatrix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryFromMatrix1() (ret DOMMatrixReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyFromMatrix1(
@@ -2656,7 +2656,7 @@ func (this DOMMatrixReadOnly) FromFloat32Array(array32 js.TypedArray[float32]) (
 }
 
 // TryFromFloat32Array calls the staticmethod "DOMMatrixReadOnly.fromFloat32Array"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryFromFloat32Array(array32 js.TypedArray[float32]) (ret DOMMatrixReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyFromFloat32Array(
@@ -2694,7 +2694,7 @@ func (this DOMMatrixReadOnly) FromFloat64Array(array64 js.TypedArray[float64]) (
 }
 
 // TryFromFloat64Array calls the staticmethod "DOMMatrixReadOnly.fromFloat64Array"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryFromFloat64Array(array64 js.TypedArray[float64]) (ret DOMMatrixReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyFromFloat64Array(
@@ -2734,7 +2734,7 @@ func (this DOMMatrixReadOnly) Translate(tx float64, ty float64, tz float64) (ret
 }
 
 // TryTranslate calls the method "DOMMatrixReadOnly.translate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryTranslate(tx float64, ty float64, tz float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyTranslate(
@@ -2775,7 +2775,7 @@ func (this DOMMatrixReadOnly) Translate1(tx float64, ty float64) (ret DOMMatrix)
 }
 
 // TryTranslate1 calls the method "DOMMatrixReadOnly.translate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryTranslate1(tx float64, ty float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyTranslate1(
@@ -2814,7 +2814,7 @@ func (this DOMMatrixReadOnly) Translate2(tx float64) (ret DOMMatrix) {
 }
 
 // TryTranslate2 calls the method "DOMMatrixReadOnly.translate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryTranslate2(tx float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyTranslate2(
@@ -2851,7 +2851,7 @@ func (this DOMMatrixReadOnly) Translate3() (ret DOMMatrix) {
 }
 
 // TryTranslate3 calls the method "DOMMatrixReadOnly.translate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryTranslate3() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyTranslate3(
@@ -2893,7 +2893,7 @@ func (this DOMMatrixReadOnly) Scale(scaleX float64, scaleY float64, scaleZ float
 }
 
 // TryScale calls the method "DOMMatrixReadOnly.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale(scaleX float64, scaleY float64, scaleZ float64, originX float64, originY float64, originZ float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale(
@@ -2940,7 +2940,7 @@ func (this DOMMatrixReadOnly) Scale1(scaleX float64, scaleY float64, scaleZ floa
 }
 
 // TryScale1 calls the method "DOMMatrixReadOnly.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale1(scaleX float64, scaleY float64, scaleZ float64, originX float64, originY float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale1(
@@ -2985,7 +2985,7 @@ func (this DOMMatrixReadOnly) Scale2(scaleX float64, scaleY float64, scaleZ floa
 }
 
 // TryScale2 calls the method "DOMMatrixReadOnly.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale2(scaleX float64, scaleY float64, scaleZ float64, originX float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale2(
@@ -3028,7 +3028,7 @@ func (this DOMMatrixReadOnly) Scale3(scaleX float64, scaleY float64, scaleZ floa
 }
 
 // TryScale3 calls the method "DOMMatrixReadOnly.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale3(scaleX float64, scaleY float64, scaleZ float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale3(
@@ -3069,7 +3069,7 @@ func (this DOMMatrixReadOnly) Scale4(scaleX float64, scaleY float64) (ret DOMMat
 }
 
 // TryScale4 calls the method "DOMMatrixReadOnly.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale4(scaleX float64, scaleY float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale4(
@@ -3108,7 +3108,7 @@ func (this DOMMatrixReadOnly) Scale5(scaleX float64) (ret DOMMatrix) {
 }
 
 // TryScale5 calls the method "DOMMatrixReadOnly.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale5(scaleX float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale5(
@@ -3145,7 +3145,7 @@ func (this DOMMatrixReadOnly) Scale6() (ret DOMMatrix) {
 }
 
 // TryScale6 calls the method "DOMMatrixReadOnly.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale6() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale6(
@@ -3183,7 +3183,7 @@ func (this DOMMatrixReadOnly) ScaleNonUniform(scaleX float64, scaleY float64) (r
 }
 
 // TryScaleNonUniform calls the method "DOMMatrixReadOnly.scaleNonUniform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScaleNonUniform(scaleX float64, scaleY float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScaleNonUniform(
@@ -3222,7 +3222,7 @@ func (this DOMMatrixReadOnly) ScaleNonUniform1(scaleX float64) (ret DOMMatrix) {
 }
 
 // TryScaleNonUniform1 calls the method "DOMMatrixReadOnly.scaleNonUniform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScaleNonUniform1(scaleX float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScaleNonUniform1(
@@ -3259,7 +3259,7 @@ func (this DOMMatrixReadOnly) ScaleNonUniform2() (ret DOMMatrix) {
 }
 
 // TryScaleNonUniform2 calls the method "DOMMatrixReadOnly.scaleNonUniform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScaleNonUniform2() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScaleNonUniform2(
@@ -3299,7 +3299,7 @@ func (this DOMMatrixReadOnly) Scale3d(scale float64, originX float64, originY fl
 }
 
 // TryScale3d calls the method "DOMMatrixReadOnly.scale3d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale3d(scale float64, originX float64, originY float64, originZ float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale3d(
@@ -3342,7 +3342,7 @@ func (this DOMMatrixReadOnly) Scale3d1(scale float64, originX float64, originY f
 }
 
 // TryScale3d1 calls the method "DOMMatrixReadOnly.scale3d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale3d1(scale float64, originX float64, originY float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale3d1(
@@ -3383,7 +3383,7 @@ func (this DOMMatrixReadOnly) Scale3d2(scale float64, originX float64) (ret DOMM
 }
 
 // TryScale3d2 calls the method "DOMMatrixReadOnly.scale3d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale3d2(scale float64, originX float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale3d2(
@@ -3422,7 +3422,7 @@ func (this DOMMatrixReadOnly) Scale3d3(scale float64) (ret DOMMatrix) {
 }
 
 // TryScale3d3 calls the method "DOMMatrixReadOnly.scale3d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale3d3(scale float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale3d3(
@@ -3459,7 +3459,7 @@ func (this DOMMatrixReadOnly) Scale3d4() (ret DOMMatrix) {
 }
 
 // TryScale3d4 calls the method "DOMMatrixReadOnly.scale3d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryScale3d4() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyScale3d4(
@@ -3498,7 +3498,7 @@ func (this DOMMatrixReadOnly) Rotate(rotX float64, rotY float64, rotZ float64) (
 }
 
 // TryRotate calls the method "DOMMatrixReadOnly.rotate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotate(rotX float64, rotY float64, rotZ float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotate(
@@ -3539,7 +3539,7 @@ func (this DOMMatrixReadOnly) Rotate1(rotX float64, rotY float64) (ret DOMMatrix
 }
 
 // TryRotate1 calls the method "DOMMatrixReadOnly.rotate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotate1(rotX float64, rotY float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotate1(
@@ -3578,7 +3578,7 @@ func (this DOMMatrixReadOnly) Rotate2(rotX float64) (ret DOMMatrix) {
 }
 
 // TryRotate2 calls the method "DOMMatrixReadOnly.rotate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotate2(rotX float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotate2(
@@ -3615,7 +3615,7 @@ func (this DOMMatrixReadOnly) Rotate3() (ret DOMMatrix) {
 }
 
 // TryRotate3 calls the method "DOMMatrixReadOnly.rotate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotate3() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotate3(
@@ -3653,7 +3653,7 @@ func (this DOMMatrixReadOnly) RotateFromVector(x float64, y float64) (ret DOMMat
 }
 
 // TryRotateFromVector calls the method "DOMMatrixReadOnly.rotateFromVector"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateFromVector(x float64, y float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateFromVector(
@@ -3692,7 +3692,7 @@ func (this DOMMatrixReadOnly) RotateFromVector1(x float64) (ret DOMMatrix) {
 }
 
 // TryRotateFromVector1 calls the method "DOMMatrixReadOnly.rotateFromVector"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateFromVector1(x float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateFromVector1(
@@ -3729,7 +3729,7 @@ func (this DOMMatrixReadOnly) RotateFromVector2() (ret DOMMatrix) {
 }
 
 // TryRotateFromVector2 calls the method "DOMMatrixReadOnly.rotateFromVector"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateFromVector2() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateFromVector2(
@@ -3769,7 +3769,7 @@ func (this DOMMatrixReadOnly) RotateAxisAngle(x float64, y float64, z float64, a
 }
 
 // TryRotateAxisAngle calls the method "DOMMatrixReadOnly.rotateAxisAngle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateAxisAngle(x float64, y float64, z float64, angle float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateAxisAngle(
@@ -3812,7 +3812,7 @@ func (this DOMMatrixReadOnly) RotateAxisAngle1(x float64, y float64, z float64) 
 }
 
 // TryRotateAxisAngle1 calls the method "DOMMatrixReadOnly.rotateAxisAngle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateAxisAngle1(x float64, y float64, z float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateAxisAngle1(
@@ -3853,7 +3853,7 @@ func (this DOMMatrixReadOnly) RotateAxisAngle2(x float64, y float64) (ret DOMMat
 }
 
 // TryRotateAxisAngle2 calls the method "DOMMatrixReadOnly.rotateAxisAngle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateAxisAngle2(x float64, y float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateAxisAngle2(
@@ -3892,7 +3892,7 @@ func (this DOMMatrixReadOnly) RotateAxisAngle3(x float64) (ret DOMMatrix) {
 }
 
 // TryRotateAxisAngle3 calls the method "DOMMatrixReadOnly.rotateAxisAngle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateAxisAngle3(x float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateAxisAngle3(
@@ -3929,7 +3929,7 @@ func (this DOMMatrixReadOnly) RotateAxisAngle4() (ret DOMMatrix) {
 }
 
 // TryRotateAxisAngle4 calls the method "DOMMatrixReadOnly.rotateAxisAngle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryRotateAxisAngle4() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyRotateAxisAngle4(
@@ -3966,7 +3966,7 @@ func (this DOMMatrixReadOnly) SkewX(sx float64) (ret DOMMatrix) {
 }
 
 // TrySkewX calls the method "DOMMatrixReadOnly.skewX"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TrySkewX(sx float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlySkewX(
@@ -4003,7 +4003,7 @@ func (this DOMMatrixReadOnly) SkewX1() (ret DOMMatrix) {
 }
 
 // TrySkewX1 calls the method "DOMMatrixReadOnly.skewX"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TrySkewX1() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlySkewX1(
@@ -4040,7 +4040,7 @@ func (this DOMMatrixReadOnly) SkewY(sy float64) (ret DOMMatrix) {
 }
 
 // TrySkewY calls the method "DOMMatrixReadOnly.skewY"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TrySkewY(sy float64) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlySkewY(
@@ -4077,7 +4077,7 @@ func (this DOMMatrixReadOnly) SkewY1() (ret DOMMatrix) {
 }
 
 // TrySkewY1 calls the method "DOMMatrixReadOnly.skewY"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TrySkewY1() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlySkewY1(
@@ -4114,7 +4114,7 @@ func (this DOMMatrixReadOnly) Multiply(other DOMMatrixInit) (ret DOMMatrix) {
 }
 
 // TryMultiply calls the method "DOMMatrixReadOnly.multiply"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryMultiply(other DOMMatrixInit) (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyMultiply(
@@ -4151,7 +4151,7 @@ func (this DOMMatrixReadOnly) Multiply1() (ret DOMMatrix) {
 }
 
 // TryMultiply1 calls the method "DOMMatrixReadOnly.multiply"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryMultiply1() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyMultiply1(
@@ -4187,7 +4187,7 @@ func (this DOMMatrixReadOnly) FlipX() (ret DOMMatrix) {
 }
 
 // TryFlipX calls the method "DOMMatrixReadOnly.flipX"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryFlipX() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyFlipX(
@@ -4223,7 +4223,7 @@ func (this DOMMatrixReadOnly) FlipY() (ret DOMMatrix) {
 }
 
 // TryFlipY calls the method "DOMMatrixReadOnly.flipY"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryFlipY() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyFlipY(
@@ -4259,7 +4259,7 @@ func (this DOMMatrixReadOnly) Inverse() (ret DOMMatrix) {
 }
 
 // TryInverse calls the method "DOMMatrixReadOnly.inverse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryInverse() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyInverse(
@@ -4296,7 +4296,7 @@ func (this DOMMatrixReadOnly) TransformPoint(point DOMPointInit) (ret DOMPoint) 
 }
 
 // TryTransformPoint calls the method "DOMMatrixReadOnly.transformPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryTransformPoint(point DOMPointInit) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyTransformPoint(
@@ -4333,7 +4333,7 @@ func (this DOMMatrixReadOnly) TransformPoint1() (ret DOMPoint) {
 }
 
 // TryTransformPoint1 calls the method "DOMMatrixReadOnly.transformPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryTransformPoint1() (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyTransformPoint1(
@@ -4369,7 +4369,7 @@ func (this DOMMatrixReadOnly) ToFloat32Array() (ret js.TypedArray[float32]) {
 }
 
 // TryToFloat32Array calls the method "DOMMatrixReadOnly.toFloat32Array"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryToFloat32Array() (ret js.TypedArray[float32], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyToFloat32Array(
@@ -4405,7 +4405,7 @@ func (this DOMMatrixReadOnly) ToFloat64Array() (ret js.TypedArray[float64]) {
 }
 
 // TryToFloat64Array calls the method "DOMMatrixReadOnly.toFloat64Array"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryToFloat64Array() (ret js.TypedArray[float64], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyToFloat64Array(
@@ -4441,7 +4441,7 @@ func (this DOMMatrixReadOnly) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "DOMMatrixReadOnly.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyToString(
@@ -4477,7 +4477,7 @@ func (this DOMMatrixReadOnly) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "DOMMatrixReadOnly.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMMatrixReadOnly) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMMatrixReadOnlyToJSON(
@@ -5039,7 +5039,7 @@ func (this CSSParserAtRule) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "CSSParserAtRule.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSParserAtRule) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParserAtRuleToString(
@@ -5124,7 +5124,7 @@ func (this CSSParserBlock) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "CSSParserBlock.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSParserBlock) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParserBlockToString(
@@ -5209,7 +5209,7 @@ func (this CSSParserFunction) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "CSSParserFunction.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSParserFunction) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParserFunctionToString(
@@ -5300,7 +5300,7 @@ func (this CSSParserQualifiedRule) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "CSSParserQualifiedRule.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSParserQualifiedRule) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParserQualifiedRuleToString(

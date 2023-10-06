@@ -5,7 +5,7 @@
 package pcg
 
 import (
-	"github.com/primecitizens/std/core/bits"
+	"github.com/primecitizens/pcz/std/core/bits"
 )
 
 const (

@@ -10,7 +10,7 @@ package testenv
 import (
 	"testing"
 
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 func MustHaveGoBuild(t testing.TB) {

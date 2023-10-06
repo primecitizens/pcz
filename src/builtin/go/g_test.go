@@ -1,6 +1,6 @@
 package stdgo
 
-import "github.com/primecitizens/std/core/alloc"
+import "github.com/primecitizens/pcz/std/core/alloc"
 
 var _ G = (*GHead)(nil)
 

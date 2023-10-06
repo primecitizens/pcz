@@ -4,7 +4,7 @@
 package stack
 
 import (
-	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/abi"
 )
 
 // A Frame holds information about a single stack frame.

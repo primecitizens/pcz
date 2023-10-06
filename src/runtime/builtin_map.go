@@ -8,8 +8,8 @@ package runtime
 import (
 	"unsafe"
 
-	stdmap "github.com/primecitizens/std/builtin/map"
-	"github.com/primecitizens/std/core/abi"
+	stdmap "github.com/primecitizens/pcz/std/builtin/map"
+	"github.com/primecitizens/pcz/std/core/abi"
 )
 
 //

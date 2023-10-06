@@ -10,7 +10,7 @@
 package bytealg
 
 import (
-	"github.com/primecitizens/std/core/cmp"
+	"github.com/primecitizens/pcz/std/core/cmp"
 )
 
 const (

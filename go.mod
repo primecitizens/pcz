@@ -2,7 +2,7 @@ module github.com/primecitizens/pcz
 
 go 1.21
 
-replace github.com/primecitizens/std => ./src
+replace github.com/primecitizens/pcz/std => ./src
 
 require (
 	github.com/bmatcuk/doublestar/v4 v4.6.0
@@ -11,7 +11,7 @@ require (
 	github.com/fsnotify/fsnotify v1.6.0
 	github.com/huandu/xstrings v1.4.0
 	github.com/primecitizens/cli v0.1.1
-	github.com/primecitizens/std v0.0.0
+	github.com/primecitizens/pcz/std v0.0.0
 	github.com/stretchr/testify v1.8.0
 	gopkg.in/yaml.v3 v3.0.1
 )

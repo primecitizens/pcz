@@ -5,7 +5,7 @@
 package math
 
 import (
-	"github.com/primecitizens/std/core/bits"
+	"github.com/primecitizens/pcz/std/core/bits"
 )
 
 func zero(x uint64) uint64 {

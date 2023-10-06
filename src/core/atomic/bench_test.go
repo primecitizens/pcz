@@ -10,7 +10,7 @@ package atomic_test
 import (
 	"testing"
 
-	"github.com/primecitizens/std/core/atomic"
+	"github.com/primecitizens/pcz/std/core/atomic"
 )
 
 var sink any

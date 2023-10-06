@@ -12,9 +12,9 @@ package runtime
 import (
 	"unsafe"
 
-	stdgo "github.com/primecitizens/std/builtin/go"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
+	stdgo "github.com/primecitizens/pcz/std/builtin/go"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // see $GOROOT/src/runtime/chan.go

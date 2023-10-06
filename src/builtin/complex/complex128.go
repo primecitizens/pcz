@@ -8,7 +8,7 @@
 package stdcomplex
 
 import (
-	stdfloat "github.com/primecitizens/std/builtin/float"
+	stdfloat "github.com/primecitizens/pcz/std/builtin/float"
 )
 
 func Complex128Div(n, m complex128) complex128 {

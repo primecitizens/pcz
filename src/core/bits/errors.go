@@ -8,7 +8,7 @@
 package bits
 
 import (
-	"github.com/primecitizens/std/core/cerr"
+	"github.com/primecitizens/pcz/std/core/cerr"
 )
 
 type error = cerr.E

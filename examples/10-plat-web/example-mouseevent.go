@@ -4,8 +4,8 @@
 package main
 
 import (
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web"
 )
 
 var (

@@ -6,9 +6,9 @@ package js
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/math"
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 type bigintTypes interface {

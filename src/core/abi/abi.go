@@ -10,8 +10,8 @@ package abi
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // RegArgs is a struct that has space for each argument

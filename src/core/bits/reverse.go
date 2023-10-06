@@ -8,7 +8,7 @@
 package bits
 
 import (
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 // Reverse returns the value of x with its bits in reversed order.

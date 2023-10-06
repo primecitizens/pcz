@@ -12,8 +12,8 @@ package wasi
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 type Dirent struct {

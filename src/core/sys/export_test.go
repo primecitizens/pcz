@@ -4,9 +4,9 @@
 package sys_test
 
 import (
-	"github.com/primecitizens/std/algo/sort"
-	"github.com/primecitizens/std/core/iter"
-	"github.com/primecitizens/std/core/sys"
+	"github.com/primecitizens/pcz/std/algo/sort"
+	"github.com/primecitizens/pcz/std/core/iter"
+	"github.com/primecitizens/pcz/std/core/sys"
 )
 
 var (

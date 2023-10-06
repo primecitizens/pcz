@@ -8,7 +8,7 @@ package debug
 import (
 	_ "unsafe" // for go:linkname
 
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 const minFrameSize = arch.MinFrameSize

@@ -23,8 +23,8 @@
 package wtf16
 
 import (
-	"github.com/primecitizens/std/text/unicode/common"
-	"github.com/primecitizens/std/text/unicode/utf16"
+	"github.com/primecitizens/pcz/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/text/unicode/utf16"
 )
 
 func AsString(s []uint16) String {

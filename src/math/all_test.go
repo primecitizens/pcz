@@ -9,7 +9,7 @@ import (
 	"testing"
 	"unsafe"
 
-	. "github.com/primecitizens/std/math"
+	. "github.com/primecitizens/pcz/std/math"
 )
 
 var vf = []float64{

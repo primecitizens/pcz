@@ -11,7 +11,7 @@
 package utf8
 
 import (
-	. "github.com/primecitizens/std/text/unicode/common"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
 )
 
 // Valid reports whether s consists entirely of valid UTF-8-encoded runes.

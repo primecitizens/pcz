@@ -8,9 +8,9 @@
 package wtf16
 
 import (
-	. "github.com/primecitizens/std/text/unicode/common"
-	"github.com/primecitizens/std/text/unicode/utf16"
-	"github.com/primecitizens/std/text/unicode/utf8"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/text/unicode/utf16"
+	"github.com/primecitizens/pcz/std/text/unicode/utf8"
 )
 
 func WTF8DecodedSize(s ...uint16) (n int, canDecodeInPlace bool) {

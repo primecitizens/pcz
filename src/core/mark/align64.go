@@ -4,7 +4,7 @@
 package mark
 
 import (
-	"github.com/primecitizens/std/core/mark/internal/atomic"
+	"github.com/primecitizens/pcz/std/core/mark/internal/atomic"
 )
 
 // Align64 may be added to structs that must be 64-bit aligned.

@@ -6,7 +6,7 @@ package js
 import (
 	"fmt"
 
-	"github.com/primecitizens/std/encoding/binfmt/wasm"
+	"github.com/primecitizens/pcz/std/encoding/binfmt/wasm"
 )
 
 type WasmImportKey struct {

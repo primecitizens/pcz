@@ -4,7 +4,7 @@
 package sys
 
 import (
-	"github.com/primecitizens/std/core/bytealg"
+	"github.com/primecitizens/pcz/std/core/bytealg"
 )
 
 type (

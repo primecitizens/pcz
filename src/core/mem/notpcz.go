@@ -9,7 +9,7 @@ import (
 	"unsafe"
 	_ "unsafe" // for go:linknanme
 
-	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/abi"
 )
 
 //go:linkname Equal runtime.memequal

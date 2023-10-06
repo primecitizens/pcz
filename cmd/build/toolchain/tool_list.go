@@ -103,7 +103,7 @@ func (t *PczStdTransformer) Transform(p *Package, deps []*Package) (err error) {
 
 func (r *PczStdTransformer) renameImportpath(p *Package) (importpath string, err error) {
 	importpath = p.ImportPath
-	importpath, isSTD := strings.CutPrefix(importpath, "github.com/primecitizens/std/")
+	importpath, isSTD := strings.CutPrefix(importpath, "github.com/primecitizens/pcz/std/")
 	if !isSTD {
 		if len(p.ImportComment) != 0 {
 			importpath = p.ImportComment

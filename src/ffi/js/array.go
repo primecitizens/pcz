@@ -4,10 +4,10 @@
 package js
 
 import (
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/math"
-	"github.com/primecitizens/std/ffi/js/array"
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/ffi/js/array"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 func NewArray[T any](sz int) Array[T] {

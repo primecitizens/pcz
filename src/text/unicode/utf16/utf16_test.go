@@ -11,8 +11,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/primecitizens/std/text/unicode"
-	. "github.com/primecitizens/std/text/unicode/utf16"
+	"github.com/primecitizens/pcz/std/text/unicode"
+	. "github.com/primecitizens/pcz/std/text/unicode/utf16"
 )
 
 type encodeTest struct {

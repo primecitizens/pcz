@@ -13,7 +13,7 @@ import (
 	"internal/godebug"
 	"testing"
 
-	. "github.com/primecitizens/std/core/cpu"
+	. "github.com/primecitizens/pcz/std/core/cpu"
 )
 
 func TestX86ifAVX2hasAVX(t *testing.T) {

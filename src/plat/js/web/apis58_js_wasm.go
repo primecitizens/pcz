@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -235,7 +235,7 @@ func (this XRCompositionLayer) Destroy() (ret js.Void) {
 }
 
 // TryDestroy calls the method "XRCompositionLayer.destroy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRCompositionLayer) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRCompositionLayerDestroy(
@@ -1772,7 +1772,7 @@ func (this XRMediaBinding) CreateQuadLayer(video HTMLVideoElement, init XRMediaQ
 }
 
 // TryCreateQuadLayer calls the method "XRMediaBinding.createQuadLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRMediaBinding) TryCreateQuadLayer(video HTMLVideoElement, init XRMediaQuadLayerInit) (ret XRQuadLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRMediaBindingCreateQuadLayer(
@@ -1811,7 +1811,7 @@ func (this XRMediaBinding) CreateQuadLayer1(video HTMLVideoElement) (ret XRQuadL
 }
 
 // TryCreateQuadLayer1 calls the method "XRMediaBinding.createQuadLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRMediaBinding) TryCreateQuadLayer1(video HTMLVideoElement) (ret XRQuadLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRMediaBindingCreateQuadLayer1(
@@ -1850,7 +1850,7 @@ func (this XRMediaBinding) CreateCylinderLayer(video HTMLVideoElement, init XRMe
 }
 
 // TryCreateCylinderLayer calls the method "XRMediaBinding.createCylinderLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRMediaBinding) TryCreateCylinderLayer(video HTMLVideoElement, init XRMediaCylinderLayerInit) (ret XRCylinderLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRMediaBindingCreateCylinderLayer(
@@ -1889,7 +1889,7 @@ func (this XRMediaBinding) CreateCylinderLayer1(video HTMLVideoElement) (ret XRC
 }
 
 // TryCreateCylinderLayer1 calls the method "XRMediaBinding.createCylinderLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRMediaBinding) TryCreateCylinderLayer1(video HTMLVideoElement) (ret XRCylinderLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRMediaBindingCreateCylinderLayer1(
@@ -1928,7 +1928,7 @@ func (this XRMediaBinding) CreateEquirectLayer(video HTMLVideoElement, init XRMe
 }
 
 // TryCreateEquirectLayer calls the method "XRMediaBinding.createEquirectLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRMediaBinding) TryCreateEquirectLayer(video HTMLVideoElement, init XRMediaEquirectLayerInit) (ret XREquirectLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRMediaBindingCreateEquirectLayer(
@@ -1967,7 +1967,7 @@ func (this XRMediaBinding) CreateEquirectLayer1(video HTMLVideoElement) (ret XRE
 }
 
 // TryCreateEquirectLayer1 calls the method "XRMediaBinding.createEquirectLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRMediaBinding) TryCreateEquirectLayer1(video HTMLVideoElement) (ret XREquirectLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRMediaBindingCreateEquirectLayer1(
@@ -2971,7 +2971,7 @@ func (this XRWebGLBinding) CreateProjectionLayer(init XRProjectionLayerInit) (re
 }
 
 // TryCreateProjectionLayer calls the method "XRWebGLBinding.createProjectionLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateProjectionLayer(init XRProjectionLayerInit) (ret XRProjectionLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateProjectionLayer(
@@ -3008,7 +3008,7 @@ func (this XRWebGLBinding) CreateProjectionLayer1() (ret XRProjectionLayer) {
 }
 
 // TryCreateProjectionLayer1 calls the method "XRWebGLBinding.createProjectionLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateProjectionLayer1() (ret XRProjectionLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateProjectionLayer1(
@@ -3045,7 +3045,7 @@ func (this XRWebGLBinding) CreateQuadLayer(init XRQuadLayerInit) (ret XRQuadLaye
 }
 
 // TryCreateQuadLayer calls the method "XRWebGLBinding.createQuadLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateQuadLayer(init XRQuadLayerInit) (ret XRQuadLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateQuadLayer(
@@ -3082,7 +3082,7 @@ func (this XRWebGLBinding) CreateQuadLayer1() (ret XRQuadLayer) {
 }
 
 // TryCreateQuadLayer1 calls the method "XRWebGLBinding.createQuadLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateQuadLayer1() (ret XRQuadLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateQuadLayer1(
@@ -3119,7 +3119,7 @@ func (this XRWebGLBinding) CreateCylinderLayer(init XRCylinderLayerInit) (ret XR
 }
 
 // TryCreateCylinderLayer calls the method "XRWebGLBinding.createCylinderLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateCylinderLayer(init XRCylinderLayerInit) (ret XRCylinderLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateCylinderLayer(
@@ -3156,7 +3156,7 @@ func (this XRWebGLBinding) CreateCylinderLayer1() (ret XRCylinderLayer) {
 }
 
 // TryCreateCylinderLayer1 calls the method "XRWebGLBinding.createCylinderLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateCylinderLayer1() (ret XRCylinderLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateCylinderLayer1(
@@ -3193,7 +3193,7 @@ func (this XRWebGLBinding) CreateEquirectLayer(init XREquirectLayerInit) (ret XR
 }
 
 // TryCreateEquirectLayer calls the method "XRWebGLBinding.createEquirectLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateEquirectLayer(init XREquirectLayerInit) (ret XREquirectLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateEquirectLayer(
@@ -3230,7 +3230,7 @@ func (this XRWebGLBinding) CreateEquirectLayer1() (ret XREquirectLayer) {
 }
 
 // TryCreateEquirectLayer1 calls the method "XRWebGLBinding.createEquirectLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateEquirectLayer1() (ret XREquirectLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateEquirectLayer1(
@@ -3267,7 +3267,7 @@ func (this XRWebGLBinding) CreateCubeLayer(init XRCubeLayerInit) (ret XRCubeLaye
 }
 
 // TryCreateCubeLayer calls the method "XRWebGLBinding.createCubeLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateCubeLayer(init XRCubeLayerInit) (ret XRCubeLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateCubeLayer(
@@ -3304,7 +3304,7 @@ func (this XRWebGLBinding) CreateCubeLayer1() (ret XRCubeLayer) {
 }
 
 // TryCreateCubeLayer1 calls the method "XRWebGLBinding.createCubeLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryCreateCubeLayer1() (ret XRCubeLayer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingCreateCubeLayer1(
@@ -3343,7 +3343,7 @@ func (this XRWebGLBinding) GetSubImage(layer XRCompositionLayer, frame XRFrame, 
 }
 
 // TryGetSubImage calls the method "XRWebGLBinding.getSubImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryGetSubImage(layer XRCompositionLayer, frame XRFrame, eye XREye) (ret XRWebGLSubImage, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingGetSubImage(
@@ -3384,7 +3384,7 @@ func (this XRWebGLBinding) GetSubImage1(layer XRCompositionLayer, frame XRFrame)
 }
 
 // TryGetSubImage1 calls the method "XRWebGLBinding.getSubImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryGetSubImage1(layer XRCompositionLayer, frame XRFrame) (ret XRWebGLSubImage, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingGetSubImage1(
@@ -3424,7 +3424,7 @@ func (this XRWebGLBinding) GetViewSubImage(layer XRProjectionLayer, view XRView)
 }
 
 // TryGetViewSubImage calls the method "XRWebGLBinding.getViewSubImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryGetViewSubImage(layer XRProjectionLayer, view XRView) (ret XRWebGLSubImage, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingGetViewSubImage(
@@ -3463,7 +3463,7 @@ func (this XRWebGLBinding) GetCameraImage(camera XRCamera) (ret WebGLTexture) {
 }
 
 // TryGetCameraImage calls the method "XRWebGLBinding.getCameraImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryGetCameraImage(camera XRCamera) (ret WebGLTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingGetCameraImage(
@@ -3501,7 +3501,7 @@ func (this XRWebGLBinding) GetDepthInformation(view XRView) (ret XRWebGLDepthInf
 }
 
 // TryGetDepthInformation calls the method "XRWebGLBinding.getDepthInformation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryGetDepthInformation(view XRView) (ret XRWebGLDepthInformation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingGetDepthInformation(
@@ -3539,7 +3539,7 @@ func (this XRWebGLBinding) GetReflectionCubeMap(lightProbe XRLightProbe) (ret We
 }
 
 // TryGetReflectionCubeMap calls the method "XRWebGLBinding.getReflectionCubeMap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLBinding) TryGetReflectionCubeMap(lightProbe XRLightProbe) (ret WebGLTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLBindingGetReflectionCubeMap(
@@ -3599,7 +3599,7 @@ func (this XSLTProcessor) ImportStylesheet(style Node) (ret js.Void) {
 }
 
 // TryImportStylesheet calls the method "XSLTProcessor.importStylesheet"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TryImportStylesheet(style Node) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorImportStylesheet(
@@ -3638,7 +3638,7 @@ func (this XSLTProcessor) TransformToFragment(source Node, output Document) (ret
 }
 
 // TryTransformToFragment calls the method "XSLTProcessor.transformToFragment"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TryTransformToFragment(source Node, output Document) (ret DocumentFragment, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorTransformToFragment(
@@ -3677,7 +3677,7 @@ func (this XSLTProcessor) TransformToDocument(source Node) (ret Document) {
 }
 
 // TryTransformToDocument calls the method "XSLTProcessor.transformToDocument"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TryTransformToDocument(source Node) (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorTransformToDocument(
@@ -3717,7 +3717,7 @@ func (this XSLTProcessor) SetParameter(namespaceURI js.String, localName js.Stri
 }
 
 // TrySetParameter calls the method "XSLTProcessor.setParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TrySetParameter(namespaceURI js.String, localName js.String, value js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorSetParameter(
@@ -3758,7 +3758,7 @@ func (this XSLTProcessor) GetParameter(namespaceURI js.String, localName js.Stri
 }
 
 // TryGetParameter calls the method "XSLTProcessor.getParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TryGetParameter(namespaceURI js.String, localName js.String) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorGetParameter(
@@ -3798,7 +3798,7 @@ func (this XSLTProcessor) RemoveParameter(namespaceURI js.String, localName js.S
 }
 
 // TryRemoveParameter calls the method "XSLTProcessor.removeParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TryRemoveParameter(namespaceURI js.String, localName js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorRemoveParameter(
@@ -3836,7 +3836,7 @@ func (this XSLTProcessor) ClearParameters() (ret js.Void) {
 }
 
 // TryClearParameters calls the method "XSLTProcessor.clearParameters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TryClearParameters() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorClearParameters(
@@ -3872,7 +3872,7 @@ func (this XSLTProcessor) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "XSLTProcessor.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XSLTProcessor) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXSLTProcessorReset(
@@ -3908,7 +3908,7 @@ func (Console) Assert(condition bool, data ...js.Any) (ret js.Void) {
 }
 
 // TryAssert calls the function "console.assert"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryAssert(condition bool, data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleAssert(
@@ -3941,7 +3941,7 @@ func (Console) Assert1() (ret js.Void) {
 }
 
 // TryAssert1 calls the function "console.assert"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryAssert1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleAssert1(
@@ -3971,7 +3971,7 @@ func (Console) Clear() (ret js.Void) {
 }
 
 // TryClear calls the function "console.clear"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleClear(
@@ -4003,7 +4003,7 @@ func (Console) Debug(data ...js.Any) (ret js.Void) {
 }
 
 // TryDebug calls the function "console.debug"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryDebug(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleDebug(
@@ -4037,7 +4037,7 @@ func (Console) Error(data ...js.Any) (ret js.Void) {
 }
 
 // TryError calls the function "console.error"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryError(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleError(
@@ -4071,7 +4071,7 @@ func (Console) Info(data ...js.Any) (ret js.Void) {
 }
 
 // TryInfo calls the function "console.info"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryInfo(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleInfo(
@@ -4105,7 +4105,7 @@ func (Console) Log(data ...js.Any) (ret js.Void) {
 }
 
 // TryLog calls the function "console.log"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryLog(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleLog(
@@ -4139,7 +4139,7 @@ func (Console) Table(tabularData js.Any, properties js.Array[js.String]) (ret js
 }
 
 // TryTable calls the function "console.table"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTable(tabularData js.Any, properties js.Array[js.String]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTable(
@@ -4172,7 +4172,7 @@ func (Console) Table1(tabularData js.Any) (ret js.Void) {
 }
 
 // TryTable1 calls the function "console.table"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTable1(tabularData js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTable1(
@@ -4203,7 +4203,7 @@ func (Console) Table2() (ret js.Void) {
 }
 
 // TryTable2 calls the function "console.table"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTable2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTable2(
@@ -4235,7 +4235,7 @@ func (Console) Trace(data ...js.Any) (ret js.Void) {
 }
 
 // TryTrace calls the function "console.trace"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTrace(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTrace(
@@ -4269,7 +4269,7 @@ func (Console) Warn(data ...js.Any) (ret js.Void) {
 }
 
 // TryWarn calls the function "console.warn"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryWarn(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleWarn(
@@ -4303,7 +4303,7 @@ func (Console) Dir(item js.Any, options js.Object) (ret js.Void) {
 }
 
 // TryDir calls the function "console.dir"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryDir(item js.Any, options js.Object) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleDir(
@@ -4336,7 +4336,7 @@ func (Console) Dir1(item js.Any) (ret js.Void) {
 }
 
 // TryDir1 calls the function "console.dir"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryDir1(item js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleDir1(
@@ -4367,7 +4367,7 @@ func (Console) Dir2() (ret js.Void) {
 }
 
 // TryDir2 calls the function "console.dir"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryDir2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleDir2(
@@ -4399,7 +4399,7 @@ func (Console) Dirxml(data ...js.Any) (ret js.Void) {
 }
 
 // TryDirxml calls the function "console.dirxml"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryDirxml(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleDirxml(
@@ -4432,7 +4432,7 @@ func (Console) Count(label js.String) (ret js.Void) {
 }
 
 // TryCount calls the function "console.count"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryCount(label js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleCount(
@@ -4463,7 +4463,7 @@ func (Console) Count1() (ret js.Void) {
 }
 
 // TryCount1 calls the function "console.count"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryCount1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleCount1(
@@ -4494,7 +4494,7 @@ func (Console) CountReset(label js.String) (ret js.Void) {
 }
 
 // TryCountReset calls the function "console.countReset"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryCountReset(label js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleCountReset(
@@ -4525,7 +4525,7 @@ func (Console) CountReset1() (ret js.Void) {
 }
 
 // TryCountReset1 calls the function "console.countReset"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryCountReset1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleCountReset1(
@@ -4557,7 +4557,7 @@ func (Console) Group(data ...js.Any) (ret js.Void) {
 }
 
 // TryGroup calls the function "console.group"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryGroup(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleGroup(
@@ -4591,7 +4591,7 @@ func (Console) GroupCollapsed(data ...js.Any) (ret js.Void) {
 }
 
 // TryGroupCollapsed calls the function "console.groupCollapsed"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryGroupCollapsed(data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleGroupCollapsed(
@@ -4623,7 +4623,7 @@ func (Console) GroupEnd() (ret js.Void) {
 }
 
 // TryGroupEnd calls the function "console.groupEnd"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryGroupEnd() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleGroupEnd(
@@ -4654,7 +4654,7 @@ func (Console) Time(label js.String) (ret js.Void) {
 }
 
 // TryTime calls the function "console.time"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTime(label js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTime(
@@ -4685,7 +4685,7 @@ func (Console) Time1() (ret js.Void) {
 }
 
 // TryTime1 calls the function "console.time"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTime1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTime1(
@@ -4718,7 +4718,7 @@ func (Console) TimeLog(label js.String, data ...js.Any) (ret js.Void) {
 }
 
 // TryTimeLog calls the function "console.timeLog"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTimeLog(label js.String, data ...js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTimeLog(
@@ -4751,7 +4751,7 @@ func (Console) TimeLog1() (ret js.Void) {
 }
 
 // TryTimeLog1 calls the function "console.timeLog"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTimeLog1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTimeLog1(
@@ -4782,7 +4782,7 @@ func (Console) TimeEnd(label js.String) (ret js.Void) {
 }
 
 // TryTimeEnd calls the function "console.timeEnd"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTimeEnd(label js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTimeEnd(
@@ -4813,7 +4813,7 @@ func (Console) TimeEnd1() (ret js.Void) {
 }
 
 // TryTimeEnd1 calls the function "console.timeEnd"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (Console) TryTimeEnd1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryConsoleTimeEnd1(

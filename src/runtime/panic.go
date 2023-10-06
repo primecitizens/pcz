@@ -6,9 +6,9 @@
 package runtime
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/debug"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/debug"
 )
 
 // see $GOROOT/src/runtime/panic.go

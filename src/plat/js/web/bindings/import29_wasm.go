@@ -8,7 +8,7 @@ package bindings
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/ffi/js"
+	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
 func _() {

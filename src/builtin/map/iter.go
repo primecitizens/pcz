@@ -10,7 +10,7 @@ package stdmap
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/abi"
 )
 
 // A hash iteration structure.

@@ -6,8 +6,8 @@
 package assert
 
 import (
-	"github.com/primecitizens/std/core/assert/bindings"
-	jsbindings "github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/core/assert/bindings"
+	jsbindings "github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 // Throw triggers a fatal error that dumps a stack trace and exits.

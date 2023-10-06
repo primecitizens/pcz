@@ -7,10 +7,10 @@ import (
 	"unsafe"
 	_ "unsafe" // for go:linkname
 
-	stdstring "github.com/primecitizens/std/builtin/string"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/mark"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 var (

@@ -8,7 +8,7 @@ package html
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/ffi/js"
+	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
 //go:wasmimport ui/html/builder reset

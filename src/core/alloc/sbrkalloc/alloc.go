@@ -3,12 +3,12 @@ package sbrkalloc
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/num"
-	"github.com/primecitizens/std/core/os"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/num"
+	"github.com/primecitizens/pcz/std/core/os"
 )
 
 // TODO: need mutex protection once the std supports multi-threading.

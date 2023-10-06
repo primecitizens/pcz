@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -388,7 +388,7 @@ func (this PressureRecord) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PressureRecord.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PressureRecord) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureRecordToJSON(
@@ -510,7 +510,7 @@ func (this PressureObserver) Observe(source PressureSource) (ret js.Promise[js.V
 }
 
 // TryObserve calls the method "PressureObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PressureObserver) TryObserve(source PressureSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverObserve(
@@ -548,7 +548,7 @@ func (this PressureObserver) Unobserve(source PressureSource) (ret js.Void) {
 }
 
 // TryUnobserve calls the method "PressureObserver.unobserve"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PressureObserver) TryUnobserve(source PressureSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverUnobserve(
@@ -585,7 +585,7 @@ func (this PressureObserver) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "PressureObserver.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PressureObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverDisconnect(
@@ -621,7 +621,7 @@ func (this PressureObserver) TakeRecords() (ret js.Array[PressureRecord]) {
 }
 
 // TryTakeRecords calls the method "PressureObserver.takeRecords"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PressureObserver) TryTakeRecords() (ret js.Array[PressureRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPressureObserverTakeRecords(
@@ -981,7 +981,7 @@ func (this Profiler) Stop() (ret js.Promise[ProfilerTrace]) {
 }
 
 // TryStop calls the method "Profiler.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Profiler) TryStop() (ret js.Promise[ProfilerTrace], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryProfilerStop(
@@ -1769,7 +1769,7 @@ func (this PublicKeyCredential) GetClientExtensionResults() (ret AuthenticationE
 }
 
 // TryGetClientExtensionResults calls the method "PublicKeyCredential.getClientExtensionResults"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryGetClientExtensionResults() (ret AuthenticationExtensionsClientOutputs, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialGetClientExtensionResults(
@@ -1805,7 +1805,7 @@ func (this PublicKeyCredential) IsConditionalMediationAvailable() (ret js.Promis
 }
 
 // TryIsConditionalMediationAvailable calls the staticmethod "PublicKeyCredential.isConditionalMediationAvailable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryIsConditionalMediationAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialIsConditionalMediationAvailable(
@@ -1841,7 +1841,7 @@ func (this PublicKeyCredential) ToJSON() (ret PublicKeyCredentialJSON) {
 }
 
 // TryToJSON calls the method "PublicKeyCredential.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryToJSON() (ret PublicKeyCredentialJSON, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialToJSON(
@@ -1878,7 +1878,7 @@ func (this PublicKeyCredential) ParseRequestOptionsFromJSON(options PublicKeyCre
 }
 
 // TryParseRequestOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseRequestOptionsFromJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryParseRequestOptionsFromJSON(options PublicKeyCredentialRequestOptionsJSON) (ret PublicKeyCredentialRequestOptions, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialParseRequestOptionsFromJSON(
@@ -1915,7 +1915,7 @@ func (this PublicKeyCredential) IsPasskeyPlatformAuthenticatorAvailable() (ret j
 }
 
 // TryIsPasskeyPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isPasskeyPlatformAuthenticatorAvailable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryIsPasskeyPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialIsPasskeyPlatformAuthenticatorAvailable(
@@ -1952,7 +1952,7 @@ func (this PublicKeyCredential) ParseCreationOptionsFromJSON(options PublicKeyCr
 }
 
 // TryParseCreationOptionsFromJSON calls the staticmethod "PublicKeyCredential.parseCreationOptionsFromJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryParseCreationOptionsFromJSON(options PublicKeyCredentialCreationOptionsJSON) (ret PublicKeyCredentialCreationOptions, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialParseCreationOptionsFromJSON(
@@ -1989,7 +1989,7 @@ func (this PublicKeyCredential) IsUserVerifyingPlatformAuthenticatorAvailable() 
 }
 
 // TryIsUserVerifyingPlatformAuthenticatorAvailable calls the staticmethod "PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PublicKeyCredential) TryIsUserVerifyingPlatformAuthenticatorAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPublicKeyCredentialIsUserVerifyingPlatformAuthenticatorAvailable(
@@ -2191,7 +2191,7 @@ func (this PushMessageData) ArrayBuffer() (ret js.ArrayBuffer) {
 }
 
 // TryArrayBuffer calls the method "PushMessageData.arrayBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushMessageData) TryArrayBuffer() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataArrayBuffer(
@@ -2227,7 +2227,7 @@ func (this PushMessageData) Blob() (ret Blob) {
 }
 
 // TryBlob calls the method "PushMessageData.blob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushMessageData) TryBlob() (ret Blob, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataBlob(
@@ -2263,7 +2263,7 @@ func (this PushMessageData) Json() (ret js.Any) {
 }
 
 // TryJson calls the method "PushMessageData.json"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushMessageData) TryJson() (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataJson(
@@ -2299,7 +2299,7 @@ func (this PushMessageData) Text() (ret js.String) {
 }
 
 // TryText calls the method "PushMessageData.text"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushMessageData) TryText() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushMessageDataText(

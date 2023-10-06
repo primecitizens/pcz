@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -594,7 +594,7 @@ func (this Sensor) Start() (ret js.Void) {
 }
 
 // TryStart calls the method "Sensor.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Sensor) TryStart() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySensorStart(
@@ -630,7 +630,7 @@ func (this Sensor) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "Sensor.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Sensor) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySensorStop(
@@ -798,7 +798,7 @@ func (this SequenceEffect) Clone() (ret SequenceEffect) {
 }
 
 // TryClone calls the method "SequenceEffect.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SequenceEffect) TryClone() (ret SequenceEffect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySequenceEffectClone(
@@ -896,7 +896,7 @@ func (this ServiceWorkerGlobalScope) SkipWaiting() (ret js.Promise[js.Void]) {
 }
 
 // TrySkipWaiting calls the method "ServiceWorkerGlobalScope.skipWaiting"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerGlobalScope) TrySkipWaiting() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerGlobalScopeSkipWaiting(
@@ -1036,7 +1036,7 @@ func (this SharedStorage) Set(key js.String, value js.String, options SharedStor
 }
 
 // TrySet calls the method "SharedStorage.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorage) TrySet(key js.String, value js.String, options SharedStorageSetMethodOptions) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageSet(
@@ -1077,7 +1077,7 @@ func (this SharedStorage) Set1(key js.String, value js.String) (ret js.Promise[j
 }
 
 // TrySet1 calls the method "SharedStorage.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorage) TrySet1(key js.String, value js.String) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageSet1(
@@ -1117,7 +1117,7 @@ func (this SharedStorage) Append(key js.String, value js.String) (ret js.Promise
 }
 
 // TryAppend calls the method "SharedStorage.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorage) TryAppend(key js.String, value js.String) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageAppend(
@@ -1156,7 +1156,7 @@ func (this SharedStorage) Delete(key js.String) (ret js.Promise[js.Any]) {
 }
 
 // TryDelete calls the method "SharedStorage.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorage) TryDelete(key js.String) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageDelete(
@@ -1193,7 +1193,7 @@ func (this SharedStorage) Clear() (ret js.Promise[js.Any]) {
 }
 
 // TryClear calls the method "SharedStorage.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorage) TryClear() (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageClear(
@@ -1334,7 +1334,7 @@ func (this SharedStorageRunOperation) Run(data js.Object) (ret js.Promise[js.Voi
 }
 
 // TryRun calls the method "SharedStorageRunOperation.run"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorageRunOperation) TryRun(data js.Object) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageRunOperationRun(
@@ -1395,7 +1395,7 @@ func (this SharedStorageSelectURLOperation) Run(data js.Object, urls js.FrozenAr
 }
 
 // TryRun calls the method "SharedStorageSelectURLOperation.run"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorageSelectURLOperation) TryRun(data js.Object, urls js.FrozenArray[SharedStorageUrlWithMetadata]) (ret js.Promise[js.Number[int32]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageSelectURLOperationRun(
@@ -1456,7 +1456,7 @@ func (this WorkletSharedStorage) Get(key js.String) (ret js.Promise[js.String]) 
 }
 
 // TryGet calls the method "WorkletSharedStorage.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkletSharedStorage) TryGet(key js.String) (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletSharedStorageGet(
@@ -1493,7 +1493,7 @@ func (this WorkletSharedStorage) Length() (ret js.Promise[js.Number[uint32]]) {
 }
 
 // TryLength calls the method "WorkletSharedStorage.length"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkletSharedStorage) TryLength() (ret js.Promise[js.Number[uint32]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletSharedStorageLength(
@@ -1529,7 +1529,7 @@ func (this WorkletSharedStorage) RemainingBudget() (ret js.Promise[js.Number[flo
 }
 
 // TryRemainingBudget calls the method "WorkletSharedStorage.remainingBudget"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkletSharedStorage) TryRemainingBudget() (ret js.Promise[js.Number[float64]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletSharedStorageRemainingBudget(
@@ -1599,7 +1599,7 @@ func (this SharedStorageWorkletGlobalScope) Register(name js.String, operationCt
 }
 
 // TryRegister calls the method "SharedStorageWorkletGlobalScope.register"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedStorageWorkletGlobalScope) TryRegister(name js.String, operationCtor js.Func[func(options SharedStorageRunOperationMethodOptions) SharedStorageOperation]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedStorageWorkletGlobalScopeRegister(
@@ -1742,7 +1742,7 @@ func (this SharedWorkerGlobalScope) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "SharedWorkerGlobalScope.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SharedWorkerGlobalScope) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySharedWorkerGlobalScopeClose(
@@ -1875,7 +1875,7 @@ func (this SpeechGrammarList) Item(index uint32) (ret SpeechGrammar) {
 }
 
 // TryItem calls the method "SpeechGrammarList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechGrammarList) TryItem(index uint32) (ret SpeechGrammar, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListItem(
@@ -1914,7 +1914,7 @@ func (this SpeechGrammarList) AddFromURI(src js.String, weight float32) (ret js.
 }
 
 // TryAddFromURI calls the method "SpeechGrammarList.addFromURI"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromURI(src js.String, weight float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromURI(
@@ -1953,7 +1953,7 @@ func (this SpeechGrammarList) AddFromURI1(src js.String) (ret js.Void) {
 }
 
 // TryAddFromURI1 calls the method "SpeechGrammarList.addFromURI"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromURI1(src js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromURI1(
@@ -1992,7 +1992,7 @@ func (this SpeechGrammarList) AddFromString(string js.String, weight float32) (r
 }
 
 // TryAddFromString calls the method "SpeechGrammarList.addFromString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromString(string js.String, weight float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromString(
@@ -2031,7 +2031,7 @@ func (this SpeechGrammarList) AddFromString1(string js.String) (ret js.Void) {
 }
 
 // TryAddFromString1 calls the method "SpeechGrammarList.addFromString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechGrammarList) TryAddFromString1(string js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechGrammarListAddFromString1(
@@ -2190,7 +2190,7 @@ func (this SpeechRecognition) Start() (ret js.Void) {
 }
 
 // TryStart calls the method "SpeechRecognition.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechRecognition) TryStart() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionStart(
@@ -2226,7 +2226,7 @@ func (this SpeechRecognition) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "SpeechRecognition.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechRecognition) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionStop(
@@ -2262,7 +2262,7 @@ func (this SpeechRecognition) Abort() (ret js.Void) {
 }
 
 // TryAbort calls the method "SpeechRecognition.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechRecognition) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionAbort(
@@ -2536,7 +2536,7 @@ func (this SpeechRecognitionResult) Item(index uint32) (ret SpeechRecognitionAlt
 }
 
 // TryItem calls the method "SpeechRecognitionResult.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechRecognitionResult) TryItem(index uint32) (ret SpeechRecognitionAlternative, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionResultItem(
@@ -2606,7 +2606,7 @@ func (this SpeechRecognitionResultList) Item(index uint32) (ret SpeechRecognitio
 }
 
 // TryItem calls the method "SpeechRecognitionResultList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechRecognitionResultList) TryItem(index uint32) (ret SpeechRecognitionResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechRecognitionResultListItem(
@@ -3266,7 +3266,7 @@ func (this StorageEvent) InitStorageEvent(typ js.String, bubbles bool, cancelabl
 }
 
 // TryInitStorageEvent calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String, storageArea Storage) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent(
@@ -3317,7 +3317,7 @@ func (this StorageEvent) InitStorageEvent1(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitStorageEvent1 calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent1(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent1(
@@ -3366,7 +3366,7 @@ func (this StorageEvent) InitStorageEvent2(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitStorageEvent2 calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent2(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String, newValue js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent2(
@@ -3413,7 +3413,7 @@ func (this StorageEvent) InitStorageEvent3(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitStorageEvent3 calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent3(typ js.String, bubbles bool, cancelable bool, key js.String, oldValue js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent3(
@@ -3458,7 +3458,7 @@ func (this StorageEvent) InitStorageEvent4(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitStorageEvent4 calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent4(typ js.String, bubbles bool, cancelable bool, key js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent4(
@@ -3501,7 +3501,7 @@ func (this StorageEvent) InitStorageEvent5(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitStorageEvent5 calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent5(typ js.String, bubbles bool, cancelable bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent5(
@@ -3542,7 +3542,7 @@ func (this StorageEvent) InitStorageEvent6(typ js.String, bubbles bool) (ret js.
 }
 
 // TryInitStorageEvent6 calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent6(typ js.String, bubbles bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent6(
@@ -3581,7 +3581,7 @@ func (this StorageEvent) InitStorageEvent7(typ js.String) (ret js.Void) {
 }
 
 // TryInitStorageEvent7 calls the method "StorageEvent.initStorageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageEvent) TryInitStorageEvent7(typ js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageEventInitStorageEvent7(

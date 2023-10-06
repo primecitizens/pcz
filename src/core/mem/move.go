@@ -8,7 +8,7 @@ package mem
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/abi"
 )
 
 // Move copies n bytes from "src" to "dst".

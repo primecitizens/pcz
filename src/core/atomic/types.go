@@ -10,7 +10,7 @@ package atomic
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 // Int32 is an atomically accessed int32 value.

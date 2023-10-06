@@ -19,7 +19,7 @@ func (t *Toolchain) appendTrimpathFlag(p *Package, flags []string) []string {
 	}
 
 	modulePath := p.Module.Path
-	if modulePath == "github.com/primecitizens/std" {
+	if modulePath == "github.com/primecitizens/pcz/std" {
 		modulePath = p.ImportComment
 	}
 

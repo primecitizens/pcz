@@ -8,17 +8,17 @@ package runtime
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/asan"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/cmp"
-	"github.com/primecitizens/std/core/mem"
-	"github.com/primecitizens/std/core/msan"
-	"github.com/primecitizens/std/core/os"
-	"github.com/primecitizens/std/core/race"
-	"github.com/primecitizens/std/text/unicode/common"
-	"github.com/primecitizens/std/text/unicode/utf8"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/asan"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/cmp"
+	"github.com/primecitizens/pcz/std/core/mem"
+	"github.com/primecitizens/pcz/std/core/msan"
+	"github.com/primecitizens/pcz/std/core/os"
+	"github.com/primecitizens/pcz/std/core/race"
+	"github.com/primecitizens/pcz/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/text/unicode/utf8"
 )
 
 // The constant is known to the compiler.

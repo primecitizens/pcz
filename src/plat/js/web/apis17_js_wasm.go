@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -91,7 +91,7 @@ func (this GPURenderPassEncoder) SetViewport(x float32, y float32, width float32
 }
 
 // TrySetViewport calls the method "GPURenderPassEncoder.setViewport"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetViewport(x float32, y float32, width float32, height float32, minDepth float32, maxDepth float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetViewport(
@@ -137,7 +137,7 @@ func (this GPURenderPassEncoder) SetScissorRect(x GPUIntegerCoordinate, y GPUInt
 }
 
 // TrySetScissorRect calls the method "GPURenderPassEncoder.setScissorRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetScissorRect(x GPUIntegerCoordinate, y GPUIntegerCoordinate, width GPUIntegerCoordinate, height GPUIntegerCoordinate) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetScissorRect(
@@ -178,7 +178,7 @@ func (this GPURenderPassEncoder) SetBlendConstant(color GPUColor) (ret js.Void) 
 }
 
 // TrySetBlendConstant calls the method "GPURenderPassEncoder.setBlendConstant"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBlendConstant(color GPUColor) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBlendConstant(
@@ -216,7 +216,7 @@ func (this GPURenderPassEncoder) SetStencilReference(reference GPUStencilValue) 
 }
 
 // TrySetStencilReference calls the method "GPURenderPassEncoder.setStencilReference"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetStencilReference(reference GPUStencilValue) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetStencilReference(
@@ -254,7 +254,7 @@ func (this GPURenderPassEncoder) BeginOcclusionQuery(queryIndex GPUSize32) (ret 
 }
 
 // TryBeginOcclusionQuery calls the method "GPURenderPassEncoder.beginOcclusionQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryBeginOcclusionQuery(queryIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderBeginOcclusionQuery(
@@ -291,7 +291,7 @@ func (this GPURenderPassEncoder) EndOcclusionQuery() (ret js.Void) {
 }
 
 // TryEndOcclusionQuery calls the method "GPURenderPassEncoder.endOcclusionQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryEndOcclusionQuery() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderEndOcclusionQuery(
@@ -328,7 +328,7 @@ func (this GPURenderPassEncoder) ExecuteBundles(bundles js.Array[GPURenderBundle
 }
 
 // TryExecuteBundles calls the method "GPURenderPassEncoder.executeBundles"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryExecuteBundles(bundles js.Array[GPURenderBundle]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderExecuteBundles(
@@ -365,7 +365,7 @@ func (this GPURenderPassEncoder) End() (ret js.Void) {
 }
 
 // TryEnd calls the method "GPURenderPassEncoder.end"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryEnd() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderEnd(
@@ -402,7 +402,7 @@ func (this GPURenderPassEncoder) SetPipeline(pipeline GPURenderPipeline) (ret js
 }
 
 // TrySetPipeline calls the method "GPURenderPassEncoder.setPipeline"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetPipeline(pipeline GPURenderPipeline) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetPipeline(
@@ -443,7 +443,7 @@ func (this GPURenderPassEncoder) SetIndexBuffer(buffer GPUBuffer, indexFormat GP
 }
 
 // TrySetIndexBuffer calls the method "GPURenderPassEncoder.setIndexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetIndexBuffer(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetIndexBuffer(
@@ -486,7 +486,7 @@ func (this GPURenderPassEncoder) SetIndexBuffer1(buffer GPUBuffer, indexFormat G
 }
 
 // TrySetIndexBuffer1 calls the method "GPURenderPassEncoder.setIndexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetIndexBuffer1(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetIndexBuffer1(
@@ -527,7 +527,7 @@ func (this GPURenderPassEncoder) SetIndexBuffer2(buffer GPUBuffer, indexFormat G
 }
 
 // TrySetIndexBuffer2 calls the method "GPURenderPassEncoder.setIndexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetIndexBuffer2(buffer GPUBuffer, indexFormat GPUIndexFormat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetIndexBuffer2(
@@ -569,7 +569,7 @@ func (this GPURenderPassEncoder) SetVertexBuffer(slot GPUIndex32, buffer GPUBuff
 }
 
 // TrySetVertexBuffer calls the method "GPURenderPassEncoder.setVertexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetVertexBuffer(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetVertexBuffer(
@@ -612,7 +612,7 @@ func (this GPURenderPassEncoder) SetVertexBuffer1(slot GPUIndex32, buffer GPUBuf
 }
 
 // TrySetVertexBuffer1 calls the method "GPURenderPassEncoder.setVertexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetVertexBuffer1(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetVertexBuffer1(
@@ -653,7 +653,7 @@ func (this GPURenderPassEncoder) SetVertexBuffer2(slot GPUIndex32, buffer GPUBuf
 }
 
 // TrySetVertexBuffer2 calls the method "GPURenderPassEncoder.setVertexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetVertexBuffer2(slot GPUIndex32, buffer GPUBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetVertexBuffer2(
@@ -695,7 +695,7 @@ func (this GPURenderPassEncoder) Draw(vertexCount GPUSize32, instanceCount GPUSi
 }
 
 // TryDraw calls the method "GPURenderPassEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw(
@@ -738,7 +738,7 @@ func (this GPURenderPassEncoder) Draw1(vertexCount GPUSize32, instanceCount GPUS
 }
 
 // TryDraw1 calls the method "GPURenderPassEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw1(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw1(
@@ -779,7 +779,7 @@ func (this GPURenderPassEncoder) Draw2(vertexCount GPUSize32, instanceCount GPUS
 }
 
 // TryDraw2 calls the method "GPURenderPassEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw2(vertexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw2(
@@ -818,7 +818,7 @@ func (this GPURenderPassEncoder) Draw3(vertexCount GPUSize32) (ret js.Void) {
 }
 
 // TryDraw3 calls the method "GPURenderPassEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDraw3(vertexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDraw3(
@@ -860,7 +860,7 @@ func (this GPURenderPassEncoder) DrawIndexed(indexCount GPUSize32, instanceCount
 }
 
 // TryDrawIndexed calls the method "GPURenderPassEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed(
@@ -905,7 +905,7 @@ func (this GPURenderPassEncoder) DrawIndexed1(indexCount GPUSize32, instanceCoun
 }
 
 // TryDrawIndexed1 calls the method "GPURenderPassEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed1(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed1(
@@ -948,7 +948,7 @@ func (this GPURenderPassEncoder) DrawIndexed2(indexCount GPUSize32, instanceCoun
 }
 
 // TryDrawIndexed2 calls the method "GPURenderPassEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed2(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed2(
@@ -989,7 +989,7 @@ func (this GPURenderPassEncoder) DrawIndexed3(indexCount GPUSize32, instanceCoun
 }
 
 // TryDrawIndexed3 calls the method "GPURenderPassEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed3(indexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed3(
@@ -1028,7 +1028,7 @@ func (this GPURenderPassEncoder) DrawIndexed4(indexCount GPUSize32) (ret js.Void
 }
 
 // TryDrawIndexed4 calls the method "GPURenderPassEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexed4(indexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexed4(
@@ -1067,7 +1067,7 @@ func (this GPURenderPassEncoder) DrawIndirect(indirectBuffer GPUBuffer, indirect
 }
 
 // TryDrawIndirect calls the method "GPURenderPassEncoder.drawIndirect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndirect(
@@ -1107,7 +1107,7 @@ func (this GPURenderPassEncoder) DrawIndexedIndirect(indirectBuffer GPUBuffer, i
 }
 
 // TryDrawIndexedIndirect calls the method "GPURenderPassEncoder.drawIndexedIndirect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryDrawIndexedIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderDrawIndexedIndirect(
@@ -1148,7 +1148,7 @@ func (this GPURenderPassEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUBin
 }
 
 // TrySetBindGroup calls the method "GPURenderPassEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBindGroup(
@@ -1189,7 +1189,7 @@ func (this GPURenderPassEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPUBi
 }
 
 // TrySetBindGroup1 calls the method "GPURenderPassEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBindGroup1(
@@ -1232,7 +1232,7 @@ func (this GPURenderPassEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPUBi
 }
 
 // TrySetBindGroup2 calls the method "GPURenderPassEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderSetBindGroup2(
@@ -1274,7 +1274,7 @@ func (this GPURenderPassEncoder) PushDebugGroup(groupLabel js.String) (ret js.Vo
 }
 
 // TryPushDebugGroup calls the method "GPURenderPassEncoder.pushDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderPushDebugGroup(
@@ -1311,7 +1311,7 @@ func (this GPURenderPassEncoder) PopDebugGroup() (ret js.Void) {
 }
 
 // TryPopDebugGroup calls the method "GPURenderPassEncoder.popDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderPopDebugGroup(
@@ -1348,7 +1348,7 @@ func (this GPURenderPassEncoder) InsertDebugMarker(markerLabel js.String) (ret j
 }
 
 // TryInsertDebugMarker calls the method "GPURenderPassEncoder.insertDebugMarker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPassEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPassEncoderInsertDebugMarker(
@@ -1652,7 +1652,7 @@ func (this GPUQuerySet) Destroy() (ret js.Void) {
 }
 
 // TryDestroy calls the method "GPUQuerySet.destroy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQuerySet) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQuerySetDestroy(
@@ -1846,7 +1846,7 @@ func (this GPUComputePassEncoder) SetPipeline(pipeline GPUComputePipeline) (ret 
 }
 
 // TrySetPipeline calls the method "GPUComputePassEncoder.setPipeline"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetPipeline(pipeline GPUComputePipeline) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetPipeline(
@@ -1886,7 +1886,7 @@ func (this GPUComputePassEncoder) DispatchWorkgroups(workgroupCountX GPUSize32, 
 }
 
 // TryDispatchWorkgroups calls the method "GPUComputePassEncoder.dispatchWorkgroups"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroups(workgroupCountX GPUSize32, workgroupCountY GPUSize32, workgroupCountZ GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroups(
@@ -1927,7 +1927,7 @@ func (this GPUComputePassEncoder) DispatchWorkgroups1(workgroupCountX GPUSize32,
 }
 
 // TryDispatchWorkgroups1 calls the method "GPUComputePassEncoder.dispatchWorkgroups"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroups1(workgroupCountX GPUSize32, workgroupCountY GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroups1(
@@ -1966,7 +1966,7 @@ func (this GPUComputePassEncoder) DispatchWorkgroups2(workgroupCountX GPUSize32)
 }
 
 // TryDispatchWorkgroups2 calls the method "GPUComputePassEncoder.dispatchWorkgroups"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroups2(workgroupCountX GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroups2(
@@ -2005,7 +2005,7 @@ func (this GPUComputePassEncoder) DispatchWorkgroupsIndirect(indirectBuffer GPUB
 }
 
 // TryDispatchWorkgroupsIndirect calls the method "GPUComputePassEncoder.dispatchWorkgroupsIndirect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryDispatchWorkgroupsIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderDispatchWorkgroupsIndirect(
@@ -2043,7 +2043,7 @@ func (this GPUComputePassEncoder) End() (ret js.Void) {
 }
 
 // TryEnd calls the method "GPUComputePassEncoder.end"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryEnd() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderEnd(
@@ -2080,7 +2080,7 @@ func (this GPUComputePassEncoder) PushDebugGroup(groupLabel js.String) (ret js.V
 }
 
 // TryPushDebugGroup calls the method "GPUComputePassEncoder.pushDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderPushDebugGroup(
@@ -2117,7 +2117,7 @@ func (this GPUComputePassEncoder) PopDebugGroup() (ret js.Void) {
 }
 
 // TryPopDebugGroup calls the method "GPUComputePassEncoder.popDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderPopDebugGroup(
@@ -2154,7 +2154,7 @@ func (this GPUComputePassEncoder) InsertDebugMarker(markerLabel js.String) (ret 
 }
 
 // TryInsertDebugMarker calls the method "GPUComputePassEncoder.insertDebugMarker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderInsertDebugMarker(
@@ -2194,7 +2194,7 @@ func (this GPUComputePassEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUBi
 }
 
 // TrySetBindGroup calls the method "GPUComputePassEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetBindGroup(
@@ -2235,7 +2235,7 @@ func (this GPUComputePassEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPUB
 }
 
 // TrySetBindGroup1 calls the method "GPUComputePassEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetBindGroup1(
@@ -2278,7 +2278,7 @@ func (this GPUComputePassEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPUB
 }
 
 // TrySetBindGroup2 calls the method "GPUComputePassEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePassEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePassEncoderSetBindGroup2(
@@ -2727,7 +2727,7 @@ func (this GPUCommandEncoder) BeginRenderPass(descriptor GPURenderPassDescriptor
 }
 
 // TryBeginRenderPass calls the method "GPUCommandEncoder.beginRenderPass"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryBeginRenderPass(descriptor GPURenderPassDescriptor) (ret GPURenderPassEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderBeginRenderPass(
@@ -2765,7 +2765,7 @@ func (this GPUCommandEncoder) BeginComputePass(descriptor GPUComputePassDescript
 }
 
 // TryBeginComputePass calls the method "GPUCommandEncoder.beginComputePass"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryBeginComputePass(descriptor GPUComputePassDescriptor) (ret GPUComputePassEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderBeginComputePass(
@@ -2802,7 +2802,7 @@ func (this GPUCommandEncoder) BeginComputePass1() (ret GPUComputePassEncoder) {
 }
 
 // TryBeginComputePass1 calls the method "GPUCommandEncoder.beginComputePass"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryBeginComputePass1() (ret GPUComputePassEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderBeginComputePass1(
@@ -2843,7 +2843,7 @@ func (this GPUCommandEncoder) CopyBufferToBuffer(source GPUBuffer, sourceOffset 
 }
 
 // TryCopyBufferToBuffer calls the method "GPUCommandEncoder.copyBufferToBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyBufferToBuffer(source GPUBuffer, sourceOffset GPUSize64, destination GPUBuffer, destinationOffset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyBufferToBuffer(
@@ -2887,7 +2887,7 @@ func (this GPUCommandEncoder) CopyBufferToTexture(source GPUImageCopyBuffer, des
 }
 
 // TryCopyBufferToTexture calls the method "GPUCommandEncoder.copyBufferToTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyBufferToTexture(source GPUImageCopyBuffer, destination GPUImageCopyTexture, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyBufferToTexture(
@@ -2929,7 +2929,7 @@ func (this GPUCommandEncoder) CopyTextureToBuffer(source GPUImageCopyTexture, de
 }
 
 // TryCopyTextureToBuffer calls the method "GPUCommandEncoder.copyTextureToBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyTextureToBuffer(source GPUImageCopyTexture, destination GPUImageCopyBuffer, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyTextureToBuffer(
@@ -2971,7 +2971,7 @@ func (this GPUCommandEncoder) CopyTextureToTexture(source GPUImageCopyTexture, d
 }
 
 // TryCopyTextureToTexture calls the method "GPUCommandEncoder.copyTextureToTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryCopyTextureToTexture(source GPUImageCopyTexture, destination GPUImageCopyTexture, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderCopyTextureToTexture(
@@ -3013,7 +3013,7 @@ func (this GPUCommandEncoder) ClearBuffer(buffer GPUBuffer, offset GPUSize64, si
 }
 
 // TryClearBuffer calls the method "GPUCommandEncoder.clearBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryClearBuffer(buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderClearBuffer(
@@ -3054,7 +3054,7 @@ func (this GPUCommandEncoder) ClearBuffer1(buffer GPUBuffer, offset GPUSize64) (
 }
 
 // TryClearBuffer1 calls the method "GPUCommandEncoder.clearBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryClearBuffer1(buffer GPUBuffer, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderClearBuffer1(
@@ -3093,7 +3093,7 @@ func (this GPUCommandEncoder) ClearBuffer2(buffer GPUBuffer) (ret js.Void) {
 }
 
 // TryClearBuffer2 calls the method "GPUCommandEncoder.clearBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryClearBuffer2(buffer GPUBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderClearBuffer2(
@@ -3132,7 +3132,7 @@ func (this GPUCommandEncoder) WriteTimestamp(querySet GPUQuerySet, queryIndex GP
 }
 
 // TryWriteTimestamp calls the method "GPUCommandEncoder.writeTimestamp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryWriteTimestamp(querySet GPUQuerySet, queryIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderWriteTimestamp(
@@ -3175,7 +3175,7 @@ func (this GPUCommandEncoder) ResolveQuerySet(querySet GPUQuerySet, firstQuery G
 }
 
 // TryResolveQuerySet calls the method "GPUCommandEncoder.resolveQuerySet"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryResolveQuerySet(querySet GPUQuerySet, firstQuery GPUSize32, queryCount GPUSize32, destination GPUBuffer, destinationOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderResolveQuerySet(
@@ -3217,7 +3217,7 @@ func (this GPUCommandEncoder) Finish(descriptor GPUCommandBufferDescriptor) (ret
 }
 
 // TryFinish calls the method "GPUCommandEncoder.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryFinish(descriptor GPUCommandBufferDescriptor) (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderFinish(
@@ -3254,7 +3254,7 @@ func (this GPUCommandEncoder) Finish1() (ret GPUCommandBuffer) {
 }
 
 // TryFinish1 calls the method "GPUCommandEncoder.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryFinish1() (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderFinish1(
@@ -3291,7 +3291,7 @@ func (this GPUCommandEncoder) PushDebugGroup(groupLabel js.String) (ret js.Void)
 }
 
 // TryPushDebugGroup calls the method "GPUCommandEncoder.pushDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderPushDebugGroup(
@@ -3328,7 +3328,7 @@ func (this GPUCommandEncoder) PopDebugGroup() (ret js.Void) {
 }
 
 // TryPopDebugGroup calls the method "GPUCommandEncoder.popDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderPopDebugGroup(
@@ -3365,7 +3365,7 @@ func (this GPUCommandEncoder) InsertDebugMarker(markerLabel js.String) (ret js.V
 }
 
 // TryInsertDebugMarker calls the method "GPUCommandEncoder.insertDebugMarker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCommandEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCommandEncoderInsertDebugMarker(
@@ -3517,7 +3517,7 @@ func (this GPURenderBundleEncoder) Finish(descriptor GPURenderBundleDescriptor) 
 }
 
 // TryFinish calls the method "GPURenderBundleEncoder.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryFinish(descriptor GPURenderBundleDescriptor) (ret GPURenderBundle, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderFinish(
@@ -3554,7 +3554,7 @@ func (this GPURenderBundleEncoder) Finish1() (ret GPURenderBundle) {
 }
 
 // TryFinish1 calls the method "GPURenderBundleEncoder.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryFinish1() (ret GPURenderBundle, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderFinish1(
@@ -3591,7 +3591,7 @@ func (this GPURenderBundleEncoder) SetPipeline(pipeline GPURenderPipeline) (ret 
 }
 
 // TrySetPipeline calls the method "GPURenderBundleEncoder.setPipeline"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetPipeline(pipeline GPURenderPipeline) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetPipeline(
@@ -3632,7 +3632,7 @@ func (this GPURenderBundleEncoder) SetIndexBuffer(buffer GPUBuffer, indexFormat 
 }
 
 // TrySetIndexBuffer calls the method "GPURenderBundleEncoder.setIndexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetIndexBuffer(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetIndexBuffer(
@@ -3675,7 +3675,7 @@ func (this GPURenderBundleEncoder) SetIndexBuffer1(buffer GPUBuffer, indexFormat
 }
 
 // TrySetIndexBuffer1 calls the method "GPURenderBundleEncoder.setIndexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetIndexBuffer1(buffer GPUBuffer, indexFormat GPUIndexFormat, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetIndexBuffer1(
@@ -3716,7 +3716,7 @@ func (this GPURenderBundleEncoder) SetIndexBuffer2(buffer GPUBuffer, indexFormat
 }
 
 // TrySetIndexBuffer2 calls the method "GPURenderBundleEncoder.setIndexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetIndexBuffer2(buffer GPUBuffer, indexFormat GPUIndexFormat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetIndexBuffer2(
@@ -3758,7 +3758,7 @@ func (this GPURenderBundleEncoder) SetVertexBuffer(slot GPUIndex32, buffer GPUBu
 }
 
 // TrySetVertexBuffer calls the method "GPURenderBundleEncoder.setVertexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetVertexBuffer(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetVertexBuffer(
@@ -3801,7 +3801,7 @@ func (this GPURenderBundleEncoder) SetVertexBuffer1(slot GPUIndex32, buffer GPUB
 }
 
 // TrySetVertexBuffer1 calls the method "GPURenderBundleEncoder.setVertexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetVertexBuffer1(slot GPUIndex32, buffer GPUBuffer, offset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetVertexBuffer1(
@@ -3842,7 +3842,7 @@ func (this GPURenderBundleEncoder) SetVertexBuffer2(slot GPUIndex32, buffer GPUB
 }
 
 // TrySetVertexBuffer2 calls the method "GPURenderBundleEncoder.setVertexBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetVertexBuffer2(slot GPUIndex32, buffer GPUBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetVertexBuffer2(
@@ -3884,7 +3884,7 @@ func (this GPURenderBundleEncoder) Draw(vertexCount GPUSize32, instanceCount GPU
 }
 
 // TryDraw calls the method "GPURenderBundleEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw(
@@ -3927,7 +3927,7 @@ func (this GPURenderBundleEncoder) Draw1(vertexCount GPUSize32, instanceCount GP
 }
 
 // TryDraw1 calls the method "GPURenderBundleEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw1(vertexCount GPUSize32, instanceCount GPUSize32, firstVertex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw1(
@@ -3968,7 +3968,7 @@ func (this GPURenderBundleEncoder) Draw2(vertexCount GPUSize32, instanceCount GP
 }
 
 // TryDraw2 calls the method "GPURenderBundleEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw2(vertexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw2(
@@ -4007,7 +4007,7 @@ func (this GPURenderBundleEncoder) Draw3(vertexCount GPUSize32) (ret js.Void) {
 }
 
 // TryDraw3 calls the method "GPURenderBundleEncoder.draw"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDraw3(vertexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDraw3(
@@ -4049,7 +4049,7 @@ func (this GPURenderBundleEncoder) DrawIndexed(indexCount GPUSize32, instanceCou
 }
 
 // TryDrawIndexed calls the method "GPURenderBundleEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32, firstInstance GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed(
@@ -4094,7 +4094,7 @@ func (this GPURenderBundleEncoder) DrawIndexed1(indexCount GPUSize32, instanceCo
 }
 
 // TryDrawIndexed1 calls the method "GPURenderBundleEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed1(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32, baseVertex GPUSignedOffset32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed1(
@@ -4137,7 +4137,7 @@ func (this GPURenderBundleEncoder) DrawIndexed2(indexCount GPUSize32, instanceCo
 }
 
 // TryDrawIndexed2 calls the method "GPURenderBundleEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed2(indexCount GPUSize32, instanceCount GPUSize32, firstIndex GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed2(
@@ -4178,7 +4178,7 @@ func (this GPURenderBundleEncoder) DrawIndexed3(indexCount GPUSize32, instanceCo
 }
 
 // TryDrawIndexed3 calls the method "GPURenderBundleEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed3(indexCount GPUSize32, instanceCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed3(
@@ -4217,7 +4217,7 @@ func (this GPURenderBundleEncoder) DrawIndexed4(indexCount GPUSize32) (ret js.Vo
 }
 
 // TryDrawIndexed4 calls the method "GPURenderBundleEncoder.drawIndexed"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexed4(indexCount GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexed4(
@@ -4256,7 +4256,7 @@ func (this GPURenderBundleEncoder) DrawIndirect(indirectBuffer GPUBuffer, indire
 }
 
 // TryDrawIndirect calls the method "GPURenderBundleEncoder.drawIndirect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndirect(
@@ -4296,7 +4296,7 @@ func (this GPURenderBundleEncoder) DrawIndexedIndirect(indirectBuffer GPUBuffer,
 }
 
 // TryDrawIndexedIndirect calls the method "GPURenderBundleEncoder.drawIndexedIndirect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryDrawIndexedIndirect(indirectBuffer GPUBuffer, indirectOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderDrawIndexedIndirect(
@@ -4337,7 +4337,7 @@ func (this GPURenderBundleEncoder) SetBindGroup(index GPUIndex32, bindGroup GPUB
 }
 
 // TrySetBindGroup calls the method "GPURenderBundleEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetBindGroup(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsets js.Array[GPUBufferDynamicOffset]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetBindGroup(
@@ -4378,7 +4378,7 @@ func (this GPURenderBundleEncoder) SetBindGroup1(index GPUIndex32, bindGroup GPU
 }
 
 // TrySetBindGroup1 calls the method "GPURenderBundleEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetBindGroup1(index GPUIndex32, bindGroup GPUBindGroup) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetBindGroup1(
@@ -4421,7 +4421,7 @@ func (this GPURenderBundleEncoder) SetBindGroup2(index GPUIndex32, bindGroup GPU
 }
 
 // TrySetBindGroup2 calls the method "GPURenderBundleEncoder.setBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TrySetBindGroup2(index GPUIndex32, bindGroup GPUBindGroup, dynamicOffsetsData js.TypedArray[uint32], dynamicOffsetsDataStart GPUSize64, dynamicOffsetsDataLength GPUSize32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderSetBindGroup2(
@@ -4463,7 +4463,7 @@ func (this GPURenderBundleEncoder) PushDebugGroup(groupLabel js.String) (ret js.
 }
 
 // TryPushDebugGroup calls the method "GPURenderBundleEncoder.pushDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryPushDebugGroup(groupLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderPushDebugGroup(
@@ -4500,7 +4500,7 @@ func (this GPURenderBundleEncoder) PopDebugGroup() (ret js.Void) {
 }
 
 // TryPopDebugGroup calls the method "GPURenderBundleEncoder.popDebugGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryPopDebugGroup() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderPopDebugGroup(
@@ -4537,7 +4537,7 @@ func (this GPURenderBundleEncoder) InsertDebugMarker(markerLabel js.String) (ret
 }
 
 // TryInsertDebugMarker calls the method "GPURenderBundleEncoder.insertDebugMarker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderBundleEncoder) TryInsertDebugMarker(markerLabel js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderBundleEncoderInsertDebugMarker(
@@ -5440,7 +5440,7 @@ func (this GPUQueue) Submit(commandBuffers js.Array[GPUCommandBuffer]) (ret js.V
 }
 
 // TrySubmit calls the method "GPUQueue.submit"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQueue) TrySubmit(commandBuffers js.Array[GPUCommandBuffer]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueSubmit(
@@ -5477,7 +5477,7 @@ func (this GPUQueue) OnSubmittedWorkDone() (ret js.Promise[js.Void]) {
 }
 
 // TryOnSubmittedWorkDone calls the method "GPUQueue.onSubmittedWorkDone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQueue) TryOnSubmittedWorkDone() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueOnSubmittedWorkDone(
@@ -5518,7 +5518,7 @@ func (this GPUQueue) WriteBuffer(buffer GPUBuffer, bufferOffset GPUSize64, data 
 }
 
 // TryWriteBuffer calls the method "GPUQueue.writeBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQueue) TryWriteBuffer(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64, size GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteBuffer(
@@ -5563,7 +5563,7 @@ func (this GPUQueue) WriteBuffer1(buffer GPUBuffer, bufferOffset GPUSize64, data
 }
 
 // TryWriteBuffer1 calls the method "GPUQueue.writeBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQueue) TryWriteBuffer1(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource, dataOffset GPUSize64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteBuffer1(
@@ -5606,7 +5606,7 @@ func (this GPUQueue) WriteBuffer2(buffer GPUBuffer, bufferOffset GPUSize64, data
 }
 
 // TryWriteBuffer2 calls the method "GPUQueue.writeBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQueue) TryWriteBuffer2(buffer GPUBuffer, bufferOffset GPUSize64, data AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteBuffer2(
@@ -5649,7 +5649,7 @@ func (this GPUQueue) WriteTexture(destination GPUImageCopyTexture, data AllowSha
 }
 
 // TryWriteTexture calls the method "GPUQueue.writeTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQueue) TryWriteTexture(destination GPUImageCopyTexture, data AllowSharedBufferSource, dataLayout GPUImageDataLayout, size GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueWriteTexture(
@@ -5692,7 +5692,7 @@ func (this GPUQueue) CopyExternalImageToTexture(source GPUImageCopyExternalImage
 }
 
 // TryCopyExternalImageToTexture calls the method "GPUQueue.copyExternalImageToTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUQueue) TryCopyExternalImageToTexture(source GPUImageCopyExternalImage, destination GPUImageCopyTextureTagged, copySize GPUExtent3D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUQueueCopyExternalImageToTexture(
@@ -5879,7 +5879,7 @@ func (this GPUDevice) Destroy() (ret js.Void) {
 }
 
 // TryDestroy calls the method "GPUDevice.destroy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceDestroy(
@@ -5916,7 +5916,7 @@ func (this GPUDevice) CreateBuffer(descriptor GPUBufferDescriptor) (ret GPUBuffe
 }
 
 // TryCreateBuffer calls the method "GPUDevice.createBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateBuffer(descriptor GPUBufferDescriptor) (ret GPUBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateBuffer(
@@ -5954,7 +5954,7 @@ func (this GPUDevice) CreateTexture(descriptor GPUTextureDescriptor) (ret GPUTex
 }
 
 // TryCreateTexture calls the method "GPUDevice.createTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateTexture(descriptor GPUTextureDescriptor) (ret GPUTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateTexture(
@@ -5992,7 +5992,7 @@ func (this GPUDevice) CreateSampler(descriptor GPUSamplerDescriptor) (ret GPUSam
 }
 
 // TryCreateSampler calls the method "GPUDevice.createSampler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateSampler(descriptor GPUSamplerDescriptor) (ret GPUSampler, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateSampler(
@@ -6029,7 +6029,7 @@ func (this GPUDevice) CreateSampler1() (ret GPUSampler) {
 }
 
 // TryCreateSampler1 calls the method "GPUDevice.createSampler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateSampler1() (ret GPUSampler, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateSampler1(
@@ -6066,7 +6066,7 @@ func (this GPUDevice) ImportExternalTexture(descriptor GPUExternalTextureDescrip
 }
 
 // TryImportExternalTexture calls the method "GPUDevice.importExternalTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryImportExternalTexture(descriptor GPUExternalTextureDescriptor) (ret GPUExternalTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceImportExternalTexture(
@@ -6104,7 +6104,7 @@ func (this GPUDevice) CreateBindGroupLayout(descriptor GPUBindGroupLayoutDescrip
 }
 
 // TryCreateBindGroupLayout calls the method "GPUDevice.createBindGroupLayout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateBindGroupLayout(descriptor GPUBindGroupLayoutDescriptor) (ret GPUBindGroupLayout, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateBindGroupLayout(
@@ -6142,7 +6142,7 @@ func (this GPUDevice) CreatePipelineLayout(descriptor GPUPipelineLayoutDescripto
 }
 
 // TryCreatePipelineLayout calls the method "GPUDevice.createPipelineLayout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreatePipelineLayout(descriptor GPUPipelineLayoutDescriptor) (ret GPUPipelineLayout, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreatePipelineLayout(
@@ -6180,7 +6180,7 @@ func (this GPUDevice) CreateBindGroup(descriptor GPUBindGroupDescriptor) (ret GP
 }
 
 // TryCreateBindGroup calls the method "GPUDevice.createBindGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateBindGroup(descriptor GPUBindGroupDescriptor) (ret GPUBindGroup, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateBindGroup(
@@ -6218,7 +6218,7 @@ func (this GPUDevice) CreateShaderModule(descriptor GPUShaderModuleDescriptor) (
 }
 
 // TryCreateShaderModule calls the method "GPUDevice.createShaderModule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateShaderModule(descriptor GPUShaderModuleDescriptor) (ret GPUShaderModule, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateShaderModule(
@@ -6256,7 +6256,7 @@ func (this GPUDevice) CreateComputePipeline(descriptor GPUComputePipelineDescrip
 }
 
 // TryCreateComputePipeline calls the method "GPUDevice.createComputePipeline"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateComputePipeline(descriptor GPUComputePipelineDescriptor) (ret GPUComputePipeline, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateComputePipeline(
@@ -6294,7 +6294,7 @@ func (this GPUDevice) CreateRenderPipeline(descriptor GPURenderPipelineDescripto
 }
 
 // TryCreateRenderPipeline calls the method "GPUDevice.createRenderPipeline"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateRenderPipeline(descriptor GPURenderPipelineDescriptor) (ret GPURenderPipeline, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateRenderPipeline(
@@ -6332,7 +6332,7 @@ func (this GPUDevice) CreateComputePipelineAsync(descriptor GPUComputePipelineDe
 }
 
 // TryCreateComputePipelineAsync calls the method "GPUDevice.createComputePipelineAsync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateComputePipelineAsync(descriptor GPUComputePipelineDescriptor) (ret js.Promise[GPUComputePipeline], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateComputePipelineAsync(
@@ -6370,7 +6370,7 @@ func (this GPUDevice) CreateRenderPipelineAsync(descriptor GPURenderPipelineDesc
 }
 
 // TryCreateRenderPipelineAsync calls the method "GPUDevice.createRenderPipelineAsync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateRenderPipelineAsync(descriptor GPURenderPipelineDescriptor) (ret js.Promise[GPURenderPipeline], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateRenderPipelineAsync(
@@ -6408,7 +6408,7 @@ func (this GPUDevice) CreateCommandEncoder(descriptor GPUCommandEncoderDescripto
 }
 
 // TryCreateCommandEncoder calls the method "GPUDevice.createCommandEncoder"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateCommandEncoder(descriptor GPUCommandEncoderDescriptor) (ret GPUCommandEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateCommandEncoder(
@@ -6445,7 +6445,7 @@ func (this GPUDevice) CreateCommandEncoder1() (ret GPUCommandEncoder) {
 }
 
 // TryCreateCommandEncoder1 calls the method "GPUDevice.createCommandEncoder"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateCommandEncoder1() (ret GPUCommandEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateCommandEncoder1(
@@ -6482,7 +6482,7 @@ func (this GPUDevice) CreateRenderBundleEncoder(descriptor GPURenderBundleEncode
 }
 
 // TryCreateRenderBundleEncoder calls the method "GPUDevice.createRenderBundleEncoder"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateRenderBundleEncoder(descriptor GPURenderBundleEncoderDescriptor) (ret GPURenderBundleEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateRenderBundleEncoder(
@@ -6520,7 +6520,7 @@ func (this GPUDevice) CreateQuerySet(descriptor GPUQuerySetDescriptor) (ret GPUQ
 }
 
 // TryCreateQuerySet calls the method "GPUDevice.createQuerySet"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryCreateQuerySet(descriptor GPUQuerySetDescriptor) (ret GPUQuerySet, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDeviceCreateQuerySet(
@@ -6558,7 +6558,7 @@ func (this GPUDevice) PushErrorScope(filter GPUErrorFilter) (ret js.Void) {
 }
 
 // TryPushErrorScope calls the method "GPUDevice.pushErrorScope"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryPushErrorScope(filter GPUErrorFilter) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDevicePushErrorScope(
@@ -6595,7 +6595,7 @@ func (this GPUDevice) PopErrorScope() (ret js.Promise[GPUError]) {
 }
 
 // TryPopErrorScope calls the method "GPUDevice.popErrorScope"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUDevice) TryPopErrorScope() (ret js.Promise[GPUError], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUDevicePopErrorScope(
@@ -6748,7 +6748,7 @@ func (this GPUCanvasContext) Configure(configuration GPUCanvasConfiguration) (re
 }
 
 // TryConfigure calls the method "GPUCanvasContext.configure"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCanvasContext) TryConfigure(configuration GPUCanvasConfiguration) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCanvasContextConfigure(
@@ -6785,7 +6785,7 @@ func (this GPUCanvasContext) Unconfigure() (ret js.Void) {
 }
 
 // TryUnconfigure calls the method "GPUCanvasContext.unconfigure"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCanvasContext) TryUnconfigure() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCanvasContextUnconfigure(
@@ -6821,7 +6821,7 @@ func (this GPUCanvasContext) GetCurrentTexture() (ret GPUTexture) {
 }
 
 // TryGetCurrentTexture calls the method "GPUCanvasContext.getCurrentTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUCanvasContext) TryGetCurrentTexture() (ret GPUTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUCanvasContextGetCurrentTexture(

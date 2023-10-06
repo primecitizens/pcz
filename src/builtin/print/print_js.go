@@ -6,8 +6,8 @@
 package stdprint
 
 import (
-	"github.com/primecitizens/std/builtin/print/bindings"
-	"github.com/primecitizens/std/ffi/js"
+	"github.com/primecitizens/pcz/std/builtin/print/bindings"
+	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
 func gwrite(b []byte) {

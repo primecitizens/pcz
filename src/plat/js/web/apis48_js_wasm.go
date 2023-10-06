@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -132,7 +132,7 @@ func (this RTCIceTransport) GetLocalCandidates() (ret js.Array[RTCIceCandidate])
 }
 
 // TryGetLocalCandidates calls the method "RTCIceTransport.getLocalCandidates"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryGetLocalCandidates() (ret js.Array[RTCIceCandidate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetLocalCandidates(
@@ -168,7 +168,7 @@ func (this RTCIceTransport) GetRemoteCandidates() (ret js.Array[RTCIceCandidate]
 }
 
 // TryGetRemoteCandidates calls the method "RTCIceTransport.getRemoteCandidates"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryGetRemoteCandidates() (ret js.Array[RTCIceCandidate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetRemoteCandidates(
@@ -204,7 +204,7 @@ func (this RTCIceTransport) GetSelectedCandidatePair() (ret RTCIceCandidatePair)
 }
 
 // TryGetSelectedCandidatePair calls the method "RTCIceTransport.getSelectedCandidatePair"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryGetSelectedCandidatePair() (ret RTCIceCandidatePair, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetSelectedCandidatePair(
@@ -240,7 +240,7 @@ func (this RTCIceTransport) GetLocalParameters() (ret RTCIceParameters) {
 }
 
 // TryGetLocalParameters calls the method "RTCIceTransport.getLocalParameters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryGetLocalParameters() (ret RTCIceParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetLocalParameters(
@@ -276,7 +276,7 @@ func (this RTCIceTransport) GetRemoteParameters() (ret RTCIceParameters) {
 }
 
 // TryGetRemoteParameters calls the method "RTCIceTransport.getRemoteParameters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryGetRemoteParameters() (ret RTCIceParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGetRemoteParameters(
@@ -313,7 +313,7 @@ func (this RTCIceTransport) Gather(options RTCIceGatherOptions) (ret js.Void) {
 }
 
 // TryGather calls the method "RTCIceTransport.gather"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryGather(options RTCIceGatherOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGather(
@@ -350,7 +350,7 @@ func (this RTCIceTransport) Gather1() (ret js.Void) {
 }
 
 // TryGather1 calls the method "RTCIceTransport.gather"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryGather1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportGather1(
@@ -388,7 +388,7 @@ func (this RTCIceTransport) Start(remoteParameters RTCIceParameters, role RTCIce
 }
 
 // TryStart calls the method "RTCIceTransport.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryStart(remoteParameters RTCIceParameters, role RTCIceRole) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStart(
@@ -427,7 +427,7 @@ func (this RTCIceTransport) Start1(remoteParameters RTCIceParameters) (ret js.Vo
 }
 
 // TryStart1 calls the method "RTCIceTransport.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryStart1(remoteParameters RTCIceParameters) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStart1(
@@ -464,7 +464,7 @@ func (this RTCIceTransport) Start2() (ret js.Void) {
 }
 
 // TryStart2 calls the method "RTCIceTransport.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryStart2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStart2(
@@ -500,7 +500,7 @@ func (this RTCIceTransport) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "RTCIceTransport.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportStop(
@@ -537,7 +537,7 @@ func (this RTCIceTransport) AddRemoteCandidate(remoteCandidate RTCIceCandidateIn
 }
 
 // TryAddRemoteCandidate calls the method "RTCIceTransport.addRemoteCandidate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryAddRemoteCandidate(remoteCandidate RTCIceCandidateInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportAddRemoteCandidate(
@@ -574,7 +574,7 @@ func (this RTCIceTransport) AddRemoteCandidate1() (ret js.Void) {
 }
 
 // TryAddRemoteCandidate1 calls the method "RTCIceTransport.addRemoteCandidate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceTransport) TryAddRemoteCandidate1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceTransportAddRemoteCandidate1(
@@ -685,7 +685,7 @@ func (this RTCDtlsTransport) GetRemoteCertificates() (ret js.Array[js.ArrayBuffe
 }
 
 // TryGetRemoteCertificates calls the method "RTCDtlsTransport.getRemoteCertificates"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDtlsTransport) TryGetRemoteCertificates() (ret js.Array[js.ArrayBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDtlsTransportGetRemoteCertificates(
@@ -831,7 +831,7 @@ func (this RTCEncodedAudioFrame) GetMetadata() (ret RTCEncodedAudioFrameMetadata
 }
 
 // TryGetMetadata calls the method "RTCEncodedAudioFrame.getMetadata"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCEncodedAudioFrame) TryGetMetadata() (ret RTCEncodedAudioFrameMetadata, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCEncodedAudioFrameGetMetadata(
@@ -1053,7 +1053,7 @@ func (this RTCEncodedVideoFrame) GetMetadata() (ret RTCEncodedVideoFrameMetadata
 }
 
 // TryGetMetadata calls the method "RTCEncodedVideoFrame.getMetadata"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCEncodedVideoFrame) TryGetMetadata() (ret RTCEncodedVideoFrameMetadata, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCEncodedVideoFrameGetMetadata(
@@ -2060,7 +2060,7 @@ func (this RTCIdentityProviderRegistrar) Register(idp RTCIdentityProvider) (ret 
 }
 
 // TryRegister calls the method "RTCIdentityProviderRegistrar.register"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIdentityProviderRegistrar) TryRegister(idp RTCIdentityProvider) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIdentityProviderRegistrarRegister(

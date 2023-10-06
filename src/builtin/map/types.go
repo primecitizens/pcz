@@ -10,8 +10,8 @@ package stdmap
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 // A HashMap is the standard implementation of Go `map`.

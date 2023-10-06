@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -101,7 +101,7 @@ func (this TextTrackCueList) Get(index uint32) (ret TextTrackCue) {
 }
 
 // TryGet calls the method "TextTrackCueList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextTrackCueList) TryGet(index uint32) (ret TextTrackCue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextTrackCueListGet(
@@ -139,7 +139,7 @@ func (this TextTrackCueList) GetCueById(id js.String) (ret TextTrackCue) {
 }
 
 // TryGetCueById calls the method "TextTrackCueList.getCueById"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextTrackCueList) TryGetCueById(id js.String) (ret TextTrackCue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextTrackCueListGetCueById(
@@ -209,7 +209,7 @@ func (this TimeRanges) Start(index uint32) (ret float64) {
 }
 
 // TryStart calls the method "TimeRanges.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TimeRanges) TryStart(index uint32) (ret float64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTimeRangesStart(
@@ -247,7 +247,7 @@ func (this TimeRanges) End(index uint32) (ret float64) {
 }
 
 // TryEnd calls the method "TimeRanges.end"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TimeRanges) TryEnd(index uint32) (ret float64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTimeRangesEnd(
@@ -409,7 +409,7 @@ func (this AudioTrackList) Get(index uint32) (ret AudioTrack) {
 }
 
 // TryGet calls the method "AudioTrackList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioTrackList) TryGet(index uint32) (ret AudioTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioTrackListGet(
@@ -447,7 +447,7 @@ func (this AudioTrackList) GetTrackById(id js.String) (ret AudioTrack) {
 }
 
 // TryGetTrackById calls the method "AudioTrackList.getTrackById"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioTrackList) TryGetTrackById(id js.String) (ret AudioTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioTrackListGetTrackById(
@@ -619,7 +619,7 @@ func (this VideoTrackList) Get(index uint32) (ret VideoTrack) {
 }
 
 // TryGet calls the method "VideoTrackList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoTrackList) TryGet(index uint32) (ret VideoTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoTrackListGet(
@@ -657,7 +657,7 @@ func (this VideoTrackList) GetTrackById(id js.String) (ret VideoTrack) {
 }
 
 // TryGetTrackById calls the method "VideoTrackList.getTrackById"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoTrackList) TryGetTrackById(id js.String) (ret VideoTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoTrackListGetTrackById(
@@ -727,7 +727,7 @@ func (this TextTrackList) Get(index uint32) (ret TextTrack) {
 }
 
 // TryGet calls the method "TextTrackList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextTrackList) TryGet(index uint32) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextTrackListGet(
@@ -765,7 +765,7 @@ func (this TextTrackList) GetTrackById(id js.String) (ret TextTrack) {
 }
 
 // TryGetTrackById calls the method "TextTrackList.getTrackById"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextTrackList) TryGetTrackById(id js.String) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextTrackListGetTrackById(
@@ -955,7 +955,7 @@ func (this SourceBuffer) AppendBuffer(data BufferSource) (ret js.Void) {
 }
 
 // TryAppendBuffer calls the method "SourceBuffer.appendBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SourceBuffer) TryAppendBuffer(data BufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySourceBufferAppendBuffer(
@@ -992,7 +992,7 @@ func (this SourceBuffer) Abort() (ret js.Void) {
 }
 
 // TryAbort calls the method "SourceBuffer.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SourceBuffer) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySourceBufferAbort(
@@ -1029,7 +1029,7 @@ func (this SourceBuffer) ChangeType(typ js.String) (ret js.Void) {
 }
 
 // TryChangeType calls the method "SourceBuffer.changeType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SourceBuffer) TryChangeType(typ js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySourceBufferChangeType(
@@ -1068,7 +1068,7 @@ func (this SourceBuffer) Remove(start float64, end float64) (ret js.Void) {
 }
 
 // TryRemove calls the method "SourceBuffer.remove"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SourceBuffer) TryRemove(start float64, end float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySourceBufferRemove(
@@ -1229,7 +1229,7 @@ func (this TextTrack) AddCue(cue TextTrackCue) (ret js.Void) {
 }
 
 // TryAddCue calls the method "TextTrack.addCue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextTrack) TryAddCue(cue TextTrackCue) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextTrackAddCue(
@@ -1267,7 +1267,7 @@ func (this TextTrack) RemoveCue(cue TextTrackCue) (ret js.Void) {
 }
 
 // TryRemoveCue calls the method "TextTrack.removeCue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextTrack) TryRemoveCue(cue TextTrackCue) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextTrackRemoveCue(
@@ -1438,7 +1438,7 @@ func (this MediaKeyStatusMap) Has(keyId BufferSource) (ret bool) {
 }
 
 // TryHas calls the method "MediaKeyStatusMap.has"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeyStatusMap) TryHas(keyId BufferSource) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeyStatusMapHas(
@@ -1476,7 +1476,7 @@ func (this MediaKeyStatusMap) Get(keyId BufferSource) (ret OneOf_MediaKeyStatus_
 }
 
 // TryGet calls the method "MediaKeyStatusMap.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeyStatusMap) TryGet(keyId BufferSource) (ret OneOf_MediaKeyStatus_undefined, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeyStatusMapGet(
@@ -1577,7 +1577,7 @@ func (this MediaKeySession) GenerateRequest(initDataType js.String, initData Buf
 }
 
 // TryGenerateRequest calls the method "MediaKeySession.generateRequest"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeySession) TryGenerateRequest(initDataType js.String, initData BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySessionGenerateRequest(
@@ -1616,7 +1616,7 @@ func (this MediaKeySession) Load(sessionId js.String) (ret js.Promise[js.Boolean
 }
 
 // TryLoad calls the method "MediaKeySession.load"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeySession) TryLoad(sessionId js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySessionLoad(
@@ -1654,7 +1654,7 @@ func (this MediaKeySession) Update(response BufferSource) (ret js.Promise[js.Voi
 }
 
 // TryUpdate calls the method "MediaKeySession.update"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeySession) TryUpdate(response BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySessionUpdate(
@@ -1691,7 +1691,7 @@ func (this MediaKeySession) Close() (ret js.Promise[js.Void]) {
 }
 
 // TryClose calls the method "MediaKeySession.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeySession) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySessionClose(
@@ -1727,7 +1727,7 @@ func (this MediaKeySession) Remove() (ret js.Promise[js.Void]) {
 }
 
 // TryRemove calls the method "MediaKeySession.remove"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeySession) TryRemove() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySessionRemove(
@@ -1810,7 +1810,7 @@ func (this MediaKeys) CreateSession(sessionType MediaKeySessionType) (ret MediaK
 }
 
 // TryCreateSession calls the method "MediaKeys.createSession"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeys) TryCreateSession(sessionType MediaKeySessionType) (ret MediaKeySession, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeysCreateSession(
@@ -1847,7 +1847,7 @@ func (this MediaKeys) CreateSession1() (ret MediaKeySession) {
 }
 
 // TryCreateSession1 calls the method "MediaKeys.createSession"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeys) TryCreateSession1() (ret MediaKeySession, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeysCreateSession1(
@@ -1884,7 +1884,7 @@ func (this MediaKeys) SetServerCertificate(serverCertificate BufferSource) (ret 
 }
 
 // TrySetServerCertificate calls the method "MediaKeys.setServerCertificate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeys) TrySetServerCertificate(serverCertificate BufferSource) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeysSetServerCertificate(

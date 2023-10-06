@@ -8,9 +8,9 @@ package sys
 import (
 	"unsafe"
 
-	stdptr "github.com/primecitizens/std/builtin/ptr"
-	stdstring "github.com/primecitizens/std/builtin/string"
-	"github.com/primecitizens/std/core/arch"
+	stdptr "github.com/primecitizens/pcz/std/builtin/ptr"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 var (

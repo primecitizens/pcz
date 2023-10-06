@@ -11,7 +11,7 @@ import (
 
 	"github.com/primecitizens/pcz/cmd/build/toolchain"
 	"github.com/primecitizens/pcz/cmd/utils/jsutils"
-	"github.com/primecitizens/std"
+	"github.com/primecitizens/pcz/std"
 )
 
 type BindgenOptions struct {

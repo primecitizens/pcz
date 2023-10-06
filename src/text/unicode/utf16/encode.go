@@ -9,7 +9,7 @@
 package utf16
 
 import (
-	. "github.com/primecitizens/std/text/unicode/common"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
 )
 
 // EncodedSize returns the number of uint16s required to hold the UTF-16

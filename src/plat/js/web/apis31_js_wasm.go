@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -98,7 +98,7 @@ func (this MLCommandEncoder) Dispatch(graph MLGraph, inputs MLNamedGPUResources,
 }
 
 // TryDispatch calls the method "MLCommandEncoder.dispatch"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLCommandEncoder) TryDispatch(graph MLGraph, inputs MLNamedGPUResources, outputs MLNamedGPUResources) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderDispatch(
@@ -138,7 +138,7 @@ func (this MLCommandEncoder) Finish(descriptor GPUCommandBufferDescriptor) (ret 
 }
 
 // TryFinish calls the method "MLCommandEncoder.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLCommandEncoder) TryFinish(descriptor GPUCommandBufferDescriptor) (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderFinish(
@@ -175,7 +175,7 @@ func (this MLCommandEncoder) Finish1() (ret GPUCommandBuffer) {
 }
 
 // TryFinish1 calls the method "MLCommandEncoder.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLCommandEncoder) TryFinish1() (ret GPUCommandBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderFinish1(
@@ -212,7 +212,7 @@ func (this MLCommandEncoder) InitializeGraph(graph MLGraph) (ret js.Void) {
 }
 
 // TryInitializeGraph calls the method "MLCommandEncoder.initializeGraph"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLCommandEncoder) TryInitializeGraph(graph MLGraph) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCommandEncoderInitializeGraph(
@@ -274,7 +274,7 @@ func (this MLContext) Compute(graph MLGraph, inputs MLNamedArrayBufferViews, out
 }
 
 // TryCompute calls the method "MLContext.compute"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLContext) TryCompute(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) (ret js.Promise[MLComputeResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLContextCompute(
@@ -316,7 +316,7 @@ func (this MLContext) ComputeSync(graph MLGraph, inputs MLNamedArrayBufferViews,
 }
 
 // TryComputeSync calls the method "MLContext.computeSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLContext) TryComputeSync(graph MLGraph, inputs MLNamedArrayBufferViews, outputs MLNamedArrayBufferViews) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLContextComputeSync(
@@ -355,7 +355,7 @@ func (this MLContext) CreateCommandEncoder() (ret MLCommandEncoder) {
 }
 
 // TryCreateCommandEncoder calls the method "MLContext.createCommandEncoder"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLContext) TryCreateCommandEncoder() (ret MLCommandEncoder, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLContextCreateCommandEncoder(
@@ -505,7 +505,7 @@ func (this ML) CreateContext(options MLContextOptions) (ret js.Promise[MLContext
 }
 
 // TryCreateContext calls the method "ML.createContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ML) TryCreateContext(options MLContextOptions) (ret js.Promise[MLContext], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContext(
@@ -542,7 +542,7 @@ func (this ML) CreateContext1() (ret js.Promise[MLContext]) {
 }
 
 // TryCreateContext1 calls the method "ML.createContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ML) TryCreateContext1() (ret js.Promise[MLContext], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContext1(
@@ -579,7 +579,7 @@ func (this ML) CreateContext2(gpuDevice GPUDevice) (ret js.Promise[MLContext]) {
 }
 
 // TryCreateContext2 calls the method "ML.createContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ML) TryCreateContext2(gpuDevice GPUDevice) (ret js.Promise[MLContext], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContext2(
@@ -617,7 +617,7 @@ func (this ML) CreateContextSync(options MLContextOptions) (ret MLContext) {
 }
 
 // TryCreateContextSync calls the method "ML.createContextSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ML) TryCreateContextSync(options MLContextOptions) (ret MLContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContextSync(
@@ -654,7 +654,7 @@ func (this ML) CreateContextSync1() (ret MLContext) {
 }
 
 // TryCreateContextSync1 calls the method "ML.createContextSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ML) TryCreateContextSync1() (ret MLContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContextSync1(
@@ -691,7 +691,7 @@ func (this ML) CreateContextSync2(gpuDevice GPUDevice) (ret MLContext) {
 }
 
 // TryCreateContextSync2 calls the method "ML.createContextSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ML) TryCreateContextSync2(gpuDevice GPUDevice) (ret MLContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLCreateContextSync2(
@@ -1141,7 +1141,7 @@ func (this GPUAdapter) RequestDevice(descriptor GPUDeviceDescriptor) (ret js.Pro
 }
 
 // TryRequestDevice calls the method "GPUAdapter.requestDevice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUAdapter) TryRequestDevice(descriptor GPUDeviceDescriptor) (ret js.Promise[GPUDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestDevice(
@@ -1178,7 +1178,7 @@ func (this GPUAdapter) RequestDevice1() (ret js.Promise[GPUDevice]) {
 }
 
 // TryRequestDevice1 calls the method "GPUAdapter.requestDevice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUAdapter) TryRequestDevice1() (ret js.Promise[GPUDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestDevice1(
@@ -1215,7 +1215,7 @@ func (this GPUAdapter) RequestAdapterInfo(unmaskHints js.Array[js.String]) (ret 
 }
 
 // TryRequestAdapterInfo calls the method "GPUAdapter.requestAdapterInfo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUAdapter) TryRequestAdapterInfo(unmaskHints js.Array[js.String]) (ret js.Promise[GPUAdapterInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestAdapterInfo(
@@ -1252,7 +1252,7 @@ func (this GPUAdapter) RequestAdapterInfo1() (ret js.Promise[GPUAdapterInfo]) {
 }
 
 // TryRequestAdapterInfo1 calls the method "GPUAdapter.requestAdapterInfo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUAdapter) TryRequestAdapterInfo1() (ret js.Promise[GPUAdapterInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUAdapterRequestAdapterInfo1(
@@ -1411,7 +1411,7 @@ func (this GPU) RequestAdapter(options GPURequestAdapterOptions) (ret js.Promise
 }
 
 // TryRequestAdapter calls the method "GPU.requestAdapter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPU) TryRequestAdapter(options GPURequestAdapterOptions) (ret js.Promise[GPUAdapter], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURequestAdapter(
@@ -1448,7 +1448,7 @@ func (this GPU) RequestAdapter1() (ret js.Promise[GPUAdapter]) {
 }
 
 // TryRequestAdapter1 calls the method "GPU.requestAdapter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPU) TryRequestAdapter1() (ret js.Promise[GPUAdapter], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURequestAdapter1(
@@ -1484,7 +1484,7 @@ func (this GPU) GetPreferredCanvasFormat() (ret GPUTextureFormat) {
 }
 
 // TryGetPreferredCanvasFormat calls the method "GPU.getPreferredCanvasFormat"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPU) TryGetPreferredCanvasFormat() (ret GPUTextureFormat, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUGetPreferredCanvasFormat(
@@ -2062,7 +2062,7 @@ func (this Navigator) UpdateAdInterestGroups() (ret js.Void) {
 }
 
 // TryUpdateAdInterestGroups calls the method "Navigator.updateAdInterestGroups"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryUpdateAdInterestGroups() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorUpdateAdInterestGroups(
@@ -2100,7 +2100,7 @@ func (this Navigator) SendBeacon(url js.String, data BodyInit) (ret bool) {
 }
 
 // TrySendBeacon calls the method "Navigator.sendBeacon"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TrySendBeacon(url js.String, data BodyInit) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSendBeacon(
@@ -2139,7 +2139,7 @@ func (this Navigator) SendBeacon1(url js.String) (ret bool) {
 }
 
 // TrySendBeacon1 calls the method "Navigator.sendBeacon"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TrySendBeacon1(url js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSendBeacon1(
@@ -2176,7 +2176,7 @@ func (this Navigator) GetBattery() (ret js.Promise[BatteryManager]) {
 }
 
 // TryGetBattery calls the method "Navigator.getBattery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryGetBattery() (ret js.Promise[BatteryManager], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetBattery(
@@ -2213,7 +2213,7 @@ func (this Navigator) Vibrate(pattern VibratePattern) (ret bool) {
 }
 
 // TryVibrate calls the method "Navigator.vibrate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryVibrate(pattern VibratePattern) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorVibrate(
@@ -2250,7 +2250,7 @@ func (this Navigator) GetGamepads() (ret js.Array[Gamepad]) {
 }
 
 // TryGetGamepads calls the method "Navigator.getGamepads"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryGetGamepads() (ret js.Array[Gamepad], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetGamepads(
@@ -2286,7 +2286,7 @@ func (this Navigator) GetInstalledRelatedApps() (ret js.Promise[js.Array[Related
 }
 
 // TryGetInstalledRelatedApps calls the method "Navigator.getInstalledRelatedApps"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryGetInstalledRelatedApps() (ret js.Promise[js.Array[RelatedApplication]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetInstalledRelatedApps(
@@ -2324,7 +2324,7 @@ func (this Navigator) RequestMediaKeySystemAccess(keySystem js.String, supported
 }
 
 // TryRequestMediaKeySystemAccess calls the method "Navigator.requestMediaKeySystemAccess"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryRequestMediaKeySystemAccess(keySystem js.String, supportedConfigurations js.Array[MediaKeySystemConfiguration]) (ret js.Promise[MediaKeySystemAccess], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRequestMediaKeySystemAccess(
@@ -2363,7 +2363,7 @@ func (this Navigator) JoinAdInterestGroup(group AuctionAdInterestGroup) (ret js.
 }
 
 // TryJoinAdInterestGroup calls the method "Navigator.joinAdInterestGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryJoinAdInterestGroup(group AuctionAdInterestGroup) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorJoinAdInterestGroup(
@@ -2403,7 +2403,7 @@ func (this Navigator) GetUserMedia(constraints MediaStreamConstraints, successCa
 }
 
 // TryGetUserMedia calls the method "Navigator.getUserMedia"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryGetUserMedia(constraints MediaStreamConstraints, successCallback js.Func[func(stream MediaStream)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetUserMedia(
@@ -2443,7 +2443,7 @@ func (this Navigator) LeaveAdInterestGroup(group AuctionAdInterestGroupKey) (ret
 }
 
 // TryLeaveAdInterestGroup calls the method "Navigator.leaveAdInterestGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryLeaveAdInterestGroup(group AuctionAdInterestGroupKey) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorLeaveAdInterestGroup(
@@ -2480,7 +2480,7 @@ func (this Navigator) LeaveAdInterestGroup1() (ret js.Promise[js.Void]) {
 }
 
 // TryLeaveAdInterestGroup1 calls the method "Navigator.leaveAdInterestGroup"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryLeaveAdInterestGroup1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorLeaveAdInterestGroup1(
@@ -2517,7 +2517,7 @@ func (this Navigator) RunAdAuction(config AuctionAdConfig) (ret js.Promise[OneOf
 }
 
 // TryRunAdAuction calls the method "Navigator.runAdAuction"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryRunAdAuction(config AuctionAdConfig) (ret js.Promise[OneOf_String_FencedFrameConfig], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRunAdAuction(
@@ -2555,7 +2555,7 @@ func (this Navigator) Share(data ShareData) (ret js.Promise[js.Void]) {
 }
 
 // TryShare calls the method "Navigator.share"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryShare(data ShareData) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorShare(
@@ -2592,7 +2592,7 @@ func (this Navigator) Share1() (ret js.Promise[js.Void]) {
 }
 
 // TryShare1 calls the method "Navigator.share"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryShare1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorShare1(
@@ -2629,7 +2629,7 @@ func (this Navigator) CanShare(data ShareData) (ret bool) {
 }
 
 // TryCanShare calls the method "Navigator.canShare"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryCanShare(data ShareData) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorCanShare(
@@ -2666,7 +2666,7 @@ func (this Navigator) CanShare1() (ret bool) {
 }
 
 // TryCanShare1 calls the method "Navigator.canShare"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryCanShare1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorCanShare1(
@@ -2703,7 +2703,7 @@ func (this Navigator) RequestMIDIAccess(options MIDIOptions) (ret js.Promise[MID
 }
 
 // TryRequestMIDIAccess calls the method "Navigator.requestMIDIAccess"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryRequestMIDIAccess(options MIDIOptions) (ret js.Promise[MIDIAccess], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRequestMIDIAccess(
@@ -2740,7 +2740,7 @@ func (this Navigator) RequestMIDIAccess1() (ret js.Promise[MIDIAccess]) {
 }
 
 // TryRequestMIDIAccess1 calls the method "Navigator.requestMIDIAccess"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryRequestMIDIAccess1() (ret js.Promise[MIDIAccess], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRequestMIDIAccess1(
@@ -2777,7 +2777,7 @@ func (this Navigator) GetAutoplayPolicy(typ AutoplayPolicyMediaType) (ret Autopl
 }
 
 // TryGetAutoplayPolicy calls the method "Navigator.getAutoplayPolicy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryGetAutoplayPolicy(typ AutoplayPolicyMediaType) (ret AutoplayPolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetAutoplayPolicy(
@@ -2815,7 +2815,7 @@ func (this Navigator) GetAutoplayPolicy1(element HTMLMediaElement) (ret Autoplay
 }
 
 // TryGetAutoplayPolicy1 calls the method "Navigator.getAutoplayPolicy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryGetAutoplayPolicy1(element HTMLMediaElement) (ret AutoplayPolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetAutoplayPolicy1(
@@ -2853,7 +2853,7 @@ func (this Navigator) GetAutoplayPolicy2(context AudioContext) (ret AutoplayPoli
 }
 
 // TryGetAutoplayPolicy2 calls the method "Navigator.getAutoplayPolicy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryGetAutoplayPolicy2(context AudioContext) (ret AutoplayPolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorGetAutoplayPolicy2(
@@ -2890,7 +2890,7 @@ func (this Navigator) TaintEnabled() (ret bool) {
 }
 
 // TryTaintEnabled calls the method "Navigator.taintEnabled"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryTaintEnabled() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorTaintEnabled(
@@ -2928,7 +2928,7 @@ func (this Navigator) RegisterProtocolHandler(scheme js.String, url js.String) (
 }
 
 // TryRegisterProtocolHandler calls the method "Navigator.registerProtocolHandler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryRegisterProtocolHandler(scheme js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorRegisterProtocolHandler(
@@ -2968,7 +2968,7 @@ func (this Navigator) UnregisterProtocolHandler(scheme js.String, url js.String)
 }
 
 // TryUnregisterProtocolHandler calls the method "Navigator.unregisterProtocolHandler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryUnregisterProtocolHandler(scheme js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorUnregisterProtocolHandler(
@@ -3006,7 +3006,7 @@ func (this Navigator) JavaEnabled() (ret bool) {
 }
 
 // TryJavaEnabled calls the method "Navigator.javaEnabled"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryJavaEnabled() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorJavaEnabled(
@@ -3043,7 +3043,7 @@ func (this Navigator) SetAppBadge(contents uint64) (ret js.Promise[js.Void]) {
 }
 
 // TrySetAppBadge calls the method "Navigator.setAppBadge"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TrySetAppBadge(contents uint64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSetAppBadge(
@@ -3080,7 +3080,7 @@ func (this Navigator) SetAppBadge1() (ret js.Promise[js.Void]) {
 }
 
 // TrySetAppBadge1 calls the method "Navigator.setAppBadge"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TrySetAppBadge1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorSetAppBadge1(
@@ -3116,7 +3116,7 @@ func (this Navigator) ClearAppBadge() (ret js.Promise[js.Void]) {
 }
 
 // TryClearAppBadge calls the method "Navigator.clearAppBadge"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigator) TryClearAppBadge() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorClearAppBadge(
@@ -3277,7 +3277,7 @@ func (this LaunchQueue) SetConsumer(consumer js.Func[func(params LaunchParams) j
 }
 
 // TrySetConsumer calls the method "LaunchQueue.setConsumer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LaunchQueue) TrySetConsumer(consumer js.Func[func(params LaunchParams) js.Any]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLaunchQueueSetConsumer(
@@ -3452,7 +3452,7 @@ func (this Fence) ReportEvent(event ReportEventType) (ret js.Void) {
 }
 
 // TryReportEvent calls the method "Fence.reportEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Fence) TryReportEvent(event ReportEventType) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFenceReportEvent(
@@ -3490,7 +3490,7 @@ func (this Fence) SetReportEventDataForAutomaticBeacons(event FenceEvent) (ret j
 }
 
 // TrySetReportEventDataForAutomaticBeacons calls the method "Fence.setReportEventDataForAutomaticBeacons"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Fence) TrySetReportEventDataForAutomaticBeacons(event FenceEvent) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFenceSetReportEventDataForAutomaticBeacons(
@@ -3527,7 +3527,7 @@ func (this Fence) GetNestedConfigs() (ret js.Array[FencedFrameConfig]) {
 }
 
 // TryGetNestedConfigs calls the method "Fence.getNestedConfigs"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Fence) TryGetNestedConfigs() (ret js.Array[FencedFrameConfig], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFenceGetNestedConfigs(
@@ -3587,7 +3587,7 @@ func (this PortalHost) PostMessage(message js.Any, options StructuredSerializeOp
 }
 
 // TryPostMessage calls the method "PortalHost.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PortalHost) TryPostMessage(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPortalHostPostMessage(
@@ -3626,7 +3626,7 @@ func (this PortalHost) PostMessage1(message js.Any) (ret js.Void) {
 }
 
 // TryPostMessage1 calls the method "PortalHost.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PortalHost) TryPostMessage1(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPortalHostPostMessage1(
@@ -3778,7 +3778,7 @@ func (this ScreenOrientation) Lock(orientation OrientationLockType) (ret js.Prom
 }
 
 // TryLock calls the method "ScreenOrientation.lock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ScreenOrientation) TryLock(orientation OrientationLockType) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryScreenOrientationLock(
@@ -3815,7 +3815,7 @@ func (this ScreenOrientation) Unlock() (ret js.Void) {
 }
 
 // TryUnlock calls the method "ScreenOrientation.unlock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ScreenOrientation) TryUnlock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryScreenOrientationUnlock(

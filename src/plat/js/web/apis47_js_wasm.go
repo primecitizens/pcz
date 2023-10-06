@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -342,7 +342,7 @@ func (this RTCCertificate) GetFingerprints() (ret js.Array[RTCDtlsFingerprint]) 
 }
 
 // TryGetFingerprints calls the method "RTCCertificate.getFingerprints"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCCertificate) TryGetFingerprints() (ret js.Array[RTCDtlsFingerprint], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCCertificateGetFingerprints(
@@ -751,7 +751,7 @@ func (this RTCDTMFSender) InsertDTMF(tones js.String, duration uint32, interTone
 }
 
 // TryInsertDTMF calls the method "RTCDTMFSender.insertDTMF"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDTMFSender) TryInsertDTMF(tones js.String, duration uint32, interToneGap uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDTMFSenderInsertDTMF(
@@ -792,7 +792,7 @@ func (this RTCDTMFSender) InsertDTMF1(tones js.String, duration uint32) (ret js.
 }
 
 // TryInsertDTMF1 calls the method "RTCDTMFSender.insertDTMF"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDTMFSender) TryInsertDTMF1(tones js.String, duration uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDTMFSenderInsertDTMF1(
@@ -831,7 +831,7 @@ func (this RTCDTMFSender) InsertDTMF2(tones js.String) (ret js.Void) {
 }
 
 // TryInsertDTMF2 calls the method "RTCDTMFSender.insertDTMF"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDTMFSender) TryInsertDTMF2(tones js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDTMFSenderInsertDTMF2(
@@ -1193,7 +1193,7 @@ func (this RTCDataChannel) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "RTCDataChannel.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDataChannel) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelClose(
@@ -1230,7 +1230,7 @@ func (this RTCDataChannel) Send(data js.String) (ret js.Void) {
 }
 
 // TrySend calls the method "RTCDataChannel.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDataChannel) TrySend(data js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend(
@@ -1268,7 +1268,7 @@ func (this RTCDataChannel) Send1(data Blob) (ret js.Void) {
 }
 
 // TrySend1 calls the method "RTCDataChannel.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDataChannel) TrySend1(data Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend1(
@@ -1306,7 +1306,7 @@ func (this RTCDataChannel) Send2(data js.ArrayBuffer) (ret js.Void) {
 }
 
 // TrySend2 calls the method "RTCDataChannel.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDataChannel) TrySend2(data js.ArrayBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend2(
@@ -1344,7 +1344,7 @@ func (this RTCDataChannel) Send3(data js.ArrayBufferView) (ret js.Void) {
 }
 
 // TrySend3 calls the method "RTCDataChannel.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCDataChannel) TrySend3(data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCDataChannelSend3(
@@ -2077,7 +2077,7 @@ func (this RTCIceCandidate) ToJSON() (ret RTCIceCandidateInit) {
 }
 
 // TryToJSON calls the method "RTCIceCandidate.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCIceCandidate) TryToJSON() (ret RTCIceCandidateInit, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCIceCandidateToJSON(

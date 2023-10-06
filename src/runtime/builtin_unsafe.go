@@ -8,10 +8,10 @@ package runtime
 import (
 	"unsafe"
 
-	stdptr "github.com/primecitizens/std/builtin/ptr"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/math"
+	stdptr "github.com/primecitizens/pcz/std/builtin/ptr"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/math"
 )
 
 // functions required by compiler for unsafe.Slice and unsafe.String

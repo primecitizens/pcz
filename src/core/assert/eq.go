@@ -4,7 +4,7 @@
 package assert
 
 import (
-	"github.com/primecitizens/std/core/debug"
+	"github.com/primecitizens/pcz/std/core/debug"
 )
 
 func Eq[T comparable](a, b T) bool {

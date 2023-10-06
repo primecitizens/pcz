@@ -10,8 +10,8 @@ package race
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // TODO

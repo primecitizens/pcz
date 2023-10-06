@@ -8,15 +8,15 @@ package runtime
 import (
 	"unsafe"
 
-	stdconst "github.com/primecitizens/std/builtin/const"
-	stdtype "github.com/primecitizens/std/builtin/type"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/asan"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/mem"
-	"github.com/primecitizens/std/core/msan"
-	"github.com/primecitizens/std/core/race"
+	stdconst "github.com/primecitizens/pcz/std/builtin/const"
+	stdtype "github.com/primecitizens/pcz/std/builtin/type"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/asan"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mem"
+	"github.com/primecitizens/pcz/std/core/msan"
+	"github.com/primecitizens/pcz/std/core/race"
 )
 
 //

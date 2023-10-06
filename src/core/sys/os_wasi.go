@@ -8,8 +8,8 @@ package sys
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/wasm/wasi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/wasm/wasi"
 )
 
 var (

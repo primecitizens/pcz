@@ -7,7 +7,7 @@ package math_test
 import (
 	"testing"
 
-	. "github.com/primecitizens/std/math"
+	. "github.com/primecitizens/pcz/std/math"
 )
 
 func TestMaxUint(t *testing.T) {

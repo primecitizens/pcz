@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -276,7 +276,7 @@ func (this Table) Grow(delta uint32, value js.Any) (ret uint32) {
 }
 
 // TryGrow calls the method "Table.grow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Table) TryGrow(delta uint32, value js.Any) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTableGrow(
@@ -315,7 +315,7 @@ func (this Table) Grow1(delta uint32) (ret uint32) {
 }
 
 // TryGrow1 calls the method "Table.grow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Table) TryGrow1(delta uint32) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTableGrow1(
@@ -353,7 +353,7 @@ func (this Table) Get(index uint32) (ret js.Any) {
 }
 
 // TryGet calls the method "Table.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Table) TryGet(index uint32) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTableGet(
@@ -392,7 +392,7 @@ func (this Table) Set(index uint32, value js.Any) (ret js.Void) {
 }
 
 // TrySet calls the method "Table.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Table) TrySet(index uint32, value js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTableSet(
@@ -431,7 +431,7 @@ func (this Table) Set1(index uint32) (ret js.Void) {
 }
 
 // TrySet1 calls the method "Table.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Table) TrySet1(index uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTableSet1(
@@ -538,7 +538,7 @@ func (this TaskController) SetPriority(priority TaskPriority) (ret js.Void) {
 }
 
 // TrySetPriority calls the method "TaskController.setPriority"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TaskController) TrySetPriority(priority TaskPriority) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTaskControllerSetPriority(
@@ -768,7 +768,7 @@ func (this TaskSignal) Any(signals js.Array[AbortSignal], init TaskSignalAnyInit
 }
 
 // TryAny calls the staticmethod "TaskSignal.any"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TaskSignal) TryAny(signals js.Array[AbortSignal], init TaskSignalAnyInit) (ret TaskSignal, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTaskSignalAny(
@@ -807,7 +807,7 @@ func (this TaskSignal) Any1(signals js.Array[AbortSignal]) (ret TaskSignal) {
 }
 
 // TryAny1 calls the staticmethod "TaskSignal.any"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TaskSignal) TryAny1(signals js.Array[AbortSignal]) (ret TaskSignal, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTaskSignalAny1(
@@ -841,7 +841,7 @@ func (TestUtils) Gc() (ret js.Promise[js.Void]) {
 }
 
 // TryGc calls the function "TestUtils.gc"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (TestUtils) TryGc() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTestUtilsGc(
@@ -1035,7 +1035,7 @@ func (this TextDecoder) Decode(input AllowSharedBufferSource, options TextDecode
 }
 
 // TryDecode calls the method "TextDecoder.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextDecoder) TryDecode(input AllowSharedBufferSource, options TextDecodeOptions) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextDecoderDecode(
@@ -1074,7 +1074,7 @@ func (this TextDecoder) Decode1(input AllowSharedBufferSource) (ret js.String) {
 }
 
 // TryDecode1 calls the method "TextDecoder.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextDecoder) TryDecode1(input AllowSharedBufferSource) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextDecoderDecode1(
@@ -1111,7 +1111,7 @@ func (this TextDecoder) Decode2() (ret js.String) {
 }
 
 // TryDecode2 calls the method "TextDecoder.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextDecoder) TryDecode2() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextDecoderDecode2(
@@ -1260,7 +1260,7 @@ func (this TextDetector) Detect(image ImageBitmapSource) (ret js.Promise[js.Arra
 }
 
 // TryDetect calls the method "TextDetector.detect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextDetector) TryDetect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedText]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextDetectorDetect(
@@ -1377,7 +1377,7 @@ func (this TextEncoder) Encode(input js.String) (ret js.TypedArray[uint8]) {
 }
 
 // TryEncode calls the method "TextEncoder.encode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextEncoder) TryEncode(input js.String) (ret js.TypedArray[uint8], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextEncoderEncode(
@@ -1414,7 +1414,7 @@ func (this TextEncoder) Encode1() (ret js.TypedArray[uint8]) {
 }
 
 // TryEncode1 calls the method "TextEncoder.encode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextEncoder) TryEncode1() (ret js.TypedArray[uint8], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextEncoderEncode1(
@@ -1452,7 +1452,7 @@ func (this TextEncoder) EncodeInto(source js.String, destination js.TypedArray[u
 }
 
 // TryEncodeInto calls the method "TextEncoder.encodeInto"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextEncoder) TryEncodeInto(source js.String, destination js.TypedArray[uint8]) (ret TextEncoderEncodeIntoResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextEncoderEncodeInto(
@@ -1763,7 +1763,7 @@ func (this TextFormatUpdateEvent) GetTextFormats() (ret js.Array[TextFormat]) {
 }
 
 // TryGetTextFormats calls the method "TextFormatUpdateEvent.getTextFormats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TextFormatUpdateEvent) TryGetTextFormats() (ret js.Array[TextFormat], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTextFormatUpdateEventGetTextFormats(
@@ -2062,7 +2062,7 @@ func (this TimeEvent) InitTimeEvent(typeArg js.String, viewArg Window, detailArg
 }
 
 // TryInitTimeEvent calls the method "TimeEvent.initTimeEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TimeEvent) TryInitTimeEvent(typeArg js.String, viewArg Window, detailArg int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTimeEventInitTimeEvent(
@@ -2861,7 +2861,7 @@ func (this TouchList) Item(index uint32) (ret Touch) {
 }
 
 // TryItem calls the method "TouchList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TouchList) TryItem(index uint32) (ret Touch, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTouchListItem(
@@ -3004,7 +3004,7 @@ func (this TouchEvent) GetModifierState(keyArg js.String) (ret bool) {
 }
 
 // TryGetModifierState calls the method "TouchEvent.getModifierState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TouchEvent) TryGetModifierState(keyArg js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTouchEventGetModifierState(
@@ -3275,7 +3275,7 @@ func (this TransformStreamDefaultController) Enqueue(chunk js.Any) (ret js.Void)
 }
 
 // TryEnqueue calls the method "TransformStreamDefaultController.enqueue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TransformStreamDefaultController) TryEnqueue(chunk js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTransformStreamDefaultControllerEnqueue(
@@ -3312,7 +3312,7 @@ func (this TransformStreamDefaultController) Enqueue1() (ret js.Void) {
 }
 
 // TryEnqueue1 calls the method "TransformStreamDefaultController.enqueue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TransformStreamDefaultController) TryEnqueue1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTransformStreamDefaultControllerEnqueue1(
@@ -3349,7 +3349,7 @@ func (this TransformStreamDefaultController) Error(reason js.Any) (ret js.Void) 
 }
 
 // TryError calls the method "TransformStreamDefaultController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TransformStreamDefaultController) TryError(reason js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTransformStreamDefaultControllerError(
@@ -3386,7 +3386,7 @@ func (this TransformStreamDefaultController) Error1() (ret js.Void) {
 }
 
 // TryError1 calls the method "TransformStreamDefaultController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TransformStreamDefaultController) TryError1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTransformStreamDefaultControllerError1(
@@ -3422,7 +3422,7 @@ func (this TransformStreamDefaultController) Terminate() (ret js.Void) {
 }
 
 // TryTerminate calls the method "TransformStreamDefaultController.terminate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TransformStreamDefaultController) TryTerminate() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTransformStreamDefaultControllerTerminate(

@@ -10,7 +10,7 @@
 package unicode
 
 import (
-	"github.com/primecitizens/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/text/unicode/common"
 )
 
 const (

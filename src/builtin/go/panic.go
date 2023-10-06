@@ -10,7 +10,7 @@ package stdgo
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/atomic"
+	"github.com/primecitizens/pcz/std/core/atomic"
 )
 
 // A Panic holds information about an active panic.

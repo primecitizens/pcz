@@ -10,7 +10,7 @@ package stdprint
 import (
 	"unsafe"
 
-	stdtype "github.com/primecitizens/std/builtin/type"
+	stdtype "github.com/primecitizens/pcz/std/builtin/type"
 )
 
 func PrintPointer(p unsafe.Pointer) { PrintHex(uint64(uintptr(p))) }

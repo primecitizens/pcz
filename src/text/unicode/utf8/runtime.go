@@ -8,7 +8,7 @@
 package utf8
 
 import (
-	. "github.com/primecitizens/std/text/unicode/common"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
 )
 
 // functions used by the runtime

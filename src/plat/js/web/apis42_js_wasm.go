@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -1091,7 +1091,7 @@ func (this MLGraphBuilder) Input(name js.String, descriptor MLOperandDescriptor)
 }
 
 // TryInput calls the method "MLGraphBuilder.input"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryInput(name js.String, descriptor MLOperandDescriptor) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderInput(
@@ -1131,7 +1131,7 @@ func (this MLGraphBuilder) Constant(descriptor MLOperandDescriptor, bufferView M
 }
 
 // TryConstant calls the method "MLGraphBuilder.constant"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConstant(descriptor MLOperandDescriptor, bufferView MLBufferView) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConstant(
@@ -1171,7 +1171,7 @@ func (this MLGraphBuilder) Constant1(value float64, typ MLOperandType) (ret MLOp
 }
 
 // TryConstant1 calls the method "MLGraphBuilder.constant"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConstant1(value float64, typ MLOperandType) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConstant1(
@@ -1210,7 +1210,7 @@ func (this MLGraphBuilder) Constant2(value float64) (ret MLOperand) {
 }
 
 // TryConstant2 calls the method "MLGraphBuilder.constant"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConstant2(value float64) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConstant2(
@@ -1248,7 +1248,7 @@ func (this MLGraphBuilder) Build(outputs MLNamedOperands) (ret js.Promise[MLGrap
 }
 
 // TryBuild calls the method "MLGraphBuilder.build"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryBuild(outputs MLNamedOperands) (ret js.Promise[MLGraph], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBuild(
@@ -1286,7 +1286,7 @@ func (this MLGraphBuilder) BuildSync(outputs MLNamedOperands) (ret MLGraph) {
 }
 
 // TryBuildSync calls the method "MLGraphBuilder.buildSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryBuildSync(outputs MLNamedOperands) (ret MLGraph, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBuildSync(
@@ -1325,7 +1325,7 @@ func (this MLGraphBuilder) HardSigmoid(input MLOperand, options MLHardSigmoidOpt
 }
 
 // TryHardSigmoid calls the method "MLGraphBuilder.hardSigmoid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid(input MLOperand, options MLHardSigmoidOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid(
@@ -1364,7 +1364,7 @@ func (this MLGraphBuilder) HardSigmoid1(input MLOperand) (ret MLOperand) {
 }
 
 // TryHardSigmoid1 calls the method "MLGraphBuilder.hardSigmoid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid1(
@@ -1402,7 +1402,7 @@ func (this MLGraphBuilder) HardSigmoid2(options MLHardSigmoidOptions) (ret MLAct
 }
 
 // TryHardSigmoid2 calls the method "MLGraphBuilder.hardSigmoid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid2(options MLHardSigmoidOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid2(
@@ -1439,7 +1439,7 @@ func (this MLGraphBuilder) HardSigmoid3() (ret MLActivation) {
 }
 
 // TryHardSigmoid3 calls the method "MLGraphBuilder.hardSigmoid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryHardSigmoid3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSigmoid3(
@@ -1481,7 +1481,7 @@ func (this MLGraphBuilder) GruCell(input MLOperand, weight MLOperand, recurrentW
 }
 
 // TryGruCell calls the method "MLGraphBuilder.gruCell"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryGruCell(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32, options MLGruCellOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGruCell(
@@ -1528,7 +1528,7 @@ func (this MLGraphBuilder) GruCell1(input MLOperand, weight MLOperand, recurrent
 }
 
 // TryGruCell1 calls the method "MLGraphBuilder.gruCell"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryGruCell1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, hiddenSize uint32) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGruCell1(
@@ -1572,7 +1572,7 @@ func (this MLGraphBuilder) Slice(input MLOperand, starts js.Array[uint32], sizes
 }
 
 // TrySlice calls the method "MLGraphBuilder.slice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySlice(input MLOperand, starts js.Array[uint32], sizes js.Array[uint32]) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSlice(
@@ -1613,7 +1613,7 @@ func (this MLGraphBuilder) AveragePool2d(input MLOperand, options MLPool2dOption
 }
 
 // TryAveragePool2d calls the method "MLGraphBuilder.averagePool2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryAveragePool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAveragePool2d(
@@ -1652,7 +1652,7 @@ func (this MLGraphBuilder) AveragePool2d1(input MLOperand) (ret MLOperand) {
 }
 
 // TryAveragePool2d1 calls the method "MLGraphBuilder.averagePool2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryAveragePool2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAveragePool2d1(
@@ -1691,7 +1691,7 @@ func (this MLGraphBuilder) L2Pool2d(input MLOperand, options MLPool2dOptions) (r
 }
 
 // TryL2Pool2d calls the method "MLGraphBuilder.l2Pool2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryL2Pool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderL2Pool2d(
@@ -1730,7 +1730,7 @@ func (this MLGraphBuilder) L2Pool2d1(input MLOperand) (ret MLOperand) {
 }
 
 // TryL2Pool2d1 calls the method "MLGraphBuilder.l2Pool2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryL2Pool2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderL2Pool2d1(
@@ -1769,7 +1769,7 @@ func (this MLGraphBuilder) MaxPool2d(input MLOperand, options MLPool2dOptions) (
 }
 
 // TryMaxPool2d calls the method "MLGraphBuilder.maxPool2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryMaxPool2d(input MLOperand, options MLPool2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMaxPool2d(
@@ -1808,7 +1808,7 @@ func (this MLGraphBuilder) MaxPool2d1(input MLOperand) (ret MLOperand) {
 }
 
 // TryMaxPool2d1 calls the method "MLGraphBuilder.maxPool2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryMaxPool2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMaxPool2d1(
@@ -1847,7 +1847,7 @@ func (this MLGraphBuilder) Linear(input MLOperand, options MLLinearOptions) (ret
 }
 
 // TryLinear calls the method "MLGraphBuilder.linear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLinear(input MLOperand, options MLLinearOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear(
@@ -1886,7 +1886,7 @@ func (this MLGraphBuilder) Linear1(input MLOperand) (ret MLOperand) {
 }
 
 // TryLinear1 calls the method "MLGraphBuilder.linear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLinear1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear1(
@@ -1924,7 +1924,7 @@ func (this MLGraphBuilder) Linear2(options MLLinearOptions) (ret MLActivation) {
 }
 
 // TryLinear2 calls the method "MLGraphBuilder.linear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLinear2(options MLLinearOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear2(
@@ -1961,7 +1961,7 @@ func (this MLGraphBuilder) Linear3() (ret MLActivation) {
 }
 
 // TryLinear3 calls the method "MLGraphBuilder.linear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLinear3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLinear3(
@@ -1999,7 +1999,7 @@ func (this MLGraphBuilder) LeakyRelu(input MLOperand, options MLLeakyReluOptions
 }
 
 // TryLeakyRelu calls the method "MLGraphBuilder.leakyRelu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu(input MLOperand, options MLLeakyReluOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu(
@@ -2038,7 +2038,7 @@ func (this MLGraphBuilder) LeakyRelu1(input MLOperand) (ret MLOperand) {
 }
 
 // TryLeakyRelu1 calls the method "MLGraphBuilder.leakyRelu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu1(
@@ -2076,7 +2076,7 @@ func (this MLGraphBuilder) LeakyRelu2(options MLLeakyReluOptions) (ret MLActivat
 }
 
 // TryLeakyRelu2 calls the method "MLGraphBuilder.leakyRelu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu2(options MLLeakyReluOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu2(
@@ -2113,7 +2113,7 @@ func (this MLGraphBuilder) LeakyRelu3() (ret MLActivation) {
 }
 
 // TryLeakyRelu3 calls the method "MLGraphBuilder.leakyRelu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLeakyRelu3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLeakyRelu3(
@@ -2153,7 +2153,7 @@ func (this MLGraphBuilder) Pad(input MLOperand, beginningPadding js.Array[uint32
 }
 
 // TryPad calls the method "MLGraphBuilder.pad"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryPad(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32], options MLPadOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPad(
@@ -2196,7 +2196,7 @@ func (this MLGraphBuilder) Pad1(input MLOperand, beginningPadding js.Array[uint3
 }
 
 // TryPad1 calls the method "MLGraphBuilder.pad"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryPad1(input MLOperand, beginningPadding js.Array[uint32], endingPadding js.Array[uint32]) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPad1(
@@ -2237,7 +2237,7 @@ func (this MLGraphBuilder) InstanceNormalization(input MLOperand, options MLInst
 }
 
 // TryInstanceNormalization calls the method "MLGraphBuilder.instanceNormalization"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryInstanceNormalization(input MLOperand, options MLInstanceNormalizationOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderInstanceNormalization(
@@ -2276,7 +2276,7 @@ func (this MLGraphBuilder) InstanceNormalization1(input MLOperand) (ret MLOperan
 }
 
 // TryInstanceNormalization1 calls the method "MLGraphBuilder.instanceNormalization"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryInstanceNormalization1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderInstanceNormalization1(
@@ -2315,7 +2315,7 @@ func (this MLGraphBuilder) Softplus(input MLOperand, options MLSoftplusOptions) 
 }
 
 // TrySoftplus calls the method "MLGraphBuilder.softplus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus(input MLOperand, options MLSoftplusOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus(
@@ -2354,7 +2354,7 @@ func (this MLGraphBuilder) Softplus1(input MLOperand) (ret MLOperand) {
 }
 
 // TrySoftplus1 calls the method "MLGraphBuilder.softplus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus1(
@@ -2392,7 +2392,7 @@ func (this MLGraphBuilder) Softplus2(options MLSoftplusOptions) (ret MLActivatio
 }
 
 // TrySoftplus2 calls the method "MLGraphBuilder.softplus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus2(options MLSoftplusOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus2(
@@ -2429,7 +2429,7 @@ func (this MLGraphBuilder) Softplus3() (ret MLActivation) {
 }
 
 // TrySoftplus3 calls the method "MLGraphBuilder.softplus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftplus3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftplus3(
@@ -2466,7 +2466,7 @@ func (this MLGraphBuilder) Softsign(input MLOperand) (ret MLOperand) {
 }
 
 // TrySoftsign calls the method "MLGraphBuilder.softsign"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftsign(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftsign(
@@ -2503,7 +2503,7 @@ func (this MLGraphBuilder) Softsign1() (ret MLActivation) {
 }
 
 // TrySoftsign1 calls the method "MLGraphBuilder.softsign"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftsign1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftsign1(
@@ -2540,7 +2540,7 @@ func (this MLGraphBuilder) Sigmoid(input MLOperand) (ret MLOperand) {
 }
 
 // TrySigmoid calls the method "MLGraphBuilder.sigmoid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySigmoid(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSigmoid(
@@ -2577,7 +2577,7 @@ func (this MLGraphBuilder) Sigmoid1() (ret MLActivation) {
 }
 
 // TrySigmoid1 calls the method "MLGraphBuilder.sigmoid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySigmoid1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSigmoid1(
@@ -2615,7 +2615,7 @@ func (this MLGraphBuilder) Reshape(input MLOperand, newShape js.Array[uint32]) (
 }
 
 // TryReshape calls the method "MLGraphBuilder.reshape"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReshape(input MLOperand, newShape js.Array[uint32]) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReshape(
@@ -2656,7 +2656,7 @@ func (this MLGraphBuilder) Conv2d(input MLOperand, filter MLOperand, options MLC
 }
 
 // TryConv2d calls the method "MLGraphBuilder.conv2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConv2d(input MLOperand, filter MLOperand, options MLConv2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConv2d(
@@ -2697,7 +2697,7 @@ func (this MLGraphBuilder) Conv2d1(input MLOperand, filter MLOperand) (ret MLOpe
 }
 
 // TryConv2d1 calls the method "MLGraphBuilder.conv2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConv2d1(input MLOperand, filter MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConv2d1(
@@ -2738,7 +2738,7 @@ func (this MLGraphBuilder) Split(input MLOperand, splits OneOf_Uint32_ArrayUint3
 }
 
 // TrySplit calls the method "MLGraphBuilder.split"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySplit(input MLOperand, splits OneOf_Uint32_ArrayUint32, options MLSplitOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSplit(
@@ -2779,7 +2779,7 @@ func (this MLGraphBuilder) Split1(input MLOperand, splits OneOf_Uint32_ArrayUint
 }
 
 // TrySplit1 calls the method "MLGraphBuilder.split"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySplit1(input MLOperand, splits OneOf_Uint32_ArrayUint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSplit1(
@@ -2819,7 +2819,7 @@ func (this MLGraphBuilder) Resample2d(input MLOperand, options MLResample2dOptio
 }
 
 // TryResample2d calls the method "MLGraphBuilder.resample2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryResample2d(input MLOperand, options MLResample2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderResample2d(
@@ -2858,7 +2858,7 @@ func (this MLGraphBuilder) Resample2d1(input MLOperand) (ret MLOperand) {
 }
 
 // TryResample2d1 calls the method "MLGraphBuilder.resample2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryResample2d1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderResample2d1(
@@ -2896,7 +2896,7 @@ func (this MLGraphBuilder) HardSwish(input MLOperand) (ret MLOperand) {
 }
 
 // TryHardSwish calls the method "MLGraphBuilder.hardSwish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryHardSwish(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSwish(
@@ -2933,7 +2933,7 @@ func (this MLGraphBuilder) HardSwish1() (ret MLActivation) {
 }
 
 // TryHardSwish1 calls the method "MLGraphBuilder.hardSwish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryHardSwish1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderHardSwish1(
@@ -2970,7 +2970,7 @@ func (this MLGraphBuilder) Softmax(input MLOperand) (ret MLOperand) {
 }
 
 // TrySoftmax calls the method "MLGraphBuilder.softmax"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftmax(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftmax(
@@ -3007,7 +3007,7 @@ func (this MLGraphBuilder) Softmax1() (ret MLActivation) {
 }
 
 // TrySoftmax1 calls the method "MLGraphBuilder.softmax"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySoftmax1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSoftmax1(
@@ -3046,7 +3046,7 @@ func (this MLGraphBuilder) ConvTranspose2d(input MLOperand, filter MLOperand, op
 }
 
 // TryConvTranspose2d calls the method "MLGraphBuilder.convTranspose2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConvTranspose2d(input MLOperand, filter MLOperand, options MLConvTranspose2dOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConvTranspose2d(
@@ -3087,7 +3087,7 @@ func (this MLGraphBuilder) ConvTranspose2d1(input MLOperand, filter MLOperand) (
 }
 
 // TryConvTranspose2d1 calls the method "MLGraphBuilder.convTranspose2d"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConvTranspose2d1(input MLOperand, filter MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConvTranspose2d1(
@@ -3126,7 +3126,7 @@ func (this MLGraphBuilder) Relu(input MLOperand) (ret MLOperand) {
 }
 
 // TryRelu calls the method "MLGraphBuilder.relu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryRelu(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderRelu(
@@ -3163,7 +3163,7 @@ func (this MLGraphBuilder) Relu1() (ret MLActivation) {
 }
 
 // TryRelu1 calls the method "MLGraphBuilder.relu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryRelu1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderRelu1(
@@ -3201,7 +3201,7 @@ func (this MLGraphBuilder) Add(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryAdd calls the method "MLGraphBuilder.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryAdd(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAdd(
@@ -3241,7 +3241,7 @@ func (this MLGraphBuilder) Sub(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TrySub calls the method "MLGraphBuilder.sub"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySub(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSub(
@@ -3281,7 +3281,7 @@ func (this MLGraphBuilder) Mul(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryMul calls the method "MLGraphBuilder.mul"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryMul(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMul(
@@ -3321,7 +3321,7 @@ func (this MLGraphBuilder) Div(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryDiv calls the method "MLGraphBuilder.div"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryDiv(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderDiv(
@@ -3361,7 +3361,7 @@ func (this MLGraphBuilder) Max(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryMax calls the method "MLGraphBuilder.max"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryMax(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMax(
@@ -3401,7 +3401,7 @@ func (this MLGraphBuilder) Min(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryMin calls the method "MLGraphBuilder.min"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryMin(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMin(
@@ -3441,7 +3441,7 @@ func (this MLGraphBuilder) Pow(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryPow calls the method "MLGraphBuilder.pow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryPow(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPow(
@@ -3481,7 +3481,7 @@ func (this MLGraphBuilder) ReduceL1(input MLOperand, options MLReduceOptions) (r
 }
 
 // TryReduceL1 calls the method "MLGraphBuilder.reduceL1"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL1(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL1(
@@ -3520,7 +3520,7 @@ func (this MLGraphBuilder) ReduceL11(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceL11 calls the method "MLGraphBuilder.reduceL1"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL11(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL11(
@@ -3559,7 +3559,7 @@ func (this MLGraphBuilder) ReduceL2(input MLOperand, options MLReduceOptions) (r
 }
 
 // TryReduceL2 calls the method "MLGraphBuilder.reduceL2"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL2(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL2(
@@ -3598,7 +3598,7 @@ func (this MLGraphBuilder) ReduceL21(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceL21 calls the method "MLGraphBuilder.reduceL2"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceL21(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceL21(
@@ -3637,7 +3637,7 @@ func (this MLGraphBuilder) ReduceLogSum(input MLOperand, options MLReduceOptions
 }
 
 // TryReduceLogSum calls the method "MLGraphBuilder.reduceLogSum"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSum(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSum(
@@ -3676,7 +3676,7 @@ func (this MLGraphBuilder) ReduceLogSum1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceLogSum1 calls the method "MLGraphBuilder.reduceLogSum"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSum1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSum1(
@@ -3715,7 +3715,7 @@ func (this MLGraphBuilder) ReduceLogSumExp(input MLOperand, options MLReduceOpti
 }
 
 // TryReduceLogSumExp calls the method "MLGraphBuilder.reduceLogSumExp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSumExp(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSumExp(
@@ -3754,7 +3754,7 @@ func (this MLGraphBuilder) ReduceLogSumExp1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceLogSumExp1 calls the method "MLGraphBuilder.reduceLogSumExp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceLogSumExp1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceLogSumExp1(
@@ -3793,7 +3793,7 @@ func (this MLGraphBuilder) ReduceMax(input MLOperand, options MLReduceOptions) (
 }
 
 // TryReduceMax calls the method "MLGraphBuilder.reduceMax"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMax(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMax(
@@ -3832,7 +3832,7 @@ func (this MLGraphBuilder) ReduceMax1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceMax1 calls the method "MLGraphBuilder.reduceMax"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMax1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMax1(
@@ -3871,7 +3871,7 @@ func (this MLGraphBuilder) ReduceMean(input MLOperand, options MLReduceOptions) 
 }
 
 // TryReduceMean calls the method "MLGraphBuilder.reduceMean"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMean(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMean(
@@ -3910,7 +3910,7 @@ func (this MLGraphBuilder) ReduceMean1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceMean1 calls the method "MLGraphBuilder.reduceMean"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMean1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMean1(
@@ -3949,7 +3949,7 @@ func (this MLGraphBuilder) ReduceMin(input MLOperand, options MLReduceOptions) (
 }
 
 // TryReduceMin calls the method "MLGraphBuilder.reduceMin"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMin(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMin(
@@ -3988,7 +3988,7 @@ func (this MLGraphBuilder) ReduceMin1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceMin1 calls the method "MLGraphBuilder.reduceMin"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceMin1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceMin1(
@@ -4027,7 +4027,7 @@ func (this MLGraphBuilder) ReduceProduct(input MLOperand, options MLReduceOption
 }
 
 // TryReduceProduct calls the method "MLGraphBuilder.reduceProduct"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceProduct(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceProduct(
@@ -4066,7 +4066,7 @@ func (this MLGraphBuilder) ReduceProduct1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceProduct1 calls the method "MLGraphBuilder.reduceProduct"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceProduct1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceProduct1(
@@ -4105,7 +4105,7 @@ func (this MLGraphBuilder) ReduceSum(input MLOperand, options MLReduceOptions) (
 }
 
 // TryReduceSum calls the method "MLGraphBuilder.reduceSum"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSum(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSum(
@@ -4144,7 +4144,7 @@ func (this MLGraphBuilder) ReduceSum1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceSum1 calls the method "MLGraphBuilder.reduceSum"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSum1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSum1(
@@ -4183,7 +4183,7 @@ func (this MLGraphBuilder) ReduceSumSquare(input MLOperand, options MLReduceOpti
 }
 
 // TryReduceSumSquare calls the method "MLGraphBuilder.reduceSumSquare"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSumSquare(input MLOperand, options MLReduceOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSumSquare(
@@ -4222,7 +4222,7 @@ func (this MLGraphBuilder) ReduceSumSquare1(input MLOperand) (ret MLOperand) {
 }
 
 // TryReduceSumSquare1 calls the method "MLGraphBuilder.reduceSumSquare"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryReduceSumSquare1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderReduceSumSquare1(
@@ -4265,7 +4265,7 @@ func (this MLGraphBuilder) Lstm(input MLOperand, weight MLOperand, recurrentWeig
 }
 
 // TryLstm calls the method "MLGraphBuilder.lstm"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLstm(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLLstmOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstm(
@@ -4312,7 +4312,7 @@ func (this MLGraphBuilder) Lstm1(input MLOperand, weight MLOperand, recurrentWei
 }
 
 // TryLstm1 calls the method "MLGraphBuilder.lstm"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLstm1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstm1(
@@ -4355,7 +4355,7 @@ func (this MLGraphBuilder) Matmul(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryMatmul calls the method "MLGraphBuilder.matmul"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryMatmul(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderMatmul(
@@ -4395,7 +4395,7 @@ func (this MLGraphBuilder) Squeeze(input MLOperand, options MLSqueezeOptions) (r
 }
 
 // TrySqueeze calls the method "MLGraphBuilder.squeeze"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySqueeze(input MLOperand, options MLSqueezeOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSqueeze(
@@ -4434,7 +4434,7 @@ func (this MLGraphBuilder) Squeeze1(input MLOperand) (ret MLOperand) {
 }
 
 // TrySqueeze1 calls the method "MLGraphBuilder.squeeze"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySqueeze1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSqueeze1(
@@ -4472,7 +4472,7 @@ func (this MLGraphBuilder) Tanh(input MLOperand) (ret MLOperand) {
 }
 
 // TryTanh calls the method "MLGraphBuilder.tanh"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryTanh(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTanh(
@@ -4509,7 +4509,7 @@ func (this MLGraphBuilder) Tanh1() (ret MLActivation) {
 }
 
 // TryTanh1 calls the method "MLGraphBuilder.tanh"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryTanh1() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTanh1(
@@ -4551,7 +4551,7 @@ func (this MLGraphBuilder) Gru(input MLOperand, weight MLOperand, recurrentWeigh
 }
 
 // TryGru calls the method "MLGraphBuilder.gru"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryGru(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32, options MLGruOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGru(
@@ -4598,7 +4598,7 @@ func (this MLGraphBuilder) Gru1(input MLOperand, weight MLOperand, recurrentWeig
 }
 
 // TryGru1 calls the method "MLGraphBuilder.gru"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryGru1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, steps uint32, hiddenSize uint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGru1(
@@ -4640,7 +4640,7 @@ func (this MLGraphBuilder) Abs(input MLOperand) (ret MLOperand) {
 }
 
 // TryAbs calls the method "MLGraphBuilder.abs"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryAbs(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderAbs(
@@ -4678,7 +4678,7 @@ func (this MLGraphBuilder) Ceil(input MLOperand) (ret MLOperand) {
 }
 
 // TryCeil calls the method "MLGraphBuilder.ceil"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryCeil(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderCeil(
@@ -4716,7 +4716,7 @@ func (this MLGraphBuilder) Cos(input MLOperand) (ret MLOperand) {
 }
 
 // TryCos calls the method "MLGraphBuilder.cos"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryCos(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderCos(
@@ -4754,7 +4754,7 @@ func (this MLGraphBuilder) Exp(input MLOperand) (ret MLOperand) {
 }
 
 // TryExp calls the method "MLGraphBuilder.exp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryExp(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderExp(
@@ -4792,7 +4792,7 @@ func (this MLGraphBuilder) Floor(input MLOperand) (ret MLOperand) {
 }
 
 // TryFloor calls the method "MLGraphBuilder.floor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryFloor(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderFloor(
@@ -4830,7 +4830,7 @@ func (this MLGraphBuilder) Log(input MLOperand) (ret MLOperand) {
 }
 
 // TryLog calls the method "MLGraphBuilder.log"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLog(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLog(
@@ -4868,7 +4868,7 @@ func (this MLGraphBuilder) Neg(input MLOperand) (ret MLOperand) {
 }
 
 // TryNeg calls the method "MLGraphBuilder.neg"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryNeg(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderNeg(
@@ -4906,7 +4906,7 @@ func (this MLGraphBuilder) Sin(input MLOperand) (ret MLOperand) {
 }
 
 // TrySin calls the method "MLGraphBuilder.sin"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TrySin(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderSin(
@@ -4944,7 +4944,7 @@ func (this MLGraphBuilder) Tan(input MLOperand) (ret MLOperand) {
 }
 
 // TryTan calls the method "MLGraphBuilder.tan"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryTan(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTan(
@@ -4983,7 +4983,7 @@ func (this MLGraphBuilder) Transpose(input MLOperand, options MLTransposeOptions
 }
 
 // TryTranspose calls the method "MLGraphBuilder.transpose"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryTranspose(input MLOperand, options MLTransposeOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTranspose(
@@ -5022,7 +5022,7 @@ func (this MLGraphBuilder) Transpose1(input MLOperand) (ret MLOperand) {
 }
 
 // TryTranspose1 calls the method "MLGraphBuilder.transpose"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryTranspose1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderTranspose1(
@@ -5061,7 +5061,7 @@ func (this MLGraphBuilder) Prelu(input MLOperand, slope MLOperand) (ret MLOperan
 }
 
 // TryPrelu calls the method "MLGraphBuilder.prelu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryPrelu(input MLOperand, slope MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderPrelu(
@@ -5101,7 +5101,7 @@ func (this MLGraphBuilder) Concat(inputs js.Array[MLOperand], axis uint32) (ret 
 }
 
 // TryConcat calls the method "MLGraphBuilder.concat"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryConcat(inputs js.Array[MLOperand], axis uint32) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderConcat(
@@ -5142,7 +5142,7 @@ func (this MLGraphBuilder) Gemm(a MLOperand, b MLOperand, options MLGemmOptions)
 }
 
 // TryGemm calls the method "MLGraphBuilder.gemm"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryGemm(a MLOperand, b MLOperand, options MLGemmOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGemm(
@@ -5183,7 +5183,7 @@ func (this MLGraphBuilder) Gemm1(a MLOperand, b MLOperand) (ret MLOperand) {
 }
 
 // TryGemm1 calls the method "MLGraphBuilder.gemm"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryGemm1(a MLOperand, b MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderGemm1(
@@ -5228,7 +5228,7 @@ func (this MLGraphBuilder) LstmCell(input MLOperand, weight MLOperand, recurrent
 }
 
 // TryLstmCell calls the method "MLGraphBuilder.lstmCell"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLstmCell(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32, options MLLstmCellOptions) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstmCell(
@@ -5277,7 +5277,7 @@ func (this MLGraphBuilder) LstmCell1(input MLOperand, weight MLOperand, recurren
 }
 
 // TryLstmCell1 calls the method "MLGraphBuilder.lstmCell"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryLstmCell1(input MLOperand, weight MLOperand, recurrentWeight MLOperand, hiddenState MLOperand, cellState MLOperand, hiddenSize uint32) (ret js.Array[MLOperand], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderLstmCell1(
@@ -5323,7 +5323,7 @@ func (this MLGraphBuilder) BatchNormalization(input MLOperand, mean MLOperand, v
 }
 
 // TryBatchNormalization calls the method "MLGraphBuilder.batchNormalization"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryBatchNormalization(input MLOperand, mean MLOperand, variance MLOperand, options MLBatchNormalizationOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBatchNormalization(
@@ -5366,7 +5366,7 @@ func (this MLGraphBuilder) BatchNormalization1(input MLOperand, mean MLOperand, 
 }
 
 // TryBatchNormalization1 calls the method "MLGraphBuilder.batchNormalization"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryBatchNormalization1(input MLOperand, mean MLOperand, variance MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderBatchNormalization1(
@@ -5407,7 +5407,7 @@ func (this MLGraphBuilder) Elu(input MLOperand, options MLEluOptions) (ret MLOpe
 }
 
 // TryElu calls the method "MLGraphBuilder.elu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryElu(input MLOperand, options MLEluOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu(
@@ -5446,7 +5446,7 @@ func (this MLGraphBuilder) Elu1(input MLOperand) (ret MLOperand) {
 }
 
 // TryElu1 calls the method "MLGraphBuilder.elu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryElu1(input MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu1(
@@ -5484,7 +5484,7 @@ func (this MLGraphBuilder) Elu2(options MLEluOptions) (ret MLActivation) {
 }
 
 // TryElu2 calls the method "MLGraphBuilder.elu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryElu2(options MLEluOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu2(
@@ -5521,7 +5521,7 @@ func (this MLGraphBuilder) Elu3() (ret MLActivation) {
 }
 
 // TryElu3 calls the method "MLGraphBuilder.elu"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryElu3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderElu3(
@@ -5559,7 +5559,7 @@ func (this MLGraphBuilder) Clamp(operand MLOperand, options MLClampOptions) (ret
 }
 
 // TryClamp calls the method "MLGraphBuilder.clamp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryClamp(operand MLOperand, options MLClampOptions) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp(
@@ -5598,7 +5598,7 @@ func (this MLGraphBuilder) Clamp1(operand MLOperand) (ret MLOperand) {
 }
 
 // TryClamp1 calls the method "MLGraphBuilder.clamp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryClamp1(operand MLOperand) (ret MLOperand, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp1(
@@ -5636,7 +5636,7 @@ func (this MLGraphBuilder) Clamp2(options MLClampOptions) (ret MLActivation) {
 }
 
 // TryClamp2 calls the method "MLGraphBuilder.clamp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryClamp2(options MLClampOptions) (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp2(
@@ -5673,7 +5673,7 @@ func (this MLGraphBuilder) Clamp3() (ret MLActivation) {
 }
 
 // TryClamp3 calls the method "MLGraphBuilder.clamp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MLGraphBuilder) TryClamp3() (ret MLActivation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMLGraphBuilderClamp3(
@@ -5997,7 +5997,7 @@ func (this MathMLElement) Focus(options FocusOptions) (ret js.Void) {
 }
 
 // TryFocus calls the method "MathMLElement.focus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MathMLElement) TryFocus(options FocusOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMathMLElementFocus(
@@ -6034,7 +6034,7 @@ func (this MathMLElement) Focus1() (ret js.Void) {
 }
 
 // TryFocus1 calls the method "MathMLElement.focus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MathMLElement) TryFocus1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMathMLElementFocus1(
@@ -6070,7 +6070,7 @@ func (this MathMLElement) Blur() (ret js.Void) {
 }
 
 // TryBlur calls the method "MathMLElement.blur"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MathMLElement) TryBlur() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMathMLElementBlur(

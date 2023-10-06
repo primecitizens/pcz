@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -535,7 +535,7 @@ func (this HIDDevice) Open() (ret js.Promise[js.Void]) {
 }
 
 // TryOpen calls the method "HIDDevice.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HIDDevice) TryOpen() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceOpen(
@@ -571,7 +571,7 @@ func (this HIDDevice) Close() (ret js.Promise[js.Void]) {
 }
 
 // TryClose calls the method "HIDDevice.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HIDDevice) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceClose(
@@ -607,7 +607,7 @@ func (this HIDDevice) Forget() (ret js.Promise[js.Void]) {
 }
 
 // TryForget calls the method "HIDDevice.forget"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HIDDevice) TryForget() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceForget(
@@ -645,7 +645,7 @@ func (this HIDDevice) SendReport(reportId uint8, data BufferSource) (ret js.Prom
 }
 
 // TrySendReport calls the method "HIDDevice.sendReport"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HIDDevice) TrySendReport(reportId uint8, data BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceSendReport(
@@ -685,7 +685,7 @@ func (this HIDDevice) SendFeatureReport(reportId uint8, data BufferSource) (ret 
 }
 
 // TrySendFeatureReport calls the method "HIDDevice.sendFeatureReport"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HIDDevice) TrySendFeatureReport(reportId uint8, data BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceSendFeatureReport(
@@ -724,7 +724,7 @@ func (this HIDDevice) ReceiveFeatureReport(reportId uint8) (ret js.Promise[js.Da
 }
 
 // TryReceiveFeatureReport calls the method "HIDDevice.receiveFeatureReport"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HIDDevice) TryReceiveFeatureReport(reportId uint8) (ret js.Promise[js.DataView], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDDeviceReceiveFeatureReport(
@@ -884,7 +884,7 @@ func (this HID) GetDevices() (ret js.Promise[js.Array[HIDDevice]]) {
 }
 
 // TryGetDevices calls the method "HID.getDevices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HID) TryGetDevices() (ret js.Promise[js.Array[HIDDevice]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDGetDevices(
@@ -921,7 +921,7 @@ func (this HID) RequestDevice(options HIDDeviceRequestOptions) (ret js.Promise[j
 }
 
 // TryRequestDevice calls the method "HID.requestDevice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HID) TryRequestDevice(options HIDDeviceRequestOptions) (ret js.Promise[js.Array[HIDDevice]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHIDRequestDevice(
@@ -990,7 +990,7 @@ func (this WindowControlsOverlay) GetTitlebarAreaRect() (ret DOMRect) {
 }
 
 // TryGetTitlebarAreaRect calls the method "WindowControlsOverlay.getTitlebarAreaRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WindowControlsOverlay) TryGetTitlebarAreaRect() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWindowControlsOverlayGetTitlebarAreaRect(
@@ -1068,7 +1068,7 @@ func (this Credential) IsConditionalMediationAvailable() (ret js.Promise[js.Bool
 }
 
 // TryIsConditionalMediationAvailable calls the staticmethod "Credential.isConditionalMediationAvailable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Credential) TryIsConditionalMediationAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialIsConditionalMediationAvailable(
@@ -1964,7 +1964,7 @@ func (this CredentialsContainer) Get(options CredentialRequestOptions) (ret js.P
 }
 
 // TryGet calls the method "CredentialsContainer.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CredentialsContainer) TryGet(options CredentialRequestOptions) (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerGet(
@@ -2001,7 +2001,7 @@ func (this CredentialsContainer) Get1() (ret js.Promise[Credential]) {
 }
 
 // TryGet1 calls the method "CredentialsContainer.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CredentialsContainer) TryGet1() (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerGet1(
@@ -2038,7 +2038,7 @@ func (this CredentialsContainer) Store(credential Credential) (ret js.Promise[js
 }
 
 // TryStore calls the method "CredentialsContainer.store"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CredentialsContainer) TryStore(credential Credential) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerStore(
@@ -2076,7 +2076,7 @@ func (this CredentialsContainer) Create(options CredentialCreationOptions) (ret 
 }
 
 // TryCreate calls the method "CredentialsContainer.create"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CredentialsContainer) TryCreate(options CredentialCreationOptions) (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerCreate(
@@ -2113,7 +2113,7 @@ func (this CredentialsContainer) Create1() (ret js.Promise[Credential]) {
 }
 
 // TryCreate1 calls the method "CredentialsContainer.create"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CredentialsContainer) TryCreate1() (ret js.Promise[Credential], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerCreate1(
@@ -2149,7 +2149,7 @@ func (this CredentialsContainer) PreventSilentAccess() (ret js.Promise[js.Void])
 }
 
 // TryPreventSilentAccess calls the method "CredentialsContainer.preventSilentAccess"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CredentialsContainer) TryPreventSilentAccess() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCredentialsContainerPreventSilentAccess(
@@ -2568,7 +2568,7 @@ func (this Geolocation) GetCurrentPosition(successCallback js.Func[func(position
 }
 
 // TryGetCurrentPosition calls the method "Geolocation.getCurrentPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Geolocation) TryGetCurrentPosition(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationGetCurrentPosition(
@@ -2609,7 +2609,7 @@ func (this Geolocation) GetCurrentPosition1(successCallback js.Func[func(positio
 }
 
 // TryGetCurrentPosition1 calls the method "Geolocation.getCurrentPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Geolocation) TryGetCurrentPosition1(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationGetCurrentPosition1(
@@ -2648,7 +2648,7 @@ func (this Geolocation) GetCurrentPosition2(successCallback js.Func[func(positio
 }
 
 // TryGetCurrentPosition2 calls the method "Geolocation.getCurrentPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Geolocation) TryGetCurrentPosition2(successCallback js.Func[func(position GeolocationPosition)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationGetCurrentPosition2(
@@ -2688,7 +2688,7 @@ func (this Geolocation) WatchPosition(successCallback js.Func[func(position Geol
 }
 
 // TryWatchPosition calls the method "Geolocation.watchPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Geolocation) TryWatchPosition(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)], options PositionOptions) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationWatchPosition(
@@ -2729,7 +2729,7 @@ func (this Geolocation) WatchPosition1(successCallback js.Func[func(position Geo
 }
 
 // TryWatchPosition1 calls the method "Geolocation.watchPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Geolocation) TryWatchPosition1(successCallback js.Func[func(position GeolocationPosition)], errorCallback js.Func[func(positionError GeolocationPositionError)]) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationWatchPosition1(
@@ -2768,7 +2768,7 @@ func (this Geolocation) WatchPosition2(successCallback js.Func[func(position Geo
 }
 
 // TryWatchPosition2 calls the method "Geolocation.watchPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Geolocation) TryWatchPosition2(successCallback js.Func[func(position GeolocationPosition)]) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationWatchPosition2(
@@ -2806,7 +2806,7 @@ func (this Geolocation) ClearWatch(watchId int32) (ret js.Void) {
 }
 
 // TryClearWatch calls the method "Geolocation.clearWatch"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Geolocation) TryClearWatch(watchId int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationClearWatch(

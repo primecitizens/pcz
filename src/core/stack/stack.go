@@ -5,11 +5,11 @@
 package stack
 
 import (
-	stdgo "github.com/primecitizens/std/builtin/go"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/os"
-	"github.com/primecitizens/std/core/race"
+	stdgo "github.com/primecitizens/pcz/std/builtin/go"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/os"
+	"github.com/primecitizens/pcz/std/core/race"
 )
 
 type Stack = stdgo.Stack

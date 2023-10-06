@@ -6,7 +6,7 @@
 package sys
 
 import (
-	"github.com/primecitizens/std/core/iter"
+	"github.com/primecitizens/pcz/std/core/iter"
 )
 
 func (it EnvIter) Nth(i int) (env string, ok bool) {

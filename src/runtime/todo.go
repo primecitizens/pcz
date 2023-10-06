@@ -6,8 +6,8 @@
 package runtime
 
 import (
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // TODO

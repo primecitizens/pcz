@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -334,7 +334,7 @@ func (this Request) Clone() (ret Request) {
 }
 
 // TryClone calls the method "Request.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Request) TryClone() (ret Request, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRequestClone(
@@ -370,7 +370,7 @@ func (this Request) ArrayBuffer() (ret js.Promise[js.ArrayBuffer]) {
 }
 
 // TryArrayBuffer calls the method "Request.arrayBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Request) TryArrayBuffer() (ret js.Promise[js.ArrayBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRequestArrayBuffer(
@@ -406,7 +406,7 @@ func (this Request) Blob() (ret js.Promise[Blob]) {
 }
 
 // TryBlob calls the method "Request.blob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Request) TryBlob() (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRequestBlob(
@@ -442,7 +442,7 @@ func (this Request) FormData() (ret js.Promise[FormData]) {
 }
 
 // TryFormData calls the method "Request.formData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Request) TryFormData() (ret js.Promise[FormData], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRequestFormData(
@@ -478,7 +478,7 @@ func (this Request) Json() (ret js.Promise[js.Any]) {
 }
 
 // TryJson calls the method "Request.json"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Request) TryJson() (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRequestJson(
@@ -514,7 +514,7 @@ func (this Request) Text() (ret js.Promise[js.String]) {
 }
 
 // TryText calls the method "Request.text"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Request) TryText() (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRequestText(
@@ -764,7 +764,7 @@ func (this Response) Error() (ret Response) {
 }
 
 // TryError calls the staticmethod "Response.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryError() (ret Response, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseError(
@@ -802,7 +802,7 @@ func (this Response) Redirect(url js.String, status uint16) (ret Response) {
 }
 
 // TryRedirect calls the staticmethod "Response.redirect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryRedirect(url js.String, status uint16) (ret Response, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseRedirect(
@@ -841,7 +841,7 @@ func (this Response) Redirect1(url js.String) (ret Response) {
 }
 
 // TryRedirect1 calls the staticmethod "Response.redirect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryRedirect1(url js.String) (ret Response, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseRedirect1(
@@ -880,7 +880,7 @@ func (this Response) Json(data js.Any, init ResponseInit) (ret Response) {
 }
 
 // TryJson calls the staticmethod "Response.json"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryJson(data js.Any, init ResponseInit) (ret Response, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseJson(
@@ -919,7 +919,7 @@ func (this Response) Json1(data js.Any) (ret Response) {
 }
 
 // TryJson1 calls the staticmethod "Response.json"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryJson1(data js.Any) (ret Response, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseJson1(
@@ -956,7 +956,7 @@ func (this Response) Clone() (ret Response) {
 }
 
 // TryClone calls the method "Response.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryClone() (ret Response, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseClone(
@@ -992,7 +992,7 @@ func (this Response) ArrayBuffer() (ret js.Promise[js.ArrayBuffer]) {
 }
 
 // TryArrayBuffer calls the method "Response.arrayBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryArrayBuffer() (ret js.Promise[js.ArrayBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseArrayBuffer(
@@ -1028,7 +1028,7 @@ func (this Response) Blob() (ret js.Promise[Blob]) {
 }
 
 // TryBlob calls the method "Response.blob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryBlob() (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseBlob(
@@ -1064,7 +1064,7 @@ func (this Response) FormData() (ret js.Promise[FormData]) {
 }
 
 // TryFormData calls the method "Response.formData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryFormData() (ret js.Promise[FormData], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseFormData(
@@ -1100,7 +1100,7 @@ func (this Response) Json2() (ret js.Promise[js.Any]) {
 }
 
 // TryJson2 calls the method "Response.json"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryJson2() (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseJson2(
@@ -1136,7 +1136,7 @@ func (this Response) Text() (ret js.Promise[js.String]) {
 }
 
 // TryText calls the method "Response.text"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Response) TryText() (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResponseText(
@@ -1433,7 +1433,7 @@ func (this BackgroundFetchRegistration) Abort() (ret js.Promise[js.Boolean]) {
 }
 
 // TryAbort calls the method "BackgroundFetchRegistration.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchRegistration) TryAbort() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchRegistrationAbort(
@@ -1471,7 +1471,7 @@ func (this BackgroundFetchRegistration) Match(request RequestInfo, options Cache
 }
 
 // TryMatch calls the method "BackgroundFetchRegistration.match"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchRegistration) TryMatch(request RequestInfo, options CacheQueryOptions) (ret js.Promise[BackgroundFetchRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchRegistrationMatch(
@@ -1510,7 +1510,7 @@ func (this BackgroundFetchRegistration) Match1(request RequestInfo) (ret js.Prom
 }
 
 // TryMatch1 calls the method "BackgroundFetchRegistration.match"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchRegistration) TryMatch1(request RequestInfo) (ret js.Promise[BackgroundFetchRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchRegistrationMatch1(
@@ -1549,7 +1549,7 @@ func (this BackgroundFetchRegistration) MatchAll(request RequestInfo, options Ca
 }
 
 // TryMatchAll calls the method "BackgroundFetchRegistration.matchAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchRegistration) TryMatchAll(request RequestInfo, options CacheQueryOptions) (ret js.Promise[js.Array[BackgroundFetchRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchRegistrationMatchAll(
@@ -1588,7 +1588,7 @@ func (this BackgroundFetchRegistration) MatchAll1(request RequestInfo) (ret js.P
 }
 
 // TryMatchAll1 calls the method "BackgroundFetchRegistration.matchAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchRegistration) TryMatchAll1(request RequestInfo) (ret js.Promise[js.Array[BackgroundFetchRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchRegistrationMatchAll1(
@@ -1625,7 +1625,7 @@ func (this BackgroundFetchRegistration) MatchAll2() (ret js.Promise[js.Array[Bac
 }
 
 // TryMatchAll2 calls the method "BackgroundFetchRegistration.matchAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchRegistration) TryMatchAll2() (ret js.Promise[js.Array[BackgroundFetchRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchRegistrationMatchAll2(
@@ -1909,7 +1909,7 @@ func (this BackgroundFetchManager) Fetch(id js.String, requests OneOf_Request_St
 }
 
 // TryFetch calls the method "BackgroundFetchManager.fetch"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchManager) TryFetch(id js.String, requests OneOf_Request_String_ArrayRequestInfo, options BackgroundFetchOptions) (ret js.Promise[BackgroundFetchRegistration], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchManagerFetch(
@@ -1950,7 +1950,7 @@ func (this BackgroundFetchManager) Fetch1(id js.String, requests OneOf_Request_S
 }
 
 // TryFetch1 calls the method "BackgroundFetchManager.fetch"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchManager) TryFetch1(id js.String, requests OneOf_Request_String_ArrayRequestInfo) (ret js.Promise[BackgroundFetchRegistration], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchManagerFetch1(
@@ -1989,7 +1989,7 @@ func (this BackgroundFetchManager) Get(id js.String) (ret js.Promise[BackgroundF
 }
 
 // TryGet calls the method "BackgroundFetchManager.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchManager) TryGet(id js.String) (ret js.Promise[BackgroundFetchRegistration], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchManagerGet(
@@ -2026,7 +2026,7 @@ func (this BackgroundFetchManager) GetIds() (ret js.Promise[js.Array[js.String]]
 }
 
 // TryGetIds calls the method "BackgroundFetchManager.getIds"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchManager) TryGetIds() (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchManagerGetIds(
@@ -2132,7 +2132,7 @@ func (this BackgroundFetchUpdateUIEvent) UpdateUI(options BackgroundFetchUIOptio
 }
 
 // TryUpdateUI calls the method "BackgroundFetchUpdateUIEvent.updateUI"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchUpdateUIEvent) TryUpdateUI(options BackgroundFetchUIOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchUpdateUIEventUpdateUI(
@@ -2169,7 +2169,7 @@ func (this BackgroundFetchUpdateUIEvent) UpdateUI1() (ret js.Promise[js.Void]) {
 }
 
 // TryUpdateUI1 calls the method "BackgroundFetchUpdateUIEvent.updateUI"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BackgroundFetchUpdateUIEvent) TryUpdateUI1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBackgroundFetchUpdateUIEventUpdateUI1(
@@ -2928,7 +2928,7 @@ func (this HTMLImageElement) Decode() (ret js.Promise[js.Void]) {
 }
 
 // TryDecode calls the method "HTMLImageElement.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLImageElement) TryDecode() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLImageElementDecode(
@@ -3465,7 +3465,7 @@ func (this HTMLVideoElement) RequestVideoFrameCallback(callback js.Func[func(now
 }
 
 // TryRequestVideoFrameCallback calls the method "HTMLVideoElement.requestVideoFrameCallback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLVideoElement) TryRequestVideoFrameCallback(callback js.Func[func(now DOMHighResTimeStamp, metadata VideoFrameCallbackMetadata)]) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLVideoElementRequestVideoFrameCallback(
@@ -3503,7 +3503,7 @@ func (this HTMLVideoElement) CancelVideoFrameCallback(handle uint32) (ret js.Voi
 }
 
 // TryCancelVideoFrameCallback calls the method "HTMLVideoElement.cancelVideoFrameCallback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLVideoElement) TryCancelVideoFrameCallback(handle uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLVideoElementCancelVideoFrameCallback(
@@ -3540,7 +3540,7 @@ func (this HTMLVideoElement) RequestPictureInPicture() (ret js.Promise[PictureIn
 }
 
 // TryRequestPictureInPicture calls the method "HTMLVideoElement.requestPictureInPicture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLVideoElement) TryRequestPictureInPicture() (ret js.Promise[PictureInPictureWindow], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLVideoElementRequestPictureInPicture(
@@ -3576,7 +3576,7 @@ func (this HTMLVideoElement) GetVideoPlaybackQuality() (ret VideoPlaybackQuality
 }
 
 // TryGetVideoPlaybackQuality calls the method "HTMLVideoElement.getVideoPlaybackQuality"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLVideoElement) TryGetVideoPlaybackQuality() (ret VideoPlaybackQuality, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLVideoElementGetVideoPlaybackQuality(
@@ -3718,7 +3718,7 @@ func (this CanvasGradient) AddColorStop(offset float64, color js.String) (ret js
 }
 
 // TryAddColorStop calls the method "CanvasGradient.addColorStop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasGradient) TryAddColorStop(offset float64, color js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasGradientAddColorStop(
@@ -3779,7 +3779,7 @@ func (this CanvasPattern) SetTransform(transform DOMMatrix2DInit) (ret js.Void) 
 }
 
 // TrySetTransform calls the method "CanvasPattern.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasPattern) TrySetTransform(transform DOMMatrix2DInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasPatternSetTransform(
@@ -3816,7 +3816,7 @@ func (this CanvasPattern) SetTransform1() (ret js.Void) {
 }
 
 // TrySetTransform1 calls the method "CanvasPattern.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasPattern) TrySetTransform1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasPatternSetTransform1(
@@ -3894,7 +3894,7 @@ func (this ImageBitmap) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "ImageBitmap.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageBitmap) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageBitmapClose(
@@ -4075,7 +4075,7 @@ func (this Path2D) AddPath(path Path2D, transform DOMMatrix2DInit) (ret js.Void)
 }
 
 // TryAddPath calls the method "Path2D.addPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryAddPath(path Path2D, transform DOMMatrix2DInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DAddPath(
@@ -4114,7 +4114,7 @@ func (this Path2D) AddPath1(path Path2D) (ret js.Void) {
 }
 
 // TryAddPath1 calls the method "Path2D.addPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryAddPath1(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DAddPath1(
@@ -4151,7 +4151,7 @@ func (this Path2D) ClosePath() (ret js.Void) {
 }
 
 // TryClosePath calls the method "Path2D.closePath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryClosePath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DClosePath(
@@ -4189,7 +4189,7 @@ func (this Path2D) MoveTo(x float64, y float64) (ret js.Void) {
 }
 
 // TryMoveTo calls the method "Path2D.moveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryMoveTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DMoveTo(
@@ -4229,7 +4229,7 @@ func (this Path2D) LineTo(x float64, y float64) (ret js.Void) {
 }
 
 // TryLineTo calls the method "Path2D.lineTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryLineTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DLineTo(
@@ -4271,7 +4271,7 @@ func (this Path2D) QuadraticCurveTo(cpx float64, cpy float64, x float64, y float
 }
 
 // TryQuadraticCurveTo calls the method "Path2D.quadraticCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryQuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DQuadraticCurveTo(
@@ -4317,7 +4317,7 @@ func (this Path2D) BezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y 
 }
 
 // TryBezierCurveTo calls the method "Path2D.bezierCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryBezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DBezierCurveTo(
@@ -4364,7 +4364,7 @@ func (this Path2D) ArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius 
 }
 
 // TryArcTo calls the method "Path2D.arcTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DArcTo(
@@ -4409,7 +4409,7 @@ func (this Path2D) Rect(x float64, y float64, w float64, h float64) (ret js.Void
 }
 
 // TryRect calls the method "Path2D.rect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DRect(
@@ -4454,7 +4454,7 @@ func (this Path2D) RoundRect(x float64, y float64, w float64, h float64, radii O
 }
 
 // TryRoundRect calls the method "Path2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryRoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DRoundRect(
@@ -4499,7 +4499,7 @@ func (this Path2D) RoundRect1(x float64, y float64, w float64, h float64) (ret j
 }
 
 // TryRoundRect1 calls the method "Path2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryRoundRect1(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DRoundRect1(
@@ -4545,7 +4545,7 @@ func (this Path2D) Arc(x float64, y float64, radius float64, startAngle float64,
 }
 
 // TryArc calls the method "Path2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryArc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DArc(
@@ -4592,7 +4592,7 @@ func (this Path2D) Arc1(x float64, y float64, radius float64, startAngle float64
 }
 
 // TryArc1 calls the method "Path2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryArc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DArc1(
@@ -4641,7 +4641,7 @@ func (this Path2D) Ellipse(x float64, y float64, radiusX float64, radiusY float6
 }
 
 // TryEllipse calls the method "Path2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryEllipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DEllipse(
@@ -4692,7 +4692,7 @@ func (this Path2D) Ellipse1(x float64, y float64, radiusX float64, radiusY float
 }
 
 // TryEllipse1 calls the method "Path2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Path2D) TryEllipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPath2DEllipse1(

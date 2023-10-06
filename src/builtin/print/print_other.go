@@ -8,7 +8,7 @@ package stdprint
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/plat/libc"
+	"github.com/primecitizens/pcz/std/plat/libc"
 )
 
 func gwrite(b []byte) {

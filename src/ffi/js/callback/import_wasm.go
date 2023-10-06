@@ -8,7 +8,7 @@ package callback
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 //go:wasmimport ffi/js/callback func

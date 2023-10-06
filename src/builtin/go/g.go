@@ -10,10 +10,10 @@ package stdgo
 import (
 	"unsafe"
 
-	stdtype "github.com/primecitizens/std/builtin/type"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/mark"
+	stdtype "github.com/primecitizens/pcz/std/builtin/type"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 // G defines required methods for a goroutine implementation.

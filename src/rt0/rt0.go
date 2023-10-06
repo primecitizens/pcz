@@ -7,16 +7,16 @@ import (
 	"unsafe"
 	_ "unsafe" // for go:linkname
 
-	"github.com/primecitizens/std/algo/rand/fastrand"
-	stdgo "github.com/primecitizens/std/builtin/go"
-	stdtype "github.com/primecitizens/std/builtin/type"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/cpu"
-	"github.com/primecitizens/std/core/stack"
-	"github.com/primecitizens/std/core/thread"
+	"github.com/primecitizens/pcz/std/algo/rand/fastrand"
+	stdgo "github.com/primecitizens/pcz/std/builtin/go"
+	stdtype "github.com/primecitizens/pcz/std/builtin/type"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/cpu"
+	"github.com/primecitizens/pcz/std/core/stack"
+	"github.com/primecitizens/pcz/std/core/thread"
 )
 
 var (

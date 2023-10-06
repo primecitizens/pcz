@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -425,7 +425,7 @@ func (this AudioEncoder) Configure(config AudioEncoderConfig) (ret js.Void) {
 }
 
 // TryConfigure calls the method "AudioEncoder.configure"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioEncoder) TryConfigure(config AudioEncoderConfig) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioEncoderConfigure(
@@ -463,7 +463,7 @@ func (this AudioEncoder) Encode(data AudioData) (ret js.Void) {
 }
 
 // TryEncode calls the method "AudioEncoder.encode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioEncoder) TryEncode(data AudioData) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioEncoderEncode(
@@ -500,7 +500,7 @@ func (this AudioEncoder) Flush() (ret js.Promise[js.Void]) {
 }
 
 // TryFlush calls the method "AudioEncoder.flush"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioEncoder) TryFlush() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioEncoderFlush(
@@ -536,7 +536,7 @@ func (this AudioEncoder) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "AudioEncoder.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioEncoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioEncoderReset(
@@ -572,7 +572,7 @@ func (this AudioEncoder) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "AudioEncoder.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioEncoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioEncoderClose(
@@ -609,7 +609,7 @@ func (this AudioEncoder) IsConfigSupported(config AudioEncoderConfig) (ret js.Pr
 }
 
 // TryIsConfigSupported calls the staticmethod "AudioEncoder.isConfigSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioEncoder) TryIsConfigSupported(config AudioEncoderConfig) (ret js.Promise[AudioEncoderSupport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioEncoderIsConfigSupported(
@@ -761,7 +761,7 @@ func (this AudioNode) Connect(destinationNode AudioNode, output uint32, input ui
 }
 
 // TryConnect calls the method "AudioNode.connect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryConnect(destinationNode AudioNode, output uint32, input uint32) (ret AudioNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeConnect(
@@ -802,7 +802,7 @@ func (this AudioNode) Connect1(destinationNode AudioNode, output uint32) (ret Au
 }
 
 // TryConnect1 calls the method "AudioNode.connect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryConnect1(destinationNode AudioNode, output uint32) (ret AudioNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeConnect1(
@@ -841,7 +841,7 @@ func (this AudioNode) Connect2(destinationNode AudioNode) (ret AudioNode) {
 }
 
 // TryConnect2 calls the method "AudioNode.connect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryConnect2(destinationNode AudioNode) (ret AudioNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeConnect2(
@@ -880,7 +880,7 @@ func (this AudioNode) Connect3(destinationParam AudioParam, output uint32) (ret 
 }
 
 // TryConnect3 calls the method "AudioNode.connect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryConnect3(destinationParam AudioParam, output uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeConnect3(
@@ -919,7 +919,7 @@ func (this AudioNode) Connect4(destinationParam AudioParam) (ret js.Void) {
 }
 
 // TryConnect4 calls the method "AudioNode.connect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryConnect4(destinationParam AudioParam) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeConnect4(
@@ -956,7 +956,7 @@ func (this AudioNode) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "AudioNode.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeDisconnect(
@@ -993,7 +993,7 @@ func (this AudioNode) Disconnect1(output uint32) (ret js.Void) {
 }
 
 // TryDisconnect1 calls the method "AudioNode.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryDisconnect1(output uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeDisconnect1(
@@ -1031,7 +1031,7 @@ func (this AudioNode) Disconnect2(destinationNode AudioNode) (ret js.Void) {
 }
 
 // TryDisconnect2 calls the method "AudioNode.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryDisconnect2(destinationNode AudioNode) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeDisconnect2(
@@ -1070,7 +1070,7 @@ func (this AudioNode) Disconnect3(destinationNode AudioNode, output uint32) (ret
 }
 
 // TryDisconnect3 calls the method "AudioNode.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryDisconnect3(destinationNode AudioNode, output uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeDisconnect3(
@@ -1111,7 +1111,7 @@ func (this AudioNode) Disconnect4(destinationNode AudioNode, output uint32, inpu
 }
 
 // TryDisconnect4 calls the method "AudioNode.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryDisconnect4(destinationNode AudioNode, output uint32, input uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeDisconnect4(
@@ -1151,7 +1151,7 @@ func (this AudioNode) Disconnect5(destinationParam AudioParam) (ret js.Void) {
 }
 
 // TryDisconnect5 calls the method "AudioNode.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryDisconnect5(destinationParam AudioParam) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeDisconnect5(
@@ -1190,7 +1190,7 @@ func (this AudioNode) Disconnect6(destinationParam AudioParam, output uint32) (r
 }
 
 // TryDisconnect6 calls the method "AudioNode.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioNode) TryDisconnect6(destinationParam AudioParam, output uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioNodeDisconnect6(
@@ -1653,7 +1653,7 @@ func (this AudioScheduledSourceNode) Start(when float64) (ret js.Void) {
 }
 
 // TryStart calls the method "AudioScheduledSourceNode.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioScheduledSourceNode) TryStart(when float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioScheduledSourceNodeStart(
@@ -1690,7 +1690,7 @@ func (this AudioScheduledSourceNode) Start1() (ret js.Void) {
 }
 
 // TryStart1 calls the method "AudioScheduledSourceNode.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioScheduledSourceNode) TryStart1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioScheduledSourceNodeStart1(
@@ -1727,7 +1727,7 @@ func (this AudioScheduledSourceNode) Stop(when float64) (ret js.Void) {
 }
 
 // TryStop calls the method "AudioScheduledSourceNode.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioScheduledSourceNode) TryStop(when float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioScheduledSourceNodeStop(
@@ -1764,7 +1764,7 @@ func (this AudioScheduledSourceNode) Stop1() (ret js.Void) {
 }
 
 // TryStop1 calls the method "AudioScheduledSourceNode.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioScheduledSourceNode) TryStop1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioScheduledSourceNodeStop1(
@@ -1956,7 +1956,7 @@ func (this AudioWorkletGlobalScope) RegisterProcessor(name js.String, processorC
 }
 
 // TryRegisterProcessor calls the method "AudioWorkletGlobalScope.registerProcessor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioWorkletGlobalScope) TryRegisterProcessor(name js.String, processorCtor js.Func[func(options js.Object) AudioWorkletProcessor]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioWorkletGlobalScopeRegisterProcessor(

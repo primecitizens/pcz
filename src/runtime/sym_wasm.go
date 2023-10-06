@@ -10,7 +10,7 @@
 package runtime
 
 import (
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 func wasmDiv()

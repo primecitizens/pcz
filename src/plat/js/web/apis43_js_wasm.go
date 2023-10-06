@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -164,7 +164,7 @@ func (this MediaRecorder) Start(timeslice uint32) (ret js.Void) {
 }
 
 // TryStart calls the method "MediaRecorder.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaRecorder) TryStart(timeslice uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaRecorderStart(
@@ -201,7 +201,7 @@ func (this MediaRecorder) Start1() (ret js.Void) {
 }
 
 // TryStart1 calls the method "MediaRecorder.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaRecorder) TryStart1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaRecorderStart1(
@@ -237,7 +237,7 @@ func (this MediaRecorder) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "MediaRecorder.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaRecorder) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaRecorderStop(
@@ -273,7 +273,7 @@ func (this MediaRecorder) Pause() (ret js.Void) {
 }
 
 // TryPause calls the method "MediaRecorder.pause"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaRecorder) TryPause() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaRecorderPause(
@@ -309,7 +309,7 @@ func (this MediaRecorder) Resume() (ret js.Void) {
 }
 
 // TryResume calls the method "MediaRecorder.resume"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaRecorder) TryResume() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaRecorderResume(
@@ -345,7 +345,7 @@ func (this MediaRecorder) RequestData() (ret js.Void) {
 }
 
 // TryRequestData calls the method "MediaRecorder.requestData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaRecorder) TryRequestData() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaRecorderRequestData(
@@ -382,7 +382,7 @@ func (this MediaRecorder) IsTypeSupported(typ js.String) (ret bool) {
 }
 
 // TryIsTypeSupported calls the staticmethod "MediaRecorder.isTypeSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaRecorder) TryIsTypeSupported(typ js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaRecorderIsTypeSupported(
@@ -691,7 +691,7 @@ func (this Memory) Grow(delta uint32) (ret uint32) {
 }
 
 // TryGrow calls the method "Memory.grow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Memory) TryGrow(delta uint32) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMemoryGrow(
@@ -969,7 +969,7 @@ func (this MessageEvent) InitMessageEvent(typ js.String, bubbles bool, cancelabl
 }
 
 // TryInitMessageEvent calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent(typ js.String, bubbles bool, cancelable bool, data js.Any, origin js.String, lastEventId js.String, source MessageEventSource, ports js.Array[MessagePort]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent(
@@ -1020,7 +1020,7 @@ func (this MessageEvent) InitMessageEvent1(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitMessageEvent1 calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent1(typ js.String, bubbles bool, cancelable bool, data js.Any, origin js.String, lastEventId js.String, source MessageEventSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent1(
@@ -1069,7 +1069,7 @@ func (this MessageEvent) InitMessageEvent2(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitMessageEvent2 calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent2(typ js.String, bubbles bool, cancelable bool, data js.Any, origin js.String, lastEventId js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent2(
@@ -1116,7 +1116,7 @@ func (this MessageEvent) InitMessageEvent3(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitMessageEvent3 calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent3(typ js.String, bubbles bool, cancelable bool, data js.Any, origin js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent3(
@@ -1161,7 +1161,7 @@ func (this MessageEvent) InitMessageEvent4(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitMessageEvent4 calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent4(typ js.String, bubbles bool, cancelable bool, data js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent4(
@@ -1204,7 +1204,7 @@ func (this MessageEvent) InitMessageEvent5(typ js.String, bubbles bool, cancelab
 }
 
 // TryInitMessageEvent5 calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent5(typ js.String, bubbles bool, cancelable bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent5(
@@ -1245,7 +1245,7 @@ func (this MessageEvent) InitMessageEvent6(typ js.String, bubbles bool) (ret js.
 }
 
 // TryInitMessageEvent6 calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent6(typ js.String, bubbles bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent6(
@@ -1284,7 +1284,7 @@ func (this MessageEvent) InitMessageEvent7(typ js.String) (ret js.Void) {
 }
 
 // TryInitMessageEvent7 calls the method "MessageEvent.initMessageEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MessageEvent) TryInitMessageEvent7(typ js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMessageEventInitMessageEvent7(
@@ -2254,7 +2254,7 @@ func (this MouseEvent) GetModifierState(keyArg js.String) (ret bool) {
 }
 
 // TryGetModifierState calls the method "MouseEvent.getModifierState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryGetModifierState(keyArg js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventGetModifierState(
@@ -2306,7 +2306,7 @@ func (this MouseEvent) InitMouseEvent(typeArg js.String, bubblesArg bool, cancel
 }
 
 // TryInitMouseEvent calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32, clientYArg int32, ctrlKeyArg bool, altKeyArg bool, shiftKeyArg bool, metaKeyArg bool, buttonArg int16, relatedTargetArg EventTarget) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent(
@@ -2371,7 +2371,7 @@ func (this MouseEvent) InitMouseEvent1(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent1 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent1(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32, clientYArg int32, ctrlKeyArg bool, altKeyArg bool, shiftKeyArg bool, metaKeyArg bool, buttonArg int16) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent1(
@@ -2434,7 +2434,7 @@ func (this MouseEvent) InitMouseEvent2(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent2 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent2(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32, clientYArg int32, ctrlKeyArg bool, altKeyArg bool, shiftKeyArg bool, metaKeyArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent2(
@@ -2495,7 +2495,7 @@ func (this MouseEvent) InitMouseEvent3(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent3 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent3(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32, clientYArg int32, ctrlKeyArg bool, altKeyArg bool, shiftKeyArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent3(
@@ -2554,7 +2554,7 @@ func (this MouseEvent) InitMouseEvent4(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent4 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent4(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32, clientYArg int32, ctrlKeyArg bool, altKeyArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent4(
@@ -2611,7 +2611,7 @@ func (this MouseEvent) InitMouseEvent5(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent5 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent5(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32, clientYArg int32, ctrlKeyArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent5(
@@ -2666,7 +2666,7 @@ func (this MouseEvent) InitMouseEvent6(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent6 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent6(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32, clientYArg int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent6(
@@ -2719,7 +2719,7 @@ func (this MouseEvent) InitMouseEvent7(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent7 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent7(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32, clientXArg int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent7(
@@ -2770,7 +2770,7 @@ func (this MouseEvent) InitMouseEvent8(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent8 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent8(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32, screenYArg int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent8(
@@ -2819,7 +2819,7 @@ func (this MouseEvent) InitMouseEvent9(typeArg js.String, bubblesArg bool, cance
 }
 
 // TryInitMouseEvent9 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent9(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32, screenXArg int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent9(
@@ -2866,7 +2866,7 @@ func (this MouseEvent) InitMouseEvent10(typeArg js.String, bubblesArg bool, canc
 }
 
 // TryInitMouseEvent10 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent10(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent10(
@@ -2911,7 +2911,7 @@ func (this MouseEvent) InitMouseEvent11(typeArg js.String, bubblesArg bool, canc
 }
 
 // TryInitMouseEvent11 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent11(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent11(
@@ -2954,7 +2954,7 @@ func (this MouseEvent) InitMouseEvent12(typeArg js.String, bubblesArg bool, canc
 }
 
 // TryInitMouseEvent12 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent12(typeArg js.String, bubblesArg bool, cancelableArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent12(
@@ -2995,7 +2995,7 @@ func (this MouseEvent) InitMouseEvent13(typeArg js.String, bubblesArg bool) (ret
 }
 
 // TryInitMouseEvent13 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent13(typeArg js.String, bubblesArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent13(
@@ -3034,7 +3034,7 @@ func (this MouseEvent) InitMouseEvent14(typeArg js.String) (ret js.Void) {
 }
 
 // TryInitMouseEvent14 calls the method "MouseEvent.initMouseEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MouseEvent) TryInitMouseEvent14(typeArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMouseEventInitMouseEvent14(
@@ -3354,7 +3354,7 @@ func (this MutationObserver) Observe(target Node, options MutationObserverInit) 
 }
 
 // TryObserve calls the method "MutationObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationObserver) TryObserve(target Node, options MutationObserverInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationObserverObserve(
@@ -3393,7 +3393,7 @@ func (this MutationObserver) Observe1(target Node) (ret js.Void) {
 }
 
 // TryObserve1 calls the method "MutationObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationObserver) TryObserve1(target Node) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationObserverObserve1(
@@ -3430,7 +3430,7 @@ func (this MutationObserver) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "MutationObserver.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationObserverDisconnect(
@@ -3466,7 +3466,7 @@ func (this MutationObserver) TakeRecords() (ret js.Array[MutationRecord]) {
 }
 
 // TryTakeRecords calls the method "MutationObserver.takeRecords"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationObserver) TryTakeRecords() (ret js.Array[MutationRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationObserverTakeRecords(
@@ -3601,7 +3601,7 @@ func (this MutationEvent) InitMutationEvent(typeArg js.String, bubblesArg bool, 
 }
 
 // TryInitMutationEvent calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent(typeArg js.String, bubblesArg bool, cancelableArg bool, relatedNodeArg Node, prevValueArg js.String, newValueArg js.String, attrNameArg js.String, attrChangeArg uint16) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent(
@@ -3652,7 +3652,7 @@ func (this MutationEvent) InitMutationEvent1(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitMutationEvent1 calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent1(typeArg js.String, bubblesArg bool, cancelableArg bool, relatedNodeArg Node, prevValueArg js.String, newValueArg js.String, attrNameArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent1(
@@ -3701,7 +3701,7 @@ func (this MutationEvent) InitMutationEvent2(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitMutationEvent2 calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent2(typeArg js.String, bubblesArg bool, cancelableArg bool, relatedNodeArg Node, prevValueArg js.String, newValueArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent2(
@@ -3748,7 +3748,7 @@ func (this MutationEvent) InitMutationEvent3(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitMutationEvent3 calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent3(typeArg js.String, bubblesArg bool, cancelableArg bool, relatedNodeArg Node, prevValueArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent3(
@@ -3793,7 +3793,7 @@ func (this MutationEvent) InitMutationEvent4(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitMutationEvent4 calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent4(typeArg js.String, bubblesArg bool, cancelableArg bool, relatedNodeArg Node) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent4(
@@ -3836,7 +3836,7 @@ func (this MutationEvent) InitMutationEvent5(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitMutationEvent5 calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent5(typeArg js.String, bubblesArg bool, cancelableArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent5(
@@ -3877,7 +3877,7 @@ func (this MutationEvent) InitMutationEvent6(typeArg js.String, bubblesArg bool)
 }
 
 // TryInitMutationEvent6 calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent6(typeArg js.String, bubblesArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent6(
@@ -3916,7 +3916,7 @@ func (this MutationEvent) InitMutationEvent7(typeArg js.String) (ret js.Void) {
 }
 
 // TryInitMutationEvent7 calls the method "MutationEvent.initMutationEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MutationEvent) TryInitMutationEvent7(typeArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMutationEventInitMutationEvent7(
@@ -4169,7 +4169,7 @@ func (this NDEFRecord) ToRecords() (ret js.Array[NDEFRecord]) {
 }
 
 // TryToRecords calls the method "NDEFRecord.toRecords"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NDEFRecord) TryToRecords() (ret js.Array[NDEFRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNDEFRecordToRecords(
@@ -4424,7 +4424,7 @@ func (this NDEFReader) Scan(options NDEFScanOptions) (ret js.Promise[js.Void]) {
 }
 
 // TryScan calls the method "NDEFReader.scan"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NDEFReader) TryScan(options NDEFScanOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNDEFReaderScan(
@@ -4461,7 +4461,7 @@ func (this NDEFReader) Scan1() (ret js.Promise[js.Void]) {
 }
 
 // TryScan1 calls the method "NDEFReader.scan"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NDEFReader) TryScan1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNDEFReaderScan1(
@@ -4499,7 +4499,7 @@ func (this NDEFReader) Write(message NDEFMessageSource, options NDEFWriteOptions
 }
 
 // TryWrite calls the method "NDEFReader.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NDEFReader) TryWrite(message NDEFMessageSource, options NDEFWriteOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNDEFReaderWrite(
@@ -4538,7 +4538,7 @@ func (this NDEFReader) Write1(message NDEFMessageSource) (ret js.Promise[js.Void
 }
 
 // TryWrite1 calls the method "NDEFReader.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NDEFReader) TryWrite1(message NDEFMessageSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNDEFReaderWrite1(
@@ -4576,7 +4576,7 @@ func (this NDEFReader) MakeReadOnly(options NDEFMakeReadOnlyOptions) (ret js.Pro
 }
 
 // TryMakeReadOnly calls the method "NDEFReader.makeReadOnly"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NDEFReader) TryMakeReadOnly(options NDEFMakeReadOnlyOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNDEFReaderMakeReadOnly(
@@ -4613,7 +4613,7 @@ func (this NDEFReader) MakeReadOnly1() (ret js.Promise[js.Void]) {
 }
 
 // TryMakeReadOnly1 calls the method "NDEFReader.makeReadOnly"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NDEFReader) TryMakeReadOnly1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNDEFReaderMakeReadOnly1(
@@ -4814,7 +4814,7 @@ func (this NamedFlow) GetRegions() (ret js.Array[Element]) {
 }
 
 // TryGetRegions calls the method "NamedFlow.getRegions"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NamedFlow) TryGetRegions() (ret js.Array[Element], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNamedFlowGetRegions(
@@ -4850,7 +4850,7 @@ func (this NamedFlow) GetContent() (ret js.Array[Node]) {
 }
 
 // TryGetContent calls the method "NamedFlow.getContent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NamedFlow) TryGetContent() (ret js.Array[Node], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNamedFlowGetContent(
@@ -4887,7 +4887,7 @@ func (this NamedFlow) GetRegionsByContent(node Node) (ret js.Array[Element]) {
 }
 
 // TryGetRegionsByContent calls the method "NamedFlow.getRegionsByContent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NamedFlow) TryGetRegionsByContent(node Node) (ret js.Array[Element], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNamedFlowGetRegionsByContent(
@@ -4996,7 +4996,7 @@ func (this NavigationDestination) GetState() (ret js.Any) {
 }
 
 // TryGetState calls the method "NavigationDestination.getState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigationDestination) TryGetState() (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationDestinationGetState(

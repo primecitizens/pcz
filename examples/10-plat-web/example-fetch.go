@@ -4,13 +4,13 @@
 package main
 
 import (
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/thread"
-	"github.com/primecitizens/std/encoding/binfmt/wasm"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web"
-	"github.com/primecitizens/std/time"
-	"github.com/primecitizens/std/time/sysclock"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/thread"
+	"github.com/primecitizens/pcz/std/encoding/binfmt/wasm"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web"
+	"github.com/primecitizens/pcz/std/time"
+	"github.com/primecitizens/pcz/std/time/sysclock"
 )
 
 var (

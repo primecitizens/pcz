@@ -6,10 +6,10 @@ package stdprint
 import (
 	"unsafe"
 
-	stdslice "github.com/primecitizens/std/builtin/slice"
-	stdstring "github.com/primecitizens/std/builtin/string"
-	"github.com/primecitizens/std/plat/android"
-	"github.com/primecitizens/std/plat/libc"
+	stdslice "github.com/primecitizens/pcz/std/builtin/slice"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
+	"github.com/primecitizens/pcz/std/plat/android"
+	"github.com/primecitizens/pcz/std/plat/libc"
 )
 
 func gwrite(b []byte) {

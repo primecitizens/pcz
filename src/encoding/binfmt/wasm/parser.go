@@ -6,7 +6,7 @@ package wasm
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/encoding/binary"
+	"github.com/primecitizens/pcz/std/encoding/binary"
 )
 
 const (

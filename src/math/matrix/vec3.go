@@ -4,7 +4,7 @@
 package matrix
 
 import (
-	"github.com/primecitizens/std/core/num"
+	"github.com/primecitizens/pcz/std/core/num"
 )
 
 type Vec3[T num.Number] [3]T

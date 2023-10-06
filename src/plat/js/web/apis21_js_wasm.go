@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -873,7 +873,7 @@ func (this CSSTransformComponent) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "CSSTransformComponent.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSTransformComponent) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSTransformComponentToString(
@@ -909,7 +909,7 @@ func (this CSSTransformComponent) ToMatrix() (ret DOMMatrix) {
 }
 
 // TryToMatrix calls the method "CSSTransformComponent.toMatrix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSTransformComponent) TryToMatrix() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSTransformComponentToMatrix(
@@ -994,7 +994,7 @@ func (this CSSTransformValue) Get(index uint32) (ret CSSTransformComponent) {
 }
 
 // TryGet calls the method "CSSTransformValue."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSTransformValue) TryGet(index uint32) (ret CSSTransformComponent, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSTransformValueGet(
@@ -1033,7 +1033,7 @@ func (this CSSTransformValue) Set(index uint32, val CSSTransformComponent) (ret 
 }
 
 // TrySet calls the method "CSSTransformValue."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSTransformValue) TrySet(index uint32, val CSSTransformComponent) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSTransformValueSet(
@@ -1071,7 +1071,7 @@ func (this CSSTransformValue) ToMatrix() (ret DOMMatrix) {
 }
 
 // TryToMatrix calls the method "CSSTransformValue.toMatrix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSTransformValue) TryToMatrix() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSTransformValueToMatrix(
@@ -1325,7 +1325,7 @@ func (this CSSUnparsedValue) Get(index uint32) (ret CSSUnparsedSegment) {
 }
 
 // TryGet calls the method "CSSUnparsedValue."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSUnparsedValue) TryGet(index uint32) (ret CSSUnparsedSegment, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSUnparsedValueGet(
@@ -1364,7 +1364,7 @@ func (this CSSUnparsedValue) Set(index uint32, val CSSUnparsedSegment) (ret js.V
 }
 
 // TrySet calls the method "CSSUnparsedValue."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSUnparsedValue) TrySet(index uint32, val CSSUnparsedSegment) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSUnparsedValueSet(
@@ -1545,7 +1545,7 @@ func (this Cache) Match(request RequestInfo, options CacheQueryOptions) (ret js.
 }
 
 // TryMatch calls the method "Cache.match"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryMatch(request RequestInfo, options CacheQueryOptions) (ret js.Promise[OneOf_Response_undefined], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheMatch(
@@ -1584,7 +1584,7 @@ func (this Cache) Match1(request RequestInfo) (ret js.Promise[OneOf_Response_und
 }
 
 // TryMatch1 calls the method "Cache.match"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryMatch1(request RequestInfo) (ret js.Promise[OneOf_Response_undefined], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheMatch1(
@@ -1623,7 +1623,7 @@ func (this Cache) MatchAll(request RequestInfo, options CacheQueryOptions) (ret 
 }
 
 // TryMatchAll calls the method "Cache.matchAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryMatchAll(request RequestInfo, options CacheQueryOptions) (ret js.Promise[js.FrozenArray[Response]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheMatchAll(
@@ -1662,7 +1662,7 @@ func (this Cache) MatchAll1(request RequestInfo) (ret js.Promise[js.FrozenArray[
 }
 
 // TryMatchAll1 calls the method "Cache.matchAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryMatchAll1(request RequestInfo) (ret js.Promise[js.FrozenArray[Response]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheMatchAll1(
@@ -1699,7 +1699,7 @@ func (this Cache) MatchAll2() (ret js.Promise[js.FrozenArray[Response]]) {
 }
 
 // TryMatchAll2 calls the method "Cache.matchAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryMatchAll2() (ret js.Promise[js.FrozenArray[Response]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheMatchAll2(
@@ -1736,7 +1736,7 @@ func (this Cache) Add(request RequestInfo) (ret js.Promise[js.Void]) {
 }
 
 // TryAdd calls the method "Cache.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryAdd(request RequestInfo) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheAdd(
@@ -1774,7 +1774,7 @@ func (this Cache) AddAll(requests js.Array[RequestInfo]) (ret js.Promise[js.Void
 }
 
 // TryAddAll calls the method "Cache.addAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryAddAll(requests js.Array[RequestInfo]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheAddAll(
@@ -1813,7 +1813,7 @@ func (this Cache) Put(request RequestInfo, response Response) (ret js.Promise[js
 }
 
 // TryPut calls the method "Cache.put"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryPut(request RequestInfo, response Response) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCachePut(
@@ -1853,7 +1853,7 @@ func (this Cache) Delete(request RequestInfo, options CacheQueryOptions) (ret js
 }
 
 // TryDelete calls the method "Cache.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryDelete(request RequestInfo, options CacheQueryOptions) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheDelete(
@@ -1892,7 +1892,7 @@ func (this Cache) Delete1(request RequestInfo) (ret js.Promise[js.Boolean]) {
 }
 
 // TryDelete1 calls the method "Cache.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryDelete1(request RequestInfo) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheDelete1(
@@ -1931,7 +1931,7 @@ func (this Cache) Keys(request RequestInfo, options CacheQueryOptions) (ret js.P
 }
 
 // TryKeys calls the method "Cache.keys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryKeys(request RequestInfo, options CacheQueryOptions) (ret js.Promise[js.FrozenArray[Request]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheKeys(
@@ -1970,7 +1970,7 @@ func (this Cache) Keys1(request RequestInfo) (ret js.Promise[js.FrozenArray[Requ
 }
 
 // TryKeys1 calls the method "Cache.keys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryKeys1(request RequestInfo) (ret js.Promise[js.FrozenArray[Request]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheKeys1(
@@ -2007,7 +2007,7 @@ func (this Cache) Keys2() (ret js.Promise[js.FrozenArray[Request]]) {
 }
 
 // TryKeys2 calls the method "Cache.keys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Cache) TryKeys2() (ret js.Promise[js.FrozenArray[Request]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheKeys2(
@@ -2125,7 +2125,7 @@ func (this CacheStorage) Match(request RequestInfo, options MultiCacheQueryOptio
 }
 
 // TryMatch calls the method "CacheStorage.match"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CacheStorage) TryMatch(request RequestInfo, options MultiCacheQueryOptions) (ret js.Promise[OneOf_Response_undefined], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheStorageMatch(
@@ -2164,7 +2164,7 @@ func (this CacheStorage) Match1(request RequestInfo) (ret js.Promise[OneOf_Respo
 }
 
 // TryMatch1 calls the method "CacheStorage.match"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CacheStorage) TryMatch1(request RequestInfo) (ret js.Promise[OneOf_Response_undefined], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheStorageMatch1(
@@ -2202,7 +2202,7 @@ func (this CacheStorage) Has(cacheName js.String) (ret js.Promise[js.Boolean]) {
 }
 
 // TryHas calls the method "CacheStorage.has"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CacheStorage) TryHas(cacheName js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheStorageHas(
@@ -2240,7 +2240,7 @@ func (this CacheStorage) Open(cacheName js.String) (ret js.Promise[Cache]) {
 }
 
 // TryOpen calls the method "CacheStorage.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CacheStorage) TryOpen(cacheName js.String) (ret js.Promise[Cache], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheStorageOpen(
@@ -2278,7 +2278,7 @@ func (this CacheStorage) Delete(cacheName js.String) (ret js.Promise[js.Boolean]
 }
 
 // TryDelete calls the method "CacheStorage.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CacheStorage) TryDelete(cacheName js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheStorageDelete(
@@ -2315,7 +2315,7 @@ func (this CacheStorage) Keys() (ret js.Promise[js.Array[js.String]]) {
 }
 
 // TryKeys calls the method "CacheStorage.keys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CacheStorage) TryKeys() (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCacheStorageKeys(
@@ -2424,7 +2424,7 @@ func (this CanMakePaymentEvent) RespondWith(canMakePaymentResponse js.Promise[js
 }
 
 // TryRespondWith calls the method "CanMakePaymentEvent.respondWith"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanMakePaymentEvent) TryRespondWith(canMakePaymentResponse js.Promise[js.Boolean]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanMakePaymentEventRespondWith(
@@ -2493,7 +2493,7 @@ func (this CanvasCaptureMediaStreamTrack) RequestFrame() (ret js.Void) {
 }
 
 // TryRequestFrame calls the method "CanvasCaptureMediaStreamTrack.requestFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasCaptureMediaStreamTrack) TryRequestFrame() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasCaptureMediaStreamTrackRequestFrame(
@@ -2680,7 +2680,7 @@ func (this CaptureController) SetFocusBehavior(focusBehavior CaptureStartFocusBe
 }
 
 // TrySetFocusBehavior calls the method "CaptureController.setFocusBehavior"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CaptureController) TrySetFocusBehavior(focusBehavior CaptureStartFocusBehavior) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCaptureControllerSetFocusBehavior(
@@ -3085,7 +3085,7 @@ func (this CharacterData) SubstringData(offset uint32, count uint32) (ret js.Str
 }
 
 // TrySubstringData calls the method "CharacterData.substringData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TrySubstringData(offset uint32, count uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataSubstringData(
@@ -3124,7 +3124,7 @@ func (this CharacterData) AppendData(data js.String) (ret js.Void) {
 }
 
 // TryAppendData calls the method "CharacterData.appendData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryAppendData(data js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataAppendData(
@@ -3163,7 +3163,7 @@ func (this CharacterData) InsertData(offset uint32, data js.String) (ret js.Void
 }
 
 // TryInsertData calls the method "CharacterData.insertData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryInsertData(offset uint32, data js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataInsertData(
@@ -3203,7 +3203,7 @@ func (this CharacterData) DeleteData(offset uint32, count uint32) (ret js.Void) 
 }
 
 // TryDeleteData calls the method "CharacterData.deleteData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryDeleteData(offset uint32, count uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataDeleteData(
@@ -3244,7 +3244,7 @@ func (this CharacterData) ReplaceData(offset uint32, count uint32, data js.Strin
 }
 
 // TryReplaceData calls the method "CharacterData.replaceData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryReplaceData(offset uint32, count uint32, data js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataReplaceData(
@@ -3285,7 +3285,7 @@ func (this CharacterData) Before(nodes ...OneOf_Node_String) (ret js.Void) {
 }
 
 // TryBefore calls the method "CharacterData.before"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryBefore(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataBefore(
@@ -3325,7 +3325,7 @@ func (this CharacterData) After(nodes ...OneOf_Node_String) (ret js.Void) {
 }
 
 // TryAfter calls the method "CharacterData.after"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryAfter(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataAfter(
@@ -3365,7 +3365,7 @@ func (this CharacterData) ReplaceWith(nodes ...OneOf_Node_String) (ret js.Void) 
 }
 
 // TryReplaceWith calls the method "CharacterData.replaceWith"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryReplaceWith(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataReplaceWith(
@@ -3403,7 +3403,7 @@ func (this CharacterData) Remove() (ret js.Void) {
 }
 
 // TryRemove calls the method "CharacterData.remove"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CharacterData) TryRemove() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCharacterDataRemove(
@@ -3621,7 +3621,7 @@ func (this Client) PostMessage(message js.Any, transfer js.Array[js.Object]) (re
 }
 
 // TryPostMessage calls the method "Client.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Client) TryPostMessage(message js.Any, transfer js.Array[js.Object]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryClientPostMessage(
@@ -3661,7 +3661,7 @@ func (this Client) PostMessage1(message js.Any, options StructuredSerializeOptio
 }
 
 // TryPostMessage1 calls the method "Client.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Client) TryPostMessage1(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryClientPostMessage1(
@@ -3700,7 +3700,7 @@ func (this Client) PostMessage2(message js.Any) (ret js.Void) {
 }
 
 // TryPostMessage2 calls the method "Client.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Client) TryPostMessage2(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryClientPostMessage2(

@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -65,7 +65,7 @@ func (this XRHitTestSource) Cancel() (ret js.Void) {
 }
 
 // TryCancel calls the method "XRHitTestSource.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRHitTestSource) TryCancel() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRHitTestSourceCancel(
@@ -188,7 +188,7 @@ func (this XRHand) Get(key XRHandJoint) (ret XRJointSpace) {
 }
 
 // TryGet calls the method "XRHand.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRHand) TryGet(key XRHandJoint) (ret XRJointSpace, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRHandGet(
@@ -381,7 +381,7 @@ func (this XRTransientInputHitTestSource) Cancel() (ret js.Void) {
 }
 
 // TryCancel calls the method "XRTransientInputHitTestSource.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRTransientInputHitTestSource) TryCancel() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRTransientInputHitTestSourceCancel(
@@ -524,7 +524,7 @@ func (this XRFrame) GetViewerPose(referenceSpace XRReferenceSpace) (ret XRViewer
 }
 
 // TryGetViewerPose calls the method "XRFrame.getViewerPose"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryGetViewerPose(referenceSpace XRReferenceSpace) (ret XRViewerPose, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameGetViewerPose(
@@ -563,7 +563,7 @@ func (this XRFrame) GetPose(space XRSpace, baseSpace XRSpace) (ret XRPose) {
 }
 
 // TryGetPose calls the method "XRFrame.getPose"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryGetPose(space XRSpace, baseSpace XRSpace) (ret XRPose, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameGetPose(
@@ -603,7 +603,7 @@ func (this XRFrame) CreateAnchor(pose XRRigidTransform, space XRSpace) (ret js.P
 }
 
 // TryCreateAnchor calls the method "XRFrame.createAnchor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryCreateAnchor(pose XRRigidTransform, space XRSpace) (ret js.Promise[XRAnchor], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameCreateAnchor(
@@ -642,7 +642,7 @@ func (this XRFrame) GetLightEstimate(lightProbe XRLightProbe) (ret XRLightEstima
 }
 
 // TryGetLightEstimate calls the method "XRFrame.getLightEstimate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryGetLightEstimate(lightProbe XRLightProbe) (ret XRLightEstimate, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameGetLightEstimate(
@@ -680,7 +680,7 @@ func (this XRFrame) GetDepthInformation(view XRView) (ret XRCPUDepthInformation)
 }
 
 // TryGetDepthInformation calls the method "XRFrame.getDepthInformation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryGetDepthInformation(view XRView) (ret XRCPUDepthInformation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameGetDepthInformation(
@@ -719,7 +719,7 @@ func (this XRFrame) GetJointPose(joint XRJointSpace, baseSpace XRSpace) (ret XRJ
 }
 
 // TryGetJointPose calls the method "XRFrame.getJointPose"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryGetJointPose(joint XRJointSpace, baseSpace XRSpace) (ret XRJointPose, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameGetJointPose(
@@ -759,7 +759,7 @@ func (this XRFrame) FillJointRadii(jointSpaces js.Array[XRJointSpace], radii js.
 }
 
 // TryFillJointRadii calls the method "XRFrame.fillJointRadii"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryFillJointRadii(jointSpaces js.Array[XRJointSpace], radii js.TypedArray[float32]) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameFillJointRadii(
@@ -800,7 +800,7 @@ func (this XRFrame) FillPoses(spaces js.Array[XRSpace], baseSpace XRSpace, trans
 }
 
 // TryFillPoses calls the method "XRFrame.fillPoses"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryFillPoses(spaces js.Array[XRSpace], baseSpace XRSpace, transforms js.TypedArray[float32]) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameFillPoses(
@@ -840,7 +840,7 @@ func (this XRFrame) GetHitTestResults(hitTestSource XRHitTestSource) (ret js.Fro
 }
 
 // TryGetHitTestResults calls the method "XRFrame.getHitTestResults"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryGetHitTestResults(hitTestSource XRHitTestSource) (ret js.FrozenArray[XRHitTestResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameGetHitTestResults(
@@ -878,7 +878,7 @@ func (this XRFrame) GetHitTestResultsForTransientInput(hitTestSource XRTransient
 }
 
 // TryGetHitTestResultsForTransientInput calls the method "XRFrame.getHitTestResultsForTransientInput"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRFrame) TryGetHitTestResultsForTransientInput(hitTestSource XRTransientInputHitTestSource) (ret js.FrozenArray[XRTransientInputHitTestResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRFrameGetHitTestResultsForTransientInput(
@@ -1359,7 +1359,7 @@ func (this XRInputSourceArray) Get(index uint32) (ret XRInputSource) {
 }
 
 // TryGet calls the method "XRInputSourceArray."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRInputSourceArray) TryGet(index uint32) (ret XRInputSource, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRInputSourceArrayGet(
@@ -1721,7 +1721,7 @@ func (this XRSession) UpdateRenderState(state XRRenderStateInit) (ret js.Void) {
 }
 
 // TryUpdateRenderState calls the method "XRSession.updateRenderState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryUpdateRenderState(state XRRenderStateInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionUpdateRenderState(
@@ -1758,7 +1758,7 @@ func (this XRSession) UpdateRenderState1() (ret js.Void) {
 }
 
 // TryUpdateRenderState1 calls the method "XRSession.updateRenderState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryUpdateRenderState1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionUpdateRenderState1(
@@ -1795,7 +1795,7 @@ func (this XRSession) UpdateTargetFrameRate(rate float32) (ret js.Promise[js.Voi
 }
 
 // TryUpdateTargetFrameRate calls the method "XRSession.updateTargetFrameRate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryUpdateTargetFrameRate(rate float32) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionUpdateTargetFrameRate(
@@ -1833,7 +1833,7 @@ func (this XRSession) RequestReferenceSpace(typ XRReferenceSpaceType) (ret js.Pr
 }
 
 // TryRequestReferenceSpace calls the method "XRSession.requestReferenceSpace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryRequestReferenceSpace(typ XRReferenceSpaceType) (ret js.Promise[XRReferenceSpace], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionRequestReferenceSpace(
@@ -1871,7 +1871,7 @@ func (this XRSession) RequestAnimationFrame(callback js.Func[func(time DOMHighRe
 }
 
 // TryRequestAnimationFrame calls the method "XRSession.requestAnimationFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryRequestAnimationFrame(callback js.Func[func(time DOMHighResTimeStamp, frame XRFrame)]) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionRequestAnimationFrame(
@@ -1909,7 +1909,7 @@ func (this XRSession) CancelAnimationFrame(handle uint32) (ret js.Void) {
 }
 
 // TryCancelAnimationFrame calls the method "XRSession.cancelAnimationFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryCancelAnimationFrame(handle uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionCancelAnimationFrame(
@@ -1946,7 +1946,7 @@ func (this XRSession) End() (ret js.Promise[js.Void]) {
 }
 
 // TryEnd calls the method "XRSession.end"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryEnd() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionEnd(
@@ -1983,7 +1983,7 @@ func (this XRSession) RestorePersistentAnchor(uuid js.String) (ret js.Promise[XR
 }
 
 // TryRestorePersistentAnchor calls the method "XRSession.restorePersistentAnchor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryRestorePersistentAnchor(uuid js.String) (ret js.Promise[XRAnchor], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionRestorePersistentAnchor(
@@ -2021,7 +2021,7 @@ func (this XRSession) DeletePersistentAnchor(uuid js.String) (ret js.Promise[js.
 }
 
 // TryDeletePersistentAnchor calls the method "XRSession.deletePersistentAnchor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryDeletePersistentAnchor(uuid js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionDeletePersistentAnchor(
@@ -2059,7 +2059,7 @@ func (this XRSession) RequestLightProbe(options XRLightProbeInit) (ret js.Promis
 }
 
 // TryRequestLightProbe calls the method "XRSession.requestLightProbe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryRequestLightProbe(options XRLightProbeInit) (ret js.Promise[XRLightProbe], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionRequestLightProbe(
@@ -2096,7 +2096,7 @@ func (this XRSession) RequestLightProbe1() (ret js.Promise[XRLightProbe]) {
 }
 
 // TryRequestLightProbe1 calls the method "XRSession.requestLightProbe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryRequestLightProbe1() (ret js.Promise[XRLightProbe], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionRequestLightProbe1(
@@ -2133,7 +2133,7 @@ func (this XRSession) RequestHitTestSource(options XRHitTestOptionsInit) (ret js
 }
 
 // TryRequestHitTestSource calls the method "XRSession.requestHitTestSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryRequestHitTestSource(options XRHitTestOptionsInit) (ret js.Promise[XRHitTestSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionRequestHitTestSource(
@@ -2171,7 +2171,7 @@ func (this XRSession) RequestHitTestSourceForTransientInput(options XRTransientI
 }
 
 // TryRequestHitTestSourceForTransientInput calls the method "XRSession.requestHitTestSourceForTransientInput"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSession) TryRequestHitTestSourceForTransientInput(options XRTransientInputHitTestOptionsInit) (ret js.Promise[XRTransientInputHitTestSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSessionRequestHitTestSourceForTransientInput(
@@ -2359,7 +2359,7 @@ func (this XRSystem) IsSessionSupported(mode XRSessionMode) (ret js.Promise[js.B
 }
 
 // TryIsSessionSupported calls the method "XRSystem.isSessionSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSystem) TryIsSessionSupported(mode XRSessionMode) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSystemIsSessionSupported(
@@ -2398,7 +2398,7 @@ func (this XRSystem) RequestSession(mode XRSessionMode, options XRSessionInit) (
 }
 
 // TryRequestSession calls the method "XRSystem.requestSession"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSystem) TryRequestSession(mode XRSessionMode, options XRSessionInit) (ret js.Promise[XRSession], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSystemRequestSession(
@@ -2437,7 +2437,7 @@ func (this XRSystem) RequestSession1(mode XRSessionMode) (ret js.Promise[XRSessi
 }
 
 // TryRequestSession1 calls the method "XRSystem.requestSession"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRSystem) TryRequestSession1(mode XRSessionMode) (ret js.Promise[XRSession], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRSystemRequestSession1(
@@ -2939,7 +2939,7 @@ func (this Notification) RequestPermission(deprecatedCallback js.Func[func(permi
 }
 
 // TryRequestPermission calls the staticmethod "Notification.requestPermission"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Notification) TryRequestPermission(deprecatedCallback js.Func[func(permission NotificationPermission)]) (ret js.Promise[NotificationPermission], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNotificationRequestPermission(
@@ -2976,7 +2976,7 @@ func (this Notification) RequestPermission1() (ret js.Promise[NotificationPermis
 }
 
 // TryRequestPermission1 calls the staticmethod "Notification.requestPermission"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Notification) TryRequestPermission1() (ret js.Promise[NotificationPermission], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNotificationRequestPermission1(
@@ -3012,7 +3012,7 @@ func (this Notification) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "Notification.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Notification) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNotificationClose(

@@ -8,19 +8,19 @@ package runtime
 import (
 	"unsafe"
 
-	stdslice "github.com/primecitizens/std/builtin/slice"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/asan"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/bits"
-	"github.com/primecitizens/std/core/math"
-	"github.com/primecitizens/std/core/mem"
-	"github.com/primecitizens/std/core/msan"
-	"github.com/primecitizens/std/core/num"
-	"github.com/primecitizens/std/core/os"
-	"github.com/primecitizens/std/core/race"
+	stdslice "github.com/primecitizens/pcz/std/builtin/slice"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/asan"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/bits"
+	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/core/mem"
+	"github.com/primecitizens/pcz/std/core/msan"
+	"github.com/primecitizens/pcz/std/core/num"
+	"github.com/primecitizens/pcz/std/core/os"
+	"github.com/primecitizens/pcz/std/core/race"
 )
 
 // see $GOROOT/src/runtime/slice.go

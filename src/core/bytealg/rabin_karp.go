@@ -3,7 +3,7 @@
 
 package bytealg
 
-import "github.com/primecitizens/std/core/cmp"
+import "github.com/primecitizens/pcz/std/core/cmp"
 
 // FIXME: the logic of HashStrBytes, HashStrRevBytes, IndexRabinKarpBytes and HashStr, HashStrRev,
 // IndexRabinKarp are exactly the same, except that the types are different. Can we eliminate

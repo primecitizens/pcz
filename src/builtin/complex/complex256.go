@@ -4,7 +4,7 @@
 package stdcomplex
 
 import (
-	stdfloat "github.com/primecitizens/std/builtin/float"
+	stdfloat "github.com/primecitizens/pcz/std/builtin/float"
 )
 
 type Complex256 struct {

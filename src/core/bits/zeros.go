@@ -8,7 +8,7 @@
 package bits
 
 import (
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 // LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.

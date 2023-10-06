@@ -8,7 +8,7 @@
 package bits
 
 import (
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 // Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.

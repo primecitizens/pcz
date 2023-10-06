@@ -8,9 +8,9 @@
 package utf16
 
 import (
-	"github.com/primecitizens/std/core/assert"
-	. "github.com/primecitizens/std/text/unicode/common"
-	"github.com/primecitizens/std/text/unicode/utf8"
+	"github.com/primecitizens/pcz/std/core/assert"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/text/unicode/utf8"
 )
 
 // UTF8DecodedSize returns UTF-8 bytes required to store the decoded

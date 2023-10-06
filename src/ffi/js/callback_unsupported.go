@@ -6,7 +6,7 @@
 package js
 
 import (
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 func callDispatcher(

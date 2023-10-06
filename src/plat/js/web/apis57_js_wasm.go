@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -224,7 +224,7 @@ func (this WebSocket) Close(code uint16, reason js.String) (ret js.Void) {
 }
 
 // TryClose calls the method "WebSocket.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebSocket) TryClose(code uint16, reason js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebSocketClose(
@@ -263,7 +263,7 @@ func (this WebSocket) Close1(code uint16) (ret js.Void) {
 }
 
 // TryClose1 calls the method "WebSocket.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebSocket) TryClose1(code uint16) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebSocketClose1(
@@ -300,7 +300,7 @@ func (this WebSocket) Close2() (ret js.Void) {
 }
 
 // TryClose2 calls the method "WebSocket.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebSocket) TryClose2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebSocketClose2(
@@ -337,7 +337,7 @@ func (this WebSocket) Send(data OneOf_TypedArrayInt8_TypedArrayInt16_TypedArrayI
 }
 
 // TrySend calls the method "WebSocket.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebSocket) TrySend(data OneOf_TypedArrayInt8_TypedArrayInt16_TypedArrayInt32_TypedArrayUint8_TypedArrayUint16_TypedArrayUint32_TypedArrayInt64_TypedArrayUint64_TypedArrayFloat32_TypedArrayFloat64_DataView_ArrayBuffer_Blob_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebSocketSend(
@@ -818,7 +818,7 @@ func (this WebTransportReceiveStream) GetStats() (ret js.Promise[WebTransportRec
 }
 
 // TryGetStats calls the method "WebTransportReceiveStream.getStats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransportReceiveStream) TryGetStats() (ret js.Promise[WebTransportReceiveStreamStats], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportReceiveStreamGetStats(
@@ -975,7 +975,7 @@ func (this WebTransportSendStream) GetStats() (ret js.Promise[WebTransportSendSt
 }
 
 // TryGetStats calls the method "WebTransportSendStream.getStats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransportSendStream) TryGetStats() (ret js.Promise[WebTransportSendStreamStats], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportSendStreamGetStats(
@@ -1367,7 +1367,7 @@ func (this WebTransport) GetStats() (ret js.Promise[WebTransportStats]) {
 }
 
 // TryGetStats calls the method "WebTransport.getStats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransport) TryGetStats() (ret js.Promise[WebTransportStats], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportGetStats(
@@ -1404,7 +1404,7 @@ func (this WebTransport) Close(closeInfo WebTransportCloseInfo) (ret js.Void) {
 }
 
 // TryClose calls the method "WebTransport.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransport) TryClose(closeInfo WebTransportCloseInfo) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportClose(
@@ -1441,7 +1441,7 @@ func (this WebTransport) Close1() (ret js.Void) {
 }
 
 // TryClose1 calls the method "WebTransport.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransport) TryClose1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportClose1(
@@ -1478,7 +1478,7 @@ func (this WebTransport) CreateBidirectionalStream(options WebTransportSendStrea
 }
 
 // TryCreateBidirectionalStream calls the method "WebTransport.createBidirectionalStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransport) TryCreateBidirectionalStream(options WebTransportSendStreamOptions) (ret js.Promise[WebTransportBidirectionalStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportCreateBidirectionalStream(
@@ -1515,7 +1515,7 @@ func (this WebTransport) CreateBidirectionalStream1() (ret js.Promise[WebTranspo
 }
 
 // TryCreateBidirectionalStream1 calls the method "WebTransport.createBidirectionalStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransport) TryCreateBidirectionalStream1() (ret js.Promise[WebTransportBidirectionalStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportCreateBidirectionalStream1(
@@ -1552,7 +1552,7 @@ func (this WebTransport) CreateUnidirectionalStream(options WebTransportSendStre
 }
 
 // TryCreateUnidirectionalStream calls the method "WebTransport.createUnidirectionalStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransport) TryCreateUnidirectionalStream(options WebTransportSendStreamOptions) (ret js.Promise[WebTransportSendStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportCreateUnidirectionalStream(
@@ -1589,7 +1589,7 @@ func (this WebTransport) CreateUnidirectionalStream1() (ret js.Promise[WebTransp
 }
 
 // TryCreateUnidirectionalStream1 calls the method "WebTransport.createUnidirectionalStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebTransport) TryCreateUnidirectionalStream1() (ret js.Promise[WebTransportSendStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebTransportCreateUnidirectionalStream1(
@@ -2599,7 +2599,7 @@ func (this WorkerNavigator) TaintEnabled() (ret bool) {
 }
 
 // TryTaintEnabled calls the method "WorkerNavigator.taintEnabled"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerNavigator) TryTaintEnabled() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerNavigatorTaintEnabled(
@@ -2636,7 +2636,7 @@ func (this WorkerNavigator) SetAppBadge(contents uint64) (ret js.Promise[js.Void
 }
 
 // TrySetAppBadge calls the method "WorkerNavigator.setAppBadge"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerNavigator) TrySetAppBadge(contents uint64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerNavigatorSetAppBadge(
@@ -2673,7 +2673,7 @@ func (this WorkerNavigator) SetAppBadge1() (ret js.Promise[js.Void]) {
 }
 
 // TrySetAppBadge1 calls the method "WorkerNavigator.setAppBadge"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerNavigator) TrySetAppBadge1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerNavigatorSetAppBadge1(
@@ -2709,7 +2709,7 @@ func (this WorkerNavigator) ClearAppBadge() (ret js.Promise[js.Void]) {
 }
 
 // TryClearAppBadge calls the method "WorkerNavigator.clearAppBadge"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerNavigator) TryClearAppBadge() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerNavigatorClearAppBadge(
@@ -2899,7 +2899,7 @@ func (this WorkerGlobalScope) ImportScripts(urls ...js.String) (ret js.Void) {
 }
 
 // TryImportScripts calls the method "WorkerGlobalScope.importScripts"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryImportScripts(urls ...js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeImportScripts(
@@ -2938,7 +2938,7 @@ func (this WorkerGlobalScope) ReportError(e js.Any) (ret js.Void) {
 }
 
 // TryReportError calls the method "WorkerGlobalScope.reportError"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryReportError(e js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeReportError(
@@ -2976,7 +2976,7 @@ func (this WorkerGlobalScope) Btoa(data js.String) (ret js.String) {
 }
 
 // TryBtoa calls the method "WorkerGlobalScope.btoa"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryBtoa(data js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeBtoa(
@@ -3014,7 +3014,7 @@ func (this WorkerGlobalScope) Atob(data js.String) (ret js.String) {
 }
 
 // TryAtob calls the method "WorkerGlobalScope.atob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryAtob(data js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeAtob(
@@ -3055,7 +3055,7 @@ func (this WorkerGlobalScope) SetTimeout(handler TimerHandler, timeout int32, ar
 }
 
 // TrySetTimeout calls the method "WorkerGlobalScope.setTimeout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TrySetTimeout(handler TimerHandler, timeout int32, arguments ...js.Any) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeSetTimeout(
@@ -3096,7 +3096,7 @@ func (this WorkerGlobalScope) SetTimeout1(handler TimerHandler) (ret int32) {
 }
 
 // TrySetTimeout1 calls the method "WorkerGlobalScope.setTimeout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TrySetTimeout1(handler TimerHandler) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeSetTimeout1(
@@ -3134,7 +3134,7 @@ func (this WorkerGlobalScope) ClearTimeout(id int32) (ret js.Void) {
 }
 
 // TryClearTimeout calls the method "WorkerGlobalScope.clearTimeout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryClearTimeout(id int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeClearTimeout(
@@ -3171,7 +3171,7 @@ func (this WorkerGlobalScope) ClearTimeout1() (ret js.Void) {
 }
 
 // TryClearTimeout1 calls the method "WorkerGlobalScope.clearTimeout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryClearTimeout1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeClearTimeout1(
@@ -3211,7 +3211,7 @@ func (this WorkerGlobalScope) SetInterval(handler TimerHandler, timeout int32, a
 }
 
 // TrySetInterval calls the method "WorkerGlobalScope.setInterval"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TrySetInterval(handler TimerHandler, timeout int32, arguments ...js.Any) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeSetInterval(
@@ -3252,7 +3252,7 @@ func (this WorkerGlobalScope) SetInterval1(handler TimerHandler) (ret int32) {
 }
 
 // TrySetInterval1 calls the method "WorkerGlobalScope.setInterval"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TrySetInterval1(handler TimerHandler) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeSetInterval1(
@@ -3290,7 +3290,7 @@ func (this WorkerGlobalScope) ClearInterval(id int32) (ret js.Void) {
 }
 
 // TryClearInterval calls the method "WorkerGlobalScope.clearInterval"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryClearInterval(id int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeClearInterval(
@@ -3327,7 +3327,7 @@ func (this WorkerGlobalScope) ClearInterval1() (ret js.Void) {
 }
 
 // TryClearInterval1 calls the method "WorkerGlobalScope.clearInterval"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryClearInterval1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeClearInterval1(
@@ -3364,7 +3364,7 @@ func (this WorkerGlobalScope) QueueMicrotask(callback js.Func[func()]) (ret js.V
 }
 
 // TryQueueMicrotask calls the method "WorkerGlobalScope.queueMicrotask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryQueueMicrotask(callback js.Func[func()]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeQueueMicrotask(
@@ -3403,7 +3403,7 @@ func (this WorkerGlobalScope) CreateImageBitmap(image ImageBitmapSource, options
 }
 
 // TryCreateImageBitmap calls the method "WorkerGlobalScope.createImageBitmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryCreateImageBitmap(image ImageBitmapSource, options ImageBitmapOptions) (ret js.Promise[ImageBitmap], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeCreateImageBitmap(
@@ -3442,7 +3442,7 @@ func (this WorkerGlobalScope) CreateImageBitmap1(image ImageBitmapSource) (ret j
 }
 
 // TryCreateImageBitmap1 calls the method "WorkerGlobalScope.createImageBitmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryCreateImageBitmap1(image ImageBitmapSource) (ret js.Promise[ImageBitmap], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeCreateImageBitmap1(
@@ -3485,7 +3485,7 @@ func (this WorkerGlobalScope) CreateImageBitmap2(image ImageBitmapSource, sx int
 }
 
 // TryCreateImageBitmap2 calls the method "WorkerGlobalScope.createImageBitmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryCreateImageBitmap2(image ImageBitmapSource, sx int32, sy int32, sw int32, sh int32, options ImageBitmapOptions) (ret js.Promise[ImageBitmap], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeCreateImageBitmap2(
@@ -3532,7 +3532,7 @@ func (this WorkerGlobalScope) CreateImageBitmap3(image ImageBitmapSource, sx int
 }
 
 // TryCreateImageBitmap3 calls the method "WorkerGlobalScope.createImageBitmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryCreateImageBitmap3(image ImageBitmapSource, sx int32, sy int32, sw int32, sh int32) (ret js.Promise[ImageBitmap], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeCreateImageBitmap3(
@@ -3575,7 +3575,7 @@ func (this WorkerGlobalScope) StructuredClone(value js.Any, options StructuredSe
 }
 
 // TryStructuredClone calls the method "WorkerGlobalScope.structuredClone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryStructuredClone(value js.Any, options StructuredSerializeOptions) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeStructuredClone(
@@ -3614,7 +3614,7 @@ func (this WorkerGlobalScope) StructuredClone1(value js.Any) (ret js.Any) {
 }
 
 // TryStructuredClone1 calls the method "WorkerGlobalScope.structuredClone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryStructuredClone1(value js.Any) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeStructuredClone1(
@@ -3653,7 +3653,7 @@ func (this WorkerGlobalScope) Fetch(input RequestInfo, init RequestInit) (ret js
 }
 
 // TryFetch calls the method "WorkerGlobalScope.fetch"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryFetch(input RequestInfo, init RequestInit) (ret js.Promise[Response], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeFetch(
@@ -3692,7 +3692,7 @@ func (this WorkerGlobalScope) Fetch1(input RequestInfo) (ret js.Promise[Response
 }
 
 // TryFetch1 calls the method "WorkerGlobalScope.fetch"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkerGlobalScope) TryFetch1(input RequestInfo) (ret js.Promise[Response], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerGlobalScopeFetch1(
@@ -3859,7 +3859,7 @@ func (this WorkletAnimationEffect) GetTiming() (ret EffectTiming) {
 }
 
 // TryGetTiming calls the method "WorkletAnimationEffect.getTiming"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkletAnimationEffect) TryGetTiming() (ret EffectTiming, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletAnimationEffectGetTiming(
@@ -3895,7 +3895,7 @@ func (this WorkletAnimationEffect) GetComputedTiming() (ret ComputedEffectTiming
 }
 
 // TryGetComputedTiming calls the method "WorkletAnimationEffect.getComputedTiming"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkletAnimationEffect) TryGetComputedTiming() (ret ComputedEffectTiming, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletAnimationEffectGetComputedTiming(
@@ -3975,7 +3975,7 @@ func (this WorkletGroupEffect) GetChildren() (ret js.Array[WorkletAnimationEffec
 }
 
 // TryGetChildren calls the method "WorkletGroupEffect.getChildren"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WorkletGroupEffect) TryGetChildren() (ret js.Array[WorkletAnimationEffect], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletGroupEffectGetChildren(
@@ -4327,7 +4327,7 @@ func (this XMLHttpRequest) Open(method js.String, url js.String) (ret js.Void) {
 }
 
 // TryOpen calls the method "XMLHttpRequest.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryOpen(method js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestOpen(
@@ -4370,7 +4370,7 @@ func (this XMLHttpRequest) Open1(method js.String, url js.String, async bool, us
 }
 
 // TryOpen1 calls the method "XMLHttpRequest.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryOpen1(method js.String, url js.String, async bool, username js.String, password js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestOpen1(
@@ -4415,7 +4415,7 @@ func (this XMLHttpRequest) Open2(method js.String, url js.String, async bool, us
 }
 
 // TryOpen2 calls the method "XMLHttpRequest.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryOpen2(method js.String, url js.String, async bool, username js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestOpen2(
@@ -4458,7 +4458,7 @@ func (this XMLHttpRequest) Open3(method js.String, url js.String, async bool) (r
 }
 
 // TryOpen3 calls the method "XMLHttpRequest.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryOpen3(method js.String, url js.String, async bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestOpen3(
@@ -4499,7 +4499,7 @@ func (this XMLHttpRequest) SetRequestHeader(name js.String, value js.String) (re
 }
 
 // TrySetRequestHeader calls the method "XMLHttpRequest.setRequestHeader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TrySetRequestHeader(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestSetRequestHeader(
@@ -4538,7 +4538,7 @@ func (this XMLHttpRequest) Send(body OneOf_Document_Blob_TypedArrayInt8_TypedArr
 }
 
 // TrySend calls the method "XMLHttpRequest.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TrySend(body OneOf_Document_Blob_TypedArrayInt8_TypedArrayInt16_TypedArrayInt32_TypedArrayUint8_TypedArrayUint16_TypedArrayUint32_TypedArrayInt64_TypedArrayUint64_TypedArrayFloat32_TypedArrayFloat64_DataView_ArrayBuffer_FormData_URLSearchParams_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestSend(
@@ -4575,7 +4575,7 @@ func (this XMLHttpRequest) Send1() (ret js.Void) {
 }
 
 // TrySend1 calls the method "XMLHttpRequest.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TrySend1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestSend1(
@@ -4611,7 +4611,7 @@ func (this XMLHttpRequest) Abort() (ret js.Void) {
 }
 
 // TryAbort calls the method "XMLHttpRequest.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestAbort(
@@ -4648,7 +4648,7 @@ func (this XMLHttpRequest) GetResponseHeader(name js.String) (ret js.String) {
 }
 
 // TryGetResponseHeader calls the method "XMLHttpRequest.getResponseHeader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryGetResponseHeader(name js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestGetResponseHeader(
@@ -4685,7 +4685,7 @@ func (this XMLHttpRequest) GetAllResponseHeaders() (ret js.String) {
 }
 
 // TryGetAllResponseHeaders calls the method "XMLHttpRequest.getAllResponseHeaders"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryGetAllResponseHeaders() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestGetAllResponseHeaders(
@@ -4722,7 +4722,7 @@ func (this XMLHttpRequest) OverrideMimeType(mime js.String) (ret js.Void) {
 }
 
 // TryOverrideMimeType calls the method "XMLHttpRequest.overrideMimeType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TryOverrideMimeType(mime js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestOverrideMimeType(
@@ -4760,7 +4760,7 @@ func (this XMLHttpRequest) SetAttributionReporting(options AttributionReportingR
 }
 
 // TrySetAttributionReporting calls the method "XMLHttpRequest.setAttributionReporting"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TrySetAttributionReporting(options AttributionReportingRequestOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestSetAttributionReporting(
@@ -4798,7 +4798,7 @@ func (this XMLHttpRequest) SetPrivateToken(privateToken PrivateToken) (ret js.Vo
 }
 
 // TrySetPrivateToken calls the method "XMLHttpRequest.setPrivateToken"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLHttpRequest) TrySetPrivateToken(privateToken PrivateToken) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLHttpRequestSetPrivateToken(
@@ -4964,7 +4964,7 @@ func (this XMLSerializer) SerializeToString(root Node) (ret js.String) {
 }
 
 // TrySerializeToString calls the method "XMLSerializer.serializeToString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XMLSerializer) TrySerializeToString(root Node) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXMLSerializerSerializeToString(
@@ -5025,7 +5025,7 @@ func (this XPathEvaluator) CreateExpression(expression js.String, resolver js.Fu
 }
 
 // TryCreateExpression calls the method "XPathEvaluator.createExpression"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XPathEvaluator) TryCreateExpression(expression js.String, resolver js.Func[func(prefix js.String) js.String]) (ret XPathExpression, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXPathEvaluatorCreateExpression(
@@ -5064,7 +5064,7 @@ func (this XPathEvaluator) CreateExpression1(expression js.String) (ret XPathExp
 }
 
 // TryCreateExpression1 calls the method "XPathEvaluator.createExpression"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XPathEvaluator) TryCreateExpression1(expression js.String) (ret XPathExpression, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXPathEvaluatorCreateExpression1(
@@ -5102,7 +5102,7 @@ func (this XPathEvaluator) CreateNSResolver(nodeResolver Node) (ret Node) {
 }
 
 // TryCreateNSResolver calls the method "XPathEvaluator.createNSResolver"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XPathEvaluator) TryCreateNSResolver(nodeResolver Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXPathEvaluatorCreateNSResolver(
@@ -5144,7 +5144,7 @@ func (this XPathEvaluator) Evaluate(expression js.String, contextNode Node, reso
 }
 
 // TryEvaluate calls the method "XPathEvaluator.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XPathEvaluator) TryEvaluate(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16, result XPathResult) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXPathEvaluatorEvaluate(
@@ -5189,7 +5189,7 @@ func (this XPathEvaluator) Evaluate1(expression js.String, contextNode Node, res
 }
 
 // TryEvaluate1 calls the method "XPathEvaluator.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XPathEvaluator) TryEvaluate1(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXPathEvaluatorEvaluate1(
@@ -5232,7 +5232,7 @@ func (this XPathEvaluator) Evaluate2(expression js.String, contextNode Node, res
 }
 
 // TryEvaluate2 calls the method "XPathEvaluator.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XPathEvaluator) TryEvaluate2(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String]) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXPathEvaluatorEvaluate2(
@@ -5273,7 +5273,7 @@ func (this XPathEvaluator) Evaluate3(expression js.String, contextNode Node) (re
 }
 
 // TryEvaluate3 calls the method "XPathEvaluator.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XPathEvaluator) TryEvaluate3(expression js.String, contextNode Node) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXPathEvaluatorEvaluate3(

@@ -8,7 +8,7 @@ package sys
 import (
 	_ "unsafe" // for go:linkname
 
-	stdstring "github.com/primecitizens/std/builtin/string"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
 )
 
 var (

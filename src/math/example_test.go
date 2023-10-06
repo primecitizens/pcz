@@ -7,7 +7,7 @@ package math_test
 import (
 	"fmt"
 
-	"github.com/primecitizens/std/math"
+	"github.com/primecitizens/pcz/std/math"
 )
 
 func ExampleAcos() {

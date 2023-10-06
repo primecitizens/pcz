@@ -10,10 +10,10 @@ package stdmap
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/thread"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/thread"
 )
 
 func MakeSmall() *hmap {

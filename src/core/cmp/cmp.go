@@ -8,7 +8,7 @@
 package cmp
 
 import (
-	"github.com/primecitizens/std/core/num"
+	"github.com/primecitizens/pcz/std/core/num"
 )
 
 // Ordered is a constraint that permits any ordered type except floating-point

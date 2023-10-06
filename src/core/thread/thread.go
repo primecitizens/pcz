@@ -8,7 +8,7 @@ package thread
 import (
 	_ "unsafe" // for go:linkname
 
-	stdgo "github.com/primecitizens/std/builtin/go"
+	stdgo "github.com/primecitizens/pcz/std/builtin/go"
 )
 
 // GetTLSBaseAddress returns the start address of thread local storage

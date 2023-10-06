@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -340,7 +340,7 @@ func (this FontFacePalette) Get(index uint32) (ret js.String) {
 }
 
 // TryGet calls the method "FontFacePalette."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFacePalette) TryGet(index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFacePaletteGet(
@@ -410,7 +410,7 @@ func (this FontFacePalettes) Get(index uint32) (ret FontFacePalette) {
 }
 
 // TryGet calls the method "FontFacePalettes."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFacePalettes) TryGet(index uint32) (ret FontFacePalette, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFacePalettesGet(
@@ -774,7 +774,7 @@ func (this FontFace) Load() (ret js.Promise[FontFace]) {
 }
 
 // TryLoad calls the method "FontFace.load"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFace) TryLoad() (ret js.Promise[FontFace], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceLoad(
@@ -883,7 +883,7 @@ func (this FontFaceSet) Add(font FontFace) (ret FontFaceSet) {
 }
 
 // TryAdd calls the method "FontFaceSet.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFaceSet) TryAdd(font FontFace) (ret FontFaceSet, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetAdd(
@@ -921,7 +921,7 @@ func (this FontFaceSet) Delete(font FontFace) (ret bool) {
 }
 
 // TryDelete calls the method "FontFaceSet.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFaceSet) TryDelete(font FontFace) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetDelete(
@@ -958,7 +958,7 @@ func (this FontFaceSet) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "FontFaceSet.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFaceSet) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetClear(
@@ -996,7 +996,7 @@ func (this FontFaceSet) Load(font js.String, text js.String) (ret js.Promise[js.
 }
 
 // TryLoad calls the method "FontFaceSet.load"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFaceSet) TryLoad(font js.String, text js.String) (ret js.Promise[js.Array[FontFace]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetLoad(
@@ -1035,7 +1035,7 @@ func (this FontFaceSet) Load1(font js.String) (ret js.Promise[js.Array[FontFace]
 }
 
 // TryLoad1 calls the method "FontFaceSet.load"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFaceSet) TryLoad1(font js.String) (ret js.Promise[js.Array[FontFace]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetLoad1(
@@ -1074,7 +1074,7 @@ func (this FontFaceSet) Check(font js.String, text js.String) (ret bool) {
 }
 
 // TryCheck calls the method "FontFaceSet.check"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFaceSet) TryCheck(font js.String, text js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetCheck(
@@ -1113,7 +1113,7 @@ func (this FontFaceSet) Check1(font js.String) (ret bool) {
 }
 
 // TryCheck1 calls the method "FontFaceSet.check"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontFaceSet) TryCheck1(font js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontFaceSetCheck1(
@@ -1903,7 +1903,7 @@ func (this Document) GetElementsByTagName(qualifiedName js.String) (ret HTMLColl
 }
 
 // TryGetElementsByTagName calls the method "Document.getElementsByTagName"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetElementsByTagName(qualifiedName js.String) (ret HTMLCollection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByTagName(
@@ -1942,7 +1942,7 @@ func (this Document) GetElementsByTagNameNS(namespace js.String, localName js.St
 }
 
 // TryGetElementsByTagNameNS calls the method "Document.getElementsByTagNameNS"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetElementsByTagNameNS(namespace js.String, localName js.String) (ret HTMLCollection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByTagNameNS(
@@ -1981,7 +1981,7 @@ func (this Document) GetElementsByClassName(classNames js.String) (ret HTMLColle
 }
 
 // TryGetElementsByClassName calls the method "Document.getElementsByClassName"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetElementsByClassName(classNames js.String) (ret HTMLCollection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByClassName(
@@ -2020,7 +2020,7 @@ func (this Document) CreateElement(localName js.String, options OneOf_String_Ele
 }
 
 // TryCreateElement calls the method "Document.createElement"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateElement(localName js.String, options OneOf_String_ElementCreationOptions) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElement(
@@ -2059,7 +2059,7 @@ func (this Document) CreateElement1(localName js.String) (ret Element) {
 }
 
 // TryCreateElement1 calls the method "Document.createElement"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateElement1(localName js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElement1(
@@ -2099,7 +2099,7 @@ func (this Document) CreateElementNS(namespace js.String, qualifiedName js.Strin
 }
 
 // TryCreateElementNS calls the method "Document.createElementNS"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateElementNS(namespace js.String, qualifiedName js.String, options OneOf_String_ElementCreationOptions) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElementNS(
@@ -2140,7 +2140,7 @@ func (this Document) CreateElementNS1(namespace js.String, qualifiedName js.Stri
 }
 
 // TryCreateElementNS1 calls the method "Document.createElementNS"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateElementNS1(namespace js.String, qualifiedName js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateElementNS1(
@@ -2178,7 +2178,7 @@ func (this Document) CreateDocumentFragment() (ret DocumentFragment) {
 }
 
 // TryCreateDocumentFragment calls the method "Document.createDocumentFragment"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateDocumentFragment() (ret DocumentFragment, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateDocumentFragment(
@@ -2215,7 +2215,7 @@ func (this Document) CreateTextNode(data js.String) (ret Text) {
 }
 
 // TryCreateTextNode calls the method "Document.createTextNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateTextNode(data js.String) (ret Text, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTextNode(
@@ -2253,7 +2253,7 @@ func (this Document) CreateCDATASection(data js.String) (ret CDATASection) {
 }
 
 // TryCreateCDATASection calls the method "Document.createCDATASection"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateCDATASection(data js.String) (ret CDATASection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateCDATASection(
@@ -2291,7 +2291,7 @@ func (this Document) CreateComment(data js.String) (ret Comment) {
 }
 
 // TryCreateComment calls the method "Document.createComment"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateComment(data js.String) (ret Comment, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateComment(
@@ -2330,7 +2330,7 @@ func (this Document) CreateProcessingInstruction(target js.String, data js.Strin
 }
 
 // TryCreateProcessingInstruction calls the method "Document.createProcessingInstruction"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateProcessingInstruction(target js.String, data js.String) (ret ProcessingInstruction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateProcessingInstruction(
@@ -2370,7 +2370,7 @@ func (this Document) ImportNode(node Node, deep bool) (ret Node) {
 }
 
 // TryImportNode calls the method "Document.importNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryImportNode(node Node, deep bool) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentImportNode(
@@ -2409,7 +2409,7 @@ func (this Document) ImportNode1(node Node) (ret Node) {
 }
 
 // TryImportNode1 calls the method "Document.importNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryImportNode1(node Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentImportNode1(
@@ -2447,7 +2447,7 @@ func (this Document) AdoptNode(node Node) (ret Node) {
 }
 
 // TryAdoptNode calls the method "Document.adoptNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryAdoptNode(node Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentAdoptNode(
@@ -2485,7 +2485,7 @@ func (this Document) CreateAttribute(localName js.String) (ret Attr) {
 }
 
 // TryCreateAttribute calls the method "Document.createAttribute"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateAttribute(localName js.String) (ret Attr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateAttribute(
@@ -2524,7 +2524,7 @@ func (this Document) CreateAttributeNS(namespace js.String, qualifiedName js.Str
 }
 
 // TryCreateAttributeNS calls the method "Document.createAttributeNS"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateAttributeNS(namespace js.String, qualifiedName js.String) (ret Attr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateAttributeNS(
@@ -2563,7 +2563,7 @@ func (this Document) CreateEvent(iface js.String) (ret Event) {
 }
 
 // TryCreateEvent calls the method "Document.createEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateEvent(iface js.String) (ret Event, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateEvent(
@@ -2600,7 +2600,7 @@ func (this Document) CreateRange() (ret Range) {
 }
 
 // TryCreateRange calls the method "Document.createRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateRange() (ret Range, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateRange(
@@ -2639,7 +2639,7 @@ func (this Document) CreateNodeIterator(root Node, whatToShow uint32, filter js.
 }
 
 // TryCreateNodeIterator calls the method "Document.createNodeIterator"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateNodeIterator(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) (ret NodeIterator, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNodeIterator(
@@ -2680,7 +2680,7 @@ func (this Document) CreateNodeIterator1(root Node, whatToShow uint32) (ret Node
 }
 
 // TryCreateNodeIterator1 calls the method "Document.createNodeIterator"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateNodeIterator1(root Node, whatToShow uint32) (ret NodeIterator, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNodeIterator1(
@@ -2719,7 +2719,7 @@ func (this Document) CreateNodeIterator2(root Node) (ret NodeIterator) {
 }
 
 // TryCreateNodeIterator2 calls the method "Document.createNodeIterator"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateNodeIterator2(root Node) (ret NodeIterator, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNodeIterator2(
@@ -2759,7 +2759,7 @@ func (this Document) CreateTreeWalker(root Node, whatToShow uint32, filter js.Fu
 }
 
 // TryCreateTreeWalker calls the method "Document.createTreeWalker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateTreeWalker(root Node, whatToShow uint32, filter js.Func[func(node Node) uint16]) (ret TreeWalker, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTreeWalker(
@@ -2800,7 +2800,7 @@ func (this Document) CreateTreeWalker1(root Node, whatToShow uint32) (ret TreeWa
 }
 
 // TryCreateTreeWalker1 calls the method "Document.createTreeWalker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateTreeWalker1(root Node, whatToShow uint32) (ret TreeWalker, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTreeWalker1(
@@ -2839,7 +2839,7 @@ func (this Document) CreateTreeWalker2(root Node) (ret TreeWalker) {
 }
 
 // TryCreateTreeWalker2 calls the method "Document.createTreeWalker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateTreeWalker2(root Node) (ret TreeWalker, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateTreeWalker2(
@@ -2877,7 +2877,7 @@ func (this Document) StartViewTransition(updateCallback js.Func[func() js.Promis
 }
 
 // TryStartViewTransition calls the method "Document.startViewTransition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryStartViewTransition(updateCallback js.Func[func() js.Promise[js.Any]]) (ret ViewTransition, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentStartViewTransition(
@@ -2914,7 +2914,7 @@ func (this Document) StartViewTransition1() (ret ViewTransition) {
 }
 
 // TryStartViewTransition1 calls the method "Document.startViewTransition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryStartViewTransition1() (ret ViewTransition, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentStartViewTransition1(
@@ -2951,7 +2951,7 @@ func (this Document) MeasureElement(element Element) (ret FontMetrics) {
 }
 
 // TryMeasureElement calls the method "Document.measureElement"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryMeasureElement(element Element) (ret FontMetrics, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentMeasureElement(
@@ -2990,7 +2990,7 @@ func (this Document) MeasureText(text js.String, styleMap StylePropertyMapReadOn
 }
 
 // TryMeasureText calls the method "Document.measureText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryMeasureText(text js.String, styleMap StylePropertyMapReadOnly) (ret FontMetrics, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentMeasureText(
@@ -3028,7 +3028,7 @@ func (this Document) GetSelection() (ret Selection) {
 }
 
 // TryGetSelection calls the method "Document.getSelection"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetSelection() (ret Selection, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetSelection(
@@ -3064,7 +3064,7 @@ func (this Document) ExitPointerLock() (ret js.Void) {
 }
 
 // TryExitPointerLock calls the method "Document.exitPointerLock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryExitPointerLock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExitPointerLock(
@@ -3100,7 +3100,7 @@ func (this Document) ExitFullscreen() (ret js.Promise[js.Void]) {
 }
 
 // TryExitFullscreen calls the method "Document.exitFullscreen"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryExitFullscreen() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExitFullscreen(
@@ -3136,7 +3136,7 @@ func (this Document) HasStorageAccess() (ret js.Promise[js.Boolean]) {
 }
 
 // TryHasStorageAccess calls the method "Document.hasStorageAccess"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryHasStorageAccess() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasStorageAccess(
@@ -3172,7 +3172,7 @@ func (this Document) RequestStorageAccess() (ret js.Promise[js.Void]) {
 }
 
 // TryRequestStorageAccess calls the method "Document.requestStorageAccess"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryRequestStorageAccess() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentRequestStorageAccess(
@@ -3208,7 +3208,7 @@ func (this Document) ExitPictureInPicture() (ret js.Promise[js.Void]) {
 }
 
 // TryExitPictureInPicture calls the method "Document.exitPictureInPicture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryExitPictureInPicture() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExitPictureInPicture(
@@ -3245,7 +3245,7 @@ func (this Document) HasPrivateTokens(issuer js.String) (ret js.Promise[js.Boole
 }
 
 // TryHasPrivateTokens calls the method "Document.hasPrivateTokens"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryHasPrivateTokens(issuer js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasPrivateTokens(
@@ -3283,7 +3283,7 @@ func (this Document) HasRedemptionRecord(issuer js.String) (ret js.Promise[js.Bo
 }
 
 // TryHasRedemptionRecord calls the method "Document.hasRedemptionRecord"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryHasRedemptionRecord(issuer js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasRedemptionRecord(
@@ -3322,7 +3322,7 @@ func (this Document) ElementFromPoint(x float64, y float64) (ret Element) {
 }
 
 // TryElementFromPoint calls the method "Document.elementFromPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryElementFromPoint(x float64, y float64) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentElementFromPoint(
@@ -3362,7 +3362,7 @@ func (this Document) ElementsFromPoint(x float64, y float64) (ret js.Array[Eleme
 }
 
 // TryElementsFromPoint calls the method "Document.elementsFromPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryElementsFromPoint(x float64, y float64) (ret js.Array[Element], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentElementsFromPoint(
@@ -3402,7 +3402,7 @@ func (this Document) CaretPositionFromPoint(x float64, y float64) (ret CaretPosi
 }
 
 // TryCaretPositionFromPoint calls the method "Document.caretPositionFromPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCaretPositionFromPoint(x float64, y float64) (ret CaretPosition, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCaretPositionFromPoint(
@@ -3440,7 +3440,7 @@ func (this Document) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "Document.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentClear(
@@ -3476,7 +3476,7 @@ func (this Document) CaptureEvents() (ret js.Void) {
 }
 
 // TryCaptureEvents calls the method "Document.captureEvents"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCaptureEvents() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCaptureEvents(
@@ -3512,7 +3512,7 @@ func (this Document) ReleaseEvents() (ret js.Void) {
 }
 
 // TryReleaseEvents calls the method "Document.releaseEvents"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryReleaseEvents() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentReleaseEvents(
@@ -3549,7 +3549,7 @@ func (this Document) RequestStorageAccessFor(requestedOrigin js.String) (ret js.
 }
 
 // TryRequestStorageAccessFor calls the method "Document.requestStorageAccessFor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryRequestStorageAccessFor(requestedOrigin js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentRequestStorageAccessFor(
@@ -3587,7 +3587,7 @@ func (this Document) Get(name js.String) (ret js.Object) {
 }
 
 // TryGet calls the method "Document."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGet(name js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGet(
@@ -3625,7 +3625,7 @@ func (this Document) GetElementsByName(elementName js.String) (ret NodeList) {
 }
 
 // TryGetElementsByName calls the method "Document.getElementsByName"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetElementsByName(elementName js.String) (ret NodeList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementsByName(
@@ -3664,7 +3664,7 @@ func (this Document) Open(unused1 js.String, unused2 js.String) (ret Document) {
 }
 
 // TryOpen calls the method "Document.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryOpen(unused1 js.String, unused2 js.String) (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen(
@@ -3703,7 +3703,7 @@ func (this Document) Open1(unused1 js.String) (ret Document) {
 }
 
 // TryOpen1 calls the method "Document.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryOpen1(unused1 js.String) (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen1(
@@ -3740,7 +3740,7 @@ func (this Document) Open2() (ret Document) {
 }
 
 // TryOpen2 calls the method "Document.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryOpen2() (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen2(
@@ -3779,7 +3779,7 @@ func (this Document) Open3(url js.String, name js.String, features js.String) (r
 }
 
 // TryOpen3 calls the method "Document.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryOpen3(url js.String, name js.String, features js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentOpen3(
@@ -3818,7 +3818,7 @@ func (this Document) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "Document.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentClose(
@@ -3856,7 +3856,7 @@ func (this Document) Write(text ...js.String) (ret js.Void) {
 }
 
 // TryWrite calls the method "Document.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryWrite(text ...js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentWrite(
@@ -3896,7 +3896,7 @@ func (this Document) Writeln(text ...js.String) (ret js.Void) {
 }
 
 // TryWriteln calls the method "Document.writeln"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryWriteln(text ...js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentWriteln(
@@ -3934,7 +3934,7 @@ func (this Document) HasFocus() (ret bool) {
 }
 
 // TryHasFocus calls the method "Document.hasFocus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryHasFocus() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentHasFocus(
@@ -3973,7 +3973,7 @@ func (this Document) ExecCommand(commandId js.String, showUI bool, value js.Stri
 }
 
 // TryExecCommand calls the method "Document.execCommand"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryExecCommand(commandId js.String, showUI bool, value js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExecCommand(
@@ -4014,7 +4014,7 @@ func (this Document) ExecCommand1(commandId js.String, showUI bool) (ret bool) {
 }
 
 // TryExecCommand1 calls the method "Document.execCommand"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryExecCommand1(commandId js.String, showUI bool) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExecCommand1(
@@ -4053,7 +4053,7 @@ func (this Document) ExecCommand2(commandId js.String) (ret bool) {
 }
 
 // TryExecCommand2 calls the method "Document.execCommand"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryExecCommand2(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentExecCommand2(
@@ -4091,7 +4091,7 @@ func (this Document) QueryCommandEnabled(commandId js.String) (ret bool) {
 }
 
 // TryQueryCommandEnabled calls the method "Document.queryCommandEnabled"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryQueryCommandEnabled(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandEnabled(
@@ -4129,7 +4129,7 @@ func (this Document) QueryCommandIndeterm(commandId js.String) (ret bool) {
 }
 
 // TryQueryCommandIndeterm calls the method "Document.queryCommandIndeterm"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryQueryCommandIndeterm(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandIndeterm(
@@ -4167,7 +4167,7 @@ func (this Document) QueryCommandState(commandId js.String) (ret bool) {
 }
 
 // TryQueryCommandState calls the method "Document.queryCommandState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryQueryCommandState(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandState(
@@ -4205,7 +4205,7 @@ func (this Document) QueryCommandSupported(commandId js.String) (ret bool) {
 }
 
 // TryQueryCommandSupported calls the method "Document.queryCommandSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryQueryCommandSupported(commandId js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandSupported(
@@ -4243,7 +4243,7 @@ func (this Document) QueryCommandValue(commandId js.String) (ret js.String) {
 }
 
 // TryQueryCommandValue calls the method "Document.queryCommandValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryQueryCommandValue(commandId js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQueryCommandValue(
@@ -4281,7 +4281,7 @@ func (this Document) GetBoxQuads(options BoxQuadOptions) (ret js.Array[DOMQuad])
 }
 
 // TryGetBoxQuads calls the method "Document.getBoxQuads"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetBoxQuads(options BoxQuadOptions) (ret js.Array[DOMQuad], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetBoxQuads(
@@ -4318,7 +4318,7 @@ func (this Document) GetBoxQuads1() (ret js.Array[DOMQuad]) {
 }
 
 // TryGetBoxQuads1 calls the method "Document.getBoxQuads"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetBoxQuads1() (ret js.Array[DOMQuad], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetBoxQuads1(
@@ -4357,7 +4357,7 @@ func (this Document) ConvertQuadFromNode(quad DOMQuadInit, from GeometryNode, op
 }
 
 // TryConvertQuadFromNode calls the method "Document.convertQuadFromNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryConvertQuadFromNode(quad DOMQuadInit, from GeometryNode, options ConvertCoordinateOptions) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertQuadFromNode(
@@ -4398,7 +4398,7 @@ func (this Document) ConvertQuadFromNode1(quad DOMQuadInit, from GeometryNode) (
 }
 
 // TryConvertQuadFromNode1 calls the method "Document.convertQuadFromNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryConvertQuadFromNode1(quad DOMQuadInit, from GeometryNode) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertQuadFromNode1(
@@ -4439,7 +4439,7 @@ func (this Document) ConvertRectFromNode(rect DOMRectReadOnly, from GeometryNode
 }
 
 // TryConvertRectFromNode calls the method "Document.convertRectFromNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryConvertRectFromNode(rect DOMRectReadOnly, from GeometryNode, options ConvertCoordinateOptions) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertRectFromNode(
@@ -4480,7 +4480,7 @@ func (this Document) ConvertRectFromNode1(rect DOMRectReadOnly, from GeometryNod
 }
 
 // TryConvertRectFromNode1 calls the method "Document.convertRectFromNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryConvertRectFromNode1(rect DOMRectReadOnly, from GeometryNode) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertRectFromNode1(
@@ -4521,7 +4521,7 @@ func (this Document) ConvertPointFromNode(point DOMPointInit, from GeometryNode,
 }
 
 // TryConvertPointFromNode calls the method "Document.convertPointFromNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryConvertPointFromNode(point DOMPointInit, from GeometryNode, options ConvertCoordinateOptions) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertPointFromNode(
@@ -4562,7 +4562,7 @@ func (this Document) ConvertPointFromNode1(point DOMPointInit, from GeometryNode
 }
 
 // TryConvertPointFromNode1 calls the method "Document.convertPointFromNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryConvertPointFromNode1(point DOMPointInit, from GeometryNode) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentConvertPointFromNode1(
@@ -4601,7 +4601,7 @@ func (this Document) GetElementById(elementId js.String) (ret Element) {
 }
 
 // TryGetElementById calls the method "Document.getElementById"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetElementById(elementId js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetElementById(
@@ -4638,7 +4638,7 @@ func (this Document) GetAnimations() (ret js.Array[Animation]) {
 }
 
 // TryGetAnimations calls the method "Document.getAnimations"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryGetAnimations() (ret js.Array[Animation], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentGetAnimations(
@@ -4676,7 +4676,7 @@ func (this Document) Prepend(nodes ...OneOf_Node_String) (ret js.Void) {
 }
 
 // TryPrepend calls the method "Document.prepend"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryPrepend(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentPrepend(
@@ -4716,7 +4716,7 @@ func (this Document) Append(nodes ...OneOf_Node_String) (ret js.Void) {
 }
 
 // TryAppend calls the method "Document.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryAppend(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentAppend(
@@ -4756,7 +4756,7 @@ func (this Document) ReplaceChildren(nodes ...OneOf_Node_String) (ret js.Void) {
 }
 
 // TryReplaceChildren calls the method "Document.replaceChildren"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryReplaceChildren(nodes ...OneOf_Node_String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentReplaceChildren(
@@ -4795,7 +4795,7 @@ func (this Document) QuerySelector(selectors js.String) (ret Element) {
 }
 
 // TryQuerySelector calls the method "Document.querySelector"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryQuerySelector(selectors js.String) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQuerySelector(
@@ -4833,7 +4833,7 @@ func (this Document) QuerySelectorAll(selectors js.String) (ret NodeList) {
 }
 
 // TryQuerySelectorAll calls the method "Document.querySelectorAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryQuerySelectorAll(selectors js.String) (ret NodeList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentQuerySelectorAll(
@@ -4872,7 +4872,7 @@ func (this Document) CreateExpression(expression js.String, resolver js.Func[fun
 }
 
 // TryCreateExpression calls the method "Document.createExpression"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateExpression(expression js.String, resolver js.Func[func(prefix js.String) js.String]) (ret XPathExpression, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateExpression(
@@ -4911,7 +4911,7 @@ func (this Document) CreateExpression1(expression js.String) (ret XPathExpressio
 }
 
 // TryCreateExpression1 calls the method "Document.createExpression"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateExpression1(expression js.String) (ret XPathExpression, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateExpression1(
@@ -4949,7 +4949,7 @@ func (this Document) CreateNSResolver(nodeResolver Node) (ret Node) {
 }
 
 // TryCreateNSResolver calls the method "Document.createNSResolver"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryCreateNSResolver(nodeResolver Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentCreateNSResolver(
@@ -4991,7 +4991,7 @@ func (this Document) Evaluate(expression js.String, contextNode Node, resolver j
 }
 
 // TryEvaluate calls the method "Document.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryEvaluate(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16, result XPathResult) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate(
@@ -5036,7 +5036,7 @@ func (this Document) Evaluate1(expression js.String, contextNode Node, resolver 
 }
 
 // TryEvaluate1 calls the method "Document.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryEvaluate1(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String], typ uint16) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate1(
@@ -5079,7 +5079,7 @@ func (this Document) Evaluate2(expression js.String, contextNode Node, resolver 
 }
 
 // TryEvaluate2 calls the method "Document.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryEvaluate2(expression js.String, contextNode Node, resolver js.Func[func(prefix js.String) js.String]) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate2(
@@ -5120,7 +5120,7 @@ func (this Document) Evaluate3(expression js.String, contextNode Node) (ret XPat
 }
 
 // TryEvaluate3 calls the method "Document.evaluate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Document) TryEvaluate3(expression js.String, contextNode Node) (ret XPathResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentEvaluate3(
@@ -5341,7 +5341,7 @@ func (this Node) GetRootNode(options GetRootNodeOptions) (ret Node) {
 }
 
 // TryGetRootNode calls the method "Node.getRootNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryGetRootNode(options GetRootNodeOptions) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeGetRootNode(
@@ -5378,7 +5378,7 @@ func (this Node) GetRootNode1() (ret Node) {
 }
 
 // TryGetRootNode1 calls the method "Node.getRootNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryGetRootNode1() (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeGetRootNode1(
@@ -5414,7 +5414,7 @@ func (this Node) HasChildNodes() (ret bool) {
 }
 
 // TryHasChildNodes calls the method "Node.hasChildNodes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryHasChildNodes() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeHasChildNodes(
@@ -5450,7 +5450,7 @@ func (this Node) Normalize() (ret js.Void) {
 }
 
 // TryNormalize calls the method "Node.normalize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryNormalize() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeNormalize(
@@ -5487,7 +5487,7 @@ func (this Node) CloneNode(deep bool) (ret Node) {
 }
 
 // TryCloneNode calls the method "Node.cloneNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryCloneNode(deep bool) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeCloneNode(
@@ -5524,7 +5524,7 @@ func (this Node) CloneNode1() (ret Node) {
 }
 
 // TryCloneNode1 calls the method "Node.cloneNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryCloneNode1() (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeCloneNode1(
@@ -5561,7 +5561,7 @@ func (this Node) IsEqualNode(otherNode Node) (ret bool) {
 }
 
 // TryIsEqualNode calls the method "Node.isEqualNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryIsEqualNode(otherNode Node) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeIsEqualNode(
@@ -5599,7 +5599,7 @@ func (this Node) IsSameNode(otherNode Node) (ret bool) {
 }
 
 // TryIsSameNode calls the method "Node.isSameNode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryIsSameNode(otherNode Node) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeIsSameNode(
@@ -5637,7 +5637,7 @@ func (this Node) CompareDocumentPosition(other Node) (ret uint16) {
 }
 
 // TryCompareDocumentPosition calls the method "Node.compareDocumentPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryCompareDocumentPosition(other Node) (ret uint16, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeCompareDocumentPosition(
@@ -5675,7 +5675,7 @@ func (this Node) Contains(other Node) (ret bool) {
 }
 
 // TryContains calls the method "Node.contains"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryContains(other Node) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeContains(
@@ -5713,7 +5713,7 @@ func (this Node) LookupPrefix(namespace js.String) (ret js.String) {
 }
 
 // TryLookupPrefix calls the method "Node.lookupPrefix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryLookupPrefix(namespace js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeLookupPrefix(
@@ -5751,7 +5751,7 @@ func (this Node) LookupNamespaceURI(prefix js.String) (ret js.String) {
 }
 
 // TryLookupNamespaceURI calls the method "Node.lookupNamespaceURI"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryLookupNamespaceURI(prefix js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeLookupNamespaceURI(
@@ -5789,7 +5789,7 @@ func (this Node) IsDefaultNamespace(namespace js.String) (ret bool) {
 }
 
 // TryIsDefaultNamespace calls the method "Node.isDefaultNamespace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryIsDefaultNamespace(namespace js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeIsDefaultNamespace(
@@ -5828,7 +5828,7 @@ func (this Node) InsertBefore(node Node, child Node) (ret Node) {
 }
 
 // TryInsertBefore calls the method "Node.insertBefore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryInsertBefore(node Node, child Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeInsertBefore(
@@ -5867,7 +5867,7 @@ func (this Node) AppendChild(node Node) (ret Node) {
 }
 
 // TryAppendChild calls the method "Node.appendChild"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryAppendChild(node Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeAppendChild(
@@ -5906,7 +5906,7 @@ func (this Node) ReplaceChild(node Node, child Node) (ret Node) {
 }
 
 // TryReplaceChild calls the method "Node.replaceChild"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryReplaceChild(node Node, child Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeReplaceChild(
@@ -5945,7 +5945,7 @@ func (this Node) RemoveChild(child Node) (ret Node) {
 }
 
 // TryRemoveChild calls the method "Node.removeChild"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Node) TryRemoveChild(child Node) (ret Node, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNodeRemoveChild(

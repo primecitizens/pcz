@@ -12,14 +12,14 @@ package stack
 import (
 	"unsafe"
 
-	stdgo "github.com/primecitizens/std/builtin/go"
-	stdprint "github.com/primecitizens/std/builtin/print"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/num"
-	"github.com/primecitizens/std/core/os"
-	"github.com/primecitizens/std/core/thread"
+	stdgo "github.com/primecitizens/pcz/std/builtin/go"
+	stdprint "github.com/primecitizens/pcz/std/builtin/print"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/num"
+	"github.com/primecitizens/pcz/std/core/os"
+	"github.com/primecitizens/pcz/std/core/thread"
 )
 
 type hex = uint64

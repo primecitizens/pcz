@@ -4,7 +4,7 @@
 package js
 
 import (
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 // NewString creates a js string for the string, return the reference to

@@ -13,8 +13,8 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/atomic"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/atomic"
 )
 
 func runParallel(N, iter int, f func()) {

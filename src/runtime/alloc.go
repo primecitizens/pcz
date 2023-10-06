@@ -8,7 +8,7 @@ package runtime
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/abi"
 )
 
 func explicit_mallocgc(typ *abi.Type, n uintptr, needszero bool) unsafe.Pointer {

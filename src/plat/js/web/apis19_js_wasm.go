@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -227,7 +227,7 @@ func (this Bluetooth) GetAvailability() (ret js.Promise[js.Boolean]) {
 }
 
 // TryGetAvailability calls the method "Bluetooth.getAvailability"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Bluetooth) TryGetAvailability() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothGetAvailability(
@@ -263,7 +263,7 @@ func (this Bluetooth) GetDevices() (ret js.Promise[js.Array[BluetoothDevice]]) {
 }
 
 // TryGetDevices calls the method "Bluetooth.getDevices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Bluetooth) TryGetDevices() (ret js.Promise[js.Array[BluetoothDevice]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothGetDevices(
@@ -300,7 +300,7 @@ func (this Bluetooth) RequestDevice(options RequestDeviceOptions) (ret js.Promis
 }
 
 // TryRequestDevice calls the method "Bluetooth.requestDevice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Bluetooth) TryRequestDevice(options RequestDeviceOptions) (ret js.Promise[BluetoothDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRequestDevice(
@@ -337,7 +337,7 @@ func (this Bluetooth) RequestDevice1() (ret js.Promise[BluetoothDevice]) {
 }
 
 // TryRequestDevice1 calls the method "Bluetooth.requestDevice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Bluetooth) TryRequestDevice1() (ret js.Promise[BluetoothDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRequestDevice1(
@@ -822,7 +822,7 @@ func (this BluetoothUUID) GetService(name OneOf_String_Uint32) (ret UUID) {
 }
 
 // TryGetService calls the staticmethod "BluetoothUUID.getService"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothUUID) TryGetService(name OneOf_String_Uint32) (ret UUID, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothUUIDGetService(
@@ -860,7 +860,7 @@ func (this BluetoothUUID) GetCharacteristic(name OneOf_String_Uint32) (ret UUID)
 }
 
 // TryGetCharacteristic calls the staticmethod "BluetoothUUID.getCharacteristic"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothUUID) TryGetCharacteristic(name OneOf_String_Uint32) (ret UUID, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothUUIDGetCharacteristic(
@@ -898,7 +898,7 @@ func (this BluetoothUUID) GetDescriptor(name OneOf_String_Uint32) (ret UUID) {
 }
 
 // TryGetDescriptor calls the staticmethod "BluetoothUUID.getDescriptor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothUUID) TryGetDescriptor(name OneOf_String_Uint32) (ret UUID, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothUUIDGetDescriptor(
@@ -936,7 +936,7 @@ func (this BluetoothUUID) CanonicalUUID(alias uint32) (ret UUID) {
 }
 
 // TryCanonicalUUID calls the staticmethod "BluetoothUUID.canonicalUUID"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothUUID) TryCanonicalUUID(alias uint32) (ret UUID, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothUUIDCanonicalUUID(
@@ -1272,7 +1272,7 @@ func (this LayoutChild) IntrinsicSizes() (ret js.Promise[IntrinsicSizes]) {
 }
 
 // TryIntrinsicSizes calls the method "LayoutChild.intrinsicSizes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LayoutChild) TryIntrinsicSizes() (ret js.Promise[IntrinsicSizes], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLayoutChildIntrinsicSizes(
@@ -1310,7 +1310,7 @@ func (this LayoutChild) LayoutNextFragment(constraints LayoutConstraintsOptions,
 }
 
 // TryLayoutNextFragment calls the method "LayoutChild.layoutNextFragment"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LayoutChild) TryLayoutNextFragment(constraints LayoutConstraintsOptions, breakToken ChildBreakToken) (ret js.Promise[LayoutFragment], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLayoutChildLayoutNextFragment(
@@ -1511,7 +1511,7 @@ func (this BroadcastChannel) PostMessage(message js.Any) (ret js.Void) {
 }
 
 // TryPostMessage calls the method "BroadcastChannel.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BroadcastChannel) TryPostMessage(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBroadcastChannelPostMessage(
@@ -1548,7 +1548,7 @@ func (this BroadcastChannel) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "BroadcastChannel.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BroadcastChannel) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBroadcastChannelClose(
@@ -1607,7 +1607,7 @@ func (this CropTarget) FromElement(element Element) (ret js.Promise[CropTarget])
 }
 
 // TryFromElement calls the staticmethod "CropTarget.fromElement"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CropTarget) TryFromElement(element Element) (ret js.Promise[CropTarget], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCropTargetFromElement(
@@ -1667,7 +1667,7 @@ func (this RestrictionTarget) FromElement(element Element) (ret js.Promise[Restr
 }
 
 // TryFromElement calls the staticmethod "RestrictionTarget.fromElement"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RestrictionTarget) TryFromElement(element Element) (ret js.Promise[RestrictionTarget], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRestrictionTargetFromElement(
@@ -1727,7 +1727,7 @@ func (this BrowserCaptureMediaStreamTrack) CropTo(cropTarget CropTarget) (ret js
 }
 
 // TryCropTo calls the method "BrowserCaptureMediaStreamTrack.cropTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BrowserCaptureMediaStreamTrack) TryCropTo(cropTarget CropTarget) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBrowserCaptureMediaStreamTrackCropTo(
@@ -1764,7 +1764,7 @@ func (this BrowserCaptureMediaStreamTrack) Clone() (ret BrowserCaptureMediaStrea
 }
 
 // TryClone calls the method "BrowserCaptureMediaStreamTrack.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BrowserCaptureMediaStreamTrack) TryClone() (ret BrowserCaptureMediaStreamTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBrowserCaptureMediaStreamTrackClone(
@@ -1801,7 +1801,7 @@ func (this BrowserCaptureMediaStreamTrack) RestrictTo(RestrictionTarget Restrict
 }
 
 // TryRestrictTo calls the method "BrowserCaptureMediaStreamTrack.restrictTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BrowserCaptureMediaStreamTrack) TryRestrictTo(RestrictionTarget RestrictionTarget) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBrowserCaptureMediaStreamTrackRestrictTo(
@@ -2138,7 +2138,7 @@ func (this CSPViolationReportBody) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "CSPViolationReportBody.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSPViolationReportBody) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSPViolationReportBodyToJSON(
@@ -2385,7 +2385,7 @@ func (this CSSParserDeclaration) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "CSSParserDeclaration.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSParserDeclaration) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParserDeclarationToString(
@@ -2513,7 +2513,7 @@ func (this Worklet) AddModule(moduleURL js.String, options WorkletOptions) (ret 
 }
 
 // TryAddModule calls the method "Worklet.addModule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Worklet) TryAddModule(moduleURL js.String, options WorkletOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletAddModule(
@@ -2552,7 +2552,7 @@ func (this Worklet) AddModule1(moduleURL js.String) (ret js.Promise[js.Void]) {
 }
 
 // TryAddModule1 calls the method "Worklet.addModule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Worklet) TryAddModule1(moduleURL js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkletAddModule1(
@@ -2664,7 +2664,7 @@ func (CSS) Escape(ident js.String) (ret js.String) {
 }
 
 // TryEscape calls the function "CSS.escape"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryEscape(ident js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSEscape(
@@ -2696,7 +2696,7 @@ func (CSS) RegisterProperty(definition PropertyDefinition) (ret js.Void) {
 }
 
 // TryRegisterProperty calls the function "CSS.registerProperty"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRegisterProperty(definition PropertyDefinition) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRegisterProperty(
@@ -2729,7 +2729,7 @@ func (CSS) Supports(property js.String, value js.String) (ret bool) {
 }
 
 // TrySupports calls the function "CSS.supports"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySupports(property js.String, value js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSupports(
@@ -2762,7 +2762,7 @@ func (CSS) Supports1(conditionText js.String) (ret bool) {
 }
 
 // TrySupports1 calls the function "CSS.supports"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySupports1(conditionText js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSupports1(
@@ -2794,7 +2794,7 @@ func (CSS) Number(value float64) (ret CSSUnitValue) {
 }
 
 // TryNumber calls the function "CSS.number"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryNumber(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumber(
@@ -2826,7 +2826,7 @@ func (CSS) Percent(value float64) (ret CSSUnitValue) {
 }
 
 // TryPercent calls the function "CSS.percent"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryPercent(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSPercent(
@@ -2858,7 +2858,7 @@ func (CSS) Cap(value float64) (ret CSSUnitValue) {
 }
 
 // TryCap calls the function "CSS.cap"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCap(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCap(
@@ -2890,7 +2890,7 @@ func (CSS) Ch(value float64) (ret CSSUnitValue) {
 }
 
 // TryCh calls the function "CSS.ch"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCh(
@@ -2922,7 +2922,7 @@ func (CSS) Em(value float64) (ret CSSUnitValue) {
 }
 
 // TryEm calls the function "CSS.em"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryEm(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSEm(
@@ -2954,7 +2954,7 @@ func (CSS) Ex(value float64) (ret CSSUnitValue) {
 }
 
 // TryEx calls the function "CSS.ex"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryEx(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSEx(
@@ -2986,7 +2986,7 @@ func (CSS) Ic(value float64) (ret CSSUnitValue) {
 }
 
 // TryIc calls the function "CSS.ic"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryIc(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSIc(
@@ -3018,7 +3018,7 @@ func (CSS) Lh(value float64) (ret CSSUnitValue) {
 }
 
 // TryLh calls the function "CSS.lh"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryLh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSLh(
@@ -3050,7 +3050,7 @@ func (CSS) Rcap(value float64) (ret CSSUnitValue) {
 }
 
 // TryRcap calls the function "CSS.rcap"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRcap(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRcap(
@@ -3082,7 +3082,7 @@ func (CSS) Rch(value float64) (ret CSSUnitValue) {
 }
 
 // TryRch calls the function "CSS.rch"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRch(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRch(
@@ -3114,7 +3114,7 @@ func (CSS) Rem(value float64) (ret CSSUnitValue) {
 }
 
 // TryRem calls the function "CSS.rem"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRem(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRem(
@@ -3146,7 +3146,7 @@ func (CSS) Rex(value float64) (ret CSSUnitValue) {
 }
 
 // TryRex calls the function "CSS.rex"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRex(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRex(
@@ -3178,7 +3178,7 @@ func (CSS) Ric(value float64) (ret CSSUnitValue) {
 }
 
 // TryRic calls the function "CSS.ric"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRic(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRic(
@@ -3210,7 +3210,7 @@ func (CSS) Rlh(value float64) (ret CSSUnitValue) {
 }
 
 // TryRlh calls the function "CSS.rlh"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRlh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRlh(
@@ -3242,7 +3242,7 @@ func (CSS) Vw(value float64) (ret CSSUnitValue) {
 }
 
 // TryVw calls the function "CSS.vw"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryVw(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSVw(
@@ -3274,7 +3274,7 @@ func (CSS) Vh(value float64) (ret CSSUnitValue) {
 }
 
 // TryVh calls the function "CSS.vh"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryVh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSVh(
@@ -3306,7 +3306,7 @@ func (CSS) Vi(value float64) (ret CSSUnitValue) {
 }
 
 // TryVi calls the function "CSS.vi"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryVi(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSVi(
@@ -3338,7 +3338,7 @@ func (CSS) Vb(value float64) (ret CSSUnitValue) {
 }
 
 // TryVb calls the function "CSS.vb"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryVb(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSVb(
@@ -3370,7 +3370,7 @@ func (CSS) Vmin(value float64) (ret CSSUnitValue) {
 }
 
 // TryVmin calls the function "CSS.vmin"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryVmin(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSVmin(
@@ -3402,7 +3402,7 @@ func (CSS) Vmax(value float64) (ret CSSUnitValue) {
 }
 
 // TryVmax calls the function "CSS.vmax"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryVmax(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSVmax(
@@ -3434,7 +3434,7 @@ func (CSS) Svw(value float64) (ret CSSUnitValue) {
 }
 
 // TrySvw calls the function "CSS.svw"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySvw(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSvw(
@@ -3466,7 +3466,7 @@ func (CSS) Svh(value float64) (ret CSSUnitValue) {
 }
 
 // TrySvh calls the function "CSS.svh"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySvh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSvh(
@@ -3498,7 +3498,7 @@ func (CSS) Svi(value float64) (ret CSSUnitValue) {
 }
 
 // TrySvi calls the function "CSS.svi"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySvi(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSvi(
@@ -3530,7 +3530,7 @@ func (CSS) Svb(value float64) (ret CSSUnitValue) {
 }
 
 // TrySvb calls the function "CSS.svb"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySvb(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSvb(
@@ -3562,7 +3562,7 @@ func (CSS) Svmin(value float64) (ret CSSUnitValue) {
 }
 
 // TrySvmin calls the function "CSS.svmin"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySvmin(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSvmin(
@@ -3594,7 +3594,7 @@ func (CSS) Svmax(value float64) (ret CSSUnitValue) {
 }
 
 // TrySvmax calls the function "CSS.svmax"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TrySvmax(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSSvmax(
@@ -3626,7 +3626,7 @@ func (CSS) Lvw(value float64) (ret CSSUnitValue) {
 }
 
 // TryLvw calls the function "CSS.lvw"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryLvw(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSLvw(
@@ -3658,7 +3658,7 @@ func (CSS) Lvh(value float64) (ret CSSUnitValue) {
 }
 
 // TryLvh calls the function "CSS.lvh"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryLvh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSLvh(
@@ -3690,7 +3690,7 @@ func (CSS) Lvi(value float64) (ret CSSUnitValue) {
 }
 
 // TryLvi calls the function "CSS.lvi"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryLvi(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSLvi(
@@ -3722,7 +3722,7 @@ func (CSS) Lvb(value float64) (ret CSSUnitValue) {
 }
 
 // TryLvb calls the function "CSS.lvb"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryLvb(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSLvb(
@@ -3754,7 +3754,7 @@ func (CSS) Lvmin(value float64) (ret CSSUnitValue) {
 }
 
 // TryLvmin calls the function "CSS.lvmin"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryLvmin(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSLvmin(
@@ -3786,7 +3786,7 @@ func (CSS) Lvmax(value float64) (ret CSSUnitValue) {
 }
 
 // TryLvmax calls the function "CSS.lvmax"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryLvmax(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSLvmax(
@@ -3818,7 +3818,7 @@ func (CSS) Dvw(value float64) (ret CSSUnitValue) {
 }
 
 // TryDvw calls the function "CSS.dvw"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDvw(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDvw(
@@ -3850,7 +3850,7 @@ func (CSS) Dvh(value float64) (ret CSSUnitValue) {
 }
 
 // TryDvh calls the function "CSS.dvh"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDvh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDvh(
@@ -3882,7 +3882,7 @@ func (CSS) Dvi(value float64) (ret CSSUnitValue) {
 }
 
 // TryDvi calls the function "CSS.dvi"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDvi(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDvi(
@@ -3914,7 +3914,7 @@ func (CSS) Dvb(value float64) (ret CSSUnitValue) {
 }
 
 // TryDvb calls the function "CSS.dvb"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDvb(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDvb(
@@ -3946,7 +3946,7 @@ func (CSS) Dvmin(value float64) (ret CSSUnitValue) {
 }
 
 // TryDvmin calls the function "CSS.dvmin"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDvmin(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDvmin(
@@ -3978,7 +3978,7 @@ func (CSS) Dvmax(value float64) (ret CSSUnitValue) {
 }
 
 // TryDvmax calls the function "CSS.dvmax"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDvmax(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDvmax(
@@ -4010,7 +4010,7 @@ func (CSS) Cqw(value float64) (ret CSSUnitValue) {
 }
 
 // TryCqw calls the function "CSS.cqw"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCqw(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCqw(
@@ -4042,7 +4042,7 @@ func (CSS) Cqh(value float64) (ret CSSUnitValue) {
 }
 
 // TryCqh calls the function "CSS.cqh"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCqh(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCqh(
@@ -4074,7 +4074,7 @@ func (CSS) Cqi(value float64) (ret CSSUnitValue) {
 }
 
 // TryCqi calls the function "CSS.cqi"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCqi(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCqi(
@@ -4106,7 +4106,7 @@ func (CSS) Cqb(value float64) (ret CSSUnitValue) {
 }
 
 // TryCqb calls the function "CSS.cqb"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCqb(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCqb(
@@ -4138,7 +4138,7 @@ func (CSS) Cqmin(value float64) (ret CSSUnitValue) {
 }
 
 // TryCqmin calls the function "CSS.cqmin"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCqmin(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCqmin(
@@ -4170,7 +4170,7 @@ func (CSS) Cqmax(value float64) (ret CSSUnitValue) {
 }
 
 // TryCqmax calls the function "CSS.cqmax"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCqmax(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCqmax(
@@ -4202,7 +4202,7 @@ func (CSS) Cm(value float64) (ret CSSUnitValue) {
 }
 
 // TryCm calls the function "CSS.cm"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryCm(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSCm(
@@ -4234,7 +4234,7 @@ func (CSS) Mm(value float64) (ret CSSUnitValue) {
 }
 
 // TryMm calls the function "CSS.mm"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryMm(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSMm(
@@ -4266,7 +4266,7 @@ func (CSS) Q(value float64) (ret CSSUnitValue) {
 }
 
 // TryQ calls the function "CSS.Q"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryQ(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSQ(
@@ -4298,7 +4298,7 @@ func (CSS) In(value float64) (ret CSSUnitValue) {
 }
 
 // TryIn calls the function "CSS.in"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryIn(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSIn(
@@ -4330,7 +4330,7 @@ func (CSS) Pt(value float64) (ret CSSUnitValue) {
 }
 
 // TryPt calls the function "CSS.pt"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryPt(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSPt(
@@ -4362,7 +4362,7 @@ func (CSS) Pc(value float64) (ret CSSUnitValue) {
 }
 
 // TryPc calls the function "CSS.pc"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryPc(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSPc(
@@ -4394,7 +4394,7 @@ func (CSS) Px(value float64) (ret CSSUnitValue) {
 }
 
 // TryPx calls the function "CSS.px"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryPx(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSPx(
@@ -4426,7 +4426,7 @@ func (CSS) Deg(value float64) (ret CSSUnitValue) {
 }
 
 // TryDeg calls the function "CSS.deg"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDeg(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDeg(
@@ -4458,7 +4458,7 @@ func (CSS) Grad(value float64) (ret CSSUnitValue) {
 }
 
 // TryGrad calls the function "CSS.grad"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryGrad(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSGrad(
@@ -4490,7 +4490,7 @@ func (CSS) Rad(value float64) (ret CSSUnitValue) {
 }
 
 // TryRad calls the function "CSS.rad"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryRad(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRad(
@@ -4522,7 +4522,7 @@ func (CSS) Turn(value float64) (ret CSSUnitValue) {
 }
 
 // TryTurn calls the function "CSS.turn"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryTurn(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSTurn(
@@ -4554,7 +4554,7 @@ func (CSS) S(value float64) (ret CSSUnitValue) {
 }
 
 // TryS calls the function "CSS.s"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryS(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSS(
@@ -4586,7 +4586,7 @@ func (CSS) Ms(value float64) (ret CSSUnitValue) {
 }
 
 // TryMs calls the function "CSS.ms"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryMs(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSMs(
@@ -4618,7 +4618,7 @@ func (CSS) Hz(value float64) (ret CSSUnitValue) {
 }
 
 // TryHz calls the function "CSS.Hz"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryHz(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSHz(
@@ -4650,7 +4650,7 @@ func (CSS) KHz(value float64) (ret CSSUnitValue) {
 }
 
 // TryKHz calls the function "CSS.kHz"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryKHz(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSKHz(
@@ -4682,7 +4682,7 @@ func (CSS) Dpi(value float64) (ret CSSUnitValue) {
 }
 
 // TryDpi calls the function "CSS.dpi"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDpi(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDpi(
@@ -4714,7 +4714,7 @@ func (CSS) Dpcm(value float64) (ret CSSUnitValue) {
 }
 
 // TryDpcm calls the function "CSS.dpcm"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDpcm(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDpcm(
@@ -4746,7 +4746,7 @@ func (CSS) Dppx(value float64) (ret CSSUnitValue) {
 }
 
 // TryDppx calls the function "CSS.dppx"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryDppx(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSDppx(
@@ -4778,7 +4778,7 @@ func (CSS) Fr(value float64) (ret CSSUnitValue) {
 }
 
 // TryFr calls the function "CSS.fr"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryFr(value float64) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSFr(
@@ -4811,7 +4811,7 @@ func (CSS) ParseStylesheet(css CSSStringSource, options CSSParserOptions) (ret j
 }
 
 // TryParseStylesheet calls the function "CSS.parseStylesheet"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseStylesheet(css CSSStringSource, options CSSParserOptions) (ret js.Promise[js.Array[CSSParserRule]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseStylesheet(
@@ -4844,7 +4844,7 @@ func (CSS) ParseStylesheet1(css CSSStringSource) (ret js.Promise[js.Array[CSSPar
 }
 
 // TryParseStylesheet1 calls the function "CSS.parseStylesheet"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseStylesheet1(css CSSStringSource) (ret js.Promise[js.Array[CSSParserRule]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseStylesheet1(
@@ -4877,7 +4877,7 @@ func (CSS) ParseRuleList(css CSSStringSource, options CSSParserOptions) (ret js.
 }
 
 // TryParseRuleList calls the function "CSS.parseRuleList"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseRuleList(css CSSStringSource, options CSSParserOptions) (ret js.Promise[js.Array[CSSParserRule]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseRuleList(
@@ -4910,7 +4910,7 @@ func (CSS) ParseRuleList1(css CSSStringSource) (ret js.Promise[js.Array[CSSParse
 }
 
 // TryParseRuleList1 calls the function "CSS.parseRuleList"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseRuleList1(css CSSStringSource) (ret js.Promise[js.Array[CSSParserRule]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseRuleList1(
@@ -4943,7 +4943,7 @@ func (CSS) ParseRule(css CSSStringSource, options CSSParserOptions) (ret js.Prom
 }
 
 // TryParseRule calls the function "CSS.parseRule"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseRule(css CSSStringSource, options CSSParserOptions) (ret js.Promise[CSSParserRule], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseRule(
@@ -4976,7 +4976,7 @@ func (CSS) ParseRule1(css CSSStringSource) (ret js.Promise[CSSParserRule]) {
 }
 
 // TryParseRule1 calls the function "CSS.parseRule"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseRule1(css CSSStringSource) (ret js.Promise[CSSParserRule], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseRule1(
@@ -5009,7 +5009,7 @@ func (CSS) ParseDeclarationList(css CSSStringSource, options CSSParserOptions) (
 }
 
 // TryParseDeclarationList calls the function "CSS.parseDeclarationList"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseDeclarationList(css CSSStringSource, options CSSParserOptions) (ret js.Promise[js.Array[CSSParserRule]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseDeclarationList(
@@ -5042,7 +5042,7 @@ func (CSS) ParseDeclarationList1(css CSSStringSource) (ret js.Promise[js.Array[C
 }
 
 // TryParseDeclarationList1 calls the function "CSS.parseDeclarationList"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseDeclarationList1(css CSSStringSource) (ret js.Promise[js.Array[CSSParserRule]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseDeclarationList1(
@@ -5075,7 +5075,7 @@ func (CSS) ParseDeclaration(css js.String, options CSSParserOptions) (ret CSSPar
 }
 
 // TryParseDeclaration calls the function "CSS.parseDeclaration"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseDeclaration(css js.String, options CSSParserOptions) (ret CSSParserDeclaration, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseDeclaration(
@@ -5108,7 +5108,7 @@ func (CSS) ParseDeclaration1(css js.String) (ret CSSParserDeclaration) {
 }
 
 // TryParseDeclaration1 calls the function "CSS.parseDeclaration"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseDeclaration1(css js.String) (ret CSSParserDeclaration, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseDeclaration1(
@@ -5140,7 +5140,7 @@ func (CSS) ParseValue(css js.String) (ret CSSToken) {
 }
 
 // TryParseValue calls the function "CSS.parseValue"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseValue(css js.String) (ret CSSToken, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseValue(
@@ -5172,7 +5172,7 @@ func (CSS) ParseValueList(css js.String) (ret js.Array[CSSToken]) {
 }
 
 // TryParseValueList calls the function "CSS.parseValueList"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseValueList(css js.String) (ret js.Array[CSSToken], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseValueList(
@@ -5204,7 +5204,7 @@ func (CSS) ParseCommaValueList(css js.String) (ret js.Array[js.Array[CSSToken]])
 }
 
 // TryParseCommaValueList calls the function "CSS.parseCommaValueList"
-// in a try/catch block and returns (_, err, ok = true) when it went though
+// in a try/catch block and returns (_, err, ok = true) when it went through
 // the catch clause.
 func (CSS) TryParseCommaValueList(css js.String) (ret js.Array[js.Array[CSSToken]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSParseCommaValueList(

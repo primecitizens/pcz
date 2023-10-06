@@ -11,10 +11,11 @@ package cpu_test
 
 import (
 	"errors"
-	. "github.com/primecitizens/std/core/cpu"
 	"os"
 	"regexp"
 	"testing"
+
+	. "github.com/primecitizens/pcz/std/core/cpu"
 )
 
 func getFeatureList() ([]string, error) {

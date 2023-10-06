@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -77,7 +77,7 @@ func (this AuthenticatorAttestationResponse) GetTransports() (ret js.Array[js.St
 }
 
 // TryGetTransports calls the method "AuthenticatorAttestationResponse.getTransports"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetTransports() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetTransports(
@@ -113,7 +113,7 @@ func (this AuthenticatorAttestationResponse) GetAuthenticatorData() (ret js.Arra
 }
 
 // TryGetAuthenticatorData calls the method "AuthenticatorAttestationResponse.getAuthenticatorData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetAuthenticatorData() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetAuthenticatorData(
@@ -149,7 +149,7 @@ func (this AuthenticatorAttestationResponse) GetPublicKey() (ret js.ArrayBuffer)
 }
 
 // TryGetPublicKey calls the method "AuthenticatorAttestationResponse.getPublicKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetPublicKey() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetPublicKey(
@@ -185,7 +185,7 @@ func (this AuthenticatorAttestationResponse) GetPublicKeyAlgorithm() (ret COSEAl
 }
 
 // TryGetPublicKeyAlgorithm calls the method "AuthenticatorAttestationResponse.getPublicKeyAlgorithm"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AuthenticatorAttestationResponse) TryGetPublicKeyAlgorithm() (ret COSEAlgorithmIdentifier, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAuthenticatorAttestationResponseGetPublicKeyAlgorithm(
@@ -660,7 +660,7 @@ func (this URLSearchParams) Append(name js.String, value js.String) (ret js.Void
 }
 
 // TryAppend calls the method "URLSearchParams.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryAppend(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsAppend(
@@ -700,7 +700,7 @@ func (this URLSearchParams) Delete(name js.String, value js.String) (ret js.Void
 }
 
 // TryDelete calls the method "URLSearchParams.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryDelete(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsDelete(
@@ -739,7 +739,7 @@ func (this URLSearchParams) Delete1(name js.String) (ret js.Void) {
 }
 
 // TryDelete1 calls the method "URLSearchParams.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryDelete1(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsDelete1(
@@ -777,7 +777,7 @@ func (this URLSearchParams) Get(name js.String) (ret js.String) {
 }
 
 // TryGet calls the method "URLSearchParams.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryGet(name js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsGet(
@@ -815,7 +815,7 @@ func (this URLSearchParams) GetAll(name js.String) (ret js.Array[js.String]) {
 }
 
 // TryGetAll calls the method "URLSearchParams.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryGetAll(name js.String) (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsGetAll(
@@ -854,7 +854,7 @@ func (this URLSearchParams) Has(name js.String, value js.String) (ret bool) {
 }
 
 // TryHas calls the method "URLSearchParams.has"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryHas(name js.String, value js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsHas(
@@ -893,7 +893,7 @@ func (this URLSearchParams) Has1(name js.String) (ret bool) {
 }
 
 // TryHas1 calls the method "URLSearchParams.has"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryHas1(name js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsHas1(
@@ -932,7 +932,7 @@ func (this URLSearchParams) Set(name js.String, value js.String) (ret js.Void) {
 }
 
 // TrySet calls the method "URLSearchParams.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TrySet(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsSet(
@@ -970,7 +970,7 @@ func (this URLSearchParams) Sort() (ret js.Void) {
 }
 
 // TrySort calls the method "URLSearchParams.sort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TrySort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsSort(
@@ -1006,7 +1006,7 @@ func (this URLSearchParams) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "URLSearchParams.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLSearchParams) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLSearchParamsToString(
@@ -1634,7 +1634,7 @@ func (this Headers) Append(name js.String, value js.String) (ret js.Void) {
 }
 
 // TryAppend calls the method "Headers.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Headers) TryAppend(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersAppend(
@@ -1673,7 +1673,7 @@ func (this Headers) Delete(name js.String) (ret js.Void) {
 }
 
 // TryDelete calls the method "Headers.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Headers) TryDelete(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersDelete(
@@ -1711,7 +1711,7 @@ func (this Headers) Get(name js.String) (ret js.String) {
 }
 
 // TryGet calls the method "Headers.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Headers) TryGet(name js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersGet(
@@ -1748,7 +1748,7 @@ func (this Headers) GetSetCookie() (ret js.Array[js.String]) {
 }
 
 // TryGetSetCookie calls the method "Headers.getSetCookie"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Headers) TryGetSetCookie() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersGetSetCookie(
@@ -1785,7 +1785,7 @@ func (this Headers) Has(name js.String) (ret bool) {
 }
 
 // TryHas calls the method "Headers.has"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Headers) TryHas(name js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersHas(
@@ -1824,7 +1824,7 @@ func (this Headers) Set(name js.String, value js.String) (ret js.Void) {
 }
 
 // TrySet calls the method "Headers.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Headers) TrySet(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHeadersSet(

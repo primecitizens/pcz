@@ -4,7 +4,7 @@
 package iter
 
 import (
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // Contains returns true if there is x in iter.

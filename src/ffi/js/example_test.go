@@ -1,6 +1,6 @@
 package js_test
 
-import "github.com/primecitizens/std/ffi/js"
+import "github.com/primecitizens/pcz/std/ffi/js"
 
 type MyType struct {
 }

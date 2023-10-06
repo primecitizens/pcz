@@ -6,7 +6,7 @@ package mem
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 // Note: These routines perform the read with a native endianness.

@@ -8,7 +8,7 @@
 package cmp
 
 import (
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 type Context[T any] struct {

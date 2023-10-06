@@ -13,8 +13,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/testenv"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/testenv"
 )
 
 func TestFuncPC(t *testing.T) {

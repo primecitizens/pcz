@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -1510,7 +1510,7 @@ func (this GPUShaderModule) GetCompilationInfo() (ret js.Promise[GPUCompilationI
 }
 
 // TryGetCompilationInfo calls the method "GPUShaderModule.getCompilationInfo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUShaderModule) TryGetCompilationInfo() (ret js.Promise[GPUCompilationInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUShaderModuleGetCompilationInfo(

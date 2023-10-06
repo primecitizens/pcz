@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -189,7 +189,7 @@ func (this SVGLengthList) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "SVGLengthList.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListClear(
@@ -226,7 +226,7 @@ func (this SVGLengthList) Initialize(newItem SVGLength) (ret SVGLength) {
 }
 
 // TryInitialize calls the method "SVGLengthList.initialize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TryInitialize(newItem SVGLength) (ret SVGLength, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListInitialize(
@@ -264,7 +264,7 @@ func (this SVGLengthList) GetItem(index uint32) (ret SVGLength) {
 }
 
 // TryGetItem calls the method "SVGLengthList.getItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TryGetItem(index uint32) (ret SVGLength, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListGetItem(
@@ -303,7 +303,7 @@ func (this SVGLengthList) InsertItemBefore(newItem SVGLength, index uint32) (ret
 }
 
 // TryInsertItemBefore calls the method "SVGLengthList.insertItemBefore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TryInsertItemBefore(newItem SVGLength, index uint32) (ret SVGLength, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListInsertItemBefore(
@@ -343,7 +343,7 @@ func (this SVGLengthList) ReplaceItem(newItem SVGLength, index uint32) (ret SVGL
 }
 
 // TryReplaceItem calls the method "SVGLengthList.replaceItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TryReplaceItem(newItem SVGLength, index uint32) (ret SVGLength, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListReplaceItem(
@@ -382,7 +382,7 @@ func (this SVGLengthList) RemoveItem(index uint32) (ret SVGLength) {
 }
 
 // TryRemoveItem calls the method "SVGLengthList.removeItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TryRemoveItem(index uint32) (ret SVGLength, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListRemoveItem(
@@ -420,7 +420,7 @@ func (this SVGLengthList) AppendItem(newItem SVGLength) (ret SVGLength) {
 }
 
 // TryAppendItem calls the method "SVGLengthList.appendItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TryAppendItem(newItem SVGLength) (ret SVGLength, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListAppendItem(
@@ -459,7 +459,7 @@ func (this SVGLengthList) Set(index uint32, newItem SVGLength) (ret js.Void) {
 }
 
 // TrySet calls the method "SVGLengthList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGLengthList) TrySet(index uint32, newItem SVGLength) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGLengthListSet(
@@ -633,7 +633,7 @@ func (this SVGNumberList) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "SVGNumberList.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListClear(
@@ -670,7 +670,7 @@ func (this SVGNumberList) Initialize(newItem SVGNumber) (ret SVGNumber) {
 }
 
 // TryInitialize calls the method "SVGNumberList.initialize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TryInitialize(newItem SVGNumber) (ret SVGNumber, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListInitialize(
@@ -708,7 +708,7 @@ func (this SVGNumberList) GetItem(index uint32) (ret SVGNumber) {
 }
 
 // TryGetItem calls the method "SVGNumberList.getItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TryGetItem(index uint32) (ret SVGNumber, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListGetItem(
@@ -747,7 +747,7 @@ func (this SVGNumberList) InsertItemBefore(newItem SVGNumber, index uint32) (ret
 }
 
 // TryInsertItemBefore calls the method "SVGNumberList.insertItemBefore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TryInsertItemBefore(newItem SVGNumber, index uint32) (ret SVGNumber, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListInsertItemBefore(
@@ -787,7 +787,7 @@ func (this SVGNumberList) ReplaceItem(newItem SVGNumber, index uint32) (ret SVGN
 }
 
 // TryReplaceItem calls the method "SVGNumberList.replaceItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TryReplaceItem(newItem SVGNumber, index uint32) (ret SVGNumber, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListReplaceItem(
@@ -826,7 +826,7 @@ func (this SVGNumberList) RemoveItem(index uint32) (ret SVGNumber) {
 }
 
 // TryRemoveItem calls the method "SVGNumberList.removeItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TryRemoveItem(index uint32) (ret SVGNumber, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListRemoveItem(
@@ -864,7 +864,7 @@ func (this SVGNumberList) AppendItem(newItem SVGNumber) (ret SVGNumber) {
 }
 
 // TryAppendItem calls the method "SVGNumberList.appendItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TryAppendItem(newItem SVGNumber) (ret SVGNumber, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListAppendItem(
@@ -903,7 +903,7 @@ func (this SVGNumberList) Set(index uint32, newItem SVGNumber) (ret js.Void) {
 }
 
 // TrySet calls the method "SVGNumberList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGNumberList) TrySet(index uint32, newItem SVGNumber) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGNumberListSet(
@@ -1025,7 +1025,7 @@ func (this SVGTransformList) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "SVGTransformList.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListClear(
@@ -1062,7 +1062,7 @@ func (this SVGTransformList) Initialize(newItem SVGTransform) (ret SVGTransform)
 }
 
 // TryInitialize calls the method "SVGTransformList.initialize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryInitialize(newItem SVGTransform) (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListInitialize(
@@ -1100,7 +1100,7 @@ func (this SVGTransformList) GetItem(index uint32) (ret SVGTransform) {
 }
 
 // TryGetItem calls the method "SVGTransformList.getItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryGetItem(index uint32) (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListGetItem(
@@ -1139,7 +1139,7 @@ func (this SVGTransformList) InsertItemBefore(newItem SVGTransform, index uint32
 }
 
 // TryInsertItemBefore calls the method "SVGTransformList.insertItemBefore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryInsertItemBefore(newItem SVGTransform, index uint32) (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListInsertItemBefore(
@@ -1179,7 +1179,7 @@ func (this SVGTransformList) ReplaceItem(newItem SVGTransform, index uint32) (re
 }
 
 // TryReplaceItem calls the method "SVGTransformList.replaceItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryReplaceItem(newItem SVGTransform, index uint32) (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListReplaceItem(
@@ -1218,7 +1218,7 @@ func (this SVGTransformList) RemoveItem(index uint32) (ret SVGTransform) {
 }
 
 // TryRemoveItem calls the method "SVGTransformList.removeItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryRemoveItem(index uint32) (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListRemoveItem(
@@ -1256,7 +1256,7 @@ func (this SVGTransformList) AppendItem(newItem SVGTransform) (ret SVGTransform)
 }
 
 // TryAppendItem calls the method "SVGTransformList.appendItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryAppendItem(newItem SVGTransform) (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListAppendItem(
@@ -1295,7 +1295,7 @@ func (this SVGTransformList) Set(index uint32, newItem SVGTransform) (ret js.Voi
 }
 
 // TrySet calls the method "SVGTransformList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TrySet(index uint32, newItem SVGTransform) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListSet(
@@ -1334,7 +1334,7 @@ func (this SVGTransformList) CreateSVGTransformFromMatrix(matrix DOMMatrix2DInit
 }
 
 // TryCreateSVGTransformFromMatrix calls the method "SVGTransformList.createSVGTransformFromMatrix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryCreateSVGTransformFromMatrix(matrix DOMMatrix2DInit) (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListCreateSVGTransformFromMatrix(
@@ -1371,7 +1371,7 @@ func (this SVGTransformList) CreateSVGTransformFromMatrix1() (ret SVGTransform) 
 }
 
 // TryCreateSVGTransformFromMatrix1 calls the method "SVGTransformList.createSVGTransformFromMatrix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryCreateSVGTransformFromMatrix1() (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListCreateSVGTransformFromMatrix1(
@@ -1407,7 +1407,7 @@ func (this SVGTransformList) Consolidate() (ret SVGTransform) {
 }
 
 // TryConsolidate calls the method "SVGTransformList.consolidate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTransformList) TryConsolidate() (ret SVGTransform, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTransformListConsolidate(
@@ -1527,7 +1527,7 @@ func (this SVGStringList) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "SVGStringList.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListClear(
@@ -1564,7 +1564,7 @@ func (this SVGStringList) Initialize(newItem js.String) (ret js.String) {
 }
 
 // TryInitialize calls the method "SVGStringList.initialize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TryInitialize(newItem js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListInitialize(
@@ -1602,7 +1602,7 @@ func (this SVGStringList) GetItem(index uint32) (ret js.String) {
 }
 
 // TryGetItem calls the method "SVGStringList.getItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TryGetItem(index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListGetItem(
@@ -1641,7 +1641,7 @@ func (this SVGStringList) InsertItemBefore(newItem js.String, index uint32) (ret
 }
 
 // TryInsertItemBefore calls the method "SVGStringList.insertItemBefore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TryInsertItemBefore(newItem js.String, index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListInsertItemBefore(
@@ -1681,7 +1681,7 @@ func (this SVGStringList) ReplaceItem(newItem js.String, index uint32) (ret js.S
 }
 
 // TryReplaceItem calls the method "SVGStringList.replaceItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TryReplaceItem(newItem js.String, index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListReplaceItem(
@@ -1720,7 +1720,7 @@ func (this SVGStringList) RemoveItem(index uint32) (ret js.String) {
 }
 
 // TryRemoveItem calls the method "SVGStringList.removeItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TryRemoveItem(index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListRemoveItem(
@@ -1758,7 +1758,7 @@ func (this SVGStringList) AppendItem(newItem js.String) (ret js.String) {
 }
 
 // TryAppendItem calls the method "SVGStringList.appendItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TryAppendItem(newItem js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListAppendItem(
@@ -1797,7 +1797,7 @@ func (this SVGStringList) Set(index uint32, newItem js.String) (ret js.Void) {
 }
 
 // TrySet calls the method "SVGStringList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGStringList) TrySet(index uint32, newItem js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGStringListSet(
@@ -1887,7 +1887,7 @@ func (this SVGAnimationElement) GetStartTime() (ret float32) {
 }
 
 // TryGetStartTime calls the method "SVGAnimationElement.getStartTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGAnimationElement) TryGetStartTime() (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGAnimationElementGetStartTime(
@@ -1923,7 +1923,7 @@ func (this SVGAnimationElement) GetCurrentTime() (ret float32) {
 }
 
 // TryGetCurrentTime calls the method "SVGAnimationElement.getCurrentTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGAnimationElement) TryGetCurrentTime() (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGAnimationElementGetCurrentTime(
@@ -1959,7 +1959,7 @@ func (this SVGAnimationElement) GetSimpleDuration() (ret float32) {
 }
 
 // TryGetSimpleDuration calls the method "SVGAnimationElement.getSimpleDuration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGAnimationElement) TryGetSimpleDuration() (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGAnimationElementGetSimpleDuration(
@@ -1995,7 +1995,7 @@ func (this SVGAnimationElement) BeginElement() (ret js.Void) {
 }
 
 // TryBeginElement calls the method "SVGAnimationElement.beginElement"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGAnimationElement) TryBeginElement() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGAnimationElementBeginElement(
@@ -2032,7 +2032,7 @@ func (this SVGAnimationElement) BeginElementAt(offset float32) (ret js.Void) {
 }
 
 // TryBeginElementAt calls the method "SVGAnimationElement.beginElementAt"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGAnimationElement) TryBeginElementAt(offset float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGAnimationElementBeginElementAt(
@@ -2069,7 +2069,7 @@ func (this SVGAnimationElement) EndElement() (ret js.Void) {
 }
 
 // TryEndElement calls the method "SVGAnimationElement.endElement"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGAnimationElement) TryEndElement() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGAnimationElementEndElement(
@@ -2106,7 +2106,7 @@ func (this SVGAnimationElement) EndElementAt(offset float32) (ret js.Void) {
 }
 
 // TryEndElementAt calls the method "SVGAnimationElement.endElementAt"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGAnimationElement) TryEndElementAt(offset float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGAnimationElementEndElementAt(
@@ -3610,7 +3610,7 @@ func (this SVGFEDropShadowElement) SetStdDeviation(stdDeviationX float32, stdDev
 }
 
 // TrySetStdDeviation calls the method "SVGFEDropShadowElement.setStdDeviation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGFEDropShadowElement) TrySetStdDeviation(stdDeviationX float32, stdDeviationY float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGFEDropShadowElementSetStdDeviation(
@@ -3929,7 +3929,7 @@ func (this SVGFEGaussianBlurElement) SetStdDeviation(stdDeviationX float32, stdD
 }
 
 // TrySetStdDeviation calls the method "SVGFEGaussianBlurElement.setStdDeviation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGFEGaussianBlurElement) TrySetStdDeviation(stdDeviationX float32, stdDeviationY float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGFEGaussianBlurElementSetStdDeviation(

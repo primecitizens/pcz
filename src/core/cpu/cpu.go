@@ -10,7 +10,7 @@
 package cpu
 
 import (
-	"github.com/primecitizens/std/core/os"
+	"github.com/primecitizens/pcz/std/core/os"
 )
 
 // DebugOptions is set to true by the runtime if the OS supports reading

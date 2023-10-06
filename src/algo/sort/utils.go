@@ -4,8 +4,8 @@
 package sort
 
 import (
-	"github.com/primecitizens/std/core/cmp"
-	"github.com/primecitizens/std/core/num"
+	"github.com/primecitizens/pcz/std/core/cmp"
+	"github.com/primecitizens/pcz/std/core/num"
 )
 
 func BuiltinLessFunc[T cmp.FOrdered](s []T, i, j int) bool {

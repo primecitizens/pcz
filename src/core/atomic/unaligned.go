@@ -8,7 +8,7 @@
 package atomic
 
 import (
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 func panicUnaligned() {

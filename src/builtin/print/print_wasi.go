@@ -6,8 +6,8 @@
 package stdprint
 
 import (
-	"github.com/primecitizens/std/core/mark"
-	"github.com/primecitizens/std/ffi/wasm/wasi"
+	"github.com/primecitizens/pcz/std/core/mark"
+	"github.com/primecitizens/pcz/std/ffi/wasm/wasi"
 )
 
 func gwrite(b []byte) {

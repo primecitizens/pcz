@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -332,7 +332,7 @@ func (this AudioParam) SetValueAtTime(value float32, startTime float64) (ret Aud
 }
 
 // TrySetValueAtTime calls the method "AudioParam.setValueAtTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioParam) TrySetValueAtTime(value float32, startTime float64) (ret AudioParam, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioParamSetValueAtTime(
@@ -372,7 +372,7 @@ func (this AudioParam) LinearRampToValueAtTime(value float32, endTime float64) (
 }
 
 // TryLinearRampToValueAtTime calls the method "AudioParam.linearRampToValueAtTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioParam) TryLinearRampToValueAtTime(value float32, endTime float64) (ret AudioParam, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioParamLinearRampToValueAtTime(
@@ -412,7 +412,7 @@ func (this AudioParam) ExponentialRampToValueAtTime(value float32, endTime float
 }
 
 // TryExponentialRampToValueAtTime calls the method "AudioParam.exponentialRampToValueAtTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioParam) TryExponentialRampToValueAtTime(value float32, endTime float64) (ret AudioParam, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioParamExponentialRampToValueAtTime(
@@ -453,7 +453,7 @@ func (this AudioParam) SetTargetAtTime(target float32, startTime float64, timeCo
 }
 
 // TrySetTargetAtTime calls the method "AudioParam.setTargetAtTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioParam) TrySetTargetAtTime(target float32, startTime float64, timeConstant float32) (ret AudioParam, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioParamSetTargetAtTime(
@@ -495,7 +495,7 @@ func (this AudioParam) SetValueCurveAtTime(values js.Array[float32], startTime f
 }
 
 // TrySetValueCurveAtTime calls the method "AudioParam.setValueCurveAtTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioParam) TrySetValueCurveAtTime(values js.Array[float32], startTime float64, duration float64) (ret AudioParam, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioParamSetValueCurveAtTime(
@@ -535,7 +535,7 @@ func (this AudioParam) CancelScheduledValues(cancelTime float64) (ret AudioParam
 }
 
 // TryCancelScheduledValues calls the method "AudioParam.cancelScheduledValues"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioParam) TryCancelScheduledValues(cancelTime float64) (ret AudioParam, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioParamCancelScheduledValues(
@@ -573,7 +573,7 @@ func (this AudioParam) CancelAndHoldAtTime(cancelTime float64) (ret AudioParam) 
 }
 
 // TryCancelAndHoldAtTime calls the method "AudioParam.cancelAndHoldAtTime"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioParam) TryCancelAndHoldAtTime(cancelTime float64) (ret AudioParam, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioParamCancelAndHoldAtTime(
@@ -708,7 +708,7 @@ func (this BiquadFilterNode) GetFrequencyResponse(frequencyHz js.TypedArray[floa
 }
 
 // TryGetFrequencyResponse calls the method "BiquadFilterNode.getFrequencyResponse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BiquadFilterNode) TryGetFrequencyResponse(frequencyHz js.TypedArray[float32], magResponse js.TypedArray[float32], phaseResponse js.TypedArray[float32]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBiquadFilterNodeGetFrequencyResponse(
@@ -864,7 +864,7 @@ func (this AudioBuffer) GetChannelData(channel uint32) (ret js.TypedArray[float3
 }
 
 // TryGetChannelData calls the method "AudioBuffer.getChannelData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBuffer) TryGetChannelData(channel uint32) (ret js.TypedArray[float32], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferGetChannelData(
@@ -904,7 +904,7 @@ func (this AudioBuffer) CopyFromChannel(destination js.TypedArray[float32], chan
 }
 
 // TryCopyFromChannel calls the method "AudioBuffer.copyFromChannel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBuffer) TryCopyFromChannel(destination js.TypedArray[float32], channelNumber uint32, bufferOffset uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferCopyFromChannel(
@@ -945,7 +945,7 @@ func (this AudioBuffer) CopyFromChannel1(destination js.TypedArray[float32], cha
 }
 
 // TryCopyFromChannel1 calls the method "AudioBuffer.copyFromChannel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBuffer) TryCopyFromChannel1(destination js.TypedArray[float32], channelNumber uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferCopyFromChannel1(
@@ -986,7 +986,7 @@ func (this AudioBuffer) CopyToChannel(source js.TypedArray[float32], channelNumb
 }
 
 // TryCopyToChannel calls the method "AudioBuffer.copyToChannel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBuffer) TryCopyToChannel(source js.TypedArray[float32], channelNumber uint32, bufferOffset uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferCopyToChannel(
@@ -1027,7 +1027,7 @@ func (this AudioBuffer) CopyToChannel1(source js.TypedArray[float32], channelNum
 }
 
 // TryCopyToChannel1 calls the method "AudioBuffer.copyToChannel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBuffer) TryCopyToChannel1(source js.TypedArray[float32], channelNumber uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferCopyToChannel1(
@@ -1275,7 +1275,7 @@ func (this AudioBufferSourceNode) Start(when float64, offset float64, duration f
 }
 
 // TryStart calls the method "AudioBufferSourceNode.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBufferSourceNode) TryStart(when float64, offset float64, duration float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferSourceNodeStart(
@@ -1316,7 +1316,7 @@ func (this AudioBufferSourceNode) Start1(when float64, offset float64) (ret js.V
 }
 
 // TryStart1 calls the method "AudioBufferSourceNode.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBufferSourceNode) TryStart1(when float64, offset float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferSourceNodeStart1(
@@ -1355,7 +1355,7 @@ func (this AudioBufferSourceNode) Start2(when float64) (ret js.Void) {
 }
 
 // TryStart2 calls the method "AudioBufferSourceNode.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBufferSourceNode) TryStart2(when float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferSourceNodeStart2(
@@ -1392,7 +1392,7 @@ func (this AudioBufferSourceNode) Start3() (ret js.Void) {
 }
 
 // TryStart3 calls the method "AudioBufferSourceNode.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioBufferSourceNode) TryStart3() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioBufferSourceNodeStart3(
@@ -2300,7 +2300,7 @@ func (this IIRFilterNode) GetFrequencyResponse(frequencyHz js.TypedArray[float32
 }
 
 // TryGetFrequencyResponse calls the method "IIRFilterNode.getFrequencyResponse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IIRFilterNode) TryGetFrequencyResponse(frequencyHz js.TypedArray[float32], magResponse js.TypedArray[float32], phaseResponse js.TypedArray[float32]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIIRFilterNodeGetFrequencyResponse(
@@ -2601,7 +2601,7 @@ func (this OscillatorNode) SetPeriodicWave(periodicWave PeriodicWave) (ret js.Vo
 }
 
 // TrySetPeriodicWave calls the method "OscillatorNode.setPeriodicWave"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OscillatorNode) TrySetPeriodicWave(periodicWave PeriodicWave) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOscillatorNodeSetPeriodicWave(
@@ -3087,7 +3087,7 @@ func (this PannerNode) SetPosition(x float32, y float32, z float32) (ret js.Void
 }
 
 // TrySetPosition calls the method "PannerNode.setPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PannerNode) TrySetPosition(x float32, y float32, z float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPannerNodeSetPosition(
@@ -3129,7 +3129,7 @@ func (this PannerNode) SetOrientation(x float32, y float32, z float32) (ret js.V
 }
 
 // TrySetOrientation calls the method "PannerNode.setOrientation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PannerNode) TrySetOrientation(x float32, y float32, z float32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPannerNodeSetOrientation(

@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -628,7 +628,7 @@ func (this HTMLButtonElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLButtonElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLButtonElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLButtonElementCheckValidity(
@@ -664,7 +664,7 @@ func (this HTMLButtonElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLButtonElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLButtonElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLButtonElementReportValidity(
@@ -701,7 +701,7 @@ func (this HTMLButtonElement) SetCustomValidity(err js.String) (ret js.Void) {
 }
 
 // TrySetCustomValidity calls the method "HTMLButtonElement.setCustomValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLButtonElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLButtonElementSetCustomValidity(
@@ -983,7 +983,7 @@ func (this HTMLDialogElement) Show() (ret js.Void) {
 }
 
 // TryShow calls the method "HTMLDialogElement.show"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLDialogElement) TryShow() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLDialogElementShow(
@@ -1019,7 +1019,7 @@ func (this HTMLDialogElement) ShowModal() (ret js.Void) {
 }
 
 // TryShowModal calls the method "HTMLDialogElement.showModal"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLDialogElement) TryShowModal() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLDialogElementShowModal(
@@ -1056,7 +1056,7 @@ func (this HTMLDialogElement) Close(returnValue js.String) (ret js.Void) {
 }
 
 // TryClose calls the method "HTMLDialogElement.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLDialogElement) TryClose(returnValue js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLDialogElementClose(
@@ -1093,7 +1093,7 @@ func (this HTMLDialogElement) Close1() (ret js.Void) {
 }
 
 // TryClose1 calls the method "HTMLDialogElement.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLDialogElement) TryClose1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLDialogElementClose1(
@@ -1370,7 +1370,7 @@ func (this HTMLEmbedElement) GetSVGDocument() (ret Document) {
 }
 
 // TryGetSVGDocument calls the method "HTMLEmbedElement.getSVGDocument"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLEmbedElement) TryGetSVGDocument() (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLEmbedElementGetSVGDocument(
@@ -1640,7 +1640,7 @@ func (this HTMLFieldSetElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLFieldSetElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFieldSetElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFieldSetElementCheckValidity(
@@ -1676,7 +1676,7 @@ func (this HTMLFieldSetElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLFieldSetElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFieldSetElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFieldSetElementReportValidity(
@@ -1713,7 +1713,7 @@ func (this HTMLFieldSetElement) SetCustomValidity(err js.String) (ret js.Void) {
 }
 
 // TrySetCustomValidity calls the method "HTMLFieldSetElement.setCustomValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFieldSetElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFieldSetElementSetCustomValidity(
@@ -2739,7 +2739,7 @@ func (this HTMLIFrameElement) GetSVGDocument() (ret Document) {
 }
 
 // TryGetSVGDocument calls the method "HTMLIFrameElement.getSVGDocument"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLIFrameElement) TryGetSVGDocument() (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLIFrameElementGetSVGDocument(
@@ -3763,7 +3763,7 @@ func (this HTMLInputElement) StepUp(n int32) (ret js.Void) {
 }
 
 // TryStepUp calls the method "HTMLInputElement.stepUp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TryStepUp(n int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementStepUp(
@@ -3800,7 +3800,7 @@ func (this HTMLInputElement) StepUp1() (ret js.Void) {
 }
 
 // TryStepUp1 calls the method "HTMLInputElement.stepUp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TryStepUp1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementStepUp1(
@@ -3837,7 +3837,7 @@ func (this HTMLInputElement) StepDown(n int32) (ret js.Void) {
 }
 
 // TryStepDown calls the method "HTMLInputElement.stepDown"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TryStepDown(n int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementStepDown(
@@ -3874,7 +3874,7 @@ func (this HTMLInputElement) StepDown1() (ret js.Void) {
 }
 
 // TryStepDown1 calls the method "HTMLInputElement.stepDown"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TryStepDown1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementStepDown1(
@@ -3910,7 +3910,7 @@ func (this HTMLInputElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLInputElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementCheckValidity(
@@ -3946,7 +3946,7 @@ func (this HTMLInputElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLInputElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementReportValidity(
@@ -3983,7 +3983,7 @@ func (this HTMLInputElement) SetCustomValidity(err js.String) (ret js.Void) {
 }
 
 // TrySetCustomValidity calls the method "HTMLInputElement.setCustomValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementSetCustomValidity(
@@ -4020,7 +4020,7 @@ func (this HTMLInputElement) Select() (ret js.Void) {
 }
 
 // TrySelect calls the method "HTMLInputElement.select"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TrySelect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementSelect(
@@ -4057,7 +4057,7 @@ func (this HTMLInputElement) SetRangeText(replacement js.String) (ret js.Void) {
 }
 
 // TrySetRangeText calls the method "HTMLInputElement.setRangeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TrySetRangeText(replacement js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementSetRangeText(
@@ -4098,7 +4098,7 @@ func (this HTMLInputElement) SetRangeText1(replacement js.String, start uint32, 
 }
 
 // TrySetRangeText1 calls the method "HTMLInputElement.setRangeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TrySetRangeText1(replacement js.String, start uint32, end uint32, selectionMode SelectionMode) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementSetRangeText1(
@@ -4141,7 +4141,7 @@ func (this HTMLInputElement) SetRangeText2(replacement js.String, start uint32, 
 }
 
 // TrySetRangeText2 calls the method "HTMLInputElement.setRangeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TrySetRangeText2(replacement js.String, start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementSetRangeText2(
@@ -4183,7 +4183,7 @@ func (this HTMLInputElement) SetSelectionRange(start uint32, end uint32, directi
 }
 
 // TrySetSelectionRange calls the method "HTMLInputElement.setSelectionRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TrySetSelectionRange(start uint32, end uint32, direction js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementSetSelectionRange(
@@ -4224,7 +4224,7 @@ func (this HTMLInputElement) SetSelectionRange1(start uint32, end uint32) (ret j
 }
 
 // TrySetSelectionRange1 calls the method "HTMLInputElement.setSelectionRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TrySetSelectionRange1(start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementSetSelectionRange1(
@@ -4262,7 +4262,7 @@ func (this HTMLInputElement) ShowPicker() (ret js.Void) {
 }
 
 // TryShowPicker calls the method "HTMLInputElement.showPicker"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLInputElement) TryShowPicker() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLInputElementShowPicker(
@@ -5180,7 +5180,7 @@ func (this HTMLMarqueeElement) Start() (ret js.Void) {
 }
 
 // TryStart calls the method "HTMLMarqueeElement.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMarqueeElement) TryStart() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMarqueeElementStart(
@@ -5216,7 +5216,7 @@ func (this HTMLMarqueeElement) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "HTMLMarqueeElement.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMarqueeElement) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMarqueeElementStop(
@@ -6186,7 +6186,7 @@ func (this HTMLObjectElement) GetSVGDocument() (ret Document) {
 }
 
 // TryGetSVGDocument calls the method "HTMLObjectElement.getSVGDocument"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLObjectElement) TryGetSVGDocument() (ret Document, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLObjectElementGetSVGDocument(
@@ -6222,7 +6222,7 @@ func (this HTMLObjectElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLObjectElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLObjectElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLObjectElementCheckValidity(
@@ -6258,7 +6258,7 @@ func (this HTMLObjectElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLObjectElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLObjectElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLObjectElementReportValidity(
@@ -6295,7 +6295,7 @@ func (this HTMLObjectElement) SetCustomValidity(err js.String) (ret js.Void) {
 }
 
 // TrySetCustomValidity calls the method "HTMLObjectElement.setCustomValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLObjectElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLObjectElementSetCustomValidity(
@@ -6682,7 +6682,7 @@ func (this HTMLOptionsCollection) Set(index uint32, option HTMLOptionElement) (r
 }
 
 // TrySet calls the method "HTMLOptionsCollection."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLOptionsCollection) TrySet(index uint32, option HTMLOptionElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLOptionsCollectionSet(
@@ -6722,7 +6722,7 @@ func (this HTMLOptionsCollection) Add(element OneOf_HTMLOptionElement_HTMLOptGro
 }
 
 // TryAdd calls the method "HTMLOptionsCollection.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLOptionsCollection) TryAdd(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLOptionsCollectionAdd(
@@ -6761,7 +6761,7 @@ func (this HTMLOptionsCollection) Add1(element OneOf_HTMLOptionElement_HTMLOptGr
 }
 
 // TryAdd1 calls the method "HTMLOptionsCollection.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLOptionsCollection) TryAdd1(element OneOf_HTMLOptionElement_HTMLOptGroupElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLOptionsCollectionAdd1(
@@ -6799,7 +6799,7 @@ func (this HTMLOptionsCollection) Remove(index int32) (ret js.Void) {
 }
 
 // TryRemove calls the method "HTMLOptionsCollection.remove"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLOptionsCollection) TryRemove(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLOptionsCollectionRemove(
@@ -7021,7 +7021,7 @@ func (this HTMLOutputElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLOutputElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLOutputElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLOutputElementCheckValidity(
@@ -7057,7 +7057,7 @@ func (this HTMLOutputElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLOutputElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLOutputElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLOutputElementReportValidity(
@@ -7094,7 +7094,7 @@ func (this HTMLOutputElement) SetCustomValidity(err js.String) (ret js.Void) {
 }
 
 // TrySetCustomValidity calls the method "HTMLOutputElement.setCustomValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLOutputElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLOutputElementSetCustomValidity(

@@ -6,4 +6,4 @@ use (
 	./src
 )
 
-replace github.com/primecitizens/std v0.0.0 => ./src
+replace github.com/primecitizens/pcz/std v0.0.0 => ./src

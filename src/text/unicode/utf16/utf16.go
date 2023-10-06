@@ -10,9 +10,9 @@ package utf16
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/bits"
-	. "github.com/primecitizens/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/bits"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
 )
 
 func AsString(s []uint16) String {

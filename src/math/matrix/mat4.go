@@ -11,8 +11,8 @@ package matrix
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/num"
-	"github.com/primecitizens/std/math"
+	"github.com/primecitizens/pcz/std/core/num"
+	"github.com/primecitizens/pcz/std/math"
 )
 
 // Mat4 is a 4x4 matrix in row major order.

@@ -8,7 +8,7 @@
 package stdint
 
 import (
-	"github.com/primecitizens/std/core/bits"
+	"github.com/primecitizens/pcz/std/core/bits"
 )
 
 type Int128 Uint128

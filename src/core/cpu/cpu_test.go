@@ -10,7 +10,7 @@ package cpu_test
 import (
 	"testing"
 
-	. "github.com/primecitizens/std/core/cpu"
+	. "github.com/primecitizens/pcz/std/core/cpu"
 )
 
 func MustHaveDebugOptionsSupport(t *testing.T) {

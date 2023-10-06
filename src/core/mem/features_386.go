@@ -5,7 +5,7 @@
 
 package mem
 
-import "github.com/primecitizens/std/core/cpu"
+import "github.com/primecitizens/pcz/std/core/cpu"
 
 var (
 	hasERMS bool // required by memclr & memmove

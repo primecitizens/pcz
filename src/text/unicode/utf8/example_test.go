@@ -10,8 +10,8 @@ package utf8_test
 import (
 	"fmt"
 
-	"github.com/primecitizens/std/text/unicode/common"
-	"github.com/primecitizens/std/text/unicode/utf8"
+	"github.com/primecitizens/pcz/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/text/unicode/utf8"
 )
 
 func ExampleLast() {

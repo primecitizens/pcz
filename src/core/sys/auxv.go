@@ -8,7 +8,7 @@ package sys
 import (
 	_ "unsafe" // for go:linkname
 
-	"github.com/primecitizens/std/core/iter"
+	"github.com/primecitizens/pcz/std/core/iter"
 )
 
 func (it AuxvIter) Nth(i int) (aux Auxv, ok bool) {

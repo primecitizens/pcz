@@ -4,8 +4,8 @@
 package runtime
 
 import (
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/os"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/os"
 )
 
 const (

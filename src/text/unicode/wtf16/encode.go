@@ -8,9 +8,9 @@
 package wtf16
 
 import (
-	. "github.com/primecitizens/std/text/unicode/common"
-	"github.com/primecitizens/std/text/unicode/utf16"
-	"github.com/primecitizens/std/text/unicode/utf8"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/text/unicode/utf16"
+	"github.com/primecitizens/pcz/std/text/unicode/utf8"
 )
 
 // Encode returns the potentially ill-formed UTF-16 encoding of s.

@@ -8,8 +8,8 @@
 package bits
 
 import (
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // Add returns the sum with carry of x, y and carry: sum = x + y + carry.

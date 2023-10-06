@@ -6,12 +6,12 @@ package hash
 import (
 	"unsafe"
 
-	stdstring "github.com/primecitizens/std/builtin/string"
-	stdtype "github.com/primecitizens/std/builtin/type"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/thread"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
+	stdtype "github.com/primecitizens/pcz/std/builtin/type"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/thread"
 )
 
 var (

@@ -33,7 +33,7 @@ package emu64
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 const (

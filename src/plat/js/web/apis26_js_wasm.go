@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -911,7 +911,7 @@ func (this USBDevice) Open() (ret js.Promise[js.Void]) {
 }
 
 // TryOpen calls the method "USBDevice.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryOpen() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceOpen(
@@ -947,7 +947,7 @@ func (this USBDevice) Close() (ret js.Promise[js.Void]) {
 }
 
 // TryClose calls the method "USBDevice.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceClose(
@@ -983,7 +983,7 @@ func (this USBDevice) Forget() (ret js.Promise[js.Void]) {
 }
 
 // TryForget calls the method "USBDevice.forget"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryForget() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceForget(
@@ -1020,7 +1020,7 @@ func (this USBDevice) SelectConfiguration(configurationValue uint8) (ret js.Prom
 }
 
 // TrySelectConfiguration calls the method "USBDevice.selectConfiguration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TrySelectConfiguration(configurationValue uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceSelectConfiguration(
@@ -1058,7 +1058,7 @@ func (this USBDevice) ClaimInterface(interfaceNumber uint8) (ret js.Promise[js.V
 }
 
 // TryClaimInterface calls the method "USBDevice.claimInterface"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryClaimInterface(interfaceNumber uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceClaimInterface(
@@ -1096,7 +1096,7 @@ func (this USBDevice) ReleaseInterface(interfaceNumber uint8) (ret js.Promise[js
 }
 
 // TryReleaseInterface calls the method "USBDevice.releaseInterface"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryReleaseInterface(interfaceNumber uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceReleaseInterface(
@@ -1135,7 +1135,7 @@ func (this USBDevice) SelectAlternateInterface(interfaceNumber uint8, alternateS
 }
 
 // TrySelectAlternateInterface calls the method "USBDevice.selectAlternateInterface"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TrySelectAlternateInterface(interfaceNumber uint8, alternateSetting uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceSelectAlternateInterface(
@@ -1175,7 +1175,7 @@ func (this USBDevice) ControlTransferIn(setup USBControlTransferParameters, leng
 }
 
 // TryControlTransferIn calls the method "USBDevice.controlTransferIn"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryControlTransferIn(setup USBControlTransferParameters, length uint16) (ret js.Promise[USBInTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceControlTransferIn(
@@ -1215,7 +1215,7 @@ func (this USBDevice) ControlTransferOut(setup USBControlTransferParameters, dat
 }
 
 // TryControlTransferOut calls the method "USBDevice.controlTransferOut"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryControlTransferOut(setup USBControlTransferParameters, data BufferSource) (ret js.Promise[USBOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceControlTransferOut(
@@ -1254,7 +1254,7 @@ func (this USBDevice) ControlTransferOut1(setup USBControlTransferParameters) (r
 }
 
 // TryControlTransferOut1 calls the method "USBDevice.controlTransferOut"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryControlTransferOut1(setup USBControlTransferParameters) (ret js.Promise[USBOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceControlTransferOut1(
@@ -1293,7 +1293,7 @@ func (this USBDevice) ClearHalt(direction USBDirection, endpointNumber uint8) (r
 }
 
 // TryClearHalt calls the method "USBDevice.clearHalt"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryClearHalt(direction USBDirection, endpointNumber uint8) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceClearHalt(
@@ -1333,7 +1333,7 @@ func (this USBDevice) TransferIn(endpointNumber uint8, length uint32) (ret js.Pr
 }
 
 // TryTransferIn calls the method "USBDevice.transferIn"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryTransferIn(endpointNumber uint8, length uint32) (ret js.Promise[USBInTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceTransferIn(
@@ -1373,7 +1373,7 @@ func (this USBDevice) TransferOut(endpointNumber uint8, data BufferSource) (ret 
 }
 
 // TryTransferOut calls the method "USBDevice.transferOut"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryTransferOut(endpointNumber uint8, data BufferSource) (ret js.Promise[USBOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceTransferOut(
@@ -1413,7 +1413,7 @@ func (this USBDevice) IsochronousTransferIn(endpointNumber uint8, packetLengths 
 }
 
 // TryIsochronousTransferIn calls the method "USBDevice.isochronousTransferIn"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryIsochronousTransferIn(endpointNumber uint8, packetLengths js.Array[uint32]) (ret js.Promise[USBIsochronousInTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceIsochronousTransferIn(
@@ -1454,7 +1454,7 @@ func (this USBDevice) IsochronousTransferOut(endpointNumber uint8, data BufferSo
 }
 
 // TryIsochronousTransferOut calls the method "USBDevice.isochronousTransferOut"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryIsochronousTransferOut(endpointNumber uint8, data BufferSource, packetLengths js.Array[uint32]) (ret js.Promise[USBIsochronousOutTransferResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceIsochronousTransferOut(
@@ -1493,7 +1493,7 @@ func (this USBDevice) Reset() (ret js.Promise[js.Void]) {
 }
 
 // TryReset calls the method "USBDevice.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USBDevice) TryReset() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBDeviceReset(
@@ -1663,7 +1663,7 @@ func (this USB) GetDevices() (ret js.Promise[js.Array[USBDevice]]) {
 }
 
 // TryGetDevices calls the method "USB.getDevices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USB) TryGetDevices() (ret js.Promise[js.Array[USBDevice]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBGetDevices(
@@ -1700,7 +1700,7 @@ func (this USB) RequestDevice(options USBDeviceRequestOptions) (ret js.Promise[U
 }
 
 // TryRequestDevice calls the method "USB.requestDevice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this USB) TryRequestDevice(options USBDeviceRequestOptions) (ret js.Promise[USBDevice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUSBRequestDevice(
@@ -1761,7 +1761,7 @@ func (this EpubReadingSystem) HasFeature(feature js.String, version js.String) (
 }
 
 // TryHasFeature calls the method "EpubReadingSystem.hasFeature"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EpubReadingSystem) TryHasFeature(feature js.String, version js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEpubReadingSystemHasFeature(
@@ -1800,7 +1800,7 @@ func (this EpubReadingSystem) HasFeature1(feature js.String) (ret bool) {
 }
 
 // TryHasFeature1 calls the method "EpubReadingSystem.hasFeature"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EpubReadingSystem) TryHasFeature1(feature js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEpubReadingSystemHasFeature1(
@@ -2261,7 +2261,7 @@ func (this XRView) RequestViewportScale(scale float64) (ret js.Void) {
 }
 
 // TryRequestViewportScale calls the method "XRView.requestViewportScale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRView) TryRequestViewportScale(scale float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRViewRequestViewportScale(
@@ -2406,7 +2406,7 @@ func (this XRWebGLLayer) GetViewport(view XRView) (ret XRViewport) {
 }
 
 // TryGetViewport calls the method "XRWebGLLayer.getViewport"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLLayer) TryGetViewport(view XRView) (ret XRViewport, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLLayerGetViewport(
@@ -2444,7 +2444,7 @@ func (this XRWebGLLayer) GetNativeFramebufferScaleFactor(session XRSession) (ret
 }
 
 // TryGetNativeFramebufferScaleFactor calls the staticmethod "XRWebGLLayer.getNativeFramebufferScaleFactor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRWebGLLayer) TryGetNativeFramebufferScaleFactor(session XRSession) (ret float64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRWebGLLayerGetNativeFramebufferScaleFactor(
@@ -2588,7 +2588,7 @@ func (this XRReferenceSpace) GetOffsetReferenceSpace(originOffset XRRigidTransfo
 }
 
 // TryGetOffsetReferenceSpace calls the method "XRReferenceSpace.getOffsetReferenceSpace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRReferenceSpace) TryGetOffsetReferenceSpace(originOffset XRRigidTransform) (ret XRReferenceSpace, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRReferenceSpaceGetOffsetReferenceSpace(
@@ -2868,7 +2868,7 @@ func (this XRAnchor) RequestPersistentHandle() (ret js.Promise[js.String]) {
 }
 
 // TryRequestPersistentHandle calls the method "XRAnchor.requestPersistentHandle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRAnchor) TryRequestPersistentHandle() (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRAnchorRequestPersistentHandle(
@@ -2904,7 +2904,7 @@ func (this XRAnchor) Delete() (ret js.Void) {
 }
 
 // TryDelete calls the method "XRAnchor.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRAnchor) TryDelete() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRAnchorDelete(
@@ -3058,7 +3058,7 @@ func (this XRCPUDepthInformation) GetDepthInMeters(x float32, y float32) (ret fl
 }
 
 // TryGetDepthInMeters calls the method "XRCPUDepthInformation.getDepthInMeters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRCPUDepthInformation) TryGetDepthInMeters(x float32, y float32) (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRCPUDepthInformationGetDepthInMeters(
@@ -3276,7 +3276,7 @@ func (this XRHitTestResult) GetPose(baseSpace XRSpace) (ret XRPose) {
 }
 
 // TryGetPose calls the method "XRHitTestResult.getPose"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRHitTestResult) TryGetPose(baseSpace XRSpace) (ret XRPose, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRHitTestResultGetPose(
@@ -3313,7 +3313,7 @@ func (this XRHitTestResult) CreateAnchor() (ret js.Promise[XRAnchor]) {
 }
 
 // TryCreateAnchor calls the method "XRHitTestResult.createAnchor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this XRHitTestResult) TryCreateAnchor() (ret js.Promise[XRAnchor], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryXRHitTestResultCreateAnchor(

@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -417,7 +417,7 @@ func (this UIEvent) InitUIEvent(typeArg js.String, bubblesArg bool, cancelableAr
 }
 
 // TryInitUIEvent calls the method "UIEvent.initUIEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this UIEvent) TryInitUIEvent(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, detailArg int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUIEventInitUIEvent(
@@ -462,7 +462,7 @@ func (this UIEvent) InitUIEvent1(typeArg js.String, bubblesArg bool, cancelableA
 }
 
 // TryInitUIEvent1 calls the method "UIEvent.initUIEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this UIEvent) TryInitUIEvent1(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUIEventInitUIEvent1(
@@ -505,7 +505,7 @@ func (this UIEvent) InitUIEvent2(typeArg js.String, bubblesArg bool, cancelableA
 }
 
 // TryInitUIEvent2 calls the method "UIEvent.initUIEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this UIEvent) TryInitUIEvent2(typeArg js.String, bubblesArg bool, cancelableArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUIEventInitUIEvent2(
@@ -546,7 +546,7 @@ func (this UIEvent) InitUIEvent3(typeArg js.String, bubblesArg bool) (ret js.Voi
 }
 
 // TryInitUIEvent3 calls the method "UIEvent.initUIEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this UIEvent) TryInitUIEvent3(typeArg js.String, bubblesArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUIEventInitUIEvent3(
@@ -585,7 +585,7 @@ func (this UIEvent) InitUIEvent4(typeArg js.String) (ret js.Void) {
 }
 
 // TryInitUIEvent4 calls the method "UIEvent.initUIEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this UIEvent) TryInitUIEvent4(typeArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryUIEventInitUIEvent4(
@@ -905,7 +905,7 @@ func (this URL) CanParse(url js.String, base js.String) (ret bool) {
 }
 
 // TryCanParse calls the staticmethod "URL.canParse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URL) TryCanParse(url js.String, base js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLCanParse(
@@ -944,7 +944,7 @@ func (this URL) CanParse1(url js.String) (ret bool) {
 }
 
 // TryCanParse1 calls the staticmethod "URL.canParse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URL) TryCanParse1(url js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLCanParse1(
@@ -981,7 +981,7 @@ func (this URL) ToJSON() (ret js.String) {
 }
 
 // TryToJSON calls the method "URL.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URL) TryToJSON() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLToJSON(
@@ -1018,7 +1018,7 @@ func (this URL) CreateObjectURL(obj OneOf_Blob_MediaSource) (ret js.String) {
 }
 
 // TryCreateObjectURL calls the staticmethod "URL.createObjectURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URL) TryCreateObjectURL(obj OneOf_Blob_MediaSource) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLCreateObjectURL(
@@ -1056,7 +1056,7 @@ func (this URL) RevokeObjectURL(url js.String) (ret js.Void) {
 }
 
 // TryRevokeObjectURL calls the staticmethod "URL.revokeObjectURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URL) TryRevokeObjectURL(url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLRevokeObjectURL(
@@ -1518,7 +1518,7 @@ func (this URLPattern) Test(input URLPatternInput, baseURL js.String) (ret bool)
 }
 
 // TryTest calls the method "URLPattern.test"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLPattern) TryTest(input URLPatternInput, baseURL js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLPatternTest(
@@ -1557,7 +1557,7 @@ func (this URLPattern) Test1(input URLPatternInput) (ret bool) {
 }
 
 // TryTest1 calls the method "URLPattern.test"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLPattern) TryTest1(input URLPatternInput) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLPatternTest1(
@@ -1594,7 +1594,7 @@ func (this URLPattern) Test2() (ret bool) {
 }
 
 // TryTest2 calls the method "URLPattern.test"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLPattern) TryTest2() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLPatternTest2(
@@ -1632,7 +1632,7 @@ func (this URLPattern) Exec(input URLPatternInput, baseURL js.String) (ret URLPa
 }
 
 // TryExec calls the method "URLPattern.exec"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLPattern) TryExec(input URLPatternInput, baseURL js.String) (ret URLPatternResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLPatternExec(
@@ -1671,7 +1671,7 @@ func (this URLPattern) Exec1(input URLPatternInput) (ret URLPatternResult) {
 }
 
 // TryExec1 calls the method "URLPattern.exec"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLPattern) TryExec1(input URLPatternInput) (ret URLPatternResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLPatternExec1(
@@ -1708,7 +1708,7 @@ func (this URLPattern) Exec2() (ret URLPatternResult) {
 }
 
 // TryExec2 calls the method "URLPattern.exec"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this URLPattern) TryExec2() (ret URLPatternResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryURLPatternExec2(
@@ -2205,7 +2205,7 @@ func (this WritableStreamDefaultController) Error(e js.Any) (ret js.Void) {
 }
 
 // TryError calls the method "WritableStreamDefaultController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultController) TryError(e js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultControllerError(
@@ -2242,7 +2242,7 @@ func (this WritableStreamDefaultController) Error1() (ret js.Void) {
 }
 
 // TryError1 calls the method "WritableStreamDefaultController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultController) TryError1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultControllerError1(
@@ -3183,7 +3183,7 @@ func (this VTTCue) GetCueAsHTML() (ret DocumentFragment) {
 }
 
 // TryGetCueAsHTML calls the method "VTTCue.getCueAsHTML"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VTTCue) TryGetCueAsHTML() (ret DocumentFragment, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVTTCueGetCueAsHTML(
@@ -3517,7 +3517,7 @@ func (this VideoDecoder) Configure(config VideoDecoderConfig) (ret js.Void) {
 }
 
 // TryConfigure calls the method "VideoDecoder.configure"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoDecoder) TryConfigure(config VideoDecoderConfig) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoDecoderConfigure(
@@ -3555,7 +3555,7 @@ func (this VideoDecoder) Decode(chunk EncodedVideoChunk) (ret js.Void) {
 }
 
 // TryDecode calls the method "VideoDecoder.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoDecoder) TryDecode(chunk EncodedVideoChunk) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoDecoderDecode(
@@ -3592,7 +3592,7 @@ func (this VideoDecoder) Flush() (ret js.Promise[js.Void]) {
 }
 
 // TryFlush calls the method "VideoDecoder.flush"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoDecoder) TryFlush() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoDecoderFlush(
@@ -3628,7 +3628,7 @@ func (this VideoDecoder) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "VideoDecoder.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoDecoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoDecoderReset(
@@ -3664,7 +3664,7 @@ func (this VideoDecoder) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "VideoDecoder.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoDecoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoDecoderClose(
@@ -3701,7 +3701,7 @@ func (this VideoDecoder) IsConfigSupported(config VideoDecoderConfig) (ret js.Pr
 }
 
 // TryIsConfigSupported calls the staticmethod "VideoDecoder.isConfigSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoDecoder) TryIsConfigSupported(config VideoDecoderConfig) (ret js.Promise[VideoDecoderSupport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoDecoderIsConfigSupported(

@@ -7,7 +7,7 @@ import (
 	"unsafe"
 	_ "unsafe" // for go:linkname
 
-	_ "github.com/primecitizens/std/core/mark/internal/reflect" // import reflect.noescape
+	_ "github.com/primecitizens/pcz/std/core/mark/internal/reflect" // import reflect.noescape
 )
 
 // NoEscape hides a pointer from escape analysis. USE CAREFULLY!

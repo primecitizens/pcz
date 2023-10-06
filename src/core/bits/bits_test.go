@@ -11,9 +11,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	. "github.com/primecitizens/std/core/bits"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	. "github.com/primecitizens/pcz/std/core/bits"
 )
 
 func TestLeadingZeros(t *testing.T) {

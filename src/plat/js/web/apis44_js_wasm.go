@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -321,7 +321,7 @@ func (this NavigateEvent) Intercept(options NavigationInterceptOptions) (ret js.
 }
 
 // TryIntercept calls the method "NavigateEvent.intercept"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigateEvent) TryIntercept(options NavigationInterceptOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigateEventIntercept(
@@ -358,7 +358,7 @@ func (this NavigateEvent) Intercept1() (ret js.Void) {
 }
 
 // TryIntercept1 calls the method "NavigateEvent.intercept"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigateEvent) TryIntercept1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigateEventIntercept1(
@@ -394,7 +394,7 @@ func (this NavigateEvent) Scroll() (ret js.Void) {
 }
 
 // TryScroll calls the method "NavigateEvent.scroll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigateEvent) TryScroll() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigateEventScroll(
@@ -834,7 +834,7 @@ func (this OES_draw_buffers_indexed) EnableiOES(target GLenum, index GLuint) (re
 }
 
 // TryEnableiOES calls the method "OES_draw_buffers_indexed.enableiOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryEnableiOES(target GLenum, index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedEnableiOES(
@@ -874,7 +874,7 @@ func (this OES_draw_buffers_indexed) DisableiOES(target GLenum, index GLuint) (r
 }
 
 // TryDisableiOES calls the method "OES_draw_buffers_indexed.disableiOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryDisableiOES(target GLenum, index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedDisableiOES(
@@ -914,7 +914,7 @@ func (this OES_draw_buffers_indexed) BlendEquationiOES(buf GLuint, mode GLenum) 
 }
 
 // TryBlendEquationiOES calls the method "OES_draw_buffers_indexed.blendEquationiOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendEquationiOES(buf GLuint, mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendEquationiOES(
@@ -955,7 +955,7 @@ func (this OES_draw_buffers_indexed) BlendEquationSeparateiOES(buf GLuint, modeR
 }
 
 // TryBlendEquationSeparateiOES calls the method "OES_draw_buffers_indexed.blendEquationSeparateiOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendEquationSeparateiOES(buf GLuint, modeRGB GLenum, modeAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendEquationSeparateiOES(
@@ -997,7 +997,7 @@ func (this OES_draw_buffers_indexed) BlendFunciOES(buf GLuint, src GLenum, dst G
 }
 
 // TryBlendFunciOES calls the method "OES_draw_buffers_indexed.blendFunciOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendFunciOES(buf GLuint, src GLenum, dst GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendFunciOES(
@@ -1041,7 +1041,7 @@ func (this OES_draw_buffers_indexed) BlendFuncSeparateiOES(buf GLuint, srcRGB GL
 }
 
 // TryBlendFuncSeparateiOES calls the method "OES_draw_buffers_indexed.blendFuncSeparateiOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryBlendFuncSeparateiOES(buf GLuint, srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedBlendFuncSeparateiOES(
@@ -1087,7 +1087,7 @@ func (this OES_draw_buffers_indexed) ColorMaskiOES(buf GLuint, r GLboolean, g GL
 }
 
 // TryColorMaskiOES calls the method "OES_draw_buffers_indexed.colorMaskiOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_draw_buffers_indexed) TryColorMaskiOES(buf GLuint, r GLboolean, g GLboolean, b GLboolean, a GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_draw_buffers_indexedColorMaskiOES(
@@ -1338,7 +1338,7 @@ func (this OES_vertex_array_object) CreateVertexArrayOES() (ret WebGLVertexArray
 }
 
 // TryCreateVertexArrayOES calls the method "OES_vertex_array_object.createVertexArrayOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_vertex_array_object) TryCreateVertexArrayOES() (ret WebGLVertexArrayObjectOES, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectCreateVertexArrayOES(
@@ -1375,7 +1375,7 @@ func (this OES_vertex_array_object) DeleteVertexArrayOES(arrayObject WebGLVertex
 }
 
 // TryDeleteVertexArrayOES calls the method "OES_vertex_array_object.deleteVertexArrayOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_vertex_array_object) TryDeleteVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectDeleteVertexArrayOES(
@@ -1413,7 +1413,7 @@ func (this OES_vertex_array_object) IsVertexArrayOES(arrayObject WebGLVertexArra
 }
 
 // TryIsVertexArrayOES calls the method "OES_vertex_array_object.isVertexArrayOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_vertex_array_object) TryIsVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectIsVertexArrayOES(
@@ -1451,7 +1451,7 @@ func (this OES_vertex_array_object) BindVertexArrayOES(arrayObject WebGLVertexAr
 }
 
 // TryBindVertexArrayOES calls the method "OES_vertex_array_object.bindVertexArrayOES"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OES_vertex_array_object) TryBindVertexArrayOES(arrayObject WebGLVertexArrayObjectOES) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOES_vertex_array_objectBindVertexArrayOES(
@@ -1555,7 +1555,7 @@ func (this OVR_multiview2) FramebufferTextureMultiviewOVR(target GLenum, attachm
 }
 
 // TryFramebufferTextureMultiviewOVR calls the method "OVR_multiview2.framebufferTextureMultiviewOVR"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OVR_multiview2) TryFramebufferTextureMultiviewOVR(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, baseViewIndex GLint, numViews GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOVR_multiview2FramebufferTextureMultiviewOVR(
@@ -1788,7 +1788,7 @@ func (this OfflineAudioContext) StartRendering() (ret js.Promise[AudioBuffer]) {
 }
 
 // TryStartRendering calls the method "OfflineAudioContext.startRendering"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OfflineAudioContext) TryStartRendering() (ret js.Promise[AudioBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOfflineAudioContextStartRendering(
@@ -1824,7 +1824,7 @@ func (this OfflineAudioContext) Resume() (ret js.Promise[js.Void]) {
 }
 
 // TryResume calls the method "OfflineAudioContext.resume"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OfflineAudioContext) TryResume() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOfflineAudioContextResume(
@@ -1861,7 +1861,7 @@ func (this OfflineAudioContext) Suspend(suspendTime float64) (ret js.Promise[js.
 }
 
 // TrySuspend calls the method "OfflineAudioContext.suspend"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OfflineAudioContext) TrySuspend(suspendTime float64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOfflineAudioContextSuspend(
@@ -1963,7 +1963,7 @@ func (this OrientationSensor) PopulateMatrix(targetMatrix RotationMatrixType) (r
 }
 
 // TryPopulateMatrix calls the method "OrientationSensor.populateMatrix"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OrientationSensor) TryPopulateMatrix(targetMatrix RotationMatrixType) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOrientationSensorPopulateMatrix(
@@ -2473,7 +2473,7 @@ func (this PaintRenderingContext2D) ClosePath() (ret js.Void) {
 }
 
 // TryClosePath calls the method "PaintRenderingContext2D.closePath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryClosePath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClosePath(
@@ -2511,7 +2511,7 @@ func (this PaintRenderingContext2D) MoveTo(x float64, y float64) (ret js.Void) {
 }
 
 // TryMoveTo calls the method "PaintRenderingContext2D.moveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryMoveTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DMoveTo(
@@ -2551,7 +2551,7 @@ func (this PaintRenderingContext2D) LineTo(x float64, y float64) (ret js.Void) {
 }
 
 // TryLineTo calls the method "PaintRenderingContext2D.lineTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryLineTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DLineTo(
@@ -2593,7 +2593,7 @@ func (this PaintRenderingContext2D) QuadraticCurveTo(cpx float64, cpy float64, x
 }
 
 // TryQuadraticCurveTo calls the method "PaintRenderingContext2D.quadraticCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryQuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DQuadraticCurveTo(
@@ -2639,7 +2639,7 @@ func (this PaintRenderingContext2D) BezierCurveTo(cp1x float64, cp1y float64, cp
 }
 
 // TryBezierCurveTo calls the method "PaintRenderingContext2D.bezierCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryBezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DBezierCurveTo(
@@ -2686,7 +2686,7 @@ func (this PaintRenderingContext2D) ArcTo(x1 float64, y1 float64, x2 float64, y2
 }
 
 // TryArcTo calls the method "PaintRenderingContext2D.arcTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DArcTo(
@@ -2731,7 +2731,7 @@ func (this PaintRenderingContext2D) Rect(x float64, y float64, w float64, h floa
 }
 
 // TryRect calls the method "PaintRenderingContext2D.rect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRect(
@@ -2776,7 +2776,7 @@ func (this PaintRenderingContext2D) RoundRect(x float64, y float64, w float64, h
 }
 
 // TryRoundRect calls the method "PaintRenderingContext2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryRoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRoundRect(
@@ -2821,7 +2821,7 @@ func (this PaintRenderingContext2D) RoundRect1(x float64, y float64, w float64, 
 }
 
 // TryRoundRect1 calls the method "PaintRenderingContext2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryRoundRect1(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRoundRect1(
@@ -2867,7 +2867,7 @@ func (this PaintRenderingContext2D) Arc(x float64, y float64, radius float64, st
 }
 
 // TryArc calls the method "PaintRenderingContext2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryArc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DArc(
@@ -2914,7 +2914,7 @@ func (this PaintRenderingContext2D) Arc1(x float64, y float64, radius float64, s
 }
 
 // TryArc1 calls the method "PaintRenderingContext2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryArc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DArc1(
@@ -2963,7 +2963,7 @@ func (this PaintRenderingContext2D) Ellipse(x float64, y float64, radiusX float6
 }
 
 // TryEllipse calls the method "PaintRenderingContext2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryEllipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DEllipse(
@@ -3014,7 +3014,7 @@ func (this PaintRenderingContext2D) Ellipse1(x float64, y float64, radiusX float
 }
 
 // TryEllipse1 calls the method "PaintRenderingContext2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryEllipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DEllipse1(
@@ -3058,7 +3058,7 @@ func (this PaintRenderingContext2D) SetLineDash(segments js.Array[float64]) (ret
 }
 
 // TrySetLineDash calls the method "PaintRenderingContext2D.setLineDash"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetLineDash(segments js.Array[float64]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetLineDash(
@@ -3095,7 +3095,7 @@ func (this PaintRenderingContext2D) GetLineDash() (ret js.Array[float64]) {
 }
 
 // TryGetLineDash calls the method "PaintRenderingContext2D.getLineDash"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryGetLineDash() (ret js.Array[float64], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DGetLineDash(
@@ -3134,7 +3134,7 @@ func (this PaintRenderingContext2D) DrawImage(image CanvasImageSource, dx float6
 }
 
 // TryDrawImage calls the method "PaintRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryDrawImage(image CanvasImageSource, dx float64, dy float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DDrawImage(
@@ -3178,7 +3178,7 @@ func (this PaintRenderingContext2D) DrawImage1(image CanvasImageSource, dx float
 }
 
 // TryDrawImage1 calls the method "PaintRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryDrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DDrawImage1(
@@ -3228,7 +3228,7 @@ func (this PaintRenderingContext2D) DrawImage2(image CanvasImageSource, sx float
 }
 
 // TryDrawImage2 calls the method "PaintRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryDrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DDrawImage2(
@@ -3273,7 +3273,7 @@ func (this PaintRenderingContext2D) BeginPath() (ret js.Void) {
 }
 
 // TryBeginPath calls the method "PaintRenderingContext2D.beginPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryBeginPath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DBeginPath(
@@ -3310,7 +3310,7 @@ func (this PaintRenderingContext2D) Fill(fillRule CanvasFillRule) (ret js.Void) 
 }
 
 // TryFill calls the method "PaintRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill(
@@ -3347,7 +3347,7 @@ func (this PaintRenderingContext2D) Fill1() (ret js.Void) {
 }
 
 // TryFill1 calls the method "PaintRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill1(
@@ -3385,7 +3385,7 @@ func (this PaintRenderingContext2D) Fill2(path Path2D, fillRule CanvasFillRule) 
 }
 
 // TryFill2 calls the method "PaintRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill2(
@@ -3424,7 +3424,7 @@ func (this PaintRenderingContext2D) Fill3(path Path2D) (ret js.Void) {
 }
 
 // TryFill3 calls the method "PaintRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryFill3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFill3(
@@ -3461,7 +3461,7 @@ func (this PaintRenderingContext2D) Stroke() (ret js.Void) {
 }
 
 // TryStroke calls the method "PaintRenderingContext2D.stroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryStroke() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DStroke(
@@ -3498,7 +3498,7 @@ func (this PaintRenderingContext2D) Stroke1(path Path2D) (ret js.Void) {
 }
 
 // TryStroke1 calls the method "PaintRenderingContext2D.stroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryStroke1(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DStroke1(
@@ -3536,7 +3536,7 @@ func (this PaintRenderingContext2D) Clip(fillRule CanvasFillRule) (ret js.Void) 
 }
 
 // TryClip calls the method "PaintRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip(
@@ -3573,7 +3573,7 @@ func (this PaintRenderingContext2D) Clip1() (ret js.Void) {
 }
 
 // TryClip1 calls the method "PaintRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip1(
@@ -3611,7 +3611,7 @@ func (this PaintRenderingContext2D) Clip2(path Path2D, fillRule CanvasFillRule) 
 }
 
 // TryClip2 calls the method "PaintRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip2(
@@ -3650,7 +3650,7 @@ func (this PaintRenderingContext2D) Clip3(path Path2D) (ret js.Void) {
 }
 
 // TryClip3 calls the method "PaintRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryClip3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClip3(
@@ -3690,7 +3690,7 @@ func (this PaintRenderingContext2D) IsPointInPath(x float64, y float64, fillRule
 }
 
 // TryIsPointInPath calls the method "PaintRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath(x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath(
@@ -3731,7 +3731,7 @@ func (this PaintRenderingContext2D) IsPointInPath1(x float64, y float64) (ret bo
 }
 
 // TryIsPointInPath1 calls the method "PaintRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath1(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath1(
@@ -3773,7 +3773,7 @@ func (this PaintRenderingContext2D) IsPointInPath2(path Path2D, x float64, y flo
 }
 
 // TryIsPointInPath2 calls the method "PaintRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath2(
@@ -3816,7 +3816,7 @@ func (this PaintRenderingContext2D) IsPointInPath3(path Path2D, x float64, y flo
 }
 
 // TryIsPointInPath3 calls the method "PaintRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInPath3(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInPath3(
@@ -3857,7 +3857,7 @@ func (this PaintRenderingContext2D) IsPointInStroke(x float64, y float64) (ret b
 }
 
 // TryIsPointInStroke calls the method "PaintRenderingContext2D.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInStroke(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInStroke(
@@ -3898,7 +3898,7 @@ func (this PaintRenderingContext2D) IsPointInStroke1(path Path2D, x float64, y f
 }
 
 // TryIsPointInStroke1 calls the method "PaintRenderingContext2D.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsPointInStroke1(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsPointInStroke1(
@@ -3941,7 +3941,7 @@ func (this PaintRenderingContext2D) ClearRect(x float64, y float64, w float64, h
 }
 
 // TryClearRect calls the method "PaintRenderingContext2D.clearRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryClearRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DClearRect(
@@ -3985,7 +3985,7 @@ func (this PaintRenderingContext2D) FillRect(x float64, y float64, w float64, h 
 }
 
 // TryFillRect calls the method "PaintRenderingContext2D.fillRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryFillRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DFillRect(
@@ -4029,7 +4029,7 @@ func (this PaintRenderingContext2D) StrokeRect(x float64, y float64, w float64, 
 }
 
 // TryStrokeRect calls the method "PaintRenderingContext2D.strokeRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryStrokeRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DStrokeRect(
@@ -4073,7 +4073,7 @@ func (this PaintRenderingContext2D) CreateLinearGradient(x0 float64, y0 float64,
 }
 
 // TryCreateLinearGradient calls the method "PaintRenderingContext2D.createLinearGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreateLinearGradient(
@@ -4119,7 +4119,7 @@ func (this PaintRenderingContext2D) CreateRadialGradient(x0 float64, y0 float64,
 }
 
 // TryCreateRadialGradient calls the method "PaintRenderingContext2D.createRadialGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreateRadialGradient(
@@ -4164,7 +4164,7 @@ func (this PaintRenderingContext2D) CreateConicGradient(startAngle float64, x fl
 }
 
 // TryCreateConicGradient calls the method "PaintRenderingContext2D.createConicGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreateConicGradient(startAngle float64, x float64, y float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreateConicGradient(
@@ -4205,7 +4205,7 @@ func (this PaintRenderingContext2D) CreatePattern(image CanvasImageSource, repet
 }
 
 // TryCreatePattern calls the method "PaintRenderingContext2D.createPattern"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryCreatePattern(image CanvasImageSource, repetition js.String) (ret CanvasPattern, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DCreatePattern(
@@ -4245,7 +4245,7 @@ func (this PaintRenderingContext2D) Scale(x float64, y float64) (ret js.Void) {
 }
 
 // TryScale calls the method "PaintRenderingContext2D.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryScale(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DScale(
@@ -4284,7 +4284,7 @@ func (this PaintRenderingContext2D) Rotate(angle float64) (ret js.Void) {
 }
 
 // TryRotate calls the method "PaintRenderingContext2D.rotate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryRotate(angle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRotate(
@@ -4323,7 +4323,7 @@ func (this PaintRenderingContext2D) Translate(x float64, y float64) (ret js.Void
 }
 
 // TryTranslate calls the method "PaintRenderingContext2D.translate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryTranslate(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DTranslate(
@@ -4367,7 +4367,7 @@ func (this PaintRenderingContext2D) Transform(a float64, b float64, c float64, d
 }
 
 // TryTransform calls the method "PaintRenderingContext2D.transform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DTransform(
@@ -4409,7 +4409,7 @@ func (this PaintRenderingContext2D) GetTransform() (ret DOMMatrix) {
 }
 
 // TryGetTransform calls the method "PaintRenderingContext2D.getTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryGetTransform() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DGetTransform(
@@ -4451,7 +4451,7 @@ func (this PaintRenderingContext2D) SetTransform(a float64, b float64, c float64
 }
 
 // TrySetTransform calls the method "PaintRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetTransform(
@@ -4494,7 +4494,7 @@ func (this PaintRenderingContext2D) SetTransform1(transform DOMMatrix2DInit) (re
 }
 
 // TrySetTransform1 calls the method "PaintRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetTransform1(transform DOMMatrix2DInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetTransform1(
@@ -4531,7 +4531,7 @@ func (this PaintRenderingContext2D) SetTransform2() (ret js.Void) {
 }
 
 // TrySetTransform2 calls the method "PaintRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TrySetTransform2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSetTransform2(
@@ -4567,7 +4567,7 @@ func (this PaintRenderingContext2D) ResetTransform() (ret js.Void) {
 }
 
 // TryResetTransform calls the method "PaintRenderingContext2D.resetTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryResetTransform() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DResetTransform(
@@ -4603,7 +4603,7 @@ func (this PaintRenderingContext2D) Save() (ret js.Void) {
 }
 
 // TrySave calls the method "PaintRenderingContext2D.save"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TrySave() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DSave(
@@ -4639,7 +4639,7 @@ func (this PaintRenderingContext2D) Restore() (ret js.Void) {
 }
 
 // TryRestore calls the method "PaintRenderingContext2D.restore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryRestore() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DRestore(
@@ -4675,7 +4675,7 @@ func (this PaintRenderingContext2D) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "PaintRenderingContext2D.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DReset(
@@ -4711,7 +4711,7 @@ func (this PaintRenderingContext2D) IsContextLost() (ret bool) {
 }
 
 // TryIsContextLost calls the method "PaintRenderingContext2D.isContextLost"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintRenderingContext2D) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintRenderingContext2DIsContextLost(
@@ -4863,7 +4863,7 @@ func (this PaintWorkletGlobalScope) RegisterPaint(name js.String, paintCtor js.F
 }
 
 // TryRegisterPaint calls the method "PaintWorkletGlobalScope.registerPaint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaintWorkletGlobalScope) TryRegisterPaint(name js.String, paintCtor js.Func[func()]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaintWorkletGlobalScopeRegisterPaint(

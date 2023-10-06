@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -135,7 +135,7 @@ func (this IdleDeadline) TimeRemaining() (ret DOMHighResTimeStamp) {
 }
 
 // TryTimeRemaining calls the method "IdleDeadline.timeRemaining"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IdleDeadline) TryTimeRemaining() (ret DOMHighResTimeStamp, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIdleDeadlineTimeRemaining(
@@ -416,7 +416,7 @@ func (this FileSystemWritableFileStream) Write(data FileSystemWriteChunkType) (r
 }
 
 // TryWrite calls the method "FileSystemWritableFileStream.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemWritableFileStream) TryWrite(data FileSystemWriteChunkType) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemWritableFileStreamWrite(
@@ -454,7 +454,7 @@ func (this FileSystemWritableFileStream) Seek(position uint64) (ret js.Promise[j
 }
 
 // TrySeek calls the method "FileSystemWritableFileStream.seek"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemWritableFileStream) TrySeek(position uint64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemWritableFileStreamSeek(
@@ -492,7 +492,7 @@ func (this FileSystemWritableFileStream) Truncate(size uint64) (ret js.Promise[j
 }
 
 // TryTruncate calls the method "FileSystemWritableFileStream.truncate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemWritableFileStream) TryTruncate(size uint64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemWritableFileStreamTruncate(
@@ -633,7 +633,7 @@ func (this FileSystemSyncAccessHandle) Read(buffer AllowSharedBufferSource, opti
 }
 
 // TryRead calls the method "FileSystemSyncAccessHandle.read"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryRead(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleRead(
@@ -672,7 +672,7 @@ func (this FileSystemSyncAccessHandle) Read1(buffer AllowSharedBufferSource) (re
 }
 
 // TryRead1 calls the method "FileSystemSyncAccessHandle.read"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryRead1(buffer AllowSharedBufferSource) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleRead1(
@@ -711,7 +711,7 @@ func (this FileSystemSyncAccessHandle) Write(buffer AllowSharedBufferSource, opt
 }
 
 // TryWrite calls the method "FileSystemSyncAccessHandle.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryWrite(buffer AllowSharedBufferSource, options FileSystemReadWriteOptions) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleWrite(
@@ -750,7 +750,7 @@ func (this FileSystemSyncAccessHandle) Write1(buffer AllowSharedBufferSource) (r
 }
 
 // TryWrite1 calls the method "FileSystemSyncAccessHandle.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryWrite1(buffer AllowSharedBufferSource) (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleWrite1(
@@ -788,7 +788,7 @@ func (this FileSystemSyncAccessHandle) Truncate(newSize uint64) (ret js.Void) {
 }
 
 // TryTruncate calls the method "FileSystemSyncAccessHandle.truncate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryTruncate(newSize uint64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleTruncate(
@@ -825,7 +825,7 @@ func (this FileSystemSyncAccessHandle) GetSize() (ret uint64) {
 }
 
 // TryGetSize calls the method "FileSystemSyncAccessHandle.getSize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryGetSize() (ret uint64, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleGetSize(
@@ -861,7 +861,7 @@ func (this FileSystemSyncAccessHandle) Flush() (ret js.Void) {
 }
 
 // TryFlush calls the method "FileSystemSyncAccessHandle.flush"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryFlush() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleFlush(
@@ -897,7 +897,7 @@ func (this FileSystemSyncAccessHandle) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "FileSystemSyncAccessHandle.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemSyncAccessHandle) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemSyncAccessHandleClose(
@@ -955,7 +955,7 @@ func (this FileSystemFileHandle) GetFile() (ret js.Promise[File]) {
 }
 
 // TryGetFile calls the method "FileSystemFileHandle.getFile"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemFileHandle) TryGetFile() (ret js.Promise[File], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleGetFile(
@@ -992,7 +992,7 @@ func (this FileSystemFileHandle) CreateWritable(options FileSystemCreateWritable
 }
 
 // TryCreateWritable calls the method "FileSystemFileHandle.createWritable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemFileHandle) TryCreateWritable(options FileSystemCreateWritableOptions) (ret js.Promise[FileSystemWritableFileStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleCreateWritable(
@@ -1029,7 +1029,7 @@ func (this FileSystemFileHandle) CreateWritable1() (ret js.Promise[FileSystemWri
 }
 
 // TryCreateWritable1 calls the method "FileSystemFileHandle.createWritable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemFileHandle) TryCreateWritable1() (ret js.Promise[FileSystemWritableFileStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleCreateWritable1(
@@ -1065,7 +1065,7 @@ func (this FileSystemFileHandle) CreateSyncAccessHandle() (ret js.Promise[FileSy
 }
 
 // TryCreateSyncAccessHandle calls the method "FileSystemFileHandle.createSyncAccessHandle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemFileHandle) TryCreateSyncAccessHandle() (ret js.Promise[FileSystemSyncAccessHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileHandleCreateSyncAccessHandle(
@@ -1464,7 +1464,7 @@ func (this FileSystemDirectoryHandle) GetFileHandle(name js.String, options File
 }
 
 // TryGetFileHandle calls the method "FileSystemDirectoryHandle.getFileHandle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetFileHandle(name js.String, options FileSystemGetFileOptions) (ret js.Promise[FileSystemFileHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetFileHandle(
@@ -1503,7 +1503,7 @@ func (this FileSystemDirectoryHandle) GetFileHandle1(name js.String) (ret js.Pro
 }
 
 // TryGetFileHandle1 calls the method "FileSystemDirectoryHandle.getFileHandle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetFileHandle1(name js.String) (ret js.Promise[FileSystemFileHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetFileHandle1(
@@ -1542,7 +1542,7 @@ func (this FileSystemDirectoryHandle) GetDirectoryHandle(name js.String, options
 }
 
 // TryGetDirectoryHandle calls the method "FileSystemDirectoryHandle.getDirectoryHandle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetDirectoryHandle(name js.String, options FileSystemGetDirectoryOptions) (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetDirectoryHandle(
@@ -1581,7 +1581,7 @@ func (this FileSystemDirectoryHandle) GetDirectoryHandle1(name js.String) (ret j
 }
 
 // TryGetDirectoryHandle1 calls the method "FileSystemDirectoryHandle.getDirectoryHandle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryGetDirectoryHandle1(name js.String) (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleGetDirectoryHandle1(
@@ -1620,7 +1620,7 @@ func (this FileSystemDirectoryHandle) RemoveEntry(name js.String, options FileSy
 }
 
 // TryRemoveEntry calls the method "FileSystemDirectoryHandle.removeEntry"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryRemoveEntry(name js.String, options FileSystemRemoveOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleRemoveEntry(
@@ -1659,7 +1659,7 @@ func (this FileSystemDirectoryHandle) RemoveEntry1(name js.String) (ret js.Promi
 }
 
 // TryRemoveEntry1 calls the method "FileSystemDirectoryHandle.removeEntry"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryRemoveEntry1(name js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleRemoveEntry1(
@@ -1697,7 +1697,7 @@ func (this FileSystemDirectoryHandle) Resolve(possibleDescendant FileSystemHandl
 }
 
 // TryResolve calls the method "FileSystemDirectoryHandle.resolve"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemDirectoryHandle) TryResolve(possibleDescendant FileSystemHandle) (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemDirectoryHandleResolve(
@@ -1840,7 +1840,7 @@ func (this FontData) Blob() (ret js.Promise[Blob]) {
 }
 
 // TryBlob calls the method "FontData.blob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FontData) TryBlob() (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFontDataBlob(
@@ -2125,7 +2125,7 @@ func (this DigitalGoodsService) GetDetails(itemIds js.Array[js.String]) (ret js.
 }
 
 // TryGetDetails calls the method "DigitalGoodsService.getDetails"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DigitalGoodsService) TryGetDetails(itemIds js.Array[js.String]) (ret js.Promise[js.Array[ItemDetails]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceGetDetails(
@@ -2162,7 +2162,7 @@ func (this DigitalGoodsService) ListPurchases() (ret js.Promise[js.Array[Purchas
 }
 
 // TryListPurchases calls the method "DigitalGoodsService.listPurchases"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DigitalGoodsService) TryListPurchases() (ret js.Promise[js.Array[PurchaseDetails]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceListPurchases(
@@ -2198,7 +2198,7 @@ func (this DigitalGoodsService) ListPurchaseHistory() (ret js.Promise[js.Array[P
 }
 
 // TryListPurchaseHistory calls the method "DigitalGoodsService.listPurchaseHistory"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DigitalGoodsService) TryListPurchaseHistory() (ret js.Promise[js.Array[PurchaseDetails]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceListPurchaseHistory(
@@ -2235,7 +2235,7 @@ func (this DigitalGoodsService) Consume(purchaseToken js.String) (ret js.Promise
 }
 
 // TryConsume calls the method "DigitalGoodsService.consume"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DigitalGoodsService) TryConsume(purchaseToken js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDigitalGoodsServiceConsume(
@@ -2647,7 +2647,7 @@ func (this History) Go(delta int32) (ret js.Void) {
 }
 
 // TryGo calls the method "History.go"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryGo(delta int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryGo(
@@ -2684,7 +2684,7 @@ func (this History) Go1() (ret js.Void) {
 }
 
 // TryGo1 calls the method "History.go"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryGo1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryGo1(
@@ -2720,7 +2720,7 @@ func (this History) Back() (ret js.Void) {
 }
 
 // TryBack calls the method "History.back"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryBack() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryBack(
@@ -2756,7 +2756,7 @@ func (this History) Forward() (ret js.Void) {
 }
 
 // TryForward calls the method "History.forward"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryForward() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryForward(
@@ -2795,7 +2795,7 @@ func (this History) PushState(data js.Any, unused js.String, url js.String) (ret
 }
 
 // TryPushState calls the method "History.pushState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryPushState(data js.Any, unused js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryPushState(
@@ -2836,7 +2836,7 @@ func (this History) PushState1(data js.Any, unused js.String) (ret js.Void) {
 }
 
 // TryPushState1 calls the method "History.pushState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryPushState1(data js.Any, unused js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryPushState1(
@@ -2877,7 +2877,7 @@ func (this History) ReplaceState(data js.Any, unused js.String, url js.String) (
 }
 
 // TryReplaceState calls the method "History.replaceState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryReplaceState(data js.Any, unused js.String, url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryReplaceState(
@@ -2918,7 +2918,7 @@ func (this History) ReplaceState1(data js.Any, unused js.String) (ret js.Void) {
 }
 
 // TryReplaceState1 calls the method "History.replaceState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this History) TryReplaceState1(data js.Any, unused js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHistoryReplaceState1(
@@ -3028,7 +3028,7 @@ func (this NavigationHistoryEntry) GetState() (ret js.Any) {
 }
 
 // TryGetState calls the method "NavigationHistoryEntry.getState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigationHistoryEntry) TryGetState() (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationHistoryEntryGetState(

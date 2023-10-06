@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -111,7 +111,7 @@ func (this HTMLPortalElement) Activate(options PortalActivateOptions) (ret js.Pr
 }
 
 // TryActivate calls the method "HTMLPortalElement.activate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLPortalElement) TryActivate(options PortalActivateOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementActivate(
@@ -148,7 +148,7 @@ func (this HTMLPortalElement) Activate1() (ret js.Promise[js.Void]) {
 }
 
 // TryActivate1 calls the method "HTMLPortalElement.activate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLPortalElement) TryActivate1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementActivate1(
@@ -186,7 +186,7 @@ func (this HTMLPortalElement) PostMessage(message js.Any, options StructuredSeri
 }
 
 // TryPostMessage calls the method "HTMLPortalElement.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLPortalElement) TryPostMessage(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementPostMessage(
@@ -225,7 +225,7 @@ func (this HTMLPortalElement) PostMessage1(message js.Any) (ret js.Void) {
 }
 
 // TryPostMessage1 calls the method "HTMLPortalElement.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLPortalElement) TryPostMessage1(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLPortalElementPostMessage1(
@@ -731,7 +731,7 @@ func (this HTMLSelectElement) Item(index uint32) (ret HTMLOptionElement) {
 }
 
 // TryItem calls the method "HTMLSelectElement.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryItem(index uint32) (ret HTMLOptionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementItem(
@@ -769,7 +769,7 @@ func (this HTMLSelectElement) NamedItem(name js.String) (ret HTMLOptionElement) 
 }
 
 // TryNamedItem calls the method "HTMLSelectElement.namedItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryNamedItem(name js.String) (ret HTMLOptionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementNamedItem(
@@ -808,7 +808,7 @@ func (this HTMLSelectElement) Add(element OneOf_HTMLOptionElement_HTMLOptGroupEl
 }
 
 // TryAdd calls the method "HTMLSelectElement.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryAdd(element OneOf_HTMLOptionElement_HTMLOptGroupElement, before OneOf_HTMLElement_Int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementAdd(
@@ -847,7 +847,7 @@ func (this HTMLSelectElement) Add1(element OneOf_HTMLOptionElement_HTMLOptGroupE
 }
 
 // TryAdd1 calls the method "HTMLSelectElement.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryAdd1(element OneOf_HTMLOptionElement_HTMLOptGroupElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementAdd1(
@@ -884,7 +884,7 @@ func (this HTMLSelectElement) Remove() (ret js.Void) {
 }
 
 // TryRemove calls the method "HTMLSelectElement.remove"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryRemove() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementRemove(
@@ -921,7 +921,7 @@ func (this HTMLSelectElement) Remove1(index int32) (ret js.Void) {
 }
 
 // TryRemove1 calls the method "HTMLSelectElement.remove"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryRemove1(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementRemove1(
@@ -960,7 +960,7 @@ func (this HTMLSelectElement) Set(index uint32, option HTMLOptionElement) (ret j
 }
 
 // TrySet calls the method "HTMLSelectElement."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TrySet(index uint32, option HTMLOptionElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementSet(
@@ -998,7 +998,7 @@ func (this HTMLSelectElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLSelectElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementCheckValidity(
@@ -1034,7 +1034,7 @@ func (this HTMLSelectElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLSelectElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementReportValidity(
@@ -1071,7 +1071,7 @@ func (this HTMLSelectElement) SetCustomValidity(err js.String) (ret js.Void) {
 }
 
 // TrySetCustomValidity calls the method "HTMLSelectElement.setCustomValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLSelectElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLSelectElementSetCustomValidity(
@@ -2080,7 +2080,7 @@ func (this HTMLTableRowElement) InsertCell(index int32) (ret HTMLTableCellElemen
 }
 
 // TryInsertCell calls the method "HTMLTableRowElement.insertCell"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableRowElement) TryInsertCell(index int32) (ret HTMLTableCellElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableRowElementInsertCell(
@@ -2117,7 +2117,7 @@ func (this HTMLTableRowElement) InsertCell1() (ret HTMLTableCellElement) {
 }
 
 // TryInsertCell1 calls the method "HTMLTableRowElement.insertCell"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableRowElement) TryInsertCell1() (ret HTMLTableCellElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableRowElementInsertCell1(
@@ -2154,7 +2154,7 @@ func (this HTMLTableRowElement) DeleteCell(index int32) (ret js.Void) {
 }
 
 // TryDeleteCell calls the method "HTMLTableRowElement.deleteCell"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableRowElement) TryDeleteCell(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableRowElementDeleteCell(
@@ -2309,7 +2309,7 @@ func (this HTMLTableSectionElement) InsertRow(index int32) (ret HTMLTableRowElem
 }
 
 // TryInsertRow calls the method "HTMLTableSectionElement.insertRow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableSectionElement) TryInsertRow(index int32) (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableSectionElementInsertRow(
@@ -2346,7 +2346,7 @@ func (this HTMLTableSectionElement) InsertRow1() (ret HTMLTableRowElement) {
 }
 
 // TryInsertRow1 calls the method "HTMLTableSectionElement.insertRow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableSectionElement) TryInsertRow1() (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableSectionElementInsertRow1(
@@ -2383,7 +2383,7 @@ func (this HTMLTableSectionElement) DeleteRow(index int32) (ret js.Void) {
 }
 
 // TryDeleteRow calls the method "HTMLTableSectionElement.deleteRow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableSectionElement) TryDeleteRow(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableSectionElementDeleteRow(
@@ -2707,7 +2707,7 @@ func (this HTMLTableElement) CreateCaption() (ret HTMLTableCaptionElement) {
 }
 
 // TryCreateCaption calls the method "HTMLTableElement.createCaption"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryCreateCaption() (ret HTMLTableCaptionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateCaption(
@@ -2743,7 +2743,7 @@ func (this HTMLTableElement) DeleteCaption() (ret js.Void) {
 }
 
 // TryDeleteCaption calls the method "HTMLTableElement.deleteCaption"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryDeleteCaption() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteCaption(
@@ -2779,7 +2779,7 @@ func (this HTMLTableElement) CreateTHead() (ret HTMLTableSectionElement) {
 }
 
 // TryCreateTHead calls the method "HTMLTableElement.createTHead"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryCreateTHead() (ret HTMLTableSectionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateTHead(
@@ -2815,7 +2815,7 @@ func (this HTMLTableElement) DeleteTHead() (ret js.Void) {
 }
 
 // TryDeleteTHead calls the method "HTMLTableElement.deleteTHead"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryDeleteTHead() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteTHead(
@@ -2851,7 +2851,7 @@ func (this HTMLTableElement) CreateTFoot() (ret HTMLTableSectionElement) {
 }
 
 // TryCreateTFoot calls the method "HTMLTableElement.createTFoot"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryCreateTFoot() (ret HTMLTableSectionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateTFoot(
@@ -2887,7 +2887,7 @@ func (this HTMLTableElement) DeleteTFoot() (ret js.Void) {
 }
 
 // TryDeleteTFoot calls the method "HTMLTableElement.deleteTFoot"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryDeleteTFoot() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteTFoot(
@@ -2923,7 +2923,7 @@ func (this HTMLTableElement) CreateTBody() (ret HTMLTableSectionElement) {
 }
 
 // TryCreateTBody calls the method "HTMLTableElement.createTBody"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryCreateTBody() (ret HTMLTableSectionElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementCreateTBody(
@@ -2960,7 +2960,7 @@ func (this HTMLTableElement) InsertRow(index int32) (ret HTMLTableRowElement) {
 }
 
 // TryInsertRow calls the method "HTMLTableElement.insertRow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryInsertRow(index int32) (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementInsertRow(
@@ -2997,7 +2997,7 @@ func (this HTMLTableElement) InsertRow1() (ret HTMLTableRowElement) {
 }
 
 // TryInsertRow1 calls the method "HTMLTableElement.insertRow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryInsertRow1() (ret HTMLTableRowElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementInsertRow1(
@@ -3034,7 +3034,7 @@ func (this HTMLTableElement) DeleteRow(index int32) (ret js.Void) {
 }
 
 // TryDeleteRow calls the method "HTMLTableElement.deleteRow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTableElement) TryDeleteRow(index int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTableElementDeleteRow(
@@ -3545,7 +3545,7 @@ func (this HTMLTextAreaElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLTextAreaElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementCheckValidity(
@@ -3581,7 +3581,7 @@ func (this HTMLTextAreaElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLTextAreaElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementReportValidity(
@@ -3618,7 +3618,7 @@ func (this HTMLTextAreaElement) SetCustomValidity(err js.String) (ret js.Void) {
 }
 
 // TrySetCustomValidity calls the method "HTMLTextAreaElement.setCustomValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetCustomValidity(err js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetCustomValidity(
@@ -3655,7 +3655,7 @@ func (this HTMLTextAreaElement) Select() (ret js.Void) {
 }
 
 // TrySelect calls the method "HTMLTextAreaElement.select"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TrySelect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSelect(
@@ -3692,7 +3692,7 @@ func (this HTMLTextAreaElement) SetRangeText(replacement js.String) (ret js.Void
 }
 
 // TrySetRangeText calls the method "HTMLTextAreaElement.setRangeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetRangeText(replacement js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetRangeText(
@@ -3733,7 +3733,7 @@ func (this HTMLTextAreaElement) SetRangeText1(replacement js.String, start uint3
 }
 
 // TrySetRangeText1 calls the method "HTMLTextAreaElement.setRangeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetRangeText1(replacement js.String, start uint32, end uint32, selectionMode SelectionMode) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetRangeText1(
@@ -3776,7 +3776,7 @@ func (this HTMLTextAreaElement) SetRangeText2(replacement js.String, start uint3
 }
 
 // TrySetRangeText2 calls the method "HTMLTextAreaElement.setRangeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetRangeText2(replacement js.String, start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetRangeText2(
@@ -3818,7 +3818,7 @@ func (this HTMLTextAreaElement) SetSelectionRange(start uint32, end uint32, dire
 }
 
 // TrySetSelectionRange calls the method "HTMLTextAreaElement.setSelectionRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetSelectionRange(start uint32, end uint32, direction js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetSelectionRange(
@@ -3859,7 +3859,7 @@ func (this HTMLTextAreaElement) SetSelectionRange1(start uint32, end uint32) (re
 }
 
 // TrySetSelectionRange1 calls the method "HTMLTextAreaElement.setSelectionRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLTextAreaElement) TrySetSelectionRange1(start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLTextAreaElementSetSelectionRange1(
@@ -4846,7 +4846,7 @@ func (this IDBIndex) Get(query js.Any) (ret IDBRequest) {
 }
 
 // TryGet calls the method "IDBIndex.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGet(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGet(
@@ -4884,7 +4884,7 @@ func (this IDBIndex) GetKey(query js.Any) (ret IDBRequest) {
 }
 
 // TryGetKey calls the method "IDBIndex.getKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGetKey(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetKey(
@@ -4923,7 +4923,7 @@ func (this IDBIndex) GetAll(query js.Any, count uint32) (ret IDBRequest) {
 }
 
 // TryGetAll calls the method "IDBIndex.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGetAll(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAll(
@@ -4962,7 +4962,7 @@ func (this IDBIndex) GetAll1(query js.Any) (ret IDBRequest) {
 }
 
 // TryGetAll1 calls the method "IDBIndex.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGetAll1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAll1(
@@ -4999,7 +4999,7 @@ func (this IDBIndex) GetAll2() (ret IDBRequest) {
 }
 
 // TryGetAll2 calls the method "IDBIndex.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGetAll2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAll2(
@@ -5037,7 +5037,7 @@ func (this IDBIndex) GetAllKeys(query js.Any, count uint32) (ret IDBRequest) {
 }
 
 // TryGetAllKeys calls the method "IDBIndex.getAllKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGetAllKeys(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAllKeys(
@@ -5076,7 +5076,7 @@ func (this IDBIndex) GetAllKeys1(query js.Any) (ret IDBRequest) {
 }
 
 // TryGetAllKeys1 calls the method "IDBIndex.getAllKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGetAllKeys1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAllKeys1(
@@ -5113,7 +5113,7 @@ func (this IDBIndex) GetAllKeys2() (ret IDBRequest) {
 }
 
 // TryGetAllKeys2 calls the method "IDBIndex.getAllKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryGetAllKeys2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexGetAllKeys2(
@@ -5150,7 +5150,7 @@ func (this IDBIndex) Count(query js.Any) (ret IDBRequest) {
 }
 
 // TryCount calls the method "IDBIndex.count"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryCount(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexCount(
@@ -5187,7 +5187,7 @@ func (this IDBIndex) Count1() (ret IDBRequest) {
 }
 
 // TryCount1 calls the method "IDBIndex.count"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryCount1() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexCount1(
@@ -5225,7 +5225,7 @@ func (this IDBIndex) OpenCursor(query js.Any, direction IDBCursorDirection) (ret
 }
 
 // TryOpenCursor calls the method "IDBIndex.openCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryOpenCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenCursor(
@@ -5264,7 +5264,7 @@ func (this IDBIndex) OpenCursor1(query js.Any) (ret IDBRequest) {
 }
 
 // TryOpenCursor1 calls the method "IDBIndex.openCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryOpenCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenCursor1(
@@ -5301,7 +5301,7 @@ func (this IDBIndex) OpenCursor2() (ret IDBRequest) {
 }
 
 // TryOpenCursor2 calls the method "IDBIndex.openCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryOpenCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenCursor2(
@@ -5339,7 +5339,7 @@ func (this IDBIndex) OpenKeyCursor(query js.Any, direction IDBCursorDirection) (
 }
 
 // TryOpenKeyCursor calls the method "IDBIndex.openKeyCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryOpenKeyCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenKeyCursor(
@@ -5378,7 +5378,7 @@ func (this IDBIndex) OpenKeyCursor1(query js.Any) (ret IDBRequest) {
 }
 
 // TryOpenKeyCursor1 calls the method "IDBIndex.openKeyCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryOpenKeyCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenKeyCursor1(
@@ -5415,7 +5415,7 @@ func (this IDBIndex) OpenKeyCursor2() (ret IDBRequest) {
 }
 
 // TryOpenKeyCursor2 calls the method "IDBIndex.openKeyCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBIndex) TryOpenKeyCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBIndexOpenKeyCursor2(
@@ -5687,7 +5687,7 @@ func (this IDBDatabase) Transaction(storeNames OneOf_String_ArrayString, mode ID
 }
 
 // TryTransaction calls the method "IDBDatabase.transaction"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBDatabase) TryTransaction(storeNames OneOf_String_ArrayString, mode IDBTransactionMode, options IDBTransactionOptions) (ret IDBTransaction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseTransaction(
@@ -5728,7 +5728,7 @@ func (this IDBDatabase) Transaction1(storeNames OneOf_String_ArrayString, mode I
 }
 
 // TryTransaction1 calls the method "IDBDatabase.transaction"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBDatabase) TryTransaction1(storeNames OneOf_String_ArrayString, mode IDBTransactionMode) (ret IDBTransaction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseTransaction1(
@@ -5767,7 +5767,7 @@ func (this IDBDatabase) Transaction2(storeNames OneOf_String_ArrayString) (ret I
 }
 
 // TryTransaction2 calls the method "IDBDatabase.transaction"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBDatabase) TryTransaction2(storeNames OneOf_String_ArrayString) (ret IDBTransaction, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseTransaction2(
@@ -5804,7 +5804,7 @@ func (this IDBDatabase) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "IDBDatabase.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBDatabase) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseClose(
@@ -5842,7 +5842,7 @@ func (this IDBDatabase) CreateObjectStore(name js.String, options IDBObjectStore
 }
 
 // TryCreateObjectStore calls the method "IDBDatabase.createObjectStore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBDatabase) TryCreateObjectStore(name js.String, options IDBObjectStoreParameters) (ret IDBObjectStore, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseCreateObjectStore(
@@ -5881,7 +5881,7 @@ func (this IDBDatabase) CreateObjectStore1(name js.String) (ret IDBObjectStore) 
 }
 
 // TryCreateObjectStore1 calls the method "IDBDatabase.createObjectStore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBDatabase) TryCreateObjectStore1(name js.String) (ret IDBObjectStore, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseCreateObjectStore1(
@@ -5919,7 +5919,7 @@ func (this IDBDatabase) DeleteObjectStore(name js.String) (ret js.Void) {
 }
 
 // TryDeleteObjectStore calls the method "IDBDatabase.deleteObjectStore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBDatabase) TryDeleteObjectStore(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBDatabaseDeleteObjectStore(
@@ -6029,7 +6029,7 @@ func (this IDBTransaction) ObjectStore(name js.String) (ret IDBObjectStore) {
 }
 
 // TryObjectStore calls the method "IDBTransaction.objectStore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBTransaction) TryObjectStore(name js.String) (ret IDBObjectStore, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBTransactionObjectStore(
@@ -6066,7 +6066,7 @@ func (this IDBTransaction) Commit() (ret js.Void) {
 }
 
 // TryCommit calls the method "IDBTransaction.commit"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBTransaction) TryCommit() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBTransactionCommit(
@@ -6102,7 +6102,7 @@ func (this IDBTransaction) Abort() (ret js.Void) {
 }
 
 // TryAbort calls the method "IDBTransaction.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBTransaction) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBTransactionAbort(
@@ -6222,7 +6222,7 @@ func (this IDBObjectStore) Put(value js.Any, key js.Any) (ret IDBRequest) {
 }
 
 // TryPut calls the method "IDBObjectStore.put"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryPut(value js.Any, key js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStorePut(
@@ -6261,7 +6261,7 @@ func (this IDBObjectStore) Put1(value js.Any) (ret IDBRequest) {
 }
 
 // TryPut1 calls the method "IDBObjectStore.put"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryPut1(value js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStorePut1(
@@ -6300,7 +6300,7 @@ func (this IDBObjectStore) Add(value js.Any, key js.Any) (ret IDBRequest) {
 }
 
 // TryAdd calls the method "IDBObjectStore.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryAdd(value js.Any, key js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreAdd(
@@ -6339,7 +6339,7 @@ func (this IDBObjectStore) Add1(value js.Any) (ret IDBRequest) {
 }
 
 // TryAdd1 calls the method "IDBObjectStore.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryAdd1(value js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreAdd1(
@@ -6377,7 +6377,7 @@ func (this IDBObjectStore) Delete(query js.Any) (ret IDBRequest) {
 }
 
 // TryDelete calls the method "IDBObjectStore.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryDelete(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreDelete(
@@ -6414,7 +6414,7 @@ func (this IDBObjectStore) Clear() (ret IDBRequest) {
 }
 
 // TryClear calls the method "IDBObjectStore.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryClear() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreClear(
@@ -6451,7 +6451,7 @@ func (this IDBObjectStore) Get(query js.Any) (ret IDBRequest) {
 }
 
 // TryGet calls the method "IDBObjectStore.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGet(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGet(
@@ -6489,7 +6489,7 @@ func (this IDBObjectStore) GetKey(query js.Any) (ret IDBRequest) {
 }
 
 // TryGetKey calls the method "IDBObjectStore.getKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGetKey(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetKey(
@@ -6528,7 +6528,7 @@ func (this IDBObjectStore) GetAll(query js.Any, count uint32) (ret IDBRequest) {
 }
 
 // TryGetAll calls the method "IDBObjectStore.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGetAll(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAll(
@@ -6567,7 +6567,7 @@ func (this IDBObjectStore) GetAll1(query js.Any) (ret IDBRequest) {
 }
 
 // TryGetAll1 calls the method "IDBObjectStore.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGetAll1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAll1(
@@ -6604,7 +6604,7 @@ func (this IDBObjectStore) GetAll2() (ret IDBRequest) {
 }
 
 // TryGetAll2 calls the method "IDBObjectStore.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGetAll2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAll2(
@@ -6642,7 +6642,7 @@ func (this IDBObjectStore) GetAllKeys(query js.Any, count uint32) (ret IDBReques
 }
 
 // TryGetAllKeys calls the method "IDBObjectStore.getAllKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGetAllKeys(query js.Any, count uint32) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAllKeys(
@@ -6681,7 +6681,7 @@ func (this IDBObjectStore) GetAllKeys1(query js.Any) (ret IDBRequest) {
 }
 
 // TryGetAllKeys1 calls the method "IDBObjectStore.getAllKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGetAllKeys1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAllKeys1(
@@ -6718,7 +6718,7 @@ func (this IDBObjectStore) GetAllKeys2() (ret IDBRequest) {
 }
 
 // TryGetAllKeys2 calls the method "IDBObjectStore.getAllKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryGetAllKeys2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreGetAllKeys2(
@@ -6755,7 +6755,7 @@ func (this IDBObjectStore) Count(query js.Any) (ret IDBRequest) {
 }
 
 // TryCount calls the method "IDBObjectStore.count"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryCount(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCount(
@@ -6792,7 +6792,7 @@ func (this IDBObjectStore) Count1() (ret IDBRequest) {
 }
 
 // TryCount1 calls the method "IDBObjectStore.count"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryCount1() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCount1(
@@ -6830,7 +6830,7 @@ func (this IDBObjectStore) OpenCursor(query js.Any, direction IDBCursorDirection
 }
 
 // TryOpenCursor calls the method "IDBObjectStore.openCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryOpenCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenCursor(
@@ -6869,7 +6869,7 @@ func (this IDBObjectStore) OpenCursor1(query js.Any) (ret IDBRequest) {
 }
 
 // TryOpenCursor1 calls the method "IDBObjectStore.openCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryOpenCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenCursor1(
@@ -6906,7 +6906,7 @@ func (this IDBObjectStore) OpenCursor2() (ret IDBRequest) {
 }
 
 // TryOpenCursor2 calls the method "IDBObjectStore.openCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryOpenCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenCursor2(
@@ -6944,7 +6944,7 @@ func (this IDBObjectStore) OpenKeyCursor(query js.Any, direction IDBCursorDirect
 }
 
 // TryOpenKeyCursor calls the method "IDBObjectStore.openKeyCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryOpenKeyCursor(query js.Any, direction IDBCursorDirection) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenKeyCursor(
@@ -6983,7 +6983,7 @@ func (this IDBObjectStore) OpenKeyCursor1(query js.Any) (ret IDBRequest) {
 }
 
 // TryOpenKeyCursor1 calls the method "IDBObjectStore.openKeyCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryOpenKeyCursor1(query js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenKeyCursor1(
@@ -7020,7 +7020,7 @@ func (this IDBObjectStore) OpenKeyCursor2() (ret IDBRequest) {
 }
 
 // TryOpenKeyCursor2 calls the method "IDBObjectStore.openKeyCursor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryOpenKeyCursor2() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreOpenKeyCursor2(
@@ -7057,7 +7057,7 @@ func (this IDBObjectStore) Index(name js.String) (ret IDBIndex) {
 }
 
 // TryIndex calls the method "IDBObjectStore.index"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryIndex(name js.String) (ret IDBIndex, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreIndex(
@@ -7097,7 +7097,7 @@ func (this IDBObjectStore) CreateIndex(name js.String, keyPath OneOf_String_Arra
 }
 
 // TryCreateIndex calls the method "IDBObjectStore.createIndex"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryCreateIndex(name js.String, keyPath OneOf_String_ArrayString, options IDBIndexParameters) (ret IDBIndex, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCreateIndex(
@@ -7138,7 +7138,7 @@ func (this IDBObjectStore) CreateIndex1(name js.String, keyPath OneOf_String_Arr
 }
 
 // TryCreateIndex1 calls the method "IDBObjectStore.createIndex"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryCreateIndex1(name js.String, keyPath OneOf_String_ArrayString) (ret IDBIndex, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreCreateIndex1(
@@ -7177,7 +7177,7 @@ func (this IDBObjectStore) DeleteIndex(name js.String) (ret js.Void) {
 }
 
 // TryDeleteIndex calls the method "IDBObjectStore.deleteIndex"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBObjectStore) TryDeleteIndex(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBObjectStoreDeleteIndex(

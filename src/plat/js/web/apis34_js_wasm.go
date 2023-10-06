@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -200,7 +200,7 @@ func (this DeviceOrientationEvent) RequestPermission() (ret js.Promise[Permissio
 }
 
 // TryRequestPermission calls the staticmethod "DeviceOrientationEvent.requestPermission"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DeviceOrientationEvent) TryRequestPermission() (ret js.Promise[PermissionState], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDeviceOrientationEventRequestPermission(
@@ -615,7 +615,7 @@ func (this EXT_disjoint_timer_query) CreateQueryEXT() (ret WebGLTimerQueryEXT) {
 }
 
 // TryCreateQueryEXT calls the method "EXT_disjoint_timer_query.createQueryEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryCreateQueryEXT() (ret WebGLTimerQueryEXT, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryCreateQueryEXT(
@@ -652,7 +652,7 @@ func (this EXT_disjoint_timer_query) DeleteQueryEXT(query WebGLTimerQueryEXT) (r
 }
 
 // TryDeleteQueryEXT calls the method "EXT_disjoint_timer_query.deleteQueryEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryDeleteQueryEXT(query WebGLTimerQueryEXT) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryDeleteQueryEXT(
@@ -690,7 +690,7 @@ func (this EXT_disjoint_timer_query) IsQueryEXT(query WebGLTimerQueryEXT) (ret b
 }
 
 // TryIsQueryEXT calls the method "EXT_disjoint_timer_query.isQueryEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryIsQueryEXT(query WebGLTimerQueryEXT) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryIsQueryEXT(
@@ -729,7 +729,7 @@ func (this EXT_disjoint_timer_query) BeginQueryEXT(target GLenum, query WebGLTim
 }
 
 // TryBeginQueryEXT calls the method "EXT_disjoint_timer_query.beginQueryEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryBeginQueryEXT(target GLenum, query WebGLTimerQueryEXT) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryBeginQueryEXT(
@@ -768,7 +768,7 @@ func (this EXT_disjoint_timer_query) EndQueryEXT(target GLenum) (ret js.Void) {
 }
 
 // TryEndQueryEXT calls the method "EXT_disjoint_timer_query.endQueryEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryEndQueryEXT(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryEndQueryEXT(
@@ -807,7 +807,7 @@ func (this EXT_disjoint_timer_query) QueryCounterEXT(query WebGLTimerQueryEXT, t
 }
 
 // TryQueryCounterEXT calls the method "EXT_disjoint_timer_query.queryCounterEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryQueryCounterEXT(query WebGLTimerQueryEXT, target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryQueryCounterEXT(
@@ -847,7 +847,7 @@ func (this EXT_disjoint_timer_query) GetQueryEXT(target GLenum, pname GLenum) (r
 }
 
 // TryGetQueryEXT calls the method "EXT_disjoint_timer_query.getQueryEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryGetQueryEXT(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryGetQueryEXT(
@@ -887,7 +887,7 @@ func (this EXT_disjoint_timer_query) GetQueryObjectEXT(query WebGLTimerQueryEXT,
 }
 
 // TryGetQueryObjectEXT calls the method "EXT_disjoint_timer_query.getQueryObjectEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query) TryGetQueryObjectEXT(query WebGLTimerQueryEXT, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_queryGetQueryObjectEXT(
@@ -956,7 +956,7 @@ func (this EXT_disjoint_timer_query_webgl2) QueryCounterEXT(query WebGLQuery, ta
 }
 
 // TryQueryCounterEXT calls the method "EXT_disjoint_timer_query_webgl2.queryCounterEXT"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EXT_disjoint_timer_query_webgl2) TryQueryCounterEXT(query WebGLQuery, target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEXT_disjoint_timer_query_webgl2QueryCounterEXT(
@@ -1660,7 +1660,7 @@ func (this EncodedVideoChunk) CopyTo(destination AllowSharedBufferSource) (ret j
 }
 
 // TryCopyTo calls the method "EncodedVideoChunk.copyTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EncodedVideoChunk) TryCopyTo(destination AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEncodedVideoChunkCopyTo(

@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -475,7 +475,7 @@ func (this SVGGeometryElement) IsPointInFill(point DOMPointInit) (ret bool) {
 }
 
 // TryIsPointInFill calls the method "SVGGeometryElement.isPointInFill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInFill(point DOMPointInit) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInFill(
@@ -512,7 +512,7 @@ func (this SVGGeometryElement) IsPointInFill1() (ret bool) {
 }
 
 // TryIsPointInFill1 calls the method "SVGGeometryElement.isPointInFill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInFill1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInFill1(
@@ -549,7 +549,7 @@ func (this SVGGeometryElement) IsPointInStroke(point DOMPointInit) (ret bool) {
 }
 
 // TryIsPointInStroke calls the method "SVGGeometryElement.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInStroke(point DOMPointInit) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInStroke(
@@ -586,7 +586,7 @@ func (this SVGGeometryElement) IsPointInStroke1() (ret bool) {
 }
 
 // TryIsPointInStroke1 calls the method "SVGGeometryElement.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGeometryElement) TryIsPointInStroke1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementIsPointInStroke1(
@@ -622,7 +622,7 @@ func (this SVGGeometryElement) GetTotalLength() (ret float32) {
 }
 
 // TryGetTotalLength calls the method "SVGGeometryElement.getTotalLength"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGeometryElement) TryGetTotalLength() (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementGetTotalLength(
@@ -659,7 +659,7 @@ func (this SVGGeometryElement) GetPointAtLength(distance float32) (ret DOMPoint)
 }
 
 // TryGetPointAtLength calls the method "SVGGeometryElement.getPointAtLength"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGeometryElement) TryGetPointAtLength(distance float32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGeometryElementGetPointAtLength(
@@ -818,7 +818,7 @@ func (this SVGGraphicsElement) GetBBox(options SVGBoundingBoxOptions) (ret DOMRe
 }
 
 // TryGetBBox calls the method "SVGGraphicsElement.getBBox"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGraphicsElement) TryGetBBox(options SVGBoundingBoxOptions) (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetBBox(
@@ -855,7 +855,7 @@ func (this SVGGraphicsElement) GetBBox1() (ret DOMRect) {
 }
 
 // TryGetBBox1 calls the method "SVGGraphicsElement.getBBox"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGraphicsElement) TryGetBBox1() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetBBox1(
@@ -891,7 +891,7 @@ func (this SVGGraphicsElement) GetCTM() (ret DOMMatrix) {
 }
 
 // TryGetCTM calls the method "SVGGraphicsElement.getCTM"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGraphicsElement) TryGetCTM() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetCTM(
@@ -927,7 +927,7 @@ func (this SVGGraphicsElement) GetScreenCTM() (ret DOMMatrix) {
 }
 
 // TryGetScreenCTM calls the method "SVGGraphicsElement.getScreenCTM"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGGraphicsElement) TryGetScreenCTM() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGGraphicsElementGetScreenCTM(
@@ -1260,7 +1260,7 @@ func (this SVGMarkerElement) SetOrientToAuto() (ret js.Void) {
 }
 
 // TrySetOrientToAuto calls the method "SVGMarkerElement.setOrientToAuto"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGMarkerElement) TrySetOrientToAuto() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGMarkerElementSetOrientToAuto(
@@ -1297,7 +1297,7 @@ func (this SVGMarkerElement) SetOrientToAngle(angle SVGAngle) (ret js.Void) {
 }
 
 // TrySetOrientToAngle calls the method "SVGMarkerElement.setOrientToAngle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGMarkerElement) TrySetOrientToAngle(angle SVGAngle) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGMarkerElementSetOrientToAngle(
@@ -1624,7 +1624,7 @@ func (this SVGPointList) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "SVGPointList.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListClear(
@@ -1661,7 +1661,7 @@ func (this SVGPointList) Initialize(newItem DOMPoint) (ret DOMPoint) {
 }
 
 // TryInitialize calls the method "SVGPointList.initialize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TryInitialize(newItem DOMPoint) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListInitialize(
@@ -1699,7 +1699,7 @@ func (this SVGPointList) GetItem(index uint32) (ret DOMPoint) {
 }
 
 // TryGetItem calls the method "SVGPointList.getItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TryGetItem(index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListGetItem(
@@ -1738,7 +1738,7 @@ func (this SVGPointList) InsertItemBefore(newItem DOMPoint, index uint32) (ret D
 }
 
 // TryInsertItemBefore calls the method "SVGPointList.insertItemBefore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TryInsertItemBefore(newItem DOMPoint, index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListInsertItemBefore(
@@ -1778,7 +1778,7 @@ func (this SVGPointList) ReplaceItem(newItem DOMPoint, index uint32) (ret DOMPoi
 }
 
 // TryReplaceItem calls the method "SVGPointList.replaceItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TryReplaceItem(newItem DOMPoint, index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListReplaceItem(
@@ -1817,7 +1817,7 @@ func (this SVGPointList) RemoveItem(index uint32) (ret DOMPoint) {
 }
 
 // TryRemoveItem calls the method "SVGPointList.removeItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TryRemoveItem(index uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListRemoveItem(
@@ -1855,7 +1855,7 @@ func (this SVGPointList) AppendItem(newItem DOMPoint) (ret DOMPoint) {
 }
 
 // TryAppendItem calls the method "SVGPointList.appendItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TryAppendItem(newItem DOMPoint) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListAppendItem(
@@ -1894,7 +1894,7 @@ func (this SVGPointList) Set(index uint32, newItem DOMPoint) (ret js.Void) {
 }
 
 // TrySet calls the method "SVGPointList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGPointList) TrySet(index uint32, newItem DOMPoint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGPointListSet(
@@ -2460,7 +2460,7 @@ func (this SVGTextContentElement) GetNumberOfChars() (ret int32) {
 }
 
 // TryGetNumberOfChars calls the method "SVGTextContentElement.getNumberOfChars"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetNumberOfChars() (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetNumberOfChars(
@@ -2496,7 +2496,7 @@ func (this SVGTextContentElement) GetComputedTextLength() (ret float32) {
 }
 
 // TryGetComputedTextLength calls the method "SVGTextContentElement.getComputedTextLength"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetComputedTextLength() (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetComputedTextLength(
@@ -2534,7 +2534,7 @@ func (this SVGTextContentElement) GetSubStringLength(charnum uint32, nchars uint
 }
 
 // TryGetSubStringLength calls the method "SVGTextContentElement.getSubStringLength"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetSubStringLength(charnum uint32, nchars uint32) (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetSubStringLength(
@@ -2573,7 +2573,7 @@ func (this SVGTextContentElement) GetStartPositionOfChar(charnum uint32) (ret DO
 }
 
 // TryGetStartPositionOfChar calls the method "SVGTextContentElement.getStartPositionOfChar"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetStartPositionOfChar(charnum uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetStartPositionOfChar(
@@ -2611,7 +2611,7 @@ func (this SVGTextContentElement) GetEndPositionOfChar(charnum uint32) (ret DOMP
 }
 
 // TryGetEndPositionOfChar calls the method "SVGTextContentElement.getEndPositionOfChar"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetEndPositionOfChar(charnum uint32) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetEndPositionOfChar(
@@ -2649,7 +2649,7 @@ func (this SVGTextContentElement) GetExtentOfChar(charnum uint32) (ret DOMRect) 
 }
 
 // TryGetExtentOfChar calls the method "SVGTextContentElement.getExtentOfChar"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetExtentOfChar(charnum uint32) (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetExtentOfChar(
@@ -2687,7 +2687,7 @@ func (this SVGTextContentElement) GetRotationOfChar(charnum uint32) (ret float32
 }
 
 // TryGetRotationOfChar calls the method "SVGTextContentElement.getRotationOfChar"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetRotationOfChar(charnum uint32) (ret float32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetRotationOfChar(
@@ -2725,7 +2725,7 @@ func (this SVGTextContentElement) GetCharNumAtPosition(point DOMPointInit) (ret 
 }
 
 // TryGetCharNumAtPosition calls the method "SVGTextContentElement.getCharNumAtPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetCharNumAtPosition(point DOMPointInit) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetCharNumAtPosition(
@@ -2762,7 +2762,7 @@ func (this SVGTextContentElement) GetCharNumAtPosition1() (ret int32) {
 }
 
 // TryGetCharNumAtPosition1 calls the method "SVGTextContentElement.getCharNumAtPosition"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TryGetCharNumAtPosition1() (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementGetCharNumAtPosition1(
@@ -2800,7 +2800,7 @@ func (this SVGTextContentElement) SelectSubString(charnum uint32, nchars uint32)
 }
 
 // TrySelectSubString calls the method "SVGTextContentElement.selectSubString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SVGTextContentElement) TrySelectSubString(charnum uint32, nchars uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySVGTextContentElementSelectSubString(
@@ -3319,7 +3319,7 @@ func (this ScriptingPolicyReportBody) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "ScriptingPolicyReportBody.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ScriptingPolicyReportBody) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryScriptingPolicyReportBodyToJSON(

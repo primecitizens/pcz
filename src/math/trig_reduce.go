@@ -5,7 +5,7 @@
 package math
 
 import (
-	"github.com/primecitizens/std/core/bits"
+	"github.com/primecitizens/pcz/std/core/bits"
 )
 
 // reduceThreshold is the maximum value of x where the reduction using Pi/4

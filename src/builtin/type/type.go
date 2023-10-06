@@ -10,8 +10,8 @@ package stdtype
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 // Eface is the definition for interfaces with no method.

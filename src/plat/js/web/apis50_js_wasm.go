@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -465,7 +465,7 @@ func (this ReadableStreamBYOBRequest) Respond(bytesWritten uint64) (ret js.Void)
 }
 
 // TryRespond calls the method "ReadableStreamBYOBRequest.respond"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamBYOBRequest) TryRespond(bytesWritten uint64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBRequestRespond(
@@ -503,7 +503,7 @@ func (this ReadableStreamBYOBRequest) RespondWithNewView(view js.ArrayBufferView
 }
 
 // TryRespondWithNewView calls the method "ReadableStreamBYOBRequest.respondWithNewView"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamBYOBRequest) TryRespondWithNewView(view js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBRequestRespondWithNewView(
@@ -582,7 +582,7 @@ func (this ReadableByteStreamController) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "ReadableByteStreamController.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableByteStreamController) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerClose(
@@ -619,7 +619,7 @@ func (this ReadableByteStreamController) Enqueue(chunk js.ArrayBufferView) (ret 
 }
 
 // TryEnqueue calls the method "ReadableByteStreamController.enqueue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableByteStreamController) TryEnqueue(chunk js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerEnqueue(
@@ -657,7 +657,7 @@ func (this ReadableByteStreamController) Error(e js.Any) (ret js.Void) {
 }
 
 // TryError calls the method "ReadableByteStreamController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableByteStreamController) TryError(e js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerError(
@@ -694,7 +694,7 @@ func (this ReadableByteStreamController) Error1() (ret js.Void) {
 }
 
 // TryError1 calls the method "ReadableByteStreamController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableByteStreamController) TryError1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableByteStreamControllerError1(
@@ -762,7 +762,7 @@ func (this ReadableStreamDefaultController) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "ReadableStreamDefaultController.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultController) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerClose(
@@ -799,7 +799,7 @@ func (this ReadableStreamDefaultController) Enqueue(chunk js.Any) (ret js.Void) 
 }
 
 // TryEnqueue calls the method "ReadableStreamDefaultController.enqueue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultController) TryEnqueue(chunk js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerEnqueue(
@@ -836,7 +836,7 @@ func (this ReadableStreamDefaultController) Enqueue1() (ret js.Void) {
 }
 
 // TryEnqueue1 calls the method "ReadableStreamDefaultController.enqueue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultController) TryEnqueue1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerEnqueue1(
@@ -873,7 +873,7 @@ func (this ReadableStreamDefaultController) Error(e js.Any) (ret js.Void) {
 }
 
 // TryError calls the method "ReadableStreamDefaultController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultController) TryError(e js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerError(
@@ -910,7 +910,7 @@ func (this ReadableStreamDefaultController) Error1() (ret js.Void) {
 }
 
 // TryError1 calls the method "ReadableStreamDefaultController.error"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultController) TryError1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultControllerError1(
@@ -1126,7 +1126,7 @@ func (this ReportBody) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "ReportBody.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReportBody) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportBodyToJSON(
@@ -1214,7 +1214,7 @@ func (this Report) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "Report.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Report) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportToJSON(
@@ -1673,7 +1673,7 @@ func (this ReportingObserver) Observe() (ret js.Void) {
 }
 
 // TryObserve calls the method "ReportingObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReportingObserver) TryObserve() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportingObserverObserve(
@@ -1709,7 +1709,7 @@ func (this ReportingObserver) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "ReportingObserver.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReportingObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportingObserverDisconnect(
@@ -1745,7 +1745,7 @@ func (this ReportingObserver) TakeRecords() (ret ReportList) {
 }
 
 // TryTakeRecords calls the method "ReportingObserver.takeRecords"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReportingObserver) TryTakeRecords() (ret ReportList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReportingObserverTakeRecords(
@@ -2077,7 +2077,7 @@ func (this ResizeObserver) Observe(target Element, options ResizeObserverOptions
 }
 
 // TryObserve calls the method "ResizeObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ResizeObserver) TryObserve(target Element, options ResizeObserverOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverObserve(
@@ -2116,7 +2116,7 @@ func (this ResizeObserver) Observe1(target Element) (ret js.Void) {
 }
 
 // TryObserve1 calls the method "ResizeObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ResizeObserver) TryObserve1(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverObserve1(
@@ -2154,7 +2154,7 @@ func (this ResizeObserver) Unobserve(target Element) (ret js.Void) {
 }
 
 // TryUnobserve calls the method "ResizeObserver.unobserve"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ResizeObserver) TryUnobserve(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverUnobserve(
@@ -2191,7 +2191,7 @@ func (this ResizeObserver) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "ResizeObserver.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ResizeObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryResizeObserverDisconnect(

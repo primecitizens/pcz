@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -111,7 +111,7 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBid(generateBidOutput
 }
 
 // TrySetBid calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetBid(generateBidOutput GenerateBidOutput) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetBid(
@@ -148,7 +148,7 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetBid1() (ret bool) {
 }
 
 // TrySetBid1 calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setBid"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetBid1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetBid1(
@@ -185,7 +185,7 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPriority(priority flo
 }
 
 // TrySetPriority calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setPriority"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetPriority(priority float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetPriority(
@@ -224,7 +224,7 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverri
 }
 
 // TrySetPrioritySignalsOverride calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetPrioritySignalsOverride(key js.String, priority float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride(
@@ -263,7 +263,7 @@ func (this InterestGroupBiddingScriptRunnerGlobalScope) SetPrioritySignalsOverri
 }
 
 // TrySetPrioritySignalsOverride1 calls the method "InterestGroupBiddingScriptRunnerGlobalScope.setPrioritySignalsOverride"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterestGroupBiddingScriptRunnerGlobalScope) TrySetPrioritySignalsOverride1(key js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupBiddingScriptRunnerGlobalScopeSetPrioritySignalsOverride1(
@@ -323,7 +323,7 @@ func (this InterestGroupReportingScriptRunnerGlobalScope) SendReportTo(url js.St
 }
 
 // TrySendReportTo calls the method "InterestGroupReportingScriptRunnerGlobalScope.sendReportTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterestGroupReportingScriptRunnerGlobalScope) TrySendReportTo(url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupReportingScriptRunnerGlobalScopeSendReportTo(
@@ -361,7 +361,7 @@ func (this InterestGroupReportingScriptRunnerGlobalScope) RegisterAdBeacon(mappi
 }
 
 // TryRegisterAdBeacon calls the method "InterestGroupReportingScriptRunnerGlobalScope.registerAdBeacon"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterestGroupReportingScriptRunnerGlobalScope) TryRegisterAdBeacon(mapping js.Record[js.String]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterestGroupReportingScriptRunnerGlobalScopeRegisterAdBeacon(
@@ -830,7 +830,7 @@ func (this IntersectionObserver) Observe(target Element) (ret js.Void) {
 }
 
 // TryObserve calls the method "IntersectionObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IntersectionObserver) TryObserve(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverObserve(
@@ -868,7 +868,7 @@ func (this IntersectionObserver) Unobserve(target Element) (ret js.Void) {
 }
 
 // TryUnobserve calls the method "IntersectionObserver.unobserve"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IntersectionObserver) TryUnobserve(target Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverUnobserve(
@@ -905,7 +905,7 @@ func (this IntersectionObserver) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "IntersectionObserver.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IntersectionObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverDisconnect(
@@ -941,7 +941,7 @@ func (this IntersectionObserver) TakeRecords() (ret js.Array[IntersectionObserve
 }
 
 // TryTakeRecords calls the method "IntersectionObserver.takeRecords"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IntersectionObserver) TryTakeRecords() (ret js.Array[IntersectionObserverEntry], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIntersectionObserverTakeRecords(
@@ -1049,7 +1049,7 @@ func (this InterventionReportBody) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "InterventionReportBody.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InterventionReportBody) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInterventionReportBodyToJSON(
@@ -2065,7 +2065,7 @@ func (this RdfGraph) Add(triple RdfTriple) (ret js.Void) {
 }
 
 // TryAdd calls the method "RdfGraph.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RdfGraph) TryAdd(triple RdfTriple) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRdfGraphAdd(
@@ -2136,7 +2136,7 @@ func (this RdfDataset) Add(graphName js.String, graph RdfGraph) (ret js.Void) {
 }
 
 // TryAdd calls the method "RdfDataset.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RdfDataset) TryAdd(graphName js.String, graph RdfGraph) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRdfDatasetAdd(
@@ -2199,7 +2199,7 @@ func (this JsonLdProcessor) Compact(input JsonLdInput, context JsonLdContext, op
 }
 
 // TryCompact calls the staticmethod "JsonLdProcessor.compact"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryCompact(input JsonLdInput, context JsonLdContext, options JsonLdOptions) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorCompact(
@@ -2240,7 +2240,7 @@ func (this JsonLdProcessor) Compact1(input JsonLdInput, context JsonLdContext) (
 }
 
 // TryCompact1 calls the staticmethod "JsonLdProcessor.compact"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryCompact1(input JsonLdInput, context JsonLdContext) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorCompact1(
@@ -2279,7 +2279,7 @@ func (this JsonLdProcessor) Compact2(input JsonLdInput) (ret js.Promise[JsonLdRe
 }
 
 // TryCompact2 calls the staticmethod "JsonLdProcessor.compact"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryCompact2(input JsonLdInput) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorCompact2(
@@ -2318,7 +2318,7 @@ func (this JsonLdProcessor) Expand(input JsonLdInput, options JsonLdOptions) (re
 }
 
 // TryExpand calls the staticmethod "JsonLdProcessor.expand"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryExpand(input JsonLdInput, options JsonLdOptions) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorExpand(
@@ -2357,7 +2357,7 @@ func (this JsonLdProcessor) Expand1(input JsonLdInput) (ret js.Promise[js.Array[
 }
 
 // TryExpand1 calls the staticmethod "JsonLdProcessor.expand"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryExpand1(input JsonLdInput) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorExpand1(
@@ -2397,7 +2397,7 @@ func (this JsonLdProcessor) Flatten(input JsonLdInput, context JsonLdContext, op
 }
 
 // TryFlatten calls the staticmethod "JsonLdProcessor.flatten"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFlatten(input JsonLdInput, context JsonLdContext, options JsonLdOptions) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFlatten(
@@ -2438,7 +2438,7 @@ func (this JsonLdProcessor) Flatten1(input JsonLdInput, context JsonLdContext) (
 }
 
 // TryFlatten1 calls the staticmethod "JsonLdProcessor.flatten"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFlatten1(input JsonLdInput, context JsonLdContext) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFlatten1(
@@ -2477,7 +2477,7 @@ func (this JsonLdProcessor) Flatten2(input JsonLdInput) (ret js.Promise[JsonLdRe
 }
 
 // TryFlatten2 calls the staticmethod "JsonLdProcessor.flatten"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFlatten2(input JsonLdInput) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFlatten2(
@@ -2516,7 +2516,7 @@ func (this JsonLdProcessor) FromRdf(input RdfDataset, options JsonLdOptions) (re
 }
 
 // TryFromRdf calls the staticmethod "JsonLdProcessor.fromRdf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFromRdf(input RdfDataset, options JsonLdOptions) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFromRdf(
@@ -2555,7 +2555,7 @@ func (this JsonLdProcessor) FromRdf1(input RdfDataset) (ret js.Promise[js.Array[
 }
 
 // TryFromRdf1 calls the staticmethod "JsonLdProcessor.fromRdf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFromRdf1(input RdfDataset) (ret js.Promise[js.Array[JsonLdRecord]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFromRdf1(
@@ -2594,7 +2594,7 @@ func (this JsonLdProcessor) ToRdf(input JsonLdInput, options JsonLdOptions) (ret
 }
 
 // TryToRdf calls the staticmethod "JsonLdProcessor.toRdf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryToRdf(input JsonLdInput, options JsonLdOptions) (ret js.Promise[RdfDataset], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorToRdf(
@@ -2633,7 +2633,7 @@ func (this JsonLdProcessor) ToRdf1(input JsonLdInput) (ret js.Promise[RdfDataset
 }
 
 // TryToRdf1 calls the staticmethod "JsonLdProcessor.toRdf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryToRdf1(input JsonLdInput) (ret js.Promise[RdfDataset], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorToRdf1(
@@ -2673,7 +2673,7 @@ func (this JsonLdProcessor) Frame(input JsonLdInput, frame JsonLdInput, options 
 }
 
 // TryFrame calls the staticmethod "JsonLdProcessor.frame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFrame(input JsonLdInput, frame JsonLdInput, options JsonLdOptions) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFrame(
@@ -2714,7 +2714,7 @@ func (this JsonLdProcessor) Frame1(input JsonLdInput, frame JsonLdInput) (ret js
 }
 
 // TryFrame1 calls the staticmethod "JsonLdProcessor.frame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this JsonLdProcessor) TryFrame1(input JsonLdInput, frame JsonLdInput) (ret js.Promise[JsonLdRecord], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryJsonLdProcessorFrame1(
@@ -3137,7 +3137,7 @@ func (this KeyboardEvent) GetModifierState(keyArg js.String) (ret bool) {
 }
 
 // TryGetModifierState calls the method "KeyboardEvent.getModifierState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryGetModifierState(keyArg js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventGetModifierState(
@@ -3184,7 +3184,7 @@ func (this KeyboardEvent) InitKeyboardEvent(typeArg js.String, bubblesArg bool, 
 }
 
 // TryInitKeyboardEvent calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool, metaKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent(
@@ -3239,7 +3239,7 @@ func (this KeyboardEvent) InitKeyboardEvent1(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitKeyboardEvent1 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent1(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool, shiftKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent1(
@@ -3292,7 +3292,7 @@ func (this KeyboardEvent) InitKeyboardEvent2(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitKeyboardEvent2 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent2(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool, altKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent2(
@@ -3343,7 +3343,7 @@ func (this KeyboardEvent) InitKeyboardEvent3(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitKeyboardEvent3 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent3(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32, ctrlKey bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent3(
@@ -3392,7 +3392,7 @@ func (this KeyboardEvent) InitKeyboardEvent4(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitKeyboardEvent4 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent4(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String, locationArg uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent4(
@@ -3439,7 +3439,7 @@ func (this KeyboardEvent) InitKeyboardEvent5(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitKeyboardEvent5 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent5(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window, keyArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent5(
@@ -3484,7 +3484,7 @@ func (this KeyboardEvent) InitKeyboardEvent6(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitKeyboardEvent6 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent6(typeArg js.String, bubblesArg bool, cancelableArg bool, viewArg Window) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent6(
@@ -3527,7 +3527,7 @@ func (this KeyboardEvent) InitKeyboardEvent7(typeArg js.String, bubblesArg bool,
 }
 
 // TryInitKeyboardEvent7 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent7(typeArg js.String, bubblesArg bool, cancelableArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent7(
@@ -3568,7 +3568,7 @@ func (this KeyboardEvent) InitKeyboardEvent8(typeArg js.String, bubblesArg bool)
 }
 
 // TryInitKeyboardEvent8 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent8(typeArg js.String, bubblesArg bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent8(
@@ -3607,7 +3607,7 @@ func (this KeyboardEvent) InitKeyboardEvent9(typeArg js.String) (ret js.Void) {
 }
 
 // TryInitKeyboardEvent9 calls the method "KeyboardEvent.initKeyboardEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyboardEvent) TryInitKeyboardEvent9(typeArg js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardEventInitKeyboardEvent9(
@@ -3866,7 +3866,7 @@ func (this KeyframeEffect) GetKeyframes() (ret js.Array[js.Object]) {
 }
 
 // TryGetKeyframes calls the method "KeyframeEffect.getKeyframes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyframeEffect) TryGetKeyframes() (ret js.Array[js.Object], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyframeEffectGetKeyframes(
@@ -3903,7 +3903,7 @@ func (this KeyframeEffect) SetKeyframes(keyframes js.Object) (ret js.Void) {
 }
 
 // TrySetKeyframes calls the method "KeyframeEffect.setKeyframes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this KeyframeEffect) TrySetKeyframes(keyframes js.Object) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyframeEffectSetKeyframes(

@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -334,7 +334,7 @@ func (this Navigation) Entries() (ret js.Array[NavigationHistoryEntry]) {
 }
 
 // TryEntries calls the method "Navigation.entries"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryEntries() (ret js.Array[NavigationHistoryEntry], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationEntries(
@@ -371,7 +371,7 @@ func (this Navigation) UpdateCurrentEntry(options NavigationUpdateCurrentEntryOp
 }
 
 // TryUpdateCurrentEntry calls the method "Navigation.updateCurrentEntry"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryUpdateCurrentEntry(options NavigationUpdateCurrentEntryOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationUpdateCurrentEntry(
@@ -410,7 +410,7 @@ func (this Navigation) Navigate(url js.String, options NavigationNavigateOptions
 }
 
 // TryNavigate calls the method "Navigation.navigate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryNavigate(url js.String, options NavigationNavigateOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationNavigate(
@@ -449,7 +449,7 @@ func (this Navigation) Navigate1(url js.String) (ret NavigationResult) {
 }
 
 // TryNavigate1 calls the method "Navigation.navigate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryNavigate1(url js.String) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationNavigate1(
@@ -487,7 +487,7 @@ func (this Navigation) Reload(options NavigationReloadOptions) (ret NavigationRe
 }
 
 // TryReload calls the method "Navigation.reload"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryReload(options NavigationReloadOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationReload(
@@ -524,7 +524,7 @@ func (this Navigation) Reload1() (ret NavigationResult) {
 }
 
 // TryReload1 calls the method "Navigation.reload"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryReload1() (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationReload1(
@@ -562,7 +562,7 @@ func (this Navigation) TraverseTo(key js.String, options NavigationOptions) (ret
 }
 
 // TryTraverseTo calls the method "Navigation.traverseTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryTraverseTo(key js.String, options NavigationOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationTraverseTo(
@@ -601,7 +601,7 @@ func (this Navigation) TraverseTo1(key js.String) (ret NavigationResult) {
 }
 
 // TryTraverseTo1 calls the method "Navigation.traverseTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryTraverseTo1(key js.String) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationTraverseTo1(
@@ -639,7 +639,7 @@ func (this Navigation) Back(options NavigationOptions) (ret NavigationResult) {
 }
 
 // TryBack calls the method "Navigation.back"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryBack(options NavigationOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationBack(
@@ -676,7 +676,7 @@ func (this Navigation) Back1() (ret NavigationResult) {
 }
 
 // TryBack1 calls the method "Navigation.back"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryBack1() (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationBack1(
@@ -713,7 +713,7 @@ func (this Navigation) Forward(options NavigationOptions) (ret NavigationResult)
 }
 
 // TryForward calls the method "Navigation.forward"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryForward(options NavigationOptions) (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationForward(
@@ -750,7 +750,7 @@ func (this Navigation) Forward1() (ret NavigationResult) {
 }
 
 // TryForward1 calls the method "Navigation.forward"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Navigation) TryForward1() (ret NavigationResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationForward1(
@@ -929,7 +929,7 @@ func (this CustomElementRegistry) Define(name js.String, constructor js.Func[fun
 }
 
 // TryDefine calls the method "CustomElementRegistry.define"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CustomElementRegistry) TryDefine(name js.String, constructor js.Func[func() HTMLElement], options ElementDefinitionOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryDefine(
@@ -970,7 +970,7 @@ func (this CustomElementRegistry) Define1(name js.String, constructor js.Func[fu
 }
 
 // TryDefine1 calls the method "CustomElementRegistry.define"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CustomElementRegistry) TryDefine1(name js.String, constructor js.Func[func() HTMLElement]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryDefine1(
@@ -1009,7 +1009,7 @@ func (this CustomElementRegistry) Get(name js.String) (ret OneOf_FuncCustomEleme
 }
 
 // TryGet calls the method "CustomElementRegistry.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CustomElementRegistry) TryGet(name js.String) (ret OneOf_FuncCustomElementConstructor_undefined, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryGet(
@@ -1047,7 +1047,7 @@ func (this CustomElementRegistry) GetName(constructor js.Func[func() HTMLElement
 }
 
 // TryGetName calls the method "CustomElementRegistry.getName"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CustomElementRegistry) TryGetName(constructor js.Func[func() HTMLElement]) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryGetName(
@@ -1085,7 +1085,7 @@ func (this CustomElementRegistry) WhenDefined(name js.String) (ret js.Promise[js
 }
 
 // TryWhenDefined calls the method "CustomElementRegistry.whenDefined"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CustomElementRegistry) TryWhenDefined(name js.String) (ret js.Promise[js.Func[func() HTMLElement]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryWhenDefined(
@@ -1123,7 +1123,7 @@ func (this CustomElementRegistry) Upgrade(root Node) (ret js.Void) {
 }
 
 // TryUpgrade calls the method "CustomElementRegistry.upgrade"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CustomElementRegistry) TryUpgrade(root Node) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomElementRegistryUpgrade(
@@ -1431,7 +1431,7 @@ func (this GamepadHapticActuator) CanPlayEffectType(typ GamepadHapticEffectType)
 }
 
 // TryCanPlayEffectType calls the method "GamepadHapticActuator.canPlayEffectType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GamepadHapticActuator) TryCanPlayEffectType(typ GamepadHapticEffectType) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorCanPlayEffectType(
@@ -1470,7 +1470,7 @@ func (this GamepadHapticActuator) PlayEffect(typ GamepadHapticEffectType, params
 }
 
 // TryPlayEffect calls the method "GamepadHapticActuator.playEffect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GamepadHapticActuator) TryPlayEffect(typ GamepadHapticEffectType, params GamepadEffectParameters) (ret js.Promise[GamepadHapticsResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorPlayEffect(
@@ -1509,7 +1509,7 @@ func (this GamepadHapticActuator) PlayEffect1(typ GamepadHapticEffectType) (ret 
 }
 
 // TryPlayEffect1 calls the method "GamepadHapticActuator.playEffect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GamepadHapticActuator) TryPlayEffect1(typ GamepadHapticEffectType) (ret js.Promise[GamepadHapticsResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorPlayEffect1(
@@ -1548,7 +1548,7 @@ func (this GamepadHapticActuator) Pulse(value float64, duration float64) (ret js
 }
 
 // TryPulse calls the method "GamepadHapticActuator.pulse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GamepadHapticActuator) TryPulse(value float64, duration float64) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorPulse(
@@ -1586,7 +1586,7 @@ func (this GamepadHapticActuator) Reset() (ret js.Promise[GamepadHapticsResult])
 }
 
 // TryReset calls the method "GamepadHapticActuator.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GamepadHapticActuator) TryReset() (ret js.Promise[GamepadHapticsResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGamepadHapticActuatorReset(
@@ -2139,7 +2139,7 @@ func (this MediaKeySystemAccess) GetConfiguration() (ret MediaKeySystemConfigura
 }
 
 // TryGetConfiguration calls the method "MediaKeySystemAccess.getConfiguration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeySystemAccess) TryGetConfiguration() (ret MediaKeySystemConfiguration, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySystemAccessGetConfiguration(
@@ -2175,7 +2175,7 @@ func (this MediaKeySystemAccess) CreateMediaKeys() (ret js.Promise[MediaKeys]) {
 }
 
 // TryCreateMediaKeys calls the method "MediaKeySystemAccess.createMediaKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaKeySystemAccess) TryCreateMediaKeys() (ret js.Promise[MediaKeys], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaKeySystemAccessCreateMediaKeys(
@@ -2523,7 +2523,7 @@ func (this FencedFrameConfig) SetSharedStorageContext(contextString js.String) (
 }
 
 // TrySetSharedStorageContext calls the method "FencedFrameConfig.setSharedStorageContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FencedFrameConfig) TrySetSharedStorageContext(contextString js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFencedFrameConfigSetSharedStorageContext(

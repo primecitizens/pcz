@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -102,7 +102,7 @@ func (this HTMLAllCollection) Get(index uint32) (ret Element) {
 }
 
 // TryGet calls the method "HTMLAllCollection."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLAllCollection) TryGet(index uint32) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLAllCollectionGet(
@@ -140,7 +140,7 @@ func (this HTMLAllCollection) NamedItem(name js.String) (ret OneOf_HTMLCollectio
 }
 
 // TryNamedItem calls the method "HTMLAllCollection.namedItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLAllCollection) TryNamedItem(name js.String) (ret OneOf_HTMLCollection_Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLAllCollectionNamedItem(
@@ -178,7 +178,7 @@ func (this HTMLAllCollection) Item(nameOrIndex js.String) (ret OneOf_HTMLCollect
 }
 
 // TryItem calls the method "HTMLAllCollection.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLAllCollection) TryItem(nameOrIndex js.String) (ret OneOf_HTMLCollection_Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLAllCollectionItem(
@@ -215,7 +215,7 @@ func (this HTMLAllCollection) Item1() (ret OneOf_HTMLCollection_Element) {
 }
 
 // TryItem1 calls the method "HTMLAllCollection.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLAllCollection) TryItem1() (ret OneOf_HTMLCollection_Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLAllCollectionItem1(
@@ -284,7 +284,7 @@ func (this DOMStringList) Item(index uint32) (ret js.String) {
 }
 
 // TryItem calls the method "DOMStringList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMStringList) TryItem(index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMStringListItem(
@@ -322,7 +322,7 @@ func (this DOMStringList) Contains(string js.String) (ret bool) {
 }
 
 // TryContains calls the method "DOMStringList.contains"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMStringList) TryContains(string js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMStringListContains(
@@ -562,7 +562,7 @@ func (this Location) Assign(url js.String) (ret js.Void) {
 }
 
 // TryAssign calls the method "Location.assign"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Location) TryAssign(url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLocationAssign(
@@ -600,7 +600,7 @@ func (this Location) Replace(url js.String) (ret js.Void) {
 }
 
 // TryReplace calls the method "Location.replace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Location) TryReplace(url js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLocationReplace(
@@ -637,7 +637,7 @@ func (this Location) Reload() (ret js.Void) {
 }
 
 // TryReload calls the method "Location.reload"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Location) TryReload() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLocationReload(
@@ -950,7 +950,7 @@ func (this ReadableStreamDefaultReader) Read() (ret js.Promise[ReadableStreamRea
 }
 
 // TryRead calls the method "ReadableStreamDefaultReader.read"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultReader) TryRead() (ret js.Promise[ReadableStreamReadResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultReaderRead(
@@ -986,7 +986,7 @@ func (this ReadableStreamDefaultReader) ReleaseLock() (ret js.Void) {
 }
 
 // TryReleaseLock calls the method "ReadableStreamDefaultReader.releaseLock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultReader) TryReleaseLock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultReaderReleaseLock(
@@ -1023,7 +1023,7 @@ func (this ReadableStreamDefaultReader) Cancel(reason js.Any) (ret js.Promise[js
 }
 
 // TryCancel calls the method "ReadableStreamDefaultReader.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultReader) TryCancel(reason js.Any) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultReaderCancel(
@@ -1060,7 +1060,7 @@ func (this ReadableStreamDefaultReader) Cancel1() (ret js.Promise[js.Void]) {
 }
 
 // TryCancel1 calls the method "ReadableStreamDefaultReader.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamDefaultReader) TryCancel1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamDefaultReaderCancel1(
@@ -1135,7 +1135,7 @@ func (this ReadableStreamBYOBReader) Read(view js.ArrayBufferView) (ret js.Promi
 }
 
 // TryRead calls the method "ReadableStreamBYOBReader.read"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamBYOBReader) TryRead(view js.ArrayBufferView) (ret js.Promise[ReadableStreamReadResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBReaderRead(
@@ -1172,7 +1172,7 @@ func (this ReadableStreamBYOBReader) ReleaseLock() (ret js.Void) {
 }
 
 // TryReleaseLock calls the method "ReadableStreamBYOBReader.releaseLock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamBYOBReader) TryReleaseLock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBReaderReleaseLock(
@@ -1209,7 +1209,7 @@ func (this ReadableStreamBYOBReader) Cancel(reason js.Any) (ret js.Promise[js.Vo
 }
 
 // TryCancel calls the method "ReadableStreamBYOBReader.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamBYOBReader) TryCancel(reason js.Any) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBReaderCancel(
@@ -1246,7 +1246,7 @@ func (this ReadableStreamBYOBReader) Cancel1() (ret js.Promise[js.Void]) {
 }
 
 // TryCancel1 calls the method "ReadableStreamBYOBReader.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStreamBYOBReader) TryCancel1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamBYOBReaderCancel1(
@@ -1426,7 +1426,7 @@ func (this WritableStreamDefaultWriter) Abort(reason js.Any) (ret js.Promise[js.
 }
 
 // TryAbort calls the method "WritableStreamDefaultWriter.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultWriter) TryAbort(reason js.Any) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultWriterAbort(
@@ -1463,7 +1463,7 @@ func (this WritableStreamDefaultWriter) Abort1() (ret js.Promise[js.Void]) {
 }
 
 // TryAbort1 calls the method "WritableStreamDefaultWriter.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultWriter) TryAbort1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultWriterAbort1(
@@ -1499,7 +1499,7 @@ func (this WritableStreamDefaultWriter) Close() (ret js.Promise[js.Void]) {
 }
 
 // TryClose calls the method "WritableStreamDefaultWriter.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultWriter) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultWriterClose(
@@ -1535,7 +1535,7 @@ func (this WritableStreamDefaultWriter) ReleaseLock() (ret js.Void) {
 }
 
 // TryReleaseLock calls the method "WritableStreamDefaultWriter.releaseLock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultWriter) TryReleaseLock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultWriterReleaseLock(
@@ -1572,7 +1572,7 @@ func (this WritableStreamDefaultWriter) Write(chunk js.Any) (ret js.Promise[js.V
 }
 
 // TryWrite calls the method "WritableStreamDefaultWriter.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultWriter) TryWrite(chunk js.Any) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultWriterWrite(
@@ -1609,7 +1609,7 @@ func (this WritableStreamDefaultWriter) Write1() (ret js.Promise[js.Void]) {
 }
 
 // TryWrite1 calls the method "WritableStreamDefaultWriter.write"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStreamDefaultWriter) TryWrite1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamDefaultWriterWrite1(
@@ -1696,7 +1696,7 @@ func (this WritableStream) Abort(reason js.Any) (ret js.Promise[js.Void]) {
 }
 
 // TryAbort calls the method "WritableStream.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStream) TryAbort(reason js.Any) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamAbort(
@@ -1733,7 +1733,7 @@ func (this WritableStream) Abort1() (ret js.Promise[js.Void]) {
 }
 
 // TryAbort1 calls the method "WritableStream.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStream) TryAbort1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamAbort1(
@@ -1769,7 +1769,7 @@ func (this WritableStream) Close() (ret js.Promise[js.Void]) {
 }
 
 // TryClose calls the method "WritableStream.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStream) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamClose(
@@ -1805,7 +1805,7 @@ func (this WritableStream) GetWriter() (ret WritableStreamDefaultWriter) {
 }
 
 // TryGetWriter calls the method "WritableStream.getWriter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WritableStream) TryGetWriter() (ret WritableStreamDefaultWriter, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWritableStreamGetWriter(
@@ -1990,7 +1990,7 @@ func (this ReadableStream) From(asyncIterable js.Any) (ret ReadableStream) {
 }
 
 // TryFrom calls the staticmethod "ReadableStream.from"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryFrom(asyncIterable js.Any) (ret ReadableStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamFrom(
@@ -2028,7 +2028,7 @@ func (this ReadableStream) Cancel(reason js.Any) (ret js.Promise[js.Void]) {
 }
 
 // TryCancel calls the method "ReadableStream.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryCancel(reason js.Any) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamCancel(
@@ -2065,7 +2065,7 @@ func (this ReadableStream) Cancel1() (ret js.Promise[js.Void]) {
 }
 
 // TryCancel1 calls the method "ReadableStream.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryCancel1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamCancel1(
@@ -2102,7 +2102,7 @@ func (this ReadableStream) GetReader(options ReadableStreamGetReaderOptions) (re
 }
 
 // TryGetReader calls the method "ReadableStream.getReader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryGetReader(options ReadableStreamGetReaderOptions) (ret ReadableStreamReader, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamGetReader(
@@ -2139,7 +2139,7 @@ func (this ReadableStream) GetReader1() (ret ReadableStreamReader) {
 }
 
 // TryGetReader1 calls the method "ReadableStream.getReader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryGetReader1() (ret ReadableStreamReader, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamGetReader1(
@@ -2177,7 +2177,7 @@ func (this ReadableStream) PipeThrough(transform ReadableWritablePair, options S
 }
 
 // TryPipeThrough calls the method "ReadableStream.pipeThrough"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryPipeThrough(transform ReadableWritablePair, options StreamPipeOptions) (ret ReadableStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamPipeThrough(
@@ -2216,7 +2216,7 @@ func (this ReadableStream) PipeThrough1(transform ReadableWritablePair) (ret Rea
 }
 
 // TryPipeThrough1 calls the method "ReadableStream.pipeThrough"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryPipeThrough1(transform ReadableWritablePair) (ret ReadableStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamPipeThrough1(
@@ -2255,7 +2255,7 @@ func (this ReadableStream) PipeTo(destination WritableStream, options StreamPipe
 }
 
 // TryPipeTo calls the method "ReadableStream.pipeTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryPipeTo(destination WritableStream, options StreamPipeOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamPipeTo(
@@ -2294,7 +2294,7 @@ func (this ReadableStream) PipeTo1(destination WritableStream) (ret js.Promise[j
 }
 
 // TryPipeTo1 calls the method "ReadableStream.pipeTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryPipeTo1(destination WritableStream) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamPipeTo1(
@@ -2331,7 +2331,7 @@ func (this ReadableStream) Tee() (ret js.Array[ReadableStream]) {
 }
 
 // TryTee calls the method "ReadableStream.tee"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ReadableStream) TryTee() (ret js.Array[ReadableStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryReadableStreamTee(
@@ -2430,7 +2430,7 @@ func (this Blob) Slice(start int64, end int64, contentType js.String) (ret Blob)
 }
 
 // TrySlice calls the method "Blob.slice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Blob) TrySlice(start int64, end int64, contentType js.String) (ret Blob, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBlobSlice(
@@ -2471,7 +2471,7 @@ func (this Blob) Slice1(start int64, end int64) (ret Blob) {
 }
 
 // TrySlice1 calls the method "Blob.slice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Blob) TrySlice1(start int64, end int64) (ret Blob, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBlobSlice1(
@@ -2510,7 +2510,7 @@ func (this Blob) Slice2(start int64) (ret Blob) {
 }
 
 // TrySlice2 calls the method "Blob.slice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Blob) TrySlice2(start int64) (ret Blob, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBlobSlice2(
@@ -2547,7 +2547,7 @@ func (this Blob) Slice3() (ret Blob) {
 }
 
 // TrySlice3 calls the method "Blob.slice"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Blob) TrySlice3() (ret Blob, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBlobSlice3(
@@ -2583,7 +2583,7 @@ func (this Blob) Stream() (ret ReadableStream) {
 }
 
 // TryStream calls the method "Blob.stream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Blob) TryStream() (ret ReadableStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBlobStream(
@@ -2619,7 +2619,7 @@ func (this Blob) Text() (ret js.Promise[js.String]) {
 }
 
 // TryText calls the method "Blob.text"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Blob) TryText() (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBlobText(
@@ -2655,7 +2655,7 @@ func (this Blob) ArrayBuffer() (ret js.Promise[js.ArrayBuffer]) {
 }
 
 // TryArrayBuffer calls the method "Blob.arrayBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Blob) TryArrayBuffer() (ret js.Promise[js.ArrayBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBlobArrayBuffer(
@@ -2973,7 +2973,7 @@ func (this HTMLFormControlsCollection) NamedItem(name js.String) (ret OneOf_Radi
 }
 
 // TryNamedItem calls the method "HTMLFormControlsCollection.namedItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormControlsCollection) TryNamedItem(name js.String) (ret OneOf_RadioNodeList_Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormControlsCollectionNamedItem(
@@ -3268,7 +3268,7 @@ func (this HTMLFormElement) Get(index uint32) (ret Element) {
 }
 
 // TryGet calls the method "HTMLFormElement."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TryGet(index uint32) (ret Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementGet(
@@ -3306,7 +3306,7 @@ func (this HTMLFormElement) Get1(name js.String) (ret OneOf_RadioNodeList_Elemen
 }
 
 // TryGet1 calls the method "HTMLFormElement."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TryGet1(name js.String) (ret OneOf_RadioNodeList_Element, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementGet1(
@@ -3343,7 +3343,7 @@ func (this HTMLFormElement) Submit() (ret js.Void) {
 }
 
 // TrySubmit calls the method "HTMLFormElement.submit"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TrySubmit() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementSubmit(
@@ -3380,7 +3380,7 @@ func (this HTMLFormElement) RequestSubmit(submitter HTMLElement) (ret js.Void) {
 }
 
 // TryRequestSubmit calls the method "HTMLFormElement.requestSubmit"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TryRequestSubmit(submitter HTMLElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementRequestSubmit(
@@ -3417,7 +3417,7 @@ func (this HTMLFormElement) RequestSubmit1() (ret js.Void) {
 }
 
 // TryRequestSubmit1 calls the method "HTMLFormElement.requestSubmit"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TryRequestSubmit1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementRequestSubmit1(
@@ -3453,7 +3453,7 @@ func (this HTMLFormElement) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "HTMLFormElement.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementReset(
@@ -3489,7 +3489,7 @@ func (this HTMLFormElement) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "HTMLFormElement.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementCheckValidity(
@@ -3525,7 +3525,7 @@ func (this HTMLFormElement) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "HTMLFormElement.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLFormElement) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLFormElementReportValidity(
@@ -3631,7 +3631,7 @@ func (this FormData) Append(name js.String, value js.String) (ret js.Void) {
 }
 
 // TryAppend calls the method "FormData.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TryAppend(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataAppend(
@@ -3672,7 +3672,7 @@ func (this FormData) Append1(name js.String, blobValue Blob, filename js.String)
 }
 
 // TryAppend1 calls the method "FormData.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TryAppend1(name js.String, blobValue Blob, filename js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataAppend1(
@@ -3713,7 +3713,7 @@ func (this FormData) Append2(name js.String, blobValue Blob) (ret js.Void) {
 }
 
 // TryAppend2 calls the method "FormData.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TryAppend2(name js.String, blobValue Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataAppend2(
@@ -3752,7 +3752,7 @@ func (this FormData) Delete(name js.String) (ret js.Void) {
 }
 
 // TryDelete calls the method "FormData.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TryDelete(name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataDelete(
@@ -3790,7 +3790,7 @@ func (this FormData) Get(name js.String) (ret FormDataEntryValue) {
 }
 
 // TryGet calls the method "FormData.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TryGet(name js.String) (ret FormDataEntryValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataGet(
@@ -3828,7 +3828,7 @@ func (this FormData) GetAll(name js.String) (ret js.Array[FormDataEntryValue]) {
 }
 
 // TryGetAll calls the method "FormData.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TryGetAll(name js.String) (ret js.Array[FormDataEntryValue], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataGetAll(
@@ -3866,7 +3866,7 @@ func (this FormData) Has(name js.String) (ret bool) {
 }
 
 // TryHas calls the method "FormData.has"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TryHas(name js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataHas(
@@ -3905,7 +3905,7 @@ func (this FormData) Set(name js.String, value js.String) (ret js.Void) {
 }
 
 // TrySet calls the method "FormData.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TrySet(name js.String, value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataSet(
@@ -3946,7 +3946,7 @@ func (this FormData) Set1(name js.String, blobValue Blob, filename js.String) (r
 }
 
 // TrySet1 calls the method "FormData.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TrySet1(name js.String, blobValue Blob, filename js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataSet1(
@@ -3987,7 +3987,7 @@ func (this FormData) Set2(name js.String, blobValue Blob) (ret js.Void) {
 }
 
 // TrySet2 calls the method "FormData.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FormData) TrySet2(name js.String, blobValue Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFormDataSet2(
@@ -4313,7 +4313,7 @@ func (this CustomStateSet) Add(value js.String) (ret js.Void) {
 }
 
 // TryAdd calls the method "CustomStateSet.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CustomStateSet) TryAdd(value js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCustomStateSetAdd(
@@ -5424,7 +5424,7 @@ func (this ElementInternals) SetFormValue(value OneOf_File_String_FormData, stat
 }
 
 // TrySetFormValue calls the method "ElementInternals.setFormValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TrySetFormValue(value OneOf_File_String_FormData, state OneOf_File_String_FormData) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsSetFormValue(
@@ -5463,7 +5463,7 @@ func (this ElementInternals) SetFormValue1(value OneOf_File_String_FormData) (re
 }
 
 // TrySetFormValue1 calls the method "ElementInternals.setFormValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TrySetFormValue1(value OneOf_File_String_FormData) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsSetFormValue1(
@@ -5503,7 +5503,7 @@ func (this ElementInternals) SetValidity(flags ValidityStateFlags, message js.St
 }
 
 // TrySetValidity calls the method "ElementInternals.setValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TrySetValidity(flags ValidityStateFlags, message js.String, anchor HTMLElement) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsSetValidity(
@@ -5544,7 +5544,7 @@ func (this ElementInternals) SetValidity1(flags ValidityStateFlags, message js.S
 }
 
 // TrySetValidity1 calls the method "ElementInternals.setValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TrySetValidity1(flags ValidityStateFlags, message js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsSetValidity1(
@@ -5583,7 +5583,7 @@ func (this ElementInternals) SetValidity2(flags ValidityStateFlags) (ret js.Void
 }
 
 // TrySetValidity2 calls the method "ElementInternals.setValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TrySetValidity2(flags ValidityStateFlags) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsSetValidity2(
@@ -5620,7 +5620,7 @@ func (this ElementInternals) SetValidity3() (ret js.Void) {
 }
 
 // TrySetValidity3 calls the method "ElementInternals.setValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TrySetValidity3() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsSetValidity3(
@@ -5656,7 +5656,7 @@ func (this ElementInternals) CheckValidity() (ret bool) {
 }
 
 // TryCheckValidity calls the method "ElementInternals.checkValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TryCheckValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsCheckValidity(
@@ -5692,7 +5692,7 @@ func (this ElementInternals) ReportValidity() (ret bool) {
 }
 
 // TryReportValidity calls the method "ElementInternals.reportValidity"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ElementInternals) TryReportValidity() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryElementInternalsReportValidity(
@@ -5935,7 +5935,7 @@ func (this EditContext) UpdateText(rangeStart uint32, rangeEnd uint32, text js.S
 }
 
 // TryUpdateText calls the method "EditContext.updateText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EditContext) TryUpdateText(rangeStart uint32, rangeEnd uint32, text js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEditContextUpdateText(
@@ -5976,7 +5976,7 @@ func (this EditContext) UpdateSelection(start uint32, end uint32) (ret js.Void) 
 }
 
 // TryUpdateSelection calls the method "EditContext.updateSelection"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EditContext) TryUpdateSelection(start uint32, end uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEditContextUpdateSelection(
@@ -6015,7 +6015,7 @@ func (this EditContext) UpdateControlBounds(controlBounds DOMRect) (ret js.Void)
 }
 
 // TryUpdateControlBounds calls the method "EditContext.updateControlBounds"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EditContext) TryUpdateControlBounds(controlBounds DOMRect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEditContextUpdateControlBounds(
@@ -6053,7 +6053,7 @@ func (this EditContext) UpdateSelectionBounds(selectionBounds DOMRect) (ret js.V
 }
 
 // TryUpdateSelectionBounds calls the method "EditContext.updateSelectionBounds"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EditContext) TryUpdateSelectionBounds(selectionBounds DOMRect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEditContextUpdateSelectionBounds(
@@ -6092,7 +6092,7 @@ func (this EditContext) UpdateCharacterBounds(rangeStart uint32, characterBounds
 }
 
 // TryUpdateCharacterBounds calls the method "EditContext.updateCharacterBounds"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EditContext) TryUpdateCharacterBounds(rangeStart uint32, characterBounds js.Array[DOMRect]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEditContextUpdateCharacterBounds(
@@ -6130,7 +6130,7 @@ func (this EditContext) AttachedElements() (ret js.Array[Element]) {
 }
 
 // TryAttachedElements calls the method "EditContext.attachedElements"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EditContext) TryAttachedElements() (ret js.Array[Element], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEditContextAttachedElements(
@@ -6166,7 +6166,7 @@ func (this EditContext) CharacterBounds() (ret js.Array[DOMRect]) {
 }
 
 // TryCharacterBounds calls the method "EditContext.characterBounds"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EditContext) TryCharacterBounds() (ret js.Array[DOMRect], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEditContextCharacterBounds(
@@ -6749,7 +6749,7 @@ func (this HTMLElement) Click() (ret js.Void) {
 }
 
 // TryClick calls the method "HTMLElement.click"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryClick() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementClick(
@@ -6785,7 +6785,7 @@ func (this HTMLElement) AttachInternals() (ret ElementInternals) {
 }
 
 // TryAttachInternals calls the method "HTMLElement.attachInternals"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryAttachInternals() (ret ElementInternals, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementAttachInternals(
@@ -6821,7 +6821,7 @@ func (this HTMLElement) ShowPopover() (ret js.Void) {
 }
 
 // TryShowPopover calls the method "HTMLElement.showPopover"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryShowPopover() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementShowPopover(
@@ -6857,7 +6857,7 @@ func (this HTMLElement) HidePopover() (ret js.Void) {
 }
 
 // TryHidePopover calls the method "HTMLElement.hidePopover"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryHidePopover() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementHidePopover(
@@ -6894,7 +6894,7 @@ func (this HTMLElement) TogglePopover(force bool) (ret bool) {
 }
 
 // TryTogglePopover calls the method "HTMLElement.togglePopover"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryTogglePopover(force bool) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementTogglePopover(
@@ -6931,7 +6931,7 @@ func (this HTMLElement) TogglePopover1() (ret bool) {
 }
 
 // TryTogglePopover1 calls the method "HTMLElement.togglePopover"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryTogglePopover1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementTogglePopover1(
@@ -6968,7 +6968,7 @@ func (this HTMLElement) Focus(options FocusOptions) (ret js.Void) {
 }
 
 // TryFocus calls the method "HTMLElement.focus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryFocus(options FocusOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementFocus(
@@ -7005,7 +7005,7 @@ func (this HTMLElement) Focus1() (ret js.Void) {
 }
 
 // TryFocus1 calls the method "HTMLElement.focus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryFocus1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementFocus1(
@@ -7041,7 +7041,7 @@ func (this HTMLElement) Blur() (ret js.Void) {
 }
 
 // TryBlur calls the method "HTMLElement.blur"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLElement) TryBlur() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLElementBlur(
@@ -7422,7 +7422,7 @@ func (this HTMLScriptElement) Supports(typ js.String) (ret bool) {
 }
 
 // TrySupports calls the staticmethod "HTMLScriptElement.supports"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLScriptElement) TrySupports(typ js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLScriptElementSupports(

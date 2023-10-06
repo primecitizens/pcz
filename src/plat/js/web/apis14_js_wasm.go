@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -369,7 +369,7 @@ func (this VideoColorSpace) ToJSON() (ret VideoColorSpaceInit) {
 }
 
 // TryToJSON calls the method "VideoColorSpace.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoColorSpace) TryToJSON() (ret VideoColorSpaceInit, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoColorSpaceToJSON(
@@ -547,7 +547,7 @@ func (this VideoFrame) Metadata() (ret VideoFrameMetadata) {
 }
 
 // TryMetadata calls the method "VideoFrame.metadata"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoFrame) TryMetadata() (ret VideoFrameMetadata, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameMetadata(
@@ -584,7 +584,7 @@ func (this VideoFrame) AllocationSize(options VideoFrameCopyToOptions) (ret uint
 }
 
 // TryAllocationSize calls the method "VideoFrame.allocationSize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoFrame) TryAllocationSize(options VideoFrameCopyToOptions) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameAllocationSize(
@@ -621,7 +621,7 @@ func (this VideoFrame) AllocationSize1() (ret uint32) {
 }
 
 // TryAllocationSize1 calls the method "VideoFrame.allocationSize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoFrame) TryAllocationSize1() (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameAllocationSize1(
@@ -659,7 +659,7 @@ func (this VideoFrame) CopyTo(destination AllowSharedBufferSource, options Video
 }
 
 // TryCopyTo calls the method "VideoFrame.copyTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoFrame) TryCopyTo(destination AllowSharedBufferSource, options VideoFrameCopyToOptions) (ret js.Promise[js.Array[PlaneLayout]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameCopyTo(
@@ -698,7 +698,7 @@ func (this VideoFrame) CopyTo1(destination AllowSharedBufferSource) (ret js.Prom
 }
 
 // TryCopyTo1 calls the method "VideoFrame.copyTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoFrame) TryCopyTo1(destination AllowSharedBufferSource) (ret js.Promise[js.Array[PlaneLayout]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameCopyTo1(
@@ -735,7 +735,7 @@ func (this VideoFrame) Clone() (ret VideoFrame) {
 }
 
 // TryClone calls the method "VideoFrame.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoFrame) TryClone() (ret VideoFrame, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameClone(
@@ -771,7 +771,7 @@ func (this VideoFrame) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "VideoFrame.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VideoFrame) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVideoFrameClose(
@@ -975,7 +975,7 @@ func (this WebGLRenderingContext) GetContextAttributes() (ret WebGLContextAttrib
 }
 
 // TryGetContextAttributes calls the method "WebGLRenderingContext.getContextAttributes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetContextAttributes() (ret WebGLContextAttributes, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetContextAttributes(
@@ -1011,7 +1011,7 @@ func (this WebGLRenderingContext) IsContextLost() (ret bool) {
 }
 
 // TryIsContextLost calls the method "WebGLRenderingContext.isContextLost"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsContextLost(
@@ -1047,7 +1047,7 @@ func (this WebGLRenderingContext) GetSupportedExtensions() (ret js.Array[js.Stri
 }
 
 // TryGetSupportedExtensions calls the method "WebGLRenderingContext.getSupportedExtensions"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetSupportedExtensions() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetSupportedExtensions(
@@ -1084,7 +1084,7 @@ func (this WebGLRenderingContext) GetExtension(name js.String) (ret js.Object) {
 }
 
 // TryGetExtension calls the method "WebGLRenderingContext.getExtension"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetExtension(name js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetExtension(
@@ -1122,7 +1122,7 @@ func (this WebGLRenderingContext) ActiveTexture(texture GLenum) (ret js.Void) {
 }
 
 // TryActiveTexture calls the method "WebGLRenderingContext.activeTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryActiveTexture(texture GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextActiveTexture(
@@ -1161,7 +1161,7 @@ func (this WebGLRenderingContext) AttachShader(program WebGLProgram, shader WebG
 }
 
 // TryAttachShader calls the method "WebGLRenderingContext.attachShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryAttachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextAttachShader(
@@ -1202,7 +1202,7 @@ func (this WebGLRenderingContext) BindAttribLocation(program WebGLProgram, index
 }
 
 // TryBindAttribLocation calls the method "WebGLRenderingContext.bindAttribLocation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBindAttribLocation(program WebGLProgram, index GLuint, name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindAttribLocation(
@@ -1243,7 +1243,7 @@ func (this WebGLRenderingContext) BindBuffer(target GLenum, buffer WebGLBuffer) 
 }
 
 // TryBindBuffer calls the method "WebGLRenderingContext.bindBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBindBuffer(target GLenum, buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindBuffer(
@@ -1283,7 +1283,7 @@ func (this WebGLRenderingContext) BindFramebuffer(target GLenum, framebuffer Web
 }
 
 // TryBindFramebuffer calls the method "WebGLRenderingContext.bindFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBindFramebuffer(target GLenum, framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindFramebuffer(
@@ -1323,7 +1323,7 @@ func (this WebGLRenderingContext) BindRenderbuffer(target GLenum, renderbuffer W
 }
 
 // TryBindRenderbuffer calls the method "WebGLRenderingContext.bindRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBindRenderbuffer(target GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindRenderbuffer(
@@ -1363,7 +1363,7 @@ func (this WebGLRenderingContext) BindTexture(target GLenum, texture WebGLTextur
 }
 
 // TryBindTexture calls the method "WebGLRenderingContext.bindTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBindTexture(target GLenum, texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBindTexture(
@@ -1405,7 +1405,7 @@ func (this WebGLRenderingContext) BlendColor(red GLclampf, green GLclampf, blue 
 }
 
 // TryBlendColor calls the method "WebGLRenderingContext.blendColor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendColor(
@@ -1446,7 +1446,7 @@ func (this WebGLRenderingContext) BlendEquation(mode GLenum) (ret js.Void) {
 }
 
 // TryBlendEquation calls the method "WebGLRenderingContext.blendEquation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendEquation(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendEquation(
@@ -1485,7 +1485,7 @@ func (this WebGLRenderingContext) BlendEquationSeparate(modeRGB GLenum, modeAlph
 }
 
 // TryBlendEquationSeparate calls the method "WebGLRenderingContext.blendEquationSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendEquationSeparate(modeRGB GLenum, modeAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendEquationSeparate(
@@ -1525,7 +1525,7 @@ func (this WebGLRenderingContext) BlendFunc(sfactor GLenum, dfactor GLenum) (ret
 }
 
 // TryBlendFunc calls the method "WebGLRenderingContext.blendFunc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendFunc(sfactor GLenum, dfactor GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendFunc(
@@ -1567,7 +1567,7 @@ func (this WebGLRenderingContext) BlendFuncSeparate(srcRGB GLenum, dstRGB GLenum
 }
 
 // TryBlendFuncSeparate calls the method "WebGLRenderingContext.blendFuncSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBlendFuncSeparate(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBlendFuncSeparate(
@@ -1608,7 +1608,7 @@ func (this WebGLRenderingContext) CheckFramebufferStatus(target GLenum) (ret GLe
 }
 
 // TryCheckFramebufferStatus calls the method "WebGLRenderingContext.checkFramebufferStatus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCheckFramebufferStatus(target GLenum) (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCheckFramebufferStatus(
@@ -1646,7 +1646,7 @@ func (this WebGLRenderingContext) Clear(mask GLbitfield) (ret js.Void) {
 }
 
 // TryClear calls the method "WebGLRenderingContext.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryClear(mask GLbitfield) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClear(
@@ -1687,7 +1687,7 @@ func (this WebGLRenderingContext) ClearColor(red GLclampf, green GLclampf, blue 
 }
 
 // TryClearColor calls the method "WebGLRenderingContext.clearColor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryClearColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClearColor(
@@ -1728,7 +1728,7 @@ func (this WebGLRenderingContext) ClearDepth(depth GLclampf) (ret js.Void) {
 }
 
 // TryClearDepth calls the method "WebGLRenderingContext.clearDepth"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryClearDepth(depth GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClearDepth(
@@ -1766,7 +1766,7 @@ func (this WebGLRenderingContext) ClearStencil(s GLint) (ret js.Void) {
 }
 
 // TryClearStencil calls the method "WebGLRenderingContext.clearStencil"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryClearStencil(s GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextClearStencil(
@@ -1807,7 +1807,7 @@ func (this WebGLRenderingContext) ColorMask(red GLboolean, green GLboolean, blue
 }
 
 // TryColorMask calls the method "WebGLRenderingContext.colorMask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryColorMask(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextColorMask(
@@ -1848,7 +1848,7 @@ func (this WebGLRenderingContext) CompileShader(shader WebGLShader) (ret js.Void
 }
 
 // TryCompileShader calls the method "WebGLRenderingContext.compileShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCompileShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCompileShader(
@@ -1893,7 +1893,7 @@ func (this WebGLRenderingContext) CopyTexImage2D(target GLenum, level GLint, int
 }
 
 // TryCopyTexImage2D calls the method "WebGLRenderingContext.copyTexImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCopyTexImage2D(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCopyTexImage2D(
@@ -1945,7 +1945,7 @@ func (this WebGLRenderingContext) CopyTexSubImage2D(target GLenum, level GLint, 
 }
 
 // TryCopyTexSubImage2D calls the method "WebGLRenderingContext.copyTexSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCopyTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCopyTexSubImage2D(
@@ -1989,7 +1989,7 @@ func (this WebGLRenderingContext) CreateBuffer() (ret WebGLBuffer) {
 }
 
 // TryCreateBuffer calls the method "WebGLRenderingContext.createBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateBuffer() (ret WebGLBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateBuffer(
@@ -2025,7 +2025,7 @@ func (this WebGLRenderingContext) CreateFramebuffer() (ret WebGLFramebuffer) {
 }
 
 // TryCreateFramebuffer calls the method "WebGLRenderingContext.createFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateFramebuffer() (ret WebGLFramebuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateFramebuffer(
@@ -2061,7 +2061,7 @@ func (this WebGLRenderingContext) CreateProgram() (ret WebGLProgram) {
 }
 
 // TryCreateProgram calls the method "WebGLRenderingContext.createProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateProgram() (ret WebGLProgram, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateProgram(
@@ -2097,7 +2097,7 @@ func (this WebGLRenderingContext) CreateRenderbuffer() (ret WebGLRenderbuffer) {
 }
 
 // TryCreateRenderbuffer calls the method "WebGLRenderingContext.createRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateRenderbuffer() (ret WebGLRenderbuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateRenderbuffer(
@@ -2134,7 +2134,7 @@ func (this WebGLRenderingContext) CreateShader(typ GLenum) (ret WebGLShader) {
 }
 
 // TryCreateShader calls the method "WebGLRenderingContext.createShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateShader(typ GLenum) (ret WebGLShader, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateShader(
@@ -2171,7 +2171,7 @@ func (this WebGLRenderingContext) CreateTexture() (ret WebGLTexture) {
 }
 
 // TryCreateTexture calls the method "WebGLRenderingContext.createTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCreateTexture() (ret WebGLTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCreateTexture(
@@ -2208,7 +2208,7 @@ func (this WebGLRenderingContext) CullFace(mode GLenum) (ret js.Void) {
 }
 
 // TryCullFace calls the method "WebGLRenderingContext.cullFace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCullFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCullFace(
@@ -2246,7 +2246,7 @@ func (this WebGLRenderingContext) DeleteBuffer(buffer WebGLBuffer) (ret js.Void)
 }
 
 // TryDeleteBuffer calls the method "WebGLRenderingContext.deleteBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteBuffer(buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteBuffer(
@@ -2284,7 +2284,7 @@ func (this WebGLRenderingContext) DeleteFramebuffer(framebuffer WebGLFramebuffer
 }
 
 // TryDeleteFramebuffer calls the method "WebGLRenderingContext.deleteFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteFramebuffer(framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteFramebuffer(
@@ -2322,7 +2322,7 @@ func (this WebGLRenderingContext) DeleteProgram(program WebGLProgram) (ret js.Vo
 }
 
 // TryDeleteProgram calls the method "WebGLRenderingContext.deleteProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteProgram(
@@ -2360,7 +2360,7 @@ func (this WebGLRenderingContext) DeleteRenderbuffer(renderbuffer WebGLRenderbuf
 }
 
 // TryDeleteRenderbuffer calls the method "WebGLRenderingContext.deleteRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteRenderbuffer(renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteRenderbuffer(
@@ -2398,7 +2398,7 @@ func (this WebGLRenderingContext) DeleteShader(shader WebGLShader) (ret js.Void)
 }
 
 // TryDeleteShader calls the method "WebGLRenderingContext.deleteShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteShader(
@@ -2436,7 +2436,7 @@ func (this WebGLRenderingContext) DeleteTexture(texture WebGLTexture) (ret js.Vo
 }
 
 // TryDeleteTexture calls the method "WebGLRenderingContext.deleteTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDeleteTexture(texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDeleteTexture(
@@ -2474,7 +2474,7 @@ func (this WebGLRenderingContext) DepthFunc(fn GLenum) (ret js.Void) {
 }
 
 // TryDepthFunc calls the method "WebGLRenderingContext.depthFunc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDepthFunc(fn GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDepthFunc(
@@ -2512,7 +2512,7 @@ func (this WebGLRenderingContext) DepthMask(flag GLboolean) (ret js.Void) {
 }
 
 // TryDepthMask calls the method "WebGLRenderingContext.depthMask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDepthMask(flag GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDepthMask(
@@ -2551,7 +2551,7 @@ func (this WebGLRenderingContext) DepthRange(zNear GLclampf, zFar GLclampf) (ret
 }
 
 // TryDepthRange calls the method "WebGLRenderingContext.depthRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDepthRange(zNear GLclampf, zFar GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDepthRange(
@@ -2591,7 +2591,7 @@ func (this WebGLRenderingContext) DetachShader(program WebGLProgram, shader WebG
 }
 
 // TryDetachShader calls the method "WebGLRenderingContext.detachShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDetachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDetachShader(
@@ -2630,7 +2630,7 @@ func (this WebGLRenderingContext) Disable(cap GLenum) (ret js.Void) {
 }
 
 // TryDisable calls the method "WebGLRenderingContext.disable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDisable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDisable(
@@ -2668,7 +2668,7 @@ func (this WebGLRenderingContext) DisableVertexAttribArray(index GLuint) (ret js
 }
 
 // TryDisableVertexAttribArray calls the method "WebGLRenderingContext.disableVertexAttribArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDisableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDisableVertexAttribArray(
@@ -2708,7 +2708,7 @@ func (this WebGLRenderingContext) DrawArrays(mode GLenum, first GLint, count GLs
 }
 
 // TryDrawArrays calls the method "WebGLRenderingContext.drawArrays"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDrawArrays(mode GLenum, first GLint, count GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDrawArrays(
@@ -2751,7 +2751,7 @@ func (this WebGLRenderingContext) DrawElements(mode GLenum, count GLsizei, typ G
 }
 
 // TryDrawElements calls the method "WebGLRenderingContext.drawElements"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryDrawElements(mode GLenum, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextDrawElements(
@@ -2792,7 +2792,7 @@ func (this WebGLRenderingContext) Enable(cap GLenum) (ret js.Void) {
 }
 
 // TryEnable calls the method "WebGLRenderingContext.enable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryEnable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextEnable(
@@ -2830,7 +2830,7 @@ func (this WebGLRenderingContext) EnableVertexAttribArray(index GLuint) (ret js.
 }
 
 // TryEnableVertexAttribArray calls the method "WebGLRenderingContext.enableVertexAttribArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryEnableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextEnableVertexAttribArray(
@@ -2867,7 +2867,7 @@ func (this WebGLRenderingContext) Finish() (ret js.Void) {
 }
 
 // TryFinish calls the method "WebGLRenderingContext.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryFinish() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFinish(
@@ -2903,7 +2903,7 @@ func (this WebGLRenderingContext) Flush() (ret js.Void) {
 }
 
 // TryFlush calls the method "WebGLRenderingContext.flush"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryFlush() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFlush(
@@ -2943,7 +2943,7 @@ func (this WebGLRenderingContext) FramebufferRenderbuffer(target GLenum, attachm
 }
 
 // TryFramebufferRenderbuffer calls the method "WebGLRenderingContext.framebufferRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryFramebufferRenderbuffer(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFramebufferRenderbuffer(
@@ -2988,7 +2988,7 @@ func (this WebGLRenderingContext) FramebufferTexture2D(target GLenum, attachment
 }
 
 // TryFramebufferTexture2D calls the method "WebGLRenderingContext.framebufferTexture2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryFramebufferTexture2D(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFramebufferTexture2D(
@@ -3030,7 +3030,7 @@ func (this WebGLRenderingContext) FrontFace(mode GLenum) (ret js.Void) {
 }
 
 // TryFrontFace calls the method "WebGLRenderingContext.frontFace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryFrontFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextFrontFace(
@@ -3068,7 +3068,7 @@ func (this WebGLRenderingContext) GenerateMipmap(target GLenum) (ret js.Void) {
 }
 
 // TryGenerateMipmap calls the method "WebGLRenderingContext.generateMipmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGenerateMipmap(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGenerateMipmap(
@@ -3107,7 +3107,7 @@ func (this WebGLRenderingContext) GetActiveAttrib(program WebGLProgram, index GL
 }
 
 // TryGetActiveAttrib calls the method "WebGLRenderingContext.getActiveAttrib"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetActiveAttrib(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetActiveAttrib(
@@ -3147,7 +3147,7 @@ func (this WebGLRenderingContext) GetActiveUniform(program WebGLProgram, index G
 }
 
 // TryGetActiveUniform calls the method "WebGLRenderingContext.getActiveUniform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetActiveUniform(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetActiveUniform(
@@ -3186,7 +3186,7 @@ func (this WebGLRenderingContext) GetAttachedShaders(program WebGLProgram) (ret 
 }
 
 // TryGetAttachedShaders calls the method "WebGLRenderingContext.getAttachedShaders"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetAttachedShaders(program WebGLProgram) (ret js.Array[WebGLShader], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetAttachedShaders(
@@ -3225,7 +3225,7 @@ func (this WebGLRenderingContext) GetAttribLocation(program WebGLProgram, name j
 }
 
 // TryGetAttribLocation calls the method "WebGLRenderingContext.getAttribLocation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetAttribLocation(program WebGLProgram, name js.String) (ret GLint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetAttribLocation(
@@ -3265,7 +3265,7 @@ func (this WebGLRenderingContext) GetBufferParameter(target GLenum, pname GLenum
 }
 
 // TryGetBufferParameter calls the method "WebGLRenderingContext.getBufferParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetBufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetBufferParameter(
@@ -3304,7 +3304,7 @@ func (this WebGLRenderingContext) GetParameter(pname GLenum) (ret js.Any) {
 }
 
 // TryGetParameter calls the method "WebGLRenderingContext.getParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetParameter(pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetParameter(
@@ -3341,7 +3341,7 @@ func (this WebGLRenderingContext) GetError() (ret GLenum) {
 }
 
 // TryGetError calls the method "WebGLRenderingContext.getError"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetError() (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetError(
@@ -3380,7 +3380,7 @@ func (this WebGLRenderingContext) GetFramebufferAttachmentParameter(target GLenu
 }
 
 // TryGetFramebufferAttachmentParameter calls the method "WebGLRenderingContext.getFramebufferAttachmentParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetFramebufferAttachmentParameter(target GLenum, attachment GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetFramebufferAttachmentParameter(
@@ -3421,7 +3421,7 @@ func (this WebGLRenderingContext) GetProgramParameter(program WebGLProgram, pnam
 }
 
 // TryGetProgramParameter calls the method "WebGLRenderingContext.getProgramParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetProgramParameter(program WebGLProgram, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetProgramParameter(
@@ -3460,7 +3460,7 @@ func (this WebGLRenderingContext) GetProgramInfoLog(program WebGLProgram) (ret j
 }
 
 // TryGetProgramInfoLog calls the method "WebGLRenderingContext.getProgramInfoLog"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetProgramInfoLog(program WebGLProgram) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetProgramInfoLog(
@@ -3499,7 +3499,7 @@ func (this WebGLRenderingContext) GetRenderbufferParameter(target GLenum, pname 
 }
 
 // TryGetRenderbufferParameter calls the method "WebGLRenderingContext.getRenderbufferParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetRenderbufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetRenderbufferParameter(
@@ -3539,7 +3539,7 @@ func (this WebGLRenderingContext) GetShaderParameter(shader WebGLShader, pname G
 }
 
 // TryGetShaderParameter calls the method "WebGLRenderingContext.getShaderParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderParameter(shader WebGLShader, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderParameter(
@@ -3579,7 +3579,7 @@ func (this WebGLRenderingContext) GetShaderPrecisionFormat(shadertype GLenum, pr
 }
 
 // TryGetShaderPrecisionFormat calls the method "WebGLRenderingContext.getShaderPrecisionFormat"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderPrecisionFormat(shadertype GLenum, precisiontype GLenum) (ret WebGLShaderPrecisionFormat, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderPrecisionFormat(
@@ -3618,7 +3618,7 @@ func (this WebGLRenderingContext) GetShaderInfoLog(shader WebGLShader) (ret js.S
 }
 
 // TryGetShaderInfoLog calls the method "WebGLRenderingContext.getShaderInfoLog"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderInfoLog(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderInfoLog(
@@ -3656,7 +3656,7 @@ func (this WebGLRenderingContext) GetShaderSource(shader WebGLShader) (ret js.St
 }
 
 // TryGetShaderSource calls the method "WebGLRenderingContext.getShaderSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetShaderSource(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetShaderSource(
@@ -3695,7 +3695,7 @@ func (this WebGLRenderingContext) GetTexParameter(target GLenum, pname GLenum) (
 }
 
 // TryGetTexParameter calls the method "WebGLRenderingContext.getTexParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetTexParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetTexParameter(
@@ -3735,7 +3735,7 @@ func (this WebGLRenderingContext) GetUniform(program WebGLProgram, location WebG
 }
 
 // TryGetUniform calls the method "WebGLRenderingContext.getUniform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetUniform(program WebGLProgram, location WebGLUniformLocation) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetUniform(
@@ -3775,7 +3775,7 @@ func (this WebGLRenderingContext) GetUniformLocation(program WebGLProgram, name 
 }
 
 // TryGetUniformLocation calls the method "WebGLRenderingContext.getUniformLocation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetUniformLocation(program WebGLProgram, name js.String) (ret WebGLUniformLocation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetUniformLocation(
@@ -3815,7 +3815,7 @@ func (this WebGLRenderingContext) GetVertexAttrib(index GLuint, pname GLenum) (r
 }
 
 // TryGetVertexAttrib calls the method "WebGLRenderingContext.getVertexAttrib"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetVertexAttrib(index GLuint, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetVertexAttrib(
@@ -3855,7 +3855,7 @@ func (this WebGLRenderingContext) GetVertexAttribOffset(index GLuint, pname GLen
 }
 
 // TryGetVertexAttribOffset calls the method "WebGLRenderingContext.getVertexAttribOffset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryGetVertexAttribOffset(index GLuint, pname GLenum) (ret GLintptr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextGetVertexAttribOffset(
@@ -3895,7 +3895,7 @@ func (this WebGLRenderingContext) Hint(target GLenum, mode GLenum) (ret js.Void)
 }
 
 // TryHint calls the method "WebGLRenderingContext.hint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryHint(target GLenum, mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextHint(
@@ -3934,7 +3934,7 @@ func (this WebGLRenderingContext) IsBuffer(buffer WebGLBuffer) (ret GLboolean) {
 }
 
 // TryIsBuffer calls the method "WebGLRenderingContext.isBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsBuffer(buffer WebGLBuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsBuffer(
@@ -3972,7 +3972,7 @@ func (this WebGLRenderingContext) IsEnabled(cap GLenum) (ret GLboolean) {
 }
 
 // TryIsEnabled calls the method "WebGLRenderingContext.isEnabled"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsEnabled(cap GLenum) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsEnabled(
@@ -4010,7 +4010,7 @@ func (this WebGLRenderingContext) IsFramebuffer(framebuffer WebGLFramebuffer) (r
 }
 
 // TryIsFramebuffer calls the method "WebGLRenderingContext.isFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsFramebuffer(framebuffer WebGLFramebuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsFramebuffer(
@@ -4048,7 +4048,7 @@ func (this WebGLRenderingContext) IsProgram(program WebGLProgram) (ret GLboolean
 }
 
 // TryIsProgram calls the method "WebGLRenderingContext.isProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsProgram(program WebGLProgram) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsProgram(
@@ -4086,7 +4086,7 @@ func (this WebGLRenderingContext) IsRenderbuffer(renderbuffer WebGLRenderbuffer)
 }
 
 // TryIsRenderbuffer calls the method "WebGLRenderingContext.isRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsRenderbuffer(renderbuffer WebGLRenderbuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsRenderbuffer(
@@ -4124,7 +4124,7 @@ func (this WebGLRenderingContext) IsShader(shader WebGLShader) (ret GLboolean) {
 }
 
 // TryIsShader calls the method "WebGLRenderingContext.isShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsShader(shader WebGLShader) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsShader(
@@ -4162,7 +4162,7 @@ func (this WebGLRenderingContext) IsTexture(texture WebGLTexture) (ret GLboolean
 }
 
 // TryIsTexture calls the method "WebGLRenderingContext.isTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryIsTexture(texture WebGLTexture) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextIsTexture(
@@ -4200,7 +4200,7 @@ func (this WebGLRenderingContext) LineWidth(width GLfloat) (ret js.Void) {
 }
 
 // TryLineWidth calls the method "WebGLRenderingContext.lineWidth"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryLineWidth(width GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextLineWidth(
@@ -4238,7 +4238,7 @@ func (this WebGLRenderingContext) LinkProgram(program WebGLProgram) (ret js.Void
 }
 
 // TryLinkProgram calls the method "WebGLRenderingContext.linkProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryLinkProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextLinkProgram(
@@ -4277,7 +4277,7 @@ func (this WebGLRenderingContext) PixelStorei(pname GLenum, param GLint) (ret js
 }
 
 // TryPixelStorei calls the method "WebGLRenderingContext.pixelStorei"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryPixelStorei(pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextPixelStorei(
@@ -4317,7 +4317,7 @@ func (this WebGLRenderingContext) PolygonOffset(factor GLfloat, units GLfloat) (
 }
 
 // TryPolygonOffset calls the method "WebGLRenderingContext.polygonOffset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryPolygonOffset(factor GLfloat, units GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextPolygonOffset(
@@ -4359,7 +4359,7 @@ func (this WebGLRenderingContext) RenderbufferStorage(target GLenum, internalfor
 }
 
 // TryRenderbufferStorage calls the method "WebGLRenderingContext.renderbufferStorage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryRenderbufferStorage(target GLenum, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextRenderbufferStorage(
@@ -4401,7 +4401,7 @@ func (this WebGLRenderingContext) SampleCoverage(value GLclampf, invert GLboolea
 }
 
 // TrySampleCoverage calls the method "WebGLRenderingContext.sampleCoverage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TrySampleCoverage(value GLclampf, invert GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextSampleCoverage(
@@ -4443,7 +4443,7 @@ func (this WebGLRenderingContext) Scissor(x GLint, y GLint, width GLsizei, heigh
 }
 
 // TryScissor calls the method "WebGLRenderingContext.scissor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryScissor(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextScissor(
@@ -4485,7 +4485,7 @@ func (this WebGLRenderingContext) ShaderSource(shader WebGLShader, source js.Str
 }
 
 // TryShaderSource calls the method "WebGLRenderingContext.shaderSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryShaderSource(shader WebGLShader, source js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextShaderSource(
@@ -4526,7 +4526,7 @@ func (this WebGLRenderingContext) StencilFunc(fn GLenum, ref GLint, mask GLuint)
 }
 
 // TryStencilFunc calls the method "WebGLRenderingContext.stencilFunc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilFunc(fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilFunc(
@@ -4569,7 +4569,7 @@ func (this WebGLRenderingContext) StencilFuncSeparate(face GLenum, fn GLenum, re
 }
 
 // TryStencilFuncSeparate calls the method "WebGLRenderingContext.stencilFuncSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilFuncSeparate(face GLenum, fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilFuncSeparate(
@@ -4610,7 +4610,7 @@ func (this WebGLRenderingContext) StencilMask(mask GLuint) (ret js.Void) {
 }
 
 // TryStencilMask calls the method "WebGLRenderingContext.stencilMask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilMask(mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilMask(
@@ -4649,7 +4649,7 @@ func (this WebGLRenderingContext) StencilMaskSeparate(face GLenum, mask GLuint) 
 }
 
 // TryStencilMaskSeparate calls the method "WebGLRenderingContext.stencilMaskSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilMaskSeparate(face GLenum, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilMaskSeparate(
@@ -4690,7 +4690,7 @@ func (this WebGLRenderingContext) StencilOp(fail GLenum, zfail GLenum, zpass GLe
 }
 
 // TryStencilOp calls the method "WebGLRenderingContext.stencilOp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilOp(fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilOp(
@@ -4733,7 +4733,7 @@ func (this WebGLRenderingContext) StencilOpSeparate(face GLenum, fail GLenum, zf
 }
 
 // TryStencilOpSeparate calls the method "WebGLRenderingContext.stencilOpSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryStencilOpSeparate(face GLenum, fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextStencilOpSeparate(
@@ -4776,7 +4776,7 @@ func (this WebGLRenderingContext) TexParameterf(target GLenum, pname GLenum, par
 }
 
 // TryTexParameterf calls the method "WebGLRenderingContext.texParameterf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryTexParameterf(target GLenum, pname GLenum, param GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexParameterf(
@@ -4818,7 +4818,7 @@ func (this WebGLRenderingContext) TexParameteri(target GLenum, pname GLenum, par
 }
 
 // TryTexParameteri calls the method "WebGLRenderingContext.texParameteri"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryTexParameteri(target GLenum, pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexParameteri(
@@ -4859,7 +4859,7 @@ func (this WebGLRenderingContext) Uniform1f(location WebGLUniformLocation, x GLf
 }
 
 // TryUniform1f calls the method "WebGLRenderingContext.uniform1f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1f(location WebGLUniformLocation, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1f(
@@ -4900,7 +4900,7 @@ func (this WebGLRenderingContext) Uniform2f(location WebGLUniformLocation, x GLf
 }
 
 // TryUniform2f calls the method "WebGLRenderingContext.uniform2f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2f(location WebGLUniformLocation, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2f(
@@ -4943,7 +4943,7 @@ func (this WebGLRenderingContext) Uniform3f(location WebGLUniformLocation, x GLf
 }
 
 // TryUniform3f calls the method "WebGLRenderingContext.uniform3f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3f(
@@ -4988,7 +4988,7 @@ func (this WebGLRenderingContext) Uniform4f(location WebGLUniformLocation, x GLf
 }
 
 // TryUniform4f calls the method "WebGLRenderingContext.uniform4f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4f(
@@ -5031,7 +5031,7 @@ func (this WebGLRenderingContext) Uniform1i(location WebGLUniformLocation, x GLi
 }
 
 // TryUniform1i calls the method "WebGLRenderingContext.uniform1i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1i(location WebGLUniformLocation, x GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1i(
@@ -5072,7 +5072,7 @@ func (this WebGLRenderingContext) Uniform2i(location WebGLUniformLocation, x GLi
 }
 
 // TryUniform2i calls the method "WebGLRenderingContext.uniform2i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2i(location WebGLUniformLocation, x GLint, y GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2i(
@@ -5115,7 +5115,7 @@ func (this WebGLRenderingContext) Uniform3i(location WebGLUniformLocation, x GLi
 }
 
 // TryUniform3i calls the method "WebGLRenderingContext.uniform3i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3i(location WebGLUniformLocation, x GLint, y GLint, z GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3i(
@@ -5160,7 +5160,7 @@ func (this WebGLRenderingContext) Uniform4i(location WebGLUniformLocation, x GLi
 }
 
 // TryUniform4i calls the method "WebGLRenderingContext.uniform4i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4i(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4i(
@@ -5202,7 +5202,7 @@ func (this WebGLRenderingContext) UseProgram(program WebGLProgram) (ret js.Void)
 }
 
 // TryUseProgram calls the method "WebGLRenderingContext.useProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUseProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUseProgram(
@@ -5240,7 +5240,7 @@ func (this WebGLRenderingContext) ValidateProgram(program WebGLProgram) (ret js.
 }
 
 // TryValidateProgram calls the method "WebGLRenderingContext.validateProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryValidateProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextValidateProgram(
@@ -5279,7 +5279,7 @@ func (this WebGLRenderingContext) VertexAttrib1f(index GLuint, x GLfloat) (ret j
 }
 
 // TryVertexAttrib1f calls the method "WebGLRenderingContext.vertexAttrib1f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib1f(index GLuint, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib1f(
@@ -5320,7 +5320,7 @@ func (this WebGLRenderingContext) VertexAttrib2f(index GLuint, x GLfloat, y GLfl
 }
 
 // TryVertexAttrib2f calls the method "WebGLRenderingContext.vertexAttrib2f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib2f(index GLuint, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib2f(
@@ -5363,7 +5363,7 @@ func (this WebGLRenderingContext) VertexAttrib3f(index GLuint, x GLfloat, y GLfl
 }
 
 // TryVertexAttrib3f calls the method "WebGLRenderingContext.vertexAttrib3f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib3f(index GLuint, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib3f(
@@ -5408,7 +5408,7 @@ func (this WebGLRenderingContext) VertexAttrib4f(index GLuint, x GLfloat, y GLfl
 }
 
 // TryVertexAttrib4f calls the method "WebGLRenderingContext.vertexAttrib4f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib4f(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib4f(
@@ -5451,7 +5451,7 @@ func (this WebGLRenderingContext) VertexAttrib1fv(index GLuint, values Float32Li
 }
 
 // TryVertexAttrib1fv calls the method "WebGLRenderingContext.vertexAttrib1fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib1fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib1fv(
@@ -5491,7 +5491,7 @@ func (this WebGLRenderingContext) VertexAttrib2fv(index GLuint, values Float32Li
 }
 
 // TryVertexAttrib2fv calls the method "WebGLRenderingContext.vertexAttrib2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib2fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib2fv(
@@ -5531,7 +5531,7 @@ func (this WebGLRenderingContext) VertexAttrib3fv(index GLuint, values Float32Li
 }
 
 // TryVertexAttrib3fv calls the method "WebGLRenderingContext.vertexAttrib3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib3fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib3fv(
@@ -5571,7 +5571,7 @@ func (this WebGLRenderingContext) VertexAttrib4fv(index GLuint, values Float32Li
 }
 
 // TryVertexAttrib4fv calls the method "WebGLRenderingContext.vertexAttrib4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttrib4fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttrib4fv(
@@ -5615,7 +5615,7 @@ func (this WebGLRenderingContext) VertexAttribPointer(index GLuint, size GLint, 
 }
 
 // TryVertexAttribPointer calls the method "WebGLRenderingContext.vertexAttribPointer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryVertexAttribPointer(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextVertexAttribPointer(
@@ -5661,7 +5661,7 @@ func (this WebGLRenderingContext) Viewport(x GLint, y GLint, width GLsizei, heig
 }
 
 // TryViewport calls the method "WebGLRenderingContext.viewport"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryViewport(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextViewport(
@@ -5701,7 +5701,7 @@ func (this WebGLRenderingContext) MakeXRCompatible() (ret js.Promise[js.Void]) {
 }
 
 // TryMakeXRCompatible calls the method "WebGLRenderingContext.makeXRCompatible"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryMakeXRCompatible() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextMakeXRCompatible(
@@ -5740,7 +5740,7 @@ func (this WebGLRenderingContext) BufferData(target GLenum, size GLsizeiptr, usa
 }
 
 // TryBufferData calls the method "WebGLRenderingContext.bufferData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBufferData(target GLenum, size GLsizeiptr, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBufferData(
@@ -5782,7 +5782,7 @@ func (this WebGLRenderingContext) BufferData1(target GLenum, data AllowSharedBuf
 }
 
 // TryBufferData1 calls the method "WebGLRenderingContext.bufferData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBufferData1(target GLenum, data AllowSharedBufferSource, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBufferData1(
@@ -5824,7 +5824,7 @@ func (this WebGLRenderingContext) BufferSubData(target GLenum, offset GLintptr, 
 }
 
 // TryBufferSubData calls the method "WebGLRenderingContext.bufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryBufferSubData(target GLenum, offset GLintptr, data AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextBufferSubData(
@@ -5870,7 +5870,7 @@ func (this WebGLRenderingContext) CompressedTexImage2D(target GLenum, level GLin
 }
 
 // TryCompressedTexImage2D calls the method "WebGLRenderingContext.compressedTexImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCompressedTexImage2D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCompressedTexImage2D(
@@ -5921,7 +5921,7 @@ func (this WebGLRenderingContext) CompressedTexSubImage2D(target GLenum, level G
 }
 
 // TryCompressedTexSubImage2D calls the method "WebGLRenderingContext.compressedTexSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryCompressedTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextCompressedTexSubImage2D(
@@ -5972,7 +5972,7 @@ func (this WebGLRenderingContext) ReadPixels(x GLint, y GLint, width GLsizei, he
 }
 
 // TryReadPixels calls the method "WebGLRenderingContext.readPixels"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryReadPixels(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextReadPixels(
@@ -6024,7 +6024,7 @@ func (this WebGLRenderingContext) TexImage2D(target GLenum, level GLint, interna
 }
 
 // TryTexImage2D calls the method "WebGLRenderingContext.texImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryTexImage2D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexImage2D(
@@ -6075,7 +6075,7 @@ func (this WebGLRenderingContext) TexImage2D1(target GLenum, level GLint, intern
 }
 
 // TryTexImage2D1 calls the method "WebGLRenderingContext.texImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryTexImage2D1(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexImage2D1(
@@ -6126,7 +6126,7 @@ func (this WebGLRenderingContext) TexSubImage2D(target GLenum, level GLint, xoff
 }
 
 // TryTexSubImage2D calls the method "WebGLRenderingContext.texSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexSubImage2D(
@@ -6178,7 +6178,7 @@ func (this WebGLRenderingContext) TexSubImage2D1(target GLenum, level GLint, xof
 }
 
 // TryTexSubImage2D1 calls the method "WebGLRenderingContext.texSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryTexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextTexSubImage2D1(
@@ -6223,7 +6223,7 @@ func (this WebGLRenderingContext) Uniform1fv(location WebGLUniformLocation, v Fl
 }
 
 // TryUniform1fv calls the method "WebGLRenderingContext.uniform1fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1fv(
@@ -6263,7 +6263,7 @@ func (this WebGLRenderingContext) Uniform2fv(location WebGLUniformLocation, v Fl
 }
 
 // TryUniform2fv calls the method "WebGLRenderingContext.uniform2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2fv(
@@ -6303,7 +6303,7 @@ func (this WebGLRenderingContext) Uniform3fv(location WebGLUniformLocation, v Fl
 }
 
 // TryUniform3fv calls the method "WebGLRenderingContext.uniform3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3fv(
@@ -6343,7 +6343,7 @@ func (this WebGLRenderingContext) Uniform4fv(location WebGLUniformLocation, v Fl
 }
 
 // TryUniform4fv calls the method "WebGLRenderingContext.uniform4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4fv(location WebGLUniformLocation, v Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4fv(
@@ -6383,7 +6383,7 @@ func (this WebGLRenderingContext) Uniform1iv(location WebGLUniformLocation, v In
 }
 
 // TryUniform1iv calls the method "WebGLRenderingContext.uniform1iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform1iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform1iv(
@@ -6423,7 +6423,7 @@ func (this WebGLRenderingContext) Uniform2iv(location WebGLUniformLocation, v In
 }
 
 // TryUniform2iv calls the method "WebGLRenderingContext.uniform2iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform2iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform2iv(
@@ -6463,7 +6463,7 @@ func (this WebGLRenderingContext) Uniform3iv(location WebGLUniformLocation, v In
 }
 
 // TryUniform3iv calls the method "WebGLRenderingContext.uniform3iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform3iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform3iv(
@@ -6503,7 +6503,7 @@ func (this WebGLRenderingContext) Uniform4iv(location WebGLUniformLocation, v In
 }
 
 // TryUniform4iv calls the method "WebGLRenderingContext.uniform4iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniform4iv(location WebGLUniformLocation, v Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniform4iv(
@@ -6544,7 +6544,7 @@ func (this WebGLRenderingContext) UniformMatrix2fv(location WebGLUniformLocation
 }
 
 // TryUniformMatrix2fv calls the method "WebGLRenderingContext.uniformMatrix2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniformMatrix2fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniformMatrix2fv(
@@ -6586,7 +6586,7 @@ func (this WebGLRenderingContext) UniformMatrix3fv(location WebGLUniformLocation
 }
 
 // TryUniformMatrix3fv calls the method "WebGLRenderingContext.uniformMatrix3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniformMatrix3fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniformMatrix3fv(
@@ -6628,7 +6628,7 @@ func (this WebGLRenderingContext) UniformMatrix4fv(location WebGLUniformLocation
 }
 
 // TryUniformMatrix4fv calls the method "WebGLRenderingContext.uniformMatrix4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGLRenderingContext) TryUniformMatrix4fv(location WebGLUniformLocation, transpose GLboolean, value Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGLRenderingContextUniformMatrix4fv(
@@ -7176,7 +7176,7 @@ func (this WebGL2RenderingContext) BufferData(target GLenum, size GLsizeiptr, us
 }
 
 // TryBufferData calls the method "WebGL2RenderingContext.bufferData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData(target GLenum, size GLsizeiptr, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData(
@@ -7218,7 +7218,7 @@ func (this WebGL2RenderingContext) BufferData1(target GLenum, srcData AllowShare
 }
 
 // TryBufferData1 calls the method "WebGL2RenderingContext.bufferData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData1(target GLenum, srcData AllowSharedBufferSource, usage GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData1(
@@ -7260,7 +7260,7 @@ func (this WebGL2RenderingContext) BufferSubData(target GLenum, dstByteOffset GL
 }
 
 // TryBufferSubData calls the method "WebGL2RenderingContext.bufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferSubData(target GLenum, dstByteOffset GLintptr, srcData AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferSubData(
@@ -7304,7 +7304,7 @@ func (this WebGL2RenderingContext) BufferData2(target GLenum, srcData js.ArrayBu
 }
 
 // TryBufferData2 calls the method "WebGL2RenderingContext.bufferData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData2(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint, length GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData2(
@@ -7349,7 +7349,7 @@ func (this WebGL2RenderingContext) BufferData3(target GLenum, srcData js.ArrayBu
 }
 
 // TryBufferData3 calls the method "WebGL2RenderingContext.bufferData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferData3(target GLenum, srcData js.ArrayBufferView, usage GLenum, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferData3(
@@ -7394,7 +7394,7 @@ func (this WebGL2RenderingContext) BufferSubData1(target GLenum, dstByteOffset G
 }
 
 // TryBufferSubData1 calls the method "WebGL2RenderingContext.bufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferSubData1(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint, length GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferSubData1(
@@ -7439,7 +7439,7 @@ func (this WebGL2RenderingContext) BufferSubData2(target GLenum, dstByteOffset G
 }
 
 // TryBufferSubData2 calls the method "WebGL2RenderingContext.bufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBufferSubData2(target GLenum, dstByteOffset GLintptr, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBufferSubData2(
@@ -7488,7 +7488,7 @@ func (this WebGL2RenderingContext) TexImage2D(target GLenum, level GLint, intern
 }
 
 // TryTexImage2D calls the method "WebGL2RenderingContext.texImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D(
@@ -7539,7 +7539,7 @@ func (this WebGL2RenderingContext) TexImage2D1(target GLenum, level GLint, inter
 }
 
 // TryTexImage2D1 calls the method "WebGL2RenderingContext.texImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D1(target GLenum, level GLint, internalformat GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D1(
@@ -7590,7 +7590,7 @@ func (this WebGL2RenderingContext) TexSubImage2D(target GLenum, level GLint, xof
 }
 
 // TryTexSubImage2D calls the method "WebGL2RenderingContext.texSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pixels js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D(
@@ -7642,7 +7642,7 @@ func (this WebGL2RenderingContext) TexSubImage2D1(target GLenum, level GLint, xo
 }
 
 // TryTexSubImage2D1 calls the method "WebGL2RenderingContext.texSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D1(
@@ -7694,7 +7694,7 @@ func (this WebGL2RenderingContext) TexImage2D2(target GLenum, level GLint, inter
 }
 
 // TryTexImage2D2 calls the method "WebGL2RenderingContext.texImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D2(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D2(
@@ -7748,7 +7748,7 @@ func (this WebGL2RenderingContext) TexImage2D3(target GLenum, level GLint, inter
 }
 
 // TryTexImage2D3 calls the method "WebGL2RenderingContext.texImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D3(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D3(
@@ -7803,7 +7803,7 @@ func (this WebGL2RenderingContext) TexImage2D4(target GLenum, level GLint, inter
 }
 
 // TryTexImage2D4 calls the method "WebGL2RenderingContext.texImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage2D4(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage2D4(
@@ -7858,7 +7858,7 @@ func (this WebGL2RenderingContext) TexSubImage2D2(target GLenum, level GLint, xo
 }
 
 // TryTexSubImage2D2 calls the method "WebGL2RenderingContext.texSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D2(
@@ -7912,7 +7912,7 @@ func (this WebGL2RenderingContext) TexSubImage2D3(target GLenum, level GLint, xo
 }
 
 // TryTexSubImage2D3 calls the method "WebGL2RenderingContext.texSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D3(
@@ -7967,7 +7967,7 @@ func (this WebGL2RenderingContext) TexSubImage2D4(target GLenum, level GLint, xo
 }
 
 // TryTexSubImage2D4 calls the method "WebGL2RenderingContext.texSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage2D4(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage2D4(
@@ -8021,7 +8021,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D(target GLenum, level GLi
 }
 
 // TryCompressedTexImage2D calls the method "WebGL2RenderingContext.compressedTexImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D(
@@ -8074,7 +8074,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D1(target GLenum, level GL
 }
 
 // TryCompressedTexImage2D1 calls the method "WebGL2RenderingContext.compressedTexImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D1(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D1(
@@ -8127,7 +8127,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D2(target GLenum, level GL
 }
 
 // TryCompressedTexImage2D2 calls the method "WebGL2RenderingContext.compressedTexImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D2(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D2(
@@ -8178,7 +8178,7 @@ func (this WebGL2RenderingContext) CompressedTexImage2D3(target GLenum, level GL
 }
 
 // TryCompressedTexImage2D3 calls the method "WebGL2RenderingContext.compressedTexImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage2D3(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, border GLint, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage2D3(
@@ -8230,7 +8230,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D(target GLenum, level 
 }
 
 // TryCompressedTexSubImage2D calls the method "WebGL2RenderingContext.compressedTexSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D(
@@ -8285,7 +8285,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D1(target GLenum, level
 }
 
 // TryCompressedTexSubImage2D1 calls the method "WebGL2RenderingContext.compressedTexSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D1(
@@ -8340,7 +8340,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D2(target GLenum, level
 }
 
 // TryCompressedTexSubImage2D2 calls the method "WebGL2RenderingContext.compressedTexSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D2(
@@ -8393,7 +8393,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage2D3(target GLenum, level
 }
 
 // TryCompressedTexSubImage2D3 calls the method "WebGL2RenderingContext.compressedTexSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage2D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, width GLsizei, height GLsizei, format GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage2D3(
@@ -8441,7 +8441,7 @@ func (this WebGL2RenderingContext) Uniform1fv(location WebGLUniformLocation, dat
 }
 
 // TryUniform1fv calls the method "WebGL2RenderingContext.uniform1fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1fv(
@@ -8484,7 +8484,7 @@ func (this WebGL2RenderingContext) Uniform1fv1(location WebGLUniformLocation, da
 }
 
 // TryUniform1fv1 calls the method "WebGL2RenderingContext.uniform1fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1fv1(
@@ -8525,7 +8525,7 @@ func (this WebGL2RenderingContext) Uniform1fv2(location WebGLUniformLocation, da
 }
 
 // TryUniform1fv2 calls the method "WebGL2RenderingContext.uniform1fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1fv2(
@@ -8567,7 +8567,7 @@ func (this WebGL2RenderingContext) Uniform2fv(location WebGLUniformLocation, dat
 }
 
 // TryUniform2fv calls the method "WebGL2RenderingContext.uniform2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2fv(
@@ -8610,7 +8610,7 @@ func (this WebGL2RenderingContext) Uniform2fv1(location WebGLUniformLocation, da
 }
 
 // TryUniform2fv1 calls the method "WebGL2RenderingContext.uniform2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2fv1(
@@ -8651,7 +8651,7 @@ func (this WebGL2RenderingContext) Uniform2fv2(location WebGLUniformLocation, da
 }
 
 // TryUniform2fv2 calls the method "WebGL2RenderingContext.uniform2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2fv2(
@@ -8693,7 +8693,7 @@ func (this WebGL2RenderingContext) Uniform3fv(location WebGLUniformLocation, dat
 }
 
 // TryUniform3fv calls the method "WebGL2RenderingContext.uniform3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3fv(
@@ -8736,7 +8736,7 @@ func (this WebGL2RenderingContext) Uniform3fv1(location WebGLUniformLocation, da
 }
 
 // TryUniform3fv1 calls the method "WebGL2RenderingContext.uniform3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3fv1(
@@ -8777,7 +8777,7 @@ func (this WebGL2RenderingContext) Uniform3fv2(location WebGLUniformLocation, da
 }
 
 // TryUniform3fv2 calls the method "WebGL2RenderingContext.uniform3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3fv2(
@@ -8819,7 +8819,7 @@ func (this WebGL2RenderingContext) Uniform4fv(location WebGLUniformLocation, dat
 }
 
 // TryUniform4fv calls the method "WebGL2RenderingContext.uniform4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4fv(location WebGLUniformLocation, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4fv(
@@ -8862,7 +8862,7 @@ func (this WebGL2RenderingContext) Uniform4fv1(location WebGLUniformLocation, da
 }
 
 // TryUniform4fv1 calls the method "WebGL2RenderingContext.uniform4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4fv1(location WebGLUniformLocation, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4fv1(
@@ -8903,7 +8903,7 @@ func (this WebGL2RenderingContext) Uniform4fv2(location WebGLUniformLocation, da
 }
 
 // TryUniform4fv2 calls the method "WebGL2RenderingContext.uniform4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4fv2(location WebGLUniformLocation, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4fv2(
@@ -8945,7 +8945,7 @@ func (this WebGL2RenderingContext) Uniform1iv(location WebGLUniformLocation, dat
 }
 
 // TryUniform1iv calls the method "WebGL2RenderingContext.uniform1iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1iv(
@@ -8988,7 +8988,7 @@ func (this WebGL2RenderingContext) Uniform1iv1(location WebGLUniformLocation, da
 }
 
 // TryUniform1iv1 calls the method "WebGL2RenderingContext.uniform1iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1iv1(
@@ -9029,7 +9029,7 @@ func (this WebGL2RenderingContext) Uniform1iv2(location WebGLUniformLocation, da
 }
 
 // TryUniform1iv2 calls the method "WebGL2RenderingContext.uniform1iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1iv2(
@@ -9071,7 +9071,7 @@ func (this WebGL2RenderingContext) Uniform2iv(location WebGLUniformLocation, dat
 }
 
 // TryUniform2iv calls the method "WebGL2RenderingContext.uniform2iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2iv(
@@ -9114,7 +9114,7 @@ func (this WebGL2RenderingContext) Uniform2iv1(location WebGLUniformLocation, da
 }
 
 // TryUniform2iv1 calls the method "WebGL2RenderingContext.uniform2iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2iv1(
@@ -9155,7 +9155,7 @@ func (this WebGL2RenderingContext) Uniform2iv2(location WebGLUniformLocation, da
 }
 
 // TryUniform2iv2 calls the method "WebGL2RenderingContext.uniform2iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2iv2(
@@ -9197,7 +9197,7 @@ func (this WebGL2RenderingContext) Uniform3iv(location WebGLUniformLocation, dat
 }
 
 // TryUniform3iv calls the method "WebGL2RenderingContext.uniform3iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3iv(
@@ -9240,7 +9240,7 @@ func (this WebGL2RenderingContext) Uniform3iv1(location WebGLUniformLocation, da
 }
 
 // TryUniform3iv1 calls the method "WebGL2RenderingContext.uniform3iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3iv1(
@@ -9281,7 +9281,7 @@ func (this WebGL2RenderingContext) Uniform3iv2(location WebGLUniformLocation, da
 }
 
 // TryUniform3iv2 calls the method "WebGL2RenderingContext.uniform3iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3iv2(
@@ -9323,7 +9323,7 @@ func (this WebGL2RenderingContext) Uniform4iv(location WebGLUniformLocation, dat
 }
 
 // TryUniform4iv calls the method "WebGL2RenderingContext.uniform4iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4iv(location WebGLUniformLocation, data Int32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4iv(
@@ -9366,7 +9366,7 @@ func (this WebGL2RenderingContext) Uniform4iv1(location WebGLUniformLocation, da
 }
 
 // TryUniform4iv1 calls the method "WebGL2RenderingContext.uniform4iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4iv1(location WebGLUniformLocation, data Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4iv1(
@@ -9407,7 +9407,7 @@ func (this WebGL2RenderingContext) Uniform4iv2(location WebGLUniformLocation, da
 }
 
 // TryUniform4iv2 calls the method "WebGL2RenderingContext.uniform4iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4iv2(location WebGLUniformLocation, data Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4iv2(
@@ -9450,7 +9450,7 @@ func (this WebGL2RenderingContext) UniformMatrix2fv(location WebGLUniformLocatio
 }
 
 // TryUniformMatrix2fv calls the method "WebGL2RenderingContext.uniformMatrix2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2fv(
@@ -9495,7 +9495,7 @@ func (this WebGL2RenderingContext) UniformMatrix2fv1(location WebGLUniformLocati
 }
 
 // TryUniformMatrix2fv1 calls the method "WebGL2RenderingContext.uniformMatrix2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2fv1(
@@ -9538,7 +9538,7 @@ func (this WebGL2RenderingContext) UniformMatrix2fv2(location WebGLUniformLocati
 }
 
 // TryUniformMatrix2fv2 calls the method "WebGL2RenderingContext.uniformMatrix2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2fv2(
@@ -9582,7 +9582,7 @@ func (this WebGL2RenderingContext) UniformMatrix3fv(location WebGLUniformLocatio
 }
 
 // TryUniformMatrix3fv calls the method "WebGL2RenderingContext.uniformMatrix3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3fv(
@@ -9627,7 +9627,7 @@ func (this WebGL2RenderingContext) UniformMatrix3fv1(location WebGLUniformLocati
 }
 
 // TryUniformMatrix3fv1 calls the method "WebGL2RenderingContext.uniformMatrix3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3fv1(
@@ -9670,7 +9670,7 @@ func (this WebGL2RenderingContext) UniformMatrix3fv2(location WebGLUniformLocati
 }
 
 // TryUniformMatrix3fv2 calls the method "WebGL2RenderingContext.uniformMatrix3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3fv2(
@@ -9714,7 +9714,7 @@ func (this WebGL2RenderingContext) UniformMatrix4fv(location WebGLUniformLocatio
 }
 
 // TryUniformMatrix4fv calls the method "WebGL2RenderingContext.uniformMatrix4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4fv(
@@ -9759,7 +9759,7 @@ func (this WebGL2RenderingContext) UniformMatrix4fv1(location WebGLUniformLocati
 }
 
 // TryUniformMatrix4fv1 calls the method "WebGL2RenderingContext.uniformMatrix4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4fv1(
@@ -9802,7 +9802,7 @@ func (this WebGL2RenderingContext) UniformMatrix4fv2(location WebGLUniformLocati
 }
 
 // TryUniformMatrix4fv2 calls the method "WebGL2RenderingContext.uniformMatrix4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4fv2(
@@ -9848,7 +9848,7 @@ func (this WebGL2RenderingContext) ReadPixels(x GLint, y GLint, width GLsizei, h
 }
 
 // TryReadPixels calls the method "WebGL2RenderingContext.readPixels"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadPixels(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadPixels(
@@ -9898,7 +9898,7 @@ func (this WebGL2RenderingContext) ReadPixels1(x GLint, y GLint, width GLsizei, 
 }
 
 // TryReadPixels1 calls the method "WebGL2RenderingContext.readPixels"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadPixels1(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadPixels1(
@@ -9949,7 +9949,7 @@ func (this WebGL2RenderingContext) ReadPixels2(x GLint, y GLint, width GLsizei, 
 }
 
 // TryReadPixels2 calls the method "WebGL2RenderingContext.readPixels"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadPixels2(x GLint, y GLint, width GLsizei, height GLsizei, format GLenum, typ GLenum, dstData js.ArrayBufferView, dstOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadPixels2(
@@ -9998,7 +9998,7 @@ func (this WebGL2RenderingContext) CopyBufferSubData(readTarget GLenum, writeTar
 }
 
 // TryCopyBufferSubData calls the method "WebGL2RenderingContext.copyBufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyBufferSubData(readTarget GLenum, writeTarget GLenum, readOffset GLintptr, writeOffset GLintptr, size GLsizeiptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyBufferSubData(
@@ -10044,7 +10044,7 @@ func (this WebGL2RenderingContext) GetBufferSubData(target GLenum, srcByteOffset
 }
 
 // TryGetBufferSubData calls the method "WebGL2RenderingContext.getBufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferSubData(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint, length GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferSubData(
@@ -10089,7 +10089,7 @@ func (this WebGL2RenderingContext) GetBufferSubData1(target GLenum, srcByteOffse
 }
 
 // TryGetBufferSubData1 calls the method "WebGL2RenderingContext.getBufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferSubData1(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView, dstOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferSubData1(
@@ -10132,7 +10132,7 @@ func (this WebGL2RenderingContext) GetBufferSubData2(target GLenum, srcByteOffse
 }
 
 // TryGetBufferSubData2 calls the method "WebGL2RenderingContext.getBufferSubData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferSubData2(target GLenum, srcByteOffset GLintptr, dstBuffer js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferSubData2(
@@ -10181,7 +10181,7 @@ func (this WebGL2RenderingContext) BlitFramebuffer(srcX0 GLint, srcY0 GLint, src
 }
 
 // TryBlitFramebuffer calls the method "WebGL2RenderingContext.blitFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlitFramebuffer(srcX0 GLint, srcY0 GLint, srcX1 GLint, srcY1 GLint, dstX0 GLint, dstY0 GLint, dstX1 GLint, dstY1 GLint, mask GLbitfield, filter GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlitFramebuffer(
@@ -10232,7 +10232,7 @@ func (this WebGL2RenderingContext) FramebufferTextureLayer(target GLenum, attach
 }
 
 // TryFramebufferTextureLayer calls the method "WebGL2RenderingContext.framebufferTextureLayer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryFramebufferTextureLayer(target GLenum, attachment GLenum, texture WebGLTexture, level GLint, layer GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFramebufferTextureLayer(
@@ -10275,7 +10275,7 @@ func (this WebGL2RenderingContext) InvalidateFramebuffer(target GLenum, attachme
 }
 
 // TryInvalidateFramebuffer calls the method "WebGL2RenderingContext.invalidateFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryInvalidateFramebuffer(target GLenum, attachments js.Array[GLenum]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextInvalidateFramebuffer(
@@ -10319,7 +10319,7 @@ func (this WebGL2RenderingContext) InvalidateSubFramebuffer(target GLenum, attac
 }
 
 // TryInvalidateSubFramebuffer calls the method "WebGL2RenderingContext.invalidateSubFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryInvalidateSubFramebuffer(target GLenum, attachments js.Array[GLenum], x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextInvalidateSubFramebuffer(
@@ -10362,7 +10362,7 @@ func (this WebGL2RenderingContext) ReadBuffer(src GLenum) (ret js.Void) {
 }
 
 // TryReadBuffer calls the method "WebGL2RenderingContext.readBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryReadBuffer(src GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextReadBuffer(
@@ -10402,7 +10402,7 @@ func (this WebGL2RenderingContext) GetInternalformatParameter(target GLenum, int
 }
 
 // TryGetInternalformatParameter calls the method "WebGL2RenderingContext.getInternalformatParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetInternalformatParameter(target GLenum, internalformat GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetInternalformatParameter(
@@ -10446,7 +10446,7 @@ func (this WebGL2RenderingContext) RenderbufferStorageMultisample(target GLenum,
 }
 
 // TryRenderbufferStorageMultisample calls the method "WebGL2RenderingContext.renderbufferStorageMultisample"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryRenderbufferStorageMultisample(target GLenum, samples GLsizei, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextRenderbufferStorageMultisample(
@@ -10492,7 +10492,7 @@ func (this WebGL2RenderingContext) TexStorage2D(target GLenum, levels GLsizei, i
 }
 
 // TryTexStorage2D calls the method "WebGL2RenderingContext.texStorage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexStorage2D(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexStorage2D(
@@ -10539,7 +10539,7 @@ func (this WebGL2RenderingContext) TexStorage3D(target GLenum, levels GLsizei, i
 }
 
 // TryTexStorage3D calls the method "WebGL2RenderingContext.texStorage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexStorage3D(target GLenum, levels GLsizei, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexStorage3D(
@@ -10591,7 +10591,7 @@ func (this WebGL2RenderingContext) TexImage3D(target GLenum, level GLint, intern
 }
 
 // TryTexImage3D calls the method "WebGL2RenderingContext.texImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D(
@@ -10647,7 +10647,7 @@ func (this WebGL2RenderingContext) TexImage3D1(target GLenum, level GLint, inter
 }
 
 // TryTexImage3D1 calls the method "WebGL2RenderingContext.texImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D1(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D1(
@@ -10703,7 +10703,7 @@ func (this WebGL2RenderingContext) TexImage3D2(target GLenum, level GLint, inter
 }
 
 // TryTexImage3D2 calls the method "WebGL2RenderingContext.texImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D2(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D2(
@@ -10760,7 +10760,7 @@ func (this WebGL2RenderingContext) TexImage3D3(target GLenum, level GLint, inter
 }
 
 // TryTexImage3D3 calls the method "WebGL2RenderingContext.texImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexImage3D3(target GLenum, level GLint, internalformat GLint, width GLsizei, height GLsizei, depth GLsizei, border GLint, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexImage3D3(
@@ -10818,7 +10818,7 @@ func (this WebGL2RenderingContext) TexSubImage3D(target GLenum, level GLint, xof
 }
 
 // TryTexSubImage3D calls the method "WebGL2RenderingContext.texSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, pboOffset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D(
@@ -10876,7 +10876,7 @@ func (this WebGL2RenderingContext) TexSubImage3D1(target GLenum, level GLint, xo
 }
 
 // TryTexSubImage3D1 calls the method "WebGL2RenderingContext.texSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, source TexImageSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D1(
@@ -10935,7 +10935,7 @@ func (this WebGL2RenderingContext) TexSubImage3D2(target GLenum, level GLint, xo
 }
 
 // TryTexSubImage3D2 calls the method "WebGL2RenderingContext.texSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D2(
@@ -10994,7 +10994,7 @@ func (this WebGL2RenderingContext) TexSubImage3D3(target GLenum, level GLint, xo
 }
 
 // TryTexSubImage3D3 calls the method "WebGL2RenderingContext.texSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexSubImage3D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, typ GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexSubImage3D3(
@@ -11050,7 +11050,7 @@ func (this WebGL2RenderingContext) CopyTexSubImage3D(target GLenum, level GLint,
 }
 
 // TryCopyTexSubImage3D calls the method "WebGL2RenderingContext.copyTexSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyTexSubImage3D(
@@ -11104,7 +11104,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D(target GLenum, level GLi
 }
 
 // TryCompressedTexImage3D calls the method "WebGL2RenderingContext.compressedTexImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D(
@@ -11159,7 +11159,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D1(target GLenum, level GL
 }
 
 // TryCompressedTexImage3D1 calls the method "WebGL2RenderingContext.compressedTexImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D1(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D1(
@@ -11214,7 +11214,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D2(target GLenum, level GL
 }
 
 // TryCompressedTexImage3D2 calls the method "WebGL2RenderingContext.compressedTexImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D2(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D2(
@@ -11267,7 +11267,7 @@ func (this WebGL2RenderingContext) CompressedTexImage3D3(target GLenum, level GL
 }
 
 // TryCompressedTexImage3D3 calls the method "WebGL2RenderingContext.compressedTexImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexImage3D3(target GLenum, level GLint, internalformat GLenum, width GLsizei, height GLsizei, depth GLsizei, border GLint, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexImage3D3(
@@ -11322,7 +11322,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D(target GLenum, level 
 }
 
 // TryCompressedTexSubImage3D calls the method "WebGL2RenderingContext.compressedTexSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, imageSize GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D(
@@ -11381,7 +11381,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D1(target GLenum, level
 }
 
 // TryCompressedTexSubImage3D1 calls the method "WebGL2RenderingContext.compressedTexSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D1(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint, srcLengthOverride GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D1(
@@ -11440,7 +11440,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D2(target GLenum, level
 }
 
 // TryCompressedTexSubImage3D2 calls the method "WebGL2RenderingContext.compressedTexSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D2(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D2(
@@ -11497,7 +11497,7 @@ func (this WebGL2RenderingContext) CompressedTexSubImage3D3(target GLenum, level
 }
 
 // TryCompressedTexSubImage3D3 calls the method "WebGL2RenderingContext.compressedTexSubImage3D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompressedTexSubImage3D3(target GLenum, level GLint, xoffset GLint, yoffset GLint, zoffset GLint, width GLsizei, height GLsizei, depth GLsizei, format GLenum, srcData js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompressedTexSubImage3D3(
@@ -11545,7 +11545,7 @@ func (this WebGL2RenderingContext) GetFragDataLocation(program WebGLProgram, nam
 }
 
 // TryGetFragDataLocation calls the method "WebGL2RenderingContext.getFragDataLocation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetFragDataLocation(program WebGLProgram, name js.String) (ret GLint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetFragDataLocation(
@@ -11585,7 +11585,7 @@ func (this WebGL2RenderingContext) Uniform1ui(location WebGLUniformLocation, v0 
 }
 
 // TryUniform1ui calls the method "WebGL2RenderingContext.uniform1ui"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1ui(location WebGLUniformLocation, v0 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1ui(
@@ -11626,7 +11626,7 @@ func (this WebGL2RenderingContext) Uniform2ui(location WebGLUniformLocation, v0 
 }
 
 // TryUniform2ui calls the method "WebGL2RenderingContext.uniform2ui"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2ui(
@@ -11669,7 +11669,7 @@ func (this WebGL2RenderingContext) Uniform3ui(location WebGLUniformLocation, v0 
 }
 
 // TryUniform3ui calls the method "WebGL2RenderingContext.uniform3ui"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3ui(
@@ -11714,7 +11714,7 @@ func (this WebGL2RenderingContext) Uniform4ui(location WebGLUniformLocation, v0 
 }
 
 // TryUniform4ui calls the method "WebGL2RenderingContext.uniform4ui"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4ui(location WebGLUniformLocation, v0 GLuint, v1 GLuint, v2 GLuint, v3 GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4ui(
@@ -11759,7 +11759,7 @@ func (this WebGL2RenderingContext) Uniform1uiv(location WebGLUniformLocation, da
 }
 
 // TryUniform1uiv calls the method "WebGL2RenderingContext.uniform1uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1uiv(
@@ -11802,7 +11802,7 @@ func (this WebGL2RenderingContext) Uniform1uiv1(location WebGLUniformLocation, d
 }
 
 // TryUniform1uiv1 calls the method "WebGL2RenderingContext.uniform1uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1uiv1(
@@ -11843,7 +11843,7 @@ func (this WebGL2RenderingContext) Uniform1uiv2(location WebGLUniformLocation, d
 }
 
 // TryUniform1uiv2 calls the method "WebGL2RenderingContext.uniform1uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1uiv2(
@@ -11885,7 +11885,7 @@ func (this WebGL2RenderingContext) Uniform2uiv(location WebGLUniformLocation, da
 }
 
 // TryUniform2uiv calls the method "WebGL2RenderingContext.uniform2uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2uiv(
@@ -11928,7 +11928,7 @@ func (this WebGL2RenderingContext) Uniform2uiv1(location WebGLUniformLocation, d
 }
 
 // TryUniform2uiv1 calls the method "WebGL2RenderingContext.uniform2uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2uiv1(
@@ -11969,7 +11969,7 @@ func (this WebGL2RenderingContext) Uniform2uiv2(location WebGLUniformLocation, d
 }
 
 // TryUniform2uiv2 calls the method "WebGL2RenderingContext.uniform2uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2uiv2(
@@ -12011,7 +12011,7 @@ func (this WebGL2RenderingContext) Uniform3uiv(location WebGLUniformLocation, da
 }
 
 // TryUniform3uiv calls the method "WebGL2RenderingContext.uniform3uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3uiv(
@@ -12054,7 +12054,7 @@ func (this WebGL2RenderingContext) Uniform3uiv1(location WebGLUniformLocation, d
 }
 
 // TryUniform3uiv1 calls the method "WebGL2RenderingContext.uniform3uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3uiv1(
@@ -12095,7 +12095,7 @@ func (this WebGL2RenderingContext) Uniform3uiv2(location WebGLUniformLocation, d
 }
 
 // TryUniform3uiv2 calls the method "WebGL2RenderingContext.uniform3uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3uiv2(
@@ -12137,7 +12137,7 @@ func (this WebGL2RenderingContext) Uniform4uiv(location WebGLUniformLocation, da
 }
 
 // TryUniform4uiv calls the method "WebGL2RenderingContext.uniform4uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4uiv(location WebGLUniformLocation, data Uint32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4uiv(
@@ -12180,7 +12180,7 @@ func (this WebGL2RenderingContext) Uniform4uiv1(location WebGLUniformLocation, d
 }
 
 // TryUniform4uiv1 calls the method "WebGL2RenderingContext.uniform4uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4uiv1(location WebGLUniformLocation, data Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4uiv1(
@@ -12221,7 +12221,7 @@ func (this WebGL2RenderingContext) Uniform4uiv2(location WebGLUniformLocation, d
 }
 
 // TryUniform4uiv2 calls the method "WebGL2RenderingContext.uniform4uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4uiv2(location WebGLUniformLocation, data Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4uiv2(
@@ -12264,7 +12264,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x2fv(location WebGLUniformLocat
 }
 
 // TryUniformMatrix3x2fv calls the method "WebGL2RenderingContext.uniformMatrix3x2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x2fv(
@@ -12309,7 +12309,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x2fv1(location WebGLUniformLoca
 }
 
 // TryUniformMatrix3x2fv1 calls the method "WebGL2RenderingContext.uniformMatrix3x2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x2fv1(
@@ -12352,7 +12352,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x2fv2(location WebGLUniformLoca
 }
 
 // TryUniformMatrix3x2fv2 calls the method "WebGL2RenderingContext.uniformMatrix3x2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x2fv2(
@@ -12396,7 +12396,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x2fv(location WebGLUniformLocat
 }
 
 // TryUniformMatrix4x2fv calls the method "WebGL2RenderingContext.uniformMatrix4x2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x2fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x2fv(
@@ -12441,7 +12441,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x2fv1(location WebGLUniformLoca
 }
 
 // TryUniformMatrix4x2fv1 calls the method "WebGL2RenderingContext.uniformMatrix4x2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x2fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x2fv1(
@@ -12484,7 +12484,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x2fv2(location WebGLUniformLoca
 }
 
 // TryUniformMatrix4x2fv2 calls the method "WebGL2RenderingContext.uniformMatrix4x2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x2fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x2fv2(
@@ -12528,7 +12528,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x3fv(location WebGLUniformLocat
 }
 
 // TryUniformMatrix2x3fv calls the method "WebGL2RenderingContext.uniformMatrix2x3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x3fv(
@@ -12573,7 +12573,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x3fv1(location WebGLUniformLoca
 }
 
 // TryUniformMatrix2x3fv1 calls the method "WebGL2RenderingContext.uniformMatrix2x3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x3fv1(
@@ -12616,7 +12616,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x3fv2(location WebGLUniformLoca
 }
 
 // TryUniformMatrix2x3fv2 calls the method "WebGL2RenderingContext.uniformMatrix2x3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x3fv2(
@@ -12660,7 +12660,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x3fv(location WebGLUniformLocat
 }
 
 // TryUniformMatrix4x3fv calls the method "WebGL2RenderingContext.uniformMatrix4x3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x3fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x3fv(
@@ -12705,7 +12705,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x3fv1(location WebGLUniformLoca
 }
 
 // TryUniformMatrix4x3fv1 calls the method "WebGL2RenderingContext.uniformMatrix4x3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x3fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x3fv1(
@@ -12748,7 +12748,7 @@ func (this WebGL2RenderingContext) UniformMatrix4x3fv2(location WebGLUniformLoca
 }
 
 // TryUniformMatrix4x3fv2 calls the method "WebGL2RenderingContext.uniformMatrix4x3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix4x3fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix4x3fv2(
@@ -12792,7 +12792,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x4fv(location WebGLUniformLocat
 }
 
 // TryUniformMatrix2x4fv calls the method "WebGL2RenderingContext.uniformMatrix2x4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x4fv(
@@ -12837,7 +12837,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x4fv1(location WebGLUniformLoca
 }
 
 // TryUniformMatrix2x4fv1 calls the method "WebGL2RenderingContext.uniformMatrix2x4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x4fv1(
@@ -12880,7 +12880,7 @@ func (this WebGL2RenderingContext) UniformMatrix2x4fv2(location WebGLUniformLoca
 }
 
 // TryUniformMatrix2x4fv2 calls the method "WebGL2RenderingContext.uniformMatrix2x4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix2x4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix2x4fv2(
@@ -12924,7 +12924,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x4fv(location WebGLUniformLocat
 }
 
 // TryUniformMatrix3x4fv calls the method "WebGL2RenderingContext.uniformMatrix3x4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x4fv(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint, srcLength GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x4fv(
@@ -12969,7 +12969,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x4fv1(location WebGLUniformLoca
 }
 
 // TryUniformMatrix3x4fv1 calls the method "WebGL2RenderingContext.uniformMatrix3x4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x4fv1(location WebGLUniformLocation, transpose GLboolean, data Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x4fv1(
@@ -13012,7 +13012,7 @@ func (this WebGL2RenderingContext) UniformMatrix3x4fv2(location WebGLUniformLoca
 }
 
 // TryUniformMatrix3x4fv2 calls the method "WebGL2RenderingContext.uniformMatrix3x4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformMatrix3x4fv2(location WebGLUniformLocation, transpose GLboolean, data Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformMatrix3x4fv2(
@@ -13056,7 +13056,7 @@ func (this WebGL2RenderingContext) VertexAttribI4i(index GLuint, x GLint, y GLin
 }
 
 // TryVertexAttribI4i calls the method "WebGL2RenderingContext.vertexAttribI4i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4i(index GLuint, x GLint, y GLint, z GLint, w GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4i(
@@ -13099,7 +13099,7 @@ func (this WebGL2RenderingContext) VertexAttribI4iv(index GLuint, values Int32Li
 }
 
 // TryVertexAttribI4iv calls the method "WebGL2RenderingContext.vertexAttribI4iv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4iv(index GLuint, values Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4iv(
@@ -13142,7 +13142,7 @@ func (this WebGL2RenderingContext) VertexAttribI4ui(index GLuint, x GLuint, y GL
 }
 
 // TryVertexAttribI4ui calls the method "WebGL2RenderingContext.vertexAttribI4ui"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4ui(index GLuint, x GLuint, y GLuint, z GLuint, w GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4ui(
@@ -13185,7 +13185,7 @@ func (this WebGL2RenderingContext) VertexAttribI4uiv(index GLuint, values Uint32
 }
 
 // TryVertexAttribI4uiv calls the method "WebGL2RenderingContext.vertexAttribI4uiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribI4uiv(index GLuint, values Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribI4uiv(
@@ -13228,7 +13228,7 @@ func (this WebGL2RenderingContext) VertexAttribIPointer(index GLuint, size GLint
 }
 
 // TryVertexAttribIPointer calls the method "WebGL2RenderingContext.vertexAttribIPointer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribIPointer(index GLuint, size GLint, typ GLenum, stride GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribIPointer(
@@ -13271,7 +13271,7 @@ func (this WebGL2RenderingContext) VertexAttribDivisor(index GLuint, divisor GLu
 }
 
 // TryVertexAttribDivisor calls the method "WebGL2RenderingContext.vertexAttribDivisor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribDivisor(index GLuint, divisor GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribDivisor(
@@ -13313,7 +13313,7 @@ func (this WebGL2RenderingContext) DrawArraysInstanced(mode GLenum, first GLint,
 }
 
 // TryDrawArraysInstanced calls the method "WebGL2RenderingContext.drawArraysInstanced"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawArraysInstanced(mode GLenum, first GLint, count GLsizei, instanceCount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawArraysInstanced(
@@ -13358,7 +13358,7 @@ func (this WebGL2RenderingContext) DrawElementsInstanced(mode GLenum, count GLsi
 }
 
 // TryDrawElementsInstanced calls the method "WebGL2RenderingContext.drawElementsInstanced"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawElementsInstanced(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, instanceCount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawElementsInstanced(
@@ -13405,7 +13405,7 @@ func (this WebGL2RenderingContext) DrawRangeElements(mode GLenum, start GLuint, 
 }
 
 // TryDrawRangeElements calls the method "WebGL2RenderingContext.drawRangeElements"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawRangeElements(mode GLenum, start GLuint, end GLuint, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawRangeElements(
@@ -13448,7 +13448,7 @@ func (this WebGL2RenderingContext) DrawBuffers(buffers js.Array[GLenum]) (ret js
 }
 
 // TryDrawBuffers calls the method "WebGL2RenderingContext.drawBuffers"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawBuffers(buffers js.Array[GLenum]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawBuffers(
@@ -13489,7 +13489,7 @@ func (this WebGL2RenderingContext) ClearBufferfv(buffer GLenum, drawbuffer GLint
 }
 
 // TryClearBufferfv calls the method "WebGL2RenderingContext.clearBufferfv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferfv(buffer GLenum, drawbuffer GLint, values Float32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferfv(
@@ -13532,7 +13532,7 @@ func (this WebGL2RenderingContext) ClearBufferfv1(buffer GLenum, drawbuffer GLin
 }
 
 // TryClearBufferfv1 calls the method "WebGL2RenderingContext.clearBufferfv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferfv1(buffer GLenum, drawbuffer GLint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferfv1(
@@ -13575,7 +13575,7 @@ func (this WebGL2RenderingContext) ClearBufferiv(buffer GLenum, drawbuffer GLint
 }
 
 // TryClearBufferiv calls the method "WebGL2RenderingContext.clearBufferiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferiv(buffer GLenum, drawbuffer GLint, values Int32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferiv(
@@ -13618,7 +13618,7 @@ func (this WebGL2RenderingContext) ClearBufferiv1(buffer GLenum, drawbuffer GLin
 }
 
 // TryClearBufferiv1 calls the method "WebGL2RenderingContext.clearBufferiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferiv1(buffer GLenum, drawbuffer GLint, values Int32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferiv1(
@@ -13661,7 +13661,7 @@ func (this WebGL2RenderingContext) ClearBufferuiv(buffer GLenum, drawbuffer GLin
 }
 
 // TryClearBufferuiv calls the method "WebGL2RenderingContext.clearBufferuiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferuiv(buffer GLenum, drawbuffer GLint, values Uint32List, srcOffset GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferuiv(
@@ -13704,7 +13704,7 @@ func (this WebGL2RenderingContext) ClearBufferuiv1(buffer GLenum, drawbuffer GLi
 }
 
 // TryClearBufferuiv1 calls the method "WebGL2RenderingContext.clearBufferuiv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferuiv1(buffer GLenum, drawbuffer GLint, values Uint32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferuiv1(
@@ -13747,7 +13747,7 @@ func (this WebGL2RenderingContext) ClearBufferfi(buffer GLenum, drawbuffer GLint
 }
 
 // TryClearBufferfi calls the method "WebGL2RenderingContext.clearBufferfi"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearBufferfi(buffer GLenum, drawbuffer GLint, depth GLfloat, stencil GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearBufferfi(
@@ -13787,7 +13787,7 @@ func (this WebGL2RenderingContext) CreateQuery() (ret WebGLQuery) {
 }
 
 // TryCreateQuery calls the method "WebGL2RenderingContext.createQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateQuery() (ret WebGLQuery, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateQuery(
@@ -13824,7 +13824,7 @@ func (this WebGL2RenderingContext) DeleteQuery(query WebGLQuery) (ret js.Void) {
 }
 
 // TryDeleteQuery calls the method "WebGL2RenderingContext.deleteQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteQuery(query WebGLQuery) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteQuery(
@@ -13862,7 +13862,7 @@ func (this WebGL2RenderingContext) IsQuery(query WebGLQuery) (ret GLboolean) {
 }
 
 // TryIsQuery calls the method "WebGL2RenderingContext.isQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsQuery(query WebGLQuery) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsQuery(
@@ -13901,7 +13901,7 @@ func (this WebGL2RenderingContext) BeginQuery(target GLenum, query WebGLQuery) (
 }
 
 // TryBeginQuery calls the method "WebGL2RenderingContext.beginQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBeginQuery(target GLenum, query WebGLQuery) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBeginQuery(
@@ -13940,7 +13940,7 @@ func (this WebGL2RenderingContext) EndQuery(target GLenum) (ret js.Void) {
 }
 
 // TryEndQuery calls the method "WebGL2RenderingContext.endQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryEndQuery(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEndQuery(
@@ -13979,7 +13979,7 @@ func (this WebGL2RenderingContext) GetQuery(target GLenum, pname GLenum) (ret We
 }
 
 // TryGetQuery calls the method "WebGL2RenderingContext.getQuery"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetQuery(target GLenum, pname GLenum) (ret WebGLQuery, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetQuery(
@@ -14019,7 +14019,7 @@ func (this WebGL2RenderingContext) GetQueryParameter(query WebGLQuery, pname GLe
 }
 
 // TryGetQueryParameter calls the method "WebGL2RenderingContext.getQueryParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetQueryParameter(query WebGLQuery, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetQueryParameter(
@@ -14057,7 +14057,7 @@ func (this WebGL2RenderingContext) CreateSampler() (ret WebGLSampler) {
 }
 
 // TryCreateSampler calls the method "WebGL2RenderingContext.createSampler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateSampler() (ret WebGLSampler, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateSampler(
@@ -14094,7 +14094,7 @@ func (this WebGL2RenderingContext) DeleteSampler(sampler WebGLSampler) (ret js.V
 }
 
 // TryDeleteSampler calls the method "WebGL2RenderingContext.deleteSampler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteSampler(sampler WebGLSampler) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteSampler(
@@ -14132,7 +14132,7 @@ func (this WebGL2RenderingContext) IsSampler(sampler WebGLSampler) (ret GLboolea
 }
 
 // TryIsSampler calls the method "WebGL2RenderingContext.isSampler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsSampler(sampler WebGLSampler) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsSampler(
@@ -14171,7 +14171,7 @@ func (this WebGL2RenderingContext) BindSampler(unit GLuint, sampler WebGLSampler
 }
 
 // TryBindSampler calls the method "WebGL2RenderingContext.bindSampler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindSampler(unit GLuint, sampler WebGLSampler) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindSampler(
@@ -14212,7 +14212,7 @@ func (this WebGL2RenderingContext) SamplerParameteri(sampler WebGLSampler, pname
 }
 
 // TrySamplerParameteri calls the method "WebGL2RenderingContext.samplerParameteri"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TrySamplerParameteri(sampler WebGLSampler, pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextSamplerParameteri(
@@ -14254,7 +14254,7 @@ func (this WebGL2RenderingContext) SamplerParameterf(sampler WebGLSampler, pname
 }
 
 // TrySamplerParameterf calls the method "WebGL2RenderingContext.samplerParameterf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TrySamplerParameterf(sampler WebGLSampler, pname GLenum, param GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextSamplerParameterf(
@@ -14295,7 +14295,7 @@ func (this WebGL2RenderingContext) GetSamplerParameter(sampler WebGLSampler, pna
 }
 
 // TryGetSamplerParameter calls the method "WebGL2RenderingContext.getSamplerParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetSamplerParameter(sampler WebGLSampler, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetSamplerParameter(
@@ -14335,7 +14335,7 @@ func (this WebGL2RenderingContext) FenceSync(condition GLenum, flags GLbitfield)
 }
 
 // TryFenceSync calls the method "WebGL2RenderingContext.fenceSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryFenceSync(condition GLenum, flags GLbitfield) (ret WebGLSync, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFenceSync(
@@ -14374,7 +14374,7 @@ func (this WebGL2RenderingContext) IsSync(sync WebGLSync) (ret GLboolean) {
 }
 
 // TryIsSync calls the method "WebGL2RenderingContext.isSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsSync(sync WebGLSync) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsSync(
@@ -14412,7 +14412,7 @@ func (this WebGL2RenderingContext) DeleteSync(sync WebGLSync) (ret js.Void) {
 }
 
 // TryDeleteSync calls the method "WebGL2RenderingContext.deleteSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteSync(sync WebGLSync) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteSync(
@@ -14452,7 +14452,7 @@ func (this WebGL2RenderingContext) ClientWaitSync(sync WebGLSync, flags GLbitfie
 }
 
 // TryClientWaitSync calls the method "WebGL2RenderingContext.clientWaitSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClientWaitSync(sync WebGLSync, flags GLbitfield, timeout GLuint64) (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClientWaitSync(
@@ -14494,7 +14494,7 @@ func (this WebGL2RenderingContext) WaitSync(sync WebGLSync, flags GLbitfield, ti
 }
 
 // TryWaitSync calls the method "WebGL2RenderingContext.waitSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryWaitSync(sync WebGLSync, flags GLbitfield, timeout GLint64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextWaitSync(
@@ -14535,7 +14535,7 @@ func (this WebGL2RenderingContext) GetSyncParameter(sync WebGLSync, pname GLenum
 }
 
 // TryGetSyncParameter calls the method "WebGL2RenderingContext.getSyncParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetSyncParameter(sync WebGLSync, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetSyncParameter(
@@ -14573,7 +14573,7 @@ func (this WebGL2RenderingContext) CreateTransformFeedback() (ret WebGLTransform
 }
 
 // TryCreateTransformFeedback calls the method "WebGL2RenderingContext.createTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateTransformFeedback() (ret WebGLTransformFeedback, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateTransformFeedback(
@@ -14610,7 +14610,7 @@ func (this WebGL2RenderingContext) DeleteTransformFeedback(tf WebGLTransformFeed
 }
 
 // TryDeleteTransformFeedback calls the method "WebGL2RenderingContext.deleteTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteTransformFeedback(tf WebGLTransformFeedback) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteTransformFeedback(
@@ -14648,7 +14648,7 @@ func (this WebGL2RenderingContext) IsTransformFeedback(tf WebGLTransformFeedback
 }
 
 // TryIsTransformFeedback calls the method "WebGL2RenderingContext.isTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsTransformFeedback(tf WebGLTransformFeedback) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsTransformFeedback(
@@ -14687,7 +14687,7 @@ func (this WebGL2RenderingContext) BindTransformFeedback(target GLenum, tf WebGL
 }
 
 // TryBindTransformFeedback calls the method "WebGL2RenderingContext.bindTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindTransformFeedback(target GLenum, tf WebGLTransformFeedback) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindTransformFeedback(
@@ -14726,7 +14726,7 @@ func (this WebGL2RenderingContext) BeginTransformFeedback(primitiveMode GLenum) 
 }
 
 // TryBeginTransformFeedback calls the method "WebGL2RenderingContext.beginTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBeginTransformFeedback(primitiveMode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBeginTransformFeedback(
@@ -14763,7 +14763,7 @@ func (this WebGL2RenderingContext) EndTransformFeedback() (ret js.Void) {
 }
 
 // TryEndTransformFeedback calls the method "WebGL2RenderingContext.endTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryEndTransformFeedback() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEndTransformFeedback(
@@ -14802,7 +14802,7 @@ func (this WebGL2RenderingContext) TransformFeedbackVaryings(program WebGLProgra
 }
 
 // TryTransformFeedbackVaryings calls the method "WebGL2RenderingContext.transformFeedbackVaryings"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTransformFeedbackVaryings(program WebGLProgram, varyings js.Array[js.String], bufferMode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTransformFeedbackVaryings(
@@ -14843,7 +14843,7 @@ func (this WebGL2RenderingContext) GetTransformFeedbackVarying(program WebGLProg
 }
 
 // TryGetTransformFeedbackVarying calls the method "WebGL2RenderingContext.getTransformFeedbackVarying"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetTransformFeedbackVarying(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetTransformFeedbackVarying(
@@ -14881,7 +14881,7 @@ func (this WebGL2RenderingContext) PauseTransformFeedback() (ret js.Void) {
 }
 
 // TryPauseTransformFeedback calls the method "WebGL2RenderingContext.pauseTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryPauseTransformFeedback() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextPauseTransformFeedback(
@@ -14917,7 +14917,7 @@ func (this WebGL2RenderingContext) ResumeTransformFeedback() (ret js.Void) {
 }
 
 // TryResumeTransformFeedback calls the method "WebGL2RenderingContext.resumeTransformFeedback"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryResumeTransformFeedback() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextResumeTransformFeedback(
@@ -14956,7 +14956,7 @@ func (this WebGL2RenderingContext) BindBufferBase(target GLenum, index GLuint, b
 }
 
 // TryBindBufferBase calls the method "WebGL2RenderingContext.bindBufferBase"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindBufferBase(target GLenum, index GLuint, buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindBufferBase(
@@ -15000,7 +15000,7 @@ func (this WebGL2RenderingContext) BindBufferRange(target GLenum, index GLuint, 
 }
 
 // TryBindBufferRange calls the method "WebGL2RenderingContext.bindBufferRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindBufferRange(target GLenum, index GLuint, buffer WebGLBuffer, offset GLintptr, size GLsizeiptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindBufferRange(
@@ -15043,7 +15043,7 @@ func (this WebGL2RenderingContext) GetIndexedParameter(target GLenum, index GLui
 }
 
 // TryGetIndexedParameter calls the method "WebGL2RenderingContext.getIndexedParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetIndexedParameter(target GLenum, index GLuint) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetIndexedParameter(
@@ -15083,7 +15083,7 @@ func (this WebGL2RenderingContext) GetUniformIndices(program WebGLProgram, unifo
 }
 
 // TryGetUniformIndices calls the method "WebGL2RenderingContext.getUniformIndices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniformIndices(program WebGLProgram, uniformNames js.Array[js.String]) (ret js.Array[GLuint], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniformIndices(
@@ -15124,7 +15124,7 @@ func (this WebGL2RenderingContext) GetActiveUniforms(program WebGLProgram, unifo
 }
 
 // TryGetActiveUniforms calls the method "WebGL2RenderingContext.getActiveUniforms"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniforms(program WebGLProgram, uniformIndices js.Array[GLuint], pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniforms(
@@ -15165,7 +15165,7 @@ func (this WebGL2RenderingContext) GetUniformBlockIndex(program WebGLProgram, un
 }
 
 // TryGetUniformBlockIndex calls the method "WebGL2RenderingContext.getUniformBlockIndex"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniformBlockIndex(program WebGLProgram, uniformBlockName js.String) (ret GLuint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniformBlockIndex(
@@ -15206,7 +15206,7 @@ func (this WebGL2RenderingContext) GetActiveUniformBlockParameter(program WebGLP
 }
 
 // TryGetActiveUniformBlockParameter calls the method "WebGL2RenderingContext.getActiveUniformBlockParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniformBlockParameter(program WebGLProgram, uniformBlockIndex GLuint, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniformBlockParameter(
@@ -15247,7 +15247,7 @@ func (this WebGL2RenderingContext) GetActiveUniformBlockName(program WebGLProgra
 }
 
 // TryGetActiveUniformBlockName calls the method "WebGL2RenderingContext.getActiveUniformBlockName"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniformBlockName(program WebGLProgram, uniformBlockIndex GLuint) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniformBlockName(
@@ -15288,7 +15288,7 @@ func (this WebGL2RenderingContext) UniformBlockBinding(program WebGLProgram, uni
 }
 
 // TryUniformBlockBinding calls the method "WebGL2RenderingContext.uniformBlockBinding"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniformBlockBinding(program WebGLProgram, uniformBlockIndex GLuint, uniformBlockBinding GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniformBlockBinding(
@@ -15327,7 +15327,7 @@ func (this WebGL2RenderingContext) CreateVertexArray() (ret WebGLVertexArrayObje
 }
 
 // TryCreateVertexArray calls the method "WebGL2RenderingContext.createVertexArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateVertexArray() (ret WebGLVertexArrayObject, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateVertexArray(
@@ -15364,7 +15364,7 @@ func (this WebGL2RenderingContext) DeleteVertexArray(vertexArray WebGLVertexArra
 }
 
 // TryDeleteVertexArray calls the method "WebGL2RenderingContext.deleteVertexArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteVertexArray(vertexArray WebGLVertexArrayObject) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteVertexArray(
@@ -15402,7 +15402,7 @@ func (this WebGL2RenderingContext) IsVertexArray(vertexArray WebGLVertexArrayObj
 }
 
 // TryIsVertexArray calls the method "WebGL2RenderingContext.isVertexArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsVertexArray(vertexArray WebGLVertexArrayObject) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsVertexArray(
@@ -15440,7 +15440,7 @@ func (this WebGL2RenderingContext) BindVertexArray(array WebGLVertexArrayObject)
 }
 
 // TryBindVertexArray calls the method "WebGL2RenderingContext.bindVertexArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindVertexArray(array WebGLVertexArrayObject) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindVertexArray(
@@ -15477,7 +15477,7 @@ func (this WebGL2RenderingContext) GetContextAttributes() (ret WebGLContextAttri
 }
 
 // TryGetContextAttributes calls the method "WebGL2RenderingContext.getContextAttributes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetContextAttributes() (ret WebGLContextAttributes, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetContextAttributes(
@@ -15513,7 +15513,7 @@ func (this WebGL2RenderingContext) IsContextLost() (ret bool) {
 }
 
 // TryIsContextLost calls the method "WebGL2RenderingContext.isContextLost"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsContextLost(
@@ -15549,7 +15549,7 @@ func (this WebGL2RenderingContext) GetSupportedExtensions() (ret js.Array[js.Str
 }
 
 // TryGetSupportedExtensions calls the method "WebGL2RenderingContext.getSupportedExtensions"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetSupportedExtensions() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetSupportedExtensions(
@@ -15586,7 +15586,7 @@ func (this WebGL2RenderingContext) GetExtension(name js.String) (ret js.Object) 
 }
 
 // TryGetExtension calls the method "WebGL2RenderingContext.getExtension"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetExtension(name js.String) (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetExtension(
@@ -15624,7 +15624,7 @@ func (this WebGL2RenderingContext) ActiveTexture(texture GLenum) (ret js.Void) {
 }
 
 // TryActiveTexture calls the method "WebGL2RenderingContext.activeTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryActiveTexture(texture GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextActiveTexture(
@@ -15663,7 +15663,7 @@ func (this WebGL2RenderingContext) AttachShader(program WebGLProgram, shader Web
 }
 
 // TryAttachShader calls the method "WebGL2RenderingContext.attachShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryAttachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextAttachShader(
@@ -15704,7 +15704,7 @@ func (this WebGL2RenderingContext) BindAttribLocation(program WebGLProgram, inde
 }
 
 // TryBindAttribLocation calls the method "WebGL2RenderingContext.bindAttribLocation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindAttribLocation(program WebGLProgram, index GLuint, name js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindAttribLocation(
@@ -15745,7 +15745,7 @@ func (this WebGL2RenderingContext) BindBuffer(target GLenum, buffer WebGLBuffer)
 }
 
 // TryBindBuffer calls the method "WebGL2RenderingContext.bindBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindBuffer(target GLenum, buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindBuffer(
@@ -15785,7 +15785,7 @@ func (this WebGL2RenderingContext) BindFramebuffer(target GLenum, framebuffer We
 }
 
 // TryBindFramebuffer calls the method "WebGL2RenderingContext.bindFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindFramebuffer(target GLenum, framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindFramebuffer(
@@ -15825,7 +15825,7 @@ func (this WebGL2RenderingContext) BindRenderbuffer(target GLenum, renderbuffer 
 }
 
 // TryBindRenderbuffer calls the method "WebGL2RenderingContext.bindRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindRenderbuffer(target GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindRenderbuffer(
@@ -15865,7 +15865,7 @@ func (this WebGL2RenderingContext) BindTexture(target GLenum, texture WebGLTextu
 }
 
 // TryBindTexture calls the method "WebGL2RenderingContext.bindTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBindTexture(target GLenum, texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBindTexture(
@@ -15907,7 +15907,7 @@ func (this WebGL2RenderingContext) BlendColor(red GLclampf, green GLclampf, blue
 }
 
 // TryBlendColor calls the method "WebGL2RenderingContext.blendColor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendColor(
@@ -15948,7 +15948,7 @@ func (this WebGL2RenderingContext) BlendEquation(mode GLenum) (ret js.Void) {
 }
 
 // TryBlendEquation calls the method "WebGL2RenderingContext.blendEquation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendEquation(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendEquation(
@@ -15987,7 +15987,7 @@ func (this WebGL2RenderingContext) BlendEquationSeparate(modeRGB GLenum, modeAlp
 }
 
 // TryBlendEquationSeparate calls the method "WebGL2RenderingContext.blendEquationSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendEquationSeparate(modeRGB GLenum, modeAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendEquationSeparate(
@@ -16027,7 +16027,7 @@ func (this WebGL2RenderingContext) BlendFunc(sfactor GLenum, dfactor GLenum) (re
 }
 
 // TryBlendFunc calls the method "WebGL2RenderingContext.blendFunc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendFunc(sfactor GLenum, dfactor GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendFunc(
@@ -16069,7 +16069,7 @@ func (this WebGL2RenderingContext) BlendFuncSeparate(srcRGB GLenum, dstRGB GLenu
 }
 
 // TryBlendFuncSeparate calls the method "WebGL2RenderingContext.blendFuncSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryBlendFuncSeparate(srcRGB GLenum, dstRGB GLenum, srcAlpha GLenum, dstAlpha GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextBlendFuncSeparate(
@@ -16110,7 +16110,7 @@ func (this WebGL2RenderingContext) CheckFramebufferStatus(target GLenum) (ret GL
 }
 
 // TryCheckFramebufferStatus calls the method "WebGL2RenderingContext.checkFramebufferStatus"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCheckFramebufferStatus(target GLenum) (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCheckFramebufferStatus(
@@ -16148,7 +16148,7 @@ func (this WebGL2RenderingContext) Clear(mask GLbitfield) (ret js.Void) {
 }
 
 // TryClear calls the method "WebGL2RenderingContext.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClear(mask GLbitfield) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClear(
@@ -16189,7 +16189,7 @@ func (this WebGL2RenderingContext) ClearColor(red GLclampf, green GLclampf, blue
 }
 
 // TryClearColor calls the method "WebGL2RenderingContext.clearColor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearColor(red GLclampf, green GLclampf, blue GLclampf, alpha GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearColor(
@@ -16230,7 +16230,7 @@ func (this WebGL2RenderingContext) ClearDepth(depth GLclampf) (ret js.Void) {
 }
 
 // TryClearDepth calls the method "WebGL2RenderingContext.clearDepth"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearDepth(depth GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearDepth(
@@ -16268,7 +16268,7 @@ func (this WebGL2RenderingContext) ClearStencil(s GLint) (ret js.Void) {
 }
 
 // TryClearStencil calls the method "WebGL2RenderingContext.clearStencil"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryClearStencil(s GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextClearStencil(
@@ -16309,7 +16309,7 @@ func (this WebGL2RenderingContext) ColorMask(red GLboolean, green GLboolean, blu
 }
 
 // TryColorMask calls the method "WebGL2RenderingContext.colorMask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryColorMask(red GLboolean, green GLboolean, blue GLboolean, alpha GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextColorMask(
@@ -16350,7 +16350,7 @@ func (this WebGL2RenderingContext) CompileShader(shader WebGLShader) (ret js.Voi
 }
 
 // TryCompileShader calls the method "WebGL2RenderingContext.compileShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCompileShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCompileShader(
@@ -16395,7 +16395,7 @@ func (this WebGL2RenderingContext) CopyTexImage2D(target GLenum, level GLint, in
 }
 
 // TryCopyTexImage2D calls the method "WebGL2RenderingContext.copyTexImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyTexImage2D(target GLenum, level GLint, internalformat GLenum, x GLint, y GLint, width GLsizei, height GLsizei, border GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyTexImage2D(
@@ -16447,7 +16447,7 @@ func (this WebGL2RenderingContext) CopyTexSubImage2D(target GLenum, level GLint,
 }
 
 // TryCopyTexSubImage2D calls the method "WebGL2RenderingContext.copyTexSubImage2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCopyTexSubImage2D(target GLenum, level GLint, xoffset GLint, yoffset GLint, x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCopyTexSubImage2D(
@@ -16491,7 +16491,7 @@ func (this WebGL2RenderingContext) CreateBuffer() (ret WebGLBuffer) {
 }
 
 // TryCreateBuffer calls the method "WebGL2RenderingContext.createBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateBuffer() (ret WebGLBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateBuffer(
@@ -16527,7 +16527,7 @@ func (this WebGL2RenderingContext) CreateFramebuffer() (ret WebGLFramebuffer) {
 }
 
 // TryCreateFramebuffer calls the method "WebGL2RenderingContext.createFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateFramebuffer() (ret WebGLFramebuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateFramebuffer(
@@ -16563,7 +16563,7 @@ func (this WebGL2RenderingContext) CreateProgram() (ret WebGLProgram) {
 }
 
 // TryCreateProgram calls the method "WebGL2RenderingContext.createProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateProgram() (ret WebGLProgram, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateProgram(
@@ -16599,7 +16599,7 @@ func (this WebGL2RenderingContext) CreateRenderbuffer() (ret WebGLRenderbuffer) 
 }
 
 // TryCreateRenderbuffer calls the method "WebGL2RenderingContext.createRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateRenderbuffer() (ret WebGLRenderbuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateRenderbuffer(
@@ -16636,7 +16636,7 @@ func (this WebGL2RenderingContext) CreateShader(typ GLenum) (ret WebGLShader) {
 }
 
 // TryCreateShader calls the method "WebGL2RenderingContext.createShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateShader(typ GLenum) (ret WebGLShader, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateShader(
@@ -16673,7 +16673,7 @@ func (this WebGL2RenderingContext) CreateTexture() (ret WebGLTexture) {
 }
 
 // TryCreateTexture calls the method "WebGL2RenderingContext.createTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCreateTexture() (ret WebGLTexture, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCreateTexture(
@@ -16710,7 +16710,7 @@ func (this WebGL2RenderingContext) CullFace(mode GLenum) (ret js.Void) {
 }
 
 // TryCullFace calls the method "WebGL2RenderingContext.cullFace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryCullFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextCullFace(
@@ -16748,7 +16748,7 @@ func (this WebGL2RenderingContext) DeleteBuffer(buffer WebGLBuffer) (ret js.Void
 }
 
 // TryDeleteBuffer calls the method "WebGL2RenderingContext.deleteBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteBuffer(buffer WebGLBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteBuffer(
@@ -16786,7 +16786,7 @@ func (this WebGL2RenderingContext) DeleteFramebuffer(framebuffer WebGLFramebuffe
 }
 
 // TryDeleteFramebuffer calls the method "WebGL2RenderingContext.deleteFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteFramebuffer(framebuffer WebGLFramebuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteFramebuffer(
@@ -16824,7 +16824,7 @@ func (this WebGL2RenderingContext) DeleteProgram(program WebGLProgram) (ret js.V
 }
 
 // TryDeleteProgram calls the method "WebGL2RenderingContext.deleteProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteProgram(
@@ -16862,7 +16862,7 @@ func (this WebGL2RenderingContext) DeleteRenderbuffer(renderbuffer WebGLRenderbu
 }
 
 // TryDeleteRenderbuffer calls the method "WebGL2RenderingContext.deleteRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteRenderbuffer(renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteRenderbuffer(
@@ -16900,7 +16900,7 @@ func (this WebGL2RenderingContext) DeleteShader(shader WebGLShader) (ret js.Void
 }
 
 // TryDeleteShader calls the method "WebGL2RenderingContext.deleteShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteShader(shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteShader(
@@ -16938,7 +16938,7 @@ func (this WebGL2RenderingContext) DeleteTexture(texture WebGLTexture) (ret js.V
 }
 
 // TryDeleteTexture calls the method "WebGL2RenderingContext.deleteTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDeleteTexture(texture WebGLTexture) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDeleteTexture(
@@ -16976,7 +16976,7 @@ func (this WebGL2RenderingContext) DepthFunc(fn GLenum) (ret js.Void) {
 }
 
 // TryDepthFunc calls the method "WebGL2RenderingContext.depthFunc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDepthFunc(fn GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDepthFunc(
@@ -17014,7 +17014,7 @@ func (this WebGL2RenderingContext) DepthMask(flag GLboolean) (ret js.Void) {
 }
 
 // TryDepthMask calls the method "WebGL2RenderingContext.depthMask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDepthMask(flag GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDepthMask(
@@ -17053,7 +17053,7 @@ func (this WebGL2RenderingContext) DepthRange(zNear GLclampf, zFar GLclampf) (re
 }
 
 // TryDepthRange calls the method "WebGL2RenderingContext.depthRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDepthRange(zNear GLclampf, zFar GLclampf) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDepthRange(
@@ -17093,7 +17093,7 @@ func (this WebGL2RenderingContext) DetachShader(program WebGLProgram, shader Web
 }
 
 // TryDetachShader calls the method "WebGL2RenderingContext.detachShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDetachShader(program WebGLProgram, shader WebGLShader) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDetachShader(
@@ -17132,7 +17132,7 @@ func (this WebGL2RenderingContext) Disable(cap GLenum) (ret js.Void) {
 }
 
 // TryDisable calls the method "WebGL2RenderingContext.disable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDisable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDisable(
@@ -17170,7 +17170,7 @@ func (this WebGL2RenderingContext) DisableVertexAttribArray(index GLuint) (ret j
 }
 
 // TryDisableVertexAttribArray calls the method "WebGL2RenderingContext.disableVertexAttribArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDisableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDisableVertexAttribArray(
@@ -17210,7 +17210,7 @@ func (this WebGL2RenderingContext) DrawArrays(mode GLenum, first GLint, count GL
 }
 
 // TryDrawArrays calls the method "WebGL2RenderingContext.drawArrays"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawArrays(mode GLenum, first GLint, count GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawArrays(
@@ -17253,7 +17253,7 @@ func (this WebGL2RenderingContext) DrawElements(mode GLenum, count GLsizei, typ 
 }
 
 // TryDrawElements calls the method "WebGL2RenderingContext.drawElements"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryDrawElements(mode GLenum, count GLsizei, typ GLenum, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextDrawElements(
@@ -17294,7 +17294,7 @@ func (this WebGL2RenderingContext) Enable(cap GLenum) (ret js.Void) {
 }
 
 // TryEnable calls the method "WebGL2RenderingContext.enable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryEnable(cap GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEnable(
@@ -17332,7 +17332,7 @@ func (this WebGL2RenderingContext) EnableVertexAttribArray(index GLuint) (ret js
 }
 
 // TryEnableVertexAttribArray calls the method "WebGL2RenderingContext.enableVertexAttribArray"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryEnableVertexAttribArray(index GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextEnableVertexAttribArray(
@@ -17369,7 +17369,7 @@ func (this WebGL2RenderingContext) Finish() (ret js.Void) {
 }
 
 // TryFinish calls the method "WebGL2RenderingContext.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryFinish() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFinish(
@@ -17405,7 +17405,7 @@ func (this WebGL2RenderingContext) Flush() (ret js.Void) {
 }
 
 // TryFlush calls the method "WebGL2RenderingContext.flush"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryFlush() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFlush(
@@ -17445,7 +17445,7 @@ func (this WebGL2RenderingContext) FramebufferRenderbuffer(target GLenum, attach
 }
 
 // TryFramebufferRenderbuffer calls the method "WebGL2RenderingContext.framebufferRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryFramebufferRenderbuffer(target GLenum, attachment GLenum, renderbuffertarget GLenum, renderbuffer WebGLRenderbuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFramebufferRenderbuffer(
@@ -17490,7 +17490,7 @@ func (this WebGL2RenderingContext) FramebufferTexture2D(target GLenum, attachmen
 }
 
 // TryFramebufferTexture2D calls the method "WebGL2RenderingContext.framebufferTexture2D"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryFramebufferTexture2D(target GLenum, attachment GLenum, textarget GLenum, texture WebGLTexture, level GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFramebufferTexture2D(
@@ -17532,7 +17532,7 @@ func (this WebGL2RenderingContext) FrontFace(mode GLenum) (ret js.Void) {
 }
 
 // TryFrontFace calls the method "WebGL2RenderingContext.frontFace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryFrontFace(mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextFrontFace(
@@ -17570,7 +17570,7 @@ func (this WebGL2RenderingContext) GenerateMipmap(target GLenum) (ret js.Void) {
 }
 
 // TryGenerateMipmap calls the method "WebGL2RenderingContext.generateMipmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGenerateMipmap(target GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGenerateMipmap(
@@ -17609,7 +17609,7 @@ func (this WebGL2RenderingContext) GetActiveAttrib(program WebGLProgram, index G
 }
 
 // TryGetActiveAttrib calls the method "WebGL2RenderingContext.getActiveAttrib"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveAttrib(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveAttrib(
@@ -17649,7 +17649,7 @@ func (this WebGL2RenderingContext) GetActiveUniform(program WebGLProgram, index 
 }
 
 // TryGetActiveUniform calls the method "WebGL2RenderingContext.getActiveUniform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetActiveUniform(program WebGLProgram, index GLuint) (ret WebGLActiveInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetActiveUniform(
@@ -17688,7 +17688,7 @@ func (this WebGL2RenderingContext) GetAttachedShaders(program WebGLProgram) (ret
 }
 
 // TryGetAttachedShaders calls the method "WebGL2RenderingContext.getAttachedShaders"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetAttachedShaders(program WebGLProgram) (ret js.Array[WebGLShader], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetAttachedShaders(
@@ -17727,7 +17727,7 @@ func (this WebGL2RenderingContext) GetAttribLocation(program WebGLProgram, name 
 }
 
 // TryGetAttribLocation calls the method "WebGL2RenderingContext.getAttribLocation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetAttribLocation(program WebGLProgram, name js.String) (ret GLint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetAttribLocation(
@@ -17767,7 +17767,7 @@ func (this WebGL2RenderingContext) GetBufferParameter(target GLenum, pname GLenu
 }
 
 // TryGetBufferParameter calls the method "WebGL2RenderingContext.getBufferParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetBufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetBufferParameter(
@@ -17806,7 +17806,7 @@ func (this WebGL2RenderingContext) GetParameter(pname GLenum) (ret js.Any) {
 }
 
 // TryGetParameter calls the method "WebGL2RenderingContext.getParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetParameter(pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetParameter(
@@ -17843,7 +17843,7 @@ func (this WebGL2RenderingContext) GetError() (ret GLenum) {
 }
 
 // TryGetError calls the method "WebGL2RenderingContext.getError"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetError() (ret GLenum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetError(
@@ -17882,7 +17882,7 @@ func (this WebGL2RenderingContext) GetFramebufferAttachmentParameter(target GLen
 }
 
 // TryGetFramebufferAttachmentParameter calls the method "WebGL2RenderingContext.getFramebufferAttachmentParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetFramebufferAttachmentParameter(target GLenum, attachment GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetFramebufferAttachmentParameter(
@@ -17923,7 +17923,7 @@ func (this WebGL2RenderingContext) GetProgramParameter(program WebGLProgram, pna
 }
 
 // TryGetProgramParameter calls the method "WebGL2RenderingContext.getProgramParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetProgramParameter(program WebGLProgram, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetProgramParameter(
@@ -17962,7 +17962,7 @@ func (this WebGL2RenderingContext) GetProgramInfoLog(program WebGLProgram) (ret 
 }
 
 // TryGetProgramInfoLog calls the method "WebGL2RenderingContext.getProgramInfoLog"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetProgramInfoLog(program WebGLProgram) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetProgramInfoLog(
@@ -18001,7 +18001,7 @@ func (this WebGL2RenderingContext) GetRenderbufferParameter(target GLenum, pname
 }
 
 // TryGetRenderbufferParameter calls the method "WebGL2RenderingContext.getRenderbufferParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetRenderbufferParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetRenderbufferParameter(
@@ -18041,7 +18041,7 @@ func (this WebGL2RenderingContext) GetShaderParameter(shader WebGLShader, pname 
 }
 
 // TryGetShaderParameter calls the method "WebGL2RenderingContext.getShaderParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderParameter(shader WebGLShader, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderParameter(
@@ -18081,7 +18081,7 @@ func (this WebGL2RenderingContext) GetShaderPrecisionFormat(shadertype GLenum, p
 }
 
 // TryGetShaderPrecisionFormat calls the method "WebGL2RenderingContext.getShaderPrecisionFormat"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderPrecisionFormat(shadertype GLenum, precisiontype GLenum) (ret WebGLShaderPrecisionFormat, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderPrecisionFormat(
@@ -18120,7 +18120,7 @@ func (this WebGL2RenderingContext) GetShaderInfoLog(shader WebGLShader) (ret js.
 }
 
 // TryGetShaderInfoLog calls the method "WebGL2RenderingContext.getShaderInfoLog"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderInfoLog(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderInfoLog(
@@ -18158,7 +18158,7 @@ func (this WebGL2RenderingContext) GetShaderSource(shader WebGLShader) (ret js.S
 }
 
 // TryGetShaderSource calls the method "WebGL2RenderingContext.getShaderSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetShaderSource(shader WebGLShader) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetShaderSource(
@@ -18197,7 +18197,7 @@ func (this WebGL2RenderingContext) GetTexParameter(target GLenum, pname GLenum) 
 }
 
 // TryGetTexParameter calls the method "WebGL2RenderingContext.getTexParameter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetTexParameter(target GLenum, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetTexParameter(
@@ -18237,7 +18237,7 @@ func (this WebGL2RenderingContext) GetUniform(program WebGLProgram, location Web
 }
 
 // TryGetUniform calls the method "WebGL2RenderingContext.getUniform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniform(program WebGLProgram, location WebGLUniformLocation) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniform(
@@ -18277,7 +18277,7 @@ func (this WebGL2RenderingContext) GetUniformLocation(program WebGLProgram, name
 }
 
 // TryGetUniformLocation calls the method "WebGL2RenderingContext.getUniformLocation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetUniformLocation(program WebGLProgram, name js.String) (ret WebGLUniformLocation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetUniformLocation(
@@ -18317,7 +18317,7 @@ func (this WebGL2RenderingContext) GetVertexAttrib(index GLuint, pname GLenum) (
 }
 
 // TryGetVertexAttrib calls the method "WebGL2RenderingContext.getVertexAttrib"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetVertexAttrib(index GLuint, pname GLenum) (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetVertexAttrib(
@@ -18357,7 +18357,7 @@ func (this WebGL2RenderingContext) GetVertexAttribOffset(index GLuint, pname GLe
 }
 
 // TryGetVertexAttribOffset calls the method "WebGL2RenderingContext.getVertexAttribOffset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryGetVertexAttribOffset(index GLuint, pname GLenum) (ret GLintptr, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextGetVertexAttribOffset(
@@ -18397,7 +18397,7 @@ func (this WebGL2RenderingContext) Hint(target GLenum, mode GLenum) (ret js.Void
 }
 
 // TryHint calls the method "WebGL2RenderingContext.hint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryHint(target GLenum, mode GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextHint(
@@ -18436,7 +18436,7 @@ func (this WebGL2RenderingContext) IsBuffer(buffer WebGLBuffer) (ret GLboolean) 
 }
 
 // TryIsBuffer calls the method "WebGL2RenderingContext.isBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsBuffer(buffer WebGLBuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsBuffer(
@@ -18474,7 +18474,7 @@ func (this WebGL2RenderingContext) IsEnabled(cap GLenum) (ret GLboolean) {
 }
 
 // TryIsEnabled calls the method "WebGL2RenderingContext.isEnabled"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsEnabled(cap GLenum) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsEnabled(
@@ -18512,7 +18512,7 @@ func (this WebGL2RenderingContext) IsFramebuffer(framebuffer WebGLFramebuffer) (
 }
 
 // TryIsFramebuffer calls the method "WebGL2RenderingContext.isFramebuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsFramebuffer(framebuffer WebGLFramebuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsFramebuffer(
@@ -18550,7 +18550,7 @@ func (this WebGL2RenderingContext) IsProgram(program WebGLProgram) (ret GLboolea
 }
 
 // TryIsProgram calls the method "WebGL2RenderingContext.isProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsProgram(program WebGLProgram) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsProgram(
@@ -18588,7 +18588,7 @@ func (this WebGL2RenderingContext) IsRenderbuffer(renderbuffer WebGLRenderbuffer
 }
 
 // TryIsRenderbuffer calls the method "WebGL2RenderingContext.isRenderbuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsRenderbuffer(renderbuffer WebGLRenderbuffer) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsRenderbuffer(
@@ -18626,7 +18626,7 @@ func (this WebGL2RenderingContext) IsShader(shader WebGLShader) (ret GLboolean) 
 }
 
 // TryIsShader calls the method "WebGL2RenderingContext.isShader"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsShader(shader WebGLShader) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsShader(
@@ -18664,7 +18664,7 @@ func (this WebGL2RenderingContext) IsTexture(texture WebGLTexture) (ret GLboolea
 }
 
 // TryIsTexture calls the method "WebGL2RenderingContext.isTexture"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryIsTexture(texture WebGLTexture) (ret GLboolean, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextIsTexture(
@@ -18702,7 +18702,7 @@ func (this WebGL2RenderingContext) LineWidth(width GLfloat) (ret js.Void) {
 }
 
 // TryLineWidth calls the method "WebGL2RenderingContext.lineWidth"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryLineWidth(width GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextLineWidth(
@@ -18740,7 +18740,7 @@ func (this WebGL2RenderingContext) LinkProgram(program WebGLProgram) (ret js.Voi
 }
 
 // TryLinkProgram calls the method "WebGL2RenderingContext.linkProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryLinkProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextLinkProgram(
@@ -18779,7 +18779,7 @@ func (this WebGL2RenderingContext) PixelStorei(pname GLenum, param GLint) (ret j
 }
 
 // TryPixelStorei calls the method "WebGL2RenderingContext.pixelStorei"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryPixelStorei(pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextPixelStorei(
@@ -18819,7 +18819,7 @@ func (this WebGL2RenderingContext) PolygonOffset(factor GLfloat, units GLfloat) 
 }
 
 // TryPolygonOffset calls the method "WebGL2RenderingContext.polygonOffset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryPolygonOffset(factor GLfloat, units GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextPolygonOffset(
@@ -18861,7 +18861,7 @@ func (this WebGL2RenderingContext) RenderbufferStorage(target GLenum, internalfo
 }
 
 // TryRenderbufferStorage calls the method "WebGL2RenderingContext.renderbufferStorage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryRenderbufferStorage(target GLenum, internalformat GLenum, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextRenderbufferStorage(
@@ -18903,7 +18903,7 @@ func (this WebGL2RenderingContext) SampleCoverage(value GLclampf, invert GLboole
 }
 
 // TrySampleCoverage calls the method "WebGL2RenderingContext.sampleCoverage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TrySampleCoverage(value GLclampf, invert GLboolean) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextSampleCoverage(
@@ -18945,7 +18945,7 @@ func (this WebGL2RenderingContext) Scissor(x GLint, y GLint, width GLsizei, heig
 }
 
 // TryScissor calls the method "WebGL2RenderingContext.scissor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryScissor(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextScissor(
@@ -18987,7 +18987,7 @@ func (this WebGL2RenderingContext) ShaderSource(shader WebGLShader, source js.St
 }
 
 // TryShaderSource calls the method "WebGL2RenderingContext.shaderSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryShaderSource(shader WebGLShader, source js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextShaderSource(
@@ -19028,7 +19028,7 @@ func (this WebGL2RenderingContext) StencilFunc(fn GLenum, ref GLint, mask GLuint
 }
 
 // TryStencilFunc calls the method "WebGL2RenderingContext.stencilFunc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilFunc(fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilFunc(
@@ -19071,7 +19071,7 @@ func (this WebGL2RenderingContext) StencilFuncSeparate(face GLenum, fn GLenum, r
 }
 
 // TryStencilFuncSeparate calls the method "WebGL2RenderingContext.stencilFuncSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilFuncSeparate(face GLenum, fn GLenum, ref GLint, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilFuncSeparate(
@@ -19112,7 +19112,7 @@ func (this WebGL2RenderingContext) StencilMask(mask GLuint) (ret js.Void) {
 }
 
 // TryStencilMask calls the method "WebGL2RenderingContext.stencilMask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilMask(mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilMask(
@@ -19151,7 +19151,7 @@ func (this WebGL2RenderingContext) StencilMaskSeparate(face GLenum, mask GLuint)
 }
 
 // TryStencilMaskSeparate calls the method "WebGL2RenderingContext.stencilMaskSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilMaskSeparate(face GLenum, mask GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilMaskSeparate(
@@ -19192,7 +19192,7 @@ func (this WebGL2RenderingContext) StencilOp(fail GLenum, zfail GLenum, zpass GL
 }
 
 // TryStencilOp calls the method "WebGL2RenderingContext.stencilOp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilOp(fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilOp(
@@ -19235,7 +19235,7 @@ func (this WebGL2RenderingContext) StencilOpSeparate(face GLenum, fail GLenum, z
 }
 
 // TryStencilOpSeparate calls the method "WebGL2RenderingContext.stencilOpSeparate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryStencilOpSeparate(face GLenum, fail GLenum, zfail GLenum, zpass GLenum) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextStencilOpSeparate(
@@ -19278,7 +19278,7 @@ func (this WebGL2RenderingContext) TexParameterf(target GLenum, pname GLenum, pa
 }
 
 // TryTexParameterf calls the method "WebGL2RenderingContext.texParameterf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexParameterf(target GLenum, pname GLenum, param GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexParameterf(
@@ -19320,7 +19320,7 @@ func (this WebGL2RenderingContext) TexParameteri(target GLenum, pname GLenum, pa
 }
 
 // TryTexParameteri calls the method "WebGL2RenderingContext.texParameteri"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryTexParameteri(target GLenum, pname GLenum, param GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextTexParameteri(
@@ -19361,7 +19361,7 @@ func (this WebGL2RenderingContext) Uniform1f(location WebGLUniformLocation, x GL
 }
 
 // TryUniform1f calls the method "WebGL2RenderingContext.uniform1f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1f(location WebGLUniformLocation, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1f(
@@ -19402,7 +19402,7 @@ func (this WebGL2RenderingContext) Uniform2f(location WebGLUniformLocation, x GL
 }
 
 // TryUniform2f calls the method "WebGL2RenderingContext.uniform2f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2f(location WebGLUniformLocation, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2f(
@@ -19445,7 +19445,7 @@ func (this WebGL2RenderingContext) Uniform3f(location WebGLUniformLocation, x GL
 }
 
 // TryUniform3f calls the method "WebGL2RenderingContext.uniform3f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3f(
@@ -19490,7 +19490,7 @@ func (this WebGL2RenderingContext) Uniform4f(location WebGLUniformLocation, x GL
 }
 
 // TryUniform4f calls the method "WebGL2RenderingContext.uniform4f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4f(location WebGLUniformLocation, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4f(
@@ -19533,7 +19533,7 @@ func (this WebGL2RenderingContext) Uniform1i(location WebGLUniformLocation, x GL
 }
 
 // TryUniform1i calls the method "WebGL2RenderingContext.uniform1i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform1i(location WebGLUniformLocation, x GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform1i(
@@ -19574,7 +19574,7 @@ func (this WebGL2RenderingContext) Uniform2i(location WebGLUniformLocation, x GL
 }
 
 // TryUniform2i calls the method "WebGL2RenderingContext.uniform2i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform2i(location WebGLUniformLocation, x GLint, y GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform2i(
@@ -19617,7 +19617,7 @@ func (this WebGL2RenderingContext) Uniform3i(location WebGLUniformLocation, x GL
 }
 
 // TryUniform3i calls the method "WebGL2RenderingContext.uniform3i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform3i(location WebGLUniformLocation, x GLint, y GLint, z GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform3i(
@@ -19662,7 +19662,7 @@ func (this WebGL2RenderingContext) Uniform4i(location WebGLUniformLocation, x GL
 }
 
 // TryUniform4i calls the method "WebGL2RenderingContext.uniform4i"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUniform4i(location WebGLUniformLocation, x GLint, y GLint, z GLint, w GLint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUniform4i(
@@ -19704,7 +19704,7 @@ func (this WebGL2RenderingContext) UseProgram(program WebGLProgram) (ret js.Void
 }
 
 // TryUseProgram calls the method "WebGL2RenderingContext.useProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryUseProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextUseProgram(
@@ -19742,7 +19742,7 @@ func (this WebGL2RenderingContext) ValidateProgram(program WebGLProgram) (ret js
 }
 
 // TryValidateProgram calls the method "WebGL2RenderingContext.validateProgram"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryValidateProgram(program WebGLProgram) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextValidateProgram(
@@ -19781,7 +19781,7 @@ func (this WebGL2RenderingContext) VertexAttrib1f(index GLuint, x GLfloat) (ret 
 }
 
 // TryVertexAttrib1f calls the method "WebGL2RenderingContext.vertexAttrib1f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib1f(index GLuint, x GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib1f(
@@ -19822,7 +19822,7 @@ func (this WebGL2RenderingContext) VertexAttrib2f(index GLuint, x GLfloat, y GLf
 }
 
 // TryVertexAttrib2f calls the method "WebGL2RenderingContext.vertexAttrib2f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib2f(index GLuint, x GLfloat, y GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib2f(
@@ -19865,7 +19865,7 @@ func (this WebGL2RenderingContext) VertexAttrib3f(index GLuint, x GLfloat, y GLf
 }
 
 // TryVertexAttrib3f calls the method "WebGL2RenderingContext.vertexAttrib3f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib3f(index GLuint, x GLfloat, y GLfloat, z GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib3f(
@@ -19910,7 +19910,7 @@ func (this WebGL2RenderingContext) VertexAttrib4f(index GLuint, x GLfloat, y GLf
 }
 
 // TryVertexAttrib4f calls the method "WebGL2RenderingContext.vertexAttrib4f"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib4f(index GLuint, x GLfloat, y GLfloat, z GLfloat, w GLfloat) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib4f(
@@ -19953,7 +19953,7 @@ func (this WebGL2RenderingContext) VertexAttrib1fv(index GLuint, values Float32L
 }
 
 // TryVertexAttrib1fv calls the method "WebGL2RenderingContext.vertexAttrib1fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib1fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib1fv(
@@ -19993,7 +19993,7 @@ func (this WebGL2RenderingContext) VertexAttrib2fv(index GLuint, values Float32L
 }
 
 // TryVertexAttrib2fv calls the method "WebGL2RenderingContext.vertexAttrib2fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib2fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib2fv(
@@ -20033,7 +20033,7 @@ func (this WebGL2RenderingContext) VertexAttrib3fv(index GLuint, values Float32L
 }
 
 // TryVertexAttrib3fv calls the method "WebGL2RenderingContext.vertexAttrib3fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib3fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib3fv(
@@ -20073,7 +20073,7 @@ func (this WebGL2RenderingContext) VertexAttrib4fv(index GLuint, values Float32L
 }
 
 // TryVertexAttrib4fv calls the method "WebGL2RenderingContext.vertexAttrib4fv"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttrib4fv(index GLuint, values Float32List) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttrib4fv(
@@ -20117,7 +20117,7 @@ func (this WebGL2RenderingContext) VertexAttribPointer(index GLuint, size GLint,
 }
 
 // TryVertexAttribPointer calls the method "WebGL2RenderingContext.vertexAttribPointer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryVertexAttribPointer(index GLuint, size GLint, typ GLenum, normalized GLboolean, stride GLsizei, offset GLintptr) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextVertexAttribPointer(
@@ -20163,7 +20163,7 @@ func (this WebGL2RenderingContext) Viewport(x GLint, y GLint, width GLsizei, hei
 }
 
 // TryViewport calls the method "WebGL2RenderingContext.viewport"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryViewport(x GLint, y GLint, width GLsizei, height GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextViewport(
@@ -20203,7 +20203,7 @@ func (this WebGL2RenderingContext) MakeXRCompatible() (ret js.Promise[js.Void]) 
 }
 
 // TryMakeXRCompatible calls the method "WebGL2RenderingContext.makeXRCompatible"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WebGL2RenderingContext) TryMakeXRCompatible() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWebGL2RenderingContextMakeXRCompatible(
@@ -20349,7 +20349,7 @@ func (this GPUBuffer) MapAsync(mode GPUMapModeFlags, offset GPUSize64, size GPUS
 }
 
 // TryMapAsync calls the method "GPUBuffer.mapAsync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryMapAsync(mode GPUMapModeFlags, offset GPUSize64, size GPUSize64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferMapAsync(
@@ -20390,7 +20390,7 @@ func (this GPUBuffer) MapAsync1(mode GPUMapModeFlags, offset GPUSize64) (ret js.
 }
 
 // TryMapAsync1 calls the method "GPUBuffer.mapAsync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryMapAsync1(mode GPUMapModeFlags, offset GPUSize64) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferMapAsync1(
@@ -20429,7 +20429,7 @@ func (this GPUBuffer) MapAsync2(mode GPUMapModeFlags) (ret js.Promise[js.Void]) 
 }
 
 // TryMapAsync2 calls the method "GPUBuffer.mapAsync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryMapAsync2(mode GPUMapModeFlags) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferMapAsync2(
@@ -20468,7 +20468,7 @@ func (this GPUBuffer) GetMappedRange(offset GPUSize64, size GPUSize64) (ret js.A
 }
 
 // TryGetMappedRange calls the method "GPUBuffer.getMappedRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryGetMappedRange(offset GPUSize64, size GPUSize64) (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferGetMappedRange(
@@ -20507,7 +20507,7 @@ func (this GPUBuffer) GetMappedRange1(offset GPUSize64) (ret js.ArrayBuffer) {
 }
 
 // TryGetMappedRange1 calls the method "GPUBuffer.getMappedRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryGetMappedRange1(offset GPUSize64) (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferGetMappedRange1(
@@ -20544,7 +20544,7 @@ func (this GPUBuffer) GetMappedRange2() (ret js.ArrayBuffer) {
 }
 
 // TryGetMappedRange2 calls the method "GPUBuffer.getMappedRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryGetMappedRange2() (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferGetMappedRange2(
@@ -20580,7 +20580,7 @@ func (this GPUBuffer) Unmap() (ret js.Void) {
 }
 
 // TryUnmap calls the method "GPUBuffer.unmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryUnmap() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferUnmap(
@@ -20616,7 +20616,7 @@ func (this GPUBuffer) Destroy() (ret js.Void) {
 }
 
 // TryDestroy calls the method "GPUBuffer.destroy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUBuffer) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUBufferDestroy(
@@ -21347,7 +21347,7 @@ func (this GPUTexture) CreateView(descriptor GPUTextureViewDescriptor) (ret GPUT
 }
 
 // TryCreateView calls the method "GPUTexture.createView"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUTexture) TryCreateView(descriptor GPUTextureViewDescriptor) (ret GPUTextureView, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUTextureCreateView(
@@ -21384,7 +21384,7 @@ func (this GPUTexture) CreateView1() (ret GPUTextureView) {
 }
 
 // TryCreateView1 calls the method "GPUTexture.createView"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUTexture) TryCreateView1() (ret GPUTextureView, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUTextureCreateView1(
@@ -21420,7 +21420,7 @@ func (this GPUTexture) Destroy() (ret js.Void) {
 }
 
 // TryDestroy calls the method "GPUTexture.destroy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUTexture) TryDestroy() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUTextureDestroy(

@@ -4,7 +4,3 @@
 //go:build amd64
 
 package mem
-
-import (
-	"github.com/primecitizens/std/core/cpu"
-)

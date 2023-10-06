@@ -6,8 +6,8 @@
 package sysclock
 
 import (
-	"github.com/primecitizens/std/time"
-	"github.com/primecitizens/std/time/sysclock/bindings"
+	"github.com/primecitizens/pcz/std/time"
+	"github.com/primecitizens/pcz/std/time/sysclock/bindings"
 )
 
 var (

@@ -4,7 +4,7 @@
 package fastrand
 
 import (
-	"github.com/primecitizens/std/algo/rand"
+	"github.com/primecitizens/pcz/std/algo/rand"
 )
 
 var _ rand.Core = &Source{}

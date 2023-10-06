@@ -12,7 +12,7 @@ package wasi
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/io"
+	"github.com/primecitizens/pcz/std/io"
 )
 
 // An Errno is an unsigned number describing an error condition.

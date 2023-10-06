@@ -10,7 +10,7 @@ package abi
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // Type is the runtime representation of a Go type.

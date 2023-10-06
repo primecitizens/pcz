@@ -4,12 +4,12 @@
 package main
 
 import (
-	"github.com/primecitizens/std/core/iter"
-	"github.com/primecitizens/std/core/sys"
+	"github.com/primecitizens/pcz/std/core/iter"
+	"github.com/primecitizens/pcz/std/core/sys"
 
 	// unless your application contains symbols expected by the go linker
 	// add a runtime package
-	_ "github.com/primecitizens/std/runtime"
+	_ "github.com/primecitizens/pcz/std/runtime"
 )
 
 func main() {

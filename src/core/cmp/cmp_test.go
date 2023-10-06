@@ -12,7 +12,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/primecitizens/std/core/cmp"
+	"github.com/primecitizens/pcz/std/core/cmp"
 )
 
 var negzero = math.Copysign(0, -1)

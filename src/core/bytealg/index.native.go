@@ -9,7 +9,7 @@
 
 package bytealg
 
-import "github.com/primecitizens/std/core/cmp"
+import "github.com/primecitizens/pcz/std/core/cmp"
 
 //go:noescape
 

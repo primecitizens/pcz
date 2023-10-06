@@ -3,9 +3,9 @@ package libcalloc
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 type T struct{}

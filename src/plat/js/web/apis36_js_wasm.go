@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -1342,7 +1342,7 @@ func (this GeolocationSensor) Read(readOptions ReadOptions) (ret js.Promise[Geol
 }
 
 // TryRead calls the staticmethod "GeolocationSensor.read"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GeolocationSensor) TryRead(readOptions ReadOptions) (ret js.Promise[GeolocationSensorReading], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationSensorRead(
@@ -1379,7 +1379,7 @@ func (this GeolocationSensor) Read1() (ret js.Promise[GeolocationSensorReading])
 }
 
 // TryRead1 calls the staticmethod "GeolocationSensor.read"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GeolocationSensor) TryRead1() (ret js.Promise[GeolocationSensorReading], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGeolocationSensorRead1(
@@ -1553,7 +1553,7 @@ func (this Global) ValueOf() (ret js.Any) {
 }
 
 // TryValueOf calls the method "Global.valueOf"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Global) TryValueOf() (ret js.Any, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGlobalValueOf(

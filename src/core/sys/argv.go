@@ -6,7 +6,7 @@
 package sys
 
 import (
-	"github.com/primecitizens/std/core/iter"
+	"github.com/primecitizens/pcz/std/core/iter"
 )
 
 func (it ArgIter) Nth(i int) (arg string, ok bool) {

@@ -6,9 +6,9 @@
 package rt0
 
 import (
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/alloc/libcalloc"
-	"github.com/primecitizens/std/plat/libc"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/alloc/libcalloc"
+	"github.com/primecitizens/pcz/std/plat/libc"
 )
 
 var _alloc libcalloc.T

@@ -4,7 +4,7 @@
 package js
 
 import (
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 func New(constructor Func[Any], args ...Ref) Object {

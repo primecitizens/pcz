@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -125,7 +125,7 @@ func (this LargestContentfulPaint) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "LargestContentfulPaint.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LargestContentfulPaint) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLargestContentfulPaintToJSON(
@@ -557,7 +557,7 @@ func (this LayoutShift) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "LayoutShift.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LayoutShift) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLayoutShiftToJSON(
@@ -617,7 +617,7 @@ func (this LayoutWorkletGlobalScope) RegisterLayout(name js.String, layoutCtor j
 }
 
 // TryRegisterLayout calls the method "LayoutWorkletGlobalScope.registerLayout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LayoutWorkletGlobalScope) TryRegisterLayout(name js.String, layoutCtor js.Func[func()]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLayoutWorkletGlobalScopeRegisterLayout(
@@ -954,7 +954,7 @@ func (this MIDIPort) Open() (ret js.Promise[MIDIPort]) {
 }
 
 // TryOpen calls the method "MIDIPort.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MIDIPort) TryOpen() (ret js.Promise[MIDIPort], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIPortOpen(
@@ -990,7 +990,7 @@ func (this MIDIPort) Close() (ret js.Promise[MIDIPort]) {
 }
 
 // TryClose calls the method "MIDIPort.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MIDIPort) TryClose() (ret js.Promise[MIDIPort], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIPortClose(
@@ -1278,7 +1278,7 @@ func (this MIDIOutput) Send(data js.Array[uint8], timestamp DOMHighResTimeStamp)
 }
 
 // TrySend calls the method "MIDIOutput.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MIDIOutput) TrySend(data js.Array[uint8], timestamp DOMHighResTimeStamp) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIOutputSend(
@@ -1317,7 +1317,7 @@ func (this MIDIOutput) Send1(data js.Array[uint8]) (ret js.Void) {
 }
 
 // TrySend1 calls the method "MIDIOutput.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MIDIOutput) TrySend1(data js.Array[uint8]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIOutputSend1(
@@ -1354,7 +1354,7 @@ func (this MIDIOutput) Clear() (ret js.Void) {
 }
 
 // TryClear calls the method "MIDIOutput.clear"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MIDIOutput) TryClear() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMIDIOutputClear(

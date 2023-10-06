@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -99,7 +99,7 @@ func (this WindowSharedStorage) Run(name js.String, options SharedStorageRunOper
 }
 
 // TryRun calls the method "WindowSharedStorage.run"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WindowSharedStorage) TryRun(name js.String, options SharedStorageRunOperationMethodOptions) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWindowSharedStorageRun(
@@ -138,7 +138,7 @@ func (this WindowSharedStorage) Run1(name js.String) (ret js.Promise[js.Any]) {
 }
 
 // TryRun1 calls the method "WindowSharedStorage.run"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WindowSharedStorage) TryRun1(name js.String) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWindowSharedStorageRun1(
@@ -178,7 +178,7 @@ func (this WindowSharedStorage) SelectURL(name js.String, urls js.FrozenArray[Sh
 }
 
 // TrySelectURL calls the method "WindowSharedStorage.selectURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WindowSharedStorage) TrySelectURL(name js.String, urls js.FrozenArray[SharedStorageUrlWithMetadata], options SharedStorageRunOperationMethodOptions) (ret js.Promise[SharedStorageResponse], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWindowSharedStorageSelectURL(
@@ -219,7 +219,7 @@ func (this WindowSharedStorage) SelectURL1(name js.String, urls js.FrozenArray[S
 }
 
 // TrySelectURL1 calls the method "WindowSharedStorage.selectURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WindowSharedStorage) TrySelectURL1(name js.String, urls js.FrozenArray[SharedStorageUrlWithMetadata]) (ret js.Promise[SharedStorageResponse], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWindowSharedStorageSelectURL1(
@@ -528,7 +528,7 @@ func (this CookieStore) Get(name js.String) (ret js.Promise[CookieListItem]) {
 }
 
 // TryGet calls the method "CookieStore.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryGet(name js.String) (ret js.Promise[CookieListItem], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreGet(
@@ -566,7 +566,7 @@ func (this CookieStore) Get1(options CookieStoreGetOptions) (ret js.Promise[Cook
 }
 
 // TryGet1 calls the method "CookieStore.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryGet1(options CookieStoreGetOptions) (ret js.Promise[CookieListItem], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreGet1(
@@ -603,7 +603,7 @@ func (this CookieStore) Get2() (ret js.Promise[CookieListItem]) {
 }
 
 // TryGet2 calls the method "CookieStore.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryGet2() (ret js.Promise[CookieListItem], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreGet2(
@@ -640,7 +640,7 @@ func (this CookieStore) GetAll(name js.String) (ret js.Promise[CookieList]) {
 }
 
 // TryGetAll calls the method "CookieStore.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryGetAll(name js.String) (ret js.Promise[CookieList], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreGetAll(
@@ -678,7 +678,7 @@ func (this CookieStore) GetAll1(options CookieStoreGetOptions) (ret js.Promise[C
 }
 
 // TryGetAll1 calls the method "CookieStore.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryGetAll1(options CookieStoreGetOptions) (ret js.Promise[CookieList], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreGetAll1(
@@ -715,7 +715,7 @@ func (this CookieStore) GetAll2() (ret js.Promise[CookieList]) {
 }
 
 // TryGetAll2 calls the method "CookieStore.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryGetAll2() (ret js.Promise[CookieList], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreGetAll2(
@@ -753,7 +753,7 @@ func (this CookieStore) Set(name js.String, value js.String) (ret js.Promise[js.
 }
 
 // TrySet calls the method "CookieStore.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TrySet(name js.String, value js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreSet(
@@ -792,7 +792,7 @@ func (this CookieStore) Set1(options CookieInit) (ret js.Promise[js.Void]) {
 }
 
 // TrySet1 calls the method "CookieStore.set"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TrySet1(options CookieInit) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreSet1(
@@ -830,7 +830,7 @@ func (this CookieStore) Delete(name js.String) (ret js.Promise[js.Void]) {
 }
 
 // TryDelete calls the method "CookieStore.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryDelete(name js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreDelete(
@@ -868,7 +868,7 @@ func (this CookieStore) Delete1(options CookieStoreDeleteOptions) (ret js.Promis
 }
 
 // TryDelete1 calls the method "CookieStore.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStore) TryDelete1(options CookieStoreDeleteOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreDelete1(
@@ -985,7 +985,7 @@ func (this DocumentPictureInPicture) RequestWindow(options DocumentPictureInPict
 }
 
 // TryRequestWindow calls the method "DocumentPictureInPicture.requestWindow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DocumentPictureInPicture) TryRequestWindow(options DocumentPictureInPictureOptions) (ret js.Promise[Window], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentPictureInPictureRequestWindow(
@@ -1022,7 +1022,7 @@ func (this DocumentPictureInPicture) RequestWindow1() (ret js.Promise[Window]) {
 }
 
 // TryRequestWindow1 calls the method "DocumentPictureInPicture.requestWindow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DocumentPictureInPicture) TryRequestWindow1() (ret js.Promise[Window], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDocumentPictureInPictureRequestWindow1(
@@ -1080,7 +1080,7 @@ func (this External) AddSearchProvider() (ret js.Void) {
 }
 
 // TryAddSearchProvider calls the method "External.AddSearchProvider"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this External) TryAddSearchProvider() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryExternalAddSearchProvider(
@@ -1116,7 +1116,7 @@ func (this External) IsSearchProviderInstalled() (ret js.Void) {
 }
 
 // TryIsSearchProviderInstalled calls the method "External.IsSearchProviderInstalled"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this External) TryIsSearchProviderInstalled() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryExternalIsSearchProviderInstalled(
@@ -1430,7 +1430,7 @@ func (this SpeechSynthesis) Speak(utterance SpeechSynthesisUtterance) (ret js.Vo
 }
 
 // TrySpeak calls the method "SpeechSynthesis.speak"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechSynthesis) TrySpeak(utterance SpeechSynthesisUtterance) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechSynthesisSpeak(
@@ -1467,7 +1467,7 @@ func (this SpeechSynthesis) Cancel() (ret js.Void) {
 }
 
 // TryCancel calls the method "SpeechSynthesis.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechSynthesis) TryCancel() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechSynthesisCancel(
@@ -1503,7 +1503,7 @@ func (this SpeechSynthesis) Pause() (ret js.Void) {
 }
 
 // TryPause calls the method "SpeechSynthesis.pause"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechSynthesis) TryPause() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechSynthesisPause(
@@ -1539,7 +1539,7 @@ func (this SpeechSynthesis) Resume() (ret js.Void) {
 }
 
 // TryResume calls the method "SpeechSynthesis.resume"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechSynthesis) TryResume() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechSynthesisResume(
@@ -1575,7 +1575,7 @@ func (this SpeechSynthesis) GetVoices() (ret js.Array[SpeechSynthesisVoice]) {
 }
 
 // TryGetVoices calls the method "SpeechSynthesis.getVoices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SpeechSynthesis) TryGetVoices() (ret js.Array[SpeechSynthesisVoice], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySpeechSynthesisGetVoices(
@@ -1766,7 +1766,7 @@ func (this Scheduler) PostTask(callback js.Func[func() js.Any], options Schedule
 }
 
 // TryPostTask calls the method "Scheduler.postTask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Scheduler) TryPostTask(callback js.Func[func() js.Any], options SchedulerPostTaskOptions) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySchedulerPostTask(
@@ -1805,7 +1805,7 @@ func (this Scheduler) PostTask1(callback js.Func[func() js.Any]) (ret js.Promise
 }
 
 // TryPostTask1 calls the method "Scheduler.postTask"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Scheduler) TryPostTask1(callback js.Func[func() js.Any]) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySchedulerPostTask1(
@@ -1864,7 +1864,7 @@ func (this TrustedHTML) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "TrustedHTML.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedHTML) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedHTMLToString(
@@ -1900,7 +1900,7 @@ func (this TrustedHTML) ToJSON() (ret js.String) {
 }
 
 // TryToJSON calls the method "TrustedHTML.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedHTML) TryToJSON() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedHTMLToJSON(
@@ -1937,7 +1937,7 @@ func (this TrustedHTML) FromLiteral(templateStringsArray js.Object) (ret Trusted
 }
 
 // TryFromLiteral calls the staticmethod "TrustedHTML.fromLiteral"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedHTML) TryFromLiteral(templateStringsArray js.Object) (ret TrustedHTML, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedHTMLFromLiteral(
@@ -1996,7 +1996,7 @@ func (this TrustedScript) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "TrustedScript.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedScript) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedScriptToString(
@@ -2032,7 +2032,7 @@ func (this TrustedScript) ToJSON() (ret js.String) {
 }
 
 // TryToJSON calls the method "TrustedScript.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedScript) TryToJSON() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedScriptToJSON(
@@ -2069,7 +2069,7 @@ func (this TrustedScript) FromLiteral(templateStringsArray js.Object) (ret Trust
 }
 
 // TryFromLiteral calls the staticmethod "TrustedScript.fromLiteral"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedScript) TryFromLiteral(templateStringsArray js.Object) (ret TrustedScript, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedScriptFromLiteral(
@@ -2128,7 +2128,7 @@ func (this TrustedScriptURL) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "TrustedScriptURL.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedScriptURL) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedScriptURLToString(
@@ -2164,7 +2164,7 @@ func (this TrustedScriptURL) ToJSON() (ret js.String) {
 }
 
 // TryToJSON calls the method "TrustedScriptURL.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedScriptURL) TryToJSON() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedScriptURLToJSON(
@@ -2201,7 +2201,7 @@ func (this TrustedScriptURL) FromLiteral(templateStringsArray js.Object) (ret Tr
 }
 
 // TryFromLiteral calls the staticmethod "TrustedScriptURL.fromLiteral"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedScriptURL) TryFromLiteral(templateStringsArray js.Object) (ret TrustedScriptURL, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedScriptURLFromLiteral(
@@ -2273,7 +2273,7 @@ func (this TrustedTypePolicy) CreateHTML(input js.String, arguments ...js.Any) (
 }
 
 // TryCreateHTML calls the method "TrustedTypePolicy.createHTML"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicy) TryCreateHTML(input js.String, arguments ...js.Any) (ret TrustedHTML, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyCreateHTML(
@@ -2315,7 +2315,7 @@ func (this TrustedTypePolicy) CreateScript(input js.String, arguments ...js.Any)
 }
 
 // TryCreateScript calls the method "TrustedTypePolicy.createScript"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicy) TryCreateScript(input js.String, arguments ...js.Any) (ret TrustedScript, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyCreateScript(
@@ -2357,7 +2357,7 @@ func (this TrustedTypePolicy) CreateScriptURL(input js.String, arguments ...js.A
 }
 
 // TryCreateScriptURL calls the method "TrustedTypePolicy.createScriptURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicy) TryCreateScriptURL(input js.String, arguments ...js.Any) (ret TrustedScriptURL, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyCreateScriptURL(
@@ -2680,7 +2680,7 @@ func (this TrustedTypePolicyFactory) CreatePolicy(policyName js.String, policyOp
 }
 
 // TryCreatePolicy calls the method "TrustedTypePolicyFactory.createPolicy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryCreatePolicy(policyName js.String, policyOptions TrustedTypePolicyOptions) (ret TrustedTypePolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryCreatePolicy(
@@ -2719,7 +2719,7 @@ func (this TrustedTypePolicyFactory) CreatePolicy1(policyName js.String) (ret Tr
 }
 
 // TryCreatePolicy1 calls the method "TrustedTypePolicyFactory.createPolicy"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryCreatePolicy1(policyName js.String) (ret TrustedTypePolicy, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryCreatePolicy1(
@@ -2757,7 +2757,7 @@ func (this TrustedTypePolicyFactory) IsHTML(value js.Any) (ret bool) {
 }
 
 // TryIsHTML calls the method "TrustedTypePolicyFactory.isHTML"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryIsHTML(value js.Any) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryIsHTML(
@@ -2795,7 +2795,7 @@ func (this TrustedTypePolicyFactory) IsScript(value js.Any) (ret bool) {
 }
 
 // TryIsScript calls the method "TrustedTypePolicyFactory.isScript"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryIsScript(value js.Any) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryIsScript(
@@ -2833,7 +2833,7 @@ func (this TrustedTypePolicyFactory) IsScriptURL(value js.Any) (ret bool) {
 }
 
 // TryIsScriptURL calls the method "TrustedTypePolicyFactory.isScriptURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryIsScriptURL(value js.Any) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryIsScriptURL(
@@ -2874,7 +2874,7 @@ func (this TrustedTypePolicyFactory) GetAttributeType(tagName js.String, attribu
 }
 
 // TryGetAttributeType calls the method "TrustedTypePolicyFactory.getAttributeType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryGetAttributeType(tagName js.String, attribute js.String, elementNs js.String, attrNs js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryGetAttributeType(
@@ -2917,7 +2917,7 @@ func (this TrustedTypePolicyFactory) GetAttributeType1(tagName js.String, attrib
 }
 
 // TryGetAttributeType1 calls the method "TrustedTypePolicyFactory.getAttributeType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryGetAttributeType1(tagName js.String, attribute js.String, elementNs js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryGetAttributeType1(
@@ -2958,7 +2958,7 @@ func (this TrustedTypePolicyFactory) GetAttributeType2(tagName js.String, attrib
 }
 
 // TryGetAttributeType2 calls the method "TrustedTypePolicyFactory.getAttributeType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryGetAttributeType2(tagName js.String, attribute js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryGetAttributeType2(
@@ -2999,7 +2999,7 @@ func (this TrustedTypePolicyFactory) GetPropertyType(tagName js.String, property
 }
 
 // TryGetPropertyType calls the method "TrustedTypePolicyFactory.getPropertyType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryGetPropertyType(tagName js.String, property js.String, elementNs js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryGetPropertyType(
@@ -3040,7 +3040,7 @@ func (this TrustedTypePolicyFactory) GetPropertyType1(tagName js.String, propert
 }
 
 // TryGetPropertyType1 calls the method "TrustedTypePolicyFactory.getPropertyType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TrustedTypePolicyFactory) TryGetPropertyType1(tagName js.String, property js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTrustedTypePolicyFactoryGetPropertyType1(
@@ -3488,7 +3488,7 @@ func (this SubtleCrypto) Encrypt(algorithm AlgorithmIdentifier, key CryptoKey, d
 }
 
 // TryEncrypt calls the method "SubtleCrypto.encrypt"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryEncrypt(algorithm AlgorithmIdentifier, key CryptoKey, data BufferSource) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoEncrypt(
@@ -3530,7 +3530,7 @@ func (this SubtleCrypto) Decrypt(algorithm AlgorithmIdentifier, key CryptoKey, d
 }
 
 // TryDecrypt calls the method "SubtleCrypto.decrypt"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryDecrypt(algorithm AlgorithmIdentifier, key CryptoKey, data BufferSource) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoDecrypt(
@@ -3572,7 +3572,7 @@ func (this SubtleCrypto) Sign(algorithm AlgorithmIdentifier, key CryptoKey, data
 }
 
 // TrySign calls the method "SubtleCrypto.sign"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TrySign(algorithm AlgorithmIdentifier, key CryptoKey, data BufferSource) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoSign(
@@ -3615,7 +3615,7 @@ func (this SubtleCrypto) Verify(algorithm AlgorithmIdentifier, key CryptoKey, si
 }
 
 // TryVerify calls the method "SubtleCrypto.verify"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryVerify(algorithm AlgorithmIdentifier, key CryptoKey, signature BufferSource, data BufferSource) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoVerify(
@@ -3657,7 +3657,7 @@ func (this SubtleCrypto) Digest(algorithm AlgorithmIdentifier, data BufferSource
 }
 
 // TryDigest calls the method "SubtleCrypto.digest"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryDigest(algorithm AlgorithmIdentifier, data BufferSource) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoDigest(
@@ -3698,7 +3698,7 @@ func (this SubtleCrypto) GenerateKey(algorithm AlgorithmIdentifier, extractable 
 }
 
 // TryGenerateKey calls the method "SubtleCrypto.generateKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryGenerateKey(algorithm AlgorithmIdentifier, extractable bool, keyUsages js.Array[KeyUsage]) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoGenerateKey(
@@ -3742,7 +3742,7 @@ func (this SubtleCrypto) DeriveKey(algorithm AlgorithmIdentifier, baseKey Crypto
 }
 
 // TryDeriveKey calls the method "SubtleCrypto.deriveKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryDeriveKey(algorithm AlgorithmIdentifier, baseKey CryptoKey, derivedKeyType AlgorithmIdentifier, extractable bool, keyUsages js.Array[KeyUsage]) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoDeriveKey(
@@ -3786,7 +3786,7 @@ func (this SubtleCrypto) DeriveBits(algorithm AlgorithmIdentifier, baseKey Crypt
 }
 
 // TryDeriveBits calls the method "SubtleCrypto.deriveBits"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryDeriveBits(algorithm AlgorithmIdentifier, baseKey CryptoKey, length uint32) (ret js.Promise[js.ArrayBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoDeriveBits(
@@ -3830,7 +3830,7 @@ func (this SubtleCrypto) ImportKey(format KeyFormat, keyData OneOf_TypedArrayInt
 }
 
 // TryImportKey calls the method "SubtleCrypto.importKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryImportKey(format KeyFormat, keyData OneOf_TypedArrayInt8_TypedArrayInt16_TypedArrayInt32_TypedArrayUint8_TypedArrayUint16_TypedArrayUint32_TypedArrayInt64_TypedArrayUint64_TypedArrayFloat32_TypedArrayFloat64_DataView_ArrayBuffer_JsonWebKey, algorithm AlgorithmIdentifier, extractable bool, keyUsages js.Array[KeyUsage]) (ret js.Promise[CryptoKey], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoImportKey(
@@ -3873,7 +3873,7 @@ func (this SubtleCrypto) ExportKey(format KeyFormat, key CryptoKey) (ret js.Prom
 }
 
 // TryExportKey calls the method "SubtleCrypto.exportKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryExportKey(format KeyFormat, key CryptoKey) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoExportKey(
@@ -3915,7 +3915,7 @@ func (this SubtleCrypto) WrapKey(format KeyFormat, key CryptoKey, wrappingKey Cr
 }
 
 // TryWrapKey calls the method "SubtleCrypto.wrapKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryWrapKey(format KeyFormat, key CryptoKey, wrappingKey CryptoKey, wrapAlgorithm AlgorithmIdentifier) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoWrapKey(
@@ -3962,7 +3962,7 @@ func (this SubtleCrypto) UnwrapKey(format KeyFormat, wrappedKey BufferSource, un
 }
 
 // TryUnwrapKey calls the method "SubtleCrypto.unwrapKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SubtleCrypto) TryUnwrapKey(format KeyFormat, wrappedKey BufferSource, unwrappingKey CryptoKey, unwrapAlgorithm AlgorithmIdentifier, unwrappedKeyAlgorithm AlgorithmIdentifier, extractable bool, keyUsages js.Array[KeyUsage]) (ret js.Promise[CryptoKey], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySubtleCryptoUnwrapKey(
@@ -4038,7 +4038,7 @@ func (this Crypto) GetRandomValues(array js.ArrayBufferView) (ret js.ArrayBuffer
 }
 
 // TryGetRandomValues calls the method "Crypto.getRandomValues"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Crypto) TryGetRandomValues(array js.ArrayBufferView) (ret js.ArrayBufferView, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCryptoGetRandomValues(
@@ -4075,7 +4075,7 @@ func (this Crypto) RandomUUID() (ret js.String) {
 }
 
 // TryRandomUUID calls the method "Crypto.randomUUID"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Crypto) TryRandomUUID() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCryptoRandomUUID(

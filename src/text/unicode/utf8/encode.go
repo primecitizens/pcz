@@ -8,8 +8,8 @@
 package utf8
 
 import (
-	"github.com/primecitizens/std/core/assert"
-	. "github.com/primecitizens/std/text/unicode/common"
+	"github.com/primecitizens/pcz/std/core/assert"
+	. "github.com/primecitizens/pcz/std/text/unicode/common"
 )
 
 // RuneLen returns the number of bytes required to encode the rune.

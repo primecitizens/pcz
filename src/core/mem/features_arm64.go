@@ -6,7 +6,7 @@
 package mem
 
 import (
-	"github.com/primecitizens/std/core/cpu"
+	"github.com/primecitizens/pcz/std/core/cpu"
 )
 
 var arm64UseAlignedLoads bool

@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -123,7 +123,7 @@ func (this ServiceWorker) PostMessage(message js.Any, transfer js.Array[js.Objec
 }
 
 // TryPostMessage calls the method "ServiceWorker.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorker) TryPostMessage(message js.Any, transfer js.Array[js.Object]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerPostMessage(
@@ -163,7 +163,7 @@ func (this ServiceWorker) PostMessage1(message js.Any, options StructuredSeriali
 }
 
 // TryPostMessage1 calls the method "ServiceWorker.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorker) TryPostMessage1(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerPostMessage1(
@@ -202,7 +202,7 @@ func (this ServiceWorker) PostMessage2(message js.Any) (ret js.Void) {
 }
 
 // TryPostMessage2 calls the method "ServiceWorker.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorker) TryPostMessage2(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerPostMessage2(
@@ -305,7 +305,7 @@ func (this NavigationPreloadManager) Enable() (ret js.Promise[js.Void]) {
 }
 
 // TryEnable calls the method "NavigationPreloadManager.enable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigationPreloadManager) TryEnable() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationPreloadManagerEnable(
@@ -341,7 +341,7 @@ func (this NavigationPreloadManager) Disable() (ret js.Promise[js.Void]) {
 }
 
 // TryDisable calls the method "NavigationPreloadManager.disable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigationPreloadManager) TryDisable() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationPreloadManagerDisable(
@@ -378,7 +378,7 @@ func (this NavigationPreloadManager) SetHeaderValue(value js.String) (ret js.Pro
 }
 
 // TrySetHeaderValue calls the method "NavigationPreloadManager.setHeaderValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigationPreloadManager) TrySetHeaderValue(value js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationPreloadManagerSetHeaderValue(
@@ -415,7 +415,7 @@ func (this NavigationPreloadManager) GetState() (ret js.Promise[NavigationPreloa
 }
 
 // TryGetState calls the method "NavigationPreloadManager.getState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigationPreloadManager) TryGetState() (ret js.Promise[NavigationPreloadState], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigationPreloadManagerGetState(
@@ -501,7 +501,7 @@ func (this SyncManager) Register(tag js.String) (ret js.Promise[js.Void]) {
 }
 
 // TryRegister calls the method "SyncManager.register"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SyncManager) TryRegister(tag js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySyncManagerRegister(
@@ -538,7 +538,7 @@ func (this SyncManager) GetTags() (ret js.Promise[js.Array[js.String]]) {
 }
 
 // TryGetTags calls the method "SyncManager.getTags"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SyncManager) TryGetTags() (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySyncManagerGetTags(
@@ -741,7 +741,7 @@ func (this PushSubscription) GetKey(name PushEncryptionKeyName) (ret js.ArrayBuf
 }
 
 // TryGetKey calls the method "PushSubscription.getKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushSubscription) TryGetKey(name PushEncryptionKeyName) (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushSubscriptionGetKey(
@@ -778,7 +778,7 @@ func (this PushSubscription) Unsubscribe() (ret js.Promise[js.Boolean]) {
 }
 
 // TryUnsubscribe calls the method "PushSubscription.unsubscribe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushSubscription) TryUnsubscribe() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushSubscriptionUnsubscribe(
@@ -814,7 +814,7 @@ func (this PushSubscription) ToJSON() (ret PushSubscriptionJSON) {
 }
 
 // TryToJSON calls the method "PushSubscription.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushSubscription) TryToJSON() (ret PushSubscriptionJSON, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushSubscriptionToJSON(
@@ -997,7 +997,7 @@ func (this PushManager) Subscribe(options PushSubscriptionOptionsInit) (ret js.P
 }
 
 // TrySubscribe calls the method "PushManager.subscribe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushManager) TrySubscribe(options PushSubscriptionOptionsInit) (ret js.Promise[PushSubscription], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushManagerSubscribe(
@@ -1034,7 +1034,7 @@ func (this PushManager) Subscribe1() (ret js.Promise[PushSubscription]) {
 }
 
 // TrySubscribe1 calls the method "PushManager.subscribe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushManager) TrySubscribe1() (ret js.Promise[PushSubscription], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushManagerSubscribe1(
@@ -1070,7 +1070,7 @@ func (this PushManager) GetSubscription() (ret js.Promise[PushSubscription]) {
 }
 
 // TryGetSubscription calls the method "PushManager.getSubscription"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushManager) TryGetSubscription() (ret js.Promise[PushSubscription], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushManagerGetSubscription(
@@ -1107,7 +1107,7 @@ func (this PushManager) PermissionState(options PushSubscriptionOptionsInit) (re
 }
 
 // TryPermissionState calls the method "PushManager.permissionState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushManager) TryPermissionState(options PushSubscriptionOptionsInit) (ret js.Promise[PermissionState], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushManagerPermissionState(
@@ -1144,7 +1144,7 @@ func (this PushManager) PermissionState1() (ret js.Promise[PermissionState]) {
 }
 
 // TryPermissionState1 calls the method "PushManager.permissionState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PushManager) TryPermissionState1() (ret js.Promise[PermissionState], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPushManagerPermissionState1(
@@ -1253,7 +1253,7 @@ func (this PaymentManager) EnableDelegations(delegations js.Array[PaymentDelegat
 }
 
 // TryEnableDelegations calls the method "PaymentManager.enableDelegations"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentManager) TryEnableDelegations(delegations js.Array[PaymentDelegation]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentManagerEnableDelegations(
@@ -1314,7 +1314,7 @@ func (this PeriodicSyncManager) Register(tag js.String, options BackgroundSyncOp
 }
 
 // TryRegister calls the method "PeriodicSyncManager.register"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PeriodicSyncManager) TryRegister(tag js.String, options BackgroundSyncOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPeriodicSyncManagerRegister(
@@ -1353,7 +1353,7 @@ func (this PeriodicSyncManager) Register1(tag js.String) (ret js.Promise[js.Void
 }
 
 // TryRegister1 calls the method "PeriodicSyncManager.register"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PeriodicSyncManager) TryRegister1(tag js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPeriodicSyncManagerRegister1(
@@ -1390,7 +1390,7 @@ func (this PeriodicSyncManager) GetTags() (ret js.Promise[js.Array[js.String]]) 
 }
 
 // TryGetTags calls the method "PeriodicSyncManager.getTags"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PeriodicSyncManager) TryGetTags() (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPeriodicSyncManagerGetTags(
@@ -1427,7 +1427,7 @@ func (this PeriodicSyncManager) Unregister(tag js.String) (ret js.Promise[js.Voi
 }
 
 // TryUnregister calls the method "PeriodicSyncManager.unregister"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PeriodicSyncManager) TryUnregister(tag js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPeriodicSyncManagerUnregister(
@@ -1527,7 +1527,7 @@ func (this CookieStoreManager) Subscribe(subscriptions js.Array[CookieStoreGetOp
 }
 
 // TrySubscribe calls the method "CookieStoreManager.subscribe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStoreManager) TrySubscribe(subscriptions js.Array[CookieStoreGetOptions]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreManagerSubscribe(
@@ -1564,7 +1564,7 @@ func (this CookieStoreManager) GetSubscriptions() (ret js.Promise[js.Array[Cooki
 }
 
 // TryGetSubscriptions calls the method "CookieStoreManager.getSubscriptions"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStoreManager) TryGetSubscriptions() (ret js.Promise[js.Array[CookieStoreGetOptions]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreManagerGetSubscriptions(
@@ -1601,7 +1601,7 @@ func (this CookieStoreManager) Unsubscribe(subscriptions js.Array[CookieStoreGet
 }
 
 // TryUnsubscribe calls the method "CookieStoreManager.unsubscribe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CookieStoreManager) TryUnsubscribe(subscriptions js.Array[CookieStoreGetOptions]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCookieStoreManagerUnsubscribe(
@@ -1750,7 +1750,7 @@ func (this ContentIndex) Add(description ContentDescription) (ret js.Promise[js.
 }
 
 // TryAdd calls the method "ContentIndex.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ContentIndex) TryAdd(description ContentDescription) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryContentIndexAdd(
@@ -1788,7 +1788,7 @@ func (this ContentIndex) Delete(id js.String) (ret js.Promise[js.Void]) {
 }
 
 // TryDelete calls the method "ContentIndex.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ContentIndex) TryDelete(id js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryContentIndexDelete(
@@ -1825,7 +1825,7 @@ func (this ContentIndex) GetAll() (ret js.Promise[js.Array[ContentDescription]])
 }
 
 // TryGetAll calls the method "ContentIndex.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ContentIndex) TryGetAll() (ret js.Promise[js.Array[ContentDescription]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryContentIndexGetAll(
@@ -2013,7 +2013,7 @@ func (this ServiceWorkerRegistration) Update() (ret js.Promise[js.Void]) {
 }
 
 // TryUpdate calls the method "ServiceWorkerRegistration.update"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerRegistration) TryUpdate() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerRegistrationUpdate(
@@ -2049,7 +2049,7 @@ func (this ServiceWorkerRegistration) Unregister() (ret js.Promise[js.Boolean]) 
 }
 
 // TryUnregister calls the method "ServiceWorkerRegistration.unregister"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerRegistration) TryUnregister() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerRegistrationUnregister(
@@ -2087,7 +2087,7 @@ func (this ServiceWorkerRegistration) ShowNotification(title js.String, options 
 }
 
 // TryShowNotification calls the method "ServiceWorkerRegistration.showNotification"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerRegistration) TryShowNotification(title js.String, options NotificationOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerRegistrationShowNotification(
@@ -2126,7 +2126,7 @@ func (this ServiceWorkerRegistration) ShowNotification1(title js.String) (ret js
 }
 
 // TryShowNotification1 calls the method "ServiceWorkerRegistration.showNotification"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerRegistration) TryShowNotification1(title js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerRegistrationShowNotification1(
@@ -2164,7 +2164,7 @@ func (this ServiceWorkerRegistration) GetNotifications(filter GetNotificationOpt
 }
 
 // TryGetNotifications calls the method "ServiceWorkerRegistration.getNotifications"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerRegistration) TryGetNotifications(filter GetNotificationOptions) (ret js.Promise[js.Array[Notification]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerRegistrationGetNotifications(
@@ -2201,7 +2201,7 @@ func (this ServiceWorkerRegistration) GetNotifications1() (ret js.Promise[js.Arr
 }
 
 // TryGetNotifications1 calls the method "ServiceWorkerRegistration.getNotifications"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerRegistration) TryGetNotifications1() (ret js.Promise[js.Array[Notification]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerRegistrationGetNotifications1(
@@ -2375,7 +2375,7 @@ func (this ServiceWorkerContainer) Register(scriptURL js.String, options Registr
 }
 
 // TryRegister calls the method "ServiceWorkerContainer.register"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerContainer) TryRegister(scriptURL js.String, options RegistrationOptions) (ret js.Promise[ServiceWorkerRegistration], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerContainerRegister(
@@ -2414,7 +2414,7 @@ func (this ServiceWorkerContainer) Register1(scriptURL js.String) (ret js.Promis
 }
 
 // TryRegister1 calls the method "ServiceWorkerContainer.register"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerContainer) TryRegister1(scriptURL js.String) (ret js.Promise[ServiceWorkerRegistration], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerContainerRegister1(
@@ -2452,7 +2452,7 @@ func (this ServiceWorkerContainer) GetRegistration(clientURL js.String) (ret js.
 }
 
 // TryGetRegistration calls the method "ServiceWorkerContainer.getRegistration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerContainer) TryGetRegistration(clientURL js.String) (ret js.Promise[OneOf_ServiceWorkerRegistration_undefined], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerContainerGetRegistration(
@@ -2489,7 +2489,7 @@ func (this ServiceWorkerContainer) GetRegistration1() (ret js.Promise[OneOf_Serv
 }
 
 // TryGetRegistration1 calls the method "ServiceWorkerContainer.getRegistration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerContainer) TryGetRegistration1() (ret js.Promise[OneOf_ServiceWorkerRegistration_undefined], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerContainerGetRegistration1(
@@ -2525,7 +2525,7 @@ func (this ServiceWorkerContainer) GetRegistrations() (ret js.Promise[js.FrozenA
 }
 
 // TryGetRegistrations calls the method "ServiceWorkerContainer.getRegistrations"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerContainer) TryGetRegistrations() (ret js.Promise[js.FrozenArray[ServiceWorkerRegistration]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerContainerGetRegistrations(
@@ -2561,7 +2561,7 @@ func (this ServiceWorkerContainer) StartMessages() (ret js.Void) {
 }
 
 // TryStartMessages calls the method "ServiceWorkerContainer.startMessages"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ServiceWorkerContainer) TryStartMessages() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryServiceWorkerContainerStartMessages(
@@ -2686,7 +2686,7 @@ func (this MediaDeviceInfo) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "MediaDeviceInfo.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDeviceInfo) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDeviceInfoToJSON(
@@ -3232,7 +3232,7 @@ func (this MediaDevices) EnumerateDevices() (ret js.Promise[js.Array[MediaDevice
 }
 
 // TryEnumerateDevices calls the method "MediaDevices.enumerateDevices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryEnumerateDevices() (ret js.Promise[js.Array[MediaDeviceInfo]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesEnumerateDevices(
@@ -3269,7 +3269,7 @@ func (this MediaDevices) GetDisplayMedia(options DisplayMediaStreamOptions) (ret
 }
 
 // TryGetDisplayMedia calls the method "MediaDevices.getDisplayMedia"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryGetDisplayMedia(options DisplayMediaStreamOptions) (ret js.Promise[MediaStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesGetDisplayMedia(
@@ -3306,7 +3306,7 @@ func (this MediaDevices) GetDisplayMedia1() (ret js.Promise[MediaStream]) {
 }
 
 // TryGetDisplayMedia1 calls the method "MediaDevices.getDisplayMedia"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryGetDisplayMedia1() (ret js.Promise[MediaStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesGetDisplayMedia1(
@@ -3343,7 +3343,7 @@ func (this MediaDevices) SetSupportedCaptureActions(actions js.Array[js.String])
 }
 
 // TrySetSupportedCaptureActions calls the method "MediaDevices.setSupportedCaptureActions"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TrySetSupportedCaptureActions(actions js.Array[js.String]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesSetSupportedCaptureActions(
@@ -3381,7 +3381,7 @@ func (this MediaDevices) SelectAudioOutput(options AudioOutputOptions) (ret js.P
 }
 
 // TrySelectAudioOutput calls the method "MediaDevices.selectAudioOutput"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TrySelectAudioOutput(options AudioOutputOptions) (ret js.Promise[MediaDeviceInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesSelectAudioOutput(
@@ -3418,7 +3418,7 @@ func (this MediaDevices) SelectAudioOutput1() (ret js.Promise[MediaDeviceInfo]) 
 }
 
 // TrySelectAudioOutput1 calls the method "MediaDevices.selectAudioOutput"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TrySelectAudioOutput1() (ret js.Promise[MediaDeviceInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesSelectAudioOutput1(
@@ -3455,7 +3455,7 @@ func (this MediaDevices) SetCaptureHandleConfig(config CaptureHandleConfig) (ret
 }
 
 // TrySetCaptureHandleConfig calls the method "MediaDevices.setCaptureHandleConfig"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TrySetCaptureHandleConfig(config CaptureHandleConfig) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesSetCaptureHandleConfig(
@@ -3492,7 +3492,7 @@ func (this MediaDevices) SetCaptureHandleConfig1() (ret js.Void) {
 }
 
 // TrySetCaptureHandleConfig1 calls the method "MediaDevices.setCaptureHandleConfig"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TrySetCaptureHandleConfig1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesSetCaptureHandleConfig1(
@@ -3529,7 +3529,7 @@ func (this MediaDevices) GetViewportMedia(constraints ViewportMediaStreamConstra
 }
 
 // TryGetViewportMedia calls the method "MediaDevices.getViewportMedia"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryGetViewportMedia(constraints ViewportMediaStreamConstraints) (ret js.Promise[MediaStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesGetViewportMedia(
@@ -3566,7 +3566,7 @@ func (this MediaDevices) GetViewportMedia1() (ret js.Promise[MediaStream]) {
 }
 
 // TryGetViewportMedia1 calls the method "MediaDevices.getViewportMedia"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryGetViewportMedia1() (ret js.Promise[MediaStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesGetViewportMedia1(
@@ -3602,7 +3602,7 @@ func (this MediaDevices) GetSupportedConstraints() (ret MediaTrackSupportedConst
 }
 
 // TryGetSupportedConstraints calls the method "MediaDevices.getSupportedConstraints"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryGetSupportedConstraints() (ret MediaTrackSupportedConstraints, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesGetSupportedConstraints(
@@ -3639,7 +3639,7 @@ func (this MediaDevices) GetUserMedia(constraints MediaStreamConstraints) (ret j
 }
 
 // TryGetUserMedia calls the method "MediaDevices.getUserMedia"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryGetUserMedia(constraints MediaStreamConstraints) (ret js.Promise[MediaStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesGetUserMedia(
@@ -3676,7 +3676,7 @@ func (this MediaDevices) GetUserMedia1() (ret js.Promise[MediaStream]) {
 }
 
 // TryGetUserMedia1 calls the method "MediaDevices.getUserMedia"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaDevices) TryGetUserMedia1() (ret js.Promise[MediaStream], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaDevicesGetUserMedia1(

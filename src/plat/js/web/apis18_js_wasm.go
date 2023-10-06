@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -231,7 +231,7 @@ func (this OffscreenCanvas) GetContext(contextId OffscreenRenderingContextId, op
 }
 
 // TryGetContext calls the method "OffscreenCanvas.getContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvas) TryGetContext(contextId OffscreenRenderingContextId, options js.Any) (ret OffscreenRenderingContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasGetContext(
@@ -270,7 +270,7 @@ func (this OffscreenCanvas) GetContext1(contextId OffscreenRenderingContextId) (
 }
 
 // TryGetContext1 calls the method "OffscreenCanvas.getContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvas) TryGetContext1(contextId OffscreenRenderingContextId) (ret OffscreenRenderingContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasGetContext1(
@@ -307,7 +307,7 @@ func (this OffscreenCanvas) TransferToImageBitmap() (ret ImageBitmap) {
 }
 
 // TryTransferToImageBitmap calls the method "OffscreenCanvas.transferToImageBitmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvas) TryTransferToImageBitmap() (ret ImageBitmap, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasTransferToImageBitmap(
@@ -344,7 +344,7 @@ func (this OffscreenCanvas) ConvertToBlob(options ImageEncodeOptions) (ret js.Pr
 }
 
 // TryConvertToBlob calls the method "OffscreenCanvas.convertToBlob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvas) TryConvertToBlob(options ImageEncodeOptions) (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasConvertToBlob(
@@ -381,7 +381,7 @@ func (this OffscreenCanvas) ConvertToBlob1() (ret js.Promise[Blob]) {
 }
 
 // TryConvertToBlob1 calls the method "OffscreenCanvas.convertToBlob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvas) TryConvertToBlob1() (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasConvertToBlob1(
@@ -1017,7 +1017,7 @@ func (this CanvasRenderingContext2D) GetContextAttributes() (ret CanvasRendering
 }
 
 // TryGetContextAttributes calls the method "CanvasRenderingContext2D.getContextAttributes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryGetContextAttributes() (ret CanvasRenderingContext2DSettings, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DGetContextAttributes(
@@ -1053,7 +1053,7 @@ func (this CanvasRenderingContext2D) Save() (ret js.Void) {
 }
 
 // TrySave calls the method "CanvasRenderingContext2D.save"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TrySave() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DSave(
@@ -1089,7 +1089,7 @@ func (this CanvasRenderingContext2D) Restore() (ret js.Void) {
 }
 
 // TryRestore calls the method "CanvasRenderingContext2D.restore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryRestore() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DRestore(
@@ -1125,7 +1125,7 @@ func (this CanvasRenderingContext2D) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "CanvasRenderingContext2D.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DReset(
@@ -1161,7 +1161,7 @@ func (this CanvasRenderingContext2D) IsContextLost() (ret bool) {
 }
 
 // TryIsContextLost calls the method "CanvasRenderingContext2D.isContextLost"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DIsContextLost(
@@ -1199,7 +1199,7 @@ func (this CanvasRenderingContext2D) Scale(x float64, y float64) (ret js.Void) {
 }
 
 // TryScale calls the method "CanvasRenderingContext2D.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryScale(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DScale(
@@ -1238,7 +1238,7 @@ func (this CanvasRenderingContext2D) Rotate(angle float64) (ret js.Void) {
 }
 
 // TryRotate calls the method "CanvasRenderingContext2D.rotate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryRotate(angle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DRotate(
@@ -1277,7 +1277,7 @@ func (this CanvasRenderingContext2D) Translate(x float64, y float64) (ret js.Voi
 }
 
 // TryTranslate calls the method "CanvasRenderingContext2D.translate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryTranslate(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DTranslate(
@@ -1321,7 +1321,7 @@ func (this CanvasRenderingContext2D) Transform(a float64, b float64, c float64, 
 }
 
 // TryTransform calls the method "CanvasRenderingContext2D.transform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DTransform(
@@ -1363,7 +1363,7 @@ func (this CanvasRenderingContext2D) GetTransform() (ret DOMMatrix) {
 }
 
 // TryGetTransform calls the method "CanvasRenderingContext2D.getTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryGetTransform() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DGetTransform(
@@ -1405,7 +1405,7 @@ func (this CanvasRenderingContext2D) SetTransform(a float64, b float64, c float6
 }
 
 // TrySetTransform calls the method "CanvasRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TrySetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DSetTransform(
@@ -1448,7 +1448,7 @@ func (this CanvasRenderingContext2D) SetTransform1(transform DOMMatrix2DInit) (r
 }
 
 // TrySetTransform1 calls the method "CanvasRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TrySetTransform1(transform DOMMatrix2DInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DSetTransform1(
@@ -1485,7 +1485,7 @@ func (this CanvasRenderingContext2D) SetTransform2() (ret js.Void) {
 }
 
 // TrySetTransform2 calls the method "CanvasRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TrySetTransform2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DSetTransform2(
@@ -1521,7 +1521,7 @@ func (this CanvasRenderingContext2D) ResetTransform() (ret js.Void) {
 }
 
 // TryResetTransform calls the method "CanvasRenderingContext2D.resetTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryResetTransform() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DResetTransform(
@@ -1561,7 +1561,7 @@ func (this CanvasRenderingContext2D) CreateLinearGradient(x0 float64, y0 float64
 }
 
 // TryCreateLinearGradient calls the method "CanvasRenderingContext2D.createLinearGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryCreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DCreateLinearGradient(
@@ -1607,7 +1607,7 @@ func (this CanvasRenderingContext2D) CreateRadialGradient(x0 float64, y0 float64
 }
 
 // TryCreateRadialGradient calls the method "CanvasRenderingContext2D.createRadialGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryCreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DCreateRadialGradient(
@@ -1652,7 +1652,7 @@ func (this CanvasRenderingContext2D) CreateConicGradient(startAngle float64, x f
 }
 
 // TryCreateConicGradient calls the method "CanvasRenderingContext2D.createConicGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryCreateConicGradient(startAngle float64, x float64, y float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DCreateConicGradient(
@@ -1693,7 +1693,7 @@ func (this CanvasRenderingContext2D) CreatePattern(image CanvasImageSource, repe
 }
 
 // TryCreatePattern calls the method "CanvasRenderingContext2D.createPattern"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryCreatePattern(image CanvasImageSource, repetition js.String) (ret CanvasPattern, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DCreatePattern(
@@ -1735,7 +1735,7 @@ func (this CanvasRenderingContext2D) ClearRect(x float64, y float64, w float64, 
 }
 
 // TryClearRect calls the method "CanvasRenderingContext2D.clearRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryClearRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DClearRect(
@@ -1779,7 +1779,7 @@ func (this CanvasRenderingContext2D) FillRect(x float64, y float64, w float64, h
 }
 
 // TryFillRect calls the method "CanvasRenderingContext2D.fillRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryFillRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DFillRect(
@@ -1823,7 +1823,7 @@ func (this CanvasRenderingContext2D) StrokeRect(x float64, y float64, w float64,
 }
 
 // TryStrokeRect calls the method "CanvasRenderingContext2D.strokeRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryStrokeRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DStrokeRect(
@@ -1863,7 +1863,7 @@ func (this CanvasRenderingContext2D) BeginPath() (ret js.Void) {
 }
 
 // TryBeginPath calls the method "CanvasRenderingContext2D.beginPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryBeginPath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DBeginPath(
@@ -1900,7 +1900,7 @@ func (this CanvasRenderingContext2D) Fill(fillRule CanvasFillRule) (ret js.Void)
 }
 
 // TryFill calls the method "CanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryFill(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DFill(
@@ -1937,7 +1937,7 @@ func (this CanvasRenderingContext2D) Fill1() (ret js.Void) {
 }
 
 // TryFill1 calls the method "CanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryFill1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DFill1(
@@ -1975,7 +1975,7 @@ func (this CanvasRenderingContext2D) Fill2(path Path2D, fillRule CanvasFillRule)
 }
 
 // TryFill2 calls the method "CanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryFill2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DFill2(
@@ -2014,7 +2014,7 @@ func (this CanvasRenderingContext2D) Fill3(path Path2D) (ret js.Void) {
 }
 
 // TryFill3 calls the method "CanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryFill3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DFill3(
@@ -2051,7 +2051,7 @@ func (this CanvasRenderingContext2D) Stroke() (ret js.Void) {
 }
 
 // TryStroke calls the method "CanvasRenderingContext2D.stroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryStroke() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DStroke(
@@ -2088,7 +2088,7 @@ func (this CanvasRenderingContext2D) Stroke1(path Path2D) (ret js.Void) {
 }
 
 // TryStroke1 calls the method "CanvasRenderingContext2D.stroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryStroke1(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DStroke1(
@@ -2126,7 +2126,7 @@ func (this CanvasRenderingContext2D) Clip(fillRule CanvasFillRule) (ret js.Void)
 }
 
 // TryClip calls the method "CanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryClip(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DClip(
@@ -2163,7 +2163,7 @@ func (this CanvasRenderingContext2D) Clip1() (ret js.Void) {
 }
 
 // TryClip1 calls the method "CanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryClip1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DClip1(
@@ -2201,7 +2201,7 @@ func (this CanvasRenderingContext2D) Clip2(path Path2D, fillRule CanvasFillRule)
 }
 
 // TryClip2 calls the method "CanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryClip2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DClip2(
@@ -2240,7 +2240,7 @@ func (this CanvasRenderingContext2D) Clip3(path Path2D) (ret js.Void) {
 }
 
 // TryClip3 calls the method "CanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryClip3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DClip3(
@@ -2280,7 +2280,7 @@ func (this CanvasRenderingContext2D) IsPointInPath(x float64, y float64, fillRul
 }
 
 // TryIsPointInPath calls the method "CanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryIsPointInPath(x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DIsPointInPath(
@@ -2321,7 +2321,7 @@ func (this CanvasRenderingContext2D) IsPointInPath1(x float64, y float64) (ret b
 }
 
 // TryIsPointInPath1 calls the method "CanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryIsPointInPath1(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DIsPointInPath1(
@@ -2363,7 +2363,7 @@ func (this CanvasRenderingContext2D) IsPointInPath2(path Path2D, x float64, y fl
 }
 
 // TryIsPointInPath2 calls the method "CanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryIsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DIsPointInPath2(
@@ -2406,7 +2406,7 @@ func (this CanvasRenderingContext2D) IsPointInPath3(path Path2D, x float64, y fl
 }
 
 // TryIsPointInPath3 calls the method "CanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryIsPointInPath3(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DIsPointInPath3(
@@ -2447,7 +2447,7 @@ func (this CanvasRenderingContext2D) IsPointInStroke(x float64, y float64) (ret 
 }
 
 // TryIsPointInStroke calls the method "CanvasRenderingContext2D.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryIsPointInStroke(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DIsPointInStroke(
@@ -2488,7 +2488,7 @@ func (this CanvasRenderingContext2D) IsPointInStroke1(path Path2D, x float64, y 
 }
 
 // TryIsPointInStroke1 calls the method "CanvasRenderingContext2D.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryIsPointInStroke1(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DIsPointInStroke1(
@@ -2528,7 +2528,7 @@ func (this CanvasRenderingContext2D) DrawFocusIfNeeded(element Element) (ret js.
 }
 
 // TryDrawFocusIfNeeded calls the method "CanvasRenderingContext2D.drawFocusIfNeeded"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryDrawFocusIfNeeded(element Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DDrawFocusIfNeeded(
@@ -2567,7 +2567,7 @@ func (this CanvasRenderingContext2D) DrawFocusIfNeeded1(path Path2D, element Ele
 }
 
 // TryDrawFocusIfNeeded1 calls the method "CanvasRenderingContext2D.drawFocusIfNeeded"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryDrawFocusIfNeeded1(path Path2D, element Element) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DDrawFocusIfNeeded1(
@@ -2605,7 +2605,7 @@ func (this CanvasRenderingContext2D) ScrollPathIntoView() (ret js.Void) {
 }
 
 // TryScrollPathIntoView calls the method "CanvasRenderingContext2D.scrollPathIntoView"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryScrollPathIntoView() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DScrollPathIntoView(
@@ -2642,7 +2642,7 @@ func (this CanvasRenderingContext2D) ScrollPathIntoView1(path Path2D) (ret js.Vo
 }
 
 // TryScrollPathIntoView1 calls the method "CanvasRenderingContext2D.scrollPathIntoView"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryScrollPathIntoView1(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DScrollPathIntoView1(
@@ -2683,7 +2683,7 @@ func (this CanvasRenderingContext2D) FillText(text js.String, x float64, y float
 }
 
 // TryFillText calls the method "CanvasRenderingContext2D.fillText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryFillText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DFillText(
@@ -2726,7 +2726,7 @@ func (this CanvasRenderingContext2D) FillText1(text js.String, x float64, y floa
 }
 
 // TryFillText1 calls the method "CanvasRenderingContext2D.fillText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryFillText1(text js.String, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DFillText1(
@@ -2769,7 +2769,7 @@ func (this CanvasRenderingContext2D) StrokeText(text js.String, x float64, y flo
 }
 
 // TryStrokeText calls the method "CanvasRenderingContext2D.strokeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryStrokeText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DStrokeText(
@@ -2812,7 +2812,7 @@ func (this CanvasRenderingContext2D) StrokeText1(text js.String, x float64, y fl
 }
 
 // TryStrokeText1 calls the method "CanvasRenderingContext2D.strokeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryStrokeText1(text js.String, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DStrokeText1(
@@ -2852,7 +2852,7 @@ func (this CanvasRenderingContext2D) MeasureText(text js.String) (ret TextMetric
 }
 
 // TryMeasureText calls the method "CanvasRenderingContext2D.measureText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryMeasureText(text js.String) (ret TextMetrics, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DMeasureText(
@@ -2892,7 +2892,7 @@ func (this CanvasRenderingContext2D) DrawImage(image CanvasImageSource, dx float
 }
 
 // TryDrawImage calls the method "CanvasRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryDrawImage(image CanvasImageSource, dx float64, dy float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DDrawImage(
@@ -2936,7 +2936,7 @@ func (this CanvasRenderingContext2D) DrawImage1(image CanvasImageSource, dx floa
 }
 
 // TryDrawImage1 calls the method "CanvasRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryDrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DDrawImage1(
@@ -2986,7 +2986,7 @@ func (this CanvasRenderingContext2D) DrawImage2(image CanvasImageSource, sx floa
 }
 
 // TryDrawImage2 calls the method "CanvasRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryDrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DDrawImage2(
@@ -3034,7 +3034,7 @@ func (this CanvasRenderingContext2D) CreateImageData(sw int32, sh int32, setting
 }
 
 // TryCreateImageData calls the method "CanvasRenderingContext2D.createImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryCreateImageData(sw int32, sh int32, settings ImageDataSettings) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DCreateImageData(
@@ -3075,7 +3075,7 @@ func (this CanvasRenderingContext2D) CreateImageData1(sw int32, sh int32) (ret I
 }
 
 // TryCreateImageData1 calls the method "CanvasRenderingContext2D.createImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryCreateImageData1(sw int32, sh int32) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DCreateImageData1(
@@ -3114,7 +3114,7 @@ func (this CanvasRenderingContext2D) CreateImageData2(imagedata ImageData) (ret 
 }
 
 // TryCreateImageData2 calls the method "CanvasRenderingContext2D.createImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryCreateImageData2(imagedata ImageData) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DCreateImageData2(
@@ -3156,7 +3156,7 @@ func (this CanvasRenderingContext2D) GetImageData(sx int32, sy int32, sw int32, 
 }
 
 // TryGetImageData calls the method "CanvasRenderingContext2D.getImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryGetImageData(sx int32, sy int32, sw int32, sh int32, settings ImageDataSettings) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DGetImageData(
@@ -3201,7 +3201,7 @@ func (this CanvasRenderingContext2D) GetImageData1(sx int32, sy int32, sw int32,
 }
 
 // TryGetImageData1 calls the method "CanvasRenderingContext2D.getImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryGetImageData1(sx int32, sy int32, sw int32, sh int32) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DGetImageData1(
@@ -3244,7 +3244,7 @@ func (this CanvasRenderingContext2D) PutImageData(imagedata ImageData, dx int32,
 }
 
 // TryPutImageData calls the method "CanvasRenderingContext2D.putImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryPutImageData(imagedata ImageData, dx int32, dy int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DPutImageData(
@@ -3290,7 +3290,7 @@ func (this CanvasRenderingContext2D) PutImageData1(imagedata ImageData, dx int32
 }
 
 // TryPutImageData1 calls the method "CanvasRenderingContext2D.putImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryPutImageData1(imagedata ImageData, dx int32, dy int32, dirtyX int32, dirtyY int32, dirtyWidth int32, dirtyHeight int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DPutImageData1(
@@ -3334,7 +3334,7 @@ func (this CanvasRenderingContext2D) SetLineDash(segments js.Array[float64]) (re
 }
 
 // TrySetLineDash calls the method "CanvasRenderingContext2D.setLineDash"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TrySetLineDash(segments js.Array[float64]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DSetLineDash(
@@ -3371,7 +3371,7 @@ func (this CanvasRenderingContext2D) GetLineDash() (ret js.Array[float64]) {
 }
 
 // TryGetLineDash calls the method "CanvasRenderingContext2D.getLineDash"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryGetLineDash() (ret js.Array[float64], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DGetLineDash(
@@ -3407,7 +3407,7 @@ func (this CanvasRenderingContext2D) ClosePath() (ret js.Void) {
 }
 
 // TryClosePath calls the method "CanvasRenderingContext2D.closePath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryClosePath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DClosePath(
@@ -3445,7 +3445,7 @@ func (this CanvasRenderingContext2D) MoveTo(x float64, y float64) (ret js.Void) 
 }
 
 // TryMoveTo calls the method "CanvasRenderingContext2D.moveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryMoveTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DMoveTo(
@@ -3485,7 +3485,7 @@ func (this CanvasRenderingContext2D) LineTo(x float64, y float64) (ret js.Void) 
 }
 
 // TryLineTo calls the method "CanvasRenderingContext2D.lineTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryLineTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DLineTo(
@@ -3527,7 +3527,7 @@ func (this CanvasRenderingContext2D) QuadraticCurveTo(cpx float64, cpy float64, 
 }
 
 // TryQuadraticCurveTo calls the method "CanvasRenderingContext2D.quadraticCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryQuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DQuadraticCurveTo(
@@ -3573,7 +3573,7 @@ func (this CanvasRenderingContext2D) BezierCurveTo(cp1x float64, cp1y float64, c
 }
 
 // TryBezierCurveTo calls the method "CanvasRenderingContext2D.bezierCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryBezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DBezierCurveTo(
@@ -3620,7 +3620,7 @@ func (this CanvasRenderingContext2D) ArcTo(x1 float64, y1 float64, x2 float64, y
 }
 
 // TryArcTo calls the method "CanvasRenderingContext2D.arcTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DArcTo(
@@ -3665,7 +3665,7 @@ func (this CanvasRenderingContext2D) Rect(x float64, y float64, w float64, h flo
 }
 
 // TryRect calls the method "CanvasRenderingContext2D.rect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DRect(
@@ -3710,7 +3710,7 @@ func (this CanvasRenderingContext2D) RoundRect(x float64, y float64, w float64, 
 }
 
 // TryRoundRect calls the method "CanvasRenderingContext2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryRoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DRoundRect(
@@ -3755,7 +3755,7 @@ func (this CanvasRenderingContext2D) RoundRect1(x float64, y float64, w float64,
 }
 
 // TryRoundRect1 calls the method "CanvasRenderingContext2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryRoundRect1(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DRoundRect1(
@@ -3801,7 +3801,7 @@ func (this CanvasRenderingContext2D) Arc(x float64, y float64, radius float64, s
 }
 
 // TryArc calls the method "CanvasRenderingContext2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryArc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DArc(
@@ -3848,7 +3848,7 @@ func (this CanvasRenderingContext2D) Arc1(x float64, y float64, radius float64, 
 }
 
 // TryArc1 calls the method "CanvasRenderingContext2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryArc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DArc1(
@@ -3897,7 +3897,7 @@ func (this CanvasRenderingContext2D) Ellipse(x float64, y float64, radiusX float
 }
 
 // TryEllipse calls the method "CanvasRenderingContext2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryEllipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DEllipse(
@@ -3948,7 +3948,7 @@ func (this CanvasRenderingContext2D) Ellipse1(x float64, y float64, radiusX floa
 }
 
 // TryEllipse1 calls the method "CanvasRenderingContext2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CanvasRenderingContext2D) TryEllipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCanvasRenderingContext2DEllipse1(
@@ -4160,7 +4160,7 @@ func (this HTMLCanvasElement) GetContext(contextId js.String, options js.Any) (r
 }
 
 // TryGetContext calls the method "HTMLCanvasElement.getContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryGetContext(contextId js.String, options js.Any) (ret RenderingContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementGetContext(
@@ -4199,7 +4199,7 @@ func (this HTMLCanvasElement) GetContext1(contextId js.String) (ret RenderingCon
 }
 
 // TryGetContext1 calls the method "HTMLCanvasElement.getContext"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryGetContext1(contextId js.String) (ret RenderingContext, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementGetContext1(
@@ -4238,7 +4238,7 @@ func (this HTMLCanvasElement) ToDataURL(typ js.String, quality js.Any) (ret js.S
 }
 
 // TryToDataURL calls the method "HTMLCanvasElement.toDataURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryToDataURL(typ js.String, quality js.Any) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementToDataURL(
@@ -4277,7 +4277,7 @@ func (this HTMLCanvasElement) ToDataURL1(typ js.String) (ret js.String) {
 }
 
 // TryToDataURL1 calls the method "HTMLCanvasElement.toDataURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryToDataURL1(typ js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementToDataURL1(
@@ -4314,7 +4314,7 @@ func (this HTMLCanvasElement) ToDataURL2() (ret js.String) {
 }
 
 // TryToDataURL2 calls the method "HTMLCanvasElement.toDataURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryToDataURL2() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementToDataURL2(
@@ -4353,7 +4353,7 @@ func (this HTMLCanvasElement) ToBlob(callback js.Func[func(blob Blob)], typ js.S
 }
 
 // TryToBlob calls the method "HTMLCanvasElement.toBlob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryToBlob(callback js.Func[func(blob Blob)], typ js.String, quality js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementToBlob(
@@ -4394,7 +4394,7 @@ func (this HTMLCanvasElement) ToBlob1(callback js.Func[func(blob Blob)], typ js.
 }
 
 // TryToBlob1 calls the method "HTMLCanvasElement.toBlob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryToBlob1(callback js.Func[func(blob Blob)], typ js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementToBlob1(
@@ -4433,7 +4433,7 @@ func (this HTMLCanvasElement) ToBlob2(callback js.Func[func(blob Blob)]) (ret js
 }
 
 // TryToBlob2 calls the method "HTMLCanvasElement.toBlob"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryToBlob2(callback js.Func[func(blob Blob)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementToBlob2(
@@ -4470,7 +4470,7 @@ func (this HTMLCanvasElement) TransferControlToOffscreen() (ret OffscreenCanvas)
 }
 
 // TryTransferControlToOffscreen calls the method "HTMLCanvasElement.transferControlToOffscreen"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryTransferControlToOffscreen() (ret OffscreenCanvas, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementTransferControlToOffscreen(
@@ -4507,7 +4507,7 @@ func (this HTMLCanvasElement) CaptureStream(frameRequestRate float64) (ret Media
 }
 
 // TryCaptureStream calls the method "HTMLCanvasElement.captureStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryCaptureStream(frameRequestRate float64) (ret MediaStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementCaptureStream(
@@ -4544,7 +4544,7 @@ func (this HTMLCanvasElement) CaptureStream1() (ret MediaStream) {
 }
 
 // TryCaptureStream1 calls the method "HTMLCanvasElement.captureStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLCanvasElement) TryCaptureStream1() (ret MediaStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLCanvasElementCaptureStream1(
@@ -4669,7 +4669,7 @@ func (this BarcodeDetector) GetSupportedFormats() (ret js.Promise[js.Array[Barco
 }
 
 // TryGetSupportedFormats calls the staticmethod "BarcodeDetector.getSupportedFormats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BarcodeDetector) TryGetSupportedFormats() (ret js.Promise[js.Array[BarcodeFormat]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBarcodeDetectorGetSupportedFormats(
@@ -4706,7 +4706,7 @@ func (this BarcodeDetector) Detect(image ImageBitmapSource) (ret js.Promise[js.A
 }
 
 // TryDetect calls the method "BarcodeDetector.detect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BarcodeDetector) TryDetect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedBarcode]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBarcodeDetectorDetect(
@@ -5109,7 +5109,7 @@ func (this BeforeInstallPromptEvent) Prompt() (ret js.Promise[PromptResponseObje
 }
 
 // TryPrompt calls the method "BeforeInstallPromptEvent.prompt"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BeforeInstallPromptEvent) TryPrompt() (ret js.Promise[PromptResponseObject], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBeforeInstallPromptEventPrompt(
@@ -5617,7 +5617,7 @@ func (this BluetoothRemoteGATTDescriptor) ReadValue() (ret js.Promise[js.DataVie
 }
 
 // TryReadValue calls the method "BluetoothRemoteGATTDescriptor.readValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTDescriptor) TryReadValue() (ret js.Promise[js.DataView], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTDescriptorReadValue(
@@ -5654,7 +5654,7 @@ func (this BluetoothRemoteGATTDescriptor) WriteValue(value BufferSource) (ret js
 }
 
 // TryWriteValue calls the method "BluetoothRemoteGATTDescriptor.writeValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTDescriptor) TryWriteValue(value BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTDescriptorWriteValue(
@@ -5894,7 +5894,7 @@ func (this BluetoothRemoteGATTCharacteristic) GetDescriptor(descriptor Bluetooth
 }
 
 // TryGetDescriptor calls the method "BluetoothRemoteGATTCharacteristic.getDescriptor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryGetDescriptor(descriptor BluetoothDescriptorUUID) (ret js.Promise[BluetoothRemoteGATTDescriptor], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicGetDescriptor(
@@ -5932,7 +5932,7 @@ func (this BluetoothRemoteGATTCharacteristic) GetDescriptors(descriptor Bluetoot
 }
 
 // TryGetDescriptors calls the method "BluetoothRemoteGATTCharacteristic.getDescriptors"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryGetDescriptors(descriptor BluetoothDescriptorUUID) (ret js.Promise[js.Array[BluetoothRemoteGATTDescriptor]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicGetDescriptors(
@@ -5969,7 +5969,7 @@ func (this BluetoothRemoteGATTCharacteristic) GetDescriptors1() (ret js.Promise[
 }
 
 // TryGetDescriptors1 calls the method "BluetoothRemoteGATTCharacteristic.getDescriptors"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryGetDescriptors1() (ret js.Promise[js.Array[BluetoothRemoteGATTDescriptor]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicGetDescriptors1(
@@ -6005,7 +6005,7 @@ func (this BluetoothRemoteGATTCharacteristic) ReadValue() (ret js.Promise[js.Dat
 }
 
 // TryReadValue calls the method "BluetoothRemoteGATTCharacteristic.readValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryReadValue() (ret js.Promise[js.DataView], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicReadValue(
@@ -6042,7 +6042,7 @@ func (this BluetoothRemoteGATTCharacteristic) WriteValue(value BufferSource) (re
 }
 
 // TryWriteValue calls the method "BluetoothRemoteGATTCharacteristic.writeValue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryWriteValue(value BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicWriteValue(
@@ -6080,7 +6080,7 @@ func (this BluetoothRemoteGATTCharacteristic) WriteValueWithResponse(value Buffe
 }
 
 // TryWriteValueWithResponse calls the method "BluetoothRemoteGATTCharacteristic.writeValueWithResponse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryWriteValueWithResponse(value BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicWriteValueWithResponse(
@@ -6118,7 +6118,7 @@ func (this BluetoothRemoteGATTCharacteristic) WriteValueWithoutResponse(value Bu
 }
 
 // TryWriteValueWithoutResponse calls the method "BluetoothRemoteGATTCharacteristic.writeValueWithoutResponse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryWriteValueWithoutResponse(value BufferSource) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicWriteValueWithoutResponse(
@@ -6155,7 +6155,7 @@ func (this BluetoothRemoteGATTCharacteristic) StartNotifications() (ret js.Promi
 }
 
 // TryStartNotifications calls the method "BluetoothRemoteGATTCharacteristic.startNotifications"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryStartNotifications() (ret js.Promise[BluetoothRemoteGATTCharacteristic], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicStartNotifications(
@@ -6191,7 +6191,7 @@ func (this BluetoothRemoteGATTCharacteristic) StopNotifications() (ret js.Promis
 }
 
 // TryStopNotifications calls the method "BluetoothRemoteGATTCharacteristic.stopNotifications"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTCharacteristic) TryStopNotifications() (ret js.Promise[BluetoothRemoteGATTCharacteristic], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTCharacteristicStopNotifications(
@@ -6284,7 +6284,7 @@ func (this BluetoothRemoteGATTService) GetCharacteristic(characteristic Bluetoot
 }
 
 // TryGetCharacteristic calls the method "BluetoothRemoteGATTService.getCharacteristic"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTService) TryGetCharacteristic(characteristic BluetoothCharacteristicUUID) (ret js.Promise[BluetoothRemoteGATTCharacteristic], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServiceGetCharacteristic(
@@ -6322,7 +6322,7 @@ func (this BluetoothRemoteGATTService) GetCharacteristics(characteristic Bluetoo
 }
 
 // TryGetCharacteristics calls the method "BluetoothRemoteGATTService.getCharacteristics"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTService) TryGetCharacteristics(characteristic BluetoothCharacteristicUUID) (ret js.Promise[js.Array[BluetoothRemoteGATTCharacteristic]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServiceGetCharacteristics(
@@ -6359,7 +6359,7 @@ func (this BluetoothRemoteGATTService) GetCharacteristics1() (ret js.Promise[js.
 }
 
 // TryGetCharacteristics1 calls the method "BluetoothRemoteGATTService.getCharacteristics"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTService) TryGetCharacteristics1() (ret js.Promise[js.Array[BluetoothRemoteGATTCharacteristic]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServiceGetCharacteristics1(
@@ -6396,7 +6396,7 @@ func (this BluetoothRemoteGATTService) GetIncludedService(service BluetoothServi
 }
 
 // TryGetIncludedService calls the method "BluetoothRemoteGATTService.getIncludedService"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTService) TryGetIncludedService(service BluetoothServiceUUID) (ret js.Promise[BluetoothRemoteGATTService], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServiceGetIncludedService(
@@ -6434,7 +6434,7 @@ func (this BluetoothRemoteGATTService) GetIncludedServices(service BluetoothServ
 }
 
 // TryGetIncludedServices calls the method "BluetoothRemoteGATTService.getIncludedServices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTService) TryGetIncludedServices(service BluetoothServiceUUID) (ret js.Promise[js.Array[BluetoothRemoteGATTService]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServiceGetIncludedServices(
@@ -6471,7 +6471,7 @@ func (this BluetoothRemoteGATTService) GetIncludedServices1() (ret js.Promise[js
 }
 
 // TryGetIncludedServices1 calls the method "BluetoothRemoteGATTService.getIncludedServices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTService) TryGetIncludedServices1() (ret js.Promise[js.Array[BluetoothRemoteGATTService]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServiceGetIncludedServices1(
@@ -6549,7 +6549,7 @@ func (this BluetoothRemoteGATTServer) Connect() (ret js.Promise[BluetoothRemoteG
 }
 
 // TryConnect calls the method "BluetoothRemoteGATTServer.connect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTServer) TryConnect() (ret js.Promise[BluetoothRemoteGATTServer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServerConnect(
@@ -6585,7 +6585,7 @@ func (this BluetoothRemoteGATTServer) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "BluetoothRemoteGATTServer.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTServer) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServerDisconnect(
@@ -6622,7 +6622,7 @@ func (this BluetoothRemoteGATTServer) GetPrimaryService(service BluetoothService
 }
 
 // TryGetPrimaryService calls the method "BluetoothRemoteGATTServer.getPrimaryService"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTServer) TryGetPrimaryService(service BluetoothServiceUUID) (ret js.Promise[BluetoothRemoteGATTService], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServerGetPrimaryService(
@@ -6660,7 +6660,7 @@ func (this BluetoothRemoteGATTServer) GetPrimaryServices(service BluetoothServic
 }
 
 // TryGetPrimaryServices calls the method "BluetoothRemoteGATTServer.getPrimaryServices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTServer) TryGetPrimaryServices(service BluetoothServiceUUID) (ret js.Promise[js.Array[BluetoothRemoteGATTService]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServerGetPrimaryServices(
@@ -6697,7 +6697,7 @@ func (this BluetoothRemoteGATTServer) GetPrimaryServices1() (ret js.Promise[js.A
 }
 
 // TryGetPrimaryServices1 calls the method "BluetoothRemoteGATTServer.getPrimaryServices"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothRemoteGATTServer) TryGetPrimaryServices1() (ret js.Promise[js.Array[BluetoothRemoteGATTService]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothRemoteGATTServerGetPrimaryServices1(
@@ -6795,7 +6795,7 @@ func (this BluetoothDevice) Forget() (ret js.Promise[js.Void]) {
 }
 
 // TryForget calls the method "BluetoothDevice.forget"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothDevice) TryForget() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothDeviceForget(
@@ -6832,7 +6832,7 @@ func (this BluetoothDevice) WatchAdvertisements(options WatchAdvertisementsOptio
 }
 
 // TryWatchAdvertisements calls the method "BluetoothDevice.watchAdvertisements"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothDevice) TryWatchAdvertisements(options WatchAdvertisementsOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothDeviceWatchAdvertisements(
@@ -6869,7 +6869,7 @@ func (this BluetoothDevice) WatchAdvertisements1() (ret js.Promise[js.Void]) {
 }
 
 // TryWatchAdvertisements1 calls the method "BluetoothDevice.watchAdvertisements"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this BluetoothDevice) TryWatchAdvertisements1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryBluetoothDeviceWatchAdvertisements1(

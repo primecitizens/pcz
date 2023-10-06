@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -592,7 +592,7 @@ func (this EventSource) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "EventSource.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EventSource) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventSourceClose(
@@ -835,7 +835,7 @@ func (this ExtendableEvent) WaitUntil(f js.Promise[js.Any]) (ret js.Void) {
 }
 
 // TryWaitUntil calls the method "ExtendableEvent.waitUntil"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ExtendableEvent) TryWaitUntil(f js.Promise[js.Any]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryExtendableEventWaitUntil(
@@ -1084,7 +1084,7 @@ func (this EyeDropper) Open(options ColorSelectionOptions) (ret js.Promise[Color
 }
 
 // TryOpen calls the method "EyeDropper.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EyeDropper) TryOpen(options ColorSelectionOptions) (ret js.Promise[ColorSelectionResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEyeDropperOpen(
@@ -1121,7 +1121,7 @@ func (this EyeDropper) Open1() (ret js.Promise[ColorSelectionResult]) {
 }
 
 // TryOpen1 calls the method "EyeDropper.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EyeDropper) TryOpen1() (ret js.Promise[ColorSelectionResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEyeDropperOpen1(
@@ -1238,7 +1238,7 @@ func (this FaceDetector) Detect(image ImageBitmapSource) (ret js.Promise[js.Arra
 }
 
 // TryDetect calls the method "FaceDetector.detect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FaceDetector) TryDetect(image ImageBitmapSource) (ret js.Promise[js.Array[DetectedFace]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFaceDetectorDetect(
@@ -1513,7 +1513,7 @@ func (this FetchEvent) RespondWith(r js.Promise[Response]) (ret js.Void) {
 }
 
 // TryRespondWith calls the method "FetchEvent.respondWith"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FetchEvent) TryRespondWith(r js.Promise[Response]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFetchEventRespondWith(
@@ -1747,7 +1747,7 @@ func (this FileReader) ReadAsArrayBuffer(blob Blob) (ret js.Void) {
 }
 
 // TryReadAsArrayBuffer calls the method "FileReader.readAsArrayBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReader) TryReadAsArrayBuffer(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsArrayBuffer(
@@ -1785,7 +1785,7 @@ func (this FileReader) ReadAsBinaryString(blob Blob) (ret js.Void) {
 }
 
 // TryReadAsBinaryString calls the method "FileReader.readAsBinaryString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReader) TryReadAsBinaryString(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsBinaryString(
@@ -1824,7 +1824,7 @@ func (this FileReader) ReadAsText(blob Blob, encoding js.String) (ret js.Void) {
 }
 
 // TryReadAsText calls the method "FileReader.readAsText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReader) TryReadAsText(blob Blob, encoding js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsText(
@@ -1863,7 +1863,7 @@ func (this FileReader) ReadAsText1(blob Blob) (ret js.Void) {
 }
 
 // TryReadAsText1 calls the method "FileReader.readAsText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReader) TryReadAsText1(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsText1(
@@ -1901,7 +1901,7 @@ func (this FileReader) ReadAsDataURL(blob Blob) (ret js.Void) {
 }
 
 // TryReadAsDataURL calls the method "FileReader.readAsDataURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReader) TryReadAsDataURL(blob Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderReadAsDataURL(
@@ -1938,7 +1938,7 @@ func (this FileReader) Abort() (ret js.Void) {
 }
 
 // TryAbort calls the method "FileReader.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReader) TryAbort() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderAbort(
@@ -1997,7 +1997,7 @@ func (this FileReaderSync) ReadAsArrayBuffer(blob Blob) (ret js.ArrayBuffer) {
 }
 
 // TryReadAsArrayBuffer calls the method "FileReaderSync.readAsArrayBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReaderSync) TryReadAsArrayBuffer(blob Blob) (ret js.ArrayBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsArrayBuffer(
@@ -2035,7 +2035,7 @@ func (this FileReaderSync) ReadAsBinaryString(blob Blob) (ret js.String) {
 }
 
 // TryReadAsBinaryString calls the method "FileReaderSync.readAsBinaryString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReaderSync) TryReadAsBinaryString(blob Blob) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsBinaryString(
@@ -2074,7 +2074,7 @@ func (this FileReaderSync) ReadAsText(blob Blob, encoding js.String) (ret js.Str
 }
 
 // TryReadAsText calls the method "FileReaderSync.readAsText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReaderSync) TryReadAsText(blob Blob, encoding js.String) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsText(
@@ -2113,7 +2113,7 @@ func (this FileReaderSync) ReadAsText1(blob Blob) (ret js.String) {
 }
 
 // TryReadAsText1 calls the method "FileReaderSync.readAsText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReaderSync) TryReadAsText1(blob Blob) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsText1(
@@ -2151,7 +2151,7 @@ func (this FileReaderSync) ReadAsDataURL(blob Blob) (ret js.String) {
 }
 
 // TryReadAsDataURL calls the method "FileReaderSync.readAsDataURL"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileReaderSync) TryReadAsDataURL(blob Blob) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileReaderSyncReadAsDataURL(
@@ -2212,7 +2212,7 @@ func (this FileSystemFileEntry) File(successCallback js.Func[func(file File)], e
 }
 
 // TryFile calls the method "FileSystemFileEntry.file"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemFileEntry) TryFile(successCallback js.Func[func(file File)], errorCallback js.Func[func(err DOMException)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileEntryFile(
@@ -2251,7 +2251,7 @@ func (this FileSystemFileEntry) File1(successCallback js.Func[func(file File)]) 
 }
 
 // TryFile1 calls the method "FileSystemFileEntry.file"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this FileSystemFileEntry) TryFile1(successCallback js.Func[func(file File)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryFileSystemFileEntryFile1(

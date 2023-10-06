@@ -10,8 +10,8 @@ package stdstring
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/bytealg"
-	"github.com/primecitizens/std/core/os"
+	"github.com/primecitizens/pcz/std/core/bytealg"
+	"github.com/primecitizens/pcz/std/core/os"
 )
 
 // FindNull returns the index of first \x00 byte, for UTF-8 encoding

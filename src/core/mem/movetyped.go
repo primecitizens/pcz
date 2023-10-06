@@ -3,8 +3,8 @@ package mem
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 // TypedMove copies a value of type typ to dst from src.

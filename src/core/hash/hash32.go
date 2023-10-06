@@ -13,8 +13,9 @@
 package hash
 
 import (
-	"github.com/primecitizens/std/core/mem"
 	"unsafe"
+
+	"github.com/primecitizens/pcz/std/core/mem"
 )
 
 func MemHash(p unsafe.Pointer, seed, s uintptr) uintptr {

@@ -8,15 +8,15 @@ package runtime
 import (
 	"unsafe"
 
-	stdgo "github.com/primecitizens/std/builtin/go"
-	stdmap "github.com/primecitizens/std/builtin/map"
-	stdtype "github.com/primecitizens/std/builtin/type"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
+	stdgo "github.com/primecitizens/pcz/std/builtin/go"
+	stdmap "github.com/primecitizens/pcz/std/builtin/map"
+	stdtype "github.com/primecitizens/pcz/std/builtin/type"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
 
-	// _ "github.com/primecitizens/std/core/gc"    // import implementation of gcWritBarrier
-	_ "github.com/primecitizens/std/core/stack" // import implementation of morestack and morestack_noctxt
-	_ "github.com/primecitizens/std/rt0"        // import the magic line
+	// _ "github.com/primecitizens/pcz/std/core/gc"    // import implementation of gcWritBarrier
+	_ "github.com/primecitizens/pcz/std/core/stack" // import implementation of morestack and morestack_noctxt
+	_ "github.com/primecitizens/pcz/std/rt0"        // import the magic line
 )
 
 var (

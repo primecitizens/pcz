@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -643,7 +643,7 @@ func (this PaymentResponse) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PaymentResponse.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentResponse) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentResponseToJSON(
@@ -681,7 +681,7 @@ func (this PaymentResponse) Complete(result PaymentComplete, details PaymentComp
 }
 
 // TryComplete calls the method "PaymentResponse.complete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentResponse) TryComplete(result PaymentComplete, details PaymentCompleteDetails) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentResponseComplete(
@@ -720,7 +720,7 @@ func (this PaymentResponse) Complete1(result PaymentComplete) (ret js.Promise[js
 }
 
 // TryComplete1 calls the method "PaymentResponse.complete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentResponse) TryComplete1(result PaymentComplete) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentResponseComplete1(
@@ -757,7 +757,7 @@ func (this PaymentResponse) Complete2() (ret js.Promise[js.Void]) {
 }
 
 // TryComplete2 calls the method "PaymentResponse.complete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentResponse) TryComplete2() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentResponseComplete2(
@@ -794,7 +794,7 @@ func (this PaymentResponse) Retry(errorFields PaymentValidationErrors) (ret js.P
 }
 
 // TryRetry calls the method "PaymentResponse.retry"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentResponse) TryRetry(errorFields PaymentValidationErrors) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentResponseRetry(
@@ -831,7 +831,7 @@ func (this PaymentResponse) Retry1() (ret js.Promise[js.Void]) {
 }
 
 // TryRetry1 calls the method "PaymentResponse.retry"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentResponse) TryRetry1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentResponseRetry1(
@@ -907,7 +907,7 @@ func (this PaymentRequest) Show(detailsPromise js.Promise[PaymentDetailsUpdate])
 }
 
 // TryShow calls the method "PaymentRequest.show"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequest) TryShow(detailsPromise js.Promise[PaymentDetailsUpdate]) (ret js.Promise[PaymentResponse], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestShow(
@@ -944,7 +944,7 @@ func (this PaymentRequest) Show1() (ret js.Promise[PaymentResponse]) {
 }
 
 // TryShow1 calls the method "PaymentRequest.show"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequest) TryShow1() (ret js.Promise[PaymentResponse], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestShow1(
@@ -980,7 +980,7 @@ func (this PaymentRequest) Abort() (ret js.Promise[js.Void]) {
 }
 
 // TryAbort calls the method "PaymentRequest.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequest) TryAbort() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestAbort(
@@ -1016,7 +1016,7 @@ func (this PaymentRequest) CanMakePayment() (ret js.Promise[js.Boolean]) {
 }
 
 // TryCanMakePayment calls the method "PaymentRequest.canMakePayment"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequest) TryCanMakePayment() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestCanMakePayment(
@@ -1052,7 +1052,7 @@ func (this PaymentRequest) IsSecurePaymentConfirmationAvailable() (ret js.Promis
 }
 
 // TryIsSecurePaymentConfirmationAvailable calls the staticmethod "PaymentRequest.isSecurePaymentConfirmationAvailable"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequest) TryIsSecurePaymentConfirmationAvailable() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestIsSecurePaymentConfirmationAvailable(
@@ -1408,7 +1408,7 @@ func (this PaymentRequestEvent) OpenWindow(url js.String) (ret js.Promise[Window
 }
 
 // TryOpenWindow calls the method "PaymentRequestEvent.openWindow"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestEvent) TryOpenWindow(url js.String) (ret js.Promise[WindowClient], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestEventOpenWindow(
@@ -1447,7 +1447,7 @@ func (this PaymentRequestEvent) ChangePaymentMethod(methodName js.String, method
 }
 
 // TryChangePaymentMethod calls the method "PaymentRequestEvent.changePaymentMethod"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestEvent) TryChangePaymentMethod(methodName js.String, methodDetails js.Object) (ret js.Promise[PaymentRequestDetailsUpdate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestEventChangePaymentMethod(
@@ -1486,7 +1486,7 @@ func (this PaymentRequestEvent) ChangePaymentMethod1(methodName js.String) (ret 
 }
 
 // TryChangePaymentMethod1 calls the method "PaymentRequestEvent.changePaymentMethod"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestEvent) TryChangePaymentMethod1(methodName js.String) (ret js.Promise[PaymentRequestDetailsUpdate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestEventChangePaymentMethod1(
@@ -1524,7 +1524,7 @@ func (this PaymentRequestEvent) ChangeShippingAddress(shippingAddress AddressIni
 }
 
 // TryChangeShippingAddress calls the method "PaymentRequestEvent.changeShippingAddress"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestEvent) TryChangeShippingAddress(shippingAddress AddressInit) (ret js.Promise[PaymentRequestDetailsUpdate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestEventChangeShippingAddress(
@@ -1561,7 +1561,7 @@ func (this PaymentRequestEvent) ChangeShippingAddress1() (ret js.Promise[Payment
 }
 
 // TryChangeShippingAddress1 calls the method "PaymentRequestEvent.changeShippingAddress"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestEvent) TryChangeShippingAddress1() (ret js.Promise[PaymentRequestDetailsUpdate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestEventChangeShippingAddress1(
@@ -1598,7 +1598,7 @@ func (this PaymentRequestEvent) ChangeShippingOption(shippingOption js.String) (
 }
 
 // TryChangeShippingOption calls the method "PaymentRequestEvent.changeShippingOption"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestEvent) TryChangeShippingOption(shippingOption js.String) (ret js.Promise[PaymentRequestDetailsUpdate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestEventChangeShippingOption(
@@ -1636,7 +1636,7 @@ func (this PaymentRequestEvent) RespondWith(handlerResponsePromise js.Promise[Pa
 }
 
 // TryRespondWith calls the method "PaymentRequestEvent.respondWith"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestEvent) TryRespondWith(handlerResponsePromise js.Promise[PaymentHandlerResponse]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestEventRespondWith(
@@ -1763,7 +1763,7 @@ func (this PaymentRequestUpdateEvent) UpdateWith(detailsPromise js.Promise[Payme
 }
 
 // TryUpdateWith calls the method "PaymentRequestUpdateEvent.updateWith"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PaymentRequestUpdateEvent) TryUpdateWith(detailsPromise js.Promise[PaymentDetailsUpdate]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPaymentRequestUpdateEventUpdateWith(
@@ -1960,7 +1960,7 @@ func (this PerformanceElementTiming) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PerformanceElementTiming.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceElementTiming) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceElementTimingToJSON(
@@ -2068,7 +2068,7 @@ func (this PerformanceEventTiming) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PerformanceEventTiming.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceEventTiming) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceEventTimingToJSON(
@@ -2166,7 +2166,7 @@ func (this TaskAttributionTiming) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "TaskAttributionTiming.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this TaskAttributionTiming) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryTaskAttributionTimingToJSON(
@@ -2234,7 +2234,7 @@ func (this PerformanceLongTaskTiming) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PerformanceLongTaskTiming.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceLongTaskTiming) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceLongTaskTimingToJSON(
@@ -2412,7 +2412,7 @@ func (this PerformanceNavigationTiming) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PerformanceNavigationTiming.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceNavigationTiming) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceNavigationTimingToJSON(
@@ -2534,7 +2534,7 @@ func (this PerformanceObserverEntryList) GetEntries() (ret PerformanceEntryList)
 }
 
 // TryGetEntries calls the method "PerformanceObserverEntryList.getEntries"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserverEntryList) TryGetEntries() (ret PerformanceEntryList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverEntryListGetEntries(
@@ -2571,7 +2571,7 @@ func (this PerformanceObserverEntryList) GetEntriesByType(typ js.String) (ret Pe
 }
 
 // TryGetEntriesByType calls the method "PerformanceObserverEntryList.getEntriesByType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserverEntryList) TryGetEntriesByType(typ js.String) (ret PerformanceEntryList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverEntryListGetEntriesByType(
@@ -2610,7 +2610,7 @@ func (this PerformanceObserverEntryList) GetEntriesByName(name js.String, typ js
 }
 
 // TryGetEntriesByName calls the method "PerformanceObserverEntryList.getEntriesByName"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserverEntryList) TryGetEntriesByName(name js.String, typ js.String) (ret PerformanceEntryList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverEntryListGetEntriesByName(
@@ -2649,7 +2649,7 @@ func (this PerformanceObserverEntryList) GetEntriesByName1(name js.String) (ret 
 }
 
 // TryGetEntriesByName1 calls the method "PerformanceObserverEntryList.getEntriesByName"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserverEntryList) TryGetEntriesByName1(name js.String) (ret PerformanceEntryList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverEntryListGetEntriesByName1(
@@ -2820,7 +2820,7 @@ func (this PerformanceObserver) Observe(options PerformanceObserverInit) (ret js
 }
 
 // TryObserve calls the method "PerformanceObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserver) TryObserve(options PerformanceObserverInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverObserve(
@@ -2857,7 +2857,7 @@ func (this PerformanceObserver) Observe1() (ret js.Void) {
 }
 
 // TryObserve1 calls the method "PerformanceObserver.observe"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserver) TryObserve1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverObserve1(
@@ -2893,7 +2893,7 @@ func (this PerformanceObserver) Disconnect() (ret js.Void) {
 }
 
 // TryDisconnect calls the method "PerformanceObserver.disconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserver) TryDisconnect() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverDisconnect(
@@ -2929,7 +2929,7 @@ func (this PerformanceObserver) TakeRecords() (ret PerformanceEntryList) {
 }
 
 // TryTakeRecords calls the method "PerformanceObserver.takeRecords"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceObserver) TryTakeRecords() (ret PerformanceEntryList, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceObserverTakeRecords(
@@ -3063,7 +3063,7 @@ func (this PerformanceServerTiming) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PerformanceServerTiming.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceServerTiming) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceServerTimingToJSON(
@@ -3351,7 +3351,7 @@ func (this PerformanceResourceTiming) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "PerformanceResourceTiming.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PerformanceResourceTiming) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPerformanceResourceTimingToJSON(
@@ -3954,7 +3954,7 @@ func (this PortalActivateEvent) AdoptPredecessor() (ret HTMLPortalElement) {
 }
 
 // TryAdoptPredecessor calls the method "PortalActivateEvent.adoptPredecessor"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PortalActivateEvent) TryAdoptPredecessor() (ret HTMLPortalElement, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPortalActivateEventAdoptPredecessor(

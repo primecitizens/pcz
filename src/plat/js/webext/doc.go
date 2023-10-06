@@ -2,7 +2,7 @@
 // Copyright 2023 The Prime Citizens
 
 // Package webext provides access to apis exposed by web browsers for web
-// extensions.
+// extensions (Manifest Version 3).
 package webext
 
 // Comming soon

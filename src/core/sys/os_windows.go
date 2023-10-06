@@ -8,13 +8,13 @@ package sys
 import (
 	"unsafe"
 
-	stdconst "github.com/primecitizens/std/builtin/const"
-	stdptr "github.com/primecitizens/std/builtin/ptr"
-	stdslice "github.com/primecitizens/std/builtin/slice"
-	stdstring "github.com/primecitizens/std/builtin/string"
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/text/unicode/wtf16"
+	stdconst "github.com/primecitizens/pcz/std/builtin/const"
+	stdptr "github.com/primecitizens/pcz/std/builtin/ptr"
+	stdslice "github.com/primecitizens/pcz/std/builtin/slice"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/text/unicode/wtf16"
 )
 
 func init() {

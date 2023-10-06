@@ -6,8 +6,8 @@
 package html
 
 import (
-	"github.com/primecitizens/std/core/mark"
-	"github.com/primecitizens/std/ffi/js"
+	"github.com/primecitizens/pcz/std/core/mark"
+	"github.com/primecitizens/pcz/std/ffi/js"
 )
 
 // Builder builds HTMLElement.innerHTML

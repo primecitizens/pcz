@@ -4,7 +4,7 @@
 package libcalloc
 
 import (
-	"github.com/primecitizens/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/alloc"
 )
 
 var (

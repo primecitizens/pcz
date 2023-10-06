@@ -6,9 +6,9 @@
 package rt0
 
 import (
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/alloc/sbrkalloc"
-	"github.com/primecitizens/std/ffi/wasm/wasi"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/alloc/sbrkalloc"
+	"github.com/primecitizens/pcz/std/ffi/wasm/wasi"
 )
 
 var _alloc sbrkalloc.T

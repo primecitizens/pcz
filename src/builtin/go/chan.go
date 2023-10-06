@@ -10,7 +10,7 @@ package stdgo
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/abi"
 )
 
 type Chan struct {

@@ -8,10 +8,10 @@
 package sort
 
 import (
-	"github.com/primecitizens/std/core/bits"
-	"github.com/primecitizens/std/core/cmp"
-	"github.com/primecitizens/std/core/iter"
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/bits"
+	"github.com/primecitizens/pcz/std/core/cmp"
+	"github.com/primecitizens/pcz/std/core/iter"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 // An implementation of Interface can be sorted by the routines in this package.

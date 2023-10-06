@@ -7,16 +7,16 @@ import (
 	_ "embed" // for go:embed
 	"unsafe"
 
-	"github.com/primecitizens/std/core/yield"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web"
-	"github.com/primecitizens/std/time"
-	"github.com/primecitizens/std/time/sysclock"
-	"github.com/primecitizens/std/ui/html"
+	"github.com/primecitizens/pcz/std/core/yield"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web"
+	"github.com/primecitizens/pcz/std/time"
+	"github.com/primecitizens/pcz/std/time/sysclock"
+	"github.com/primecitizens/pcz/std/ui/html"
 
 	// unless your application contains symbols expected by the go linker
 	// add a runtime package
-	_ "github.com/primecitizens/std/runtime"
+	_ "github.com/primecitizens/pcz/std/runtime"
 )
 
 var (

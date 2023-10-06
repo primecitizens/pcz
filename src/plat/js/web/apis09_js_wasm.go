@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -165,7 +165,7 @@ func (this MediaStreamTrack) Clone() (ret MediaStreamTrack) {
 }
 
 // TryClone calls the method "MediaStreamTrack.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryClone() (ret MediaStreamTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackClone(
@@ -201,7 +201,7 @@ func (this MediaStreamTrack) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "MediaStreamTrack.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackStop(
@@ -237,7 +237,7 @@ func (this MediaStreamTrack) GetCapabilities() (ret MediaTrackCapabilities) {
 }
 
 // TryGetCapabilities calls the method "MediaStreamTrack.getCapabilities"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryGetCapabilities() (ret MediaTrackCapabilities, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetCapabilities(
@@ -273,7 +273,7 @@ func (this MediaStreamTrack) GetConstraints() (ret MediaTrackConstraints) {
 }
 
 // TryGetConstraints calls the method "MediaStreamTrack.getConstraints"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryGetConstraints() (ret MediaTrackConstraints, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetConstraints(
@@ -309,7 +309,7 @@ func (this MediaStreamTrack) GetSettings() (ret MediaTrackSettings) {
 }
 
 // TryGetSettings calls the method "MediaStreamTrack.getSettings"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryGetSettings() (ret MediaTrackSettings, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetSettings(
@@ -346,7 +346,7 @@ func (this MediaStreamTrack) ApplyConstraints(constraints MediaTrackConstraints)
 }
 
 // TryApplyConstraints calls the method "MediaStreamTrack.applyConstraints"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryApplyConstraints(constraints MediaTrackConstraints) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackApplyConstraints(
@@ -383,7 +383,7 @@ func (this MediaStreamTrack) ApplyConstraints1() (ret js.Promise[js.Void]) {
 }
 
 // TryApplyConstraints1 calls the method "MediaStreamTrack.applyConstraints"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryApplyConstraints1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackApplyConstraints1(
@@ -419,7 +419,7 @@ func (this MediaStreamTrack) GetSupportedCaptureActions() (ret js.Array[js.Strin
 }
 
 // TryGetSupportedCaptureActions calls the method "MediaStreamTrack.getSupportedCaptureActions"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryGetSupportedCaptureActions() (ret js.Array[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetSupportedCaptureActions(
@@ -456,7 +456,7 @@ func (this MediaStreamTrack) SendCaptureAction(action CaptureAction) (ret js.Pro
 }
 
 // TrySendCaptureAction calls the method "MediaStreamTrack.sendCaptureAction"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TrySendCaptureAction(action CaptureAction) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackSendCaptureAction(
@@ -493,7 +493,7 @@ func (this MediaStreamTrack) GetCaptureHandle() (ret CaptureHandle) {
 }
 
 // TryGetCaptureHandle calls the method "MediaStreamTrack.getCaptureHandle"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStreamTrack) TryGetCaptureHandle() (ret CaptureHandle, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamTrackGetCaptureHandle(
@@ -583,7 +583,7 @@ func (this MediaStream) GetAudioTracks() (ret js.Array[MediaStreamTrack]) {
 }
 
 // TryGetAudioTracks calls the method "MediaStream.getAudioTracks"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStream) TryGetAudioTracks() (ret js.Array[MediaStreamTrack], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetAudioTracks(
@@ -619,7 +619,7 @@ func (this MediaStream) GetVideoTracks() (ret js.Array[MediaStreamTrack]) {
 }
 
 // TryGetVideoTracks calls the method "MediaStream.getVideoTracks"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStream) TryGetVideoTracks() (ret js.Array[MediaStreamTrack], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetVideoTracks(
@@ -655,7 +655,7 @@ func (this MediaStream) GetTracks() (ret js.Array[MediaStreamTrack]) {
 }
 
 // TryGetTracks calls the method "MediaStream.getTracks"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStream) TryGetTracks() (ret js.Array[MediaStreamTrack], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetTracks(
@@ -692,7 +692,7 @@ func (this MediaStream) GetTrackById(trackId js.String) (ret MediaStreamTrack) {
 }
 
 // TryGetTrackById calls the method "MediaStream.getTrackById"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStream) TryGetTrackById(trackId js.String) (ret MediaStreamTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamGetTrackById(
@@ -730,7 +730,7 @@ func (this MediaStream) AddTrack(track MediaStreamTrack) (ret js.Void) {
 }
 
 // TryAddTrack calls the method "MediaStream.addTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStream) TryAddTrack(track MediaStreamTrack) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamAddTrack(
@@ -768,7 +768,7 @@ func (this MediaStream) RemoveTrack(track MediaStreamTrack) (ret js.Void) {
 }
 
 // TryRemoveTrack calls the method "MediaStream.removeTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStream) TryRemoveTrack(track MediaStreamTrack) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamRemoveTrack(
@@ -805,7 +805,7 @@ func (this MediaStream) Clone() (ret MediaStream) {
 }
 
 // TryClone calls the method "MediaStream.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaStream) TryClone() (ret MediaStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaStreamClone(
@@ -969,7 +969,7 @@ func (this SourceBufferList) Get(index uint32) (ret SourceBuffer) {
 }
 
 // TryGet calls the method "SourceBufferList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SourceBufferList) TryGet(index uint32) (ret SourceBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySourceBufferListGet(
@@ -1126,7 +1126,7 @@ func (this MediaSource) AddSourceBuffer(typ js.String) (ret SourceBuffer) {
 }
 
 // TryAddSourceBuffer calls the method "MediaSource.addSourceBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TryAddSourceBuffer(typ js.String) (ret SourceBuffer, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceAddSourceBuffer(
@@ -1164,7 +1164,7 @@ func (this MediaSource) RemoveSourceBuffer(sourceBuffer SourceBuffer) (ret js.Vo
 }
 
 // TryRemoveSourceBuffer calls the method "MediaSource.removeSourceBuffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TryRemoveSourceBuffer(sourceBuffer SourceBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceRemoveSourceBuffer(
@@ -1202,7 +1202,7 @@ func (this MediaSource) EndOfStream(err EndOfStreamError) (ret js.Void) {
 }
 
 // TryEndOfStream calls the method "MediaSource.endOfStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TryEndOfStream(err EndOfStreamError) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceEndOfStream(
@@ -1239,7 +1239,7 @@ func (this MediaSource) EndOfStream1() (ret js.Void) {
 }
 
 // TryEndOfStream1 calls the method "MediaSource.endOfStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TryEndOfStream1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceEndOfStream1(
@@ -1277,7 +1277,7 @@ func (this MediaSource) SetLiveSeekableRange(start float64, end float64) (ret js
 }
 
 // TrySetLiveSeekableRange calls the method "MediaSource.setLiveSeekableRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TrySetLiveSeekableRange(start float64, end float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceSetLiveSeekableRange(
@@ -1315,7 +1315,7 @@ func (this MediaSource) ClearLiveSeekableRange() (ret js.Void) {
 }
 
 // TryClearLiveSeekableRange calls the method "MediaSource.clearLiveSeekableRange"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TryClearLiveSeekableRange() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceClearLiveSeekableRange(
@@ -1352,7 +1352,7 @@ func (this MediaSource) IsTypeSupported(typ js.String) (ret bool) {
 }
 
 // TryIsTypeSupported calls the staticmethod "MediaSource.isTypeSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSource) TryIsTypeSupported(typ js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSourceIsTypeSupported(
@@ -1541,7 +1541,7 @@ func (this RemotePlayback) WatchAvailability(callback js.Func[func(available boo
 }
 
 // TryWatchAvailability calls the method "RemotePlayback.watchAvailability"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RemotePlayback) TryWatchAvailability(callback js.Func[func(available bool)]) (ret js.Promise[js.Number[int32]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackWatchAvailability(
@@ -1579,7 +1579,7 @@ func (this RemotePlayback) CancelWatchAvailability(id int32) (ret js.Promise[js.
 }
 
 // TryCancelWatchAvailability calls the method "RemotePlayback.cancelWatchAvailability"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RemotePlayback) TryCancelWatchAvailability(id int32) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackCancelWatchAvailability(
@@ -1616,7 +1616,7 @@ func (this RemotePlayback) CancelWatchAvailability1() (ret js.Promise[js.Void]) 
 }
 
 // TryCancelWatchAvailability1 calls the method "RemotePlayback.cancelWatchAvailability"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RemotePlayback) TryCancelWatchAvailability1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackCancelWatchAvailability1(
@@ -1652,7 +1652,7 @@ func (this RemotePlayback) Prompt() (ret js.Promise[js.Void]) {
 }
 
 // TryPrompt calls the method "RemotePlayback.prompt"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RemotePlayback) TryPrompt() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRemotePlaybackPrompt(
@@ -2180,7 +2180,7 @@ func (this HTMLMediaElement) Load() (ret js.Void) {
 }
 
 // TryLoad calls the method "HTMLMediaElement.load"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryLoad() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementLoad(
@@ -2217,7 +2217,7 @@ func (this HTMLMediaElement) CanPlayType(typ js.String) (ret CanPlayTypeResult) 
 }
 
 // TryCanPlayType calls the method "HTMLMediaElement.canPlayType"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryCanPlayType(typ js.String) (ret CanPlayTypeResult, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementCanPlayType(
@@ -2255,7 +2255,7 @@ func (this HTMLMediaElement) FastSeek(time float64) (ret js.Void) {
 }
 
 // TryFastSeek calls the method "HTMLMediaElement.fastSeek"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryFastSeek(time float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementFastSeek(
@@ -2292,7 +2292,7 @@ func (this HTMLMediaElement) GetStartDate() (ret js.Object) {
 }
 
 // TryGetStartDate calls the method "HTMLMediaElement.getStartDate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryGetStartDate() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementGetStartDate(
@@ -2328,7 +2328,7 @@ func (this HTMLMediaElement) Play() (ret js.Promise[js.Void]) {
 }
 
 // TryPlay calls the method "HTMLMediaElement.play"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryPlay() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementPlay(
@@ -2364,7 +2364,7 @@ func (this HTMLMediaElement) Pause() (ret js.Void) {
 }
 
 // TryPause calls the method "HTMLMediaElement.pause"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryPause() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementPause(
@@ -2403,7 +2403,7 @@ func (this HTMLMediaElement) AddTextTrack(kind TextTrackKind, label js.String, l
 }
 
 // TryAddTextTrack calls the method "HTMLMediaElement.addTextTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryAddTextTrack(kind TextTrackKind, label js.String, language js.String) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementAddTextTrack(
@@ -2444,7 +2444,7 @@ func (this HTMLMediaElement) AddTextTrack1(kind TextTrackKind, label js.String) 
 }
 
 // TryAddTextTrack1 calls the method "HTMLMediaElement.addTextTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryAddTextTrack1(kind TextTrackKind, label js.String) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementAddTextTrack1(
@@ -2483,7 +2483,7 @@ func (this HTMLMediaElement) AddTextTrack2(kind TextTrackKind) (ret TextTrack) {
 }
 
 // TryAddTextTrack2 calls the method "HTMLMediaElement.addTextTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryAddTextTrack2(kind TextTrackKind) (ret TextTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementAddTextTrack2(
@@ -2521,7 +2521,7 @@ func (this HTMLMediaElement) SetMediaKeys(mediaKeys MediaKeys) (ret js.Promise[j
 }
 
 // TrySetMediaKeys calls the method "HTMLMediaElement.setMediaKeys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TrySetMediaKeys(mediaKeys MediaKeys) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementSetMediaKeys(
@@ -2558,7 +2558,7 @@ func (this HTMLMediaElement) CaptureStream() (ret MediaStream) {
 }
 
 // TryCaptureStream calls the method "HTMLMediaElement.captureStream"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TryCaptureStream() (ret MediaStream, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementCaptureStream(
@@ -2595,7 +2595,7 @@ func (this HTMLMediaElement) SetSinkId(sinkId js.String) (ret js.Promise[js.Void
 }
 
 // TrySetSinkId calls the method "HTMLMediaElement.setSinkId"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this HTMLMediaElement) TrySetSinkId(sinkId js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryHTMLMediaElementSetSinkId(
@@ -3061,7 +3061,7 @@ func (this AudioRenderCapacity) Start(options AudioRenderCapacityOptions) (ret j
 }
 
 // TryStart calls the method "AudioRenderCapacity.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioRenderCapacity) TryStart(options AudioRenderCapacityOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioRenderCapacityStart(
@@ -3098,7 +3098,7 @@ func (this AudioRenderCapacity) Start1() (ret js.Void) {
 }
 
 // TryStart1 calls the method "AudioRenderCapacity.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioRenderCapacity) TryStart1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioRenderCapacityStart1(
@@ -3134,7 +3134,7 @@ func (this AudioRenderCapacity) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "AudioRenderCapacity.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioRenderCapacity) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioRenderCapacityStop(
@@ -3243,7 +3243,7 @@ func (this AudioContext) GetOutputTimestamp() (ret AudioTimestamp) {
 }
 
 // TryGetOutputTimestamp calls the method "AudioContext.getOutputTimestamp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TryGetOutputTimestamp() (ret AudioTimestamp, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextGetOutputTimestamp(
@@ -3279,7 +3279,7 @@ func (this AudioContext) Resume() (ret js.Promise[js.Void]) {
 }
 
 // TryResume calls the method "AudioContext.resume"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TryResume() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextResume(
@@ -3315,7 +3315,7 @@ func (this AudioContext) Suspend() (ret js.Promise[js.Void]) {
 }
 
 // TrySuspend calls the method "AudioContext.suspend"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TrySuspend() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextSuspend(
@@ -3351,7 +3351,7 @@ func (this AudioContext) Close() (ret js.Promise[js.Void]) {
 }
 
 // TryClose calls the method "AudioContext.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextClose(
@@ -3388,7 +3388,7 @@ func (this AudioContext) SetSinkId(sinkId OneOf_String_AudioSinkOptions) (ret js
 }
 
 // TrySetSinkId calls the method "AudioContext.setSinkId"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TrySetSinkId(sinkId OneOf_String_AudioSinkOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextSetSinkId(
@@ -3426,7 +3426,7 @@ func (this AudioContext) CreateMediaElementSource(mediaElement HTMLMediaElement)
 }
 
 // TryCreateMediaElementSource calls the method "AudioContext.createMediaElementSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TryCreateMediaElementSource(mediaElement HTMLMediaElement) (ret MediaElementAudioSourceNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaElementSource(
@@ -3464,7 +3464,7 @@ func (this AudioContext) CreateMediaStreamSource(mediaStream MediaStream) (ret M
 }
 
 // TryCreateMediaStreamSource calls the method "AudioContext.createMediaStreamSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TryCreateMediaStreamSource(mediaStream MediaStream) (ret MediaStreamAudioSourceNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaStreamSource(
@@ -3502,7 +3502,7 @@ func (this AudioContext) CreateMediaStreamTrackSource(mediaStreamTrack MediaStre
 }
 
 // TryCreateMediaStreamTrackSource calls the method "AudioContext.createMediaStreamTrackSource"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TryCreateMediaStreamTrackSource(mediaStreamTrack MediaStreamTrack) (ret MediaStreamTrackAudioSourceNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaStreamTrackSource(
@@ -3539,7 +3539,7 @@ func (this AudioContext) CreateMediaStreamDestination() (ret MediaStreamAudioDes
 }
 
 // TryCreateMediaStreamDestination calls the method "AudioContext.createMediaStreamDestination"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioContext) TryCreateMediaStreamDestination() (ret MediaStreamAudioDestinationNode, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioContextCreateMediaStreamDestination(
@@ -3821,7 +3821,7 @@ func (this AudioData) AllocationSize(options AudioDataCopyToOptions) (ret uint32
 }
 
 // TryAllocationSize calls the method "AudioData.allocationSize"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioData) TryAllocationSize(options AudioDataCopyToOptions) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataAllocationSize(
@@ -3860,7 +3860,7 @@ func (this AudioData) CopyTo(destination AllowSharedBufferSource, options AudioD
 }
 
 // TryCopyTo calls the method "AudioData.copyTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioData) TryCopyTo(destination AllowSharedBufferSource, options AudioDataCopyToOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataCopyTo(
@@ -3898,7 +3898,7 @@ func (this AudioData) Clone() (ret AudioData) {
 }
 
 // TryClone calls the method "AudioData.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioData) TryClone() (ret AudioData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataClone(
@@ -3934,7 +3934,7 @@ func (this AudioData) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "AudioData.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioData) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDataClose(
@@ -4323,7 +4323,7 @@ func (this EncodedAudioChunk) CopyTo(destination AllowSharedBufferSource) (ret j
 }
 
 // TryCopyTo calls the method "EncodedAudioChunk.copyTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EncodedAudioChunk) TryCopyTo(destination AllowSharedBufferSource) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEncodedAudioChunkCopyTo(
@@ -4482,7 +4482,7 @@ func (this AudioDecoder) Configure(config AudioDecoderConfig) (ret js.Void) {
 }
 
 // TryConfigure calls the method "AudioDecoder.configure"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioDecoder) TryConfigure(config AudioDecoderConfig) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderConfigure(
@@ -4520,7 +4520,7 @@ func (this AudioDecoder) Decode(chunk EncodedAudioChunk) (ret js.Void) {
 }
 
 // TryDecode calls the method "AudioDecoder.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioDecoder) TryDecode(chunk EncodedAudioChunk) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderDecode(
@@ -4557,7 +4557,7 @@ func (this AudioDecoder) Flush() (ret js.Promise[js.Void]) {
 }
 
 // TryFlush calls the method "AudioDecoder.flush"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioDecoder) TryFlush() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderFlush(
@@ -4593,7 +4593,7 @@ func (this AudioDecoder) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "AudioDecoder.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioDecoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderReset(
@@ -4629,7 +4629,7 @@ func (this AudioDecoder) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "AudioDecoder.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioDecoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderClose(
@@ -4666,7 +4666,7 @@ func (this AudioDecoder) IsConfigSupported(config AudioDecoderConfig) (ret js.Pr
 }
 
 // TryIsConfigSupported calls the staticmethod "AudioDecoder.isConfigSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AudioDecoder) TryIsConfigSupported(config AudioDecoderConfig) (ret js.Promise[AudioDecoderSupport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAudioDecoderIsConfigSupported(

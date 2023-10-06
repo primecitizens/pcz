@@ -10,8 +10,8 @@ package stdslice
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/alloc"
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 func Append[E any, Alloc alloc.M](alloc Alloc, dst []E, elems ...E) []E {

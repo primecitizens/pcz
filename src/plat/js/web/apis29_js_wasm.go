@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -277,7 +277,7 @@ func (this SerialPort) GetInfo() (ret SerialPortInfo) {
 }
 
 // TryGetInfo calls the method "SerialPort.getInfo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SerialPort) TryGetInfo() (ret SerialPortInfo, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialPortGetInfo(
@@ -314,7 +314,7 @@ func (this SerialPort) Open(options SerialOptions) (ret js.Promise[js.Void]) {
 }
 
 // TryOpen calls the method "SerialPort.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SerialPort) TryOpen(options SerialOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialPortOpen(
@@ -352,7 +352,7 @@ func (this SerialPort) SetSignals(signals SerialOutputSignals) (ret js.Promise[j
 }
 
 // TrySetSignals calls the method "SerialPort.setSignals"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SerialPort) TrySetSignals(signals SerialOutputSignals) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialPortSetSignals(
@@ -389,7 +389,7 @@ func (this SerialPort) SetSignals1() (ret js.Promise[js.Void]) {
 }
 
 // TrySetSignals1 calls the method "SerialPort.setSignals"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SerialPort) TrySetSignals1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialPortSetSignals1(
@@ -425,7 +425,7 @@ func (this SerialPort) GetSignals() (ret js.Promise[SerialInputSignals]) {
 }
 
 // TryGetSignals calls the method "SerialPort.getSignals"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SerialPort) TryGetSignals() (ret js.Promise[SerialInputSignals], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialPortGetSignals(
@@ -461,7 +461,7 @@ func (this SerialPort) Close() (ret js.Promise[js.Void]) {
 }
 
 // TryClose calls the method "SerialPort.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SerialPort) TryClose() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialPortClose(
@@ -497,7 +497,7 @@ func (this SerialPort) Forget() (ret js.Promise[js.Void]) {
 }
 
 // TryForget calls the method "SerialPort.forget"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SerialPort) TryForget() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialPortForget(
@@ -646,7 +646,7 @@ func (this Serial) GetPorts() (ret js.Promise[js.Array[SerialPort]]) {
 }
 
 // TryGetPorts calls the method "Serial.getPorts"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Serial) TryGetPorts() (ret js.Promise[js.Array[SerialPort]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialGetPorts(
@@ -683,7 +683,7 @@ func (this Serial) RequestPort(options SerialPortRequestOptions) (ret js.Promise
 }
 
 // TryRequestPort calls the method "Serial.requestPort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Serial) TryRequestPort(options SerialPortRequestOptions) (ret js.Promise[SerialPort], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialRequestPort(
@@ -720,7 +720,7 @@ func (this Serial) RequestPort1() (ret js.Promise[SerialPort]) {
 }
 
 // TryRequestPort1 calls the method "Serial.requestPort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Serial) TryRequestPort1() (ret js.Promise[SerialPort], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySerialRequestPort1(
@@ -1277,7 +1277,7 @@ func (this MediaCapabilities) DecodingInfo(configuration MediaDecodingConfigurat
 }
 
 // TryDecodingInfo calls the method "MediaCapabilities.decodingInfo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaCapabilities) TryDecodingInfo(configuration MediaDecodingConfiguration) (ret js.Promise[MediaCapabilitiesDecodingInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaCapabilitiesDecodingInfo(
@@ -1315,7 +1315,7 @@ func (this MediaCapabilities) EncodingInfo(configuration MediaEncodingConfigurat
 }
 
 // TryEncodingInfo calls the method "MediaCapabilities.encodingInfo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaCapabilities) TryEncodingInfo(configuration MediaEncodingConfiguration) (ret js.Promise[MediaCapabilitiesEncodingInfo], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaCapabilitiesEncodingInfo(
@@ -1459,7 +1459,7 @@ func (this Permissions) Query(permissionDesc js.Object) (ret js.Promise[Permissi
 }
 
 // TryQuery calls the method "Permissions.query"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Permissions) TryQuery(permissionDesc js.Object) (ret js.Promise[PermissionStatus], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPermissionsQuery(
@@ -1497,7 +1497,7 @@ func (this Permissions) Revoke(permissionDesc js.Object) (ret js.Promise[Permiss
 }
 
 // TryRevoke calls the method "Permissions.revoke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Permissions) TryRevoke(permissionDesc js.Object) (ret js.Promise[PermissionStatus], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPermissionsRevoke(
@@ -1535,7 +1535,7 @@ func (this Permissions) Request(permissionDesc js.Object) (ret js.Promise[Permis
 }
 
 // TryRequest calls the method "Permissions.request"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Permissions) TryRequest(permissionDesc js.Object) (ret js.Promise[PermissionStatus], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPermissionsRequest(
@@ -1727,7 +1727,7 @@ func (this ContactAddress) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "ContactAddress.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ContactAddress) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryContactAddressToJSON(
@@ -1877,7 +1877,7 @@ func (this ContactsManager) GetProperties() (ret js.Promise[js.Array[ContactProp
 }
 
 // TryGetProperties calls the method "ContactsManager.getProperties"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ContactsManager) TryGetProperties() (ret js.Promise[js.Array[ContactProperty]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryContactsManagerGetProperties(
@@ -1915,7 +1915,7 @@ func (this ContactsManager) Select(properties js.Array[ContactProperty], options
 }
 
 // TrySelect calls the method "ContactsManager.select"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ContactsManager) TrySelect(properties js.Array[ContactProperty], options ContactsSelectOptions) (ret js.Promise[js.Array[ContactInfo]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryContactsManagerSelect(
@@ -1954,7 +1954,7 @@ func (this ContactsManager) Select1(properties js.Array[ContactProperty]) (ret j
 }
 
 // TrySelect1 calls the method "ContactsManager.select"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ContactsManager) TrySelect1(properties js.Array[ContactProperty]) (ret js.Promise[js.Array[ContactInfo]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryContactsManagerSelect1(
@@ -2036,7 +2036,7 @@ func (this Keyboard) Lock(keyCodes js.Array[js.String]) (ret js.Promise[js.Void]
 }
 
 // TryLock calls the method "Keyboard.lock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Keyboard) TryLock(keyCodes js.Array[js.String]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardLock(
@@ -2073,7 +2073,7 @@ func (this Keyboard) Lock1() (ret js.Promise[js.Void]) {
 }
 
 // TryLock1 calls the method "Keyboard.lock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Keyboard) TryLock1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardLock1(
@@ -2109,7 +2109,7 @@ func (this Keyboard) Unlock() (ret js.Void) {
 }
 
 // TryUnlock calls the method "Keyboard.unlock"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Keyboard) TryUnlock() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardUnlock(
@@ -2145,7 +2145,7 @@ func (this Keyboard) GetLayoutMap() (ret js.Promise[KeyboardLayoutMap]) {
 }
 
 // TryGetLayoutMap calls the method "Keyboard.getLayoutMap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Keyboard) TryGetLayoutMap() (ret js.Promise[KeyboardLayoutMap], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryKeyboardGetLayoutMap(
@@ -2709,7 +2709,7 @@ func (this MediaSession) SetActionHandler(action MediaSessionAction, handler js.
 }
 
 // TrySetActionHandler calls the method "MediaSession.setActionHandler"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSession) TrySetActionHandler(action MediaSessionAction, handler js.Func[func(details MediaSessionActionDetails)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSessionSetActionHandler(
@@ -2748,7 +2748,7 @@ func (this MediaSession) SetPositionState(state MediaPositionState) (ret js.Void
 }
 
 // TrySetPositionState calls the method "MediaSession.setPositionState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSession) TrySetPositionState(state MediaPositionState) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSessionSetPositionState(
@@ -2785,7 +2785,7 @@ func (this MediaSession) SetPositionState1() (ret js.Void) {
 }
 
 // TrySetPositionState1 calls the method "MediaSession.setPositionState"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSession) TrySetPositionState1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSessionSetPositionState1(
@@ -2822,7 +2822,7 @@ func (this MediaSession) SetMicrophoneActive(active bool) (ret js.Void) {
 }
 
 // TrySetMicrophoneActive calls the method "MediaSession.setMicrophoneActive"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSession) TrySetMicrophoneActive(active bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSessionSetMicrophoneActive(
@@ -2860,7 +2860,7 @@ func (this MediaSession) SetCameraActive(active bool) (ret js.Void) {
 }
 
 // TrySetCameraActive calls the method "MediaSession.setCameraActive"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaSession) TrySetCameraActive(active bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaSessionSetCameraActive(

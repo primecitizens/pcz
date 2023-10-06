@@ -6,7 +6,7 @@
 package sys
 
 import (
-	stdstring "github.com/primecitizens/std/builtin/string"
+	stdstring "github.com/primecitizens/pcz/std/builtin/string"
 )
 
 var envs []*byte

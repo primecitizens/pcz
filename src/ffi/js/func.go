@@ -4,8 +4,8 @@
 package js
 
 import (
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
 )
 
 func ThrowInvalidCallbackInvocation() {

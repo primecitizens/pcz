@@ -6,8 +6,8 @@
 package sbrkalloc
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/alloc/sbrkalloc/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/alloc/sbrkalloc/bindings"
 )
 
 func init() {

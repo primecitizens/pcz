@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -106,7 +106,7 @@ func (this Scheduling) IsInputPending(isInputPendingOptions IsInputPendingOption
 }
 
 // TryIsInputPending calls the method "Scheduling.isInputPending"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Scheduling) TryIsInputPending(isInputPendingOptions IsInputPendingOptions) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySchedulingIsInputPending(
@@ -143,7 +143,7 @@ func (this Scheduling) IsInputPending1() (ret bool) {
 }
 
 // TryIsInputPending1 calls the method "Scheduling.isInputPending"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Scheduling) TryIsInputPending1() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySchedulingIsInputPending1(
@@ -242,7 +242,7 @@ func (this WakeLockSentinel) Release() (ret js.Promise[js.Void]) {
 }
 
 // TryRelease calls the method "WakeLockSentinel.release"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WakeLockSentinel) TryRelease() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWakeLockSentinelRelease(
@@ -301,7 +301,7 @@ func (this WakeLock) Request(typ WakeLockType) (ret js.Promise[WakeLockSentinel]
 }
 
 // TryRequest calls the method "WakeLock.request"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WakeLock) TryRequest(typ WakeLockType) (ret js.Promise[WakeLockSentinel], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWakeLockRequest(
@@ -338,7 +338,7 @@ func (this WakeLock) Request1() (ret js.Promise[WakeLockSentinel]) {
 }
 
 // TryRequest1 calls the method "WakeLock.request"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this WakeLock) TryRequest1() (ret js.Promise[WakeLockSentinel], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWakeLockRequest1(
@@ -665,7 +665,7 @@ func (this PointerEvent) GetCoalescedEvents() (ret js.Array[PointerEvent]) {
 }
 
 // TryGetCoalescedEvents calls the method "PointerEvent.getCoalescedEvents"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PointerEvent) TryGetCoalescedEvents() (ret js.Array[PointerEvent], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPointerEventGetCoalescedEvents(
@@ -701,7 +701,7 @@ func (this PointerEvent) GetPredictedEvents() (ret js.Array[PointerEvent]) {
 }
 
 // TryGetPredictedEvents calls the method "PointerEvent.getPredictedEvents"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PointerEvent) TryGetPredictedEvents() (ret js.Array[PointerEvent], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPointerEventGetPredictedEvents(
@@ -821,7 +821,7 @@ func (this InkPresenter) UpdateInkTrailStartPoint(event PointerEvent, style InkT
 }
 
 // TryUpdateInkTrailStartPoint calls the method "InkPresenter.updateInkTrailStartPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InkPresenter) TryUpdateInkTrailStartPoint(event PointerEvent, style InkTrailStyle) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInkPresenterUpdateInkTrailStartPoint(
@@ -918,7 +918,7 @@ func (this Ink) RequestPresenter(param InkPresenterParam) (ret js.Promise[InkPre
 }
 
 // TryRequestPresenter calls the method "Ink.requestPresenter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Ink) TryRequestPresenter(param InkPresenterParam) (ret js.Promise[InkPresenter], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInkRequestPresenter(
@@ -955,7 +955,7 @@ func (this Ink) RequestPresenter1() (ret js.Promise[InkPresenter]) {
 }
 
 // TryRequestPresenter1 calls the method "Ink.requestPresenter"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Ink) TryRequestPresenter1() (ret js.Promise[InkPresenter], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInkRequestPresenter1(
@@ -1093,7 +1093,7 @@ func (this PresentationConnection) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "PresentationConnection.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationConnection) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationConnectionClose(
@@ -1129,7 +1129,7 @@ func (this PresentationConnection) Terminate() (ret js.Void) {
 }
 
 // TryTerminate calls the method "PresentationConnection.terminate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationConnection) TryTerminate() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationConnectionTerminate(
@@ -1166,7 +1166,7 @@ func (this PresentationConnection) Send(message js.String) (ret js.Void) {
 }
 
 // TrySend calls the method "PresentationConnection.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationConnection) TrySend(message js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationConnectionSend(
@@ -1204,7 +1204,7 @@ func (this PresentationConnection) Send1(data Blob) (ret js.Void) {
 }
 
 // TrySend1 calls the method "PresentationConnection.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationConnection) TrySend1(data Blob) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationConnectionSend1(
@@ -1242,7 +1242,7 @@ func (this PresentationConnection) Send2(data js.ArrayBuffer) (ret js.Void) {
 }
 
 // TrySend2 calls the method "PresentationConnection.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationConnection) TrySend2(data js.ArrayBuffer) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationConnectionSend2(
@@ -1280,7 +1280,7 @@ func (this PresentationConnection) Send3(data js.ArrayBufferView) (ret js.Void) 
 }
 
 // TrySend3 calls the method "PresentationConnection.send"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationConnection) TrySend3(data js.ArrayBufferView) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationConnectionSend3(
@@ -1383,7 +1383,7 @@ func (this PresentationRequest) Start() (ret js.Promise[PresentationConnection])
 }
 
 // TryStart calls the method "PresentationRequest.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationRequest) TryStart() (ret js.Promise[PresentationConnection], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationRequestStart(
@@ -1420,7 +1420,7 @@ func (this PresentationRequest) Reconnect(presentationId js.String) (ret js.Prom
 }
 
 // TryReconnect calls the method "PresentationRequest.reconnect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationRequest) TryReconnect(presentationId js.String) (ret js.Promise[PresentationConnection], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationRequestReconnect(
@@ -1457,7 +1457,7 @@ func (this PresentationRequest) GetAvailability() (ret js.Promise[PresentationAv
 }
 
 // TryGetAvailability calls the method "PresentationRequest.getAvailability"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PresentationRequest) TryGetAvailability() (ret js.Promise[PresentationAvailability], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPresentationRequestGetAvailability(
@@ -1661,7 +1661,7 @@ func (this VirtualKeyboard) Show() (ret js.Void) {
 }
 
 // TryShow calls the method "VirtualKeyboard.show"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VirtualKeyboard) TryShow() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVirtualKeyboardShow(
@@ -1697,7 +1697,7 @@ func (this VirtualKeyboard) Hide() (ret js.Void) {
 }
 
 // TryHide calls the method "VirtualKeyboard.hide"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this VirtualKeyboard) TryHide() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryVirtualKeyboardHide(
@@ -1957,7 +1957,7 @@ func (this NavigatorUAData) GetHighEntropyValues(hints js.Array[js.String]) (ret
 }
 
 // TryGetHighEntropyValues calls the method "NavigatorUAData.getHighEntropyValues"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigatorUAData) TryGetHighEntropyValues(hints js.Array[js.String]) (ret js.Promise[UADataValues], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorUADataGetHighEntropyValues(
@@ -1994,7 +1994,7 @@ func (this NavigatorUAData) ToJSON() (ret UALowEntropyJSON) {
 }
 
 // TryToJSON calls the method "NavigatorUAData.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this NavigatorUAData) TryToJSON() (ret UALowEntropyJSON, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryNavigatorUADataToJSON(
@@ -2099,7 +2099,7 @@ func (this StorageManager) Persisted() (ret js.Promise[js.Boolean]) {
 }
 
 // TryPersisted calls the method "StorageManager.persisted"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageManager) TryPersisted() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageManagerPersisted(
@@ -2135,7 +2135,7 @@ func (this StorageManager) Persist() (ret js.Promise[js.Boolean]) {
 }
 
 // TryPersist calls the method "StorageManager.persist"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageManager) TryPersist() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageManagerPersist(
@@ -2171,7 +2171,7 @@ func (this StorageManager) Estimate() (ret js.Promise[StorageEstimate]) {
 }
 
 // TryEstimate calls the method "StorageManager.estimate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageManager) TryEstimate() (ret js.Promise[StorageEstimate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageManagerEstimate(
@@ -2207,7 +2207,7 @@ func (this StorageManager) GetDirectory() (ret js.Promise[FileSystemDirectoryHan
 }
 
 // TryGetDirectory calls the method "StorageManager.getDirectory"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageManager) TryGetDirectory() (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageManagerGetDirectory(
@@ -2357,7 +2357,7 @@ func (this IDBFactory) Open(name js.String, version uint64) (ret IDBOpenDBReques
 }
 
 // TryOpen calls the method "IDBFactory.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBFactory) TryOpen(name js.String, version uint64) (ret IDBOpenDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBFactoryOpen(
@@ -2396,7 +2396,7 @@ func (this IDBFactory) Open1(name js.String) (ret IDBOpenDBRequest) {
 }
 
 // TryOpen1 calls the method "IDBFactory.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBFactory) TryOpen1(name js.String) (ret IDBOpenDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBFactoryOpen1(
@@ -2434,7 +2434,7 @@ func (this IDBFactory) DeleteDatabase(name js.String) (ret IDBOpenDBRequest) {
 }
 
 // TryDeleteDatabase calls the method "IDBFactory.deleteDatabase"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBFactory) TryDeleteDatabase(name js.String) (ret IDBOpenDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBFactoryDeleteDatabase(
@@ -2471,7 +2471,7 @@ func (this IDBFactory) Databases() (ret js.Promise[js.Array[IDBDatabaseInfo]]) {
 }
 
 // TryDatabases calls the method "IDBFactory.databases"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBFactory) TryDatabases() (ret js.Promise[js.Array[IDBDatabaseInfo]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBFactoryDatabases(
@@ -2509,7 +2509,7 @@ func (this IDBFactory) Cmp(first js.Any, second js.Any) (ret int16) {
 }
 
 // TryCmp calls the method "IDBFactory.cmp"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBFactory) TryCmp(first js.Any, second js.Any) (ret int16, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBFactoryCmp(
@@ -2599,7 +2599,7 @@ func (this StorageBucket) Persist() (ret js.Promise[js.Boolean]) {
 }
 
 // TryPersist calls the method "StorageBucket.persist"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucket) TryPersist() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketPersist(
@@ -2635,7 +2635,7 @@ func (this StorageBucket) Persisted() (ret js.Promise[js.Boolean]) {
 }
 
 // TryPersisted calls the method "StorageBucket.persisted"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucket) TryPersisted() (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketPersisted(
@@ -2671,7 +2671,7 @@ func (this StorageBucket) Estimate() (ret js.Promise[StorageEstimate]) {
 }
 
 // TryEstimate calls the method "StorageBucket.estimate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucket) TryEstimate() (ret js.Promise[StorageEstimate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketEstimate(
@@ -2707,7 +2707,7 @@ func (this StorageBucket) Durability() (ret js.Promise[StorageBucketDurability])
 }
 
 // TryDurability calls the method "StorageBucket.durability"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucket) TryDurability() (ret js.Promise[StorageBucketDurability], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketDurability(
@@ -2744,7 +2744,7 @@ func (this StorageBucket) SetExpires(expires DOMHighResTimeStamp) (ret js.Promis
 }
 
 // TrySetExpires calls the method "StorageBucket.setExpires"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucket) TrySetExpires(expires DOMHighResTimeStamp) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketSetExpires(
@@ -2781,7 +2781,7 @@ func (this StorageBucket) Expires() (ret js.Promise[js.Number[DOMHighResTimeStam
 }
 
 // TryExpires calls the method "StorageBucket.expires"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucket) TryExpires() (ret js.Promise[js.Number[DOMHighResTimeStamp]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketExpires(
@@ -2817,7 +2817,7 @@ func (this StorageBucket) GetDirectory() (ret js.Promise[FileSystemDirectoryHand
 }
 
 // TryGetDirectory calls the method "StorageBucket.getDirectory"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucket) TryGetDirectory() (ret js.Promise[FileSystemDirectoryHandle], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketGetDirectory(
@@ -2935,7 +2935,7 @@ func (this StorageBucketManager) Open(name js.String, options StorageBucketOptio
 }
 
 // TryOpen calls the method "StorageBucketManager.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucketManager) TryOpen(name js.String, options StorageBucketOptions) (ret js.Promise[StorageBucket], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketManagerOpen(
@@ -2974,7 +2974,7 @@ func (this StorageBucketManager) Open1(name js.String) (ret js.Promise[StorageBu
 }
 
 // TryOpen1 calls the method "StorageBucketManager.open"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucketManager) TryOpen1(name js.String) (ret js.Promise[StorageBucket], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketManagerOpen1(
@@ -3011,7 +3011,7 @@ func (this StorageBucketManager) Keys() (ret js.Promise[js.Array[js.String]]) {
 }
 
 // TryKeys calls the method "StorageBucketManager.keys"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucketManager) TryKeys() (ret js.Promise[js.Array[js.String]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketManagerKeys(
@@ -3048,7 +3048,7 @@ func (this StorageBucketManager) Delete(name js.String) (ret js.Promise[js.Void]
 }
 
 // TryDelete calls the method "StorageBucketManager.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StorageBucketManager) TryDelete(name js.String) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStorageBucketManagerDelete(
@@ -3374,7 +3374,7 @@ func (this LockManager) Request(name js.String, callback js.Func[func(lock Lock)
 }
 
 // TryRequest calls the method "LockManager.request"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LockManager) TryRequest(name js.String, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLockManagerRequest(
@@ -3415,7 +3415,7 @@ func (this LockManager) Request1(name js.String, options LockOptions, callback j
 }
 
 // TryRequest1 calls the method "LockManager.request"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LockManager) TryRequest1(name js.String, options LockOptions, callback js.Func[func(lock Lock) js.Promise[js.Any]]) (ret js.Promise[js.Any], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLockManagerRequest1(
@@ -3454,7 +3454,7 @@ func (this LockManager) Query() (ret js.Promise[LockManagerSnapshot]) {
 }
 
 // TryQuery calls the method "LockManager.query"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this LockManager) TryQuery() (ret js.Promise[LockManagerSnapshot], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryLockManagerQuery(
@@ -3615,7 +3615,7 @@ func (this Plugin) Item(index uint32) (ret MimeType) {
 }
 
 // TryItem calls the method "Plugin.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Plugin) TryItem(index uint32) (ret MimeType, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPluginItem(
@@ -3653,7 +3653,7 @@ func (this Plugin) NamedItem(name js.String) (ret MimeType) {
 }
 
 // TryNamedItem calls the method "Plugin.namedItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Plugin) TryNamedItem(name js.String) (ret MimeType, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPluginNamedItem(
@@ -3722,7 +3722,7 @@ func (this PluginArray) Refresh() (ret js.Void) {
 }
 
 // TryRefresh calls the method "PluginArray.refresh"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PluginArray) TryRefresh() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPluginArrayRefresh(
@@ -3759,7 +3759,7 @@ func (this PluginArray) Item(index uint32) (ret Plugin) {
 }
 
 // TryItem calls the method "PluginArray.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PluginArray) TryItem(index uint32) (ret Plugin, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPluginArrayItem(
@@ -3797,7 +3797,7 @@ func (this PluginArray) NamedItem(name js.String) (ret Plugin) {
 }
 
 // TryNamedItem calls the method "PluginArray.namedItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this PluginArray) TryNamedItem(name js.String) (ret Plugin, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryPluginArrayNamedItem(
@@ -3867,7 +3867,7 @@ func (this MimeTypeArray) Item(index uint32) (ret MimeType) {
 }
 
 // TryItem calls the method "MimeTypeArray.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MimeTypeArray) TryItem(index uint32) (ret MimeType, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMimeTypeArrayItem(
@@ -3905,7 +3905,7 @@ func (this MimeTypeArray) NamedItem(name js.String) (ret MimeType) {
 }
 
 // TryNamedItem calls the method "MimeTypeArray.namedItem"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MimeTypeArray) TryNamedItem(name js.String) (ret MimeType, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMimeTypeArrayNamedItem(

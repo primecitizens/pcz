@@ -6,8 +6,8 @@ package runtime
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/arch"
-	"github.com/primecitizens/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/assert"
 )
 
 // See ${GOROOT}/src/runtime/panic.go

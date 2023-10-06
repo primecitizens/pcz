@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -217,7 +217,7 @@ func (this GPUComputePipeline) GetBindGroupLayout(index uint32) (ret GPUBindGrou
 }
 
 // TryGetBindGroupLayout calls the method "GPUComputePipeline.getBindGroupLayout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPUComputePipeline) TryGetBindGroupLayout(index uint32) (ret GPUBindGroupLayout, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPUComputePipelineGetBindGroupLayout(
@@ -389,7 +389,7 @@ func (this GPURenderPipeline) GetBindGroupLayout(index uint32) (ret GPUBindGroup
 }
 
 // TryGetBindGroupLayout calls the method "GPURenderPipeline.getBindGroupLayout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GPURenderPipeline) TryGetBindGroupLayout(index uint32) (ret GPUBindGroupLayout, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGPURenderPipelineGetBindGroupLayout(

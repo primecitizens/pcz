@@ -6,14 +6,14 @@ package js
 import (
 	"unsafe"
 
-	stdconst "github.com/primecitizens/std/builtin/const"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/mark"
-	"github.com/primecitizens/std/core/math"
-	"github.com/primecitizens/std/ffi"
-	"github.com/primecitizens/std/ffi/js/bindings"
-	"github.com/primecitizens/std/ffi/js/callback"
+	stdconst "github.com/primecitizens/pcz/std/builtin/const"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/ffi"
+	"github.com/primecitizens/pcz/std/ffi/js/bindings"
+	"github.com/primecitizens/pcz/std/ffi/js/callback"
 )
 
 // CallbackDispatcher defines the interface of a js callback dispatcher.

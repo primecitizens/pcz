@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -188,7 +188,7 @@ func (this AnimationNodeList) Item(index uint32) (ret AnimationEffect) {
 }
 
 // TryItem calls the method "AnimationNodeList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationNodeList) TryItem(index uint32) (ret AnimationEffect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationNodeListItem(
@@ -290,7 +290,7 @@ func (this GroupEffect) Clone() (ret GroupEffect) {
 }
 
 // TryClone calls the method "GroupEffect.clone"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GroupEffect) TryClone() (ret GroupEffect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGroupEffectClone(
@@ -328,7 +328,7 @@ func (this GroupEffect) Prepend(effects ...AnimationEffect) (ret js.Void) {
 }
 
 // TryPrepend calls the method "GroupEffect.prepend"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GroupEffect) TryPrepend(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGroupEffectPrepend(
@@ -368,7 +368,7 @@ func (this GroupEffect) Append(effects ...AnimationEffect) (ret js.Void) {
 }
 
 // TryAppend calls the method "GroupEffect.append"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this GroupEffect) TryAppend(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryGroupEffectAppend(
@@ -458,7 +458,7 @@ func (this AnimationEffect) GetTiming() (ret EffectTiming) {
 }
 
 // TryGetTiming calls the method "AnimationEffect.getTiming"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryGetTiming() (ret EffectTiming, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectGetTiming(
@@ -494,7 +494,7 @@ func (this AnimationEffect) GetComputedTiming() (ret ComputedEffectTiming) {
 }
 
 // TryGetComputedTiming calls the method "AnimationEffect.getComputedTiming"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryGetComputedTiming() (ret ComputedEffectTiming, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectGetComputedTiming(
@@ -531,7 +531,7 @@ func (this AnimationEffect) UpdateTiming(timing OptionalEffectTiming) (ret js.Vo
 }
 
 // TryUpdateTiming calls the method "AnimationEffect.updateTiming"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryUpdateTiming(timing OptionalEffectTiming) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectUpdateTiming(
@@ -568,7 +568,7 @@ func (this AnimationEffect) UpdateTiming1() (ret js.Void) {
 }
 
 // TryUpdateTiming1 calls the method "AnimationEffect.updateTiming"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryUpdateTiming1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectUpdateTiming1(
@@ -606,7 +606,7 @@ func (this AnimationEffect) Before(effects ...AnimationEffect) (ret js.Void) {
 }
 
 // TryBefore calls the method "AnimationEffect.before"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryBefore(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectBefore(
@@ -646,7 +646,7 @@ func (this AnimationEffect) After(effects ...AnimationEffect) (ret js.Void) {
 }
 
 // TryAfter calls the method "AnimationEffect.after"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryAfter(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectAfter(
@@ -686,7 +686,7 @@ func (this AnimationEffect) Replace(effects ...AnimationEffect) (ret js.Void) {
 }
 
 // TryReplace calls the method "AnimationEffect.replace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryReplace(effects ...AnimationEffect) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectReplace(
@@ -724,7 +724,7 @@ func (this AnimationEffect) Remove() (ret js.Void) {
 }
 
 // TryRemove calls the method "AnimationEffect.remove"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationEffect) TryRemove() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationEffectRemove(
@@ -803,7 +803,7 @@ func (this AnimationTimeline) Play(effect AnimationEffect) (ret Animation) {
 }
 
 // TryPlay calls the method "AnimationTimeline.play"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationTimeline) TryPlay(effect AnimationEffect) (ret Animation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationTimelinePlay(
@@ -840,7 +840,7 @@ func (this AnimationTimeline) Play1() (ret Animation) {
 }
 
 // TryPlay1 calls the method "AnimationTimeline.play"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AnimationTimeline) TryPlay1() (ret Animation, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationTimelinePlay1(
@@ -1143,7 +1143,7 @@ func (this Animation) Cancel() (ret js.Void) {
 }
 
 // TryCancel calls the method "Animation.cancel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryCancel() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationCancel(
@@ -1179,7 +1179,7 @@ func (this Animation) Finish() (ret js.Void) {
 }
 
 // TryFinish calls the method "Animation.finish"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryFinish() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationFinish(
@@ -1215,7 +1215,7 @@ func (this Animation) Play() (ret js.Void) {
 }
 
 // TryPlay calls the method "Animation.play"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryPlay() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationPlay(
@@ -1251,7 +1251,7 @@ func (this Animation) Pause() (ret js.Void) {
 }
 
 // TryPause calls the method "Animation.pause"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryPause() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationPause(
@@ -1288,7 +1288,7 @@ func (this Animation) UpdatePlaybackRate(playbackRate float64) (ret js.Void) {
 }
 
 // TryUpdatePlaybackRate calls the method "Animation.updatePlaybackRate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryUpdatePlaybackRate(playbackRate float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationUpdatePlaybackRate(
@@ -1325,7 +1325,7 @@ func (this Animation) Reverse() (ret js.Void) {
 }
 
 // TryReverse calls the method "Animation.reverse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryReverse() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationReverse(
@@ -1361,7 +1361,7 @@ func (this Animation) Persist() (ret js.Void) {
 }
 
 // TryPersist calls the method "Animation.persist"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryPersist() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationPersist(
@@ -1397,7 +1397,7 @@ func (this Animation) CommitStyles() (ret js.Void) {
 }
 
 // TryCommitStyles calls the method "Animation.commitStyles"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Animation) TryCommitStyles() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAnimationCommitStyles(
@@ -1534,7 +1534,7 @@ func (this MediaList) Item(index uint32) (ret js.String) {
 }
 
 // TryItem calls the method "MediaList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaList) TryItem(index uint32) (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaListItem(
@@ -1572,7 +1572,7 @@ func (this MediaList) AppendMedium(medium js.String) (ret js.Void) {
 }
 
 // TryAppendMedium calls the method "MediaList.appendMedium"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaList) TryAppendMedium(medium js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaListAppendMedium(
@@ -1610,7 +1610,7 @@ func (this MediaList) DeleteMedium(medium js.String) (ret js.Void) {
 }
 
 // TryDeleteMedium calls the method "MediaList.deleteMedium"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this MediaList) TryDeleteMedium(medium js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryMediaListDeleteMedium(
@@ -1842,7 +1842,7 @@ func (this CSSRuleList) Item(index uint32) (ret CSSRule) {
 }
 
 // TryItem calls the method "CSSRuleList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSRuleList) TryItem(index uint32) (ret CSSRule, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSRuleListItem(
@@ -1944,7 +1944,7 @@ func (this CSSStyleSheet) InsertRule(rule js.String, index uint32) (ret uint32) 
 }
 
 // TryInsertRule calls the method "CSSStyleSheet.insertRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryInsertRule(rule js.String, index uint32) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetInsertRule(
@@ -1983,7 +1983,7 @@ func (this CSSStyleSheet) InsertRule1(rule js.String) (ret uint32) {
 }
 
 // TryInsertRule1 calls the method "CSSStyleSheet.insertRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryInsertRule1(rule js.String) (ret uint32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetInsertRule1(
@@ -2021,7 +2021,7 @@ func (this CSSStyleSheet) DeleteRule(index uint32) (ret js.Void) {
 }
 
 // TryDeleteRule calls the method "CSSStyleSheet.deleteRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryDeleteRule(index uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetDeleteRule(
@@ -2059,7 +2059,7 @@ func (this CSSStyleSheet) Replace(text js.String) (ret js.Promise[CSSStyleSheet]
 }
 
 // TryReplace calls the method "CSSStyleSheet.replace"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryReplace(text js.String) (ret js.Promise[CSSStyleSheet], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetReplace(
@@ -2097,7 +2097,7 @@ func (this CSSStyleSheet) ReplaceSync(text js.String) (ret js.Void) {
 }
 
 // TryReplaceSync calls the method "CSSStyleSheet.replaceSync"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryReplaceSync(text js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetReplaceSync(
@@ -2137,7 +2137,7 @@ func (this CSSStyleSheet) AddRule(selector js.String, style js.String, index uin
 }
 
 // TryAddRule calls the method "CSSStyleSheet.addRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule(selector js.String, style js.String, index uint32) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule(
@@ -2178,7 +2178,7 @@ func (this CSSStyleSheet) AddRule1(selector js.String, style js.String) (ret int
 }
 
 // TryAddRule1 calls the method "CSSStyleSheet.addRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule1(selector js.String, style js.String) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule1(
@@ -2217,7 +2217,7 @@ func (this CSSStyleSheet) AddRule2(selector js.String) (ret int32) {
 }
 
 // TryAddRule2 calls the method "CSSStyleSheet.addRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule2(selector js.String) (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule2(
@@ -2254,7 +2254,7 @@ func (this CSSStyleSheet) AddRule3() (ret int32) {
 }
 
 // TryAddRule3 calls the method "CSSStyleSheet.addRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryAddRule3() (ret int32, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetAddRule3(
@@ -2291,7 +2291,7 @@ func (this CSSStyleSheet) RemoveRule(index uint32) (ret js.Void) {
 }
 
 // TryRemoveRule calls the method "CSSStyleSheet.removeRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryRemoveRule(index uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetRemoveRule(
@@ -2328,7 +2328,7 @@ func (this CSSStyleSheet) RemoveRule1() (ret js.Void) {
 }
 
 // TryRemoveRule1 calls the method "CSSStyleSheet.removeRule"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleSheet) TryRemoveRule1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleSheetRemoveRule1(
@@ -2397,7 +2397,7 @@ func (this StyleSheetList) Item(index uint32) (ret CSSStyleSheet) {
 }
 
 // TryItem calls the method "StyleSheetList.item"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StyleSheetList) TryItem(index uint32) (ret CSSStyleSheet, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStyleSheetListItem(
@@ -2586,7 +2586,7 @@ func (this ShadowRoot) GetAnimations() (ret js.Array[Animation]) {
 }
 
 // TryGetAnimations calls the method "ShadowRoot.getAnimations"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ShadowRoot) TryGetAnimations() (ret js.Array[Animation], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryShadowRootGetAnimations(
@@ -2861,7 +2861,7 @@ func (this CSSStyleValue) ToString() (ret js.String) {
 }
 
 // TryToString calls the method "CSSStyleValue.toString"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleValue) TryToString() (ret js.String, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleValueToString(
@@ -2899,7 +2899,7 @@ func (this CSSStyleValue) Parse(property js.String, cssText js.String) (ret CSSS
 }
 
 // TryParse calls the staticmethod "CSSStyleValue.parse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleValue) TryParse(property js.String, cssText js.String) (ret CSSStyleValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleValueParse(
@@ -2939,7 +2939,7 @@ func (this CSSStyleValue) ParseAll(property js.String, cssText js.String) (ret j
 }
 
 // TryParseAll calls the staticmethod "CSSStyleValue.parseAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSStyleValue) TryParseAll(property js.String, cssText js.String) (ret js.Array[CSSStyleValue], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSStyleValueParseAll(
@@ -3036,7 +3036,7 @@ func (this StylePropertyMapReadOnly) Get(property js.String) (ret OneOf_undefine
 }
 
 // TryGet calls the method "StylePropertyMapReadOnly.get"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StylePropertyMapReadOnly) TryGet(property js.String) (ret OneOf_undefined_CSSStyleValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStylePropertyMapReadOnlyGet(
@@ -3074,7 +3074,7 @@ func (this StylePropertyMapReadOnly) GetAll(property js.String) (ret js.Array[CS
 }
 
 // TryGetAll calls the method "StylePropertyMapReadOnly.getAll"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StylePropertyMapReadOnly) TryGetAll(property js.String) (ret js.Array[CSSStyleValue], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStylePropertyMapReadOnlyGetAll(
@@ -3112,7 +3112,7 @@ func (this StylePropertyMapReadOnly) Has(property js.String) (ret bool) {
 }
 
 // TryHas calls the method "StylePropertyMapReadOnly.has"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this StylePropertyMapReadOnly) TryHas(property js.String) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryStylePropertyMapReadOnlyHas(
@@ -3595,7 +3595,7 @@ func (this DOMRect) FromRect(other DOMRectInit) (ret DOMRect) {
 }
 
 // TryFromRect calls the staticmethod "DOMRect.fromRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRect) TryFromRect(other DOMRectInit) (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectFromRect(
@@ -3632,7 +3632,7 @@ func (this DOMRect) FromRect1() (ret DOMRect) {
 }
 
 // TryFromRect1 calls the staticmethod "DOMRect.fromRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRect) TryFromRect1() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectFromRect1(
@@ -3806,7 +3806,7 @@ func (this DOMPoint) FromPoint(other DOMPointInit) (ret DOMPoint) {
 }
 
 // TryFromPoint calls the staticmethod "DOMPoint.fromPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMPoint) TryFromPoint(other DOMPointInit) (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMPointFromPoint(
@@ -3843,7 +3843,7 @@ func (this DOMPoint) FromPoint1() (ret DOMPoint) {
 }
 
 // TryFromPoint1 calls the staticmethod "DOMPoint.fromPoint"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMPoint) TryFromPoint1() (ret DOMPoint, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMPointFromPoint1(
@@ -3977,7 +3977,7 @@ func (this DOMQuad) FromRect(other DOMRectInit) (ret DOMQuad) {
 }
 
 // TryFromRect calls the staticmethod "DOMQuad.fromRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromRect(other DOMRectInit) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromRect(
@@ -4014,7 +4014,7 @@ func (this DOMQuad) FromRect1() (ret DOMQuad) {
 }
 
 // TryFromRect1 calls the staticmethod "DOMQuad.fromRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromRect1() (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromRect1(
@@ -4051,7 +4051,7 @@ func (this DOMQuad) FromQuad(other DOMQuadInit) (ret DOMQuad) {
 }
 
 // TryFromQuad calls the staticmethod "DOMQuad.fromQuad"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromQuad(other DOMQuadInit) (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromQuad(
@@ -4088,7 +4088,7 @@ func (this DOMQuad) FromQuad1() (ret DOMQuad) {
 }
 
 // TryFromQuad1 calls the staticmethod "DOMQuad.fromQuad"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryFromQuad1() (ret DOMQuad, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadFromQuad1(
@@ -4124,7 +4124,7 @@ func (this DOMQuad) GetBounds() (ret DOMRect) {
 }
 
 // TryGetBounds calls the method "DOMQuad.getBounds"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryGetBounds() (ret DOMRect, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadGetBounds(
@@ -4160,7 +4160,7 @@ func (this DOMQuad) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "DOMQuad.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMQuad) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMQuadToJSON(
@@ -4404,7 +4404,7 @@ func (this DOMRectReadOnly) FromRect(other DOMRectInit) (ret DOMRectReadOnly) {
 }
 
 // TryFromRect calls the staticmethod "DOMRectReadOnly.fromRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRectReadOnly) TryFromRect(other DOMRectInit) (ret DOMRectReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectReadOnlyFromRect(
@@ -4441,7 +4441,7 @@ func (this DOMRectReadOnly) FromRect1() (ret DOMRectReadOnly) {
 }
 
 // TryFromRect1 calls the staticmethod "DOMRectReadOnly.fromRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRectReadOnly) TryFromRect1() (ret DOMRectReadOnly, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectReadOnlyFromRect1(
@@ -4477,7 +4477,7 @@ func (this DOMRectReadOnly) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "DOMRectReadOnly.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this DOMRectReadOnly) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryDOMRectReadOnlyToJSON(

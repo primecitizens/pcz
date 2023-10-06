@@ -15,8 +15,8 @@ package hash
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/math"
-	"github.com/primecitizens/std/core/mem"
+	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/core/mem"
 )
 
 const (

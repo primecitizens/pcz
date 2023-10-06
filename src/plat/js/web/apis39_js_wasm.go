@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -238,7 +238,7 @@ func (this IDBCursor) Advance(count uint32) (ret js.Void) {
 }
 
 // TryAdvance calls the method "IDBCursor.advance"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBCursor) TryAdvance(count uint32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBCursorAdvance(
@@ -276,7 +276,7 @@ func (this IDBCursor) Continue(key js.Any) (ret js.Void) {
 }
 
 // TryContinue calls the method "IDBCursor.continue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBCursor) TryContinue(key js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBCursorContinue(
@@ -313,7 +313,7 @@ func (this IDBCursor) Continue1() (ret js.Void) {
 }
 
 // TryContinue1 calls the method "IDBCursor.continue"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBCursor) TryContinue1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBCursorContinue1(
@@ -351,7 +351,7 @@ func (this IDBCursor) ContinuePrimaryKey(key js.Any, primaryKey js.Any) (ret js.
 }
 
 // TryContinuePrimaryKey calls the method "IDBCursor.continuePrimaryKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBCursor) TryContinuePrimaryKey(key js.Any, primaryKey js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBCursorContinuePrimaryKey(
@@ -390,7 +390,7 @@ func (this IDBCursor) Update(value js.Any) (ret IDBRequest) {
 }
 
 // TryUpdate calls the method "IDBCursor.update"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBCursor) TryUpdate(value js.Any) (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBCursorUpdate(
@@ -427,7 +427,7 @@ func (this IDBCursor) Delete() (ret IDBRequest) {
 }
 
 // TryDelete calls the method "IDBCursor.delete"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBCursor) TryDelete() (ret IDBRequest, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBCursorDelete(
@@ -558,7 +558,7 @@ func (this IDBKeyRange) Only(value js.Any) (ret IDBKeyRange) {
 }
 
 // TryOnly calls the staticmethod "IDBKeyRange.only"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryOnly(value js.Any) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeOnly(
@@ -597,7 +597,7 @@ func (this IDBKeyRange) LowerBound(lower js.Any, open bool) (ret IDBKeyRange) {
 }
 
 // TryLowerBound calls the staticmethod "IDBKeyRange.lowerBound"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryLowerBound(lower js.Any, open bool) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeLowerBound(
@@ -636,7 +636,7 @@ func (this IDBKeyRange) LowerBound1(lower js.Any) (ret IDBKeyRange) {
 }
 
 // TryLowerBound1 calls the staticmethod "IDBKeyRange.lowerBound"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryLowerBound1(lower js.Any) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeLowerBound1(
@@ -675,7 +675,7 @@ func (this IDBKeyRange) UpperBound(upper js.Any, open bool) (ret IDBKeyRange) {
 }
 
 // TryUpperBound calls the staticmethod "IDBKeyRange.upperBound"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryUpperBound(upper js.Any, open bool) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeUpperBound(
@@ -714,7 +714,7 @@ func (this IDBKeyRange) UpperBound1(upper js.Any) (ret IDBKeyRange) {
 }
 
 // TryUpperBound1 calls the staticmethod "IDBKeyRange.upperBound"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryUpperBound1(upper js.Any) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeUpperBound1(
@@ -755,7 +755,7 @@ func (this IDBKeyRange) Bound(lower js.Any, upper js.Any, lowerOpen bool, upperO
 }
 
 // TryBound calls the staticmethod "IDBKeyRange.bound"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryBound(lower js.Any, upper js.Any, lowerOpen bool, upperOpen bool) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeBound(
@@ -798,7 +798,7 @@ func (this IDBKeyRange) Bound1(lower js.Any, upper js.Any, lowerOpen bool) (ret 
 }
 
 // TryBound1 calls the staticmethod "IDBKeyRange.bound"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryBound1(lower js.Any, upper js.Any, lowerOpen bool) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeBound1(
@@ -839,7 +839,7 @@ func (this IDBKeyRange) Bound2(lower js.Any, upper js.Any) (ret IDBKeyRange) {
 }
 
 // TryBound2 calls the staticmethod "IDBKeyRange.bound"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryBound2(lower js.Any, upper js.Any) (ret IDBKeyRange, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeBound2(
@@ -878,7 +878,7 @@ func (this IDBKeyRange) Includes(key js.Any) (ret bool) {
 }
 
 // TryIncludes calls the method "IDBKeyRange.includes"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IDBKeyRange) TryIncludes(key js.Any) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIDBKeyRangeIncludes(
@@ -1141,7 +1141,7 @@ func (this IdentityProvider) GetUserInfo(config IdentityProviderConfig) (ret js.
 }
 
 // TryGetUserInfo calls the staticmethod "IdentityProvider.getUserInfo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IdentityProvider) TryGetUserInfo(config IdentityProviderConfig) (ret js.Promise[js.Array[IdentityUserInfo]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIdentityProviderGetUserInfo(
@@ -1662,7 +1662,7 @@ func (this IdleDetector) RequestPermission() (ret js.Promise[PermissionState]) {
 }
 
 // TryRequestPermission calls the staticmethod "IdleDetector.requestPermission"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IdleDetector) TryRequestPermission() (ret js.Promise[PermissionState], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIdleDetectorRequestPermission(
@@ -1699,7 +1699,7 @@ func (this IdleDetector) Start(options IdleOptions) (ret js.Promise[js.Void]) {
 }
 
 // TryStart calls the method "IdleDetector.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IdleDetector) TryStart(options IdleOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIdleDetectorStart(
@@ -1736,7 +1736,7 @@ func (this IdleDetector) Start1() (ret js.Promise[js.Void]) {
 }
 
 // TryStart1 calls the method "IdleDetector.start"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this IdleDetector) TryStart1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryIdleDetectorStart1(
@@ -2060,7 +2060,7 @@ func (this ImageCapture) TakePhoto(photoSettings PhotoSettings) (ret js.Promise[
 }
 
 // TryTakePhoto calls the method "ImageCapture.takePhoto"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageCapture) TryTakePhoto(photoSettings PhotoSettings) (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageCaptureTakePhoto(
@@ -2097,7 +2097,7 @@ func (this ImageCapture) TakePhoto1() (ret js.Promise[Blob]) {
 }
 
 // TryTakePhoto1 calls the method "ImageCapture.takePhoto"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageCapture) TryTakePhoto1() (ret js.Promise[Blob], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageCaptureTakePhoto1(
@@ -2133,7 +2133,7 @@ func (this ImageCapture) GetPhotoCapabilities() (ret js.Promise[PhotoCapabilitie
 }
 
 // TryGetPhotoCapabilities calls the method "ImageCapture.getPhotoCapabilities"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageCapture) TryGetPhotoCapabilities() (ret js.Promise[PhotoCapabilities], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageCaptureGetPhotoCapabilities(
@@ -2169,7 +2169,7 @@ func (this ImageCapture) GetPhotoSettings() (ret js.Promise[PhotoSettings]) {
 }
 
 // TryGetPhotoSettings calls the method "ImageCapture.getPhotoSettings"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageCapture) TryGetPhotoSettings() (ret js.Promise[PhotoSettings], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageCaptureGetPhotoSettings(
@@ -2205,7 +2205,7 @@ func (this ImageCapture) GrabFrame() (ret js.Promise[ImageBitmap]) {
 }
 
 // TryGrabFrame calls the method "ImageCapture.grabFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageCapture) TryGrabFrame() (ret js.Promise[ImageBitmap], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageCaptureGrabFrame(
@@ -2533,7 +2533,7 @@ func (this ImageTrackList) Get(index uint32) (ret ImageTrack) {
 }
 
 // TryGet calls the method "ImageTrackList."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageTrackList) TryGet(index uint32) (ret ImageTrack, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageTrackListGet(
@@ -2639,7 +2639,7 @@ func (this ImageDecoder) Decode(options ImageDecodeOptions) (ret js.Promise[Imag
 }
 
 // TryDecode calls the method "ImageDecoder.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageDecoder) TryDecode(options ImageDecodeOptions) (ret js.Promise[ImageDecodeResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageDecoderDecode(
@@ -2676,7 +2676,7 @@ func (this ImageDecoder) Decode1() (ret js.Promise[ImageDecodeResult]) {
 }
 
 // TryDecode1 calls the method "ImageDecoder.decode"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageDecoder) TryDecode1() (ret js.Promise[ImageDecodeResult], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageDecoderDecode1(
@@ -2712,7 +2712,7 @@ func (this ImageDecoder) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "ImageDecoder.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageDecoder) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageDecoderReset(
@@ -2748,7 +2748,7 @@ func (this ImageDecoder) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "ImageDecoder.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageDecoder) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageDecoderClose(
@@ -2785,7 +2785,7 @@ func (this ImageDecoder) IsTypeSupported(typ js.String) (ret js.Promise[js.Boole
 }
 
 // TryIsTypeSupported calls the staticmethod "ImageDecoder.isTypeSupported"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageDecoder) TryIsTypeSupported(typ js.String) (ret js.Promise[js.Boolean], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageDecoderIsTypeSupported(
@@ -2974,7 +2974,7 @@ func (this InputDeviceInfo) GetCapabilities() (ret MediaTrackCapabilities) {
 }
 
 // TryGetCapabilities calls the method "InputDeviceInfo.getCapabilities"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InputDeviceInfo) TryGetCapabilities() (ret MediaTrackCapabilities, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInputDeviceInfoGetCapabilities(
@@ -3173,7 +3173,7 @@ func (this InputEvent) GetTargetRanges() (ret js.Array[StaticRange]) {
 }
 
 // TryGetTargetRanges calls the method "InputEvent.getTargetRanges"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this InputEvent) TryGetTargetRanges() (ret js.Array[StaticRange], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryInputEventGetTargetRanges(
@@ -3322,7 +3322,7 @@ func (this Module) Exports(moduleObject Module) (ret js.Array[ModuleExportDescri
 }
 
 // TryExports calls the staticmethod "Module.exports"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Module) TryExports(moduleObject Module) (ret js.Array[ModuleExportDescriptor], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryModuleExports(
@@ -3360,7 +3360,7 @@ func (this Module) Imports(moduleObject Module) (ret js.Array[ModuleImportDescri
 }
 
 // TryImports calls the staticmethod "Module.imports"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Module) TryImports(moduleObject Module) (ret js.Array[ModuleImportDescriptor], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryModuleImports(
@@ -3399,7 +3399,7 @@ func (this Module) CustomSections(moduleObject Module, sectionName js.String) (r
 }
 
 // TryCustomSections calls the staticmethod "Module.customSections"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Module) TryCustomSections(moduleObject Module, sectionName js.String) (ret js.Array[js.ArrayBuffer], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryModuleCustomSections(

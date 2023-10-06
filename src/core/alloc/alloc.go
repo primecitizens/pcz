@@ -6,13 +6,13 @@ package alloc
 import (
 	"unsafe"
 
-	stdtype "github.com/primecitizens/std/builtin/type"
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/core/mark"
-	"github.com/primecitizens/std/core/math"
-	"github.com/primecitizens/std/core/mem"
-	"github.com/primecitizens/std/core/os"
+	stdtype "github.com/primecitizens/pcz/std/builtin/type"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/math"
+	"github.com/primecitizens/pcz/std/core/mem"
+	"github.com/primecitizens/pcz/std/core/os"
 )
 
 // Hint for freeing the allocated memory

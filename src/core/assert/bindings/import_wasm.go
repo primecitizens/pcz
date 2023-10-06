@@ -8,7 +8,7 @@ package bindings
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 //go:wasmimport core/assert append

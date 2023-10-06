@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -83,7 +83,7 @@ func (this ANGLE_instanced_arrays) DrawArraysInstancedANGLE(mode GLenum, first G
 }
 
 // TryDrawArraysInstancedANGLE calls the method "ANGLE_instanced_arrays.drawArraysInstancedANGLE"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ANGLE_instanced_arrays) TryDrawArraysInstancedANGLE(mode GLenum, first GLint, count GLsizei, primcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryANGLE_instanced_arraysDrawArraysInstancedANGLE(
@@ -128,7 +128,7 @@ func (this ANGLE_instanced_arrays) DrawElementsInstancedANGLE(mode GLenum, count
 }
 
 // TryDrawElementsInstancedANGLE calls the method "ANGLE_instanced_arrays.drawElementsInstancedANGLE"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ANGLE_instanced_arrays) TryDrawElementsInstancedANGLE(mode GLenum, count GLsizei, typ GLenum, offset GLintptr, primcount GLsizei) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryANGLE_instanced_arraysDrawElementsInstancedANGLE(
@@ -171,7 +171,7 @@ func (this ANGLE_instanced_arrays) VertexAttribDivisorANGLE(index GLuint, diviso
 }
 
 // TryVertexAttribDivisorANGLE calls the method "ANGLE_instanced_arrays.vertexAttribDivisorANGLE"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ANGLE_instanced_arrays) TryVertexAttribDivisorANGLE(index GLuint, divisor GLuint) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryANGLE_instanced_arraysVertexAttribDivisorANGLE(
@@ -669,7 +669,7 @@ func (this EventTarget) AddEventListener(typ js.String, callback js.Func[func(ev
 }
 
 // TryAddEventListener calls the method "EventTarget.addEventListener"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EventTarget) TryAddEventListener(typ js.String, callback js.Func[func(event Event)], options OneOf_AddEventListenerOptions_Bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventTargetAddEventListener(
@@ -710,7 +710,7 @@ func (this EventTarget) AddEventListener1(typ js.String, callback js.Func[func(e
 }
 
 // TryAddEventListener1 calls the method "EventTarget.addEventListener"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EventTarget) TryAddEventListener1(typ js.String, callback js.Func[func(event Event)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventTargetAddEventListener1(
@@ -751,7 +751,7 @@ func (this EventTarget) RemoveEventListener(typ js.String, callback js.Func[func
 }
 
 // TryRemoveEventListener calls the method "EventTarget.removeEventListener"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EventTarget) TryRemoveEventListener(typ js.String, callback js.Func[func(event Event)], options OneOf_EventListenerOptions_Bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventTargetRemoveEventListener(
@@ -792,7 +792,7 @@ func (this EventTarget) RemoveEventListener1(typ js.String, callback js.Func[fun
 }
 
 // TryRemoveEventListener1 calls the method "EventTarget.removeEventListener"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EventTarget) TryRemoveEventListener1(typ js.String, callback js.Func[func(event Event)]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventTargetRemoveEventListener1(
@@ -831,7 +831,7 @@ func (this EventTarget) DispatchEvent(event Event) (ret bool) {
 }
 
 // TryDispatchEvent calls the method "EventTarget.dispatchEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this EventTarget) TryDispatchEvent(event Event) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventTargetDispatchEvent(
@@ -1055,7 +1055,7 @@ func (this Event) ComposedPath() (ret js.Array[EventTarget]) {
 }
 
 // TryComposedPath calls the method "Event.composedPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Event) TryComposedPath() (ret js.Array[EventTarget], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventComposedPath(
@@ -1091,7 +1091,7 @@ func (this Event) StopPropagation() (ret js.Void) {
 }
 
 // TryStopPropagation calls the method "Event.stopPropagation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Event) TryStopPropagation() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventStopPropagation(
@@ -1127,7 +1127,7 @@ func (this Event) StopImmediatePropagation() (ret js.Void) {
 }
 
 // TryStopImmediatePropagation calls the method "Event.stopImmediatePropagation"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Event) TryStopImmediatePropagation() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventStopImmediatePropagation(
@@ -1163,7 +1163,7 @@ func (this Event) PreventDefault() (ret js.Void) {
 }
 
 // TryPreventDefault calls the method "Event.preventDefault"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Event) TryPreventDefault() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventPreventDefault(
@@ -1202,7 +1202,7 @@ func (this Event) InitEvent(typ js.String, bubbles bool, cancelable bool) (ret j
 }
 
 // TryInitEvent calls the method "Event.initEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Event) TryInitEvent(typ js.String, bubbles bool, cancelable bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventInitEvent(
@@ -1243,7 +1243,7 @@ func (this Event) InitEvent1(typ js.String, bubbles bool) (ret js.Void) {
 }
 
 // TryInitEvent1 calls the method "Event.initEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Event) TryInitEvent1(typ js.String, bubbles bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventInitEvent1(
@@ -1282,7 +1282,7 @@ func (this Event) InitEvent2(typ js.String) (ret js.Void) {
 }
 
 // TryInitEvent2 calls the method "Event.initEvent"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Event) TryInitEvent2(typ js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryEventInitEvent2(
@@ -1364,7 +1364,7 @@ func (this AbortSignal) Abort(reason js.Any) (ret AbortSignal) {
 }
 
 // TryAbort calls the staticmethod "AbortSignal.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AbortSignal) TryAbort(reason js.Any) (ret AbortSignal, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAbortSignalAbort(
@@ -1401,7 +1401,7 @@ func (this AbortSignal) Abort1() (ret AbortSignal) {
 }
 
 // TryAbort1 calls the staticmethod "AbortSignal.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AbortSignal) TryAbort1() (ret AbortSignal, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAbortSignalAbort1(
@@ -1438,7 +1438,7 @@ func (this AbortSignal) Timeout(milliseconds uint64) (ret AbortSignal) {
 }
 
 // TryTimeout calls the staticmethod "AbortSignal.timeout"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AbortSignal) TryTimeout(milliseconds uint64) (ret AbortSignal, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAbortSignalTimeout(
@@ -1476,7 +1476,7 @@ func (this AbortSignal) Any(signals js.Array[AbortSignal]) (ret AbortSignal) {
 }
 
 // TryAny calls the staticmethod "AbortSignal.any"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AbortSignal) TryAny(signals js.Array[AbortSignal]) (ret AbortSignal, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAbortSignalAny(
@@ -1513,7 +1513,7 @@ func (this AbortSignal) ThrowIfAborted() (ret js.Void) {
 }
 
 // TryThrowIfAborted calls the method "AbortSignal.throwIfAborted"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AbortSignal) TryThrowIfAborted() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAbortSignalThrowIfAborted(
@@ -1582,7 +1582,7 @@ func (this AbortController) Abort(reason js.Any) (ret js.Void) {
 }
 
 // TryAbort calls the method "AbortController.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AbortController) TryAbort(reason js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAbortControllerAbort(
@@ -1619,7 +1619,7 @@ func (this AbortController) Abort1() (ret js.Void) {
 }
 
 // TryAbort1 calls the method "AbortController.abort"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this AbortController) TryAbort1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryAbortControllerAbort1(
@@ -2138,7 +2138,7 @@ func (this CSSNumericArray) Get(index uint32) (ret CSSNumericValue) {
 }
 
 // TryGet calls the method "CSSNumericArray."
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericArray) TryGet(index uint32) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericArrayGet(
@@ -2363,7 +2363,7 @@ func (this CSSNumericValue) Add(values ...CSSNumberish) (ret CSSNumericValue) {
 }
 
 // TryAdd calls the method "CSSNumericValue.add"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryAdd(values ...CSSNumberish) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueAdd(
@@ -2403,7 +2403,7 @@ func (this CSSNumericValue) Sub(values ...CSSNumberish) (ret CSSNumericValue) {
 }
 
 // TrySub calls the method "CSSNumericValue.sub"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TrySub(values ...CSSNumberish) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueSub(
@@ -2443,7 +2443,7 @@ func (this CSSNumericValue) Mul(values ...CSSNumberish) (ret CSSNumericValue) {
 }
 
 // TryMul calls the method "CSSNumericValue.mul"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryMul(values ...CSSNumberish) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueMul(
@@ -2483,7 +2483,7 @@ func (this CSSNumericValue) Div(values ...CSSNumberish) (ret CSSNumericValue) {
 }
 
 // TryDiv calls the method "CSSNumericValue.div"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryDiv(values ...CSSNumberish) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueDiv(
@@ -2523,7 +2523,7 @@ func (this CSSNumericValue) Min(values ...CSSNumberish) (ret CSSNumericValue) {
 }
 
 // TryMin calls the method "CSSNumericValue.min"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryMin(values ...CSSNumberish) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueMin(
@@ -2563,7 +2563,7 @@ func (this CSSNumericValue) Max(values ...CSSNumberish) (ret CSSNumericValue) {
 }
 
 // TryMax calls the method "CSSNumericValue.max"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryMax(values ...CSSNumberish) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueMax(
@@ -2603,7 +2603,7 @@ func (this CSSNumericValue) Equals(value ...CSSNumberish) (ret bool) {
 }
 
 // TryEquals calls the method "CSSNumericValue.equals"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryEquals(value ...CSSNumberish) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueEquals(
@@ -2642,7 +2642,7 @@ func (this CSSNumericValue) To(unit js.String) (ret CSSUnitValue) {
 }
 
 // TryTo calls the method "CSSNumericValue.to"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryTo(unit js.String) (ret CSSUnitValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueTo(
@@ -2681,7 +2681,7 @@ func (this CSSNumericValue) ToSum(units ...js.String) (ret CSSMathSum) {
 }
 
 // TryToSum calls the method "CSSNumericValue.toSum"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryToSum(units ...js.String) (ret CSSMathSum, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueToSum(
@@ -2719,7 +2719,7 @@ func (this CSSNumericValue) Type() (ret CSSNumericType) {
 }
 
 // TryType calls the method "CSSNumericValue.type"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryType() (ret CSSNumericType, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueType(
@@ -2756,7 +2756,7 @@ func (this CSSNumericValue) Parse(cssText js.String) (ret CSSNumericValue) {
 }
 
 // TryParse calls the staticmethod "CSSNumericValue.parse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this CSSNumericValue) TryParse(cssText js.String) (ret CSSNumericValue, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryCSSNumericValueParse(

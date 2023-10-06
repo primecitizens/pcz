@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -941,7 +941,7 @@ func (this OffscreenCanvasRenderingContext2D) Commit() (ret js.Void) {
 }
 
 // TryCommit calls the method "OffscreenCanvasRenderingContext2D.commit"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCommit() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCommit(
@@ -979,7 +979,7 @@ func (this OffscreenCanvasRenderingContext2D) Scale(x float64, y float64) (ret j
 }
 
 // TryScale calls the method "OffscreenCanvasRenderingContext2D.scale"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryScale(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DScale(
@@ -1018,7 +1018,7 @@ func (this OffscreenCanvasRenderingContext2D) Rotate(angle float64) (ret js.Void
 }
 
 // TryRotate calls the method "OffscreenCanvasRenderingContext2D.rotate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryRotate(angle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRotate(
@@ -1057,7 +1057,7 @@ func (this OffscreenCanvasRenderingContext2D) Translate(x float64, y float64) (r
 }
 
 // TryTranslate calls the method "OffscreenCanvasRenderingContext2D.translate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryTranslate(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DTranslate(
@@ -1101,7 +1101,7 @@ func (this OffscreenCanvasRenderingContext2D) Transform(a float64, b float64, c 
 }
 
 // TryTransform calls the method "OffscreenCanvasRenderingContext2D.transform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DTransform(
@@ -1143,7 +1143,7 @@ func (this OffscreenCanvasRenderingContext2D) GetTransform() (ret DOMMatrix) {
 }
 
 // TryGetTransform calls the method "OffscreenCanvasRenderingContext2D.getTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryGetTransform() (ret DOMMatrix, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetTransform(
@@ -1185,7 +1185,7 @@ func (this OffscreenCanvasRenderingContext2D) SetTransform(a float64, b float64,
 }
 
 // TrySetTransform calls the method "OffscreenCanvasRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TrySetTransform(a float64, b float64, c float64, d float64, e float64, f float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetTransform(
@@ -1228,7 +1228,7 @@ func (this OffscreenCanvasRenderingContext2D) SetTransform1(transform DOMMatrix2
 }
 
 // TrySetTransform1 calls the method "OffscreenCanvasRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TrySetTransform1(transform DOMMatrix2DInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetTransform1(
@@ -1265,7 +1265,7 @@ func (this OffscreenCanvasRenderingContext2D) SetTransform2() (ret js.Void) {
 }
 
 // TrySetTransform2 calls the method "OffscreenCanvasRenderingContext2D.setTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TrySetTransform2() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetTransform2(
@@ -1301,7 +1301,7 @@ func (this OffscreenCanvasRenderingContext2D) ResetTransform() (ret js.Void) {
 }
 
 // TryResetTransform calls the method "OffscreenCanvasRenderingContext2D.resetTransform"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryResetTransform() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DResetTransform(
@@ -1341,7 +1341,7 @@ func (this OffscreenCanvasRenderingContext2D) CreateLinearGradient(x0 float64, y
 }
 
 // TryCreateLinearGradient calls the method "OffscreenCanvasRenderingContext2D.createLinearGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCreateLinearGradient(x0 float64, y0 float64, x1 float64, y1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateLinearGradient(
@@ -1387,7 +1387,7 @@ func (this OffscreenCanvasRenderingContext2D) CreateRadialGradient(x0 float64, y
 }
 
 // TryCreateRadialGradient calls the method "OffscreenCanvasRenderingContext2D.createRadialGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCreateRadialGradient(x0 float64, y0 float64, r0 float64, x1 float64, y1 float64, r1 float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateRadialGradient(
@@ -1432,7 +1432,7 @@ func (this OffscreenCanvasRenderingContext2D) CreateConicGradient(startAngle flo
 }
 
 // TryCreateConicGradient calls the method "OffscreenCanvasRenderingContext2D.createConicGradient"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCreateConicGradient(startAngle float64, x float64, y float64) (ret CanvasGradient, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateConicGradient(
@@ -1473,7 +1473,7 @@ func (this OffscreenCanvasRenderingContext2D) CreatePattern(image CanvasImageSou
 }
 
 // TryCreatePattern calls the method "OffscreenCanvasRenderingContext2D.createPattern"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCreatePattern(image CanvasImageSource, repetition js.String) (ret CanvasPattern, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreatePattern(
@@ -1515,7 +1515,7 @@ func (this OffscreenCanvasRenderingContext2D) ClearRect(x float64, y float64, w 
 }
 
 // TryClearRect calls the method "OffscreenCanvasRenderingContext2D.clearRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryClearRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClearRect(
@@ -1559,7 +1559,7 @@ func (this OffscreenCanvasRenderingContext2D) FillRect(x float64, y float64, w f
 }
 
 // TryFillRect calls the method "OffscreenCanvasRenderingContext2D.fillRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryFillRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFillRect(
@@ -1603,7 +1603,7 @@ func (this OffscreenCanvasRenderingContext2D) StrokeRect(x float64, y float64, w
 }
 
 // TryStrokeRect calls the method "OffscreenCanvasRenderingContext2D.strokeRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryStrokeRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStrokeRect(
@@ -1643,7 +1643,7 @@ func (this OffscreenCanvasRenderingContext2D) BeginPath() (ret js.Void) {
 }
 
 // TryBeginPath calls the method "OffscreenCanvasRenderingContext2D.beginPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryBeginPath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DBeginPath(
@@ -1680,7 +1680,7 @@ func (this OffscreenCanvasRenderingContext2D) Fill(fillRule CanvasFillRule) (ret
 }
 
 // TryFill calls the method "OffscreenCanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryFill(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill(
@@ -1717,7 +1717,7 @@ func (this OffscreenCanvasRenderingContext2D) Fill1() (ret js.Void) {
 }
 
 // TryFill1 calls the method "OffscreenCanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryFill1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill1(
@@ -1755,7 +1755,7 @@ func (this OffscreenCanvasRenderingContext2D) Fill2(path Path2D, fillRule Canvas
 }
 
 // TryFill2 calls the method "OffscreenCanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryFill2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill2(
@@ -1794,7 +1794,7 @@ func (this OffscreenCanvasRenderingContext2D) Fill3(path Path2D) (ret js.Void) {
 }
 
 // TryFill3 calls the method "OffscreenCanvasRenderingContext2D.fill"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryFill3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFill3(
@@ -1831,7 +1831,7 @@ func (this OffscreenCanvasRenderingContext2D) Stroke() (ret js.Void) {
 }
 
 // TryStroke calls the method "OffscreenCanvasRenderingContext2D.stroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryStroke() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStroke(
@@ -1868,7 +1868,7 @@ func (this OffscreenCanvasRenderingContext2D) Stroke1(path Path2D) (ret js.Void)
 }
 
 // TryStroke1 calls the method "OffscreenCanvasRenderingContext2D.stroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryStroke1(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStroke1(
@@ -1906,7 +1906,7 @@ func (this OffscreenCanvasRenderingContext2D) Clip(fillRule CanvasFillRule) (ret
 }
 
 // TryClip calls the method "OffscreenCanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryClip(fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip(
@@ -1943,7 +1943,7 @@ func (this OffscreenCanvasRenderingContext2D) Clip1() (ret js.Void) {
 }
 
 // TryClip1 calls the method "OffscreenCanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryClip1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip1(
@@ -1981,7 +1981,7 @@ func (this OffscreenCanvasRenderingContext2D) Clip2(path Path2D, fillRule Canvas
 }
 
 // TryClip2 calls the method "OffscreenCanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryClip2(path Path2D, fillRule CanvasFillRule) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip2(
@@ -2020,7 +2020,7 @@ func (this OffscreenCanvasRenderingContext2D) Clip3(path Path2D) (ret js.Void) {
 }
 
 // TryClip3 calls the method "OffscreenCanvasRenderingContext2D.clip"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryClip3(path Path2D) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClip3(
@@ -2060,7 +2060,7 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPath(x float64, y float64
 }
 
 // TryIsPointInPath calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath(x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath(
@@ -2101,7 +2101,7 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPath1(x float64, y float6
 }
 
 // TryIsPointInPath1 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath1(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath1(
@@ -2143,7 +2143,7 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPath2(path Path2D, x floa
 }
 
 // TryIsPointInPath2 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath2(path Path2D, x float64, y float64, fillRule CanvasFillRule) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath2(
@@ -2186,7 +2186,7 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInPath3(path Path2D, x floa
 }
 
 // TryIsPointInPath3 calls the method "OffscreenCanvasRenderingContext2D.isPointInPath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryIsPointInPath3(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInPath3(
@@ -2227,7 +2227,7 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInStroke(x float64, y float
 }
 
 // TryIsPointInStroke calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryIsPointInStroke(x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInStroke(
@@ -2268,7 +2268,7 @@ func (this OffscreenCanvasRenderingContext2D) IsPointInStroke1(path Path2D, x fl
 }
 
 // TryIsPointInStroke1 calls the method "OffscreenCanvasRenderingContext2D.isPointInStroke"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryIsPointInStroke1(path Path2D, x float64, y float64) (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsPointInStroke1(
@@ -2311,7 +2311,7 @@ func (this OffscreenCanvasRenderingContext2D) FillText(text js.String, x float64
 }
 
 // TryFillText calls the method "OffscreenCanvasRenderingContext2D.fillText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryFillText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFillText(
@@ -2354,7 +2354,7 @@ func (this OffscreenCanvasRenderingContext2D) FillText1(text js.String, x float6
 }
 
 // TryFillText1 calls the method "OffscreenCanvasRenderingContext2D.fillText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryFillText1(text js.String, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DFillText1(
@@ -2397,7 +2397,7 @@ func (this OffscreenCanvasRenderingContext2D) StrokeText(text js.String, x float
 }
 
 // TryStrokeText calls the method "OffscreenCanvasRenderingContext2D.strokeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryStrokeText(text js.String, x float64, y float64, maxWidth float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStrokeText(
@@ -2440,7 +2440,7 @@ func (this OffscreenCanvasRenderingContext2D) StrokeText1(text js.String, x floa
 }
 
 // TryStrokeText1 calls the method "OffscreenCanvasRenderingContext2D.strokeText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryStrokeText1(text js.String, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DStrokeText1(
@@ -2480,7 +2480,7 @@ func (this OffscreenCanvasRenderingContext2D) MeasureText(text js.String) (ret T
 }
 
 // TryMeasureText calls the method "OffscreenCanvasRenderingContext2D.measureText"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryMeasureText(text js.String) (ret TextMetrics, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DMeasureText(
@@ -2520,7 +2520,7 @@ func (this OffscreenCanvasRenderingContext2D) DrawImage(image CanvasImageSource,
 }
 
 // TryDrawImage calls the method "OffscreenCanvasRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryDrawImage(image CanvasImageSource, dx float64, dy float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DDrawImage(
@@ -2564,7 +2564,7 @@ func (this OffscreenCanvasRenderingContext2D) DrawImage1(image CanvasImageSource
 }
 
 // TryDrawImage1 calls the method "OffscreenCanvasRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryDrawImage1(image CanvasImageSource, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DDrawImage1(
@@ -2614,7 +2614,7 @@ func (this OffscreenCanvasRenderingContext2D) DrawImage2(image CanvasImageSource
 }
 
 // TryDrawImage2 calls the method "OffscreenCanvasRenderingContext2D.drawImage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryDrawImage2(image CanvasImageSource, sx float64, sy float64, sw float64, sh float64, dx float64, dy float64, dw float64, dh float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DDrawImage2(
@@ -2662,7 +2662,7 @@ func (this OffscreenCanvasRenderingContext2D) CreateImageData(sw int32, sh int32
 }
 
 // TryCreateImageData calls the method "OffscreenCanvasRenderingContext2D.createImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCreateImageData(sw int32, sh int32, settings ImageDataSettings) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateImageData(
@@ -2703,7 +2703,7 @@ func (this OffscreenCanvasRenderingContext2D) CreateImageData1(sw int32, sh int3
 }
 
 // TryCreateImageData1 calls the method "OffscreenCanvasRenderingContext2D.createImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCreateImageData1(sw int32, sh int32) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateImageData1(
@@ -2742,7 +2742,7 @@ func (this OffscreenCanvasRenderingContext2D) CreateImageData2(imagedata ImageDa
 }
 
 // TryCreateImageData2 calls the method "OffscreenCanvasRenderingContext2D.createImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryCreateImageData2(imagedata ImageData) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DCreateImageData2(
@@ -2784,7 +2784,7 @@ func (this OffscreenCanvasRenderingContext2D) GetImageData(sx int32, sy int32, s
 }
 
 // TryGetImageData calls the method "OffscreenCanvasRenderingContext2D.getImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryGetImageData(sx int32, sy int32, sw int32, sh int32, settings ImageDataSettings) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetImageData(
@@ -2829,7 +2829,7 @@ func (this OffscreenCanvasRenderingContext2D) GetImageData1(sx int32, sy int32, 
 }
 
 // TryGetImageData1 calls the method "OffscreenCanvasRenderingContext2D.getImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryGetImageData1(sx int32, sy int32, sw int32, sh int32) (ret ImageData, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetImageData1(
@@ -2872,7 +2872,7 @@ func (this OffscreenCanvasRenderingContext2D) PutImageData(imagedata ImageData, 
 }
 
 // TryPutImageData calls the method "OffscreenCanvasRenderingContext2D.putImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryPutImageData(imagedata ImageData, dx int32, dy int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DPutImageData(
@@ -2918,7 +2918,7 @@ func (this OffscreenCanvasRenderingContext2D) PutImageData1(imagedata ImageData,
 }
 
 // TryPutImageData1 calls the method "OffscreenCanvasRenderingContext2D.putImageData"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryPutImageData1(imagedata ImageData, dx int32, dy int32, dirtyX int32, dirtyY int32, dirtyWidth int32, dirtyHeight int32) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DPutImageData1(
@@ -2962,7 +2962,7 @@ func (this OffscreenCanvasRenderingContext2D) SetLineDash(segments js.Array[floa
 }
 
 // TrySetLineDash calls the method "OffscreenCanvasRenderingContext2D.setLineDash"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TrySetLineDash(segments js.Array[float64]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSetLineDash(
@@ -2999,7 +2999,7 @@ func (this OffscreenCanvasRenderingContext2D) GetLineDash() (ret js.Array[float6
 }
 
 // TryGetLineDash calls the method "OffscreenCanvasRenderingContext2D.getLineDash"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryGetLineDash() (ret js.Array[float64], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DGetLineDash(
@@ -3035,7 +3035,7 @@ func (this OffscreenCanvasRenderingContext2D) ClosePath() (ret js.Void) {
 }
 
 // TryClosePath calls the method "OffscreenCanvasRenderingContext2D.closePath"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryClosePath() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DClosePath(
@@ -3073,7 +3073,7 @@ func (this OffscreenCanvasRenderingContext2D) MoveTo(x float64, y float64) (ret 
 }
 
 // TryMoveTo calls the method "OffscreenCanvasRenderingContext2D.moveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryMoveTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DMoveTo(
@@ -3113,7 +3113,7 @@ func (this OffscreenCanvasRenderingContext2D) LineTo(x float64, y float64) (ret 
 }
 
 // TryLineTo calls the method "OffscreenCanvasRenderingContext2D.lineTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryLineTo(x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DLineTo(
@@ -3155,7 +3155,7 @@ func (this OffscreenCanvasRenderingContext2D) QuadraticCurveTo(cpx float64, cpy 
 }
 
 // TryQuadraticCurveTo calls the method "OffscreenCanvasRenderingContext2D.quadraticCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryQuadraticCurveTo(cpx float64, cpy float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DQuadraticCurveTo(
@@ -3201,7 +3201,7 @@ func (this OffscreenCanvasRenderingContext2D) BezierCurveTo(cp1x float64, cp1y f
 }
 
 // TryBezierCurveTo calls the method "OffscreenCanvasRenderingContext2D.bezierCurveTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryBezierCurveTo(cp1x float64, cp1y float64, cp2x float64, cp2y float64, x float64, y float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DBezierCurveTo(
@@ -3248,7 +3248,7 @@ func (this OffscreenCanvasRenderingContext2D) ArcTo(x1 float64, y1 float64, x2 f
 }
 
 // TryArcTo calls the method "OffscreenCanvasRenderingContext2D.arcTo"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryArcTo(x1 float64, y1 float64, x2 float64, y2 float64, radius float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DArcTo(
@@ -3293,7 +3293,7 @@ func (this OffscreenCanvasRenderingContext2D) Rect(x float64, y float64, w float
 }
 
 // TryRect calls the method "OffscreenCanvasRenderingContext2D.rect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryRect(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRect(
@@ -3338,7 +3338,7 @@ func (this OffscreenCanvasRenderingContext2D) RoundRect(x float64, y float64, w 
 }
 
 // TryRoundRect calls the method "OffscreenCanvasRenderingContext2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryRoundRect(x float64, y float64, w float64, h float64, radii OneOf_Float64_DOMPointInit_ArrayOneOf_Float64_DOMPointInit) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRoundRect(
@@ -3383,7 +3383,7 @@ func (this OffscreenCanvasRenderingContext2D) RoundRect1(x float64, y float64, w
 }
 
 // TryRoundRect1 calls the method "OffscreenCanvasRenderingContext2D.roundRect"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryRoundRect1(x float64, y float64, w float64, h float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRoundRect1(
@@ -3429,7 +3429,7 @@ func (this OffscreenCanvasRenderingContext2D) Arc(x float64, y float64, radius f
 }
 
 // TryArc calls the method "OffscreenCanvasRenderingContext2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryArc(x float64, y float64, radius float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DArc(
@@ -3476,7 +3476,7 @@ func (this OffscreenCanvasRenderingContext2D) Arc1(x float64, y float64, radius 
 }
 
 // TryArc1 calls the method "OffscreenCanvasRenderingContext2D.arc"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryArc1(x float64, y float64, radius float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DArc1(
@@ -3525,7 +3525,7 @@ func (this OffscreenCanvasRenderingContext2D) Ellipse(x float64, y float64, radi
 }
 
 // TryEllipse calls the method "OffscreenCanvasRenderingContext2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryEllipse(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64, counterclockwise bool) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DEllipse(
@@ -3576,7 +3576,7 @@ func (this OffscreenCanvasRenderingContext2D) Ellipse1(x float64, y float64, rad
 }
 
 // TryEllipse1 calls the method "OffscreenCanvasRenderingContext2D.ellipse"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryEllipse1(x float64, y float64, radiusX float64, radiusY float64, rotation float64, startAngle float64, endAngle float64) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DEllipse1(
@@ -3619,7 +3619,7 @@ func (this OffscreenCanvasRenderingContext2D) Save() (ret js.Void) {
 }
 
 // TrySave calls the method "OffscreenCanvasRenderingContext2D.save"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TrySave() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DSave(
@@ -3655,7 +3655,7 @@ func (this OffscreenCanvasRenderingContext2D) Restore() (ret js.Void) {
 }
 
 // TryRestore calls the method "OffscreenCanvasRenderingContext2D.restore"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryRestore() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DRestore(
@@ -3691,7 +3691,7 @@ func (this OffscreenCanvasRenderingContext2D) Reset() (ret js.Void) {
 }
 
 // TryReset calls the method "OffscreenCanvasRenderingContext2D.reset"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryReset() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DReset(
@@ -3727,7 +3727,7 @@ func (this OffscreenCanvasRenderingContext2D) IsContextLost() (ret bool) {
 }
 
 // TryIsContextLost calls the method "OffscreenCanvasRenderingContext2D.isContextLost"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this OffscreenCanvasRenderingContext2D) TryIsContextLost() (ret bool, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryOffscreenCanvasRenderingContext2DIsContextLost(
@@ -3822,7 +3822,7 @@ func (this ImageBitmapRenderingContext) TransferFromImageBitmap(bitmap ImageBitm
 }
 
 // TryTransferFromImageBitmap calls the method "ImageBitmapRenderingContext.transferFromImageBitmap"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this ImageBitmapRenderingContext) TryTransferFromImageBitmap(bitmap ImageBitmap) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryImageBitmapRenderingContextTransferFromImageBitmap(

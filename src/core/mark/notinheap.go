@@ -4,7 +4,7 @@
 package mark
 
 import (
-	"github.com/primecitizens/std/core/mark/internal/sys"
+	"github.com/primecitizens/pcz/std/core/mark/internal/sys"
 )
 
 // NotInHeap is a type must never be allocated from the GC'd heap or on the stack,

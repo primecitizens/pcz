@@ -8,7 +8,7 @@ package rt0
 import (
 	_ "unsafe" // for go:linkname
 
-	"github.com/primecitizens/std/core/alloc"
+	"github.com/primecitizens/pcz/std/core/alloc"
 )
 
 var _alloc alloc.DenyNoneZero

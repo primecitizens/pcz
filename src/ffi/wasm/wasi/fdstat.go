@@ -12,7 +12,7 @@ package wasi
 import (
 	"unsafe"
 
-	"github.com/primecitizens/std/core/mark"
+	"github.com/primecitizens/pcz/std/core/mark"
 )
 
 // https://github.com/WebAssembly/WASI/blob/a2b96e81c0586125cc4dc79a5be0b78d9a059925/legacy/preview1/docs.md#-FDstat_t-record

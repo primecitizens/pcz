@@ -4,10 +4,10 @@
 package web
 
 import (
-	"github.com/primecitizens/std/core/abi"
-	"github.com/primecitizens/std/core/assert"
-	"github.com/primecitizens/std/ffi/js"
-	"github.com/primecitizens/std/plat/js/web/bindings"
+	"github.com/primecitizens/pcz/std/core/abi"
+	"github.com/primecitizens/pcz/std/core/assert"
+	"github.com/primecitizens/pcz/std/ffi/js"
+	"github.com/primecitizens/pcz/std/plat/js/web/bindings"
 )
 
 func _() {
@@ -494,7 +494,7 @@ func (this SFrameTransform) SetEncryptionKey(key CryptoKey, keyID CryptoKeyID) (
 }
 
 // TrySetEncryptionKey calls the method "SFrameTransform.setEncryptionKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SFrameTransform) TrySetEncryptionKey(key CryptoKey, keyID CryptoKeyID) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySFrameTransformSetEncryptionKey(
@@ -533,7 +533,7 @@ func (this SFrameTransform) SetEncryptionKey1(key CryptoKey) (ret js.Promise[js.
 }
 
 // TrySetEncryptionKey1 calls the method "SFrameTransform.setEncryptionKey"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this SFrameTransform) TrySetEncryptionKey1(key CryptoKey) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TrySFrameTransformSetEncryptionKey1(
@@ -649,7 +649,7 @@ func (this Worker) Terminate() (ret js.Void) {
 }
 
 // TryTerminate calls the method "Worker.terminate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Worker) TryTerminate() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerTerminate(
@@ -687,7 +687,7 @@ func (this Worker) PostMessage(message js.Any, transfer js.Array[js.Object]) (re
 }
 
 // TryPostMessage calls the method "Worker.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Worker) TryPostMessage(message js.Any, transfer js.Array[js.Object]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerPostMessage(
@@ -727,7 +727,7 @@ func (this Worker) PostMessage1(message js.Any, options StructuredSerializeOptio
 }
 
 // TryPostMessage1 calls the method "Worker.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Worker) TryPostMessage1(message js.Any, options StructuredSerializeOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerPostMessage1(
@@ -766,7 +766,7 @@ func (this Worker) PostMessage2(message js.Any) (ret js.Void) {
 }
 
 // TryPostMessage2 calls the method "Worker.postMessage"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this Worker) TryPostMessage2(message js.Any) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryWorkerPostMessage2(
@@ -947,7 +947,7 @@ func (this RTCRtpSender) GetCapabilities(kind js.String) (ret RTCRtpCapabilities
 }
 
 // TryGetCapabilities calls the staticmethod "RTCRtpSender.getCapabilities"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TryGetCapabilities(kind js.String) (ret RTCRtpCapabilities, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGetCapabilities(
@@ -986,7 +986,7 @@ func (this RTCRtpSender) SetParameters(parameters RTCRtpSendParameters, setParam
 }
 
 // TrySetParameters calls the method "RTCRtpSender.setParameters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TrySetParameters(parameters RTCRtpSendParameters, setParameterOptions RTCSetParameterOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderSetParameters(
@@ -1025,7 +1025,7 @@ func (this RTCRtpSender) SetParameters1(parameters RTCRtpSendParameters) (ret js
 }
 
 // TrySetParameters1 calls the method "RTCRtpSender.setParameters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TrySetParameters1(parameters RTCRtpSendParameters) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderSetParameters1(
@@ -1062,7 +1062,7 @@ func (this RTCRtpSender) GetParameters() (ret RTCRtpSendParameters) {
 }
 
 // TryGetParameters calls the method "RTCRtpSender.getParameters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TryGetParameters() (ret RTCRtpSendParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGetParameters(
@@ -1099,7 +1099,7 @@ func (this RTCRtpSender) ReplaceTrack(withTrack MediaStreamTrack) (ret js.Promis
 }
 
 // TryReplaceTrack calls the method "RTCRtpSender.replaceTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TryReplaceTrack(withTrack MediaStreamTrack) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderReplaceTrack(
@@ -1138,7 +1138,7 @@ func (this RTCRtpSender) SetStreams(streams ...MediaStream) (ret js.Void) {
 }
 
 // TrySetStreams calls the method "RTCRtpSender.setStreams"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TrySetStreams(streams ...MediaStream) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderSetStreams(
@@ -1176,7 +1176,7 @@ func (this RTCRtpSender) GetStats() (ret js.Promise[RTCStatsReport]) {
 }
 
 // TryGetStats calls the method "RTCRtpSender.getStats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TryGetStats() (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGetStats(
@@ -1213,7 +1213,7 @@ func (this RTCRtpSender) GenerateKeyFrame(rids js.Array[js.String]) (ret js.Prom
 }
 
 // TryGenerateKeyFrame calls the method "RTCRtpSender.generateKeyFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TryGenerateKeyFrame(rids js.Array[js.String]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGenerateKeyFrame(
@@ -1250,7 +1250,7 @@ func (this RTCRtpSender) GenerateKeyFrame1() (ret js.Promise[js.Void]) {
 }
 
 // TryGenerateKeyFrame1 calls the method "RTCRtpSender.generateKeyFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpSender) TryGenerateKeyFrame1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpSenderGenerateKeyFrame1(
@@ -1499,7 +1499,7 @@ func (this RTCRtpReceiver) GetCapabilities(kind js.String) (ret RTCRtpCapabiliti
 }
 
 // TryGetCapabilities calls the staticmethod "RTCRtpReceiver.getCapabilities"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpReceiver) TryGetCapabilities(kind js.String) (ret RTCRtpCapabilities, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetCapabilities(
@@ -1536,7 +1536,7 @@ func (this RTCRtpReceiver) GetParameters() (ret RTCRtpReceiveParameters) {
 }
 
 // TryGetParameters calls the method "RTCRtpReceiver.getParameters"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpReceiver) TryGetParameters() (ret RTCRtpReceiveParameters, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetParameters(
@@ -1572,7 +1572,7 @@ func (this RTCRtpReceiver) GetContributingSources() (ret js.Array[RTCRtpContribu
 }
 
 // TryGetContributingSources calls the method "RTCRtpReceiver.getContributingSources"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpReceiver) TryGetContributingSources() (ret js.Array[RTCRtpContributingSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetContributingSources(
@@ -1608,7 +1608,7 @@ func (this RTCRtpReceiver) GetSynchronizationSources() (ret js.Array[RTCRtpSynch
 }
 
 // TryGetSynchronizationSources calls the method "RTCRtpReceiver.getSynchronizationSources"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpReceiver) TryGetSynchronizationSources() (ret js.Array[RTCRtpSynchronizationSource], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetSynchronizationSources(
@@ -1644,7 +1644,7 @@ func (this RTCRtpReceiver) GetStats() (ret js.Promise[RTCStatsReport]) {
 }
 
 // TryGetStats calls the method "RTCRtpReceiver.getStats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpReceiver) TryGetStats() (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpReceiverGetStats(
@@ -1795,7 +1795,7 @@ func (this RTCRtpTransceiver) Stop() (ret js.Void) {
 }
 
 // TryStop calls the method "RTCRtpTransceiver.stop"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpTransceiver) TryStop() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpTransceiverStop(
@@ -1832,7 +1832,7 @@ func (this RTCRtpTransceiver) SetCodecPreferences(codecs js.Array[RTCRtpCodecCap
 }
 
 // TrySetCodecPreferences calls the method "RTCRtpTransceiver.setCodecPreferences"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpTransceiver) TrySetCodecPreferences(codecs js.Array[RTCRtpCodecCapability]) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpTransceiverSetCodecPreferences(
@@ -1987,7 +1987,7 @@ func (this RTCSessionDescription) ToJSON() (ret js.Object) {
 }
 
 // TryToJSON calls the method "RTCSessionDescription.toJSON"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCSessionDescription) TryToJSON() (ret js.Object, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCSessionDescriptionToJSON(
@@ -2368,7 +2368,7 @@ func (this RTCPeerConnection) CreateOffer(options RTCOfferOptions) (ret js.Promi
 }
 
 // TryCreateOffer calls the method "RTCPeerConnection.createOffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateOffer(options RTCOfferOptions) (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer(
@@ -2405,7 +2405,7 @@ func (this RTCPeerConnection) CreateOffer1() (ret js.Promise[RTCSessionDescripti
 }
 
 // TryCreateOffer1 calls the method "RTCPeerConnection.createOffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateOffer1() (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer1(
@@ -2442,7 +2442,7 @@ func (this RTCPeerConnection) CreateAnswer(options RTCAnswerOptions) (ret js.Pro
 }
 
 // TryCreateAnswer calls the method "RTCPeerConnection.createAnswer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateAnswer(options RTCAnswerOptions) (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateAnswer(
@@ -2479,7 +2479,7 @@ func (this RTCPeerConnection) CreateAnswer1() (ret js.Promise[RTCSessionDescript
 }
 
 // TryCreateAnswer1 calls the method "RTCPeerConnection.createAnswer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateAnswer1() (ret js.Promise[RTCSessionDescriptionInit], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateAnswer1(
@@ -2516,7 +2516,7 @@ func (this RTCPeerConnection) SetLocalDescription(description RTCLocalSessionDes
 }
 
 // TrySetLocalDescription calls the method "RTCPeerConnection.setLocalDescription"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetLocalDescription(description RTCLocalSessionDescriptionInit) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetLocalDescription(
@@ -2553,7 +2553,7 @@ func (this RTCPeerConnection) SetLocalDescription1() (ret js.Promise[js.Void]) {
 }
 
 // TrySetLocalDescription1 calls the method "RTCPeerConnection.setLocalDescription"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetLocalDescription1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetLocalDescription1(
@@ -2590,7 +2590,7 @@ func (this RTCPeerConnection) SetRemoteDescription(description RTCSessionDescrip
 }
 
 // TrySetRemoteDescription calls the method "RTCPeerConnection.setRemoteDescription"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetRemoteDescription(description RTCSessionDescriptionInit) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetRemoteDescription(
@@ -2628,7 +2628,7 @@ func (this RTCPeerConnection) AddIceCandidate(candidate RTCIceCandidateInit) (re
 }
 
 // TryAddIceCandidate calls the method "RTCPeerConnection.addIceCandidate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryAddIceCandidate(candidate RTCIceCandidateInit) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddIceCandidate(
@@ -2665,7 +2665,7 @@ func (this RTCPeerConnection) AddIceCandidate1() (ret js.Promise[js.Void]) {
 }
 
 // TryAddIceCandidate1 calls the method "RTCPeerConnection.addIceCandidate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryAddIceCandidate1() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddIceCandidate1(
@@ -2701,7 +2701,7 @@ func (this RTCPeerConnection) RestartIce() (ret js.Void) {
 }
 
 // TryRestartIce calls the method "RTCPeerConnection.restartIce"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryRestartIce() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionRestartIce(
@@ -2737,7 +2737,7 @@ func (this RTCPeerConnection) GetConfiguration() (ret RTCConfiguration) {
 }
 
 // TryGetConfiguration calls the method "RTCPeerConnection.getConfiguration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGetConfiguration() (ret RTCConfiguration, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetConfiguration(
@@ -2774,7 +2774,7 @@ func (this RTCPeerConnection) SetConfiguration(configuration RTCConfiguration) (
 }
 
 // TrySetConfiguration calls the method "RTCPeerConnection.setConfiguration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetConfiguration(configuration RTCConfiguration) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetConfiguration(
@@ -2811,7 +2811,7 @@ func (this RTCPeerConnection) SetConfiguration1() (ret js.Void) {
 }
 
 // TrySetConfiguration1 calls the method "RTCPeerConnection.setConfiguration"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetConfiguration1() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetConfiguration1(
@@ -2847,7 +2847,7 @@ func (this RTCPeerConnection) Close() (ret js.Void) {
 }
 
 // TryClose calls the method "RTCPeerConnection.close"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryClose() (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionClose(
@@ -2886,7 +2886,7 @@ func (this RTCPeerConnection) CreateOffer2(successCallback js.Func[func(descript
 }
 
 // TryCreateOffer2 calls the method "RTCPeerConnection.createOffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateOffer2(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)], options RTCOfferOptions) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer2(
@@ -2927,7 +2927,7 @@ func (this RTCPeerConnection) CreateOffer3(successCallback js.Func[func(descript
 }
 
 // TryCreateOffer3 calls the method "RTCPeerConnection.createOffer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateOffer3(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateOffer3(
@@ -2968,7 +2968,7 @@ func (this RTCPeerConnection) SetLocalDescription2(description RTCLocalSessionDe
 }
 
 // TrySetLocalDescription2 calls the method "RTCPeerConnection.setLocalDescription"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetLocalDescription2(description RTCLocalSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetLocalDescription2(
@@ -3009,7 +3009,7 @@ func (this RTCPeerConnection) CreateAnswer2(successCallback js.Func[func(descrip
 }
 
 // TryCreateAnswer2 calls the method "RTCPeerConnection.createAnswer"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateAnswer2(successCallback js.Func[func(description RTCSessionDescriptionInit)], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateAnswer2(
@@ -3050,7 +3050,7 @@ func (this RTCPeerConnection) SetRemoteDescription1(description RTCSessionDescri
 }
 
 // TrySetRemoteDescription1 calls the method "RTCPeerConnection.setRemoteDescription"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetRemoteDescription1(description RTCSessionDescriptionInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetRemoteDescription1(
@@ -3092,7 +3092,7 @@ func (this RTCPeerConnection) AddIceCandidate2(candidate RTCIceCandidateInit, su
 }
 
 // TryAddIceCandidate2 calls the method "RTCPeerConnection.addIceCandidate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryAddIceCandidate2(candidate RTCIceCandidateInit, successCallback js.Func[func()], failureCallback js.Func[func(err DOMException)]) (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddIceCandidate2(
@@ -3133,7 +3133,7 @@ func (this RTCPeerConnection) CreateDataChannel(label js.String, dataChannelDict
 }
 
 // TryCreateDataChannel calls the method "RTCPeerConnection.createDataChannel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateDataChannel(label js.String, dataChannelDict RTCDataChannelInit) (ret RTCDataChannel, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateDataChannel(
@@ -3172,7 +3172,7 @@ func (this RTCPeerConnection) CreateDataChannel1(label js.String) (ret RTCDataCh
 }
 
 // TryCreateDataChannel1 calls the method "RTCPeerConnection.createDataChannel"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryCreateDataChannel1(label js.String) (ret RTCDataChannel, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionCreateDataChannel1(
@@ -3209,7 +3209,7 @@ func (this RTCPeerConnection) GetSenders() (ret js.Array[RTCRtpSender]) {
 }
 
 // TryGetSenders calls the method "RTCPeerConnection.getSenders"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGetSenders() (ret js.Array[RTCRtpSender], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetSenders(
@@ -3245,7 +3245,7 @@ func (this RTCPeerConnection) GetReceivers() (ret js.Array[RTCRtpReceiver]) {
 }
 
 // TryGetReceivers calls the method "RTCPeerConnection.getReceivers"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGetReceivers() (ret js.Array[RTCRtpReceiver], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetReceivers(
@@ -3281,7 +3281,7 @@ func (this RTCPeerConnection) GetTransceivers() (ret js.Array[RTCRtpTransceiver]
 }
 
 // TryGetTransceivers calls the method "RTCPeerConnection.getTransceivers"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGetTransceivers() (ret js.Array[RTCRtpTransceiver], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetTransceivers(
@@ -3320,7 +3320,7 @@ func (this RTCPeerConnection) AddTrack(track MediaStreamTrack, streams ...MediaS
 }
 
 // TryAddTrack calls the method "RTCPeerConnection.addTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryAddTrack(track MediaStreamTrack, streams ...MediaStream) (ret RTCRtpSender, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddTrack(
@@ -3360,7 +3360,7 @@ func (this RTCPeerConnection) RemoveTrack(sender RTCRtpSender) (ret js.Void) {
 }
 
 // TryRemoveTrack calls the method "RTCPeerConnection.removeTrack"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryRemoveTrack(sender RTCRtpSender) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionRemoveTrack(
@@ -3399,7 +3399,7 @@ func (this RTCPeerConnection) AddTransceiver(trackOrKind OneOf_MediaStreamTrack_
 }
 
 // TryAddTransceiver calls the method "RTCPeerConnection.addTransceiver"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryAddTransceiver(trackOrKind OneOf_MediaStreamTrack_String, init RTCRtpTransceiverInit) (ret RTCRtpTransceiver, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddTransceiver(
@@ -3438,7 +3438,7 @@ func (this RTCPeerConnection) AddTransceiver1(trackOrKind OneOf_MediaStreamTrack
 }
 
 // TryAddTransceiver1 calls the method "RTCPeerConnection.addTransceiver"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryAddTransceiver1(trackOrKind OneOf_MediaStreamTrack_String) (ret RTCRtpTransceiver, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionAddTransceiver1(
@@ -3476,7 +3476,7 @@ func (this RTCPeerConnection) GetStats(selector MediaStreamTrack) (ret js.Promis
 }
 
 // TryGetStats calls the method "RTCPeerConnection.getStats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGetStats(selector MediaStreamTrack) (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetStats(
@@ -3513,7 +3513,7 @@ func (this RTCPeerConnection) GetStats1() (ret js.Promise[RTCStatsReport]) {
 }
 
 // TryGetStats1 calls the method "RTCPeerConnection.getStats"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGetStats1() (ret js.Promise[RTCStatsReport], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetStats1(
@@ -3550,7 +3550,7 @@ func (this RTCPeerConnection) GenerateCertificate(keygenAlgorithm AlgorithmIdent
 }
 
 // TryGenerateCertificate calls the staticmethod "RTCPeerConnection.generateCertificate"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGenerateCertificate(keygenAlgorithm AlgorithmIdentifier) (ret js.Promise[RTCCertificate], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGenerateCertificate(
@@ -3589,7 +3589,7 @@ func (this RTCPeerConnection) SetIdentityProvider(provider js.String, options RT
 }
 
 // TrySetIdentityProvider calls the method "RTCPeerConnection.setIdentityProvider"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetIdentityProvider(provider js.String, options RTCIdentityProviderOptions) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetIdentityProvider(
@@ -3628,7 +3628,7 @@ func (this RTCPeerConnection) SetIdentityProvider1(provider js.String) (ret js.V
 }
 
 // TrySetIdentityProvider1 calls the method "RTCPeerConnection.setIdentityProvider"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TrySetIdentityProvider1(provider js.String) (ret js.Void, exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionSetIdentityProvider1(
@@ -3665,7 +3665,7 @@ func (this RTCPeerConnection) GetIdentityAssertion() (ret js.Promise[js.String])
 }
 
 // TryGetIdentityAssertion calls the method "RTCPeerConnection.getIdentityAssertion"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCPeerConnection) TryGetIdentityAssertion() (ret js.Promise[js.String], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCPeerConnectionGetIdentityAssertion(
@@ -4530,7 +4530,7 @@ func (this RTCRtpScriptTransformer) GenerateKeyFrame(rid js.String) (ret js.Prom
 }
 
 // TryGenerateKeyFrame calls the method "RTCRtpScriptTransformer.generateKeyFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpScriptTransformer) TryGenerateKeyFrame(rid js.String) (ret js.Promise[js.BigInt[uint64]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpScriptTransformerGenerateKeyFrame(
@@ -4567,7 +4567,7 @@ func (this RTCRtpScriptTransformer) GenerateKeyFrame1() (ret js.Promise[js.BigIn
 }
 
 // TryGenerateKeyFrame1 calls the method "RTCRtpScriptTransformer.generateKeyFrame"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpScriptTransformer) TryGenerateKeyFrame1() (ret js.Promise[js.BigInt[uint64]], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpScriptTransformerGenerateKeyFrame1(
@@ -4603,7 +4603,7 @@ func (this RTCRtpScriptTransformer) SendKeyFrameRequest() (ret js.Promise[js.Voi
 }
 
 // TrySendKeyFrameRequest calls the method "RTCRtpScriptTransformer.sendKeyFrameRequest"
-// in a try/catch block and returns (_, err, ok = false) when it went though
+// in a try/catch block and returns (_, err, ok = false) when it went through
 // the catch clause.
 func (this RTCRtpScriptTransformer) TrySendKeyFrameRequest() (ret js.Promise[js.Void], exception js.Any, ok bool) {
 	ok = js.True == bindings.TryRTCRtpScriptTransformerSendKeyFrameRequest(

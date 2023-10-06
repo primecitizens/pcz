@@ -15,7 +15,7 @@ package math
 //pcz:importpath runtime/internal/math
 
 import (
-	"github.com/primecitizens/std/core/arch"
+	"github.com/primecitizens/pcz/std/core/arch"
 )
 
 // MulUintptr returns a * b and whether the multiplication overflowed.
