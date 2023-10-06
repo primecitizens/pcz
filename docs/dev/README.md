@@ -1,11 +1,19 @@
 # Development docs
 
-## Code Style
+## ToC
 
-- Always do:
-  - import `_ "embed"` when using `//go:embed`
-  - import `_ "unsafe"` when using `//go:linkname`
-  - add `//go:build GOARCH` when the file is platform specific, DO NOT rely on filenames.
-  - add `Ex` version of the function when the function takes a callback.
-    - for example: `func Foo(a []T, fn func(T))`, add `func FooEx(a []T, arg Arg, fn func(Arg, T))`
-    - NOTE: the additional `Arg` MUST be the first arg of the callback so it works with `Type.Method` and `(*Type).Method`.
+- General coding rules
+  - [Design Principles](./00-design-principles.md)
+  - [Code Style](./01-code-style.md)
+
+- Go compiler internals
+  - [Go pragmas](./10-pragma.md)
+
+- Go assembly
+  - [Overview](./20-asm.md)
+  - [Go WASM target](./21-asm-wasm.md)
+
+## Useful links
+
+- [Golang regabi](https://go.dev/s/regabi)
+- [Go 1.2 Runtime Symbol Information](https://docs.google.com/document/d/1lyPIbmsYbXnpNj57a261hgOYVpNRcgydurVQIyZOz_o/pub) (outdated, but provides good introductions)

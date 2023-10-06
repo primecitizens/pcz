@@ -1,5 +1,12 @@
 # Go pragmas
 
+## References
+
+- `${GOROOT}/src/cmd/compile/doc.go`
+- `${GOROOT}/src/cmd/cgo/doc.go`
+- `${GOROOT}/src/cmd/compile/internal/ir/node.go#type:PragmaFlag`
+- `${GOROOT}/src/cmd/compile/internal/noder/lex.go#func:pragmaFlag`
+
 ## Precompile-time Pragmas
 
 - `go:build`
@@ -212,10 +219,3 @@
   > Example:
   > //go:cgo_ldflag "-lpthread"
   > //go:cgo_ldflag "-L/usr/local/sqlite3/lib"
-
-## References
-
-- `${GOROOT}/src/cmd/compile/doc.go`
-- `${GOROOT}/src/cmd/cgo/doc.go`
-- `${GOROOT}/src/cmd/compile/internal/ir/node.go#type:PragmaFlag`
-- `${GOROOT}/src/cmd/compile/internal/noder/lex.go#func:pragmaFlag`
