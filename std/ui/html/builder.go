@@ -49,6 +49,18 @@ func (b *Builder) Float(v float64) *Builder {
 	return b
 }
 
+func (b *Builder) JSHtml(html ...js.String) *Builder {
+	b.clearLocalBuf()
+	buf_jsstr(b.elem, js.False, js.SliceData(html), js.SizeU(len(html)))
+	return b
+}
+
+func (b *Builder) JSText(text ...js.String) *Builder {
+	b.clearLocalBuf()
+	buf_jsstr(b.elem, js.True, js.SliceData(text), js.SizeU(len(text)))
+	return b
+}
+
 func (b *Builder) Text(text ...string) *Builder {
 	var (
 		x       string
@@ -88,7 +100,17 @@ func (b *Builder) Text(text ...string) *Builder {
 	return b
 }
 
-func (b *Builder) HTML(html ...string) *Builder {
+// TODO
+func (b *Builder) Url(quote bool, u string) *Builder {
+	return b
+}
+
+// TODO
+func (b *Builder) JSUrl(quote byte, u js.String) *Builder {
+	return b
+}
+
+func (b *Builder) Html(html ...string) *Builder {
 	for _, s := range html {
 		b.write(s)
 	}
@@ -117,7 +139,7 @@ func (b *Builder) Flush(append bool) *Builder {
 
 func (b *Builder) clearLocalBuf() {
 	if buf := b.buf; len(buf) > 0 {
-		bufRaw(b.elem, js.SliceData(buf), js.SizeU(len(buf)))
+		buf_str(b.elem, js.SliceData(buf), js.SizeU(len(buf)))
 		b.buf = buf[:0]
 	}
 }
@@ -131,7 +153,7 @@ func (b *Builder) write(s string) {
 		}
 
 		if len(s) > 0 {
-			bufRaw(b.elem, js.SliceData(buf), js.SizeU(len(buf)))
+			buf_str(b.elem, js.SliceData(buf), js.SizeU(len(buf)))
 			buf = buf[:0]
 		}
 	}

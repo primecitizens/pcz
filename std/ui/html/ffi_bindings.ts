@@ -24,8 +24,11 @@ importModule("ui/html/builder", (A: Application) => {
     "float": (elem: heap.Ref<HTMLElement>, num: number) => {
       registry.get(elem).push(num.toString(10));
     },
-    "buf": (elem: heap.Ref<HTMLElement>, pBytes: Pointer, len: number): void => {
+    "buf_str": (elem: heap.Ref<HTMLElement>, pBytes: Pointer, len: number): void => {
       registry.get(elem).push(A.load.String(pBytes, len));
+    },
+    "buf_jsstr": (elem: heap.Ref<HTMLElement>, escape: heap.Ref<boolean>, pRefs: Pointer, len: number): void => {
+      registry.get(elem).push(...A.load.Refs(pRefs, len));
     },
     "flush": (elem: heap.Ref<HTMLElement>, append: heap.Ref<boolean>): void => {
       const data = registry.get(elem).splice(0).join("");

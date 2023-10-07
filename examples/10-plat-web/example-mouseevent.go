@@ -40,10 +40,10 @@ func (x *ExampleEvent) Run() {
 
 func (x *ExampleEvent) HandleMouseEvent(this js.Ref, event web.Event) js.Ref {
 	evt := web.MouseEvent{}.FromRef(event.Ref())
-	displayBuffer.HTML("<p>").
+	displayBuffer.Html("<p>").
 		Text("x = ").Int(int64(js.Must(evt.ClientX())), 10).
 		Text(", y = ").Int(int64(js.Must(evt.ClientY())), 10).
-		HTML("</p>").Flush(true)
+		Html("</p>").Flush(true)
 
 	return js.Undefined
 }

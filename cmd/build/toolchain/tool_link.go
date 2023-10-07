@@ -62,7 +62,7 @@ func (t *Toolchain) Link(p *Package, deps *CompiledPackages, output string) (err
 		// "-buildid", "",
 	)
 	err = handleErr(
-		t.run(p.Dir, nil, os.Stdout, os.Stderr, append(ldflags, archive)...),
+		t.run("", nil, os.Stdout, os.Stderr, append(ldflags, archive)...),
 	)
 	if err != nil {
 		return

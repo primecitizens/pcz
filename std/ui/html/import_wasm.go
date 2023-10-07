@@ -27,9 +27,13 @@ func integer(elem js.Ref, signed js.Ref, p64 unsafe.Pointer, radix uint32)
 //go:noescape
 func float(elem js.Ref, val float64)
 
-//go:wasmimport ui/html/builder buf
+//go:wasmimport ui/html/builder buf_str
 //go:noescape
-func bufRaw(elem js.Ref, str unsafe.Pointer, len uint32)
+func buf_str(elem js.Ref, str unsafe.Pointer, len uint32)
+
+//go:wasmimport ui/html/builder buf_jsstr
+//go:noescape
+func buf_jsstr(elem js.Ref, escape js.Ref, ptr unsafe.Pointer, len uint32)
 
 //go:wasmimport ui/html/builder flush
 //go:noescape

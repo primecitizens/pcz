@@ -7,18 +7,17 @@ A reimagination of Go, using unmodified official toolchain (currently `go1.21`).
 
 ## Goals
 
-- Be FFI friendly: unless it's a kernel, all useful programs works with FFI heavily.
+- Be FFI friendly: unless it's a kernel, all useful programs work with FFI heavily.
 - Work natively
-  - Adapt to the running environment rather than insist working in an opinionated way.
+  - Adapt to the running enviornment rather than insisting an opinionated way.
   - Provide platform native APIs: managing platform SDKs really sucks, do no more!
 - Expand* adoption of Go to...
   - Web/Nodejs applications.
-  - Cross-platform GUI with native experience.
-    - Native GUI widgets.
-  - Low-level system programming (think `crun`, `systemd`), EFI applications
-  - Kernel and Firmware
+  - Cross-platform GUI with native experience (native GUI widgets).
+  - Low-level system programming (think `crun`, `systemd`), EFI applications.
+  - Kernel and Firmware.
 
-*There are already impressive efforts made in these areas using official std.
+*There are already impressive achievements made in these areas using official std.
 
 ## Non-Goals
 
@@ -28,15 +27,9 @@ A reimagination of Go, using unmodified official toolchain (currently `go1.21`).
 
 - `std`: A custom Go standard library and runtime.
 
-  > **NOTE**
-  > This std module is meant to be compatible with the go toolchain (not the `go` command) by using `pcz`.
-
 - `pcz`: A tool to build applications using custom std.
   - `pcz build` works like `go build` (invoking `go tool compile/asm/link/pack`) but with different options.
-  - `pcz dev` provides easy development environment setup.
-
-  > **NOTE**
-  > When running `pcz`, please make sure you are using `go1.21` toolchain, you can do this by setting environment variable `GOROOT` to the path to the toolchain home (if `pcz` wasn't built with local `go1.21` toolchain).
+  - `pcz dev` provides easy development enironment setup.
 
 - `h2y`: A library to flatten AST.
   - generate API specifications from C/Objective-C header files and WebIDL files (using `llvm` and `webidl2.js`).
@@ -50,7 +43,7 @@ A reimagination of Go, using unmodified official toolchain (currently `go1.21`).
 
 1. Install `go1.21` toolchain to your working machine
    - If you don't have any go toolchain installed, please refer to the [official Go installation doc](https://go.dev/doc/install) for guidance.
-   - Otherwise, you can download and install it by running `go install golang.org/dl/go1.21.1@latest` and `"$(go env GOPATH)/bin/go1.21.1" install`, then it's available as `"$(go env GOPATH)/bin/go1.21.1"`.
+   - Otherwise, you can download and install it by running `go install golang.org/dl/go1.21.2@latest` and `"$(go env GOPATH)/bin/go1.21.2" install`, then it's available as `"$(go env GOPATH)/bin/go1.21.2"`.
 
 2. Install `pcz` from source code like most cli tools written in Go. (After running the command below, you may find the `pcz` at `"$(go env GOPATH)/bin/pcz"`)
 
@@ -60,12 +53,21 @@ A reimagination of Go, using unmodified official toolchain (currently `go1.21`).
 
 ## Usage
 
-See [examples](./examples/)
+Here are some [examples](./examples/) for your reference.
 
-## Go Language Support
+In General:
+
+- Use `github.com/primecitizens/pcz/std` as your stdlib, and make sure your application doesn't use packages from the official std.
+  - Some of the packages may work, but due to the lacking of GC, there can be memory leaks in you application.
+- Run `pcz` with `go1.21` toolchain, no other version of go toolchain is supported for now.
+  - You can ensure this by setting the environment variable `GOROOT` to the path to the toolchain home (if `pcz` wasn't built with local `go1.21` toolchain).
+- Import the runtime package explicitly (`import _ github.com/primecitizens/pcz/std/runtime`) in your application (usually inside the `main` package).
+  - This is because `pcz build` doesn't implicitly include a runtime for you.
 
 > **NOTE**
-> Currently our major focus is on providing support for platform native apis, thus most Go language features except those doesn't require runtime support are missing, this is mainly because most runtime features require allocation and scheduling, thus depends on platform apis we are working on (see [ROADMAP.md](https://github.com/primecitizens/pcz/blob/master/ROADMAP.md) for more details).
+> The std module is meant to be compatible with the go toolchain by using `pcz` (not the `go` command).
+
+## Go Language Support
 
 - [ ] `append`
 - [x] `make`
@@ -97,7 +99,10 @@ See [examples](./examples/)
 - [x] `clear`
 - [x] `min`, `max` (compiler intrinsic)
 
-**ATTENTION**: When using `make` and `new`, memory will be allocated using the default allocator of the current goroutine (`thread.G().G().DefaultAlloc()`), since the go compiler may do mid-stack inlining for `make` and `new`, always use an allocator to allocate memory explicitly to make it possible to free the allocated memory.
+> **NOTE**
+> When using `make` and `new`, memory will be allocated using the default allocator of the current goroutine, which can be obtained by calling `thread.G().G().DefaultAlloc()`.
+>
+> Currently our major focus is on providing support for platfrom natvie apis, thus most Go language features except those doesn't require runtime support are missing, this is mainly because most runtime features require allocation and scheduling, thus depends on platform apis we are working on (see [ROADMAP.md](https://github.com/primecitizens/pcz/blob/master/ROADMAP.md) for more details).
 
 ## Contributing
 
@@ -108,7 +113,7 @@ Some elementary tasks:
 - documentation
   - estimate the minimum brain power need to understand the design.
 - find `TODO`s in the source code and implement.
-  - start from [`ffi/js`](./src/ffi/js/) can be a good choice.
+  - start from [`ffi/js`](./std/ffi/js/) can be a good choice.
 - create meaningful examples.
 
 Some intermediate tasks:

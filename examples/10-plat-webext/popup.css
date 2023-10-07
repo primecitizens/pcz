@@ -1,0 +1,9 @@
+html,
+body {
+  width: 350px;
+}
+
+a {
+  margin: 3px;
+  display: inline-block;
+}

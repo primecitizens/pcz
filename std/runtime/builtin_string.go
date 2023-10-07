@@ -270,9 +270,7 @@ func rawstringtmp(buf *tmpBuf, l int) (s string, b []byte) {
 // stringDataOnStack reports whether the string's data is
 // stored on the current goroutine's stack.
 func stringDataOnStack(s string) bool {
-	ptr := uintptr(unsafe.Pointer(unsafe.StringData(s)))
-	stk := getg().Stack
-	return stk.Lo <= ptr && ptr < stk.Hi
+	return getg().Stack.PointerOnStack(uintptr(unsafe.Pointer(unsafe.StringData(s))))
 }
 
 // rawruneslice allocates a new rune slice. The rune slice is not zeroed.

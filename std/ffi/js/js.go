@@ -28,8 +28,18 @@ const (
 type Ref bindings.Ref
 
 func (r Ref) Undefined() bool { return r == Undefined }
-func (r Ref) Falsy() bool     { return r < True }
-func (r Ref) Truthy() bool    { return r > False }
+
+// Falsy returns true when r is the reference to one of following values:
+//   - Undefined
+//   - Null
+//   - 0
+//   - False
+//
+// Otherwise, it returns false.
+func (r Ref) Falsy() bool { return r < True }
+
+// Truthy returns true when r.Falsy() returns false.
+func (r Ref) Truthy() bool { return r > False }
 
 func (r Ref) Once() Ref {
 	bindings.Once(bindings.Ref(r))
@@ -53,6 +63,10 @@ func (r Ref) Any() Any {
 }
 
 func Free[T ~uint32](refs ...T) {
+	if len(refs) == 0 {
+		return
+	}
+
 	bindings.BatchFree(
 		SliceData(refs),
 		SizeU(len(refs)),

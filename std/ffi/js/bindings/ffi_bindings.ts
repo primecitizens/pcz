@@ -54,8 +54,11 @@ importModule("ffi/js", (A: Application): Record<string, Function> => {
       return signed === A.H.TRUE ? A.H.push(A.load.Int64(ptr)) : A.H.push(A.load.Uint64(ptr));
     },
     "getBigInt": (ref: heap.Ref<bigint>, signed: heap.Ref<boolean>, ptr: number): heap.Ref<boolean> => {
-      const x = A.H.get<bigint>(ref);
-      if (typeof x !== "bigint") return A.H.FALSE;
+      const x = A.H.get<bigint | number>(ref);
+      // TODO: do we actually want to limit the type to BigInt?
+      //       it seems most of the time when the WebIDL expects a int64
+      //       js runtime only provides a "number" rather than BigInt.
+      // if (typeof x !== "bigint") return A.H.FALSE;
       if (signed === A.H.TRUE) {
         A.store.Int64(ptr, x);
       } else {

@@ -88,7 +88,7 @@ func (t *Toolchain) getPathInBuildDir(p *Package, filename string) string {
 			t.buildDir, "trimpath", t.ver, t.goos+"_"+t.goarch, p.ImportComment, filename,
 		)
 	} else {
-		// ${build_dir}/go1.21.1/js/wasm/package-real-import-path/filename
+		// ${build_dir}/go1.21.2/js/wasm/package-real-import-path/filename
 		ret = filepath.Join(
 			t.buildDir, t.ver, t.goos+"_"+t.goarch, p.ImportComment, filename,
 		)

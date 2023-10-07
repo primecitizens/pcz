@@ -46,12 +46,12 @@ We are well aware it is an ambitious project regarding to our small scale, and i
   - [ ] `jni` (based on `C`)
 - [ ] Platform SDK (`pcz codegen`)
   - [ ] `DOM` apis (code generation with WebIDL)
-    - [x] Support WebIDL to YAML in `h2y`.
+    - [x] Support converting WebIDL to YAML spec in `h2y`.
     - [x] Support Go package generation for WebIDL in `ffigen`.
     - [ ] Use browser-compat-data for comments.
-  - [ ] `WebExtension` apis (Manifest Version 3).
-    - [x] Normalize chromium web extension idls.
-    - [ ] Generate
+  - [x] `WebExtension` apis (Manifest Version 3).
+    - [x] Normalize chromium web extension idls & json.
+    - [x] Resolve package conflicts among namespaces.
   - [ ] `nodejs` apis.
   - [ ] `android` NDK
     - [x] Add C header file support in `h2y`

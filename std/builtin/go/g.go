@@ -114,6 +114,10 @@ type Stack struct {
 	Hi uintptr
 }
 
+func (stk Stack) PointerOnStack(ptr uintptr) bool {
+	return stk.Lo <= ptr && ptr < stk.Hi
+}
+
 // A Guintptr holds a goroutine pointer, but typed as a uintptr
 // to bypass write barriers. It is used in the Gobuf goroutine state
 // and in scheduling lists that are manipulated without a P.

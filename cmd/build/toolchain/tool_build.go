@@ -20,7 +20,7 @@ func (t *Toolchain) Build(pkgs []*Package, output string) (err error) {
 		return fmt.Errorf("nothing to build")
 	}
 
-	// the last package is the last package to build
+	// the last package is the target package to build
 	last := pkgs[len(pkgs)-1]
 	if last.Module == nil || len(last.Module.GoVersion) == 0 {
 		return fmt.Errorf("missing go version in go.mod: %v", last.Module)

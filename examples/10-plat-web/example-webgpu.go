@@ -137,8 +137,8 @@ func (x *ExampleWebGPU) init() bool {
 	x.frameHandler = x.callbackContext.Register()
 
 	x.fpsLine = web.HTMLElement{}.FromRef(document.CreateElement1(js.NewString("p").Once()).Ref())
-	x.fps = web.NewHTMLSpanElement()
-	x.canvas = web.NewHTMLCanvasElement()
+	x.fps = web.HTMLSpanElement{}.FromRef(document.CreateElement1(js.NewString("span").Once()).Ref())
+	x.canvas = web.HTMLCanvasElement{}.FromRef(document.CreateElement1(js.NewString("canvas").Once()).Ref())
 
 	x.fpsLine.SetInnerText(js.NewString("fps: ").Once())
 	x.fpsLine.AppendChild(x.fps.Node)

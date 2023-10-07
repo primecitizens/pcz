@@ -13,7 +13,14 @@ import (
 	"github.com/primecitizens/pcz/std/core/abi"
 	"github.com/primecitizens/pcz/std/core/assert"
 	"github.com/primecitizens/pcz/std/core/num"
+	"github.com/primecitizens/pcz/std/core/thread"
 )
+
+// OnStack reports whether the pointer points to somewhere of
+// current goroutine's stack.
+func OnStack(ptr uintptr) bool {
+	return thread.G().Stack.PointerOnStack(ptr)
+}
 
 // Cast casts numeric pointer value to *R
 //

@@ -65,10 +65,10 @@ func ExampleFetch() {
 
 	data := js.TypedArray[byte]{}.FromArrayBuffer(true, arr)
 	sz := data.ByteLength()
-	displayBuffer.HTML("<p>").
+	displayBuffer.Html("<p>").
 		Text("fetched ", wasmPath, ", size = ").Uint(uint64(sz), 10).
 		Text(", took ").Uint(uint64((sysclock.Nanotime()-start)/time.Millisecond), 10).Text("ms").
-		HTML("</p>").
+		Html("</p>").
 		Flush(true)
 
 	malloc := thread.G().G().DefaultAlloc()
@@ -90,9 +90,9 @@ func ExampleFetch() {
 	)
 	buf, ok = hdr.Decode(buf)
 
-	displayBuffer.HTML("<p>").
+	displayBuffer.Html("<p>").
 		Text("wasm binary format version = ").Uint(uint64(hdr.Version.Get()), 10).
-		HTML("</p>").Flush(true)
+		Html("</p>").Flush(true)
 
 	for ok {
 		buf, ok = sect.Decode(buf)

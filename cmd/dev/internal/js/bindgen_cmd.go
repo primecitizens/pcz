@@ -23,6 +23,10 @@ func BindgenCmd() *cli.Cmd {
 	return &_bindgenCmd
 }
 
+func GetBindgenFlags() *BindgenFlags {
+	return &_bindgenOpts
+}
+
 var (
 	_bindgenOpts = BindgenFlags{
 		BuildOpts: toolchain.Options{
@@ -63,7 +67,7 @@ var (
 type BindgenFlags struct {
 	BuildOpts toolchain.Options
 
-	WASM           string             `cli:"wasm,#path to the wasm blob (required, for import filtering)"`
+	WASM           string             `cli:"wasm,#path to the wasm blob"`
 	OutputFile     string             `cli:"o|output,#set file path to write the generated output, if not set, write generated bindings to stdout"`
 	Mode           string             `cli:"m|mode,def=raw,comp=raw,comp=cjs,comp=amd,comp=umd,#set target module system to transpile typescript"`
 	Minify         bool               `cli:"minify,#write minified code and source map along with the bindgen output file"`
@@ -107,10 +111,12 @@ func runBindgen(opts *cli.CmdOptions, route cli.Route, posArgs, dashArgs []strin
 		panic(err)
 	}
 
-	file, err := os.ReadFile(flags.WASM)
-	spec.Filter, err = CreateSimpleFilterFromWasm(file)
-	if err != nil {
-		panic(err)
+	if len(flags.WASM) != 0 {
+		file, err := os.ReadFile(flags.WASM)
+		spec.Filter, err = CreateSimpleFilterFromWasm(file)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	code, err := CreateJSBindings(spec)
